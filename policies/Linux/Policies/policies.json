@@ -1,11 +1,7 @@
 {
     "policies": {
-        "AutofillAddressEnabled": false,
-        "AutofillCreditCardEnabled": false,
         "CaptivePortal": false,
         "DisableEncryptedClientHello": false,
-        "DisableFirefoxAccounts": true,
-        "DisableFirefoxScreenshots": true,
         "DisableFirefoxStudies": true,
         "DisableFormHistory": true,
         "DisablePocket": true,
@@ -17,7 +13,6 @@
         "NetworkPrediction": false,
         "NoDefaultBookmarks": true,
         "PostQuantumKeyAgreementEnabled": true,
-        "PasswordManagerEnabled": false,
         "PromptForDownloadLocation": true,
         "SearchSuggestEnabled": false,
         "StartDownloadsInTempDirectory": true,
@@ -29,10 +24,7 @@
         },
         "SanitizeOnShutdown": {
             "Cache": true,
-            "Cookies": true,
-            "History": true,
             "Sessions": true,
-            "OfflineApps": true,
             "Locked": true
         },
         "EncryptedMediaExtensions": {
@@ -57,10 +49,6 @@
             "Locked": false
         },
         "Permissions": {
-            "Location": {
-                "BlockNewRequests": true,
-                "Locked": false
-            },
             "Notifications": {
                 "BlockNewRequests": true,
                 "Locked": true
@@ -68,14 +56,6 @@
             "VirtualReality": {
                 "BlockNewRequests": true,
                 "Locked": true
-            },
-            "Camera": {
-                "BlockNewRequests": true,
-                "Locked": false
-            },
-            "Microphone": {
-                "BlockNewRequests": true,
-                "Locked": false
             },
             "Autoplay": {
                 "Default": "block-audio-video",
@@ -104,12 +84,6 @@
                 "installation_mode": "force_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
                 "default_area": "navbar",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "extension@tabliss.io": {
-                "installation_mode": "force_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
@@ -791,7 +765,6 @@
         "FirefoxHome": {
             "TopSites": false,
             "SponsoredTopSites": false,
-            "Highlights": false,
             "Pocket": false,
             "SponsoredPocket": false,
             "Snippets": false,

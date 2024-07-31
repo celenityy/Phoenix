@@ -1,0 +1,8 @@
+{
+    "policies": {
+        "AppAutoUpdate": true,
+        "DisableAppUpdate": false,
+        "DisableDefaultBrowserAgent": true,
+        "WindowsSSO": false
+    }
+}
