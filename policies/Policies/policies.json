@@ -914,9 +914,13 @@
         "*://*.services.addons.mozilla.org/api/*/discovery/*"
       ]
     },
-    "AppAutoUpdate": true,
-    "DisableAppUpdate": false,
     "DisableDefaultBrowserAgent": true,
-    "WindowsSSO": false
+    "WindowsSSO": false,
+    "Preferences": {
+      "app.update.auto": {
+        "Value": true,
+        "Status": "default"
+      }
+    }
   }
 }
