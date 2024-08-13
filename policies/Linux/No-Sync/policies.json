@@ -904,6 +904,8 @@
         "*://*.googlesyndication.com/*",
         "*://*.googletagmanager.com/*",
         "*://*.analytics.google.com/*",
+        "*://*.googletagmanager.com/*",
+        "*://*.googletagservices.com/*",
         "*://*.braze.com/*",
         "*://*.sentry.io/*",
         "*://*.omappapi.com/*",
@@ -911,7 +913,9 @@
         "*://*.discovery.addons.mozilla.org/*",
         "*://*.discovery.addons.allizom.org/*",
         "*://*.discovery.addons-dev.allizom.org/*",
-        "*://*.services.addons.mozilla.org/api/*/discovery/*"
+        "*://*.services.addons.mozilla.org/api/*/discovery/*",
+        "*://*.detectportal.firefox.com/*",
+        "*://*.detectportal.prod.cloudops.mozgcp.net/*"
       ]
     },
     "DisableFirefoxAccounts": true
