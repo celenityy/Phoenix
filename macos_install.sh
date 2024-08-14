@@ -16,4 +16,6 @@ sudo chmod 755 /Applications/Firefox.app/Contents/Resources/defaults/pref
 
 sudo mv local-settings.js /Applications/Firefox.app/Contents/Resources/defaults/pref/local-settings.js
 
+sudo rm -rf ~/phoenix_temp
+
 echo "Make sure to install your policies & enjoy :D"
