@@ -52,6 +52,10 @@
       "Locked": false
     },
     "Permissions": {
+      "Location": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
       "Notifications": {
         "BlockNewRequests": true,
         "Locked": true
@@ -62,10 +66,6 @@
       },
       "Autoplay": {
         "Default": "block-audio-video",
-        "Locked": false
-      },
-      "Location": {
-        "BlockNewRequests": true,
         "Locked": false
       },
       "Camera": {
@@ -86,7 +86,7 @@
         "installation_mode": "allowed",
         "install_sources": [
           "https://addons.mozilla.org/*",
-          "https://github.com/bpc-clone/bpc_updates/releases/*",
+          "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://github.com/mkaply/queryamoid/releases/*",
           "https://objects.githubusercontent.com/*"

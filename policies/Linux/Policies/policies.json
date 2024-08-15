@@ -49,6 +49,10 @@
             "Locked": false
         },
         "Permissions": {
+            "Location": {
+                "BlockNewRequests": true,
+                "Locked": false
+            },
             "Notifications": {
                 "BlockNewRequests": true,
                 "Locked": true
