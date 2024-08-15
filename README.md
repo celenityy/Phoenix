@@ -1,4 +1,8 @@
-# Phoenix (WIP)
+# Phoenix
+
+Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.
+
+Phoenix strives to create the best browsing experience possible, and does so through enhancing user privacy, security, and freedom. We also include various other QOL tweaks & nice-to-have features where possible.
 
 # Install
 
@@ -8,15 +12,37 @@ Fedora Linux:
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
 
-# What is Phoenix?
+# Features
+
+See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides. 
+
+# Limitations
+
+Phoenix can not protect against all forms of advanced fingerprinting (unique identification of you & your device). Only [Tor Browser](https://www.torproject.org/) & [Mullvad Browser](https://mullvad.net/browser) can do that. If you are a journalist, political dissident, or an individual with an otherwise extreme [threat model](https://www.privacyguides.org/en/basics/threat-modeling/), please use one of those two browsers!!!
+
+However, Phoenix:
+
+* Blocks known fingerprinters through Firefox's Strict Tracking Protection & our configuration of uBlock Origin
+
+* Enables Firefox's built-in [Fingerprinting Randomization](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting)
+
+* Additionally, our 'Hardened' configuration enables Firefox's ["Resist Fingerprinting"](https://wiki.mozilla.org/Security/Fingerprinting) functionality, which provides even stronger fingerprinting protection, at the cost of seldom breakage & inconvenience.
+
+# To Note
+
+* Phoenix enables [DNS over HTTPS](ttps://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/) without fallback & routes traffic through [Quad9](https://quad9.net/) by default, due to the major privacy & security benefits this provides. You can change providers or disable DNS over HTTPS entirely (not recommended) in `about:preferences#privacy`
+
+* By default, Phoenix clears site data on exit, due to the major privacy benefit this provides. Rather than disable this protection, I would strongly recommend users stick with it & make exceptions for sites they wish to ex. stay logged in to. However, if you truly wish to disable this sanitization, you can toggle it from `about:preferences#privacy` or set `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.offlineApps`, & `privacy.clearOnShutdown_v2.cookiesAndStorage` to `false` in your `about:config`.
+
+* Phoenix completely removes & disables all DRM technology [due to the extreme privacy, security, & freedom concerns it poses](https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next). This means that certain proprietary streaming services won't play content or will only play content at a lower quality than anticipated. I would strongly recommend avoiding these types of streaming services entirely & instead consuming content by other means... but if you do insist on using them (not recommended), I would recommend either streaming this type of content from the provider's app or a separate device.
+
+# Motivation
 
 Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent).
 
 Sadly, this time has passed. The majority of browser marketshare is now controlled by Google, an ad surveillance company. In all fairness to Google, they **do** put their customers first - it's just that their customers are the advertisers they siphon data to, not users like you and me. And this is the company behind the engine powering nearly every modern web browser in the world. Talk about a conflict of interest...
 
 But it doesn't have to be this way.
-
-Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to give the power back to the users. 
 
 # Why Mozilla Firefox?
 
@@ -55,6 +81,10 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 - [LibreWolf](https://librewolf.net/)
 	- [bgstack15](https://codeberg.org/bgstack15) + [fxbrit](https://codeberg.org/fxbrit) + [Malte Jürgens](https://codeberg.org/maltejur) + [ohfp](https://codeberg.org/ohfp) + [James McClain](https://codeberg.org/TheGreatMcPain) + [threadpanic](https://codeberg.org/threadpanic) + [Guillaume](https://codeberg.org/ltguillaume)
 	- [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt)
+<br>
+- [firefox-config](https://codeberg.org/rusty-snake/firefox-config)
+	- [rusty-snake](https://codeberg.org/rusty-snake)
+	- [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
 <br>
 - [mobile-config-firefox](https://gitlab.com/postmarketOS/mobile-config-firefox)
 	- [postmarketOS](https://postmarketos.org/)

@@ -71,7 +71,7 @@
                 "installation_mode": "allowed",
                 "install_sources": [
                     "https://addons.mozilla.org/*",
-                    "https://github.com/bpc-clone/bpc_updates/releases/*",
+                    "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
                     "https://cdn.mullvad.net/browser-extension/*",
                     "https://github.com/mkaply/queryamoid/releases/*",
                     "https://objects.githubusercontent.com/*"
