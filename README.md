@@ -95,6 +95,10 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 	- [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
 	- [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
 <br>
+- [Quad9](https://quad9.net/)
+	- [Quad9 Team](https://quad9.net/about/team/)
+	- [Donate](https://www.quad9.net/donate/)
+<br>
 
 And of course...
 
