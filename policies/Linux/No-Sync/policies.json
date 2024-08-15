@@ -62,6 +62,9 @@
         "Locked": false
       }
     },
+    "RequestedLocales": [
+      "en-US"
+    ],
     "ExtensionSettings": {
       "*": {
         "blocked_install_message": "I am Iron Man.",
@@ -811,7 +814,8 @@
               "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
               "https://raw.githubusercontent.com/yokoffing/filterlists/main/block_third_party_fonts.txt",
               "https://divested.dev/blocklists/Fingerprinting.ubl",
-              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif-ips.txt"
+              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif-ips.txt",
+              "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
             ]
           }
         }
@@ -917,6 +921,10 @@
         "*://*.detectportal.firefox.com/*",
         "*://*.detectportal.prod.cloudops.mozgcp.net/*"
       ]
+    },
+    "SupportMenu": {
+      "Title": "Phoenix Issue Tracker",
+      "URL": "https://codeberg.org/Magnesium1062/Phoenix/issues"
     },
     "DisableFirefoxAccounts": true
   }
