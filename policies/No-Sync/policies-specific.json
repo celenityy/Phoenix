@@ -1,5 +1,6 @@
 {
     "policies": {
+        "DisableAccounts": true,
         "DisableFirefoxAccounts": true
     }
 }
