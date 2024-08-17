@@ -20,8 +20,14 @@
         },
         "ExtensionSettings": {
             "extension@tabliss.io": {
-                "installation_mode": "force_installed",
+                "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi",
+                "updates_disabled": false,
+                "temporarily_allow_weak_signatures": false
+            },
+            "magnolia@12.34": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             }

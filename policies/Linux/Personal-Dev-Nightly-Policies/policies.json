@@ -83,13 +83,13 @@
     "ExtensionSettings": {
       "*": {
         "blocked_install_message": "I am Iron Man.",
-        "installation_mode": "allowed",
         "install_sources": [
           "https://addons.mozilla.org/*",
           "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://github.com/mkaply/queryamoid/releases/*",
-          "https://objects.githubusercontent.com/*"
+          "https://objects.githubusercontent.com/*",
+          "https://www.eff.org/files/*"
         ],
         "allowed_types": [
           "extension",
@@ -99,7 +99,7 @@
         "temporarily_allow_weak_signatures": false
       },
       "uBlock0@raymondhill.net": {
-        "installation_mode": "force_installed",
+        "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
         "default_area": "navbar",
         "updates_disabled": false,
@@ -107,681 +107,621 @@
       },
       "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "Adblock Plus, by Eyeo. Highly sketchy, avoid & just use uBlock Origin instead."
       },
       "firefox@ghostery.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "Ghostery Privacy Ad Blocker. Highly sketchy, has previously sold user data, Just use uBlock Origin."
       },
       "jid1-NIfFY2CA8fy1tg@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "AdBlock, by Eyeo. Highly sketchy, avoid & just use uBlock Origin instead."
       },
-      "jid1-MnnxcxisBPnSXQ@jetpack": {
+      "https-everywhere@eff.org": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "HTTPS Everywhere. Deprecated, also useless with HTTPS-Only Mode (which we enforce) anyways."
       },
       "87677a2c52b84ad3a151a4a72f5bd3c4@jetpack": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Grammarly. Keylogger, also very sketchy... if you insist on this type of invasive spell-checking, just use LanguageTool instead, though even that I would be cautious of."
       },
       "jid1-93CWPmRbVPjRQA@jetpack": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Honey, by PayPal, horrible privacy policy."
       },
       "abb@amazon.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install-message": "Amazon Assistant, raises serious privacy concerns. Also appears dead anyways."
       },
       "CanvasBlocker@kkapsner.de": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary with RFP or ETP."
-      },
-      "jid1-q4sG8pYhq8KGHs@jetpack": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "CanvasBlocker, unnecessary with RFP or ETP (Which we enforce)."
       },
       "jid1-dwtFBkQjb3SIQp@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "Adblock Lite, appears dead."
       },
       "jid1-BoFifL9Vbdl2zQ@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Very outdated, use LocalCDN instead."
+        "blocked_install_message": "Decentraleyes. Very outdated, just use LocalCDN instead if needed."
       },
       "firefox@tampermonkey.net": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Closed source, use Violentmonkey instead."
-      },
-      "gmailnoads@mywebber.com": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
-      },
-      "adguardadblocker@adguard.com": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "Tampermonkey. Closed source, just use Violentmonkey instead if needed."
       },
       "jid1-KKzOGWgsW3Ao4Q@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use Firefox's built-in cookie banner blocking & uBlock Origin, or `I still don't care about cookies` if really needed instead."
+        "blocked_install_message": "I don't care about cookies, by Avast. Highly sketchy & known for selling data. Just use Firefox's built-in cookie banner blocking & uBlock Origin, or `I still don't care about cookies` if really needed instead."
       },
       "{c909a72e-e04b-4528-b14a-f721df46d776}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
-      },
-      "@windscribeff": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
-      },
-      "@searchengineadremover": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "Adblock_S, appears dead."
       },
       "sp@avast.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Avast SafePrice, by Avast. Highly sketchy & known for selling data."
       },
       "wrc@avast.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Avast Online Security, by Avast. Highly sketchy & known for selling data. Also unnecessary with Google Safe Browsing & uBlock Origin, avoid."
       },
       "secureline-vpn@avast.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Avast SecureLine VPN, by Avast. Highly sketchy & known for selling data."
       },
       "aos@avg.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "AVG Online Security, by Avast. Highly sketchy & known for selling data. Also unnecessary with Google Safe Browsing & uBlock Origin, avoid."
       },
       "nortonsafeweb@symantec.com": {
-        "installtaion_mode": "blocked"
+        "installtaion_mode": "blocked",
+        "blocked_install_message": "Norton Safe Web, by Norton. Must I say more? Would almost rather getting a virus than installing this crap... Also unnecessary with Google Safe Browsing & uBlock Origin, avoid."
       },
       "idsafe@norton.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Norton Password Manager, by Norton. Must I say more? Would almost rather getting a virus than installing this crap..."
       },
       "{8A0D66E3-1C08-49A6-8F6C-7E024029D199}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Norton Family, by Norton. Must I say more? Would almost rather getting a virus than installing this crap..."
       },
       "nordvpnproxy@nordvpn.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "NordVPN, highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "nordpassStandalone@nordsecurity.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "NordPass, by NordVPN. Highly sketchy. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead."
       },
       "nordpass@nordpass.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "NordPass, by NordVPN. Highly sketchy. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead."
       },
       "{2f182d41-fd03-4a6d-938d-081419586c37}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary with uBlock Origin."
+        "blocked_install_message": "Google Analytics Opt-out, Unnecessary with content blocking."
       },
       "jid1-16aeif9OQIRKxA@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Search and New Tab, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "{635abd67-4fe9-1b23-4f01-e679fa7484c1}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Yahoo Toolbar and New Tab, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "@yset": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Yahoo Search Addon, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "@yahoo_wider_mail_extension": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Search and Wider Mail, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "{98dc1b2a-d86b-4dcd-b73c-b0abde809db4}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "OneSearch, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "jid1-G80Ec8LLEbK5fQ@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "New Tab, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "active_eue_enteprise@bmc.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "BMC TrueSight, Real User Monitoring, probably self-explanatory why blocked..."
       },
       "search@ghostery.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Ghostery Private Search for Firefox, by Ghostery. Unnecessary, just set in either about:preferences#search or from the Omnibox. I would avoid Ghostery Search anyways due to the company's sketchy practices & past of selling user data."
       },
       "amazondotcom@search.mozilla.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla's extension for the built-in Amazon Search Engine. Amazon should be avoided due to its horrible privacy practices, but regardless, Amazon still appears to be selectable as a search engine with this removed."
       },
       "bing@search.mozilla.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla's extension for the built-in Bing Search Engine. Bing should be avoided due to its horrible privacy practices, but regardless, Bing still appears to be selectable as a search engine with this removed."
       },
       "ebay@search.mozilla.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla's extension for the built-in eBay Search Engine. eBay should be avoided due to its horrible privacy practices, but regardless, eBay still appears to be selectable as a search engine with this removed."
       },
       "google@search.mozilla.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla's extension for the built-in Google Search Engine. Google should be avoided due to its horrible privacy practices, but regardless, Google still appears to be selectable as a search engine with this removed."
       },
       "{585280b0-ee78-428a-92c5-3fb3c0b85460}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "CyberGhost VPN Free Proxy, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "{76f42345-d120-4c8e-bdd4-63cf95b780fb}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "CyberGhost Cookie Cleaner, by Kape. Highly sketchy... and also completely useless with our tweaks. Avoid."
       },
       "{732216ec-0dab-43bb-ac85-4b5e1977599d}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Surfshark VPN Extension, by NordVPN. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "{3e4d2037-d300-4e95-859d-3cba866f46d3}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Private Internet Access, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "firefox-addon@expressvpn.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "ExpressVPN, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "{8d8ca802-6b23-43ed-9445-e05d48579542}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
+        "blocked_install_message": "Microsoft Bing Search Engine, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
       },
       "{9b43dad5-885b-4f0d-882f-e945b7e4b96f}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
+        "blocked_install_message": "MSN Homepage and Bing Search Engine, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
       },
       "{a07b7886-3015-4959-9a88-4273860edd6d}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
+        "blocked_install_message": "Microsoft Bing Homepage and Search Engine, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
       },
       "{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
+        "blocked_install_message": "MSN Homepage, New Tab and Bing Search Engine, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
       },
       "{cfa868c0-6239-47df-bc81-54e13151ec2e}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
+        "blocked_install_message": "Microsoft Bing Homepage, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search."
       },
       "adblockultimate@adblockultimate.net": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Just use uBlock Origin."
+        "blocked_install_message": "AdBlocker Ultimate, by AdAvoid. Highly sketchy. https://x.com/gorhill/status/1165747661691064322. Just use uBlock Origin."
       },
       "qwantcomforfirefox@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Qwant VIPrivacy, by Qwant. Unnecessary, just set in either about:preferences#search or from the Omnibox."
       },
       "qwant-search-firefox@qwant.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Qwant - The search engine, by Qwant. Unnecessary, just set in either about:preferences#search or from the Omnibox."
       },
       "qwant-p1-firefox@qwant.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Qwant for you, by Qwant. Unnecessary, just set in either about:preferences#search or from the Omnibox."
       },
       "{20fc2e06-e3e4-4b2b-812b-ab431220cada}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
-      },
-      "{5b1a796b-231a-4ad1-84ff-918db0818207}": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Startpage. Unncessary, just set in either about:preferences#search or from the Omnibox."
       },
       "firefox@newsguardtech.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "NewsGuard, sketchy & poor privacy policy."
       },
       "firefox@hg.newsguardtech.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "HealthGuard, by NewsGuard. Sketchy & poor privacy policy."
       },
       "{44df5123-f715-9146-bfaa-c6e8d4461d44}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Fakespot, by Mozilla. Poor privacy policy."
       },
       "firefox-translations-addon@mozilla.org": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary since the Translations feature is now built in."
+        "blocked_install_message": "Firefox Translations, by Mozilla. Dead. Also unnecessary since the Translations feature is now built in."
       },
       "@contain-facebook": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Facebook, you can do so here about:preferences#general or through the Multi-Account Containers extension instead."
+        "blocked_install_message": "Facebook Container, by Mozilla. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Facebook, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
       },
       "{96ef5869-e3ba-4d21-b86e-21b163096400}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Font Fingerprint Defender, by ilGur. Unnecessary with RFP or ETP (Which we enforce)."
       },
       "{2cf5dbed-78fe-4bd5-9524-38fdf837be98}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "WebGL Fingerprint Defender, by ilGur. Unnecessary with RFP or ETP (Which we enforce)."
       },
       "{87edebac-93fe-4780-8945-598a961b793f}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Fingerprint Shield, by Francesco De Stefano. Unnecessary with RFP or ETP (Which we enforce)."
       },
       "{e98b4b87-bc39-439f-a175-b15fbe4a06c0}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Canvas Blocker - Fingerprint Protect, by Joue. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{b2531c6a-ce38-4b46-961e-62a6e89a1b17}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "No Fingerprint, by Sam0230. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{46cc18f3-9054-4edd-9441-102a1021b5d0}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Fingerprint Spoof, by ns. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{6476684c-e1dc-4505-8bb6-5f0f9663f78e}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "BP Block Font Fingerprint, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce)."
+      },
+      "{2ed00a98-3452-4535-a99d-0bb13056d09f}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Browser Plugs Spoof FP Random, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce)."
+      },
+      "{e969f389-ecf2-4ba5-b6b3-95157461366c}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Blend In and Spoof Everything, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce)."
       },
       "jsr@javascriptrestrictor": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "JShelter, by Libor Polčák. Unnecessary with RFP or ETP (Which we enforce)."
       },
       "mipfingerprint@mip.co.za": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "MIP Fingerprint, by MIP Holdings. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{07bccf58-b5f1-425c-b7ad-2301e1a42704}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Fingerprint shelter, by Ol. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{6ff498ff-a3b6-4891-a614-12a825d4efcf}": {
-        "intallation_mode": "blocked"
+        "intallation_mode": "blocked",
+        "blocked_install_message": "Trace, by AbsoluteDouble. Unnecessary with RFP or ETP (Which we enforce). Also appears dead."
       },
       "{ff6bdf28-4fb3-42a0-8e36-11b4125a6ce4}": {
-        "installation_mode": "blocked"
-      },
-      "{74145f27-f039-47ce-a470-a662b129930a}": {
-        "installation_mode": "blocked"
-      },
-      "2.0@disconnect.me": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Logify - Parental Control, by Logify. Remote Monitoring."
       },
       "{17c75373-e1fc-43a5-a05b-7f17e306359e}": {
-        "installation_mode": "blocked"
-      },
-      "{2b89f94e-a4da-47f7-ba7d-865ae7e689db}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Stay secure with CyberGhost VPN Free Proxy, by Running __Elephants. CyberGhost is Highly sketchy, by Kape. This extension also appears fake & unmaintained. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead."
       },
       "support@lastpass.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "LastPass Password Manager, by LastPass. Sketchy & has had serious breaches. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead."
       },
       "{b3e677f4-1150-4387-8629-da738260a48e}": {
-        "installation_mode": "blocked"
-      },
-      "neaturl@hugsmile.eu": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Smart HTTPS, by ilGur. Appears dead, and useless with HTTPS-Only Mode (which we enforce) anyways."
       },
       "InternetProtection@360safe.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "360 Internet Protection, by 360 Total Security. Highly sketchy, also unnecessary with Google Safe Browsing & uBlock Origin. Avoid."
       },
       "firefox-webext@zenmate.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "ZenMate Free VPN, by ZenMate (Kape). Highly sketchy, please just use a trustworthy VPN like Mullvad or ProtonVPN instead"
       },
       "{74fc443d-ab0b-42b2-95d0-890f2d8092cb}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "HTTP to HTTPS, by Balvin. Useless with HTTPS-Only Mode (which we enforce)."
       },
       "{4d5b7a5e-5232-9e45-97f4-f8e1ca2626e5}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Eno® from Capital One®, by Capital One. Very sketchy, avoid."
       },
       "1block@example.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Adblock - 1Block, by 1VPN. Highly sketchy, appears to even contain advertising. Avoid & just use uBlock Origin instead."
       },
       "https-by-default@robwu.nl": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "HTTPS by default, by Rob W. Useless with HTTPS-Only Mode (which we enforce)."
       },
       "support@netzilo.com": {
-        "installation_mode": "blocked"
-      },
-      "firefox-extension@snowhaze.com": {
-        "installation_mode": "blocked"
-      },
-      "{9117e3a5-712d-4fee-bbfa-997a3a14b3c1}": {
-        "installation_mode": "blocked"
-      },
-      "{102c8bd2-8ea8-4379-9503-acb06b6b373a}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Netzilo Secure Browser, by Netzilo Inc. Remote Monitoring. "
       },
       "{d0bfdcce-52c7-4b32-bb45-948f62db8d3f}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Flash Video Player for Facebook™, by Baris Derin. Dead technology, but for some reason this is still being updated? Very suspicious."
       },
-      "{d403ee9c-3bd2-41d3-b1e9-27698babf097}": {
-        "installation_mode": "blocked"
-      },
-      "jid1-dwtGBwQjx3SUQc@jetpack": {
-        "installation_mode": "blocked"
+      "{f3bd3dd2-2888-44c5-91a2-2caeb33fb898}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "YouTube Flash Video Player, by Baris Derin. Dead technology, but for some reason this is still being updated? Very suspicious."
       },
       "jid1-n8wH2cBfc2QaUj@jetpack": {
-        "installation_mode": "blocked"
-      },
-      "jid1-dswFGkUjb2SIHv@jetpack": {
-        "installation_mode": "blocked"
-      },
-      "{86d73a1c-2ec5-4b7a-b249-60cec805dc99}": {
-        "installation_mode": "blocked"
-      },
-      "jid1-k4sH9jPOx3ZqUb@jetpack": {
-        "installation_mode": "blocked"
-      },
-      "{4ce95b29-49c2-44f3-b371-8635790b98fb}": {
-        "installation_mode": "blocked"
-      },
-      "{02bf35c3-6f86-4eb4-bea8-e70bc294a7dc}": {
-        "installation_mode": "blocked"
-      },
-      "{bb1b80be-e6b3-40a1-9b6e-9d4073343f0b}": {
-        "installation_mode": "blocked"
-      },
-      "{c80550f3-d81d-4b3a-95c5-1d925c27883a}": {
-        "installation_mode": "blocked"
-      },
-      "{c8d3cb7e-8c3a-4714-ad84-31b11ccd7985}": {
-        "installation_mode": "blocked"
-      },
-      "adnauseam@rednoise.org": {
-        "installation_mode": "blocked"
-      },
-      "{33449a11-7062-45be-a62c-837a3a06ad4d}": {
-        "installation_mode": "blocked"
-      },
-      "{2eb151f4-43c9-46b0-a568-bff4350def78}": {
-        "installation_mode": "blocked"
-      },
-      "jid0-wpCH2liWmuMjc8AV1VWejWvGjBI@jetpack": {
-        "installation_mode": "blocked"
-      },
-      "{e5429d7e-4708-40d8-bda6-1a2fca5b72f9}": {
-        "installation_mode": "blocked"
-      },
-      "{812aa6ba-ad08-4f4c-a821-988da29a9d2f}": {
-        "installation_mode": "blocked"
-      },
-      "zicoreal@ymail.com": {
-        "installation_mode": "blocked"
-      },
-      "{d612b8c3-a7a5-4936-97cc-2074b2fcd667}": {
-        "installation_mode": "blocked"
-      },
-      "fbwls@laudalassun.com": {
-        "installation_mode": "blocked"
-      },
-      "{c3f96ce1-0060-4c75-96ff-cb8274d8cbcf}": {
-        "installation_mode": "blocked"
-      },
-      "{a31cd1bf-3bc0-4e75-8c26-64d5509f3954}": {
-        "installation_mode": "blocked"
-      },
-      "{f957b9dd-119f-432f-becf-49deef9c3ca9}": {
-        "installation_mode": "blocked"
-      },
-      "{9fe6c6f5-2d14-4303-bdce-a669a8642bbf}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Flash Block (Plus), by AdblockLite. Dead technology, but for some reason this is still being updated?"
       },
       "@contain-facebook-newalexandria": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Facebook Container - Expanded, by New Alexandria. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Facebook, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways."
       },
       "@contain-google-with-integrations": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Container - with Integrations, by New Alexandria. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways."
       },
       "@contain-google": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Container, by containers-everywhere. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways."
       },
       "@contain-google-minus-youtube": {
-        "installation_mode": "blocked"
-      },
-      "{85f8a146-a464-48bd-a81e-3ebe1682ecd9}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Container Minus YouTube, by yoasif. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
       },
       "YandexSearchExtension@io.librity": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yandex search, by Librity. Please don't use Yandex... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "yasearch@yandex.ru": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yandex.Bar, by Yandex. Please don't use Yandex... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "homeutil@yandex.ru": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yandex - Homepage, by Yandex. Please don't use Yandex... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "weather@yandex.ru": {
-        "installation_mode": "blocked"
-      },
-      "{1207aca0-caba-4ac7-b71e-9c490b5a5198}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yandex Elements Weather, by Yandex. Extremely sketchy, requires highly invasive permissions. Yandex generally is sketchy and should be avoided. Just use Firefox's new weather feature on about:home, or an extension like Tabliss."
       },
       "{710a25a7-051f-4059-8952-abbaa9aa6121}": {
-        "installation_mode": "blocked"
-      },
-      "adbloxteam@gmail.com": {
-        "installation_mode": "blocked"
-      },
-      "{81ce7321-a8b4-4200-acac-7cbdbef72960}": {
-        "installation_mode": "blocked"
-      },
-      "{dc417bbf-56bd-4d0d-b84f-abdfea1e284b}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "FakeBux for Roblox, by LuckyDev. Just use Inspect Element."
       },
       "{9763fbae-6f90-483b-a8ca-aeb9ccfdacac}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "IRobux, by 'Roblox Corporation'. Impersonation scam extension, no idea how this hasn't been removed from the AMO or got signed in the first place."
       },
       "{0dce8429-bdf7-4610-b3cf-72d0f86278d5}": {
-        "installation_mode": "blocked"
-      },
-      "{8acf3ae4-6bb4-4cae-99b1-5da239e434ea}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Robux Changer, by indxd. Just use Inspect Element."
       },
       "BraveSearchExtension@io.Uvera": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Brave search, by Dusan Uveric. Extension is unnecessary, just add Brave Search in either about:preferences#search or from the Omnibox."
       },
       "addon@customsearchtool.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Custom Search Tool. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "Maps_Assist___Custom_Web_Search_VeyzPDMlKh@mapsassist.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Maps Assist & Custom Web Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Safeplex_Search_qeKaqkdrwd@safeplexsearch.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Safeplex Search. Hijacks search engine to Yahoo without user consent/knowledge. (Also just completely unncessary anyways with uBlock Origin & Google Safe Browsing :/)"
       },
       "addon@maproutepro.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Map Route Pro and Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "FreespokeSearchExtension@com.Freespoke": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Freespoke Search. Extension is unnecessary, just add this in either about:preferences#search or from the Omnibox."
       },
       "earthview360_newvers@earthview360.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Earth View 360° & Custom Web Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "sp@SearchesCentral": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Sponsored Search, by SearchesCentral/Search Smart/FreeTestNow. Adware & hijacks search engine to Yahoo without user consent/knowledge."
       },
       "ep@FreeTestNow": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Sponsored Search, by SearchesCentral/Search Smart/FreeTestNow. Adware & hijacks search engine to Yahoo without user consent/knowledge."
       },
       "sp@SearchSmart": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Search Smart, by SearchesCentral/Search Smart/FreeTestNow. Adware & hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{441ae0e7-c955-4b0e-8209-99462af458db}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Presearch.com Search Extension. Extension is unnecessary, just add this in either about:preferences#search or from the Omnibox."
       },
       "{43d20840-2895-4866-9d79-4f6f2ea537f7}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Music Search, by GetTheResult. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{ff5dfca6-4e75-4882-a145-b58a4afc35a7}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Movie Search, by GetTheResult. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{25f17283-8325-42fb-812e-193c8de90b04}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Sport Search, by GetTheResult. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Converter_Suite_fqRObEsLaM@convertersuite.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Converter Suite. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{2a168bd0-55d2-466f-9c68-077c416943be}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "YouTube Search Engine, by A. Taha Baki. Extension is unnecessary, just add YouTube in either about:preferences#search or from the Omnibox."
       },
       "{af37054b-3ace-46a2-ac59-709e4412bec6}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Add custom search engine, by Tom Schuster. Unnecessary, just add your search engine of choice in either about:preferences#search or from the Omnibox on the search engine's webpage"
       },
       "Ezy_Photo_Tab___Custom_Web_Search_YALalKMirg@ezyphototab.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ezy Photo Tab & Custom Web Search, by EzyPhotoTab. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{d04b0b40-3dab-4f0b-97a6-04ec3eddbfb0}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ecosia, by Ecosia Dev Team. Extension is unnecessary, just add Ecosia in either about:preferences#search or from the Omnibox."
       },
       "Task_Manager_Tab___Custom_Web_Search_nKQMsPVbct@taskmanagertab.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Task Manager Tab & Custom Web Search, by TaskManagerTab. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Quick_Live_News_spxMukSrlT@quicklivenews.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Quick Live News & Custom Web Search, by QuickLiveNews. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Flight_Tab_Pro___Custom_Web_Search_yVOErTvhoC@flighttabpro.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Flight Tab Pro & Custom Web Search, by FlightTabPro. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{2e0fa8dd-c43c-438c-b77b-95ddc3d893ec}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Add Brave Search, by maaa. Extension is unnecessary, just add Brave Search in either about:preferences#search or from the Omnibox."
       },
       "Easy_Games_Tab_zKsDuEzLrv@easygamestab.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Easy Games Tab & Custom Web Search, by EasyGamesTab. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Ezy_Speed_Test___Custom_Web_Search_nybAAzaSyK@ezyspeedtest.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ezy Speed Test & Custom Web Search, by Ezy Speed Test. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "viewmanuals_newvers@viewmanuals.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "View Manuals & Custom Web Search, by View Manuals. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Package_Tracking_Tab___Custom_Web_Search_JVVfIFSBVe@packagetrackingtab.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Package Tracking Tab & Custom Web Search, by PackageTrackingTab. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "ebooksearch1@candytech.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "eBook Search, by Candytechltd. Hijacks search engine to genieosearch.com without user consent/knowledge."
       },
       "Quick_Recipe_Hub___Custom_Web_Search_MTyoGHhulF@quickrecipehub.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Quick Recipe Hub & Custom Web Search, by Quick Recipe Hub. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "addon@speedtestmeter.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Speed Test Meter and Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "StartpageSearchExtension@roteKlaue": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Startpage search, by roteKlaue. Unncessary, just add Startpage in either about:preferences#search or from the Omnibox."
       },
       "addon@documentconverter.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Document Converter & Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "viewrecipes_aill@viewrecipes.net": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "View Recipes & Custom Web Search, by View Recipes. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Turbo_Converter___Custom_Web_Search_jkERzVmVos@turboconverter.co": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Turbo Converter & Custom Web Search, by Turbo Converter. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "Easy_Manuals_Finder_and_Custom_Web_Search_KtQPWLAgRu@easymanualsfinder.co": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Easy Manuals Finder & Custom Web Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "search-searx@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-searx, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-odysee.com@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-odysee.com, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-thomann--intl@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-thomann--intl, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-fastshare.cz@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-fastshare.cz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-kytary.cz@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-kytary.cz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-thomann--cz@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-thomann--cz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "search-gearslutz@jirka-justra.cz": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "search-gearslutz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
       "addon@trendingnews.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Trending News & Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{1e924475-d910-44ab-bed8-af34439d2a8a}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Just Search Qwant, by Naresh. Extension is unnecessary, just add Qwant in either about:preferences#search or from the Omnibox."
       },
       "Weather_Authority___Custom_Web_Search_TOLImHKtPk@weatherauthority.co": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Weather Authority & Custom Web Search, by Weather Authority. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "@contain-twitter": {
-        "installation_mode": "blocked"
-      },
-      "{47fab76c-ec06-42cf-b459-6b5a47e55049}": {
-        "installation_mode": "blocked"
-      },
-      "{d1286da0-cb32-45d8-b4d7-2c4dc9dc4bfe}": {
-        "installation_mode": "blocked"
-      },
-      "{d3d1dba0-85d9-4386-b92a-d71957d18c98}": {
-        "installation_mode": "blocked"
-      },
-      "{5e6f5a63-68d5-40eb-9b33-069c9f91e757}": {
-        "installation_mode": "blocked"
-      },
-      "{2101c9cc-5698-4dae-9657-bd6ed5cf4ef9}": {
-        "installation_mode": "blocked"
-      },
-      "uBOLite@raymondhill.net": {
-        "installation_mode": "blocked"
-      },
-      "{c4405324-da84-41d3-9064-da65eaf1660b}": {
-        "installation_mode": "blocked"
-      },
-      "{9215ad99-2c3e-44e3-ae69-4b58abcdef3d}": {
-        "installation_mode": "blocked"
-      },
-      "{d1aaecaa-5731-4c1e-8d8f-304955014b29}": {
-        "installation_mode": "blocked"
-      },
-      "{254493f1-fd9b-42c3-817d-3ca1ba8bb2e7}": {
-        "installation_mode": "blocked"
-      },
-      "{14d1ebaa-eb43-403c-9e59-798b829c1f7a}": {
-        "installation_mode": "blocked"
-      },
-      "{8215dd48-1234-477d-8e15-496ec8bdb70e}": {
-        "installation_mode": "blocked"
-      },
-      "{2f8077ed-4d91-403d-9df8-41ff21058270}": {
-        "installation_mode": "blocked"
-      },
-      "{ace15912-de40-4259-be36-95bdad1945dd}": {
-        "installation_mode": "blocked"
-      },
-      "{a3de2281-dc53-44e5-8957-827eaf144c79}": {
-        "installation_mode": "blocked"
-      },
-      "{b7f9d2cd-d772-4302-8c3f-eb941af36f76}": {
-        "installation_mode": "blocked"
-      },
-      "{e824f0e4-72f7-4295-8879-d8ff4bf348d2}": {
-        "installation_mode": "blocked"
-      },
-      "{28032e36-ee3d-48eb-bd11-2d91421bc51d}": {
-        "installation_mode": "blocked"
-      },
-      "extrape-link-convertor@extrape.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Twitter Container, by Vishwa. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Twitter, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
       },
       "firefox@vid.io": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "vidIQ Vision for YouTube, by vidIQ. Sketchy."
       },
       "{50f5675e-2d43-4894-a3b6-ad933f6a31a0}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "SignalHire. Data Broker."
       },
       "{248e6a49-f636-4c81-9899-a456eb6291a8}": {
-        "installation_mode": "blocked"
-      },
-      "{a113852e-8d05-4e64-9663-7cf002fd7b5b}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ground News Bias Checker, by Ground News. Very sketchy, poor privacy policy. Avoid."
       },
       "swisscows@swisscows.ch": {
-        "installation_mode": "blocked"
-      },
-      "{c37bac34-849a-4d28-be41-549b2c76c64e}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Swisscows, by Swisscows AG. Extension is unnecessary, just set Swisscows in either about:preferences#search or from the Omnibox."
       },
       "{2d158f19-1146-4bfe-9085-cc15f947bb35}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yahoo! Search, by balduran98. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "{0220de78-d398-47cb-8323-ebab3a845d01}": {
-        "installation_mode": "blocked"
-      },
-      "yahooScreenSpaceSaver@lucasdevcreations": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yahoo New Tab, by heubergen. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "{b69c9b46-2236-45c2-9abd-143972558677}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Yahoo jp, by Viktor. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "{aa9eef0b-ca4e-4e24-b42e-e1b006c7160a}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Safe Search Powered by Yahoo, by Safely. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "easyprint@easyprintapp.net": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Easy Print. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "viewpdf_newvers@viewpdf.org": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "View PDF. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "easydrivingdirections_newvers@easydrivingdirections.com": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Maps & Driving Directions. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{6cbc4940-eb87-4dba-9654-1002fb91e9e0}": {
-        "installation_mode": "blocked"
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Tag Manager Blocker, by heubergen. Unnecessary with uBlock Origin or any content blocking extension."
       },
       "extension@tabliss.io": {
-        "installation_mode": "force_installed",
+        "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi",
+        "updates_disabled": false,
+        "temporarily_allow_weak_signatures": false
+      },
+      "magnolia@12.34": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi",
         "updates_disabled": false,
         "temporarily_allow_weak_signatures": false
       }
@@ -951,6 +891,7 @@
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
     "DisableFirefoxScreenshots": true,
+    "DisableAccounts": true,
     "DisableFirefoxAccounts": true,
     "PasswordManagerEnabled": false
   }
