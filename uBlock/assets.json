@@ -906,14 +906,6 @@
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/block_third_party_fonts.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
     },
-    "amp": {
-        "content": "filters",
-        "group": "custom",
-        "title": "AMP Hosts",
-        "off": true,
-        "contentURL": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt",
-        "supportURL": "https://github.com/lightswitch05/hosts/issues"
-    },
     "badblocklite": {
         "content": "filters",
         "group": "multipurpose",
@@ -978,14 +970,6 @@
         "contentURL": "https://divested.dev/blocklists/Fingerprinting.ubl",
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
     },
-    "drm": {
-        "content": "filters",
-        "group": "custom",
-        "title": "🔒 DRM Blocklist",
-        "off": true,
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/drm.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
-    },
     "dyndns": {
         "content": "filters",
         "group": "malware",
@@ -995,55 +979,10 @@
     },
     "gambling": {
         "content": "filters",
-        "group": "custom",
+        "group": "annoyances",
         "title": "🎰 HaGeZi's Gambling Blocklist",
         "off": true,
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "multilight": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "📗 HaGeZi - Multi LIGHT",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/light.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "multi": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "📘 HaGeZi - Multi NORMAL",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/multi.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "multipro": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "📒 HaGeZi - Multi PRO",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "multiproplus": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "📙 HaGeZi - Multi PRO++",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "multiultimate": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "📕 HaGeZi - Multi ULTIMATE",
-        "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "nrds": {
@@ -1056,7 +995,7 @@
     },
     "nsfw": {
         "content": "filters",
-        "group": "custom",
+        "group": "annoyances",
         "title": "🔞 oisd nsfw",
         "off": true,
         "contentURL": "https://nsfw.oisd.nl/",
