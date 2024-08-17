@@ -890,15 +890,6 @@
         "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/discussions/163"
     },
-    "1hpro": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "1Hosts (Pro)",
-        "tags": "ads privacy security",
-        "contentURL": "https://badmojr.gitlab.io/1hosts/Pro/adblock.txt",
-        "supportURL": "https://github.com/badmojr/1Hosts/issues"
-    },
     "3pfonts": {
         "content": "filters",
         "group": "privacy",
@@ -946,15 +937,6 @@
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
     },
-    "devdan": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "Developer Dan's Ads & Tracking",
-        "tags": "ads privacy",
-        "contentURL": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
-        "supportURL": "https://github.com/lightswitch05/hosts/issues"
-    },
     "divested": {
         "content": "filters",
         "group": "multipurpose",
@@ -992,15 +974,6 @@
         "off": true,
         "contentURL": "https://nsfw.oisd.nl/",
         "supportURL": "https://oisd.nl/report"
-    },
-    "stevenblack": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "Steven Black (Unified)",
-        "tags": "ads privacy security",
-        "contentURL": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
-        "supportURL": "https://github.com/StevenBlack/hosts/issues"
     },
     "threatintel": {
         "content": "filters",
