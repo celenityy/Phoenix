@@ -985,14 +985,6 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
-    "nrds": {
-        "content": "filters",
-        "group": "malware",
-        "title": "🆕 Newly Registered Domains (14 Days)",
-        "off": true,
-        "contentURL": "https://raw.githubusercontent.com/xRuffKez/NRD/main/nrd-14day_adblock.txt",
-        "supportURL": "https://github.com/xRuffKez/NRD/issues"
-    },
     "nsfw": {
         "content": "filters",
         "group": "annoyances",
