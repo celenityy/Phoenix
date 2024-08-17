@@ -3,7 +3,7 @@
         "content": "internal",
         "updateAfter": 13,
         "contentURL": [
-            "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/assets.json"
+            "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/uBlock/assets.json"
         ]
     },
     "public_suffix_list.dat": {
