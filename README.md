@@ -12,6 +12,10 @@ Fedora Linux:
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
 
+macOS: (NOTE: You must have Homebrew installed)
+
+`bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/macos_install.sh)"`
+
 # Features
 
 See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides. 
