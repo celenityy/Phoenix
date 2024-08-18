@@ -18,6 +18,8 @@ brew update
 
 brew install phoenix-policies
 
+cp /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json /Application/Firefox.app/Contents/Resources/distribution.policies.json
+
 echo 'alias phoenix-up="cp /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json /Application/Firefox.app/Contents/Resources/distribution.policies.json"' >> ~/.zshrc
 
 printf "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can grab them from here https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/configs. Just drag the user.js under the config of your choice to your profile directory, and enjoy.\n"
