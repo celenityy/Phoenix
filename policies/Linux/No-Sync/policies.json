@@ -77,8 +77,31 @@
           "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://github.com/mkaply/queryamoid/releases/*",
+          "https://github.com/mullvad/browser-extension/releases/*",
+          "https://github.com/gorhill/uBlock/releases/*",
           "https://objects.githubusercontent.com/*",
-          "https://www.eff.org/files/*"
+          "https://www.eff.org/files/*",
+          "https://mullvad.net/ar/download/browser/extension/*",
+          "https://mullvad.net/da/download/browser/extension/*",
+          "https://mullvad.net/de/download/browser/extension/*",
+          "https://mullvad.net/en/download/browser/extension/*",
+          "https://mullvad.net/es/download/browser/extension/*",
+          "https://mullvad.net/fa/download/browser/extension/*",
+          "https://mullvad.net/fi/download/browser/extension/*",
+          "https://mullvad.net/fr/download/browser/extension/*",
+          "https://mullvad.net/it/download/browser/extension/*",
+          "https://mullvad.net/ja/download/browser/extension/*",
+          "https://mullvad.net/ko/download/browser/extension/*",
+          "https://mullvad.net/nl/download/browser/extension/*",
+          "https://mullvad.net/no/download/browser/extension/*",
+          "https://mullvad.net/pl/download/browser/extension/*",
+          "https://mullvad.net/pt/download/browser/extension/*",
+          "https://mullvad.net/ru/download/browser/extension/*",
+          "https://mullvad.net/sv/download/browser/extension/*",
+          "https://mullvad.net/th/download/browser/extension/*",
+          "https://mullvad.net/tr/download/browser/extension/*",
+          "https://mullvad.net/zh-hans/download/browser/extension/*",
+          "https://mullvad.net/zh-hant/download/browser/extension/*"
         ],
         "allowed_types": [
           "extension",
@@ -857,7 +880,11 @@
         "*://*.discovery.addons-dev.allizom.org/*",
         "*://*.services.addons.mozilla.org/api/*/discovery/*",
         "*://*.detectportal.firefox.com/*",
-        "*://*.detectportal.prod.cloudops.mozgcp.net/*"
+        "*://*.detectportal.prod.cloudops.mozgcp.net/*",
+        "*://*.dap-09-3.api.divviup.org/*",
+        "*://*.dap.services.mozilla.com/*",
+        "*://*.dap.nonprod.webservices.mozgcp.net/*",
+        "*://*.dap.prod.webservices.mozgcp.net/*"
       ]
     },
     "SupportMenu": {
