@@ -14,6 +14,8 @@ HARDENED:
 
 `search.brave.com` - Requires `javascript.options.wasm` set to `true` for Maps functionality
 
+`www.chipotle.com` - Requires `network.http.referer.XOriginPolicy` set to `0` for Order Checkout/Payment
+
 `fandango.com` - Requires `javascript.options.wasm` set to `true` for various functionality (ex. Sign-in & "FanRewards Points")
 
 `drive.google.com` - Requires `network.http.referer.XOriginPolicy` set to `0` for video playback
