@@ -10,12 +10,18 @@ Please report any breakage as you encounter it!
 
 HARDENED:
 
-`amazon-web.grubhub.com` - Requires `network.http.referer.XOriginPolicy` set to `1`
+`appleid.apple.com` - Certain icons (such as the "X" in the top left corner of the box when adding a payment method) won't display unless `network.http.referer.XOriginPolicy` is set to `1` (or `0`)
 
 `search.brave.com` - Requires `javascript.options.wasm` set to `true` for Maps functionality
 
 `fandango.com` - Requires `javascript.options.wasm` set to `true` for various functionality (ex. Sign-in & "FanRewards Points")
 
+`drive.google.com` - Requires `network.http.referer.XOriginPolicy` set to `0` for video playback
+
+`amazon-web.grubhub.com` - Requires `network.http.referer.XOriginPolicy` set to `1` (or `0`)
+
 `www.photopea.com` - Requires `javascript.options.wasm` set to `true`
 
-`twitter.com`/`x.com` - Requires `network.http.referer.XOriginPolicy` set to `1` for images to appear in DMs
+`wallet.proton.me` - Requires `javascript.options.wasm` set to `true`
+
+`twitter.com`/`x.com` - Requires `network.http.referer.XOriginPolicy` set to `1` (or `0`) for images to appear in DMs
