@@ -890,12 +890,29 @@
         "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/discussions/163"
     },
+    "1hpro": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "1Hosts (Pro)",
+        "tags": "ads privacy security",
+        "contentURL": "https://badmojr.gitlab.io/1hosts/Pro/adblock.txt",
+        "supportURL": "https://github.com/badmojr/1Hosts/issues"
+    },
     "3pfonts": {
         "content": "filters",
         "group": "privacy",
         "title": "🔍 Block third party fonts",
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/block_third_party_fonts.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
+    },
+    "amp": {
+        "content": "filters",
+        "group": "annoyances",
+        "title": "AMP Hosts",
+        "off": true,
+        "contentURL": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt",
+        "supportURL": "https://github.com/lightswitch05/hosts/issues"
     },
     "badblocklite": {
         "content": "filters",
@@ -926,6 +943,7 @@
     "badhost": {
         "content": "filters",
         "group": "malware",
+        "off": true,
         "title": "💻 HaGeZi's Badware Hoster Blocklist",
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
@@ -937,9 +955,19 @@
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
     },
+    "devdan": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "Developer Dan's Ads & Tracking",
+        "tags": "ads privacy",
+        "contentURL": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
+        "supportURL": "https://github.com/lightswitch05/hosts/issues"
+    },
     "divested": {
         "content": "filters",
         "group": "multipurpose",
+        "off": true,
         "title": "Divested Combined Blocklist",
         "tags": "ads privacy security",
         "contentURL": "https://divested.dev/hosts-domains-wildcards",
@@ -951,6 +979,14 @@
         "title": "Divested Fingerprinting Blocklist",
         "contentURL": "https://divested.dev/blocklists/Fingerprinting.ubl",
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
+    },
+    "drm": {
+        "content": "filters",
+        "group": "annoyances",
+        "title": "🔒 DRM Blocklist",
+        "off": true,
+        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/drm.txt",
+        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
     },
     "dyndns": {
         "content": "filters",
@@ -967,6 +1003,59 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
+    "multilight": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "📗 HaGeZi - Multi LIGHT",
+        "tags": "ads privacy security",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/light.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
+    },
+    "multi": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "📘 HaGeZi - Multi NORMAL",
+        "tags": "ads privacy security",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/multi.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
+    },
+    "multipro": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "📒 HaGeZi - Multi PRO",
+        "tags": "ads privacy security",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
+    },
+    "multiproplus": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "📙 HaGeZi - Multi PRO++",
+        "tags": "ads privacy security",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
+    },
+    "multiultimate": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "📕 HaGeZi - Multi ULTIMATE",
+        "tags": "ads privacy security",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt",
+        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
+    },
+    "nrds": {
+        "content": "filters",
+        "group": "malware",
+        "title": "🆕 Newly Registered Domains (14 Days)",
+        "off": true,
+        "contentURL": "https://raw.githubusercontent.com/xRuffKez/NRD/main/nrd-14day_adblock.txt",
+        "supportURL": "https://github.com/xRuffKez/NRD/issues"
+    },
     "nsfw": {
         "content": "filters",
         "group": "annoyances",
@@ -974,6 +1063,31 @@
         "off": true,
         "contentURL": "https://nsfw.oisd.nl/",
         "supportURL": "https://oisd.nl/report"
+    },
+    "oisd": {
+        "content": "filters",
+        "group": "multipurpose",
+        "title": "oisd",
+        "tags": "ads privacy security",
+        "off": true,
+        "contentURL": "https://big.oisd.nl/",
+        "supportURL": "https://oisd.nl/report"
+    },
+    "sproutmalware": {
+        "content": "filters",
+        "group": "malware",
+        "title": "💊 Dandelion Sprout's Anti-Malware List",
+        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
+        "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
+    },
+    "stevenblack": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "Steven Black (Unified)",
+        "tags": "ads privacy security",
+        "contentURL": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+        "supportURL": "https://github.com/StevenBlack/hosts/issues"
     },
     "threatintel": {
         "content": "filters",
@@ -993,14 +1107,16 @@
         "content": "filters",
         "group": "malware",
         "title": "🔮 HaGeZi's Most Abused TLDs",
+        "off": true,
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
-    "sproutmalware": {
+    "unsafe": {
         "content": "filters",
         "group": "malware",
-        "title": "💊 Dandelion Sprout's Anti-Malware List",
-        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
-        "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
+        "off": true,
+        "title": "⚠️ BadBlock - Unsafe",
+        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/unsafe.txt",
+        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
     }
 }

@@ -16,11 +16,17 @@ HARDENED:
 
 `www.chipotle.com` - Requires `network.http.referer.XOriginPolicy` set to `0` for Order Checkout/Payment
 
+`www.crazygames.com` - Games require `javascript.options.wasm` set to `true` & `webgl.disabled` set to `false`. Some games (Ex. https://www.crazygames.com/game/tag-2-3-4-players) also require `network.http.referer.XOriginPolicy` set to `1` (or `0`)
+
 `fandango.com` - Requires `javascript.options.wasm` set to `true` for various functionality (ex. Sign-in & "FanRewards Points")
 
 `drive.google.com` - Requires `network.http.referer.XOriginPolicy` set to `0` for video playback
 
+`earth.google.com` - Requires `javascript.options.wasm` set to `true` & `webgl.disabled` set to `false`
+
 `amazon-web.grubhub.com` - Requires `network.http.referer.XOriginPolicy` set to `1` (or `0`)
+
+`krunker.io` - Requires `javascript.options.wasm` set to `true` & `webgl.disabled` set to `false`
 
 `www.photopea.com` - Requires `javascript.options.wasm` set to `true`
 
