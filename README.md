@@ -16,9 +16,11 @@ macOS: *(Note: You must have Homebrew installed)*
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/macos_install.sh)"`
 
+___
+
 Additionally, in 4 easy steps, at the cost of breakage and a little headache, you can install our **Hardened** config for **complete** protection. Unlike our base config, Hardened is profile specific. This means that you can use our hardened profile as needed when you desire the extra protection, & revert back to base for everything else. 
 
-If possible for you, I would personally recommend primarily using the Hardened config, and setting overrides as needed (Phoenix makes this very easy to do through the `about:config`). You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat) for a list of known sites with issues & what you need to toggle to fix them. **This is not for everyone though, and if you want a `just works` set-up with no issues or tweaking, just stick to the base config.**
+If possible for you, I would personally recommend primarily using the Hardened config, and setting overrides as needed (Phoenix makes this very easy to do through the `about:config`). You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. **This is not for everyone though, and if you want a `just works` set-up with no issues or tweaking, just stick to the base config.**
 
 To install **Hardened**
 
