@@ -1,90 +1,52 @@
 {
   "policies": {
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "adminSettings": {
+            "assetsBootstrapLocation": "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/uBlock/assets.json",
+            "userSettings": {
+              "advancedUserEnabled": true,
+              "autoUpdate": true,
+              "cnameUncloakEnabled": true,
+              "dynamicFilteringEnabled": true,
+              "firewallPaneMinimized": false,
+              "hyperlinkAuditingDisabled": true,
+              "prefetchingDisabled": true,
+              "showIconBadge": true
+            }
+          }
+        }
+      }
+    },
     "CaptivePortal": false,
+    "ContentAnalysis": {
+      "DefaultResult": 0,
+      "Enabled": false
+    },
     "DisableEncryptedClientHello": false,
     "DisableFirefoxStudies": true,
     "DisableFormHistory": true,
     "DisablePocket": true,
     "DisableSystemAddonUpdate": false,
     "DisableTelemetry": true,
-    "DontCheckDefaultBrowser": true,
-    "ExtensionUpdate": true,
-    "GoToIntranetSiteForSingleWordEntryInAddressBar": false,
-    "NetworkPrediction": false,
-    "NoDefaultBookmarks": true,
-    "PostQuantumKeyAgreementEnabled": true,
-    "PromptForDownloadLocation": true,
-    "SearchSuggestEnabled": false,
-    "StartDownloadsInTempDirectory": true,
-    "OverrideFirstRunPage": "",
-    "OverridePostUpdatePage": "",
-    "ContentAnalysis": {
-      "DefaultResult": 0,
-      "Enabled": false
-    },
-    "SanitizeOnShutdown": {
-      "Cache": true,
-      "Sessions": true,
-      "Locked": true,
-      "Cookies": true,
-      "History": true,
-      "OfflineApps": true
-    },
-    "EncryptedMediaExtensions": {
-      "Enabled": false,
-      "Locked": true
-    },
-    "HttpsOnlyMode": "force_enabled",
-    "Proxy": {
-      "UseProxyForDNS": true
-    },
-    "PDFjs": {
-      "EnablePermissions": false
-    },
     "DNSOverHTTPS": {
       "Enabled": true,
       "Locked": false,
       "ProviderURL": "https://dns.quad9.net/dns-query",
       "Fallback": false
     },
-    "PopupBlocking": {
-      "Default": true,
-      "Locked": false
+    "DontCheckDefaultBrowser": true,
+    "EncryptedMediaExtensions": {
+      "Enabled": false,
+      "Locked": true
     },
-    "Permissions": {
-      "Location": {
-        "BlockNewRequests": true,
-        "Locked": false
-      },
-      "Notifications": {
-        "BlockNewRequests": true,
-        "Locked": true
-      },
-      "VirtualReality": {
-        "BlockNewRequests": true,
-        "Locked": true
-      },
-      "Autoplay": {
-        "Default": "block-audio-video",
-        "Locked": false
-      },
-      "Camera": {
-        "BlockNewRequests": true,
-        "Locked": false
-      },
-      "Microphone": {
-        "BlockNewRequests": true,
-        "Locked": false
-      }
-    },
-    "RequestedLocales": [
-      "en-US"
-    ],
     "ExtensionSettings": {
       "*": {
         "blocked_install_message": "I am Iron Man.",
         "install_sources": [
           "https://addons.mozilla.org/*",
+          "about:addons",
           "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://github.com/mkaply/queryamoid/releases/*",
@@ -749,6 +711,7 @@
         "temporarily_allow_weak_signatures": false
       }
     },
+    "ExtensionUpdate": true,
     "FirefoxHome": {
       "TopSites": false,
       "SponsoredTopSites": false,
@@ -758,133 +721,181 @@
       "Locked": true,
       "Highlights": false
     },
-    "3rdparty": {
-      "Extensions": {
-        "uBlock0@raymondhill.net": {
-          "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/uBlock/assets.json",
-            "userSettings": {
-              "advancedUserEnabled": true,
-              "autoUpdate": true,
-              "cnameUncloakEnabled": true,
-              "dynamicFilteringEnabled": true,
-              "firewallPaneMinimized": false,
-              "hyperlinkAuditingDisabled": true,
-              "prefetchingDisabled": true,
-              "showIconBadge": true
-            }
-          }
-        }
+    "FirefoxSuggest": {
+      "WebSuggestions": false,
+      "SponsoredSuggestions": false,
+      "ImproveSuggest": false,
+      "Locked": true
+    },
+    "GoToIntranetSiteForSingleWordEntryInAddressBar": false,
+    "HttpsOnlyMode": "force_enabled",
+    "NetworkPrediction": false,
+    "NoDefaultBookmarks": true,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PDFjs": {
+      "EnablePermissions": false
+    },
+    "Permissions": {
+      "Location": {
+        "BlockNewRequests": true,
+        "Locked": false
       },
-      "FirefoxSuggest": {
-        "WebSuggestions": false,
-        "SponsoredSuggestions": false,
-        "ImproveSuggest": false,
+      "Notifications": {
+        "BlockNewRequests": true,
         "Locked": true
       },
-      "UserMessaging": {
-        "ExtensionRecommendations": false,
-        "FeatureRecommendations": false,
-        "SkipOnboarding": true,
-        "UrlbarInterventions": false,
-        "MoreFromMozilla": false,
+      "VirtualReality": {
+        "BlockNewRequests": true,
         "Locked": true
       },
-      "WebsiteFilter": {
-        "Block": [
-          "*://*.telemetry.mozilla.org/*",
-          "*://*.ads.prod.webservices.mozgcp.net/*",
-          "*://*.ads.nonprod.webservices.mozgcp.net/*",
-          "*://*.anonymco.com/*",
-          "*://*.contile.services.mozilla.com/*",
-          "*://*.contile-images.services.mozilla.com/*",
-          "*://*.getpocket.com/*",
-          "*://*.snippets.allizom.org/*",
-          "*://*.snippets.cdn.mozilla.net/*",
-          "*://*.snippets.mozilla.com/*",
-          "*://*.snippets-prod.moz.works/*",
-          "*://*.snippets-prod.oregon-b.moz.works/*",
-          "*://*.snippets-prod.frankfurt.moz.works/*",
-          "*://*.snippets-stage.moz.works/*",
-          "*://*.snippets-stage.oregon-b.moz.works/*",
-          "*://*.crash-reports.allizom.org/*",
-          "*://*.crash-reports.mozilla.com/*",
-          "*://*.crash-reports-xpsp2.mozilla.com/*",
-          "*://*.crash-stacks.mozilla.com/*",
-          "*://*.crash-stats.allizom.org/*",
-          "*://*.crash-stats.mozilla.org/*",
-          "*://*.crash-stats.mozilla.com/*",
-          "*://*.socorro.prod.webservices.mozgcp.net/*",
-          "*://*.socorro-collector.services.mozilla.com/*",
-          "*://*.socorro-webapp-allizom.stage.mozaws.net/*",
-          "*://*.socorro-webapp.services.mozilla.com/*",
-          "*://*.talkback.mozilla.org/*",
-          "*://*.talkback-public.mozilla.org/*",
-          "*://*.talkback-reports.mozilla.org/*",
-          "*://*.data.mozilla.com/*",
-          "*://*.dataops.mozgcp.net/*",
-          "*://*.dataservices.mozgcp.net/*",
-          "*://*.download-stats.mozilla.org/*",
-          "*://*.download-stats.r53-2.services.mozilla.com/*",
-          "*://*.normandy.cdn.mozilla.net/*",
-          "*://*.normandy.nonprod.cloudops.mozgcp.net/*",
-          "*://*.normandy.prod.cloudops.mozgcp.net/*",
-          "*://*.normandy.services.mozilla.com/*",
-          "*://*.normandy-cdn.services.mozilla.com/*",
-          "*://*.normandy-devtools.services.mozilla.com/*",
-          "*://*.sentry.nonprod.cloudops.mozgcp.net/*",
-          "*://*.sentry.prod.cloudops.mozgcp.net/*",
-          "*://*.telemetry-coverage.mozilla.org/*",
-          "*://*.coverage.mozilla.org/*",
-          "*://*.telemetry-coverage.r53-2.services.mozilla.com/*",
-          "*://*.telemetry-data.r53-2.services.mozilla.com/*",
-          "*://*.telemetry-incoming.r53-2.services.mozilla.com/*",
-          "*://*.merino.nonprod.cloudops.mozgcp.net/*",
-          "*://*.merino.prod.cloudops.mozgcp.net/*",
-          "*://*.merino.services.mozilla.com/*",
-          "*://*.autoconnect.stage.mozaws.net/*",
-          "*://*.autopush.prod.mozaws.net/*",
-          "*://*.autopush.stage.mozaws.net/*",
-          "*://*.push.services.mozilla.com/*",
-          "*://*.survey.mozilla.com/*",
-          "*://*.qsurvey.mozilla.com/*",
-          "*://*.fakespot.com/*",
-          "*://*.fakespot.io/*",
-          "*://*.getpocket.cdn.mozilla.net/*",
-          "*://*.getpocket.com/*",
-          "*://*.getpocket-cdn.prod.mozaws.net/*",
-          "*://*.img-getpocket.cdn.mozilla.net/*",
-          "*://*.mozilla-ohttp-fakespot.fastly-edge.com/*",
-          "*://*.pocket.prod.cloudops.mozgcp.net/*",
-          "*://*.pocket-image-cache.com/*",
-          "*://*.spocs.mozilla.net/*",
-          "*://*.getpocket.dev/*",
-          "*://*.google-analytics.com/*",
-          "*://*.googlesyndication.com/*",
-          "*://*.googletagmanager.com/*",
-          "*://*.analytics.google.com/*",
-          "*://*.googletagmanager.com/*",
-          "*://*.googletagservices.com/*",
-          "*://*.braze.com/*",
-          "*://*.sentry.io/*",
-          "*://*.omappapi.com/*",
-          "*://*.250analytics.com/*",
-          "*://*.discovery.addons.mozilla.org/*",
-          "*://*.discovery.addons.allizom.org/*",
-          "*://*.discovery.addons-dev.allizom.org/*",
-          "*://*.services.addons.mozilla.org/api/*/discovery/*",
-          "*://*.detectportal.firefox.com/*",
-          "*://*.detectportal.prod.cloudops.mozgcp.net/*",
-          "*://*.dap-09-3.api.divviup.org/*",
-          "*://*.dap.services.mozilla.com/*",
-          "*://*.dap.nonprod.webservices.mozgcp.net/*",
-          "*://*.dap.prod.webservices.mozgcp.net/*"
-        ]
+      "Autoplay": {
+        "Default": "block-audio-video",
+        "Locked": false
       },
-      "SupportMenu": {
-        "Title": "Phoenix Issue Tracker",
-        "URL": "https://codeberg.org/Magnesium1062/Phoenix/issues"
+      "Camera": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Microphone": {
+        "BlockNewRequests": true,
+        "Locked": false
       }
+    },
+    "PopupBlocking": {
+      "Default": true,
+      "Locked": false
+    },
+    "PostQuantumKeyAgreementEnabled": true,
+    "Preferences": {
+      "browser.contentblocking.category": {
+        "Value": "strict",
+        "Status": "locked"
+      },
+      "app.update.auto": {
+        "Value": true,
+        "Status": "default"
+      }
+    },
+    "PromptForDownloadLocation": true,
+    "Proxy": {
+      "UseProxyForDNS": true
+    },
+    "RequestedLocales": [
+      "en-US"
+    ],
+    "SanitizeOnShutdown": {
+      "Cache": true,
+      "Sessions": true,
+      "Locked": true,
+      "Cookies": true,
+      "History": true,
+      "OfflineApps": true
+    },
+    "SearchSuggestEnabled": false,
+    "StartDownloadsInTempDirectory": true,
+    "SupportMenu": {
+      "Title": "Phoenix Issue Tracker",
+      "URL": "https://codeberg.org/Magnesium1062/Phoenix/issues"
+    },
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "SkipOnboarding": true,
+      "UrlbarInterventions": false,
+      "MoreFromMozilla": false,
+      "Locked": true
+    },
+    "WebsiteFilter": {
+      "Block": [
+        "*://*.telemetry.mozilla.org/*",
+        "*://*.ads.prod.webservices.mozgcp.net/*",
+        "*://*.ads.nonprod.webservices.mozgcp.net/*",
+        "*://*.anonymco.com/*",
+        "*://*.contile.services.mozilla.com/*",
+        "*://*.contile-images.services.mozilla.com/*",
+        "*://*.getpocket.com/*",
+        "*://*.snippets.allizom.org/*",
+        "*://*.snippets.cdn.mozilla.net/*",
+        "*://*.snippets.mozilla.com/*",
+        "*://*.snippets-prod.moz.works/*",
+        "*://*.snippets-prod.oregon-b.moz.works/*",
+        "*://*.snippets-prod.frankfurt.moz.works/*",
+        "*://*.snippets-stage.moz.works/*",
+        "*://*.snippets-stage.oregon-b.moz.works/*",
+        "*://*.crash-reports.allizom.org/*",
+        "*://*.crash-reports.mozilla.com/*",
+        "*://*.crash-reports-xpsp2.mozilla.com/*",
+        "*://*.crash-stacks.mozilla.com/*",
+        "*://*.crash-stats.allizom.org/*",
+        "*://*.crash-stats.mozilla.org/*",
+        "*://*.crash-stats.mozilla.com/*",
+        "*://*.socorro.prod.webservices.mozgcp.net/*",
+        "*://*.socorro-collector.services.mozilla.com/*",
+        "*://*.socorro-webapp-allizom.stage.mozaws.net/*",
+        "*://*.socorro-webapp.services.mozilla.com/*",
+        "*://*.talkback.mozilla.org/*",
+        "*://*.talkback-public.mozilla.org/*",
+        "*://*.talkback-reports.mozilla.org/*",
+        "*://*.data.mozilla.com/*",
+        "*://*.dataops.mozgcp.net/*",
+        "*://*.dataservices.mozgcp.net/*",
+        "*://*.download-stats.mozilla.org/*",
+        "*://*.download-stats.r53-2.services.mozilla.com/*",
+        "*://*.normandy.cdn.mozilla.net/*",
+        "*://*.normandy.nonprod.cloudops.mozgcp.net/*",
+        "*://*.normandy.prod.cloudops.mozgcp.net/*",
+        "*://*.normandy.services.mozilla.com/*",
+        "*://*.normandy-cdn.services.mozilla.com/*",
+        "*://*.normandy-devtools.services.mozilla.com/*",
+        "*://*.sentry.nonprod.cloudops.mozgcp.net/*",
+        "*://*.sentry.prod.cloudops.mozgcp.net/*",
+        "*://*.telemetry-coverage.mozilla.org/*",
+        "*://*.coverage.mozilla.org/*",
+        "*://*.telemetry-coverage.r53-2.services.mozilla.com/*",
+        "*://*.telemetry-data.r53-2.services.mozilla.com/*",
+        "*://*.telemetry-incoming.r53-2.services.mozilla.com/*",
+        "*://*.merino.nonprod.cloudops.mozgcp.net/*",
+        "*://*.merino.prod.cloudops.mozgcp.net/*",
+        "*://*.merino.services.mozilla.com/*",
+        "*://*.autoconnect.stage.mozaws.net/*",
+        "*://*.autopush.prod.mozaws.net/*",
+        "*://*.autopush.stage.mozaws.net/*",
+        "*://*.push.services.mozilla.com/*",
+        "*://*.survey.mozilla.com/*",
+        "*://*.qsurvey.mozilla.com/*",
+        "*://*.fakespot.com/*",
+        "*://*.fakespot.io/*",
+        "*://*.getpocket.cdn.mozilla.net/*",
+        "*://*.getpocket.com/*",
+        "*://*.getpocket-cdn.prod.mozaws.net/*",
+        "*://*.img-getpocket.cdn.mozilla.net/*",
+        "*://*.mozilla-ohttp-fakespot.fastly-edge.com/*",
+        "*://*.pocket.prod.cloudops.mozgcp.net/*",
+        "*://*.pocket-image-cache.com/*",
+        "*://*.spocs.mozilla.net/*",
+        "*://*.getpocket.dev/*",
+        "*://*.google-analytics.com/*",
+        "*://*.googlesyndication.com/*",
+        "*://*.googletagmanager.com/*",
+        "*://*.analytics.google.com/*",
+        "*://*.googletagmanager.com/*",
+        "*://*.googletagservices.com/*",
+        "*://*.braze.com/*",
+        "*://*.sentry.io/*",
+        "*://*.omappapi.com/*",
+        "*://*.250analytics.com/*",
+        "*://*.discovery.addons.mozilla.org/*",
+        "*://*.discovery.addons.allizom.org/*",
+        "*://*.discovery.addons-dev.allizom.org/*",
+        "*://*.services.addons.mozilla.org/api/*/discovery/*",
+        "*://*.detectportal.firefox.com/*",
+        "*://*.detectportal.prod.cloudops.mozgcp.net/*",
+        "*://*.dap-09-3.api.divviup.org/*",
+        "*://*.dap.services.mozilla.com/*",
+        "*://*.dap.nonprod.webservices.mozgcp.net/*",
+        "*://*.dap.prod.webservices.mozgcp.net/*"
+      ]
     },
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
@@ -894,12 +905,6 @@
     "PasswordManagerEnabled": false,
     "DisableDefaultBrowserAgent": true,
     "WindowsSSO": false,
-    "Preferences": {
-      "app.update.auto": {
-        "Value": true,
-        "Status": "default"
-      }
-    },
     "AppAutoUpdate": true,
     "DisableAppUpdate": false
   }

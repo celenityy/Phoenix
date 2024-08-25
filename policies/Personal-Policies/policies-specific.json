@@ -3,21 +3,6 @@
         "AutofillAddressEnabled": false,
         "AutofillCreditCardEnabled": false,
         "DisableFirefoxScreenshots": true,
-        "SanitizeOnShutdown": {
-            "Cookies": true,
-            "History": true,
-            "OfflineApps": true
-        },
-        "Permissions": {
-            "Camera": {
-                "BlockNewRequests": true,
-                "Locked": false
-            },
-            "Microphone": {
-                "BlockNewRequests": true,
-                "Locked": false
-            }
-        },
         "ExtensionSettings": {
             "extension@tabliss.io": {
                 "installation_mode": "normal_installed",
@@ -34,6 +19,21 @@
         },
         "FirefoxHome": {
             "Highlights": false
+        },
+        "Permissions": {
+            "Camera": {
+                "BlockNewRequests": true,
+                "Locked": false
+            },
+            "Microphone": {
+                "BlockNewRequests": true,
+                "Locked": false
+            }
+        },
+        "SanitizeOnShutdown": {
+            "Cookies": true,
+            "History": true,
+            "OfflineApps": true
         }
     }
 }
