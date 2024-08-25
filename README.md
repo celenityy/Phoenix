@@ -12,13 +12,39 @@ Fedora Linux:
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
 
-macOS: (NOTE: You must have Homebrew installed)
+macOS: *(Note: You must have Homebrew installed)*
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/macos_install.sh)"`
 
+Additionally, in 4 easy steps, at the cost of breakage and a little headache, you can install our **Hardened** config for **complete** protection. Unlike our base config, Hardened is profile specific. This means that you can use our hardened profile as needed when you desire the extra protection, & revert back to base for everything else. 
+
+If possible for you, I would personally recommend primarily using the Hardened config, and setting overrides as needed (Phoenix makes this very easy to do through the `about:config`). You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat) for a list of known sites with issues & what you need to toggle to fix them.
+
+To install **Hardened**
+
+**1:** Install **Base** through the script for your platform of choice above.
+
+**2:** Download the user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command:
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js`
+
+If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command:
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
+
+**3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path**
+
+**4:** Simply move your user.js to your profile's directory! You can either drag and drop it manually, or run the following command:
+
+`mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js`
+
+Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
+
 # Features
 
-See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides. 
+See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides.
+
+You should also check out our [Comparison table](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
 # Limitations
 
