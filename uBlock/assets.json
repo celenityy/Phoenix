@@ -926,6 +926,7 @@
     "badblock": {
         "content": "filters",
         "group": "multipurpose",
+        "off": true,
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
         "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/badblock.txt",
@@ -1114,7 +1115,6 @@
     "unsafe": {
         "content": "filters",
         "group": "malware",
-        "off": true,
         "title": "⚠️ BadBlock - Unsafe",
         "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/unsafe.txt",
         "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
