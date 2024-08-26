@@ -65,13 +65,66 @@ If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-F
 
 `wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
 
-**3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path**
+**3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path.**
 
 **4:** Simply move your user.js to your profile's directory! You can either drag and drop it manually, or run the following command:
 
 `mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js`
 
 Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
+
+# Manual Mode *(Not recommended)*
+
+By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through [COPR](https://copr.fedorainfracloud.org/coprs/retold3202/Phoenix-Policies/) on Fedora & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/Magnesium1062/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
+
+However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
+
+**1:** Download our `base.cfg` file [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/base.cfg`
+
+**2:** Download `local-settings.js` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js`
+
+**3:** Download `policies.json` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json`
+
+**4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`, **Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
+
+**5:** Move `base.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
+
+`sudo mv base.cfg /usr/lib64/firefox/base.cfg`
+
+**6:** If it does not already exist, in the **root** of your installation directory, create a folder named `defaults`, and inside this new `defaults`, create another folder titled `pref`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
+
+`sudo mkdir -p /usr/lib64/firefox/defaults/pref`
+
+On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
+
+`sudo chmod 755 /usr/lib64/firefox/defaults/pref`
+
+**7:** Move `local-settings.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
+
+`sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js`
+
+**8:** In the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
+
+`sudo mkdir -p /usr/lib64/firefox/distribution`
+
+On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
+
+`sudo chmod 755 /usr/lib64/firefox/distribution`
+
+**9:** Finally, move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
+
+`sudo mv policies.json /usr/lib64/firefox/distribution/policies.json`
+
+Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates!
+
+___
+
 
 # Limitations
 
