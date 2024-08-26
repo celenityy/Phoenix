@@ -148,9 +148,6 @@
         "Proxy": {
             "UseProxyForDNS": true
         },
-        "RequestedLocales": [
-            "en-US"
-        ],
         "SanitizeOnShutdown": {
             "Cache": true,
             "Sessions": true,
