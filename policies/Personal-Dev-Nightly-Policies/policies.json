@@ -902,7 +902,10 @@
         "*://*.dap-09-3.api.divviup.org/*",
         "*://*.dap.services.mozilla.com/*",
         "*://*.dap.nonprod.webservices.mozgcp.net/*",
-        "*://*.dap.prod.webservices.mozgcp.net/*"
+        "*://*.dap.prod.webservices.mozgcp.net/*",
+        "*://*.location.services.mozilla.com/*",
+        "*://*.classify-client.prod.webservices.mozgcp.net/*",
+        "*://*.classify-client.nonprod.webservices.mozgcp.net/*"
       ]
     },
     "AutofillAddressEnabled": false,
