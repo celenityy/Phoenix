@@ -87,9 +87,15 @@ However, if this is not desirable for you & your situation, you can manually ins
 
 `wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js`
 
-**3:** Download `policies.json` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+
+If on macOS/Windows:
 
 `wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json`
+
+If on Linux:
+
+`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json`
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`, **Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
 
