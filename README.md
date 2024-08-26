@@ -4,33 +4,64 @@ Phoenix is a suite of configurations & advanced modifications for Mozilla Firefo
 
 Phoenix strives to create the best browsing experience possible, and does so through enhancing user privacy, security, and freedom. We also include various other QOL tweaks & nice-to-have features where possible.
 
+# Motivation
+
+Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent).
+
+Sadly, this time has passed. The majority of browser marketshare is now controlled by Google, an ad surveillance company. In all fairness to Google, they **do** put their customers first - it's just that their customers are the advertisers they siphon data to, not users like you and me. And this is the company behind the engine powering nearly every modern web browser in the world. Talk about a conflict of interest...
+
+Unfortunately, most ot the competition is no better - Just take a look at [Microsoft & the 800 ad companies they share your data with](https://proton.me/blog/outlook-is-microsofts-new-data-collection-service)...
+
+But it doesn't have to be this way.
+
+# Features
+
+See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides.
+
+You should also check out our [Comparison table](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
+
 # Install
 
-Phoenix offers easy to use install scripts for various platforms. All you have to do is paste the command for your platform of choice in your terminal, and you should be good to go. :)
+Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-Fedora Linux:
+### Fedora Linux:
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
 
-macOS: *(Note: You must have Homebrew installed)*
+### macOS:
+***(Note: You must have [Homebrew](https://brew.sh/) installed)***
 
 `bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/macos_install.sh)"`
 
+### Windows:
+
+Coming soon™
+
 ___
 
-Additionally, in 4 easy steps, at the cost of breakage and a little headache, you can install our **Hardened** config for **complete** protection. Unlike our base config, Hardened is profile specific. This means that you can use our hardened profile as needed when you desire the extra protection, & revert back to base for everything else. 
+# Complete Coverage
 
-If possible for you, I would personally recommend primarily using the Hardened config, and setting overrides as needed (Phoenix makes this very easy to do through the `about:config`). You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. **This is not for everyone though, and if you want a `just works` set-up with no issues or tweaking, just stick to the base config.**
+Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison).
+
+However, we make it a point to balance privacy, security, & usability. We try to avoid breakage where possible.
+
+If you're an advanced user, and would like to go the extra mile, at the cost of mild breakage & a little headache, you can install our **Hardened** config.
+
+**Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
+
+Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+
+**This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
 
 To install **Hardened**
 
 **1:** Install **Base** through the script for your platform of choice above.
 
-**2:** Download the user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command:
+**2:** Download the user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 `wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js`
 
-If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command:
+If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
 
 `wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
 
@@ -41,12 +72,6 @@ If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-F
 `mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js`
 
 Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
-
-# Features
-
-See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides.
-
-You should also check out our [Comparison table](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
 # Limitations
 
@@ -67,14 +92,6 @@ However, Phoenix:
 * By default, Phoenix clears site data on exit, due to the major privacy benefit this provides. Rather than disable this protection, I would strongly recommend users stick with it & make exceptions for sites they wish to ex. stay logged in to. However, if you truly wish to disable this sanitization, you can toggle it from `about:preferences#privacy` or set `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.offlineApps`, & `privacy.clearOnShutdown_v2.cookiesAndStorage` to `false` in your `about:config`.
 
 * Phoenix completely removes & disables all DRM technology [due to the extreme privacy, security, & freedom concerns it poses](https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next). This means that certain proprietary streaming services won't play content or will only play content at a lower quality than anticipated. I would strongly recommend avoiding these types of streaming services entirely & instead consuming content by other means... but if you do insist on using them (not recommended), I would recommend either streaming this type of content from the provider's app or a separate device.
-
-# Motivation
-
-Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent).
-
-Sadly, this time has passed. The majority of browser marketshare is now controlled by Google, an ad surveillance company. In all fairness to Google, they **do** put their customers first - it's just that their customers are the advertisers they siphon data to, not users like you and me. And this is the company behind the engine powering nearly every modern web browser in the world. Talk about a conflict of interest...
-
-But it doesn't have to be this way.
 
 # Why Mozilla Firefox?
 
