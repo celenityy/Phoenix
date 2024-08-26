@@ -30,6 +30,19 @@
                 "Locked": false
             }
         },
+        "Preferences": {
+            "intl.accept_languages": {
+                "Value": "en-US, en",
+                "Status": "locked"
+            },
+            "intl.locale.requested": {
+                "Value": "en-US",
+                "Status": "locked"
+            }
+        },
+        "RequestedLocales": [
+            "en-US"
+        ],
         "SanitizeOnShutdown": {
             "Cookies": true,
             "History": true,
