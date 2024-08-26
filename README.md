@@ -16,7 +16,7 @@ But it doesn't have to be this way.
 
 # Features
 
-See [here](https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/docs/features.md) for a non-exhaustive list of features & enhancements Phoenix provides.
+See [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Features) for a non-exhaustive list of features & enhancements Phoenix provides.
 
 You should also check out our [Comparison table](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
