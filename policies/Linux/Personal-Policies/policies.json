@@ -779,15 +779,20 @@
       "browser.contentblocking.category": {
         "Value": "strict",
         "Status": "locked"
+      },
+      "intl.accept_languages": {
+        "Value": "en-US, en",
+        "Status": "locked"
+      },
+      "intl.locale.requested": {
+        "Value": "en-US",
+        "Status": "locked"
       }
     },
     "PromptForDownloadLocation": true,
     "Proxy": {
       "UseProxyForDNS": true
     },
-    "RequestedLocales": [
-      "en-US"
-    ],
     "SanitizeOnShutdown": {
       "Cache": true,
       "Sessions": true,
@@ -906,6 +911,9 @@
     },
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
-    "DisableFirefoxScreenshots": true
+    "DisableFirefoxScreenshots": true,
+    "RequestedLocales": [
+      "en-US"
+    ]
   }
 }

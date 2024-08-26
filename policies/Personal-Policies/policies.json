@@ -780,6 +780,14 @@
         "Value": "strict",
         "Status": "locked"
       },
+      "intl.accept_languages": {
+        "Value": "en-US, en",
+        "Status": "locked"
+      },
+      "intl.locale.requested": {
+        "Value": "en-US",
+        "Status": "locked"
+      },
       "app.update.auto": {
         "Value": true,
         "Status": "default"
@@ -789,9 +797,6 @@
     "Proxy": {
       "UseProxyForDNS": true
     },
-    "RequestedLocales": [
-      "en-US"
-    ],
     "SanitizeOnShutdown": {
       "Cache": true,
       "Sessions": true,
@@ -911,6 +916,9 @@
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
     "DisableFirefoxScreenshots": true,
+    "RequestedLocales": [
+      "en-US"
+    ],
     "DisableDefaultBrowserAgent": true,
     "WindowsSSO": false,
     "AppAutoUpdate": true,
