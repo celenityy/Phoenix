@@ -698,6 +698,14 @@
         "installation_mode": "blocked",
         "blocked_install_message": "Google Tag Manager Blocker, by heubergen. Unnecessary with uBlock Origin or any content blocking extension."
       },
+      "{3968ec87-3c9f-45cd-8d9e-7f6d1f3a5093}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Glider Proctoring, by GLIDER.ai. Used for remote monitoring/test 'Proctoring'"
+      },
+      "{67ed3e87-6d34-4e72-9482-45876b90cf8d}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "GLIDER.ai Proctoring, by GLIDER.ai. Used for remote monitoring/test 'Proctoring'"
+      },
       "extension@tabliss.io": {
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi",
