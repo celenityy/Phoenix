@@ -258,7 +258,9 @@
                 "*://*.dap.prod.webservices.mozgcp.net/*",
                 "*://*.location.services.mozilla.com/*",
                 "*://*.classify-client.prod.webservices.mozgcp.net/*",
-                "*://*.classify-client.nonprod.webservices.mozgcp.net/*"
+                "*://*.classify-client.nonprod.webservices.mozgcp.net/*",
+                "*://*.fuzzing.mozilla.org/*",
+                "*://*.asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com/*"
             ]
         }
     }
