@@ -20,7 +20,7 @@ wget -nv https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/mozilla.cfg 
 echo
 
 
-echo -e "\033[32mMoving mozzila.cfg to /usr/lib64/firefox/mozilla.cfg033[0m"
+echo -e "\033[32mMoving mozzila.cfg to /usr/lib64/firefox/mozilla.cfg\033[0m"
 sudo mv -v mozilla.cfg /usr/lib64/firefox/mozilla.cfg || error_fn
 echo
 
