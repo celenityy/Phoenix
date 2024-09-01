@@ -26,7 +26,7 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Fedora Linux:
 
-`bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
+`sudo bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
 
 ### macOS:
 ***(Note: You must have [Homebrew](https://brew.sh/) installed)***
