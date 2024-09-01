@@ -43,11 +43,11 @@ wget -nv https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/defaults/pre
 echo
 
 
-echo_green_text "Making /usr/lib64/firefox/defaults/pref dirctory"
+echo_green_text "Creating /usr/lib64/firefox/defaults/pref directory"
 sudo mkdir -v -p /usr/lib64/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Changing permisions of /usr/lib64/firefox/defaults/pref to 755"
+echo_green_text "Changing permissions of /usr/lib64/firefox/defaults/pref to 755"
 sudo chmod -v 755 /usr/lib64/firefox/defaults/pref || error_fn
 echo
 
@@ -57,7 +57,7 @@ sudo mv -v local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js 
 echo
 
 
-echo_green_text "Adding Phoenix-Policies copr repository to DNF"
+echo_green_text "Adding Phoenix-Policies COPR Repo to DNF"
 sudo dnf copr enable retold3202/Phoenix-Policies || error_fn
 echo
 
