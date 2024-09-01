@@ -16,12 +16,14 @@ echo_green_text() {
 error_fn() {
 	echo
 	echo -e "\033[31mSomthing wrong! The script failed.\033[0m"
+	echo
 	exit 1
 }
 
 
 if [ $(id --user) -ne 0 ]; then
 	echo_red_text "You must run this script with sudo"
+	echo
 	exit 1
 fi
 
