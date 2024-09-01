@@ -6,12 +6,13 @@ cd /tmp
 
 error_fn() {
 		echo "\033[31mSomthing wrong! The script failed.\033[0m"
-		exit 1;
+		exit 1
 }
 
 
 if [ $(id --user) -ne 0 ]; then
-		echo -e "\033[31mYou must run this script with sudo\033[0m"
+		echo -e "\033[31mYou must run this script with sudo\033[0m\n"
+		exit 1
 fi
 
 
