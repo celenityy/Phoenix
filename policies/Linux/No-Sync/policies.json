@@ -874,7 +874,13 @@
         "*://*.dap.prod.webservices.mozgcp.net/*",
         "*://*.location.services.mozilla.com/*",
         "*://*.classify-client.prod.webservices.mozgcp.net/*",
-        "*://*.classify-client.nonprod.webservices.mozgcp.net/*"
+        "*://*.classify-client.nonprod.webservices.mozgcp.net/*",
+        "*://*.fuzzing.mozilla.org/*",
+        "*://*.asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com/*",
+        "*://*.fuzzing.mozilla.org/*",
+        "*://*.incoming-telemetry.thunderbird.net/*",
+        "*://*.pipeline-incoming-prod-elb-149169523.us-west-2.elb.amazonaws.com/*",
+        "*://*.telemetry-prod-1054754349.us-east-1.elb.amazonaws.com/*"
       ]
     },
     "DisableAccounts": true,
