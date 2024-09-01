@@ -1,17 +1,46 @@
 #! /usr/bin/env bash
 
+echo -e "\033[32mDownloading mozilla.cfg\033[0m"
 wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/mozilla.cfg
+echo
 
+
+echo -e "\033[32mMoving mozzila.cfg to /usr/lib64/firefox/mozilla.cfg033[0m"
 sudo mv mozilla.cfg /usr/lib64/firefox/mozilla.cfg
+echo
 
+
+echo -e "\033[32mDownloading local-settings.js\033[0m"
 wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/defaults/pref/local-settings.js
+echo
 
+
+echo -e "\033[32mMaking /usr/lib64/firefox/defaults/pref dirctory\033[0m"
 sudo mkdir -p /usr/lib64/firefox/defaults/pref
+echo
 
+echo -e "\033[32m Changing permisions of /usr/lib64/firefox/defaults/pref to 755\033[0m"
 sudo chmod 755 /usr/lib64/firefox/defaults/pref
+echo
 
+
+echo -e "\033[32mMoving local-settings.js to /usr/lib64/firefox/defaults/pref/local-settings.js033[0m"
 sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js
+echo
 
-sudo dnf copr enable retold3202/Phoenix-Policies && sudo dnf update --refresh && sudo dnf install phoenix-policies
 
-printf "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can grab them from here https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/configs. Just drag the user.js under the config of your choice to your profile directory, and enjoy.\n"
+echo -e "\033[32mAdding Phoenix-Policies copr repository to DNF\033[0m"
+sudo dnf copr enable retold3202/Phoenix-Policies 
+echo
+
+echo -e "\033[32mUpdating DNF cache\033[0m"
+sudo dnf update --refresh 
+echo
+
+
+echo -e "\033[32mInstalling phoenix_policies package\033[0m"
+sudo dnf install phoenix-policies
+echo
+
+
+echo -e "\033[32mAll done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can grab them from here https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/configs. Just drag the user.js under the config of your choice to your profile directory, and enjoy.\033[0m\n"
