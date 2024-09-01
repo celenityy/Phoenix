@@ -33,7 +33,7 @@ wget -nv https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/mozilla.cfg 
 echo
 
 
-echo_green_text "Moving mozzila.cfg to /usr/lib64/firefox/mozilla.cfg"
+echo_green_text "Moving mozilla.cfg to /usr/lib64/firefox/mozilla.cfg"
 sudo mv -v mozilla.cfg /usr/lib64/firefox/mozilla.cfg || error_fn
 echo
 
@@ -66,7 +66,7 @@ sudo dnf update --refresh || error_fn
 echo
 
 
-echo_green_text "Installing phoenix_policies package"
+echo_green_text "Installing phoenix-policies package"
 sudo dnf install phoenix-policies || error_fn
 echo
 
