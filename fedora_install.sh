@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 
 
+cd /tmp
+
+
 error_fn() {
 		echo "\033[31mSomthing wrong! The script failed.\033[0m"
 		exit 1;
