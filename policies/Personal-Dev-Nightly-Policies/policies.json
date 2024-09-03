@@ -13,9 +13,27 @@
               "firewallPaneMinimized": false,
               "hyperlinkAuditingDisabled": true,
               "prefetchingDisabled": true,
-              "showIconBadge": true
+              "suspendUntilListsAreLoaded": true
             }
-          }
+          },
+          "advancedSettings": [
+            [
+              "autoCommentFilterTemplate",
+              "{{url}}"
+            ],
+            [
+              "autoUpdatePeriod",
+              "1"
+            ],
+            [
+              "filterAuthorMode",
+              "true"
+            ],
+            [
+              "updateAssetBypassBrowserCache",
+              "true"
+            ]
+          ]
         }
       }
     },
