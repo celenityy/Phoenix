@@ -65,11 +65,14 @@
                 "install_sources": [
                     "https://addons.mozilla.org/*",
                     "about:addons",
-                    "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
+                    "https://agrd.io/*",
                     "https://cdn.mullvad.net/browser-extension/*",
+                    "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
+                    "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
+                    "https://github.com/gorhill/uBlock/releases/*",
                     "https://github.com/mkaply/queryamoid/releases/*",
                     "https://github.com/mullvad/browser-extension/releases/*",
-                    "https://github.com/gorhill/uBlock/releases/*",
+                    "https://github.com/violentmonkey/violentmonkey/releases/*",
                     "https://objects.githubusercontent.com/*",
                     "https://www.eff.org/files/*",
                     "https://mullvad.net/ar/download/browser/extension/*",
@@ -92,7 +95,8 @@
                     "https://mullvad.net/th/download/browser/extension/*",
                     "https://mullvad.net/tr/download/browser/extension/*",
                     "https://mullvad.net/zh-hans/download/browser/extension/*",
-                    "https://mullvad.net/zh-hant/download/browser/extension/*"
+                    "https://mullvad.net/zh-hant/download/browser/extension/*",
+                    "https://privacybadger.org/*"
                 ],
                 "allowed_types": [
                     "extension",
