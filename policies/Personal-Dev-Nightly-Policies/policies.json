@@ -824,6 +824,7 @@
       "OfflineApps": true
     },
     "SearchSuggestEnabled": false,
+    "SSLVersionMin": "tls1.2",
     "StartDownloadsInTempDirectory": true,
     "SupportMenu": {
       "Title": "Phoenix Issue Tracker",
