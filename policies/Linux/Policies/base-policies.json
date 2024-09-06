@@ -69,7 +69,12 @@
                     "https://cdn.mullvad.net/browser-extension/*",
                     "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
                     "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
+                    "https://github.com/ajayyy/SponsorBlock/releases/*",
+                    "https://github.com/anticensority/runet-censorship-bypass/releases/*",
+                    "https://github.com/darkreader/darkreader/releases/*",
+                    "https://github.com/FastForwardTeam/FastForward/releases/*",
                     "https://github.com/gorhill/uBlock/releases/*",
+                    "https://github.com/gorhill/uMatrix/releases/*",
                     "https://github.com/mkaply/queryamoid/releases/*",
                     "https://github.com/mullvad/browser-extension/releases/*",
                     "https://github.com/violentmonkey/violentmonkey/releases/*",
@@ -96,6 +101,7 @@
                     "https://mullvad.net/tr/download/browser/extension/*",
                     "https://mullvad.net/zh-hans/download/browser/extension/*",
                     "https://mullvad.net/zh-hant/download/browser/extension/*",
+                    "https://noscript.net/*",
                     "https://privacybadger.org/*"
                 ],
                 "allowed_types": [

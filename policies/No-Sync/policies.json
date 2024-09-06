@@ -69,7 +69,12 @@
           "https://cdn.mullvad.net/browser-extension/*",
           "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
+          "https://github.com/ajayyy/SponsorBlock/releases/*",
+          "https://github.com/anticensority/runet-censorship-bypass/releases/*",
+          "https://github.com/darkreader/darkreader/releases/*",
+          "https://github.com/FastForwardTeam/FastForward/releases/*",
           "https://github.com/gorhill/uBlock/releases/*",
+          "https://github.com/gorhill/uMatrix/releases/*",
           "https://github.com/mkaply/queryamoid/releases/*",
           "https://github.com/mullvad/browser-extension/releases/*",
           "https://github.com/violentmonkey/violentmonkey/releases/*",
@@ -96,6 +101,7 @@
           "https://mullvad.net/tr/download/browser/extension/*",
           "https://mullvad.net/zh-hans/download/browser/extension/*",
           "https://mullvad.net/zh-hant/download/browser/extension/*",
+          "https://noscript.net/*",
           "https://privacybadger.org/*"
         ],
         "allowed_types": [
@@ -727,6 +733,30 @@
       "{67ed3e87-6d34-4e72-9482-45876b90cf8d}": {
         "installation_mode": "blocked",
         "blocked_install_message": "GLIDER.ai Proctoring, by GLIDER.ai. Used for remote monitoring/test 'Proctoring'"
+      },
+      "webrootsecure@webroot.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Web Threat Shield, by Webroot. Seen this force install itself on various PCs. Also unnecessary with Google Safe Browsing & uBlock Origin, avoid."
+      },
+      "{abbf120b-a853-4fbd-a139-7e7dcc2d3e86}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Scam WebRoot Activation theme"
+      },
+      "{eefb374b-ea77-47a1-bb1b-bd5758569056}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Scam WebRoot Activation theme"
+      },
+      "{f637a841-f7e3-4055-a189-6951a9d4fc4f}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Scam WebRoot Activation theme"
+      },
+      "{b9ddfa6d-fb38-47a6-8cf2-8d1044540a1f}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Scam WebRoot Activation theme"
+      },
+      "{94cadb67-daa0-4761-b6b5-171e5d61da2e}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "SingleFile Auto-Save, by gildas. Very concerning from a privacy perspective."
       }
     },
     "ExtensionUpdate": true,
