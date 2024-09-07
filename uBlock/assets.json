@@ -1034,7 +1034,6 @@
     "multiproplus": {
         "content": "filters",
         "group": "multipurpose",
-        "off": true,
         "title": "📙 HaGeZi - Multi PRO++",
         "tags": "ads privacy security",
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.txt",
@@ -1074,6 +1073,14 @@
         "contentURL": "https://big.oisd.nl/",
         "supportURL": "https://oisd.nl/report"
     },
+    "sproutannoyances": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "⚙️ Dandelion Sprout's Annoyances List",
+        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList",
+        "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
+    },
     "sproutmalware": {
         "content": "filters",
         "group": "malware",
@@ -1097,11 +1104,12 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
-    "threatintelips": {
+    "threatintelmed": {
         "content": "filters",
         "group": "malware",
-        "title": "🔐 HaGeZi's Threat Intelligence Feeds - IPs",
-        "contentURL": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif-ips.txt",
+        "off": true,
+        "title": "🔐 HaGeZi's Threat Intelligence Feeds - Medium",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.medium.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "tlds": {
