@@ -16,9 +16,9 @@ But it doesn't have to be this way.
 
 # Features
 
-See [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Features) for a non-exhaustive list of features & enhancements Phoenix provides.
+See [here](https://codeberg.org/celenity/Phoenix/wiki/Features) for a non-exhaustive list of features & enhancements Phoenix provides.
 
-You should also check out our [Comparison table](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
+You should also check out our [Comparison table](https://codeberg.org/celenity/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
 # Install
 
@@ -26,12 +26,12 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Fedora Linux:
 
-`sudo bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/fedora_install.sh)"`
+`sudo bash -c "$(curl -fsSL https://codeberg.org/celenity/Phoenix/raw/branch/main/fedora_install.sh)"`
 
 ### macOS:
 ***(Note: You must have [Homebrew](https://brew.sh/) installed)***
 
-`bash -c "$(curl -fsSL https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/macos_install.sh)"`
+`bash -c "$(curl -fsSL https://codeberg.org/celenity/Phoenix/raw/branch/main/macos_install.sh)"`
 
 ### Windows:
 
@@ -41,7 +41,7 @@ ___
 
 # Complete Coverage
 
-Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://codeberg.org/Magnesium1062/Phoenix/wiki/Comparison).
+Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://codeberg.org/celenity/Phoenix/wiki/Comparison).
 
 However, we make it a point to balance privacy, security, & usability. We try to avoid breakage where possible.
 
@@ -49,7 +49,7 @@ If you're an advanced user, and would like to go the extra mile, at the cost of 
 
 **Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
 
-Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://codeberg.org/Magnesium1062/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
 
 **This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
 
@@ -57,13 +57,13 @@ To install **Hardened**
 
 **1:** Install **Base** through the script for your platform of choice above.
 
-**2:** Download the user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download the user.js file from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/user.js`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/user.js`
 
-If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
+If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
 
 **3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path.**
 
@@ -75,27 +75,27 @@ Congratulations, you're done. Similar to the rest of the Phoenix project, your p
 
 # Manual Mode *(Not recommended)*
 
-By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through [COPR](https://copr.fedorainfracloud.org/coprs/retold3202/Phoenix-Policies/) on Fedora & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/Magnesium1062/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
+By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through [COPR](https://copr.fedorainfracloud.org/coprs/retold3202/Phoenix-Policies/) on Fedora & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
 
 However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
 
-**1:** Download our `base.cfg` file [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**1:** Download our `base.cfg` file [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/base.cfg`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/base.cfg`
 
-**2:** Download `local-settings.js` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `local-settings.js` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js`
 
-**3:** Download `policies.json` from [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 If on macOS/Windows:
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Policies/policies.json`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Policies/policies.json`
 
 If on Linux:
 
-`wget https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json`
+`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json`
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`, **Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
 

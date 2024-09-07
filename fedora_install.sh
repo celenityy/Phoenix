@@ -29,7 +29,7 @@ fi
 
 
 echo_green_text "Downloading mozilla.cfg"
-wget -nv https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/mozilla.cfg || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/main/mozilla.cfg || error_fn
 echo
 
 
@@ -39,7 +39,7 @@ echo
 
 
 echo_green_text "Downloading local-settings.js"
-wget -nv https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/defaults/pref/local-settings.js || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/main/defaults/pref/local-settings.js || error_fn
 echo
 
 
@@ -71,4 +71,4 @@ sudo dnf install phoenix-policies || error_fn
 echo
 
 
-echo_gree_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can grab them from here https://codeberg.org/Magnesium1062/Phoenix/src/branch/main/configs. Just drag the user.js under the config of your choice to your profile directory, and enjoy.\n"
+echo_gree_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can grab them from here https://codeberg.org/celenity/Phoenix/src/branch/main/configs. Just drag the user.js under the config of your choice to your profile directory, and enjoy.\n"

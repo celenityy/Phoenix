@@ -1,1 +1,1 @@
-user_pref("autoadmin.global_config_url", "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/configs/Discord/Firefox-UI-Fix/discord.cfg");
+user_pref("autoadmin.global_config_url", "https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Discord/Firefox-UI-Fix/discord.cfg");

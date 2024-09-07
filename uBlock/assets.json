@@ -3,7 +3,7 @@
         "content": "internal",
         "updateAfter": 13,
         "contentURL": [
-            "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/uBlock/assets.json"
+            "https://codeberg.org/celenity/Phoenix/raw/branch/main/uBlock/assets.json"
         ]
     },
     "public_suffix_list.dat": {
@@ -920,8 +920,8 @@
         "off": true,
         "title": "⚡️ BadBlock Lite",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/badblock_lite.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/main/abp/badblock_lite.txt",
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
     },
     "badblock": {
         "content": "filters",
@@ -929,8 +929,8 @@
         "off": true,
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/badblock.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/main/abp/badblock.txt",
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
     },
     "badblockplus": {
         "content": "filters",
@@ -938,8 +938,8 @@
         "off": true,
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/badblock_plus.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/main/abp/badblock_plus.txt",
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
     },
     "badhost": {
         "content": "filters",
@@ -986,8 +986,8 @@
         "group": "annoyances",
         "title": "🔒 DRM Blocklist",
         "off": true,
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/drm.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/main/abp/drm.txt",
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
     },
     "dyndns": {
         "content": "filters",
@@ -1124,7 +1124,7 @@
         "content": "filters",
         "group": "malware",
         "title": "⚠️ BadBlock - Unsafe",
-        "contentURL": "https://codeberg.org/Magnesium1062/BadBlock/raw/branch/main/abp/unsafe.txt",
-        "supportURL": "https://codeberg.org/Magnesium1062/BadBlock/issues"
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/main/abp/unsafe.txt",
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
     }
 }

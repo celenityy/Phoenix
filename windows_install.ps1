@@ -1,5 +1,5 @@
-$mozillaCfgUrl = "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/mozilla.cfg"
-$localSettingsJsUrl = "https://codeberg.org/Magnesium1062/Phoenix/raw/branch/main/defaults/pref/local-settings.js"
+$mozillaCfgUrl = "https://codeberg.org/celenity/Phoenix/raw/branch/main/mozilla.cfg"
+$localSettingsJsUrl = "https://codeberg.org/celenity/Phoenix/raw/branch/main/defaults/pref/local-settings.js"
 $mozillaCfgPath = "C:\Program Files\Mozilla Firefox\mozilla.cfg"
 $localSettingsJsPath = "C:\Program Files\Mozilla Firefox\defaults\pref\local-settings.js"
 
