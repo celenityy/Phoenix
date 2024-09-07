@@ -15,7 +15,7 @@ echo_green_text() {
 
 error_fn() {
 	echo
-	echo -e "\033[31mSomthing wrong! The script failed.\033[0m"
+	echo -e "\033[31mSomething went wrong! The script failed.\033[0m"
 	echo
 	exit 1
 }
