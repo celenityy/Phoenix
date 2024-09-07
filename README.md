@@ -1,3 +1,5 @@
+# ⚠️ **IMPORTANT UPDATE** - SEE [HERE](https://codeberg.org/celenity/Phoenix/issues/2)
+
 # Phoenix
 
 Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.
