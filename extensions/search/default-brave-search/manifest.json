@@ -6,7 +6,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "bravesearch@celenity.dev",
-            "update_url": "https://phoenix.celenity.dev/extensions/update.json"
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
         }
     },
     "homepage_url": "https://codeberg.org/celenity/Phoenix",
