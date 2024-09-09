@@ -1,1 +1,1 @@
-user_pref("autoadmin.global_config_url", "https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Dev/Firefox-UI-Fix/dev.cfg");
+user_pref("autoadmin.global_config_url", "https://phoenix.celenity.dev/configs/Dev/Firefox-UI-Fix/dev.cfg");

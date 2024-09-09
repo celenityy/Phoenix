@@ -1,1 +1,1 @@
-user_pref("autoadmin.global_config_url", "https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/hardened.cfg");
+user_pref("autoadmin.global_config_url", "https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/hardened.cfg");

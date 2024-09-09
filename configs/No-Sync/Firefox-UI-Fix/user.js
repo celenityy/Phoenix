@@ -1,1 +1,1 @@
-user_pref("autoadmin.global_config_url", "https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/No-Sync/Firefox-UI-Fix/no-sync.cfg");
+user_pref("autoadmin.global_config_url", "https://phoenix.celenity.dev/configs/No-Sync/Firefox-UI-Fix/no-sync.cfg");
