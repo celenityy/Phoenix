@@ -6,6 +6,11 @@
                     "version": "0.0.1",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-0.0.1.xpi",
                     "update_hash": "sha512:efe0b6aa799d20df2bd3baa17a5a6c84b3e6b7435611aa888ff7e79c106989195af6fb1ed6e0a227ef60e47360bbb1f6d90bc9e371fd3b9973b6fa674fd823aa"
+                },
+                {
+                    "version": "0.2.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-0.2.1.xpi",
+                    "update_hash": "sha512:c0ab31090f4ccda3554ddcd7ea04e4c7503ffebe9bb69eca51fca94f4d43a69a4b32c2686378a65832c6ede219b29b6a9ef371b835e21cc7f43b12e3807508dc"
                 }
             ]
         }
