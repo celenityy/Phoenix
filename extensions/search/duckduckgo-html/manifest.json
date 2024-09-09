@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "DuckDuckGo HTML",
+    "description": "Basic extension to add DuckDuckGo HTML as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "duckduckgo-html@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "DuckDuckGo (HTML)",
+            "search_url": "https://html.duckduckgo.com/html/?q={searchTerms}",
+            "keyword": "@ddgh",
+            "favicon_url": "/favicon.ico",
+            "is_default": false
+        }
+    }
+}
