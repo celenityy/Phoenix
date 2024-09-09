@@ -4,7 +4,7 @@
       "Extensions": {
         "uBlock0@raymondhill.net": {
           "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/main/uBlock/assets.json",
+            "assetsBootstrapLocation": "http://phoenix.celenity.dev/uBlock/assets.json",
             "userSettings": {
               "advancedUserEnabled": true,
               "autoUpdate": true,
@@ -869,7 +869,7 @@
     "StartDownloadsInTempDirectory": true,
     "SupportMenu": {
       "Title": "Phoenix Issue Tracker",
-      "URL": "https://codeberg.org/celenity/Phoenix/issues"
+      "URL": "https://phoenix.celenity.dev/issues"
     },
     "UserMessaging": {
       "ExtensionRecommendations": false,

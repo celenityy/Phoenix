@@ -193,7 +193,7 @@
         "StartDownloadsInTempDirectory": true,
         "SupportMenu": {
             "Title": "Phoenix Issue Tracker",
-            "URL": "https://codeberg.org/celenity/Phoenix/issues"
+            "URL": "https://phoenix.celenity.dev/issues"
         },
         "UserMessaging": {
             "ExtensionRecommendations": false,
