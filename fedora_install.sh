@@ -29,7 +29,7 @@ fi
 
 
 echo_green_text "Downloading mozilla.cfg"
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/main/mozilla.cfg || error_fn
+wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
 echo
 
 
@@ -39,7 +39,7 @@ echo
 
 
 echo_green_text "Downloading local-settings.js"
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/main/defaults/pref/local-settings.js || error_fn
+wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_fn
 echo
 
 

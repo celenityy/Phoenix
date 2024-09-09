@@ -59,6 +59,11 @@
             "Enabled": false,
             "Locked": true
         },
+        "Extensions": {
+            "Install": [
+                "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-latest.xpi"
+            ]
+        },
         "ExtensionSettings": {
             "*": {
                 "blocked_install_message": "I am Iron Man.",
@@ -67,6 +72,7 @@
                     "about:addons",
                     "https://agrd.io/*",
                     "https://cdn.mullvad.net/browser-extension/*",
+                    "https://codeberg.org/celenity/Phoenix/*",
                     "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
                     "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
                     "https://github.com/ajayyy/SponsorBlock/releases/*",
@@ -102,6 +108,7 @@
                     "https://mullvad.net/zh-hans/download/browser/extension/*",
                     "https://mullvad.net/zh-hant/download/browser/extension/*",
                     "https://noscript.net/*",
+                    "https://phoenix.celenity.dev/extensions/xpi/*",
                     "https://privacybadger.org/*"
                 ],
                 "allowed_types": [

@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-wget https://codeberg.org/celenity/Phoenix/raw/branch/main/mozilla.cfg
+wget https://phoenix.celenity.dev/mozilla.cfg
 
 sudo mv mozilla.cfg /Applications/Firefox.app/Contents/Resources/mozilla.cfg
 
-wget https://codeberg.org/celenity/Phoenix/raw/branch/main/defaults/pref/local-settings.js
+wget https://phoenix.celenity.dev/defaults/pref/local-settings.js
 
 sudo mkdir -p /Applications/Firefox.app/Contents/Resources/defaults/pref
 

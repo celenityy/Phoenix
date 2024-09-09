@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-wget https://codeberg.org/celenity/Phoenix/raw/branch/main/mozilla.cfg
+wget https://phoenix.celenity.dev/mozilla.cfg
 
 sudo mv mozilla.cfg /Applications/Firefox.app/Contents/Resources/mozilla.cfg
 
