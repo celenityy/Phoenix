@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Brave Search",
     "description": "Basic extension to add & set Brave as the browser's default search engine",
-    "version": "0.1",
+    "version": "0.2.1",
     "browser_specific_settings": {
         "gecko": {
             "id": "bravesearch@celenity.dev",
@@ -11,13 +11,13 @@
     },
     "homepage_url": "https://codeberg.org/celenity/Phoenix",
     "icons": {
-        "48": "imager/icon.ico"
+        "48": "imager/icon.png"
     },
     "chrome_settings_overrides": {
         "search_provider": {
             "name": "Brave",
             "search_url": "https://search.brave.com/search?q={searchTerms}",
-            "keyword": "brave",
+            "keyword": "@brave",
             "favicon_url": "/imager/favicon.png",
             "is_default": true
         }
