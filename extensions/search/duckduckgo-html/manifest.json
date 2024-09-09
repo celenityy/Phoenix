@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "DuckDuckGo HTML",
     "description": "Basic extension to add DuckDuckGo HTML as a search engine",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "browser_specific_settings": {
         "gecko": {
             "id": "duckduckgo-html@celenity.dev",
@@ -18,7 +18,7 @@
             "name": "DuckDuckGo (HTML)",
             "search_url": "https://html.duckduckgo.com/html/?q={searchTerms}",
             "keyword": "@ddgh",
-            "favicon_url": "/favicon.ico",
+            "favicon_url": "/imager/favicon.ico",
             "is_default": false
         }
     }
