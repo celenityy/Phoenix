@@ -1,10 +1,12 @@
-"addons": {
-    "bravesearch@celenity.dev": {
-        "updates": [
-            {
-                "version": "0.1.1",
-                "update_link": "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-0.1.1.xpi"
-            }
-        ]
+{
+    "addons": {
+        "bravesearch@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.1.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-0.1.1.xpi"
+                }
+            ]
+        }
     }
 }
