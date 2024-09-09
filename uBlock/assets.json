@@ -3,7 +3,7 @@
         "content": "internal",
         "updateAfter": 13,
         "contentURL": [
-            "https://codeberg.org/celenity/Phoenix/raw/branch/main/uBlock/assets.json"
+            "https://phoenix.celenity.dev/uBlock/assets.json"
         ]
     },
     "public_suffix_list.dat": {
@@ -921,7 +921,8 @@
         "title": "⚡️ BadBlock Lite",
         "tags": "ads privacy security",
         "contentURL": "https://badblock.celenity.dev/abp/badblock_lite.txt",
-        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock"
     },
     "badblock": {
         "content": "filters",
@@ -930,7 +931,8 @@
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
         "contentURL": "https://badblock.celenity.dev/abp/badblock.txt",
-        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock"
     },
     "badblockplus": {
         "content": "filters",
@@ -939,7 +941,8 @@
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
         "contentURL": "https://badblock.celenity.dev/abp/badblock_plus.txt",
-        "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
+        "supportURL": "https://codeberg.org/celenity/BadBlock/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock"
     },
     "badhost": {
         "content": "filters",
