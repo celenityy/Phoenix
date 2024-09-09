@@ -4,7 +4,7 @@
             "Extensions": {
                 "uBlock0@raymondhill.net": {
                     "adminSettings": {
-                        "assetsBootstrapLocation": "http://phoenix.celenity.dev/uBlock/assets.json",
+                        "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json",
                         "userSettings": {
                             "advancedUserEnabled": true,
                             "autoUpdate": true,
