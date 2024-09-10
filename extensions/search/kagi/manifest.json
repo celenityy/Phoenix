@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Kagi",
+    "description": "Basic extension to add Kagi as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "kagi@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "Kagi",
+            "search_url": "https://kagi.com/search?q={searchTerms}",
+            "keyword": "@kagi",
+            "favicon_url": "/imager/favicon.ico",
+            "is_default": false
+        }
+    }
+}

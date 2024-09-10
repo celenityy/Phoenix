@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Mullvad Leta (Google)",
+    "description": "Basic extension to add Mullvad Leta (with Google's index) as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "leta-google@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "Mullvad Leta (Google)",
+            "search_url": "https://leta.mullvad.net/?q={searchTerms}&engine=google",
+            "keyword": "@letag",
+            "favicon_url": "/imager/favicon.ico",
+            "is_default": false
+        }
+    }
+}

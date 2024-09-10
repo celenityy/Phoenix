@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Startpage",
+    "description": "Basic extension to add Startpage as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "startpage@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "Startpage",
+            "search_url": "https://www.startpage.com/sp/search?query={searchTerms}",
+            "keyword": "@sp",
+            "favicon_url": "/imager/favicon.ico",
+            "is_default": false
+        }
+    }
+}

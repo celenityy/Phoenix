@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "DuckDuckGo Lite",
+    "description": "Basic extension to add DuckDuckGo Lite as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "duckduckgo-lite@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "DuckDuckGo (Lite)",
+            "search_url": "https://lite.duckduckgo.com/lite/?q={searchTerms}",
+            "keyword": "@ddgl",
+            "favicon_url": "/imager/favicon.ico",
+            "is_default": false
+        }
+    }
+}

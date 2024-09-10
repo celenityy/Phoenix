@@ -13,6 +13,105 @@
                     "update_hash": "sha512:c0ab31090f4ccda3554ddcd7ea04e4c7503ffebe9bb69eca51fca94f4d43a69a4b32c2686378a65832c6ede219b29b6a9ef371b835e21cc7f43b12e3807508dc"
                 }
             ]
+        },
+        "duckduckgo-html@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.2",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/duckduckgo-html-0.0.2.xpi",
+                    "update_hash": "sha512:c1c5f0ebad5071716a138edf09b4f4ba9b051b2e93cf52ec54977fa5f0bff0ec75249aff127cfd43e6af28882872ce8c91706cae0d2b98b130fb8e1846801176"
+                }
+            ]
+        },
+        "duckduckgo-lite@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/duckduckgo-lite-0.0.1.xpi",
+                    "update_hash": "sha512:b4d269353183240067bcfe377f9655499958600a76e69b1d68312852aa0573e5bd66dcefd431703a7dc14ae8b0718912c291aa92e33cd4a4b6a03d473dd3b396"
+                }
+            ]
+        },
+        "ecosia@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/ecosia-0.0.1.xpi",
+                    "update_hash": "sha512:e84a5d44b95955aa3d659a281cb26be2e03524d56fd7575fccf911177c1ea212ff5a54e9bc563b53654c058d957e042b850aaf5a5aed69d42c73aac6b542da9c"
+                }
+            ]
+        },
+        "kagi@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/kagi-0.0.1.xpi",
+                    "update_hash": "sha512:7607d586d67d18460f70b33fb3ce5b4cfb12a67876caa93f5347050586bdc8253c9fbfbb53d97d95d37599eb149a9cef831cca07a8ef3c8261548973771c79f5"
+                }
+            ]
+        },
+        "kagi-html@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/kagi-html-0.0.1.xpi",
+                    "update_hash": "sha512:96eaa4b42a94234c3c51f782cf0781cae87f155cdd3d1bea8fc0ab364fd6a3885825128c0a197a3f6569d269b363bb235c493438739af330bf41888a8f9058bf"
+                }
+            ]
+        },
+        "mojeek@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/mojeek-0.0.1.xpi",
+                    "update_hash": "sha512:e134aa9f95ff56699443282c2a4a7534bbc9a31acf24987b422521fbddccfefc9ebea6feed26fdc5722901da16d7f317d74dcbf5b7fa291e67f6e8ca16b384e0"
+                }
+            ]
+        },
+        "leta-brave@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/leta-brave-0.0.1.xpi",
+                    "update_hash": "sha512:5ada68d7dff65f2fb92d476c1e21799899010d0bfeab713204b60ce6f37ea85b72f5a8157b164b9ae00f5430c37be74f81cb85ffdd6525efc26585aac13ce5ee"
+                }
+            ]
+        },
+        "leta-google@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/leta-google-0.0.1.xpi",
+                    "update_hash": "sha512:9a68a834f490c5d8233b2118bdec91d3f637b66bdecbe007157c5b30d2b0bf6aa706f4d89faac89506d8343f44be9d5bf47720001538838a18350db4473b3c05"
+                }
+            ]
+        },
+        "no-search@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/no-search-0.0.1.xpi",
+                    "update_hash": "sha512:7712d1d2bde7d71981a4f4ba2c317c7e3486456362c1066fe54b28667cca3d231cb99eb08bc7c5c28f226853c648b3a69a558ca09c48f51d4aa30b6fc19cfb4a"
+                }
+            ]
+        },
+        "qwant@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/qwant-0.0.1.xpi",
+                    "update_hash": "sha512:219cd32c8edc863eb4f4e445a6ba04b0f404967c1aefc323503e8a8a336887f2c2a770c7b9af5adecdde4e98abe258ee9b3a3ccc996db1d978b8a8df3e56ab8a"
+                }
+            ]
+        },
+        "startpage@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/startpage-0.0.1.xpi",
+                    "update_hash": "sha512:5cc0929db2fb493688df101e2a89ccbbb67feadbc748cc9bf0c57ea8a012b275d3e062ae432e13e32b5dec085040889400e320e9a635739d0491cd60b67b0f7a"
+                }
+            ]
         }
     }
 }

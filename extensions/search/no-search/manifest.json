@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "No Search",
+    "description": "Basic extension to add a placeholder search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "no-search@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "No Search",
+            "search_url": "https://nosearch.invalid/{searchTerms}",
+            "keyword": "@nosearch",
+            "is_default": false
+        }
+    }
+}

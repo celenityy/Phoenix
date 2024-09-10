@@ -61,7 +61,18 @@
     },
     "Extensions": {
       "Install": [
-        "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-latest.xpi"
+        "https://phoenix.celenity.dev/extensions/xpi/default-brave-search-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/duckduckgo-html-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/duckduckgo-lite-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/ecosia-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/kagi-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/kagi-html-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/mojeek-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/leta-brave-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/leta-google-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/no-search-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/qwant-latest.xpi",
+        "https://phoenix.celenity.dev/extensions/xpi/startpage-latest.xpi"
       ]
     },
     "ExtensionSettings": {

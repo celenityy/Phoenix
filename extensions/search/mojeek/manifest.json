@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Mojeek",
+    "description": "Basic extension to add Mojeek as a search engine",
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "mojeek@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
+        }
+    },
+    "homepage_url": "https://codeberg.org/celenity/Phoenix",
+    "icons": {
+        "48": "imager/icon.png"
+    },
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "name": "Mojeek",
+            "search_url": "https://www.mojeek.com/search?q={searchTerms}",
+            "keyword": "@mojeek",
+            "favicon_url": "/imager/favicon.png",
+            "is_default": false
+        }
+    }
+}
