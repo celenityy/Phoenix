@@ -31,6 +31,18 @@
             }
         },
         "Preferences": {
+            "browser.region.local-geocoding": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.search.geoip.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.search.region": {
+                "Value": "US",
+                "Status": "locked"
+            },
             "intl.accept_languages": {
                 "Value": "en-US, en",
                 "Status": "locked"
