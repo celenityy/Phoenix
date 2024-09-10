@@ -28,12 +28,12 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Fedora Linux:
 
-`sudo bash -c "$(curl -fsSL https://codeberg.org/celenity/Phoenix/raw/branch/main/fedora_install.sh)"`
+`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"`
 
 ### macOS:
 ***(Note: You must have [Homebrew](https://brew.sh/) installed)***
 
-`bash -c "$(curl -fsSL https://codeberg.org/celenity/Phoenix/raw/branch/main/macos_install.sh)"`
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"`
 
 ### Windows:
 
