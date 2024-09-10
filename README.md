@@ -59,13 +59,13 @@ To install **Hardened**
 
 **1:** Install **Base** through the script for your platform of choice above.
 
-**2:** Download the user.js file from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download the user.js file from [here](https://phoenix.celenity.dev/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/user.js`
+`wget https://phoenix.celenity.dev/configs/Hardened/user.js`
 
-If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
+If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/configs/Hardened/Firefox-UI-Fix/user.js`
+`wget https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js`
 
 **3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path.**
 
@@ -81,23 +81,23 @@ By default, Phoenix leverages Mozilla's [Centralized Management](https://support
 
 However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
 
-**1:** Download our `base.cfg` file [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**1:** Download our `base.cfg` file [here](https://phoenix.celenity.dev/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/base.cfg`
+`wget https://phoenix.celenity.dev/base.cfg`
 
-**2:** Download `local-settings.js` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `local-settings.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/manual/defaults/pref/local-settings.js`
+`wget https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js`
 
-**3:** Download `policies.json` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://phoenix.celenity.dev/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 If on macOS/Windows:
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Policies/policies.json`
+`wget https://phoenix.celenity.dev/policies/Policies/policies.json`
 
 If on Linux:
 
-`wget https://codeberg.org/celenity/Phoenix/raw/branch/main/policies/Linux/Policies/policies.json`
+`wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json`
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`, **Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
 
