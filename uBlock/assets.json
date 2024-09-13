@@ -1019,6 +1019,21 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
+    "fmhybasic": {
+        "content": "filters",
+        "group": "malware",
+        "title": "FMHY Unsafe sites filterlist - Basic",
+        "off": true,
+        "contentURL": "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt",
+        "supportURL": "https://github.com/fmhy/FMHYFilterlist/issues"
+    },
+    "fmhyplus": {
+        "content": "filters",
+        "group": "malware",
+        "title": "FMHY Unsafe sites filterlist - Plus",
+        "contentURL": "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist.txt",
+        "supportURL": "https://github.com/fmhy/FMHYFilterlist/issues"
+    },
     "multilight": {
         "content": "filters",
         "group": "multipurpose",
@@ -1141,5 +1156,29 @@
         "title": "⚠️ BadBlock - Unsafe",
         "contentURL": "https://badblock.celenity.dev/abp/unsafe.txt",
         "supportURL": "https://codeberg.org/celenity/BadBlock/issues"
+    },
+    "ytneuter": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "YouTube Neuter",
+        "contentURL": "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt",
+        "supportURL": "https://github.com/mchangrh/yt-neuter/issues"
+    },
+    "ytneutersb": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "YouTube Neuter - SponsorBlock Supplement",
+        "contentURL": "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/sponsorblock.txt",
+        "supportURL": "https://github.com/mchangrh/yt-neuter/issues"
+    },
+    "ytshorts": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "YouTube Anti-Shorts",
+        "contentURL": "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/yt-shorts.txt",
+        "supportURL": "https://github.com/brave/adblock-lists/issues"
     }
 }
