@@ -80,7 +80,6 @@
         "blocked_install_message": "I am Iron Man.",
         "install_sources": [
           "https://addons.mozilla.org/*",
-          "about:addons",
           "https://agrd.io/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://codeberg.org/celenity/Phoenix/*",
@@ -94,6 +93,8 @@
           "https://github.com/gorhill/uMatrix/releases/*",
           "https://github.com/mkaply/queryamoid/releases/*",
           "https://github.com/mullvad/browser-extension/releases/*",
+          "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/*",
+          "https://github.com/uBlockOrigin/uBOL-home/releases/*",
           "https://github.com/violentmonkey/violentmonkey/releases/*",
           "https://objects.githubusercontent.com/*",
           "https://www.eff.org/files/*",
@@ -170,7 +171,7 @@
       },
       "jid1-dwtFBkQjb3SIQp@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Adblock Lite, appears dead."
+        "blocked_install_message": "AdBlocker Lite, appears dead."
       },
       "jid1-BoFifL9Vbdl2zQ@jetpack": {
         "installation_mode": "blocked",
@@ -230,7 +231,11 @@
       },
       "{2f182d41-fd03-4a6d-938d-081419586c37}": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Google Analytics Opt-out, Unnecessary with content blocking."
+        "blocked_install_message": "Google Analytics Opt-out, by emano waldeck. Unnecessary with content blocking."
+      },
+      "{9363e9cd-be75-42fb-b787-3b0103e2acc7}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Analytics Opt-Out, by Vishwas. Unnecessary with content blocking."
       },
       "jid1-16aeif9OQIRKxA@jetpack": {
         "installation_mode": "blocked",
@@ -330,7 +335,7 @@
       },
       "qwant-search-firefox@qwant.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Qwant - The search engine, by Qwant. Unnecessary, just set in either about:preferences#search or from the Omnibox."
+        "blocked_install_message": "Qwant - Search engine, by Qwant. Unnecessary, just set in either about:preferences#search or from the Omnibox."
       },
       "qwant-p1-firefox@qwant.com": {
         "installation_mode": "blocked",
@@ -446,7 +451,11 @@
       },
       "1block@example.com": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Adblock - 1Block, by 1VPN. Highly sketchy, appears to even contain advertising. Avoid & just use uBlock Origin instead."
+        "blocked_install_message": "Dead? Adblock - 1Block, by 1VPN. Highly sketchy, appears to even contain advertising. Avoid & just use uBlock Origin instead."
+      },
+      "1vpn@example.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Free VPN & Adblock - 1VPN, by 1VPN. See 1Block above. Highly sketchy, appears to even contain advertising. Avoid & just use uBlock Origin with a reputable VPN like Proton or Mullvad instead."
       },
       "https-by-default@robwu.nl": {
         "installation_mode": "blocked",
@@ -483,6 +492,10 @@
       "@contain-google-minus-youtube": {
         "installation_mode": "blocked",
         "blocked_install_message": "Google Container Minus YouTube, by yoasif. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
+      },
+      "@contain-google-minus-youtube-and-searchpages": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Google Container Minus YouTube & Search Pages, by Bernd Bestel. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
       },
       "YandexSearchExtension@io.librity": {
         "installation_mode": "blocked",
@@ -583,6 +596,14 @@
       "Ezy_Photo_Tab___Custom_Web_Search_YALalKMirg@ezyphototab.com": {
         "installation_mode": "blocked",
         "blocked_install_message": "Ezy Photo Tab & Custom Web Search, by EzyPhotoTab. Hijacks search engine to Yahoo without user consent/knowledge."
+      },
+      "Ezy_Alarm_Clock___Custom_Web_Search_aGDLGGilLT@ezyalarmclock.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ezy Alarm Clock & Custom Web Search, by Ezy Alarm Clock & Custom Web Search. Hijacks search engine to Yahoo without user consent/knowledge."
+      },
+      "Ezy_Screenshot___Custom_Web_Search_nKZANPHKLR@ezyscreenshot.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Ezy Screenshot & Custom Web Search, by Ezy Screenshot. Hijacks search engine to Yahoo without user consent/knowledge."
       },
       "{d04b0b40-3dab-4f0b-97a6-04ec3eddbfb0}": {
         "installation_mode": "blocked",
@@ -696,6 +717,10 @@
         "installation_mode": "blocked",
         "blocked_install_message": "Twitter Container, by Vishwa. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Twitter, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
       },
+      "@twitter_x_container": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Twitter/X Container, by Zachary E. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Twitter, you can do so at about:preferences#general or through the Multi-Account Containers extension instead."
+      },
       "firefox@vid.io": {
         "installation_mode": "blocked",
         "blocked_install_message": "vidIQ Vision for YouTube, by vidIQ. Sketchy."
@@ -735,6 +760,10 @@
       "viewpdf_newvers@viewpdf.org": {
         "installation_mode": "blocked",
         "blocked_install_message": "View PDF. Hijacks search engine to Yahoo without user consent/knowledge."
+      },
+      "{7313aced-ab7c-40fb-bf3a-115e91ba6c2a}": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Maps Driving Directions, by MyDirections. Hijacks search engine & new tab page, accesses browser history, very sketchy..."
       },
       "easydrivingdirections_newvers@easydrivingdirections.com": {
         "installation_mode": "blocked",
@@ -1025,7 +1054,6 @@
         "http://adometry.com/",
         "http://adrollo.com/",
         "http://mail-ads.google.com/",
-        "https://admob-creative.googleusercontent.com/",
         "https://admobapplicationnetwork.com/",
         "https://adometry.com/",
         "https://adrollo.com/",
