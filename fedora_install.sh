@@ -58,7 +58,7 @@ echo
 
 
 echo_green_text "Adding Phoenix-Policies COPR Repo to DNF"
-sudo dnf copr enable celenity/Phoenix-Policies || error_fn
+sudo dnf copr enable celenity/phoenix-policies || error_fn
 echo
 
 echo_green_text "Updating DNF cache"
