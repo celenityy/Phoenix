@@ -80,7 +80,6 @@
                 "blocked_install_message": "I am Iron Man.",
                 "install_sources": [
                     "https://addons.mozilla.org/*",
-                    "about:addons",
                     "https://agrd.io/*",
                     "https://cdn.mullvad.net/browser-extension/*",
                     "https://codeberg.org/celenity/Phoenix/*",
@@ -94,6 +93,7 @@
                     "https://github.com/gorhill/uMatrix/releases/*",
                     "https://github.com/mkaply/queryamoid/releases/*",
                     "https://github.com/mullvad/browser-extension/releases/*",
+                    "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/*",
                     "https://github.com/violentmonkey/violentmonkey/releases/*",
                     "https://objects.githubusercontent.com/*",
                     "https://www.eff.org/files/*",
