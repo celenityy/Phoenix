@@ -59,6 +59,15 @@
                 }
             ]
         },
+        "metager@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/metager-0.0.1.xpi",
+                    "update_hash": "sha512:dba2b7c9e1f7f80d5111878497e57ab8a6ea04401547a9a746674a444c88f56c7ce741bff6d3016959b058e9fdd2f2bf53ec8276a18ed678155e826d9a25e5f6"
+                }
+            ]
+        },
         "mojeek@celenity.dev": {
             "updates": [
                 {
