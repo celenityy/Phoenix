@@ -4,7 +4,9 @@
 
 Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.
 
-Phoenix strives to create the best browsing experience possible, and does so through enhancing user privacy, security, and freedom. We also include various other QOL tweaks & nice-to-have features where possible.
+Phoenix strives to create the best browsing experience possible, and does so through significantly enhancing user privacy, security, and freedom. We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
+
+**It is highly recommended for all users to read our Wiki [here](https://codeberg.org/celenity/Phoenix/wiki)
 
 # Motivation
 
@@ -28,6 +30,8 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Fedora Linux:
 
+***(Note: Flatpak is currently not supported)***
+
 `sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"`
 
 ### macOS:
@@ -37,7 +41,7 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Windows:
 
-Coming soon™
+In the future, I'd like to support Windows - however I'm currently unable to do so, primarily because of the fact that I don't use Windows, and I'm not aware of any way to package our policies through a package manager like Chocolatey without using the platform. **If anyone can help with this, or has any ideas in general, it would be very much appreciated!!**
 
 ___
 
