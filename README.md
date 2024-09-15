@@ -28,9 +28,17 @@ You should also check out our [Comparison table](https://codeberg.org/celenity/P
 
 Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-### Fedora Linux:
+**(Note: The Firefox Flatpak is currently not supported for Linux distributions)**
 
-***(Note: Flatpak is currently not supported)***
+### Arch Linux *(yay)*:
+
+`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"`
+
+### Arch Linux *(paru)*:
+
+`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"`
+
+### Fedora Linux:
 
 `sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"`
 
