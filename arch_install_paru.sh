@@ -20,14 +20,6 @@ error_fn() {
 	exit 1
 }
 
-
-if [ $(id --user) -ne 0 ]; then
-	echo_red_text "You must run this script with sudo"
-	echo
-	exit 1
-fi
-
-
 echo_green_text "Downloading mozilla.cfg"
 wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
 echo

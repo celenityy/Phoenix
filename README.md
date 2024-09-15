@@ -32,11 +32,11 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ### Arch Linux *(yay)*:
 
-`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"`
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"`
 
 ### Arch Linux *(paru)*:
 
-`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"`
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"`
 
 ### Fedora Linux:
 
