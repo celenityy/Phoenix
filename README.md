@@ -2,11 +2,11 @@
 
 # Phoenix
 
-Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.
+Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first. It is not a simple user.js like you might expect - but it is not a fork either.
 
-Phoenix strives to create the best browsing experience possible, and does so through significantly enhancing user privacy, security, and freedom. We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
+Phoenix strives to create the best browsing experience possible, and does so through significantly improving user privacy, security, and freedom. We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
 
-**It is highly recommended for all users to read our Wiki [here](https://codeberg.org/celenity/Phoenix/wiki)
+**It is highly recommended for all users to read our Wiki [here](https://codeberg.org/celenity/Phoenix/wiki)**
 
 # Motivation
 
