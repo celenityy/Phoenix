@@ -1,5 +1,3 @@
-# ⚠️ **IMPORTANT UPDATE** - SEE [HERE](https://codeberg.org/celenity/Phoenix/issues/2)
-
 # Phoenix
 
 Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first. It is not a simple user.js like you might expect - but it is not a fork either.
@@ -20,9 +18,9 @@ But it doesn't have to be this way.
 
 # Features
 
-See [here](https://codeberg.org/celenity/Phoenix/wiki/Features) for a non-exhaustive list of features & enhancements Phoenix provides.
+See [here](https://phoenix.celenity.dev/features) for a non-exhaustive list of features & enhancements Phoenix provides.
 
-You should also check out our [Comparison table](https://codeberg.org/celenity/Phoenix/wiki/Comparison), so that you can see what Phoenix offers and how it compares to similar projects in the space.
+You should also check out our [Comparison table](https://phoenix.celenity.dev/compare), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
 # Install
 
@@ -55,7 +53,7 @@ ___
 
 # Complete Coverage
 
-Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://codeberg.org/celenity/Phoenix/wiki/Comparison).
+Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://phoenix.celenity.dev/compare).
 
 However, we make it a point to balance privacy, security, & usability. We try to avoid breakage where possible.
 
@@ -63,7 +61,7 @@ If you're an advanced user, and would like to go the extra mile, at the cost of 
 
 **Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
 
-Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
 
 **This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
 
@@ -89,7 +87,7 @@ Congratulations, you're done. Similar to the rest of the Phoenix project, your p
 
 # Manual Mode *(Not recommended)*
 
-By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through [COPR](https://copr.fedorainfracloud.org/coprs/retold3202/Phoenix-Policies/) on Fedora & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
+By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
 
 However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
 
