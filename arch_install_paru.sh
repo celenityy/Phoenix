@@ -33,8 +33,8 @@ wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
 echo
 
 
-echo_green_text "Moving mozilla.cfg to /usr/lib64/firefox/mozilla.cfg"
-sudo mv -v mozilla.cfg /usr/lib64/firefox/mozilla.cfg || error_fn
+echo_green_text "Moving mozilla.cfg to /usr/lib/firefox/mozilla.cfg"
+sudo mv -v mozilla.cfg /usr/lib/firefox/mozilla.cfg || error_fn
 echo
 
 
@@ -43,17 +43,17 @@ wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_f
 echo
 
 
-echo_green_text "Creating /usr/lib64/firefox/defaults/pref directory"
-sudo mkdir -v -p /usr/lib64/firefox/defaults/pref || error_fn
+echo_green_text "Creating /usr/lib/firefox/defaults/pref directory"
+sudo mkdir -v -p /usr/lib/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Changing permissions of /usr/lib64/firefox/defaults/pref to 755"
-sudo chmod -v 755 /usr/lib64/firefox/defaults/pref || error_fn
+echo_green_text "Changing permissions of /usr/lib/firefox/defaults/pref to 755"
+sudo chmod -v 755 /usr/lib/firefox/defaults/pref || error_fn
 echo
 
 
-echo_green_text "Moving local-settings.js to /usr/lib64/firefox/defaults/pref/local-settings.js"
-sudo mv -v local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js || error_fn
+echo_green_text "Moving local-settings.js to /usr/lib/firefox/defaults/pref/local-settings.js"
+sudo mv -v local-settings.js /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
 echo
 
 

@@ -28,7 +28,7 @@ You should also check out our [Comparison table](https://codeberg.org/celenity/P
 
 Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-**(Note: The Firefox Flatpak is currently not supported for Linux distributions)**
+**(Note: The Firefox Flatpak is currently **not** supported for Linux distributions)**
 
 ### Arch Linux *(yay)*:
 
