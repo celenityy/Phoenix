@@ -6,7 +6,7 @@ Phoenix is a suite of configurations & advanced modifications for Mozilla Firefo
 
 Phoenix strives to create the best browsing experience possible, and does so through significantly improving user privacy, security, and freedom. We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
 
-**It is highly recommended for all users to read our Wiki [here](https://codeberg.org/celenity/Phoenix/wiki)**
+**It is highly recommended for all users to read our Wiki [here](https://phoenix.celenity.dev/wiki)**
 
 # Motivation
 
