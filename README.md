@@ -9,6 +9,11 @@ It is not a simple user.js like you might expect - but it is not a fork either. 
 > [!IMPORTANT]
 >**⚠️ All users are HIGHLY RECOMMENDED to check out our Wiki [here](https://phoenix.celenity.dev/wiki), especially the [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages!!**
 
+<br>
+
+> [!NOTE]
+> This project is hosted on both [Codeberg](https://codeberg.org/celenity/Phoenix) (which will be the primary & preferred place to contribute), & [GitHub](https://github.com/celenityy/Phoenix).
+
 ___
 
 # 📖 Glossary
