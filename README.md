@@ -101,7 +101,9 @@ ___
 
 ## 🪟 Windows <a name="windows"></a>
 
-In the future, I'd like to support Windows - however I'm currently unable to do so, primarily because I'm unaware of any way to package our policies without I myself having to use Windows. **If anyone can help with this, or has any ideas in general, it would be very much appreciated!!**
+See Codeberg issue [here](https://codeberg.org/celenity/Phoenix/issues/3) & GitHub issue [here](https://github.com/celenityy/Phoenix/issues/1)
+
+**HELP WANTED!!**
 
 ___
 
