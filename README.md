@@ -310,7 +310,7 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 
 - **[Quad9](https://quad9.net/)**
 	- 🪪 [Quad9 Team](https://quad9.net/about/team/)
-	- ⚖️ [Donate](https://www.quad9.net/donate/)
+	- 💸 [Donate](https://www.quad9.net/donate/)
 	- Default DNS Over HTTPS Resolver
 
 And of course...
