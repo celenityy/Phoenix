@@ -188,7 +188,7 @@ Congratulations, you're done. Similar to the rest of the Phoenix project, your p
 
 # ⚠️ Manual Mode *(Not recommended)* <a name="manual-mode-not-recommended"></a>
 
-By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. 
+By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Phoenix-Policies-macOS) on macOS. 
 
 > [!CAUTION] 
 >**This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
