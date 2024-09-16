@@ -1,14 +1,40 @@
 # Phoenix
 
-Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first. It is not a simple user.js like you might expect - but it is not a fork either.
+**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.** 
 
-Phoenix strives to create the best browsing experience possible, and does so through significantly improving user privacy, security, and freedom. We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
+It is not a simple user.js like you might expect - but it is not a fork either. It is installed on top of your standard Firefox installation.
 
-**It is highly recommended for all users to read our Wiki [here](https://phoenix.celenity.dev/wiki)**
+**Phoenix strives to create the best browsing experience possible, and does so through significantly hardening user privacy & security, and protecting user freedom.** We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
 
-# Motivation
+> [!IMPORTANT]
+>**⚠️ All users are HIGHLY RECOMMENDED to check out our Wiki [here](https://phoenix.celenity.dev/wiki), especially the [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages!!**
 
-Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent).
+___
+
+# 📖 Glossary
+
+**<details><summary>Click me</summary>**
+
+- [Phoenix](#phoenix)
+- [📖 Glossary](#-glossary)
+- [💪 Motivation ](#-motivation-)
+- [⭐ Features ](#-features-)
+- [🚀 Install ](#-install-)
+	- [🐧 GNU/Linux ](#-gnulinux-)
+	- [🍎 macOS ](#-macos-)
+	- [🪟 Windows ](#-windows-)
+- [👋 Uninstall ](#-uninstall-)
+	- [🐧 GNU/Linux ](#-gnulinux--1)
+	- [🍎 macOS: ](#-macos--1)
+- [🔥 Complete Coverage ](#-complete-coverage-)
+- [⚠️ Manual Mode *(Not recommended)* ](#️-manual-mode-not-recommended-)
+- [💜 Attribution ](#-attribution-)
+
+</details>
+
+# 💪 Motivation <a name="motivation"></a>
+
+Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent)...
 
 Sadly, this time has passed. The majority of browser marketshare is now controlled by Google, an ad surveillance company. In all fairness to Google, they **do** put their customers first - it's just that their customers are the advertisers they siphon data to, not users like you and me. And this is the company behind the engine powering nearly every modern web browser in the world. Talk about a conflict of interest...
 
@@ -16,46 +42,103 @@ Unfortunately, most ot the competition is no better - Just take a look at [Micro
 
 But it doesn't have to be this way.
 
-# Features
+# ⭐ Features <a name="features"></a>
 
 See [here](https://phoenix.celenity.dev/features) for a non-exhaustive list of features & enhancements Phoenix provides.
 
 You should also check out our [Comparison table](https://phoenix.celenity.dev/compare), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
-# Install
+# 🚀 Install <a name="install"></a>
 
 Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-**(Note: The Firefox Flatpak & Snap packages are currently **not** supported for Linux distributions)**
+## 🐧 GNU/Linux <a name="gnulinux"></a>
 
-### Arch Linux *(yay)*:
+![Gnulove](assets/Gnulove.jpg)
+
+> [!IMPORTANT] 
+> **⚠️ Firefox Flatpak & Snap packages are currently not supported.**
+
+**<details><summary>Arch</summary>** <a name="arch"></a>
+
+**yay**:
 
 `bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"`
 
-### Arch Linux *(paru)*:
+**paru**:
 
 `bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"`
 
-### Debian/Ubuntu & Derivatives:
+</details>
+
+**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian"></a>
 
 `sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"`
 
-### Fedora Linux:
+</details>
+
+**<details><summary>Fedora</summary>** <a name="fedora"></a>
 
 `sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"`
 
-### macOS:
-***(Note: You must have [Homebrew](https://brew.sh/) installed)***
-
-`bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"`
-
-### Windows:
-
-In the future, I'd like to support Windows - however I'm currently unable to do so, primarily because of the fact that I don't use Windows, and I'm not aware of any way to package our policies through a package manager like Chocolatey without using the platform. **If anyone can help with this, or has any ideas in general, it would be very much appreciated!!**
+</details>
 
 ___
 
-# Complete Coverage
+## 🍎 macOS <a name="macos"></a>
+
+> [!IMPORTANT] 
+> ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
+
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"`
+
+___
+
+## 🪟 Windows <a name="windows"></a>
+
+In the future, I'd like to support Windows - however I'm currently unable to do so, primarily because I'm unaware of any way to package our policies without I myself having to use Windows. **If anyone can help with this, or has any ideas in general, it would be very much appreciated!!**
+
+___
+
+# 👋 Uninstall <a name="uninstall"></a>
+
+If Phoenix isn't right for you - no worries! We also have easy to use uninstall scripts. Please be sure to [leave us feedback](https://phoenix.celenity.dev/issues) though so we can improve for the future!
+
+## 🐧 GNU/Linux <a name="gnulinux-1"></a>
+
+**<details><summary>Arch</summary>** <a name="arch-1"></a>
+
+**yay**:
+
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_yay.sh)"`
+
+**paru**:
+
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"`
+
+</details>
+
+**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian-1"></a>
+
+`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_uninstall.sh)"`
+
+</details>
+
+**<details><summary>Fedora</summary>** <a name="fedora-1"></a>
+
+`sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_uninstall.sh)"`
+
+</details>
+
+___
+
+## 🍎 macOS: <a name="macos-1"></a>
+
+`bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"`
+
+___
+
+# 🔥 Complete Coverage <a name="complete-coverage"></a>
 
 Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://phoenix.celenity.dev/compare).
 
@@ -63,11 +146,18 @@ However, we make it a point to balance privacy, security, & usability. We try to
 
 If you're an advanced user, and would like to go the extra mile, at the cost of mild breakage & a little headache, you can install our **Hardened** config.
 
-**Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
+> [!TIP]
+> **Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
 
-Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed *(Phoenix makes this very easy to do through the `about:config`)*. You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed 
 
-**This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
+> [!TIP] 
+> *Phoenix makes it very easy to set overrides through your `about:config`* 
+
+You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+
+> [!CAUTION] 
+> **This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
 
 To install **Hardened**
 
@@ -89,9 +179,12 @@ If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-F
 
 Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
 
-# Manual Mode *(Not recommended)*
+# ⚠️ Manual Mode *(Not recommended)* <a name="manual-mode-not-recommended"></a>
 
-By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. **This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
+By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Dove-Policies-macOS) on macOS. 
+
+> [!CAUTION] 
+>**This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
 
 However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
 
@@ -105,15 +198,23 @@ However, if this is not desirable for you & your situation, you can manually ins
 
 **3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://phoenix.celenity.dev/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
-If on macOS/Windows:
+**<details><summary>macOS/Windows</summary>**
 
 `wget https://phoenix.celenity.dev/policies/Policies/policies.json`
+</details>
 
-If on Linux:
+
+**<details><summary>GNU/Linux</summary>**
 
 `wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json`
+</details>
 
-**4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`, **Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
+<br>
+
+**4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
+
+> [!CAUTION] 
+>**Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
 
 **5:** Move `base.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
 
@@ -147,86 +248,66 @@ Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates
 
 ___
 
-
-# Limitations
-
-Phoenix can not protect against all forms of advanced fingerprinting (unique identification of you & your device). Only [Tor Browser](https://www.torproject.org/) & [Mullvad Browser](https://mullvad.net/browser) can do that. If you are a journalist, political dissident, or an individual with an otherwise extreme [threat model](https://www.privacyguides.org/en/basics/threat-modeling/), please use one of those two browsers!!!
-
-However, Phoenix:
-
-* Blocks known fingerprinters through Firefox's Strict Tracking Protection & our configuration of uBlock Origin
-
-* Enables Firefox's built-in [Fingerprinting Randomization](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting)
-
-* Additionally, our 'Hardened' configuration enables Firefox's ["Resist Fingerprinting"](https://wiki.mozilla.org/Security/Fingerprinting) functionality, which provides even stronger fingerprinting protection, at the cost of seldom breakage & inconvenience.
-
-# To Note
-
-* Phoenix enables [DNS over HTTPS](ttps://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/) without fallback & routes traffic through [Quad9](https://quad9.net/) by default, due to the major privacy & security benefits this provides. You can change providers or disable DNS over HTTPS entirely (not recommended) in `about:preferences#privacy`
-
-* By default, Phoenix clears site data on exit, due to the major privacy benefit this provides. Rather than disable this protection, I would strongly recommend users stick with it & make exceptions for sites they wish to ex. stay logged in to. However, if you truly wish to disable this sanitization, you can toggle it from `about:preferences#privacy` or set `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.offlineApps`, & `privacy.clearOnShutdown_v2.cookiesAndStorage` to `false` in your `about:config`.
-
-* Phoenix completely removes & disables all DRM technology [due to the extreme privacy, security, & freedom concerns it poses](https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next). This means that certain proprietary streaming services won't play content or will only play content at a lower quality than anticipated. I would strongly recommend avoiding these types of streaming services entirely & instead consuming content by other means... but if you do insist on using them (not recommended), I would recommend either streaming this type of content from the provider's app or a separate device.
-
-# Why Mozilla Firefox?
-
-Firefox is one of the last engines standing in the way of Google's Chromium monopoly. The browser is also free, open source, & highly customizable. **There is simply no other browser out there that allows for the level of configuration that Phoenix provides.**
-
-**Mozilla is far from perfect, but we believe Firefox is still the best browser on the market in terms of privacy & user freedom.**
-
-# Why not just fork Firefox and create your own browser like LibreWolf?
-
-**One Major reason: Security updates**. I am the only person working on this project, and I am not currently in a position to guarantee consistent & timely browser security updates. Things happen. The majority of browser forks are simply hobbyist & do not take matters like this seriously, but Phoenix is different: We put privacy & security at the forefront of everything we do. I am not willing to put my users at risk, now or ever.
-
-**The fact of the matter is that due to Firefox's strong support for customization & advanced configuration, there's next to nothing that a browser fork can offer over just sticking to it as a base.**
-
-# Attribution
+# 💜 Attribution <a name="attribution"></a>
 
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
 
-- [Arkenfox](https://github.com/arkenfox/user.js)
-	- [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
-	- [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
-<br>
+- **[Arkenfox](https://github.com/arkenfox/user.js)**
+	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
+	- ⚖️ [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
+	- Discovered various prefs - Also learned lots from their excellent research & documentation
+
 - [Betterfox](https://github.com/yokoffing/Betterfox)
-	- [yokoffing](https://github.com/yokoffing)
-	- [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
-    - [Donate](https://github.com/sponsors/yokoffing)
-<br>
+	- 🪪 [yokoffing](https://github.com/yokoffing)
+	- ⚖️ [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
+    - 💸 [Donate](https://github.com/sponsors/yokoffing)
+    - Various performance-related prefs
+
 - [Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)
-	- [Narsil](https://codeberg.org/Narsil)
-	- [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
-<br>
+	- 🪪 [Narsil](https://codeberg.org/Narsil)
+	- ⚖️ [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
+	- Certain prefs & some inspiration
+
 - [Brace](https://codeberg.org/divested/brace)
-	- [Divested Computing Group](https://divested.dev/)
-	- [GPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
-	- [Donate](https://divested.dev/pages/donate)
-<br>
+	- 🪪 [Divested Computing Group](https://divested.dev/)
+	- ⚖️ [GPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
+	- 💸 [Donate](https://divested.dev/pages/donate)
+	- Where I first learned of the idea to leverage policies & package them... + inspiration
+
 - [LibreWolf](https://librewolf.net/)
-	- [bgstack15](https://codeberg.org/bgstack15) + [fxbrit](https://codeberg.org/fxbrit) + [Malte Jürgens](https://codeberg.org/maltejur) + [ohfp](https://codeberg.org/ohfp) + [James McClain](https://codeberg.org/TheGreatMcPain) + [threadpanic](https://codeberg.org/threadpanic) + [Guillaume](https://codeberg.org/ltguillaume)
-	- [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt)
-<br>
+	- 🪪 [bgstack15](https://codeberg.org/bgstack15) + [fxbrit](https://codeberg.org/fxbrit) + [Malte Jürgens](https://codeberg.org/maltejur) + [ohfp](https://codeberg.org/ohfp) + [James McClain](https://codeberg.org/TheGreatMcPain) + [threadpanic](https://codeberg.org/threadpanic) + [Guillaume](https://codeberg.org/ltguillaume)
+	- ⚖️ [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt)
+	- Inspiration + certain preferences & policies
+
 - [firefox-config](https://codeberg.org/rusty-snake/firefox-config)
-	- [rusty-snake](https://codeberg.org/rusty-snake)
-	- [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
-<br>
+	- 🪪 [rusty-snake](https://codeberg.org/rusty-snake)
+	- ⚖️ [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
+	- Inspiration + certain preferences
+
 - [mobile-config-firefox](https://gitlab.com/postmarketOS/mobile-config-firefox)
-	- [postmarketOS](https://postmarketos.org/)
-	- [MPL-2.0](https://gitlab.com/postmarketOS/mobile-config-firefox/-/blob/master/LICENSE)
-	- [Donate](https://opencollective.com/postmarketOS)
-<br>
+	- 🪪 [postmarketOS](https://postmarketos.org/)
+	- ⚖️ [MPL-2.0](https://gitlab.com/postmarketOS/mobile-config-firefox/-/blob/master/LICENSE)
+	- 💸 [Donate](https://opencollective.com/postmarketOS)
+	- Inspiration
+
 - [uBlock Origin](https://github.com/gorhill/uBlock)
-	- [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
-	- [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
-<br>
+	- 🪪 [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
+	- ⚖️ [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
+	- Pre-installed extension - provides content blocking
+
+- [Chrome Mask](https://github.com/denschub/chrome-mask)
+	- 🪪 [Dennis Schubert](https://github.com/denschub)
+	- ⚖️ [MIT](https://raw.githubusercontent.com/denschub/chrome-mask/main/LICENSE)
+	- Pre-installed extension
+
 - [Quad9](https://quad9.net/)
-	- [Quad9 Team](https://quad9.net/about/team/)
-	- [Donate](https://www.quad9.net/donate/)
-<br>
+	- 🪪 [Quad9 Team](https://quad9.net/about/team/)
+	- ⚖️ [Donate](https://www.quad9.net/donate/)
+	- Default DNS Over HTTPS Resolver
 
 And of course...
 
 - [Firefox](https://mozilla.org/firefox)
-	- [Mozilla](https://www.mozilla.org/)
-	- [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
-	- [Donate](https://foundation.mozilla.org/donate/)
+	- 🪪 [Mozilla](https://www.mozilla.org/)
+	- ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
+	- 💸 [Donate](https://foundation.mozilla.org/donate/)
