@@ -137,13 +137,6 @@
                 "default_area": "navbar",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
-            },
-            "chrome-mask@overengineer.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/chrome-mask/latest.xpi",
-                "default_area": "navbar",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
             }
         },
         "ExtensionUpdate": true,
