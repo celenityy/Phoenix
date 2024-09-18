@@ -25,7 +25,7 @@ ___
 - [💪 Motivation ](#-motivation-)
 - [⭐ Features ](#-features-)
 - [🚀 Install ](#-install-)
-	- [🐧 GNU/Linux](#-gnulinux)
+	- [🐧 GNU/Linux](#gnu-linux)
 	- [🍎 macOS](#-macos)
 	- [🪟 Windows](#-windows)
 - [👋 Uninstall ](#-uninstall-)
