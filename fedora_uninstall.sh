@@ -1,9 +1,6 @@
 #! /usr/bin/env bash
 
 
-cd /tmp
-
-
 echo_red_text() {
 	echo -e "\033[31m$1\033[0m"
 }
