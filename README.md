@@ -25,12 +25,12 @@ ___
 - [💪 Motivation ](#-motivation-)
 - [⭐ Features ](#-features-)
 - [🚀 Install ](#-install-)
-	- [🐧 GNU/Linux ](#-gnulinux-)
-	- [🍎 macOS ](#-macos-)
-	- [🪟 Windows ](#-windows-)
+	- [🐧 GNU/Linux](#-gnulinux)
+	- [🍎 macOS](#-macos)
+	- [🪟 Windows](#-windows)
 - [👋 Uninstall ](#-uninstall-)
-	- [🐧 GNU/Linux ](#-gnulinux--1)
-	- [🍎 macOS: ](#-macos--1)
+	- [🐧 GNU/Linux](#-gnulinux-1)
+	- [🍎 macOS: ](#-macos-)
 - [🔥 Complete Coverage ](#-complete-coverage-)
 - [⚠️ Manual Mode *(Not recommended)* ](#️-manual-mode-not-recommended-)
 - [💜 Attribution ](#-attribution-)
@@ -57,7 +57,7 @@ You should also check out our [Comparison table](https://phoenix.celenity.dev/co
 
 Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-## 🐧 GNU/Linux <a name="gnulinux"></a>
+## 🐧 GNU/Linux
 
 ![Gnulove](assets/Gnulove.jpg)
 
@@ -90,7 +90,7 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ___
 
-## 🍎 macOS <a name="macos"></a>
+## 🍎 macOS
 
 > [!IMPORTANT] 
 > ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
@@ -99,7 +99,7 @@ ___
 
 ___
 
-## 🪟 Windows <a name="windows"></a>
+## 🪟 Windows
 
 See Codeberg issue [here](https://codeberg.org/celenity/Phoenix/issues/3) & GitHub issue [here](https://github.com/celenityy/Phoenix/issues/1)
 
@@ -111,7 +111,7 @@ ___
 
 If Phoenix isn't right for you - no worries! We also have easy to use uninstall scripts. Please be sure to [leave us feedback](https://phoenix.celenity.dev/issues) though so we can improve for the future!
 
-## 🐧 GNU/Linux <a name="gnulinux-1"></a>
+## 🐧 GNU/Linux
 
 **<details><summary>Arch</summary>** <a name="arch-1"></a>
 
@@ -319,3 +319,5 @@ And of course...
 	- 🪪 [Mozilla](https://www.mozilla.org/)
 	- ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
 	- 💸 [Donate](https://foundation.mozilla.org/donate/)
+
+[gnu-linux]: #-gnulinux-
