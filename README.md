@@ -32,7 +32,7 @@ ___
 	- [🐧 GNU/Linux](#gnu-linux-1)
 	- [🍎 macOS ](#macos)
 - [🔥 Complete Coverage ](#complete-coverage)
-- [📛 Manual Mode *(Not recommended)* ](manual-mode-not-recommended)
+- [📛 Manual Mode *(Not recommended)* ](#manual-mode-not-recommended)
 - [💜 Attribution ](#attribution)
 
 </details>
