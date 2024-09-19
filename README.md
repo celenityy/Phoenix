@@ -16,28 +16,28 @@ It is not a simple user.js like you might expect - but it is not a fork either. 
 
 ___
 
-# 📖 Glossary
+# 📖Glossary
 
 **<details><summary>Click me</summary>**
 
 - [Phoenix](#phoenix)
-- [📖 Glossary](#-glossary)
-- [💪 Motivation ](#-motivation-)
-- [⭐ Features ](#-features-)
-- [🚀 Install ](#-install-)
-	- [🐧 GNU/Linux](#gnu-linux)
-	- [🍎 macOS](#-macos)
-	- [🪟 Windows](#-windows)
-- [👋 Uninstall ](#-uninstall-)
-	- [🐧 GNU/Linux](#-gnulinux-1)
-	- [🍎 macOS: ](#-macos-)
-- [🔥 Complete Coverage ](#-complete-coverage-)
-- [⚠️ Manual Mode *(Not recommended)* ](#️-manual-mode-not-recommended-)
-- [💜 Attribution ](#-attribution-)
+- [📖 Glossary](#glossary)
+- [💪 Motivation ](#motivation)
+- [⭐ Features ](#features)
+- [🚀 Install ](#install)
+	- [🐧 GNU-Linux](#gnu-linux)
+	- [🍎 macOS](#macos)
+	- [🪟 Windows](#windows)
+- [👋 Uninstall ](#uninstall)
+	- [🐧 GNU/Linux](#gnu-linux-1)
+	- [🍎 macOS ](#macos)
+- [🔥 Complete Coverage ](#complete-coverage)
+- [📛 Manual Mode *(Not recommended)* ](#manual-mode-not-recommended)
+- [💜 Attribution ](#attribution)
 
 </details>
 
-# 💪 Motivation <a name="motivation"></a>
+# 💪Motivation
 
 Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent)...
 
@@ -47,17 +47,17 @@ Unfortunately, most ot the competition is no better - Just take a look at [Micro
 
 But it doesn't have to be this way.
 
-# ⭐ Features <a name="features"></a>
+# ⭐Features
 
 See [here](https://phoenix.celenity.dev/features) for a non-exhaustive list of features & enhancements Phoenix provides.
 
 You should also check out our [Comparison table](https://phoenix.celenity.dev/compare), so that you can see what Phoenix offers and how it compares to similar projects in the space.
 
-# 🚀 Install <a name="install"></a>
+# 🚀Install
 
 Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
 
-## 🐧 GNU/Linux
+## 🐧GNU-Linux
 
 ![Gnulove](assets/Gnulove.jpg)
 
@@ -90,7 +90,7 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ___
 
-## 🍎 macOS
+## 🍎macOS
 
 > [!IMPORTANT] 
 > ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
@@ -99,7 +99,7 @@ ___
 
 ___
 
-## 🪟 Windows
+## 🪟Windows
 
 See Codeberg issue [here](https://codeberg.org/celenity/Phoenix/issues/3) & GitHub issue [here](https://github.com/celenityy/Phoenix/issues/1)
 
@@ -107,11 +107,11 @@ See Codeberg issue [here](https://codeberg.org/celenity/Phoenix/issues/3) & GitH
 
 ___
 
-# 👋 Uninstall <a name="uninstall"></a>
+# 👋Uninstall
 
 If Phoenix isn't right for you - no worries! We also have easy to use uninstall scripts. Please be sure to [leave us feedback](https://phoenix.celenity.dev/issues) though so we can improve for the future!
 
-## 🐧 GNU/Linux
+## 🐧GNU-Linux
 
 **<details><summary>Arch</summary>** <a name="arch-1"></a>
 
@@ -139,13 +139,13 @@ If Phoenix isn't right for you - no worries! We also have easy to use uninstall 
 
 ___
 
-## 🍎 macOS: <a name="macos-1"></a>
+## 🍎macOS
 
 `bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"`
 
 ___
 
-# 🔥 Complete Coverage <a name="complete-coverage"></a>
+# 🔥Complete Coverage
 
 Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://phoenix.celenity.dev/compare).
 
@@ -186,7 +186,7 @@ If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-F
 
 Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
 
-# ⚠️ Manual Mode *(Not recommended)* <a name="manual-mode-not-recommended"></a>
+# 📛Manual Mode *(Not recommended)*
 
 By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/Phoenix-Policies-macOS) on macOS. 
 
@@ -255,7 +255,7 @@ Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates
 
 ___
 
-# 💜 Attribution <a name="attribution"></a>
+# 💜Attribution
 
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
 
