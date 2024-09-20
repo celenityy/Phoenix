@@ -71,15 +71,9 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"
 ```
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"
-```
 
 **paru**:
 
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"
-```
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"
 ```
@@ -91,17 +85,11 @@ bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"
 ```sh
 sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"
 ```
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"
-```
 
 </details>
 
 **<details><summary>Fedora</summary>** <a name="fedora"></a>
 
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"
-```
 ```sh
 sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"
 ```
@@ -118,7 +106,6 @@ ___
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"
 ```
-
 ___
 
 ## 🪟Windows
@@ -142,15 +129,9 @@ If Phoenix isn't right for you - no worries! We also have easy to use uninstall 
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_yay.sh)"
 ```
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_yay.sh)"
-```
 
 **paru**:
 
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"
-```
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"
 ```
@@ -162,17 +143,11 @@ bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"
 ```sh
 sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_uninstall.sh)"
 ```
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_uninstall.sh)"
-```
 
 </details>
 
 **<details><summary>Fedora</summary>** <a name="fedora-1"></a>
 
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_uninstall.sh)"
-```
 ```sh
 sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_uninstall.sh)"
 ```
@@ -183,9 +158,6 @@ ___
 
 ## 🍎macOS
 
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"
-```
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"
 ```
@@ -222,15 +194,9 @@ To install **Hardened**
 ```sh
 wget https://phoenix.celenity.dev/configs/Hardened/user.js
 ```
-```sh
-wget https://phoenix.celenity.dev/configs/Hardened/user.js
-```
 
 If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
 
-```sh
-wget https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js
-```
 ```sh
 wget https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js
 ```
@@ -239,9 +205,6 @@ wget https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js
 
 **4:** Simply move your user.js to your profile's directory! You can either drag and drop it manually, or run the following command:
 
-```sh
-mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
-```
 ```sh
 mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
@@ -262,15 +225,9 @@ However, if this is not desirable for you & your situation, you can manually ins
 ```sh
 wget https://phoenix.celenity.dev/base.cfg
 ```
-```sh
-wget https://phoenix.celenity.dev/base.cfg
-```
 
 **2:** Download `local-settings.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
-```sh
-wget https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js
-```
 ```sh
 wget https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js
 ```
@@ -282,17 +239,11 @@ wget https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js
 ```sh
 wget https://phoenix.celenity.dev/policies/Policies/policies.json
 ```
-```sh
-wget https://phoenix.celenity.dev/policies/Policies/policies.json
-```
 </details>
 
 
 **<details><summary>GNU/Linux</summary>**
 
-```sh
-wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
-```
 ```sh
 wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
 ```
@@ -310,24 +261,15 @@ wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
 ```sh
 sudo mv base.cfg /usr/lib64/firefox/base.cfg
 ```
-```sh
-sudo mv base.cfg /usr/lib64/firefox/base.cfg
-```
 
 **6:** If it does not already exist, in the **root** of your installation directory, create a folder named `defaults`, and inside this new `defaults`, create another folder titled `pref`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
 
 ```sh
 sudo mkdir -p /usr/lib64/firefox/defaults/pref
 ```
-```sh
-sudo mkdir -p /usr/lib64/firefox/defaults/pref
-```
 
 On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
 
-```sh
-sudo chmod 755 /usr/lib64/firefox/defaults/pref
-```
 ```sh
 sudo chmod 755 /usr/lib64/firefox/defaults/pref
 ```
@@ -337,15 +279,9 @@ sudo chmod 755 /usr/lib64/firefox/defaults/pref
 ```sh
 sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js
 ```
-```sh
-sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js
-```
 
 **8:** In the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
 
-```sh
-sudo mkdir -p /usr/lib64/firefox/distribution
-```
 ```sh
 sudo mkdir -p /usr/lib64/firefox/distribution
 ```
@@ -355,15 +291,9 @@ On macOS & Linux, you'll also want to ensure that the folder you created has pro
 ```sh
 sudo chmod 755 /usr/lib64/firefox/distribution
 ```
-```sh
-sudo chmod 755 /usr/lib64/firefox/distribution
-```
 
 **9:** Finally, move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
-```sh
-sudo mv policies.json /usr/lib64/firefox/distribution/policies.json
-```
 ```sh
 sudo mv policies.json /usr/lib64/firefox/distribution/policies.json
 ```
