@@ -106,6 +106,7 @@ ___
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"
 ```
+
 ___
 
 ## 🪟Windows
