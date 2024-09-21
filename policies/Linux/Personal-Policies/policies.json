@@ -821,13 +821,11 @@
     },
     "ExtensionUpdate": true,
     "FirefoxHome": {
-      "TopSites": false,
       "SponsoredTopSites": false,
       "Pocket": false,
       "SponsoredPocket": false,
       "Snippets": false,
-      "Locked": true,
-      "Highlights": false
+      "Locked": true
     },
     "FirefoxSuggest": {
       "WebSuggestions": false,
@@ -980,10 +978,6 @@
         "*://*.merino.nonprod.cloudops.mozgcp.net/*",
         "*://*.merino.prod.cloudops.mozgcp.net/*",
         "*://*.merino.services.mozilla.com/*",
-        "*://*.autoconnect.stage.mozaws.net/*",
-        "*://*.autopush.prod.mozaws.net/*",
-        "*://*.autopush.stage.mozaws.net/*",
-        "*://*.push.services.mozilla.com/*",
         "*://*.survey.mozilla.com/*",
         "*://*.qsurvey.mozilla.com/*",
         "*://*.fakespot.com/*",
