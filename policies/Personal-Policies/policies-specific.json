@@ -17,9 +17,6 @@
                 "temporarily_allow_weak_signatures": false
             }
         },
-        "FirefoxHome": {
-            "Highlights": false
-        },
         "Permissions": {
             "Camera": {
                 "BlockNewRequests": true,
