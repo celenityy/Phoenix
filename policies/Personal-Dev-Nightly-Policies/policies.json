@@ -849,7 +849,7 @@
       },
       "Notifications": {
         "BlockNewRequests": true,
-        "Locked": true
+        "Locked": false
       },
       "VirtualReality": {
         "BlockNewRequests": true,
@@ -1015,9 +1015,6 @@
         "*://*.dap.services.mozilla.com/*",
         "*://*.dap.nonprod.webservices.mozgcp.net/*",
         "*://*.dap.prod.webservices.mozgcp.net/*",
-        "*://*.location.services.mozilla.com/*",
-        "*://*.classify-client.prod.webservices.mozgcp.net/*",
-        "*://*.classify-client.nonprod.webservices.mozgcp.net/*",
         "*://*.fuzzing.mozilla.org/*",
         "*://*.asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com/*",
         "*://*.fuzzing.mozilla.org/*",
