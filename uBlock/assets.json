@@ -987,13 +987,16 @@
         "title": "Divested Combined Blocklist",
         "tags": "ads privacy security",
         "contentURL": "https://divested.dev/hosts-domains-wildcards",
+        "cdnURLs": [
+            "https://eeyo.re/hosts-domains-wildcards"
+        ],
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
     },
     "divestedfp": {
         "content": "filters",
         "group": "privacy",
         "title": "Divested Fingerprinting Blocklist",
-        "contentURL": "https://divested.dev/blocklists/Fingerprinting.ubl",
+        "contentURL": "https://codeberg.org/divested/dnsbl/raw/branch/master/Fingerprinting.ubl",
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
     },
     "drm": {
