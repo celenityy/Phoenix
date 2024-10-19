@@ -191,6 +191,7 @@
                 "Status": "locked"
             }
         },
+        "PrivateBrowsingModeAvailability": 0,
         "PromptForDownloadLocation": true,
         "Proxy": {
             "UseProxyForDNS": true
