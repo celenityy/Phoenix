@@ -46,6 +46,7 @@
         "DisableFirefoxStudies": true,
         "DisableFormHistory": true,
         "DisablePocket": true,
+        "DisablePrivateBrowsing": false,
         "DisableSystemAddonUpdate": false,
         "DisableTelemetry": true,
         "DNSOverHTTPS": {
