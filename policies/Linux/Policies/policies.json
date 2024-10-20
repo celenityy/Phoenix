@@ -37,6 +37,14 @@
         }
       }
     },
+    "Bookmarks": [
+      {
+        "Title": "about:netscape",
+        "URL": "http://home.mcom.com",
+        "Placement": "menu",
+        "Folder": "🥚"
+      }
+    ],
     "CaptivePortal": false,
     "ContentAnalysis": {
       "DefaultResult": 0,
@@ -46,6 +54,7 @@
     "DisableFirefoxStudies": true,
     "DisableFormHistory": true,
     "DisablePocket": true,
+    "DisablePrivateBrowsing": false,
     "DisableSystemAddonUpdate": false,
     "DisableTelemetry": true,
     "DNSOverHTTPS": {
@@ -859,6 +868,7 @@
         "Status": "locked"
       }
     },
+    "PrivateBrowsingModeAvailability": 0,
     "PromptForDownloadLocation": true,
     "Proxy": {
       "UseProxyForDNS": true
