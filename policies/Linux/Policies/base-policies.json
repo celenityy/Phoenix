@@ -135,7 +135,9 @@
                 ],
                 "allowed_types": [
                     "extension",
-                    "theme"
+                    "theme",
+                    "dictionary",
+                    "locale"
                 ],
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
