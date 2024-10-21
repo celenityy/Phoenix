@@ -16,16 +16,38 @@ echo_green_text() {
 error_fn() {
 	echo
 	echo -e "\033[31mSomething went wrong! The script failed.\033[0m"
-	echo
 	exit 1
 }
 
-
 if [ $(id --user) -ne 0 ]; then
 	echo_red_text "You must run this script with sudo"
-	echo
 	exit 1
 fi
+
+### Start of checking version ###
+
+Local_Fedora_Version=$(grep 'VERSION_ID=' /etc/os-release | cut -d'=' -f2)
+Supported_Versions=(39 40 41)
+
+check_version() {
+	for i in ${Supported_Versions[@]}
+	do
+		if [[ ${i} -eq ${Local_Fedora_Version} ]]; then
+			export result=0
+			break
+		else
+			export result=1
+		fi
+	done
+}
+check_version
+
+if [[ ${result} -eq 1 ]]; then
+	echo_red_text "Sorry! Your Fedora version is not supported!"
+	exit 1
+fi
+
+### End of checking version ###
 
 
 echo_green_text "Downloading mozilla.cfg"
