@@ -90,6 +90,8 @@ sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"
 
 **<details><summary>Fedora</summary>** <a name="fedora"></a>
 
+> [!NOTE]
+> Phoenix only supports 39, 40 and 41 versions of Fedora.
 ```sh
 sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"
 ```
