@@ -21,19 +21,19 @@ ___
 **<details><summary>Click me</summary>**
 
 - [Phoenix](#phoenix)
-- [📖 Glossary](#glossary)
-- [💪 Motivation ](#motivation)
-- [⭐ Features ](#features)
-- [🚀 Install ](#install)
-	- [🐧 GNU-Linux](#gnu-linux)
-	- [🍎 macOS](#macos)
-	- [🪟 Windows](#windows)
-- [👋 Uninstall ](#uninstall)
-	- [🐧 GNU/Linux](#gnu-linux-1)
-	- [🍎 macOS ](#macos)
-- [🔥 Complete Coverage ](#complete-coverage)
-- [📛 Manual Mode *(Not recommended)* ](#manual-mode-not-recommended)
-- [💜 Attribution ](#attribution)
+- [📖Glossary](#glossary)
+- [💪Motivation](#motivation)
+- [⭐Features](#features)
+- [🚀Install](#install)
+	- [🐧GNU-Linux](#gnu-linux)
+	- [🍎macOS](#macos)
+	- [🪟Windows](#windows)
+- [👋Uninstall](#uninstall)
+	- [🐧GNU-Linux](#gnu-linux-1)
+	- [🍎macOS](#macos-1)
+- [🔥Complete Coverage](#complete-coverage)
+- [📛Manual Mode *(Not recommended)*](#manual-mode-not-recommended)
+- [💜Attribution](#attribution)
 
 </details>
 
@@ -283,10 +283,16 @@ sudo chmod 755 /usr/lib64/firefox/defaults/pref
 sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js
 ```
 
-**8:** In the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
+**8:** On macOS & Windows, in the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
 
 ```sh
 sudo mkdir -p /usr/lib64/firefox/distribution
+```
+
+Linux users should **instead** create a `policies` folder inside of a `firefox` folder located in `/etc`. This will work **regardless** of your distribution, and even for Snaps.
+
+```sh
+sudo mkdir -p /etc/firefox/policies
 ```
 
 On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
@@ -295,10 +301,22 @@ On macOS & Linux, you'll also want to ensure that the folder you created has pro
 sudo chmod 755 /usr/lib64/firefox/distribution
 ```
 
-**9:** Finally, move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
+For Linux:
+
+```sh
+sudo chmod 755 /etc/firefox/policies
+```
+
+**9:** Finally, those on Windows & macOS should move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
 sudo mv policies.json /usr/lib64/firefox/distribution/policies.json
+```
+
+Linux users should **instead** move `policies.json` to their `/etc/firefox/policies` folder they just created.
+
+```sh
+sudo mv policies.json /etc/firefox/policies/policies.json
 ```
 
 Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates!
