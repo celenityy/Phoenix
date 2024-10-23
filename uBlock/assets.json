@@ -951,7 +951,6 @@
     "badhost": {
         "content": "filters",
         "group": "malware",
-        "off": true,
         "title": "💻 HaGeZi's Badware Hoster Blocklist",
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
@@ -987,9 +986,6 @@
         "title": "Divested Combined Blocklist",
         "tags": "ads privacy security",
         "contentURL": "https://divested.dev/hosts-domains-wildcards",
-        "cdnURLs": [
-            "https://eeyo.re/hosts-domains-wildcards"
-        ],
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
     },
     "divestedfp": {
