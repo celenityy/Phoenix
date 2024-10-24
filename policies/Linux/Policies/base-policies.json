@@ -148,6 +148,13 @@
                 "default_area": "navbar",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
+            },
+            "@testpilot-containers": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+                "default_area": "navbar",
+                "updates_disabled": false,
+                "temporarily_allow_weak_signatures": false
             }
         },
         "ExtensionUpdate": true,
