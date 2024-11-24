@@ -1,13 +1,14 @@
 #! /usr/bin/env bash
 
 
+## Downloaded files save in /tmp for moving
 cd /tmp
 
 
+## Functions
 echo_red_text() {
 	echo -e "\033[31m$1\033[0m"
 }
-
 
 echo_green_text() {
 	echo -e "\033[32m$1\033[0m"
@@ -20,20 +21,19 @@ error_fn() {
 	exit 1
 }
 
+
+## Install Phoenix
 echo_green_text "Downloading mozilla.cfg"
 wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
 echo
-
 
 echo_green_text "Moving mozilla.cfg to /usr/lib/firefox/mozilla.cfg"
 sudo mv -v mozilla.cfg /usr/lib/firefox/mozilla.cfg || error_fn
 echo
 
-
 echo_green_text "Downloading local-settings.js"
 wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_fn
 echo
-
 
 echo_green_text "Creating /usr/lib/firefox/defaults/pref directory"
 sudo mkdir -v -p /usr/lib/firefox/defaults/pref || error_fn
@@ -43,15 +43,12 @@ echo_green_text "Changing permissions of /usr/lib/firefox/defaults/pref to 755"
 sudo chmod -v 755 /usr/lib/firefox/defaults/pref || error_fn
 echo
 
-
 echo_green_text "Moving local-settings.js to /usr/lib/firefox/defaults/pref/local-settings.js"
 sudo mv -v local-settings.js /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
 echo
 
-
 echo_green_text "Installing phoenix-policies from the AUR"
 yay -S phoenix-policies || error_fn
 echo
-
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can learn more here https://phoenix.celenity.dev/#complete-coverage.\n"
