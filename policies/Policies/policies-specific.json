@@ -1,12 +1,13 @@
 {
     "policies": {
         "DisableDefaultBrowserAgent": true,
-        "WindowsSSO": false,
+        "MicrosoftEntraSSO": false,
         "Preferences": {
             "app.update.auto": {
                 "Value": true,
                 "Status": "default"
             }
-        }
+        },
+        "WindowsSSO": false
     }
 }
