@@ -1,16 +1,16 @@
 #!/bin/zsh
 
-wget https://phoenix.celenity.dev/mozilla.cfg
+wget https://phoenix.celenity.dev/phoenix.cfg
 
-sudo mv mozilla.cfg /Applications/Firefox.app/Contents/Resources/mozilla.cfg
+sudo mv phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg
 
-wget https://phoenix.celenity.dev/defaults/pref/local-settings.js
+wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
 
 sudo mkdir -p /Applications/Firefox.app/Contents/Resources/defaults/pref
 
-sudo chmod 755 /Applications/Firefox.app/Contents/Resources/defaults/pref
+sudo chmod 655 /Applications/Firefox.app/Contents/Resources/defaults/pref
 
-sudo mv local-settings.js /Applications/Firefox.app/Contents/Resources/defaults/pref/local-settings.js
+sudo mv phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js
 
 brew tap celenity/Phoenix-Policies-macOS https://codeberg.org/celenity/Phoenix-Policies-macOS
 

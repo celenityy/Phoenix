@@ -23,31 +23,31 @@ error_fn() {
 
 
 ## Install Phoenix
-echo_green_text "Downloading mozilla.cfg"
-wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
+echo_green_text "Downloading phoenix.cfg..."
+wget -nv https://phoenix.celenity.dev/phoenix.cfg || error_fn
 echo
 
-echo_green_text "Moving mozilla.cfg to /usr/lib/firefox/mozilla.cfg"
-sudo mv -v mozilla.cfg /usr/lib/firefox/mozilla.cfg || error_fn
+echo_green_text "Moving phoenix.cfg to /usr/lib/firefox/phoenix.cfg..."
+sudo mv -v phoenix.cfg /usr/lib/firefox/phoenix.cfg || error_fn
 echo
 
-echo_green_text "Downloading local-settings.js"
-wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_fn
+echo_green_text "Downloading phoenix.js..."
+wget -nv https://phoenix.celenity.dev/defaults/pref/phoenix.js || error_fn
 echo
 
-echo_green_text "Creating /usr/lib/firefox/defaults/pref directory"
-sudo mkdir -v -p /usr/lib/firefox/defaults/pref || error_fn
+echo_green_text "Creating /etc/firefox/defaults/pref directory..."
+sudo mkdir -v -p /etc/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Changing permissions of /usr/lib/firefox/defaults/pref to 755"
-sudo chmod -v 755 /usr/lib/firefox/defaults/pref || error_fn
+echo_green_text "Changing permissions of /etc/firefox/defaults/pref to 655..."
+sudo chmod -v 655 /etc/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Moving local-settings.js to /usr/lib/firefox/defaults/pref/local-settings.js"
-sudo mv -v local-settings.js /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
+echo_green_text "Moving phoenix.js to /etc/firefox/defaults/pref/phoenix.js..."
+sudo mv -v phoenix.js /etc/firefox/defaults/pref/phoenix.js || error_fn
 echo
 
-echo_green_text "Installing phoenix-policies from the AUR"
+echo_green_text "Installing phoenix-policies from the AUR..."
 paru -S phoenix-policies || error_fn
 echo
 

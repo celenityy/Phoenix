@@ -52,39 +52,39 @@ fi
 
 
 ## Install Phoenix
-echo_green_text "Downloading mozilla.cfg"
-wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
+echo_green_text "Downloading phoenix.cfg..."
+wget -nv https://phoenix.celenity.dev/phoenix.cfg || error_fn
 echo
 
-echo_green_text "Moving mozilla.cfg to /usr/lib64/firefox/mozilla.cfg"
-sudo mv -v mozilla.cfg /usr/lib64/firefox/mozilla.cfg || error_fn
+echo_green_text "Moving phoenix.cfg to /usr/lib64/firefox/phoenix.cfg..."
+sudo mv -v phoenix.cfg /usr/lib64/firefox/phoenix.cfg || error_fn
 echo
 
-echo_green_text "Downloading local-settings.js"
-wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_fn
+echo_green_text "Downloading phoenix.js..."
+wget -nv https://phoenix.celenity.dev/defaults/pref/phoenix.js || error_fn
 echo
 
-echo_green_text "Creating /usr/lib64/firefox/defaults/pref directory"
-sudo mkdir -v -p /usr/lib64/firefox/defaults/pref || error_fn
+echo_green_text "Creating /etc/firefox/defaults/pref directory..."
+sudo mkdir -v -p /etc/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Changing permissions of /usr/lib64/firefox/defaults/pref to 755"
-sudo chmod -v 755 /usr/lib64/firefox/defaults/pref || error_fn
+echo_green_text "Changing permissions of /etc/firefox/defaults/pref to 655..."
+sudo chmod -v 655 /etc/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Moving local-settings.js to /usr/lib64/firefox/defaults/pref/local-settings.js"
-sudo mv -v local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js || error_fn
+echo_green_text "Moving phoenix.js to /etc/firefox/defaults/pref/phoenix.js..."
+sudo mv -v phoenix.js /etc/firefox/defaults/pref/phoenix.js || error_fn
 echo
 
-echo_green_text "Adding Phoenix-Policies COPR Repo to DNF"
+echo_green_text "Adding Phoenix-Policies COPR Repo to DNF..."
 sudo dnf copr enable celenity/phoenix-policies || error_fn
 echo
 
-echo_green_text "Updating DNF cache"
+echo_green_text "Updating DNF cache..."
 sudo dnf update --refresh || error_fn
 echo
 
-echo_green_text "Installing phoenix-policies package"
+echo_green_text "Installing phoenix-policies package..."
 sudo dnf install phoenix-policies || error_fn
 echo
 

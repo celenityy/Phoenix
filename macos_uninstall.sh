@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+sudo rm -f /Applications/Firefox.app/Contents/Resources/phoenix.cfg
+
+sudo rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js
+
 sudo rm -f /Applications/Firefox.app/Contents/Resources/mozilla.cfg
 
 sudo rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/local-settings.js

@@ -28,50 +28,50 @@ if [ $(id --user) -ne 0 ]; then
 fi
 
 
-echo_green_text "Downloading mozilla.cfg"
-wget -nv https://phoenix.celenity.dev/mozilla.cfg || error_fn
+echo_green_text "Downloading phoenix.cfg..."
+wget -nv https://phoenix.celenity.dev/phoenix.cfg || error_fn
 echo
 
 
-echo_green_text "Moving mozilla.cfg to /snap/firefox/current/usr/lib/firefox/mozilla.cfg"
-sudo mv -v mozilla.cfg /snap/firefox/current/usr/lib/firefox/mozilla.cfg || error_fn
+echo_green_text "Moving phoenix.cfg to /snap/firefox/current/usr/lib/firefox/phoenix.cfg..."
+sudo mv -v phoenix.cfg /snap/firefox/current/usr/lib/firefox/phoenix.cfg || error_fn
 echo
 
 
-echo_green_text "Downloading local-settings.js"
-wget -nv https://phoenix.celenity.dev/defaults/pref/local-settings.js || error_fn
+echo_green_text "Downloading phoenix.js..."
+wget -nv https://phoenix.celenity.dev/defaults/pref/phoenix.js || error_fn
 echo
 
 
-echo_green_text "Creating /snap/firefox/current/usr/lib/firefox/defaults/pref directory"
-sudo mkdir -v -p /snap/firefox/current/usr/lib/firefox/defaults/pref || error_fn
+echo_green_text "Creating /etc/firefox/defaults/pref directory..."
+sudo mkdir -v -p /etc/firefox/defaults/pref || error_fn
 echo
 
-echo_green_text "Changing permissions of /snap/firefox/current/usr/lib/firefox/defaults/pref to 755"
-sudo chmod -v 755 /snap/firefox/current/usr/lib/firefox/defaults/pref || error_fn
-echo
-
-
-echo_green_text "Moving local-settings.js to /snap/firefox/current/usr/lib/firefox/defaults/pref/local-settings.js"
-sudo mv -v local-settings.js /snap/firefox/current/usr/lib/firefox/defaults/pref/local-settings.js || error_fn
+echo_green_text "Changing permissions of /etc/firefox/defaults/pref to 655..."
+sudo chmod -v 655 /etc/firefox/defaults/pref || error_fn
 echo
 
 
-echo_green_text "Installing the lsb-release dependency if not already installed"
+echo_green_text "Moving phoenix.js to /etc/firefox/defaults/pref/phoenix.js..."
+sudo mv -v phoenix.js /etc/firefox/defaults/pref/phoenix.js || error_fn
+echo
+
+
+echo_green_text "Installing the lsb-release dependency if not already installed..."
 sudo apt install lsb-release || error_fn
 echo
 
-echo_green_text "Adding Prebuilt MPR repo if not already installed"
+echo_green_text "Adding Prebuilt MPR repo if not already installed..."
 curl -q 'https://proget.makedeb.org/debian-feeds/prebuilt-mpr.pub' | gpg --dearmor | sudo tee /usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg 1> /dev/null
 echo "deb [signed-by=/usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg] https://proget.makedeb.org prebuilt-mpr $(lsb_release -cs)" | sudo tee /etc/apt/sources.list.d/prebuilt-mpr.list
 echo
 
-echo_green_text "Updating APT cache"
+echo_green_text "Updating APT cache..."
 sudo apt update || error_fn
 echo
 
 
-echo_green_text "Installing phoenix-policies package"
+echo_green_text "Installing phoenix-policies package..."
 sudo apt install phoenix-policies || error_fn
 echo
 

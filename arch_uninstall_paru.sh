@@ -19,15 +19,23 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Removing mozilla.cfg"
+echo_green_text "Removing phoenix.cfg..."
+sudo rm -f /usr/lib/firefox/phoenix.cfg || error_fn
+echo
+
+echo_green_text "Removing phoenix.js..."
+sudo rm -f /etc/firefox/defaults/pref/phoenix.js || error_fn
+echo
+
+echo_green_text "Removing legacy mozilla.cfg if installed..."
 sudo rm -f /usr/lib/firefox/mozilla.cfg || error_fn
 echo
 
-echo_green_text "Removing local-settings.js"
+echo_green_text "Removing legacy local-settings.js if installed..."
 sudo rm -f /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
 echo
 
-echo_green_text "Uninstalling phoenix-policies"
+echo_green_text "Uninstalling phoenix-policies..."
 paru -Rcns phoenix-policies || error_fn
 echo
 
