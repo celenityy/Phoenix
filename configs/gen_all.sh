@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp base.cfg manual/phoenix.cfg
+
 cat base.cfg configs/Firefox-UI-Fix/firefox-ui-fix-specific.cfg > configs/Firefox-UI-Fix/firefox-ui-fix.cfg
 
 cat base.cfg configs/No-Sync/no-sync-specific.cfg > configs/No-Sync/no-sync.cfg
