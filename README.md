@@ -223,16 +223,16 @@ By default, Phoenix leverages Mozilla's [Centralized Management](https://support
 
 However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
 
-**1:** Download our `base.cfg` file [here](https://phoenix.celenity.dev/base.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**1:** Download our `phoenix.cfg` file from [here](https://phoenix.celenity.dev/manual/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
 ```sh
-wget https://phoenix.celenity.dev/base.cfg
+wget https://phoenix.celenity.dev/manual/phoenix.cfg
 ```
 
-**2:** Download `local-settings.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
 ```sh
-wget https://phoenix.celenity.dev/manual/defaults/pref/local-settings.js
+wget https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js
 ```
 
 **3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://phoenix.celenity.dev/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
@@ -259,28 +259,44 @@ wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
 > [!CAUTION] 
 >**Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
 
-**5:** Move `base.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
+**5:** Move `phoenix.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
 
 ```sh
-sudo mv base.cfg /usr/lib64/firefox/base.cfg
+sudo mv phoenix.cfg /usr/lib64/firefox/phoenix.cfg
 ```
 
-**6:** If it does not already exist, in the **root** of your installation directory, create a folder named `defaults`, and inside this new `defaults`, create another folder titled `pref`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
+**6:** **For macOS & Flatpak users**: If it does not already exist, in the **root** of your installation directory, create a folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*, you could run the following command:
 
 ```sh
 sudo mkdir -p /usr/lib64/firefox/defaults/pref
 ```
 
+**For Linux users:** If it does not already exist, you will want to create a folder named `firefox` located in your system's `etc` directory. Inside this `firefox` folder, create a new folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. This will work **regardless of your distribution** - even Snaps are supported. You can also just run the command below:
+
+```sh
+sudo mkdir -p /etc/firefox/policies/firefox/defaults/pref
+```
+
 On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
 
 ```sh
-sudo chmod 755 /usr/lib64/firefox/defaults/pref
+sudo chmod 655 /usr/lib64/firefox/defaults/pref
 ```
 
-**7:** Move `local-settings.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
+**For all non-Flatpak Linux users:**
+```sh
+sudo chmod 655 /etc/firefox/defaults/pref
+```
+
+**7:** Move `phoenix.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
-sudo mv local-settings.js /usr/lib64/firefox/defaults/pref/local-settings.js
+sudo mv phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
+```
+
+**For all non-Flatpak Linux users:**
+```sh
+sudo mv phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
 
 **8:** On macOS & Windows, in the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
@@ -298,13 +314,13 @@ sudo mkdir -p /etc/firefox/policies
 On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
 
 ```sh
-sudo chmod 755 /usr/lib64/firefox/distribution
+sudo chmod 655 /usr/lib64/firefox/distribution
 ```
 
 For Linux:
 
 ```sh
-sudo chmod 755 /etc/firefox/policies
+sudo chmod 655 /etc/firefox/policies
 ```
 
 **9:** Finally, those on Windows & macOS should move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
