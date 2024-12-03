@@ -2035,6 +2035,7 @@
     "DisableFirefoxAccounts": true,
     "PasswordManagerEnabled": false,
     "DisableDefaultBrowserAgent": true,
+    "MicrosoftEntraSSO": false,
     "WindowsSSO": false,
     "AppAutoUpdate": true,
     "DisableAppUpdate": false

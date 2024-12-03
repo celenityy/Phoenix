@@ -1985,6 +1985,7 @@
     "DisableAccounts": true,
     "DisableFirefoxAccounts": true,
     "DisableDefaultBrowserAgent": true,
+    "MicrosoftEntraSSO": false,
     "WindowsSSO": false
   }
 }
