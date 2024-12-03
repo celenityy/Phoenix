@@ -3,4 +3,5 @@
 pref("general.config.sandbox_enabled", true);
 
 pref("general.config.filename", "phoenix.cfg");
+pref("general.config.vendor", "phoenix");
 pref("general.config.obscure_value", 0);
