@@ -37,6 +37,10 @@
                 }
             }
         },
+        "BlockAboutAddons": false,
+        "BlockAboutConfig": false,
+        "BlockAboutProfiles": false,
+        "BlockAboutSupport": false,
         "Bookmarks": [
             {
                 "Title": "about:netscape",
@@ -50,6 +54,7 @@
             "DefaultResult": 0,
             "Enabled": false
         },
+        "DisableDefaultBrowserAgent": true,
         "DisableEncryptedClientHello": false,
         "DisableFirefoxStudies": true,
         "DisableFormHistory": true,
@@ -57,6 +62,7 @@
         "DisablePrivateBrowsing": false,
         "DisableSystemAddonUpdate": false,
         "DisableTelemetry": true,
+        "DisplayBookmarksToolbar": "always",
         "DNSOverHTTPS": {
             "Enabled": true,
             "Locked": false,
@@ -296,8 +302,10 @@
         },
         "GoToIntranetSiteForSingleWordEntryInAddressBar": false,
         "HttpsOnlyMode": "force_enabled",
+        "MicrosoftEntraSSO": false,
         "NetworkPrediction": false,
         "NoDefaultBookmarks": true,
+        "OfferToSaveLoginsDefault": false,
         "OverrideFirstRunPage": "",
         "OverridePostUpdatePage": "",
         "PDFjs": {
@@ -449,6 +457,7 @@
                 "*://*.pipeline-incoming-prod-elb-149169523.us-west-2.elb.amazonaws.com/*",
                 "*://*.telemetry-prod-1054754349.us-east-1.elb.amazonaws.com/*"
             ]
-        }
+        },
+        "WindowsSSO": false
     }
 }
