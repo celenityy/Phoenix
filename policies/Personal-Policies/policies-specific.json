@@ -2,7 +2,6 @@
     "policies": {
         "AutofillAddressEnabled": false,
         "AutofillCreditCardEnabled": false,
-        "DisableFirefoxScreenshots": true,
         "ExtensionSettings": {
             "extension@tabliss.io": {
                 "installation_mode": "normal_installed",
