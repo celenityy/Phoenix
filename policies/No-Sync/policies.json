@@ -1,5 +1,6 @@
 {
   "policies": {
+    "PhoenixPoliciesInitialized": true,
     "3rdparty": {
       "Extensions": {
         "uBlock0@raymondhill.net": {
@@ -37,6 +38,10 @@
         }
       }
     },
+    "BlockAboutAddons": false,
+    "BlockAboutConfig": false,
+    "BlockAboutProfiles": false,
+    "BlockAboutSupport": false,
     "Bookmarks": [
       {
         "Title": "about:netscape",
@@ -48,8 +53,10 @@
     "CaptivePortal": false,
     "ContentAnalysis": {
       "DefaultResult": 0,
-      "Enabled": false
+      "Enabled": false,
+      "ShowBlockedResult": true
     },
+    "DisableDefaultBrowserAgent": true,
     "DisableEncryptedClientHello": false,
     "DisableFirefoxStudies": true,
     "DisableFormHistory": true,
@@ -57,6 +64,7 @@
     "DisablePrivateBrowsing": false,
     "DisableSystemAddonUpdate": false,
     "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": "always",
     "DNSOverHTTPS": {
       "Enabled": true,
       "Locked": false,
@@ -72,27 +80,50 @@
       "*": {
         "blocked_install_message": "I am Iron Man.",
         "install_sources": [
-          "https://addons.mozilla.org/*",
-          "https://agrd.io/*",
-          "https://archive.mozilla.org/pub/*",
+          "https://addons.mozilla.org/*/firefox/addon/*",
+          "https://addons.mozilla.org/firefox/downloads/file/*",
+          "https://agrd.io/extension_firefox_beta",
+          "https://archive.mozilla.org/pub/labs/*",
+          "https://archive.mozilla.org/pub/system-addons/*",
+          "https://archive.mozilla.org/pub/vpn/addons/candidates/*",
+          "https://archive.mozilla.org/pub/vpn/addons/releases/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://codeberg.org/celenity/Phoenix/*",
-          "https://ftp.mozilla.org/pub/*",
-          "https://gitflic.ru/project/magnolia1234/bpc_uploads/*",
+          "https://ftp.mozilla.org/pub/labs/*",
+          "https://ftp.mozilla.org/pub/system-addons/*",
+          "https://ftp.mozilla.org/pub/vpn/addons/candidates/*",
+          "https://ftp.mozilla.org/pub/vpn/addons/releases/*",
+          "https://github.com/AdguardTeam/AdguardBrowserExtension/releases",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
+          "https://github.com/AdguardTeam/AdguardBrowserExtension/releases*",
+          "https://github.com/ajayyy/SponsorBlock/releases",
           "https://github.com/ajayyy/SponsorBlock/releases/*",
+          "https://github.com/ajayyy/SponsorBlock/releases*",
+          "https://github.com/anticensority/runet-censorship-bypass/releases",
           "https://github.com/anticensority/runet-censorship-bypass/releases/*",
+          "https://github.com/anticensority/runet-censorship-bypass/releases*",
+          "https://github.com/darkreader/darkreader/releases",
           "https://github.com/darkreader/darkreader/releases/*",
+          "https://github.com/darkreader/darkreader/releases*",
+          "https://github.com/FastForwardTeam/FastForward/releases",
           "https://github.com/FastForwardTeam/FastForward/releases/*",
+          "https://github.com/FastForwardTeam/FastForward/releases*",
+          "https://github.com/gorhill/uBlock/releases",
           "https://github.com/gorhill/uBlock/releases/*",
-          "https://github.com/gorhill/uMatrix/releases/*",
+          "https://github.com/gorhill/uBlock/releases*",
+          "https://github.com/mkaply/queryamoid/releases",
           "https://github.com/mkaply/queryamoid/releases/*",
+          "https://github.com/mkaply/queryamoid/releases*",
+          "https://github.com/mullvad/browser-extension/releases",
           "https://github.com/mullvad/browser-extension/releases/*",
+          "https://github.com/mullvad/browser-extension/releases*",
+          "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases",
           "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/*",
-          "https://github.com/uBlockOrigin/uBOL-home/releases/*",
+          "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases*",
+          "https://github.com/violentmonkey/violentmonkey/releases",
           "https://github.com/violentmonkey/violentmonkey/releases/*",
-          "https://objects.githubusercontent.com/*",
-          "https://www.eff.org/files/*",
+          "https://github.com/violentmonkey/violentmonkey/releases*",
+          "https://www.eff.org/files/privacy-badger-latest.xpi",
           "https://mullvad.net/ar/download/browser/extension",
           "https://mullvad.net/da/download/browser/extension",
           "https://mullvad.net/de/download/browser/extension",
@@ -114,9 +145,19 @@
           "https://mullvad.net/tr/download/browser/extension",
           "https://mullvad.net/zh-hans/download/browser/extension",
           "https://mullvad.net/zh-hant/download/browser/extension",
-          "https://noscript.net/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/12558645/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/196117722/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/26682105/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/275181477/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/33263118/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/383372625/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/404295988/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/46041549/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/537167055/*",
           "https://phoenix.celenity.dev/extensions/xpi/*",
-          "https://privacybadger.org/*"
+          "https://privacybadger.org/*",
+          "https://static.adguard.com/extensions/adguardadblocker/beta/firefox.xpi",
+          "https://static.adtidy.org/extensions/adguardadblocker/beta/firefox.xpi"
         ],
         "allowed_types": [
           "extension",
@@ -1067,8 +1108,10 @@
     },
     "GoToIntranetSiteForSingleWordEntryInAddressBar": false,
     "HttpsOnlyMode": "force_enabled",
+    "MicrosoftEntraSSO": false,
     "NetworkPrediction": false,
     "NoDefaultBookmarks": true,
+    "OfferToSaveLoginsDefault": false,
     "OverrideFirstRunPage": "",
     "OverridePostUpdatePage": "",
     "PDFjs": {
@@ -1098,13 +1141,49 @@
     },
     "PostQuantumKeyAgreementEnabled": true,
     "Preferences": {
+      "browser.aboutwelcome.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.aboutwelcome.screens": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.aboutwelcome.showModal": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.aboutwelcome.toolbarButtonEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
       "browser.contentblocking.category": {
         "Value": "strict",
         "Status": "locked"
       },
-      "app.update.auto": {
+      "browser.EULA.override": {
         "Value": true,
-        "Status": "default"
+        "Status": "locked"
+      },
+      "browser.newtabpage.activity-stream.default.sites": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.migrate.content-modal.about-welcome-behavior": {
+        "Value": "autoclose",
+        "Status": "locked"
+      },
+      "browser.startup.homepage_override.mstone": {
+        "Value": "ignore",
+        "Status": "locked"
+      },
+      "browser.suppress_first_window_animation": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.usedOnWindows10.introURL": {
+        "Value": "",
+        "Status": "locked"
       }
     },
     "PrivateBrowsingModeAvailability": 0,
@@ -1225,6 +1304,7 @@
         "*://*.telemetry-prod-1054754349.us-east-1.elb.amazonaws.com/*"
       ]
     },
+    "WindowsSSO": false,
     "Cookies": {
       "Block": [
         "http://google-analytics.com/",
@@ -1983,9 +2063,6 @@
       ]
     },
     "DisableAccounts": true,
-    "DisableFirefoxAccounts": true,
-    "DisableDefaultBrowserAgent": true,
-    "MicrosoftEntraSSO": false,
-    "WindowsSSO": false
+    "DisableFirefoxAccounts": true
   }
 }

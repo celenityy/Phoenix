@@ -1,5 +1,6 @@
 {
     "policies": {
+        "PhoenixPoliciesInitialized": true,
         "3rdparty": {
             "Extensions": {
                 "uBlock0@raymondhill.net": {
@@ -52,7 +53,8 @@
         "CaptivePortal": false,
         "ContentAnalysis": {
             "DefaultResult": 0,
-            "Enabled": false
+            "Enabled": false,
+            "ShowBlockedResult": true
         },
         "DisableDefaultBrowserAgent": true,
         "DisableEncryptedClientHello": false,
@@ -335,8 +337,48 @@
         },
         "PostQuantumKeyAgreementEnabled": true,
         "Preferences": {
+            "browser.aboutwelcome.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.aboutwelcome.screens": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.aboutwelcome.showModal": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.aboutwelcome.toolbarButtonEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
             "browser.contentblocking.category": {
                 "Value": "strict",
+                "Status": "locked"
+            },
+            "browser.EULA.override": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "browser.newtabpage.activity-stream.default.sites": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.migrate.content-modal.about-welcome-behavior": {
+                "Value": "autoclose",
+                "Status": "locked"
+            },
+            "browser.startup.homepage_override.mstone": {
+                "Value": "ignore",
+                "Status": "locked"
+            },
+            "browser.suppress_first_window_animation": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "browser.usedOnWindows10.introURL": {
+                "Value": "",
                 "Status": "locked"
             }
         },
