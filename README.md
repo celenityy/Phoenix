@@ -235,20 +235,12 @@ wget https://phoenix.celenity.dev/manual/phoenix.cfg
 wget https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js
 ```
 
-**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://phoenix.celenity.dev/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 **<details><summary>macOS/Windows</summary>**
 
 ```sh
 wget https://phoenix.celenity.dev/policies/Policies/policies.json
-```
-</details>
-
-
-**<details><summary>GNU/Linux</summary>**
-
-```sh
-wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
 ```
 </details>
 
