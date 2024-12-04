@@ -48,7 +48,8 @@
     "CaptivePortal": false,
     "ContentAnalysis": {
       "DefaultResult": 0,
-      "Enabled": false
+      "Enabled": false,
+      "ShowBlockedResult": true
     },
     "DisableEncryptedClientHello": false,
     "DisableFirefoxStudies": true,
