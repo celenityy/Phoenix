@@ -1,6 +1,0 @@
-{
-    "policies": {
-        "AppAutoUpdate": true,
-        "DisableAppUpdate": false
-    }
-}

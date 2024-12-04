@@ -3,6 +3,12 @@
         "AutofillAddressEnabled": false,
         "AutofillCreditCardEnabled": false,
         "ExtensionSettings": {
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+                "updates_disabled": false,
+                "temporarily_allow_weak_signatures": false
+            },
             "extension@tabliss.io": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi",
@@ -26,6 +32,7 @@
                 "Locked": false
             }
         },
+        "PasswordManagerEnabled": false,
         "Preferences": {
             "browser.region.local-geocoding": {
                 "Value": false,
@@ -45,6 +52,30 @@
             },
             "intl.locale.requested": {
                 "Value": "en-US",
+                "Status": "locked"
+            },
+            "pref.privacy.disable_button.view_passwords": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "signon.generation.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "signon.management.page.breach-alerts.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "signon.management.page.breachAlertUrl": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "signon.recipes.remoteRecipes.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "signon.rememberSignons": {
+                "Value": false,
                 "Status": "locked"
             }
         },
