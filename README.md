@@ -229,7 +229,7 @@ However, if this is not desirable for you & your situation, you can manually ins
 wget https://phoenix.celenity.dev/manual/phoenix.cfg
 ```
 
-**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
 ```sh
 wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
