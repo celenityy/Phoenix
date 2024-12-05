@@ -59,41 +59,14 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ## 🐧GNU-Linux
 
-![Gnulove](assets/Gnulove.jpg)
-
 > [!IMPORTANT] 
 > **⚠️ Firefox Flatpak & Snap packages are currently not supported.**
 
-**<details><summary>Arch</summary>** <a name="arch"></a>
-
-**yay**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"
-```
-
-**paru**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"
-```
-
-</details>
-
-**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"
-```
-
-</details>
-
-**<details><summary>Fedora</summary>** <a name="fedora"></a>
-
 > [!NOTE]
 > Phoenix only supports 39, 40 and 41 versions of Fedora.
+
 ```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"
+sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
 ```
 
 </details>
@@ -106,7 +79,7 @@ ___
 > ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/installer_scripts/macos_install.sh)"
 ```
 
 ___
@@ -125,34 +98,8 @@ If Phoenix isn't right for you - no worries! We also have easy to use uninstall 
 
 ## 🐧GNU-Linux
 
-**<details><summary>Arch</summary>** <a name="arch-1"></a>
-
-**yay**:
-
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_yay.sh)"
-```
-
-**paru**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"
-```
-
-</details>
-
-**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian-1"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_uninstall.sh)"
-```
-
-</details>
-
-**<details><summary>Fedora</summary>** <a name="fedora-1"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_uninstall.sh)"
+sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
 ```
 
 </details>
@@ -162,7 +109,7 @@ ___
 ## 🍎macOS
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstaller_scripts/macos_uninstall.sh)"
 ```
 
 ___
