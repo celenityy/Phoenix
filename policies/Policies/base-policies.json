@@ -62,6 +62,7 @@
         "DisableFormHistory": true,
         "DisablePocket": true,
         "DisablePrivateBrowsing": false,
+        "DisableProfileRefresh": true,
         "DisableSystemAddonUpdate": false,
         "DisableTelemetry": true,
         "DisplayBookmarksToolbar": "always",
