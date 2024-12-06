@@ -168,7 +168,7 @@ i = 0;
 // WARNING - DO NOT PUT REGEXPs AT THE *END* OF THIS ARRAY
 var BadDomains = new Array();
 i = 0;
-BadDomains[i++] = "wikipedia.org";			// Tracker - 2010-03-12
+BadDomains[i++] = "www.wikipedia.org";		// Tracker - 2010-03-12
 
 
 // If any of the following BadURL_Parts show up anywhere in the URL
