@@ -358,6 +358,10 @@
                 "Value": "strict",
                 "Status": "locked"
             },
+            "browser.disableResetPrompt": {
+                "Value": true,
+                "Status": "locked"
+            },
             "browser.EULA.override": {
                 "Value": true,
                 "Status": "locked"
