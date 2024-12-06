@@ -59,41 +59,14 @@ Phoenix offers easy to use install scripts for various platforms. All you have t
 
 ## 🐧GNU-Linux
 
-![Gnulove](assets/Gnulove.jpg)
-
 > [!IMPORTANT] 
 > **⚠️ Firefox Flatpak & Snap packages are currently not supported.**
 
-**<details><summary>Arch</summary>** <a name="arch"></a>
-
-**yay**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_yay.sh)"
-```
-
-**paru**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_install_paru.sh)"
-```
-
-</details>
-
-**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_install.sh)"
-```
-
-</details>
-
-**<details><summary>Fedora</summary>** <a name="fedora"></a>
-
 > [!NOTE]
 > Phoenix only supports 39, 40 and 41 versions of Fedora.
+
 ```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_install.sh)"
+sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
 ```
 
 </details>
@@ -106,7 +79,7 @@ ___
 > ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_install.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/installer_scripts/macos_install.sh)"
 ```
 
 ___
@@ -125,34 +98,8 @@ If Phoenix isn't right for you - no worries! We also have easy to use uninstall 
 
 ## 🐧GNU-Linux
 
-**<details><summary>Arch</summary>** <a name="arch-1"></a>
-
-**yay**:
-
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_yay.sh)"
-```
-
-**paru**:
-
-```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/arch_uninstall_paru.sh)"
-```
-
-</details>
-
-**<details><summary>Debian/Ubuntu & Derivatives</summary>** <a name="debian-1"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/debian_uninstall.sh)"
-```
-
-</details>
-
-**<details><summary>Fedora</summary>** <a name="fedora-1"></a>
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/fedora_uninstall.sh)"
+sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
 ```
 
 </details>
@@ -162,7 +109,7 @@ ___
 ## 🍎macOS
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/macos_uninstall.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstaller_scripts/macos_uninstall.sh)"
 ```
 
 ___
@@ -229,30 +176,17 @@ However, if this is not desirable for you & your situation, you can manually ins
 wget https://phoenix.celenity.dev/manual/phoenix.cfg
 ```
 
-**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
 ```sh
-wget https://phoenix.celenity.dev/manual/defaults/pref/phoenix.js
+wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
 ```
 
-**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json) if you're on macOS/Windows, or [here](https://phoenix.celenity.dev/policies/Linux/Policies/policies.json) if you're on Linux. You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
-
-**<details><summary>macOS/Windows</summary>**
+**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
 wget https://phoenix.celenity.dev/policies/Policies/policies.json
 ```
-</details>
-
-
-**<details><summary>GNU/Linux</summary>**
-
-```sh
-wget https://phoenix.celenity.dev/policies/Linux/Policies/policies.json
-```
-</details>
-
-<br>
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
 
@@ -274,7 +208,7 @@ sudo mkdir -p /usr/lib64/firefox/defaults/pref
 **For Linux users:** If it does not already exist, you will want to create a folder named `firefox` located in your system's `etc` directory. Inside this `firefox` folder, create a new folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. This will work **regardless of your distribution** - even Snaps are supported. You can also just run the command below:
 
 ```sh
-sudo mkdir -p /etc/firefox/policies/firefox/defaults/pref
+sudo mkdir -p /etc/firefox/defaults/pref
 ```
 
 On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
@@ -317,8 +251,7 @@ On macOS & Linux, you'll also want to ensure that the folder you created has pro
 sudo chmod 655 /usr/lib64/firefox/distribution
 ```
 
-For Linux:
-
+**For all non-Flatpak Linux users:**
 ```sh
 sudo chmod 655 /etc/firefox/policies
 ```
