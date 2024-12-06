@@ -385,11 +385,42 @@
             "browser.usedOnWindows10.introURL": {
                 "Value": "",
                 "Status": "locked"
+            },
+            "network.proxy.allow_bypass": {
+                "Value": false,
+                "Status": "default"
+            },
+            "network.proxy.autoconfig_url": {
+                "Value": "https://phoenix.celenity.dev/filter.pac",
+                "Status": "default"
+            },
+            "network.proxy.failover_direct": {
+                "Value": false,
+                "Status": "default"
+            },
+            "network.proxy.share_proxy_settings": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.proxy.socks_remote_dns": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "network.proxy.socks5_remote_dns": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "network.proxy.type": {
+                "Value": 2,
+                "Status": "default"
             }
         },
         "PrivateBrowsingModeAvailability": 0,
         "PromptForDownloadLocation": true,
         "Proxy": {
+            "AutoConfigURL": "https://phoenix.celenity.dev/filter.pac",
+            "Mode": "autoConfig",
+            "UseHTTPProxyForAllProtocols": true,
             "UseProxyForDNS": true
         },
         "SanitizeOnShutdown": {
