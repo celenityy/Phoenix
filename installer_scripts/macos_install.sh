@@ -12,7 +12,7 @@ sudo chmod 655 /Applications/Firefox.app/Contents/Resources/defaults/pref
 
 sudo mv phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js
 
-brew tap celenity/Phoenix-Policies-macOS https://codeberg.org/celenity/Phoenix-Policies-macOS
+brew tap celenity/tap https://codeberg.org/celenity/tap
 
 brew update
 

@@ -18,6 +18,9 @@ sudo rm -f /Applications/Firefox.app/Contents/Resources/distribution/policies.js
 
 brew uninstall phoenix-policies
 
+brew untap celenity/tap
+
+# Ensure we remove legacy tap...
 brew untap celenity/Phoenix-Policies-macOS
 
 brew update
