@@ -17,8 +17,8 @@
 			"path": "../Phoenix-Policies-Fedora"
 		},
 		{
-			"name": "Phoenix-Policies-macOS",
-			"path": "../Phoenix-Policies-macOS"
+			"name": "tap",
+			"path": "../tap"
 		},
 		{
 			"name": "firefox",
