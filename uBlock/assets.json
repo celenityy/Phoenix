@@ -1026,6 +1026,16 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/dyndns.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
+    "ethical": {
+        "content": "filters",
+        "group": "multipurpose",
+        "off": true,
+        "title": "😇 BadBlock - Ethical Whitelist",
+        "tags": "ads privacy",
+        "contentURL": "https://badblock.celenity.dev/abp/ethical_whitelist.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/base/whitelists/ethical.txt"
+    },
     "gambling": {
         "content": "filters",
         "group": "annoyances",
