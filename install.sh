@@ -1,13 +1,14 @@
 #!/bin/bash
 
-coloroff='\e[0m';
-blue='\e[0;34m';
-cyan='\e[0;36m';
+## Colours
+blue='\e[1;34m';
+brown='\e[0;33m';
+coloroff='\e[0m'; # Colour off
+cyan='\e[1;36m';
+gray='\e[1;30m';
 green='\e[0;32m';
 purple='\e[0;35m';
-red='\e[0;31m';
-white='\e[0;37m';
-yellow='\e[0;33m';
+red='\e[1;31m';
 
 ## Download and run script
 install_phoenix() {
@@ -31,25 +32,23 @@ SCRIPT=("arch_install_paru.sh"
 		"macos_install.sh")
 
 echo -e "${purple}Welcome to the Phoenix installer!${coloroff}";
-echo -e "${red}To begin, please choose your operating system.${coloroff}";
 echo -e "";
-echo -e "${purple}Your options are:${coloroff}";
-echo -e "";
-echo -e "${cyan}arch${coloroff} - ${green}Arch Linux${coloroff}";
-echo -e "${yellow}debian${coloroff} - ${green}Debian (& Derivatives, such as Ubuntu)${coloroff}";
+echo -e "${brown}To begin, please choose your platform.${coloroff}";
+echo -e "${brown}Your options are:${coloroff}";
+echo -e "${cyan}arch${coloroff}   - ${green}Arch Linux (AUR)${coloroff}";
+echo -e "${red}debian${coloroff} - ${green}Debian GNU/Linux (& Derivatives, such as Ubuntu)${coloroff}";
 echo -e "${blue}fedora${coloroff} - ${green}Fedora Linux${coloroff}";
-echo -e "${white}macOS${coloroff} - ${green}macOS${coloroff}";
+echo -e "${gray}macOS${coloroff}  - ${green}macOS${coloroff}";
 read -p 'Enter your selection: ' DISTRO
 
 case ${DISTRO} in
 
 	"arch" | "Arch" | "ARCH")
-		echo -e "${red}Please choose your AUR helper.${coloroff}";
-		echo -e "";
-		echo -e "${purple}Your options are:${coloroff}";
-		echo -e "";
-		echo -e "${blue}paru${coloroff} - ${green}Paru${coloroff}";
-		echo -e "${yellow}yay${coloroff} - ${green}Yay (Yet Another Yogurt)${coloroff}";
+		echo -e ""
+		echo -e "${brown}Please choose your AUR helper.${coloroff}";
+		echo -e "${brown}Your options are:${coloroff}";
+		echo -e "${blue}paru${coloroff} - ${green}Pure${coloroff}";
+		echo -e "${red}yay${coloroff}  - ${green}Yay (Yet Another Yogurt)${coloroff}";
 		read -p 'Enter your selection: ' HELPER
 		case ${HELPER} in
 			"paru" | "Paru" | "PARU")
