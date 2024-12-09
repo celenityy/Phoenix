@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/env bash
 
 
 ## Downloaded files save in /tmp for moving
@@ -99,7 +99,7 @@ echo_green_text "Loading  ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.
 launchctl load ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist || error_fn
 echo
 
-echo "Setting a 'phoenix-up' alias to easily update Phoenix's policies..."
+echo_green_text "Setting a 'phoenix-up' alias to easily update Phoenix's policies..."
 echo 'alias phoenix-up="cp /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json"' >> ~/.zshrc | error_fn
 echo
 
