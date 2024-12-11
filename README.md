@@ -79,7 +79,7 @@ ___
 > ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/installer_scripts/macos_install.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
 ```
 
 ___
@@ -109,7 +109,7 @@ ___
 ## 🍎macOS
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstaller_scripts/macos_uninstall.sh)"
+bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
 ```
 
 ___
