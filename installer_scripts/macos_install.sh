@@ -71,7 +71,7 @@ EOF || error_fn
 echo
 
 echo_green_text "Making /usr/local/sbin/update_policies_phoenix.sh executable..."
-sudo chmod +x /usr/local/sbin/update_policies_phoenix.sh || error_fn
+sudo chmod -v +x /usr/local/sbin/update_policies_phoenix.sh || error_fn
 echo
 
 echo_green_text "Creating a launch agent to automatically copy Phoenix's policies.json from /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json to /Applications/Firefox.app/Contents/Resources/distribution/policies.json for updates..."
@@ -100,7 +100,7 @@ launchctl load ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist || er
 echo
 
 echo_green_text "Setting a 'phoenix-up' alias to easily update Phoenix's policies..."
-echo 'alias phoenix-up="cp /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json"' >> ~/.zshrc | error_fn
+echo 'alias phoenix-up="cp /opt/homebrew/opt/phoenix-policies/etc/firefox/distribution/policies.json /Applications/Firefox.app/Contents/Resources/distribution/policies.json"' >> ~/.zshrc || error_fn
 echo
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can learn more here https://phoenix.celenity.dev/#complete-coverage.\n"
