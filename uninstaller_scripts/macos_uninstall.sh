@@ -53,7 +53,7 @@ sudo rm -f /Applications/Firefox.app/Contents/Resources/distribution/policies.js
 echo
 
 echo_green_text "Uninstalling phoenix-policies..."
-brew uninstall phoenix-policies | error_fn
+brew uninstall phoenix-policies || error_fn
 echo
 
 echo_green_text "Removing celenity's Tap from Homebrew..."
