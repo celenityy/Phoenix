@@ -1254,10 +1254,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "network.proxy.share_proxy_settings": {
-                "Value": true,
-                "Status": "default"
-            },
             "network.proxy.socks_remote_dns": {
                 "Value": true,
                 "Status": "locked"
@@ -1265,10 +1261,6 @@
             "network.proxy.socks5_remote_dns": {
                 "Value": true,
                 "Status": "locked"
-            },
-            "network.proxy.type": {
-                "Value": 2,
-                "Status": "default"
             },
             "network.trr.confirmation_telemetry_enabled": {
                 "Value": false,
@@ -1346,7 +1338,6 @@
         "PrivateBrowsingModeAvailability": 0,
         "PromptForDownloadLocation": true,
         "Proxy": {
-            "UseHTTPProxyForAllProtocols": true,
             "UseProxyForDNS": true
         },
         "SanitizeOnShutdown": {
