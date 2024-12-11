@@ -54,6 +54,20 @@
         "ContentAnalysis": {
             "DefaultResult": 0,
             "Enabled": false,
+            "InterceptionPoints": {
+                "Clipboard": {
+                    "Enabled": false
+                },
+                "DragAndDrop": {
+                    "Enabled": false
+                },
+                "FileUpload": {
+                    "Enabled": false
+                },
+                "Print": {
+                    "Enabled": false
+                }
+            },
             "ShowBlockedResult": true
         },
         "DisableDefaultBrowserAgent": true,
