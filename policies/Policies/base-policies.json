@@ -1271,11 +1271,11 @@
             },
             "network.proxy.socks_remote_dns": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "network.proxy.socks5_remote_dns": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "network.trr.confirmation_telemetry_enabled": {
                 "Value": false,
