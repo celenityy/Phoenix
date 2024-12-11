@@ -9,12 +9,24 @@
 			"path": "../Phoenix.wiki"
 		},
 		{
-			"name": "Phoenix-Policies-Flatpak",
-			"path": "../Phoenix-Policies-Flatpak"
+			"name": "Phoenix-Policies-Arch",
+			"path": "../Phoenix-Policies-Arch"
+		},
+		{
+			"name": "Phoenix-Policies-Debian",
+			"path": "../Phoenix-Policies-Debian"
 		},
 		{
 			"name": "Phoenix-Policies-Fedora",
 			"path": "../Phoenix-Policies-Fedora"
+		},
+		{
+			"name": "Phoenix-Policies-Flatpak",
+			"path": "../Phoenix-Policies-Flatpak"
+		},
+		{
+			"name": "Phoenix-Policies-Windows",
+			"path": "../Phoenix-Policies-Windows"
 		},
 		{
 			"name": "tap",
@@ -23,18 +35,6 @@
 		{
 			"name": "firefox",
 			"path": "../../../../lib64/firefox"
-		},
-		{
-			"name": "Phoenix-Policies-Windows",
-			"path": "../Phoenix-Policies-Windows"
-		},
-		{
-			"name": "Phoenix-Policies-Arch",
-			"path": "../Phoenix-Policies-Arch"
-		},
-		{
-			"name": "Phoenix-Policies-Debian",
-			"path": "../Phoenix-Policies-Debian"
 		},
 		{
 			"name": ".mozilla",
