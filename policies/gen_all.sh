@@ -10,13 +10,6 @@ jq -s '.[0] * .[1]' policies/Policies/policies.json policies/No-Sync/policies-sp
 
 jq -s '.[0] * .[1]' policies/Policies/policies.json policies/Personal/policies-specific.json > policies/Personal/policies.json
 
-# Replace ~/Projects/Phoenix-Policies-Fedora with the directory where Phoenix-Policies-Fedora is located, otherwise you can comment this section out
-cp policies/Policies/policies.json ~/Projects/Phoenix-Policies-Fedora/standard/policies.json
-
-cp policies/No-Sync/policies.json ~/Projects/Phoenix-Policies-Fedora/no-sync/policies.json
-
-cp policies/Personal/policies.json ~/Projects/Phoenix-Policies-Fedora/personal/policies.json
-
 # Replace ~/Projects/Phoenix-Policies-Debian with the directory where Phoenix-Policies-Debian is located, otherwise you can comment this section out
 cp policies/Policies/policies.json ~/Projects/Phoenix-Policies-Debian/phoenix-policies/policies.json
 
