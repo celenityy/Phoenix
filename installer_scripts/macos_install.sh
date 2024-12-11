@@ -1,4 +1,4 @@
-#!/bin/env bash
+#! /usr/bin/env bash
 
 
 ## Downloaded files save in /tmp for moving
