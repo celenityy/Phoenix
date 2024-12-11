@@ -1181,6 +1181,14 @@
                 "Value": "",
                 "Status": "locked"
             },
+            "extensions.webcompat-reporter.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.webcompat-reporter.newIssueEndpoint": {
+                "Value": "",
+                "Status": "locked"
+            },
             "extensions.webextensions.restrictedDomains": {
                 "Value": "",
                 "Status": "default"
@@ -1340,6 +1348,14 @@
             "privacy.userContext.ui.enabled": {
                 "Value": true,
                 "Status": "default"
+            },
+            "ui.new-webcompat-reporter.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "ui.new-webcompat-reporter.send-more-info-link": {
+                "Value": false,
+                "Status": "locked"
             },
             "xpinstall.signatures.required": {
                 "Value": true,

@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "webcompat-reporter@mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's Web Compatibility Reporter - Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up... Also acts as attack surface reduction & a potential performance improvement"
+            },
             "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Adblock Plus, by Eyeo. Highly sketchy, avoid & just use uBlock Origin instead."
