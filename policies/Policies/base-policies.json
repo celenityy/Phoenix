@@ -1250,10 +1250,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "network.proxy.autoconfig_url": {
-                "Value": "https://phoenix.celenity.dev/filter.pac",
-                "Status": "default"
-            },
             "network.proxy.failover_direct": {
                 "Value": false,
                 "Status": "default"
@@ -1350,8 +1346,6 @@
         "PrivateBrowsingModeAvailability": 0,
         "PromptForDownloadLocation": true,
         "Proxy": {
-            "AutoConfigURL": "https://phoenix.celenity.dev/filter.pac",
-            "Mode": "autoConfig",
             "UseHTTPProxyForAllProtocols": true,
             "UseProxyForDNS": true
         },
