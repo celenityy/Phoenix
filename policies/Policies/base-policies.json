@@ -58,6 +58,7 @@
         },
         "DisableDefaultBrowserAgent": true,
         "DisableEncryptedClientHello": false,
+        "DisableFeedbackCommands": true,
         "DisableFirefoxStudies": true,
         "DisableFormHistory": true,
         "DisablePocket": true,
