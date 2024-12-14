@@ -29,6 +29,10 @@
 			"path": "../Phoenix-Policies-Windows"
 		},
 		{
+			"name": "copr",
+			"path": "../copr"
+		},
+		{
 			"name": "tap",
 			"path": "../tap"
 		},
