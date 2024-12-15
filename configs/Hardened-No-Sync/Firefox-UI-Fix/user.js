@@ -1,1 +1,0 @@
-user_pref("autoadmin.global_config_url", "https://phoenix.celenity.dev/configs/Hardened-No-Sync/Firefox-UI-Fix/hardened-no-sync.cfg");
