@@ -33,6 +33,10 @@
 			"path": "../copr"
 		},
 		{
+			"name": "pkgbuilds",
+			"path": "../pkgbuilds"
+		},
+		{
 			"name": "tap",
 			"path": "../tap"
 		},
@@ -47,9 +51,6 @@
 		{
 			"name": "firefox-dev",
 			"path": "../../../../opt/firefox-dev"
-		},
-		{
-			"path": "../pkgbuilds"
 		}
 	],
 	"settings": {}
