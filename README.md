@@ -76,7 +76,7 @@ ___
 ## 🍎macOS
 
 > [!IMPORTANT] 
-> ⚠️ **You must have [Homebrew](https://brew.sh/) installed**
+> ⚠️ **You must have [Homebrew](https://brew.sh/) installed, and you must grant Terminal the `App Management` Permission.**
 
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
@@ -137,43 +137,55 @@ You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of k
 
 To install **Hardened**
 
-**1:** Install **Base** through the script for your platform of choice above.
+**1:** Install Phoenix like usual, via the script for your platform of choice above.
 
-**2:** Download the user.js file from [here](https://phoenix.celenity.dev/configs/Hardened/user.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Locate the `Hardened` user.js file on your device.
 
+**For GNU/Linux users**, it is located at:
 ```sh
-wget https://phoenix.celenity.dev/configs/Hardened/user.js
+/etc/firefox/phoenix/userjs/hardened/user.js
 ```
 
-If you use any of the [Firefox-Fix-UI](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead download your user.js file from [here](https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js), or run the following command in your terminal:
-
+**For macOS users**, it is located at:
 ```sh
-wget https://phoenix.celenity.dev/configs/Hardened/Firefox-UI-Fix/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/macos/hardened/user.js
+```
+
+If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead use use the `user.js file at the following location: 
+
+**For GNU/Linux users**:
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/hardened/user.js
+```
+
+**For macOS users**:
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/hardened/user.js
 ```
 
 **3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path.**
 
-**4:** Simply move your user.js to your profile's directory! You can either drag and drop it manually, or run the following command:
+**4:** Simply move *(or copy & paste)* your user.js to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `/etc/firefox/phoenix/userjs/hardened/user.js`. **Yours may be different, and you should replace this path on the next step with the actual location of your user.js as described above.**
 
 ```sh
-mv user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
+mv /etc/firefox/phoenix/userjs/hardened/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
-Congratulations, you're done. Similar to the rest of the Phoenix project, your prefs will auto-update, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
+Congratulations, you're done. Similar to the rest of the Phoenix project, your hardened config will automatically update with the rest of Phoenix via your package manager, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
 
 # 📛Manual Mode *(Not recommended)*
 
-By default, Phoenix leverages Mozilla's [Centralized Management](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig#w_centralized-management) feature to automatically update its configurations. This allows fast, easy updates & fixes as needed, regardless of your platform. Phoenix's Policies are updated separately, through the [AUR](https://aur.archlinux.org/packages/phoenix-policies) on Arch Linux, [COPR](https://copr.fedorainfracloud.org/coprs/celenity/phoenix-policies/) on Fedora, the [MPR](https://mpr.makedeb.org/packages/phoenix-policies) on Debian/Ubuntu/Derivatives, & our [Homebrew](https://brew.sh/) [Tap](https://codeberg.org/celenity/tap) on macOS. 
+By default, Phoenix is installed by your operating system's package manager. This allows for fast, easy updates & fixes as needed, right with the rest of your system!
 
 > [!CAUTION] 
->**This is typically set-up & handled through our install scripts, and this is the set-up we would recommend most users stick to.**
+>**This is the set-up we would highly recommend most users stick to if possible.**
 
-However, if this is not desirable for you & your situation, you can manually install Phoenix with the following steps:
+However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported platform, you can manually install Phoenix with the following steps:
 
-**1:** Download our `phoenix.cfg` file from [here](https://phoenix.celenity.dev/manual/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**1:** Download our `phoenix.cfg` file from [here](https://phoenix.celenity.dev/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
 
 ```sh
-wget https://phoenix.celenity.dev/manual/phoenix.cfg
+wget https://phoenix.celenity.dev/phoenix.cfg
 ```
 
 **2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
@@ -182,10 +194,10 @@ wget https://phoenix.celenity.dev/manual/phoenix.cfg
 wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
 ```
 
-**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies/Policies/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/policies/Policies/policies.json
+wget https://phoenix.celenity.dev/policies.json
 ```
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
@@ -205,19 +217,20 @@ sudo mv phoenix.cfg /usr/lib64/firefox/phoenix.cfg
 sudo mkdir -p /usr/lib64/firefox/defaults/pref
 ```
 
-**For Linux users:** If it does not already exist, you will want to create a folder named `firefox` located in your system's `etc` directory. Inside this `firefox` folder, create a new folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. This will work **regardless of your distribution** - even Snaps are supported. You can also just run the command below:
+**For GNU/Linux users:** If it does not already exist, you will want to create a folder named `firefox` located in your system's `etc` directory. Inside this `firefox` folder, create a new folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. This will work **regardless of your distribution** - even Snaps are supported. You can also just run the command below:
 
 ```sh
 sudo mkdir -p /etc/firefox/defaults/pref
 ```
 
-On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
+On macOS & GNU/Linux, you'll also want to ensure that the folder you created has proper permissions:
 
+**For macOS users:** - assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*
 ```sh
-sudo chmod 655 /usr/lib64/firefox/defaults/pref
+sudo chmod 744 /usr/lib64/firefox/defaults/pref
 ```
 
-**For all non-Flatpak Linux users:**
+**For all non-Flatpak GNU/Linux users:**
 ```sh
 sudo chmod 655 /etc/firefox/defaults/pref
 ```
@@ -228,7 +241,7 @@ sudo chmod 655 /etc/firefox/defaults/pref
 sudo mv phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
 ```
 
-**For all non-Flatpak Linux users:**
+**For all non-Flatpak GNU/Linux users:**
 ```sh
 sudo mv phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
@@ -239,19 +252,20 @@ sudo mv phoenix.js /etc/firefox/defaults/pref/phoenix.js
 sudo mkdir -p /usr/lib64/firefox/distribution
 ```
 
-Linux users should **instead** create a `policies` folder inside of a `firefox` folder located in `/etc`. This will work **regardless** of your distribution, and even for Snaps.
+GNU/Linux users should **instead** create a `policies` folder inside of a `firefox` folder located in `/etc`. This will work **regardless** of your distribution, and even for Snaps.
 
 ```sh
 sudo mkdir -p /etc/firefox/policies
 ```
 
-On macOS & Linux, you'll also want to ensure that the folder you created has proper permissions:
+On macOS & GNU/Linux, you'll also want to ensure that the folder you created has proper permissions:
 
+**For macOS users:** - assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*
 ```sh
-sudo chmod 655 /usr/lib64/firefox/distribution
+sudo chmod 744 /usr/lib64/firefox/distribution
 ```
 
-**For all non-Flatpak Linux users:**
+**For all non-Flatpak GNU/Linux users:**
 ```sh
 sudo chmod 655 /etc/firefox/policies
 ```
@@ -262,7 +276,7 @@ sudo chmod 655 /etc/firefox/policies
 sudo mv policies.json /usr/lib64/firefox/distribution/policies.json
 ```
 
-Linux users should **instead** move `policies.json` to their `/etc/firefox/policies` folder they just created.
+GNU/Linux users should **instead** move `policies.json` to their `/etc/firefox/policies` folder they just created.
 
 ```sh
 sudo mv policies.json /etc/firefox/policies/policies.json
