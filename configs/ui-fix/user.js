@@ -1,1 +1,0 @@
-user_pref("autoadmin.global_config_url", "https://phoenix.celenity.dev/configs/Firefox-UI-Fix/firefox-ui-fix.cfg");

@@ -6,4 +6,6 @@
 
 # Script should be ran from inside the directory where you store Phoenix, not directly from this 'archives' folder...
 
-zip -R archives/phoenix.zip 'filter.pac' 'configs/*' 'configs/ui-fix/*' 'defaults/*' 'defaults/pref/*' 'etc/*' 'etc/profile.d/*' 'phoenix.cfg' 'policies/*' 'policies/Personal/*' 'README.md' -x 'build/*' '.git*' '.DS_Store'
+rm archives/phoenix.zip
+
+zip -R archives/phoenix.zip 'filter.pac' 'configs/*' 'configs/ui-fix/*' 'defaults/*' 'defaults/pref/*' 'etc/*' 'etc/profile.d/*' 'phoenix.cfg' 'policies.json' 'personal-policies/*' 'README.md' -x 'build/*' '.git*' '.DS_Store'
