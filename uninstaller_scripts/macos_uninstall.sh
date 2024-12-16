@@ -20,52 +20,8 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Removing phoenix.cfg..."
-sudo rm -f /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
-echo
-
-echo_green_text "Removing phoenix.js..."
-sudo rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
-echo
-
-echo_green_text "Removing legacy mozilla.cfg if installed..."
-sudo rm -f /Applications/Firefox.app/Contents/Resources/mozilla.cfg || error_fn
-echo
-
-echo_green_text "Removing legacy local-settings.js if installed..."
-sudo rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/local-settings.js || error_fn
-echo
-
-echo_green_text "Unloading ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist..."
-sudo launchctl unload -w  ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist || error_fn
-echo
-
-echo_green_text "Removing ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist..."
-sudo rm -f ~/Library/LaunchAgents/com.user.updatepoliciesphoenix.plist || error_fn
-echo
-
-echo_green_text "Removing /usr/local/sbin/update_policies_phoenix.sh..."
-sudo rm -f /usr/local/sbin/update_policies_phoenix.sh || error_fn
-echo
-
-echo_green_text "Removing policies.json..."
-sudo rm -f /Applications/Firefox.app/Contents/Resources/distribution/policies.json || error_fn
-echo
-
-echo_green_text "Uninstalling phoenix-policies..."
-brew uninstall phoenix-policies || error_fn
-echo
-
-echo_green_text "Removing celenity's Tap from Homebrew..."
-brew untap celenity/tap || error_fn
-echo
-
-echo_green_text "Removing legacy Phoenix-Policies-macOS Tap from Homebrew if installed..."
-brew untap celenity/Phoenix-Policies-macOS || error_fn
-echo
-
-echo_green_text "Updating Homebrew cache..."
-brew update || error_fn
+echo_green_text "Uninstalling phoenix-osx..."
+brew uninstall phoenix-osx || error_fn
 echo
 
 echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(. Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"

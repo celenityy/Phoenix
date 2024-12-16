@@ -24,32 +24,8 @@ error_fn() {
 
 
 ## Install Phoenix
-echo_green_text "Downloading phoenix.cfg..."
-wget -nv https://phoenix.celenity.dev/phoenix.cfg || error_fn
-echo
-
-echo_green_text "Moving phoenix.cfg to /usr/lib/firefox/phoenix.cfg..."
-sudo mv -v phoenix.cfg /usr/lib/firefox/phoenix.cfg || error_fn
-echo
-
-echo_green_text "Downloading phoenix.js..."
-wget -nv https://phoenix.celenity.dev/defaults/pref/phoenix.js || error_fn
-echo
-
-echo_green_text "Creating /etc/firefox/defaults/pref directory..."
-sudo mkdir -v -p /etc/firefox/defaults/pref || error_fn
-echo
-
-echo_green_text "Changing permissions of /etc/firefox/defaults/pref to 655..."
-sudo chmod -v 655 /etc/firefox/defaults/pref || error_fn
-echo
-
-echo_green_text "Moving phoenix.js to /etc/firefox/defaults/pref/phoenix.js..."
-sudo mv -v phoenix.js /etc/firefox/defaults/pref/phoenix.js || error_fn
-echo
-
-echo_green_text "Installing phoenix-policies from the AUR..."
-paru -S phoenix-policies || error_fn
+echo_green_text "Installing phoenix-arch from the AUR..."
+paru -S phoenix-arch || error_fn
 echo
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can learn more here https://phoenix.celenity.dev/#complete-coverage.\n"

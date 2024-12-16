@@ -20,24 +20,8 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Removing phoenix.cfg..."
-sudo rm -f /usr/lib/firefox/phoenix.cfg || error_fn
-echo
-
-echo_green_text "Removing phoenix.js..."
-sudo rm -f /etc/firefox/defaults/pref/phoenix.js || error_fn
-echo
-
-echo_green_text "Removing legacy mozilla.cfg if installed..."
-sudo rm -f /usr/lib/firefox/mozilla.cfg || error_fn
-echo
-
-echo_green_text "Removing legacy local-settings.js if installed..."
-sudo rm -f /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
-echo
-
-echo_green_text "Uninstalling phoenix-policies..."
-yay -Rcns phoenix-policies || error_fn
+echo_green_text "Uninstalling phoenix-arch..."
+yay -Rcns phoenix-arch || error_fn
 echo
 
 echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(. Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"
