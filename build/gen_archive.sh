@@ -8,4 +8,4 @@
 
 rm archives/phoenix.zip
 
-zip -R archives/phoenix.zip 'filter.pac' 'configs/*' 'configs/ui-fix/*' 'defaults/*' 'defaults/pref/*' 'etc/*' 'etc/profile.d/*' 'phoenix.cfg' 'policies.json' 'personal-policies/*' 'README.md' -x 'build/*' '.git*' '.DS_Store'
+zip -R archives/phoenix.zip 'filter.pac' 'configs/*' 'configs/ui-fix/*' 'defaults/*' 'defaults/pref/*' 'etc/*' 'etc/profile.d/*' 'phoenix.cfg' 'policies.json' 'personal-policies/*' 'README.md' -x 'build/*' 'legacy/*' '.git*' '.DS_Store'
