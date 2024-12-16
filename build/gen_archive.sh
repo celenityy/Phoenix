@@ -4,7 +4,7 @@
 # We could just clone the entire source code - though lots of of it are completely unnecessary for packaging.
 # This creates a slim .zip file only containing what we actually need.
 
-# Script should be ran from inside the directory where you store Phoenix, not directly from this 'archives' folder...
+# Script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 rm archives/phoenix.zip
 
