@@ -47,6 +47,9 @@
 		{
 			"name": "firefox-dev",
 			"path": "../../../../opt/firefox-dev"
+		},
+		{
+			"path": "../pkgbuilds"
 		}
 	],
 	"settings": {}
