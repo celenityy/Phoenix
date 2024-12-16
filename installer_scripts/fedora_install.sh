@@ -54,7 +54,7 @@ fi
 
 
 ## Install Phoenix
-echo_green_text "Adding Phoenix COPR Repo to DNF..."
+echo_green_text "Adding celenity's COPR Repo to DNF..."
 sudo dnf copr enable celenity/copr || error_fn
 echo
 
