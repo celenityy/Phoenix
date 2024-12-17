@@ -8,7 +8,7 @@ Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/k
 
 Phoenix's approach also provides users with a seamless experience that is accessible and easy to use. Gone are the days of creating `override` files, manually keeping track of updates, resetting old preferences, & adding your `user.js` file to each and every profile you make. **Not only is Phoenix the most effective & comprehensive approach to configuring Firefox, it is also the most accessible & easiest to use.**
 
-Phoenix's settings are carefully considered based on extensive research & studying of Firefox's inner workings. **For an incomplete, non-exhaustive list of Phoenix's features & enhancements, see [here](https://phoenix.celenity.dev/features).**
+Phoenix's settings & changes to Firefox are carefully considered based on extensive research & studying of Firefox's inner workings. **For an incomplete, non-exhaustive list of Phoenix's features & enhancements, see [here](https://phoenix.celenity.dev/features).**
 
 **Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers a **Hardened** extension. This is completely optional and recommended for advanced users. For more information on Phoenix's compatibility with websites & known issues, see [here](https://phoenix.celenity.dev/compat).
 
