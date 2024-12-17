@@ -28,4 +28,23 @@ echo_green_text "Uninstalling phoenix-osx-user if installed..."
 brew uninstall phoenix-osx-user || error_fn
 echo
 
+read -p  $'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n] \e[0m' RESULT
+echo
+
+case ${RESULT} in
+
+		"y" | "yes" | "YES" | "Y")
+			echo_green_text "Removing celenity's Tap..."
+			brew untap celenity/tap || error_fn
+			echo
+
+			echo_green_text "Updating Homebrew cache..."
+			brew update && brew upgrade --force --verbose || error_fn
+			echo
+			;;
+		
+		"n" | "no" | "N" | "NO")
+			;;
+esac
+
 echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(. Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"
