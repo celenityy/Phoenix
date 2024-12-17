@@ -443,11 +443,13 @@ sudo mkdir -p /etc/firefox/defaults/pref
 On macOS & GNU/Linux, you'll also want to ensure that the folder you created has proper permissions:
 
 **For macOS users:** - assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*
+
 ```sh
 sudo chmod 744 /usr/lib64/firefox/defaults/pref
 ```
 
 **For all non-Flatpak GNU/Linux users:**
+
 ```sh
 sudo chmod 655 /etc/firefox/defaults/pref
 ```
@@ -459,6 +461,7 @@ sudo mv phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
 ```
 
 **For all non-Flatpak GNU/Linux users:**
+
 ```sh
 sudo mv phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
@@ -478,11 +481,13 @@ sudo mkdir -p /etc/firefox/policies
 On macOS & GNU/Linux, you'll also want to ensure that the folder you created has proper permissions:
 
 **For macOS users:** - assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*
+
 ```sh
 sudo chmod 744 /usr/lib64/firefox/distribution
 ```
 
 **For all non-Flatpak GNU/Linux users:**
+
 ```sh
 sudo chmod 655 /etc/firefox/policies
 ```
