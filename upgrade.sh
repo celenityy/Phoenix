@@ -32,7 +32,7 @@ SCRIPT=("arch_upgrade_paru.sh"
 
 echo -e "${purple}Thank you for upgrading to the 'New' Phoenix!${coloroff}";
 echo -e "";
-echo -e "${brown}To begin, please choose your paltform.${coloroff}";
+echo -e "${brown}To begin, please choose your platform.${coloroff}";
 echo -e "${brown}Your options are:${coloroff}";
 echo -e "${cyan}arch${coloroff}   - ${green}Arch Linux (AUR)${coloroff}";
 echo -e "${blue}fedora${coloroff} - ${green}Fedora Linux${coloroff}";

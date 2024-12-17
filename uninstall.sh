@@ -34,7 +34,7 @@ SCRIPT=("arch_uninstall_paru.sh"
 echo -e "${purple}Welcome to the Phoenix uninstaller!${coloroff}";
 echo -e "${purple}We're sorry to see you go :(${coloroff}";
 echo -e "";
-echo -e "${brown}To begin, please choose your paltform.${coloroff}";
+echo -e "${brown}To begin, please choose your platform.${coloroff}";
 echo -e "${brown}Your options are:${coloroff}";
 echo -e "${cyan}arch${coloroff}   - ${green}Arch Linux (AUR)${coloroff}";
 echo -e "${red}debian${coloroff} - ${green}Debian GNU/Linux (& Derivatives, such as Ubuntu)${coloroff}";
