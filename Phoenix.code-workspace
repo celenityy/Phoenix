@@ -9,16 +9,8 @@
 			"path": "../Phoenix.wiki"
 		},
 		{
-			"name": "Phoenix-Policies-Arch",
-			"path": "../Phoenix-Policies-Arch"
-		},
-		{
 			"name": "Phoenix-Policies-Debian",
 			"path": "../Phoenix-Policies-Debian"
-		},
-		{
-			"name": "Phoenix-Policies-Fedora",
-			"path": "../Phoenix-Policies-Fedora"
 		},
 		{
 			"name": "Phoenix-Policies-Flatpak",
