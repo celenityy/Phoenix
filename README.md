@@ -1,18 +1,33 @@
 # Phoenix
 
-**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first.** 
+**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.**
 
-It is not a simple user.js like you might expect - but it is not a fork either. It is installed on top of your standard Firefox installation.
+___
 
-**Phoenix strives to create the best browsing experience possible, and does so through significantly hardening user privacy & security, and protecting user freedom.** We also include various other QOL tweaks, performance enhancements, & nice-to-have features where possible.
+Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig) & [Enterprise Policies](https://mozilla.github.io/policy-templates/) functionality, and is installed on top of your standard, official Firefox installation. **This allows us to go above and beyond what a simple `user.js` file can offer, without the security risks of using a fork**. For example, forks typically lag behind with Firefox updates, **which can leave users open to severe, detrimental vulnerabilities.** Phoenix's approach allows users to continue receiving immediate updates, directly from Mozilla.
+
+Phoenix's approach also provides users with a seamless experience that is accessible and easy to use. Gone are the days of creating `override` files, manually keeping track of updates, resetting old preferences, & adding your `user.js` file to each and every profile you make. **Not only is Phoenix the most effective & comprehensive approach to configuring Firefox, it is also the most accessible & easiest to use.**
+
+Phoenix's settings are carefully considered based on extensive research & studying of Firefox's inner workings. **For an incomplete, non-exhaustive list of Phoenix's features & enhancements, see [here](https://phoenix.celenity.dev/features).**
+
+**Phoenix is designed to maintain website compatibility and avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers a **Hardened** extension. This is completely optional and recommended for advanced users. For more information on Phoenix's compatibility with websites & known issues, see [here](https://phoenix.celenity.dev/compat).
+
+**You should also see [here](https://phoenix.celenity.dev/compare) for a comparison between Phoenix, standard Firefox, Arkenfox, Betterfox, LibreWolf, & various other widely used projects of similar nature.**
+
+**Phoenix also disables various anti-features & strives to put the user back in control of their browsing experience.** Additionally, Phoenix includes quality of life enhancements, performance improvements, and other 'goodies' where possible and where it doesn't compromise user privacy or security.
+
+At the end of the day, above all else:
+
+**Phoenix is designed from the ground up to always put the user first.**
 
 > [!IMPORTANT]
->**⚠️ All users are HIGHLY RECOMMENDED to check out our Wiki [here](https://phoenix.celenity.dev/wiki), especially the [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages!!**
-
-<br>
+>**⚠️ All users MUST read the Wiki [here](https://phoenix.celenity.dev/wiki) before proceeding. The [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
 
 > [!NOTE]
 > This project is hosted on both [Codeberg](https://codeberg.org/celenity/Phoenix) (which will be the primary & preferred place to contribute), & [GitHub](https://github.com/celenityy/Phoenix).
+
+> [!NOTE]
+> Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.
 
 ___
 
@@ -23,16 +38,13 @@ ___
 - [Phoenix](#phoenix)
 - [📖Glossary](#glossary)
 - [💪Motivation](#motivation)
-- [⭐Features](#features)
 - [🚀Install](#install)
-	- [🐧GNU-Linux](#gnu-linux)
-	- [🍎macOS](#macos)
-	- [🪟Windows](#windows)
 - [👋Uninstall](#uninstall)
-	- [🐧GNU-Linux](#gnu-linux-1)
-	- [🍎macOS](#macos-1)
-- [🔥Complete Coverage](#complete-coverage)
-- [📛Manual Mode *(Not recommended)*](#manual-mode-not-recommended)
+- [🔥Hardened](#hardened)
+	- [Hardened Installation](#hardened-installation)
+- [💡Specialized Configs](#specialized-configs)
+- [📛Manual Installation](#manual-installation)
+	- [🤔Using Hardened or a Specialized Config](#using-hardened-or-a-specialized-config)
 - [💜Attribution](#attribution)
 
 </details>
@@ -45,150 +57,355 @@ Sadly, this time has passed. The majority of browser marketshare is now controll
 
 Unfortunately, most ot the competition is no better - Just take a look at [Microsoft & the 800 ad companies they share your data with](https://proton.me/blog/outlook-is-microsofts-new-data-collection-service)...
 
-But it doesn't have to be this way.
-
-# ⭐Features
-
-See [here](https://phoenix.celenity.dev/features) for a non-exhaustive list of features & enhancements Phoenix provides.
-
-You should also check out our [Comparison table](https://phoenix.celenity.dev/compare), so that you can see what Phoenix offers and how it compares to similar projects in the space.
+It doesn't have to be this way.
 
 # 🚀Install
 
-Phoenix offers easy to use install scripts for various platforms. All you have to do is have Firefox installed & ready, paste the command that corresponds to your platform of choice in your terminal, and you should be good to go. :)
+Phoenix currently provides official support for:
 
-## 🐧GNU-Linux
+* **Arch Linux**
+* **Fedora Linux** *(39-41)*
+* **macOS**
 
-> [!IMPORTANT] 
-> **⚠️ Firefox Flatpak & Snap packages are currently not supported.**
+> [!IMPORTANT]
+> ⚠️ **macOS users must have [Homebrew](https://brew.sh/) installed, and must grant Terminal the `App Management` Permission.**
 
-> [!NOTE]
-> Phoenix only supports 39, 40 and 41 versions of Fedora.
+> [!IMPORTANT]
+> ⚠️ **Flatpak & Snap packages of Firefox are currently not supported.**
 
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
-```
+Other platforms have unfortunately proven difficult to support, though progress **is** being made. Contributions are always welcome and appreciated.
 
-</details>
-
-___
-
-## 🍎macOS
-
-> [!IMPORTANT] 
-> ⚠️ **You must have [Homebrew](https://brew.sh/) installed, and you must grant Terminal the `App Management` Permission.**
+**If your platform is supported, simply run the following command in your terminal to install Phoenix:**
 
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
 ```
 
-___
-
-## 🪟Windows
-
-See Codeberg issue [here](https://codeberg.org/celenity/Phoenix/issues/3) & GitHub issue [here](https://github.com/celenityy/Phoenix/issues/1)
-
-**HELP WANTED!!**
+**If you would like to use Phoenix on an unsupported platform, see [📛Manual Mode *(Not recommended)*](#manual-mode-not-recommended).**
 
 ___
 
 # 👋Uninstall
 
-If Phoenix isn't right for you - no worries! We also have easy to use uninstall scripts. Please be sure to [leave us feedback](https://phoenix.celenity.dev/issues) though so we can improve for the future!
+If Phoenix isn't right for you - no worries!
 
-## 🐧GNU-Linux
-
-```sh
-sudo bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
-```
-
-</details>
-
-___
-
-## 🍎macOS
+**Simply run the following command in your terminal to uninstall Phoenix:**
 
 ```sh
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
 ```
 
+Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!
+
 ___
 
-# 🔥Complete Coverage
+# 🔥Hardened
 
-Out of the box, [Phoenix in its 'base' configuration is already substantially hardened compared to vanilla Firefox & most of its derivatives](https://phoenix.celenity.dev/compare).
-
-However, we make it a point to balance privacy, security, & usability. We try to avoid breakage where possible.
-
-If you're an advanced user, and would like to go the extra mile, at the cost of mild breakage & a little headache, you can install our **Hardened** config.
+For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers a **Hardened** extension.
 
 > [!TIP]
-> **Unlike our base config, Hardened is profile specific.** This means that you can use our hardened config as needed when you desire the extra protection, & revert back to our base through another profile for everything else. 
+> **Unlike Phoenix's standard default configuration, Hardened is profile specific.** This means that you can use our Hardened config as needed when you desire the extra protection, & revert back to Phoenix's standard config through another profile for everything else.
 
-Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed 
+Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed.
 
 > [!TIP] 
-> *Phoenix makes it very easy to set overrides through your `about:config`* 
+> Phoenix makes it very easy to set overrides through your `about:config`. No more manual `override` files! ;)
 
-You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites with issues & what you need to toggle to fix them. 
+You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites that have issues or quirks with Phoenix's **Hardened** extension, and what you need to toggle to fix them.
 
-> [!CAUTION] 
-> **This is not for everyone though, and if you want a 'just works' set-up with no issues or tweaking, just stick to the base config.**
+## Hardened Installation
 
-To install **Hardened**
+**1:** Install Phoenix via the script for your platform of choice above.
 
-**1:** Install Phoenix like usual, via the script for your platform of choice above.
+**2:** After installation is complete, locate the `Hardened` user.js file on your device.
 
-**2:** Locate the `Hardened` user.js file on your device.
+Depending on your operating system, it will be located at:
 
-**For GNU/Linux users**, it is located at:
+**<details><summary>GNU/Linux</summary>**
+
 ```sh
 /etc/firefox/phoenix/userjs/hardened/user.js
 ```
 
-**For macOS users**, it is located at:
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**
+
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/hardened/user.js
 ```
 
-If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix) CSS skins, you should instead use use the `user.js file at the following location: 
+**User**
 
-**For GNU/Linux users**:
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/hardened/user.js
+```
+
+</details>
+
+<br>
+
+If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix) CSS skins with Firefox, you should instead use use the `user.js` file at the following locations:
+
+**<details><summary>GNU/Linux</summary>**
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/hardened/user.js
 ```
 
-**For macOS users**:
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**
+
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/hardened/user.js
 ```
 
-**3:** Find your profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will probably be different, and you should replace this path on the next step with your actual profile directory's path.**
+**User**
 
-**4:** Simply move *(or copy & paste)* your user.js to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `/etc/firefox/phoenix/userjs/hardened/user.js`. **Yours may be different, and you should replace this path on the next step with the actual location of your user.js as described above.**
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/hardened/user.js
+```
+
+</details>
+
+<br>
+
+**3:** Find your Firefox profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will be different, and you should replace this path on the next step with your actual profile directory's path.**
+
+**4:** Simply move *(or copy & paste)* your `user.js` file to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `/etc/firefox/phoenix/userjs/hardened/user.js`. **Yours may be different, and you should replace this path on the next step with the actual location of your user.js as described above.**
 
 ```sh
 mv /etc/firefox/phoenix/userjs/hardened/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
+> [!IMPORTANT] 
+> ⚠️ **macOS (User) users must edit the `user.js` file and replace `phoenix-osx` with `phoenix-osx-user`. This will be simplified & handled better in the future.**
+
 Congratulations, you're done. Similar to the rest of the Phoenix project, your hardened config will automatically update with the rest of Phoenix via your package manager, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
 
-# 📛Manual Mode *(Not recommended)*
+# 💡Specialized Configs
 
-By default, Phoenix is installed by your operating system's package manager. This allows for fast, easy updates & fixes as needed, right with the rest of your system!
+It should also be noted that Phoenix contains specialized configurations for **Discord**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these privacy-invasive services.
+
+The installation of these configs is the same as `Hardened`, with the only exception being the location of the `user.js` file. **You can find the location of these user.js files at the following locations:**
+
+**<details><summary>Discord</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/discord/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/discord/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/discord/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Discord (Firefox-UI-Fix)</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/discord/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/discord/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/discord/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Twitter</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/twitter/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/twitter/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/twitter/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Twitter (Firefox-UI-Fix)</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/twitter/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/twitter/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/twitter/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Twitter</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/twitter/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/twitter/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/twitter/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>YouTube</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/youtube/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/youtube/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/youtube/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>YouTube (Firefox-UI-Fix)</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/youtube/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+**System**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/youtube/user.js
+```
+
+**User**:
+
+```sh
+/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/youtube/user.js
+```
+
+</details>
+
+</details>
+
+# 📛Manual Installation
 
 > [!CAUTION] 
->**This is the set-up we would highly recommend most users stick to if possible.**
+>**This is NOT recommended for most users.**
 
-However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported platform, you can manually install Phoenix with the following steps:
+By default, Phoenix is installed & updated via your operating system's package manager. This allows for fast, easy updates & fixes as needed, right with the rest of your system!
 
-**1:** Download our `phoenix.cfg` file from [here](https://phoenix.celenity.dev/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported operating system, you can manually install Phoenix with the following steps:
+
+**1:** Download `phoenix.cfg` from [here](https://phoenix.celenity.dev/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
 wget https://phoenix.celenity.dev/phoenix.cfg
 ```
 
-**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal: 
+**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
 wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
@@ -200,10 +417,10 @@ wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
 wget https://phoenix.celenity.dev/policies.json
 ```
 
-**4:** Locate your Firefox installation directory. This will vary depending on your platform, you can generally find it by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
+**4:** Locate your Firefox installation directory. This will vary depending on your platform. An easy way to find it id by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
 
 > [!CAUTION] 
->**Unless you're on Fedora Linux, your directory will probably be different, and you should replace this path on the following steps with your actual installation directory's path.**
+>**Unless you're on Fedora Linux, your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
 
 **5:** Move `phoenix.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
 
@@ -286,9 +503,59 @@ Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates
 
 ___
 
+## 🤔Using Hardened or a Specialized Config
+
+With a manual installation of Phoenix, if you would like to use Phoenix's [Hardened](#hardened) extension, or one of our [specialized configs](#specialized-configs), you'll need to follow these steps.
+
+**1:** Download the `.cfg` file of your choice from [here](https://codeberg.org/celenity/Phoenix/src/branch/pages/configs). For this example, we'll use `youtube.cfg`. **Simply replace mentions of `youtube.cfg` below with the configuration you would like to use.**
+
+You can right click and select `Save page as` from your browser on the `.cfg` file, or you can run the following command in your terminal:
+
+```sh
+wget https://phoenix.celenity.dev/configs/youtube.cfg
+```
+
+**2:** Store the `.cfg` file you just downloaded somewhere safe that you can remember. For this example, we'll keep it simple and say I chose to save `youtube.cfg` at `~/youtube.cfg`. **Replace mentions of `~/youtube.cfg` below with the actual location of your file.**
+
+You can either drag and drop the file manually, or run the command below:
+
+```sh
+mv youtube.cfg ~/youtube.cfg
+```
+
+**3:** Download the `user.js` file located [here](https://phoenix.celenity.dev/user.js).
+
+You can right click and select `Save page as` from your browser on the `user.js` file, or you can run the following command in your terminal:
+
+```sh
+wget https://phoenix.celenity.dev/user.js
+```
+
+**4:** Edit the `user.js` file you just downloaded, and replace **file://`put_your_cfg_file_location_here`** with the location of your `.cfg` file from Step 2.
+
+Assuming our file is still located at `~/youtube.cfg` and our username is `user`, we'll change the contents of the `user.js` file we downloaded to:
+
+```sh
+user_pref("autoadmin.global_config_url", "file:///home/user/youtube.cfg");
+```
+
+**5:** Find your Firefox profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will be different, and you should replace this path on the next step with your actual profile directory's path.**
+
+**6:** Simply move *(or copy & paste)* your `user.js` file to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `~/Downloads/user.js`. **If this is not the path of your downloaded `user.js` file from Step 3, replace it with its actual location.**
+
+```sh
+mv ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
+```
+
 # 💜Attribution
 
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
+
+- **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
+	- Created the install & uninstall scripts, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
+
+- **[GW72](https://codeberg.org/GW72)**
+	- Invaluable feedback & support of the project.
 
 - **[Arkenfox](https://github.com/arkenfox/user.js)**
 	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
@@ -333,12 +600,6 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 	- ⚖️ [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
 	- Pre-installed extension - provides content blocking
 
-- **[Chrome Mask](https://github.com/denschub/chrome-mask)**
-	- 🪪 [Dennis Schubert](https://github.com/denschub)
-	- ⚖️ [MIT](https://raw.githubusercontent.com/denschub/chrome-mask/main/LICENSE)
-	- 💸 [Donate](https://ko-fi.com/denschub)
-	- Pre-installed extension
-
 - **[Quad9](https://quad9.net/)**
 	- 🪪 [Quad9 Team](https://quad9.net/about/team/)
 	- 💸 [Donate](https://www.quad9.net/donate/)
@@ -350,5 +611,3 @@ And of course...
 	- 🪪 [Mozilla](https://www.mozilla.org/)
 	- ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
 	- 💸 [Donate](https://foundation.mozilla.org/donate/)
-
-[gnu-linux]: #-gnulinux-

@@ -1,0 +1,1 @@
+user_pref("autoadmin.global_config_url", "file://put_your_cfg_file_location_here");
