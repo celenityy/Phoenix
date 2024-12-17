@@ -20,8 +20,12 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Uninstalling phoenix-osx..."
+echo_green_text "Uninstalling phoenix-osx if installed..."
 brew uninstall phoenix-osx || error_fn
+echo
+
+echo_green_text "Uninstalling phoenix-osx-user if installed..."
+brew uninstall phoenix-osx-user || error_fn
 echo
 
 echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(. Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"
