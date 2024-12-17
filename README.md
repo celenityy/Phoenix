@@ -419,7 +419,7 @@ wget https://phoenix.celenity.dev/policies.json
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform. An easy way to find it id by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
 
-> [!CAUTION] 
+> [!CAUTION]
 >**Unless you're on Fedora Linux, your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
 
 **5:** Move `phoenix.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
