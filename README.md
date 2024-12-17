@@ -78,7 +78,7 @@ Other platforms have unfortunately proven difficult to support, though progress 
 **If your platform is supported, simply run the following command in your terminal to install Phoenix:**
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
+sudo bash -c "$(wget -O- https://phoenix.celenity.dev/install.sh 2>/dev/null)"
 ```
 
 **If you would like to use Phoenix on an unsupported platform, see [📛Manual Installation](#manual-installation).**
@@ -92,7 +92,7 @@ If Phoenix isn't right for you - no worries!
 **Simply run the following command in your terminal to uninstall Phoenix:**
 
 ```sh
-bash -c "$(curl -fsSL https://phoenix.celenity.dev/uninstall.sh)"
+sudo bash -c "$(wget -O- https://phoenix.celenity.dev/uninstall.sh 2>/dev/null)"
 ```
 
 Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## Downloaded files save in /tmp
+cd /tmp
+
 ## Colours
 blue='\e[1;34m';
 brown='\e[0;33m';
@@ -17,9 +20,6 @@ install_phoenix() {
 	echo
 	sudo bash $2
 }
-
-## Downloaded files save in /tmp
-cd /tmp
 
 ## Scripts are here
 URL="https://phoenix.celenity.dev/installer_scripts"
