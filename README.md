@@ -81,7 +81,7 @@ Other platforms have unfortunately proven difficult to support, though progress 
 bash -c "$(curl -fsSL https://phoenix.celenity.dev/install.sh)"
 ```
 
-**If you would like to use Phoenix on an unsupported platform, see [📛Manual Mode *(Not recommended)*](#manual-mode-not-recommended).**
+**If you would like to use Phoenix on an unsupported platform, see [📛Manual Installation](#manual-installation).**
 
 ___
 
