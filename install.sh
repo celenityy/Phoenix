@@ -47,7 +47,7 @@ case ${DISTRO} in
 		echo -e ""
 		echo -e "${brown}Please choose your AUR helper.${coloroff}";
 		echo -e "${brown}Your options are:${coloroff}";
-		echo -e "${blue}paru${coloroff} - ${green}Pure${coloroff}";
+		echo -e "${blue}paru${coloroff} - ${green}Paru${coloroff}";
 		echo -e "${red}yay${coloroff}  - ${green}Yay (Yet Another Yogurt)${coloroff}";
 		read -p 'Enter your selection: ' HELPER
 		case ${HELPER} in

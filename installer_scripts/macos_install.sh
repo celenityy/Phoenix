@@ -31,8 +31,24 @@ echo_green_text "Updating Homebrew cache..."
 brew update && brew upgrade --force --verbose || error_fn
 echo
 
-echo_green_text "Installing phoenix-osx package..."
-brew install phoenix-osx || error_fn
-echo
+echo -e ""
+echo -e "${brown}Where is your installation of Firefox located?${coloroff}";
+echo -e "${brown}Your options are:${coloroff}";
+echo -e "${blue}system${coloroff} - ${green}/Applications/Firefox.app${coloroff}";
+echo -e "${red}user${coloroff}  - ${green}~/Applications/Firefox.app${coloroff}";
+read -p 'Enter your selection: ' LOCATION
+case ${LOCATION} in
+	"system" | "System" | "SYSTEM")
+		echo_green_text "Installing phoenix-osx package..."
+		brew install phoenix-osx || error_fn
+		echo
+		;;
+	"user" | "User" | "USER")
+		echo_green_text "Installing phoenix-osx-user package..."
+		brew install phoenix-osx-user || error_fn
+		echo
+		;;
+esac
+;;
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can learn more here https://phoenix.celenity.dev/#complete-coverage.\n"
