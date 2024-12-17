@@ -24,10 +24,10 @@ At the end of the day, above all else:
 >**⚠️ All users MUST read the Wiki [here](https://phoenix.celenity.dev/wiki) before proceeding. The [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
 
 > [!NOTE]
-> This project is hosted on both [Codeberg](https://codeberg.org/celenity/Phoenix) (which will be the primary & preferred place to contribute), & [GitHub](https://github.com/celenityy/Phoenix).
+> This project is hosted on both [Codeberg](https://codeberg.org/celenity/Phoenix) **(which is the primary & preferred place to contribute)** & [GitHub](https://github.com/celenityy/Phoenix).
 
 > [!NOTE]
-> Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.
+> **Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
 
 ___
 
