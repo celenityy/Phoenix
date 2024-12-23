@@ -1148,7 +1148,7 @@
       },
       "VirtualReality": {
         "BlockNewRequests": true,
-        "Locked": true
+        "Locked": false
       },
       "Autoplay": {
         "Default": "block-audio-video",
