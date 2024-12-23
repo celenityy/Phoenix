@@ -2177,8 +2177,10 @@
     },
     "SanitizeOnShutdown": {
       "Cache": true,
+      "Cookies": true,
+      "History": true,
       "Sessions": true,
-      "Locked": true
+      "Locked": false
     },
     "SearchEngines": {
       "PreventInstalls": false,
