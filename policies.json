@@ -1925,17 +1925,9 @@
         "Value": false,
         "Status": "locked"
       },
-      "extensions.autoDisableScopes": {
-        "Value": 15,
-        "Status": "locked"
-      },
       "extensions.blocklist.enabled": {
         "Value": true,
         "Status": "locked"
-      },
-      "extensions.enabledScopes": {
-        "Value": 5,
-        "Status": "default"
       },
       "extensions.getAddons.discovery.api_url": {
         "Value": "data;",
