@@ -1148,7 +1148,7 @@
       },
       "VirtualReality": {
         "BlockNewRequests": true,
-        "Locked": false
+        "Locked": true
       },
       "Autoplay": {
         "Default": "block-audio-video",
@@ -1925,9 +1925,17 @@
         "Value": false,
         "Status": "locked"
       },
+      "extensions.autoDisableScopes": {
+        "Value": 15,
+        "Status": "locked"
+      },
       "extensions.blocklist.enabled": {
         "Value": true,
         "Status": "locked"
+      },
+      "extensions.enabledScopes": {
+        "Value": 5,
+        "Status": "default"
       },
       "extensions.getAddons.discovery.api_url": {
         "Value": "data;",
@@ -2177,10 +2185,8 @@
     },
     "SanitizeOnShutdown": {
       "Cache": true,
-      "Cookies": true,
-      "History": true,
       "Sessions": true,
-      "Locked": false
+      "Locked": true
     },
     "SearchEngines": {
       "PreventInstalls": false,
