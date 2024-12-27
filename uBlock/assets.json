@@ -128,8 +128,7 @@
         "title": "AdGuard – Ads",
         "tags": "ads",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "adguard-mobile": {
         "content": "filters",
@@ -138,8 +137,7 @@
         "tags": "ads mobile",
         "ua": "mobile",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/11.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "easylist": {
         "content": "filters",
@@ -164,16 +162,14 @@
         "title": "AdGuard URL Tracking Protection",
         "tags": "privacy",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/17.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "adguard-spyware": {
         "content": "filters",
         "group": "privacy",
         "title": "AdGuard Tracking Protection",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/3.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "block-lan": {
         "content": "filters",
@@ -241,8 +237,7 @@
         "title": "AdGuard – Cookie Notices",
         "tags": "annoyances cookies",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/18.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "ublock-cookies-adguard": {
         "content": "filters",
@@ -306,8 +301,7 @@
         "title": "AdGuard – Social Widgets",
         "tags": "annoyances social",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/4.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "fanboy-social": {
         "content": "filters",
@@ -356,8 +350,7 @@
         "title": "AdGuard – Mobile App Banners",
         "tags": "annoyances mobile",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/20.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "adguard-other-annoyances": {
         "content": "filters",
@@ -366,8 +359,7 @@
         "title": "AdGuard – Other Annoyances",
         "tags": "annoyances",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/21.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "adguard-widgets": {
         "content": "filters",
@@ -376,8 +368,7 @@
         "title": "AdGuard – Widgets",
         "tags": "annoyances",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/22.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "easylist-annoyances": {
         "content": "filters",
@@ -686,8 +677,7 @@
         "tags": "ads japanese 日本語",
         "lang": "ja",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/7.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "KOR-1": {
         "content": "filters",
