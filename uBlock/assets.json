@@ -340,8 +340,7 @@
         "title": "AdGuard – Popup Overlays",
         "tags": "annoyances",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/19.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "adguard-mobile-app-banners": {
         "content": "filters",
@@ -732,7 +731,7 @@
         "lang": "af fy nl",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/8.txt",
         "cdnURLs": null,
-        "supportURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "NOR-0": {
         "content": "filters",
@@ -834,8 +833,7 @@
         "tags": "ads aragonese basque catalan spanish español galician guarani portuguese português",
         "lang": "an ast ca cak es eu gl gn trs pt quz",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/9.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "SVN-0": {
         "content": "filters",
@@ -879,8 +877,7 @@
         "tags": "ads turkish türkçe",
         "lang": "tr",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/13.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
-        "instructionURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/"
+        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
     "VIE-1": {
         "content": "filters",
