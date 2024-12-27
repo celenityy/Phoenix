@@ -957,7 +957,6 @@
     "badblockplus": {
         "content": "filters",
         "group": "multipurpose",
-        "off": true,
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
         "contentURL": "https://badblock.celenity.dev/abp/badblock_plus.txt",
@@ -1028,7 +1027,7 @@
     },
     "ethical": {
         "content": "filters",
-        "group": "multipurpose",
+        "group": "annoyances",
         "off": true,
         "title": "😇 BadBlock - Ethical Whitelist",
         "tags": "ads privacy",
