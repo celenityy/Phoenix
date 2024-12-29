@@ -1628,6 +1628,10 @@
         "Value": "",
         "Status": "locked"
       },
+      "browser.search.separatePrivateDefault": {
+        "Value": false,
+        "Status": "default"
+      },
       "browser.search.serpEventTelemetryCategorization.enabled": {
         "Value": false,
         "Status": "locked"
@@ -2124,10 +2128,6 @@
         "Value": true,
         "Status": "default"
       },
-      "network.trr.confirmation_telemetry_enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
       "network.captive-portal-service.enabled": {
         "Value": false,
         "Status": "locked"
@@ -2150,6 +2150,22 @@
       },
       "network.connectivity-service.IPv6.url": {
         "Value": "",
+        "Status": "locked"
+      },
+      "network.protocol-handler.external.shell": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.trr.confirmation_telemetry_enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.protocol-handler.warn-external.mailto": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "network.protocol-handler.warn-external-default": {
+        "Value": true,
         "Status": "locked"
       },
       "network.trr.custom_uri": {
@@ -2176,6 +2192,10 @@
         "Value": false,
         "Status": "locked"
       },
+      "pdfjs.enableXfa": {
+        "Value": false,
+        "Status": "default"
+      },
       "privacy.globalprivacycontrol.enabled": {
         "Value": true,
         "Status": "locked"
@@ -2186,6 +2206,14 @@
       },
       "privacy.userContext.ui.enabled": {
         "Value": true,
+        "Status": "default"
+      },
+      "security.default_personal_cert": {
+        "Value": "Ask Every Time",
+        "Status": "locked"
+      },
+      "security.tls.version.enable-deprecated": {
+        "Value": false,
         "Status": "default"
       },
       "ui.new-webcompat-reporter.enabled": {
