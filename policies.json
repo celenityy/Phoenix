@@ -2129,6 +2129,14 @@
         "Value": false,
         "Status": "locked"
       },
+      "network.protocol-handler.warn-external-default": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "network.protocol-handler.warn-external.mailto": {
+        "Value": true,
+        "Status": "locked"
+      },
       "network.trr.custom_uri": {
         "Value": "https://dns.quad9.net/dns-query",
         "Status": "default"
