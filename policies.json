@@ -2149,6 +2149,10 @@
         "Value": false,
         "Status": "locked"
       },
+      "pdfjs.enableXfa": {
+        "Value": false,
+        "Status": "default"
+      },
       "privacy.globalprivacycontrol.enabled": {
         "Value": true,
         "Status": "locked"
