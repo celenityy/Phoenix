@@ -1357,6 +1357,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "security.tls.version.enable-deprecated": {
+                "Value": false,
+                "Status": "default"
+            },
             "ui.new-webcompat-reporter.enabled": {
                 "Value": false,
                 "Status": "locked"
