@@ -1601,6 +1601,10 @@
         "Value": "",
         "Status": "locked"
       },
+      "browser.search.separatePrivateDefault": {
+        "Value": false,
+        "Status": "default"
+      },
       "browser.search.serpEventTelemetryCategorization.enabled": {
         "Value": false,
         "Status": "locked"
