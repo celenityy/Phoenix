@@ -2165,6 +2165,10 @@
         "Value": true,
         "Status": "default"
       },
+      "security.default_personal_cert": {
+        "Value": "Ask Every Time",
+        "Status": "locked"
+      },
       "ui.new-webcompat-reporter.enabled": {
         "Value": false,
         "Status": "locked"
