@@ -33,18 +33,18 @@ fi
 
 
 ## Install Phoenix
-echo_green_text "Adding Phoenix Repo to /etc/apt/sources.list.d..."
+echo_green_text "Adding celenity's OBS Repo to APT..."
 echo 'deb http://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | \
 	sudo tee /etc/apt/sources.list.d/home:celenity.list
 
-echo_green_text "Adding GPG key of Phoenix..."
+echo_green_text "Adding celenity's GPG key..."
 curl -fsSL https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key | \
 	gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
 
-echo_green_text "Updating APT chache..."
+echo_green_text "Updating APT cache..."
 sudo apt update || error_fn
 
-echo_green_text "Installing Phoenxi or Phoenix-esr"
+echo_green_text "Installing Phoenix..."
 sudo apt install "${PHOENIX_RELEASE}" || error_fn
 echo
 
