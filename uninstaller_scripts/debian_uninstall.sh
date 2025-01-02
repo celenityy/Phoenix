@@ -20,46 +20,16 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Removing phoenix.cfg..."
-sudo rm -f /usr/lib/firefox/phoenix.cfg || error_fn
-echo
+echo_green_text "Removing Phoenix or Phoenix-esr..."
+sudo apt remove phoenix* || error_fn
 
-echo_green_text "Removing phoenix.js..."
-sudo rm -f /etc/firefox/defaults/pref/phoenix.js || error_fn
-echo
+echo_green_text "Removing Phoenix Repo..."
+sudo rm /etc/apt/sources.list.d/home:celenity.list || error_fn
 
-echo_green_text "Removing legacy mozilla.cfg if installed..."
-sudo rm -f /usr/lib/firefox/mozilla.cfg || error_fn
-echo
+echo_green_text "Remoing GPG key of Phoenix..."
+sudo rm /etc/apt/trusted.gpg.d/home_celenity.gpg || error_fn
 
-echo_green_text "Removing legacy local-settings.js if installed..."
-sudo rm -f /usr/lib/firefox/defaults/pref/local-settings.js || error_fn
-echo
-
-echo_green_text "Uninstalling phoenix-policies..."
-sudo apt remove phoenix-policies || error_fn
-echo
-
-read -p  $'\e[32mDo you want remove Prebuilt MPR Repo? [Y/n] \e[0m' RESULT
-echo
-
-case ${RESULT} in
-
-		"y" | "yes" | "YES" | "Y")
-			echo_green_text "Removing Prebuilt MPR Repo"
-			sudo rm -v /etc/apt/sources.list.d/prebuilt-mpr.list || error_fn
-			echo
-
-			echo_green_text "Removing GPG keyof Prebuilt MPR Repo"
-			sudo rm -v /usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg || error_fn
-			echo
-			;;
-		
-		"n" | "no" | "N" | "NO")
-			;;
-esac
-
-echo_green_text "Updating APT cache"
+echo_green_text "Updating APT cache..."
 sudo apt update || error_fn
 echo
 
