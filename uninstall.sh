@@ -37,9 +37,9 @@ echo -e "";
 echo -e "${brown}To begin, please choose your platform.${coloroff}";
 echo -e "${brown}Your options are:${coloroff}";
 echo -e "${cyan}arch${coloroff}   - ${green}Arch Linux (AUR)${coloroff}";
-echo -e "${red}debian${coloroff} - ${green}Debian GNU/Linux (& Derivatives, such as Ubuntu)${coloroff}";
-echo -e "${blue}fedora${coloroff} - ${green}Fedora Linux${coloroff}";
-echo -e "${gray}macOS${coloroff}  - ${green}macOS${coloroff}";
+echo -e "${red}debian${coloroff} - ${green}Debian GNU/Linux & Derivatives (openSUSE Build System)${coloroff}";
+echo -e "${blue}fedora${coloroff} - ${green}Fedora Linux (COPR)${coloroff}";
+echo -e "${gray}macOS${coloroff}  - ${green}macOS (Homebrew)${coloroff}";
 read -p 'Enter your selection: ' DISTRO
 
 case ${DISTRO} in
