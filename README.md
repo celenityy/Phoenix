@@ -64,8 +64,10 @@ It doesn't have to be this way.
 Phoenix currently provides official support for:
 
 * **Arch Linux**
+* **Debian** *(& derivatives...)*
 * **Fedora Linux** *(39-41)*
 * **macOS**
+* **Ubuntu** *(& derivatives...)*
 
 > [!IMPORTANT]
 > ⚠️ **macOS users must have [Homebrew](https://brew.sh/) installed, and must grant Terminal the `App Management` Permission.**
