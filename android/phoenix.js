@@ -2,7 +2,7 @@
 // The Phoenix shall rise from the ashes of what fell before it.
 // RIP Mull.
 
-// This config is specifically tailored for Android. It shouldn't be used on desktop, & the same is true for the inverse, don't use our standard desktop configs on Android.
+// This config is specifically tailored for Android. It shouldn't be used on desktop, & the same is true for the inverse; don't use our standard desktop configs on Android...
 // The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox), a fully free & open source fork of Mull (which I also help maintain...).
 // You can however also manually install it on Fennec F-Droid, Firefox, Firefox Beta, Firefox Focus, Firefox Klar, Firefox Nightly, Iceraven, etc...
 
@@ -292,6 +292,11 @@ pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
 pref("network.dns.native_https_query", true); // [DEFAULT]
 
+/// Fix IPv6 connectivity when DoH is enabled
+// https://codeberg.org/divested/brace/pulls/5
+
+pref("network.dns.preferIPv6", true);
+
 // 007 CERTIFICATES
 
 /// Enforce OCSP & Stapling
@@ -409,7 +414,7 @@ pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 
 /// Ensure that AI functionality is disabled by default
 
-pref("browser.ml.enable", false); // [DEFAULT] - "Experimental Machine Learning Inference Engine"
+pref("browser.ml.enable", false); // [DEFAULT, except for Nightly] - "Experimental Machine Learning Inference Engine"
 
 // 012 WEBRTC
 
@@ -484,6 +489,23 @@ pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
 // 015 PDF.js
 
+/// Disable JavaScript
+
+pref("pdfjs.enableScripting", false); // [HIDDEN]
+
+/// Disable XFA
+// https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html
+// https://www.sentinelone.com/blog/malicious-pdfs-revealing-techniques-behind-attacks/
+// https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=xfa
+// https://wikipedia.org/wiki/XFA
+// Not even a standard...
+
+pref("pdfjs.enableXfa", false); // [HIDDEN]
+
+/// Never allow documents to prevent copying text
+
+pref("pdfjs.enablePermissions", false); // [HIDDEN]
+
 /// Open PDFs in browser where possible
 
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT]
@@ -521,6 +543,10 @@ pref("webgl.disable-fail-if-major-performance-caveat", false);
 pref("browser.display.use_system_colors", false); // [DEFAULT]
 
 // 017 MISC. PRIVACY
+
+/// Ensure ETP is set to Strict
+
+pref("browser.contentblocking.category", "strict");
 
 /// Enforce Do Not Track & Global Privacy Control
 
@@ -796,6 +822,10 @@ pref("dom.popup_allowed_events", "click dblclick");
 pref("dom.disable_window_flip", true);
 pref("dom.disable_window_move_resize", true); // [DEFAULT]
 
+/// Enforce allow installing "incompatible" add-ons
+
+pref("extensions.strictCompatibility", false); // [DEFAULT]
+
 // 028 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
@@ -806,6 +836,7 @@ pref("extensions.logging.enabled", false); // [DEFAULT] https://searchfox.org/mo
 pref("gfx.canvas.accelerated.cache-items", 4096); // [Default = 2048]
 pref("gfx.canvas.accelerated.cache-size", 512); // [Default = 256]
 pref("gfx.content.skia-font-cache-size", 20); // [Default = 5]
+pref("gfx.webrender.all", true);
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
 pref("layout.css.grid-template-masonry-value.enabled", true); // https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout

@@ -4,6 +4,8 @@ cat configs/no-sync.cfg build/configs/discord-spec.cfg > configs/discord.cfg
 
 cat configs/discord.cfg configs/ui-fix.cfg > configs/ui-fix/discord.cfg
 
+cat configs/element.cfg configs/ui-fix.cfg > configs/ui-fix/element.cfg
+
 cat configs/no-sync.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
 
 cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
