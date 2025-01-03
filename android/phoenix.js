@@ -805,6 +805,7 @@ pref("browser.contentanalysis.interception_point.print.enabled", false);
 
 pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT]
 pref("fission.autostart", true);
+pref("fission.autostart.session", true);
 
 /// Enable GPU Sandboxing
 
