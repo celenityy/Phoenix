@@ -663,6 +663,13 @@ pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
 
+/// Disable Network Error Logging
+// https://w3c.github.io/network-error-logging/
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1145235
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
+
+pref("network.http.network_error_logging.enabled", false); // [DEFAULT]
+
 /// Trim cross-origin referers (Like Safari)
 
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
