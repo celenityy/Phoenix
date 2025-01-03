@@ -815,6 +815,11 @@ pref("browser.phoenix.019.applied", true);
 
 // 020 MISC. SECURITY
 
+// Do not disable Spectre mitigations for isolated content...
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8689
+
+pref("javascript.options.spectre.disable_for_isolated_content", false);
+
 // If a website asks for a certificate, always prompt the user
 // Never automatically select one...
 // https://www.stigviewer.com/stig/mozilla_firefox/2023-06-05/finding/V-251547
