@@ -9,8 +9,8 @@
 			"path": "../Phoenix.wiki"
 		},
 		{
-			"name": "Phoenix-Policies-Debian",
-			"path": "../Phoenix-Policies-Debian"
+			"name": "Phoenix-Debian",
+			"path": "../Phoenix-Debian"
 		},
 		{
 			"name": "Phoenix-Policies-Flatpak",
