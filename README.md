@@ -63,6 +63,7 @@ It doesn't have to be this way.
 
 Phoenix currently provides official support for:
 
+* **Android**
 * **Arch Linux**
 * **Debian** *(& derivatives...)*
 * **Fedora Linux** *(39-41)*
@@ -77,16 +78,16 @@ Phoenix currently provides official support for:
 
 Other platforms have unfortunately proven difficult to support, though progress **is** being made. Contributions are always welcome and appreciated.
 
-**If your platform is supported, simply run the following command in your terminal to install Phoenix:**
+**If your platform is supported *(with the exception of Android)*, simply run the following command in your terminal to install Phoenix:**
 
 ```sh
 sudo bash -c "$(wget -O- https://phoenix.celenity.dev/install.sh 2>/dev/null)"
 ```
 
-**If you would like to use Phoenix on an unsupported platform, see [📛Manual Installation](#manual-installation).**
-
 > [!IMPORTANT]
-> **Debian/Ubuntu** users can follow [this excellent guide](https://codeberg.org/celenity/Phoenix/issues/22#issuecomment-2539258).
+> **Android users are recommended to install [IronFox](https://gitlab.com/ironfox-oss/IronFox) *(Recommended)*, which uses Phoenix for its configs. Android users can also manually install Phoenix for any Firefox-based browser on Android via the directions [here](https://phoenix.celenity.dev/android).**
+
+**If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](#manual-installation).**
 
 ___
 

@@ -2,10 +2,6 @@
 // The Phoenix shall rise from the ashes of what fell before it.
 // RIP Mull.
 
-// This config is specifically tailored for Android. It shouldn't be used on desktop, & the same is true for the inverse; don't use our standard desktop configs on Android...
-// The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox), a fully free & open source fork of Mull (which I also help maintain...).
-// You can however also manually install it on Fennec F-Droid, Firefox, Firefox Beta, Firefox Focus, Firefox Klar, Firefox Nightly, Iceraven, etc...
-
 // Let's begin.
 
 // 000 ABOUT:CONFIG
@@ -800,10 +796,31 @@ pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false);
 pref("browser.contentanalysis.interception_point.file_upload.enabled", false);
 pref("browser.contentanalysis.interception_point.print.enabled", false);
 
-/// Yes, this is a real pref... 
-// https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+/// Enable Site Isolation & Isolate all websites
+// https://wiki.mozilla.org/Project_Fission
+// This used to cause weird issues & breakage on Android, and was impossible to disable once enabled; though the situation appears to have changed drastically.
+// It appears to now be possible to disable fission after enabling, and it also seems to be at the point where (as of December 2024), Mozilla is even rolling it out to Nightly users...
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/nimbus-mobile-experiments/changeset?_expected=0
+// I don't see any reason why we shouldn't enable it by default at this point.
 
-pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer", false); // [HIDDEN - DEFAULT]
+pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT]
+pref("fission.autostart", true);
+
+/// Enable GPU Sandboxing
+
+pref("security.sandbox.gpu.level", 1);
+
+/// Protect against CSRF Attacks (Like Chromium)
+// https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ
+// https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// https://web.dev/articles/samesite-cookies-explained
+// https://help.salesforce.com/s/articleView?id=000389944&type=1
+// https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
+// https://web.dev/articles/schemeful-samesite
+
+pref("network.cookie.sameSite.laxByDefault", true);
+pref("network.cookie.sameSite.noneRequiresSecure", true); // [DEFAULT]
+pref("network.cookie.sameSite.schemeful", true);
 
 /// Enforce Strict file:// Origin Policy
 // https://stuffandnonsense.co.uk/blog/firefoxs_file_uri_origin_policy_and_web_fonts
@@ -857,6 +874,7 @@ pref("media.gmp-manager.checkContentSignature", true); // [DEFAULT]
 /// Disable Autoplay by default
 
 pref("media.autoplay.default", 5);
+pref("userContent.player.click_to_play", true); // [HIDDEN] https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 
 /// DRM
 // Garbage technology with freedom, privacy, & security concerns
@@ -896,14 +914,20 @@ pref("reader.errors.includeURLs", false); // [DEFAULT]
 
 /// 027 MISC.
 
+/// Always allow installing "incompatible" add-ons
+
+pref("extensions.strictCompatibility", false); // [DEFAULT]
+
 /// Disable middle mouse clicks from pasting clipboard contents by default
 // Too easy to accidentally press...
 
 pref("middlemouse.paste", false);
 
-/// Isolate permissions per container
+/// Enable Containers & isolate permissions per container
 
 pref("permissions.isolateBy.userContext", true);
+pref("privacy.userContext.enabled", true); // [HIDDEN]
+pref("privacy.userContext.ui.enabled", true); // [HIDDEN]
 
 /// Force pop-up windows to open in new tabs instead
 
@@ -923,9 +947,9 @@ pref("dom.popup_allowed_events", "click dblclick");
 pref("dom.disable_window_flip", true);
 pref("dom.disable_window_move_resize", true); // [DEFAULT]
 
-/// Enforce allow installing "incompatible" add-ons
+/// Disable annoying Web Speech API errors
 
-pref("extensions.strictCompatibility", false); // [DEFAULT]
+pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 
 // 028 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
@@ -995,7 +1019,6 @@ pref("services.sync.prefs.sync.media.autoplay.blocking_policy", true);
 pref("services.sync.prefs.sync.media.gmp-gmpopenh264.enabled", true);
 pref("services.sync.prefs.sync.media.gmp-gmpopenh264.provider.enabled", true);
 pref("services.sync.prefs.sync.media.gmp-gmpopenh264.visible", true);
-pref("services.sync.prefs.sync.media.gmp-gmpopenh264.provider.enabled", true);
 pref("services.sync.prefs.sync.media.gmp-provider.enabled", true);
 pref("services.sync.prefs.sync.general.warnOnAboutConfig", true);
 pref("services.sync.prefs.sync.extensions.webextensions.restrictedDomains", true);
@@ -1021,14 +1044,10 @@ pref("services.sync.prefs.sync.browser.safebrowsing.reportPhishURL", true);
 pref("services.sync.prefs.sync.browser.safebrowsing.provider.google.reportURL", true);
 pref("services.sync.prefs.sync.browser.safebrowsing.provider.google4.reportURL", true);
 pref("services.sync.prefs.sync.geo.provider.network.url", true);
-pref("services.sync.prefs.sync.privacy.webrtc.globalMuteToggles", true);
 pref("services.sync.prefs.sync.browser.cache.disk.enable", true);
 pref("services.sync.prefs.sync.browser.cache.disk_cache_ssl", true);
 pref("services.sync.prefs.sync.browser.cache.memory.enable", true);
 pref("services.sync.prefs.sync.browser.cache.memory.capacity", true);
-pref("services.sync.prefs.sync.privacy.clearHistory.historyFormDataAndDownloads", true);
-pref("services.sync.prefs.sync.privacy.clearSiteData.historyFormDataAndDownloads", true);
-pref("services.sync.prefs.sync.privacy.sanitize.timeSpan", true);
 pref("services.sync.prefs.sync.browser.download.open_pdf_attachments_inline", true);
 pref("services.sync.prefs.sync.pdfjs.sidebarViewOnLoad", true);
 pref("services.sync.prefs.sync.intl.accept_languages", true);
@@ -1051,9 +1070,6 @@ pref("services.sync.prefs.sync.cookiebanners.service.mode.privateBrowsing", true
 pref("services.sync.prefs.sync.cookiebanners.service.enableGlobalRules", true);
 pref("services.sync.prefs.sync.userContent.player.click_to_play", true);
 pref("services.sync.prefs.sync.privacy.userContext.ui.enabled", true);
-pref("services.sync.prefs.sync.privacy.popups.showBrowserMessage", true);
-pref("services.sync.prefs.sync.browser.cache.disk.metadata_memory_limit", true);
-pref("services.sync.prefs.sync.browser.cache.jsbc_compression_level", true);
 pref("services.sync.prefs.sync.browser.sessionstore.interval", true);
 pref("services.sync.prefs.sync.browser.sessionstore.max_tabs_undo", true);
 pref("services.sync.prefs.sync.browser.sessionhistory.max_total_viewers", true);
@@ -1071,7 +1087,6 @@ pref("services.sync.prefs.sync.layout.css.grid-template-masonry-value.enabled", 
 pref("services.sync.prefs.sync.layout.css.report_errors", true);
 pref("services.sync.prefs.sync.media.cache_readahead_limit", true);
 pref("services.sync.prefs.sync.media.cache_resume_threshold", true);
-pref("services.sync.prefs.sync.media.ffmpeg.vaapi.enabled", true);
 pref("services.sync.prefs.sync.media.memory_cache_max_size", true);
 pref("services.sync.prefs.sync.media.peerconnection.ice.default_address_only", true);
 pref("services.sync.prefs.sync.media.peerconnection.ice.no_host", true);

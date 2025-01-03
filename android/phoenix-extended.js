@@ -16,7 +16,6 @@ pref("security.ssl.require_safe_negotiation", true);
 // NOTE: You can add site exceptions to `privacy.resistFingerprinting.exemptedDomains` in your about:config
 
 pref("privacy.resistFingerprinting", true);
-pref("privacy.resistFingerprinting.letterboxing", true);
 
 /// Disable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting
