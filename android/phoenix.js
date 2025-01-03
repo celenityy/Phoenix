@@ -19,6 +19,28 @@ pref("general.warnOnAboutConfig", false);
 
 // 001 DATA COLLECTION
 
+/// Shield Studies/Normandy/Nimbus
+// https://mozilla.github.io/normandy/
+// https://wiki.mozilla.org/Firefox/Shield/Shield_Studies
+// https://support.mozilla.org/kb/shield
+// https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_experiments-or-studies
+// https://wiki.mozilla.org/Advocacy/heartbeat
+// https://experimenter.info/
+// resource://nimbus/ExperimentAPI.sys.mjs
+
+pref("app.normandy.api_url", "");
+pref("app.normandy.enabled", false);
+pref("app.normandy.first_run", false);
+pref("app.normandy.last_seen_buildid", "");
+pref("app.normandy.logging.level", 70); // Limits logging to fatal only
+pref("app.normandy.user_id", "");
+pref("app.shield.optoutstudies.enabled", false);
+pref("messaging-system.log", "off"); // Disables logging
+pref("messaging-system.rsexperimentloader.enabled", false);
+pref("messaging-system.rsexperimentloader.collection_id", "");
+pref("nimbus.appId", ""); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
+pref("toolkit.telemetry.pioneer-new-studies-available", false); // [HIDDEN]
+
 /// WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
@@ -35,6 +57,8 @@ pref("dom.origin-trials.enabled", false);
 // https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html
 
 pref("breakpad.reportURL", "");
+pref("browser.tabs.crashReporting.includeURL", false); // [DEFAULT} - Defense in depth
+pref("browser.tabs.crashReporting.sendReport", false);
 pref("toolkit.crashreporter.include_context_heap", false); // [DEFAULT] - Defense in depth
 
 /// X-Frame Options Error Reporting
@@ -42,6 +66,15 @@ pref("toolkit.crashreporter.include_context_heap", false); // [DEFAULT] - Defens
 
 pref("security.xfocsp.errorReporting.automatic", false); // [DEFAULT]
 pref("security.xfocsp.errorReporting.enabled", false);
+
+/// Coverage
+// https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
+// https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
+
+pref("toolkit.coverage.enabled", false); // [HIDDEN - DEFAULT]
+pref("toolkit.coverage.endpoint.base", ""); // [HIDDEN]
+pref("toolkit.coverage.opt-out", true); // [HIDDEN]
+pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN]
 
 /// Misc. Telemetry
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
@@ -51,6 +84,10 @@ pref("security.xfocsp.errorReporting.enabled", false);
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 
+pref("browser.places.interactions.enabled", false); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
+pref("browser.search.serpEventTelemetryCategorization.enabled", false); // [HIDDEN]
+pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false); // [HIDDEN]
+pref("browser.search.serpMetricsRecordedCounter", 0); // [HIDDEN - DEFAULT]
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee"); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
 pref("datareporting.healthreport.documentServerURI", ""); // [HIDDEN]
 pref("datareporting.healthreport.logging.consoleEnabled", false); // [HIDDEN]
@@ -58,13 +95,19 @@ pref("datareporting.healthreport.service.enabled", false); // [HIDDEN]
 pref("datareporting.healthreport.service.firstRun", false); // [HIDDEN]
 pref("datareporting.healthreport.uploadEnabled", false);
 pref("datareporting.policy.dataSubmissionEnabled", false);
-pref("datareporting.policy.dataSubmissionPolicyAccepted", false);
+pref("datareporting.policy.dataSubmissionPolicyAccepted", false); // [HIDDEN]
 pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);
 pref("datareporting.policy.firstRunURL", "");
 pref("dom.security.unexpected_system_load_telemetry_enabled", false);
+pref("network.jar.record_failure_reason", false); // [DEFAULT] - https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#14397
+pref("network.traffic_analyzer.enabled", false); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13298
 pref("network.trr.confirmation_telemetry_enabled", false);
+pref("nimbus.telemetry.targetingContextEnabled", false); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
 pref("privacy.imageInputTelemetry.enableTestMode", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
+pref("toolkit.content-background-hang-monitor.disabled", true);
+pref("toolkit.telemetry.archive.enabled", false); // [HIDDEN]
+pref("toolkit.telemetry.bhrPing.enabled", false); // [HIDDEN]
 pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0");
 pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde");
 pref("toolkit.telemetry.dap.helper.hpke", "");
@@ -80,11 +123,19 @@ pref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]"); // [DEFAULT]
 pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
 pref("toolkit.telemetry.enabled", false); // [DEFAULT on Stable, Focus, & Klar - Beta & Nightly are set to true...]
 pref("toolkit.telemetry.healthping.enabled", false); // [HIDDEN]
+pref("toolkit.telemetry.newProfilePing.enabled", false);
+pref("toolkit.telemetry.pioneerId", ""); // [HIDDEN]
+pref("toolkit.telemetry.previousBuildID", ""); // [HIDDEN]
+pref("toolkit.telemetry.reportingpolicy.firstRun", false); // [HIDDEN]
 pref("toolkit.telemetry.server", "data;");
 pref("toolkit.telemetry.server_owner", "");
+pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false); // [HIDDEN]
+pref("toolkit.telemetry.shutdownPingSender.enabled", false); // [HIDDEN]
+pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false); // [HIDDEN]
 pref("toolkit.telemetry.testing.suppressPingsender", true); // [HIDDEN]
 pref("toolkit.telemetry.translations.logLevel", "Off");
 pref("toolkit.telemetry.unified", false); // [DEFAULT]
+pref("toolkit.telemetry.updatePing.enabled", false); // [HIDDEN]
 pref("toolkit.telemetry.user_characteristics_ping.current_version", 0); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.last_version_sent", 0); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.logLevel", "Off");
@@ -94,7 +145,11 @@ pref("toolkit.telemetry.user_characteristics_ping.uuid", ""); // [DEFAULT]
 
 /// Misc. UX - Harmless but does not apply to us
 
+pref("app.normandy.shieldLearnMoreUrl", ""); // [HIDDEN]
+pref("datareporting.healthreport.infoURL", ""); // [HIDDEN]
 pref("extensions.recommendations.privacyPolicyUrl", ""); // [DEFAULT]
+pref("toolkit.crashreporter.infoURL", ""); // [HIDDEN]
+pref("toolkit.datacollection.infoURL", ""); // [HIDDEN]
 
 // 002 MOZILLA CRAP™
 
@@ -103,6 +158,7 @@ pref("extensions.recommendations.privacyPolicyUrl", ""); // [DEFAULT]
 // https://support.mozilla.org/kb/personalized-extension-recommendations
 
 pref("extensions.getAddons.browseAddons", "");
+pref("extensions.getAddons.discovery.api_url", "data;"); // [HIDDEN] https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 pref("extensions.getAddons.showPane", false); // [HIDDEN]
 pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 pref("extensions.recommendations.themeRecommendationUrl", ""); // [DEFAULT]
@@ -140,7 +196,7 @@ pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
 // Prompt to use Private Browsing
 
-pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true);
+pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
 
 /// Always show Punycode - Helps prevent phishing & IDN Homograph Attacks
 // https://wikipedia.org/wiki/IDN_homograph_attack
@@ -152,6 +208,8 @@ pref("network.IDN_show_punycode", true);
 /// Disable Network Prefetching
 // https://developer.mozilla.org/docs/Glossary/Prefetch
 
+pref("browser.places.speculativeConnect.enabled", false); // [HIDDEN]
+pref("browser.urlbar.speculativeConnect.enabled", false); // [HIDDEN]
 pref("network.dns.disablePrefetch", true);
 pref("network.dns.disablePrefetchFromHTTPS", true);
 pref("network.http.speculative-parallel-limit", 0);
@@ -301,7 +359,7 @@ pref("network.dns.preferIPv6", true);
 
 /// Enforce OCSP & Stapling
 
-pref("security.OCSP.enabled", 1); // [DEFAULT: 2, which only checks some certificates...]
+pref("security.OCSP.enabled", 1); // [Default = 2, which only checks EV certificates... 1 checks both DV & EV certs, default on desktop]
 pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
@@ -323,15 +381,13 @@ pref("security.cert_pinning.enforcement_level", 2);
 /// Enable & Enforce Certificate Transparency
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15868
 
-pref("security.pki.certificate_transparency.mode", 2); // [DEFAULT: 0]
+pref("security.pki.certificate_transparency.mode", 2); // [Default = 0]
 pref("security.pki.certificate_transparency.disable_for_hosts", ""); // [DEFAULT]
 pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [DEFAULT]
 
 // 008 DOWNLOADS
 
 /// Always prompt before downloading files
-/// We also set "PromptForDownloadLocation" in policies
-// https://mozilla.github.io/policy-templates/#promptfordownloadlocation
 
 pref("browser.download.always_ask_before_handling_new_types", true);
 pref("browser.download.useDownloadDir", false);
@@ -370,6 +426,10 @@ pref("browser.safebrowsing.provider.google.dataSharing.enabled", false); // [DEF
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
+/// Show advanced details on pages blocked by Safe Browsing by default
+
+pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [HIDDEN]
+
 /// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla & Google (NOT PROXIED), as well as your locale to Mozilla
 // Ex. https://en-us.phish-error.mozilla.com/?url=example.org - Which redirects you directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org 
 // We can improve privacy & speed by sending the domain *only* to Google & without sending your locale to anyone
@@ -397,6 +457,7 @@ pref("browser.safebrowsing.provider.google4.reportURL", "https://transparencyrep
 /// Prevent Wi-Fi Scanning
 
 pref("browser.region.network.scan", false); // [DEFAULT]
+pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
 
 /// Disable "Region Updates"
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
@@ -420,10 +481,12 @@ pref("browser.ml.enable", false); // [DEFAULT, except for Nightly] - "Experiment
 
 /// Enable mDNS Host Obfuscation to prevent leaking local IP addresses
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1588817
+
 pref("media.peerconnection.ice.obfuscate_host_addresses", true);
 
 /// If a proxy is configured, ensure WebRTC isn't bypassing it
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1790270
+
 pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // 013 DISK AVOIDANCE
@@ -483,6 +546,10 @@ pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 pref("xpinstall.whitelist.required", true); // [DEFAULT]
 
+// Block extensions signed with weak signature algorithms
+
+pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [HIDDEN]
+
 // Enforce Extension Blocklist
 
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
@@ -509,6 +576,10 @@ pref("pdfjs.enablePermissions", false); // [HIDDEN]
 /// Open PDFs in browser where possible
 
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT]
+
+/// Show sidebar by default when viewing PDFs
+
+pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN]
 
 // 016 FINGERPRINTING PROTECTION
 
@@ -547,6 +618,28 @@ pref("browser.display.use_system_colors", false); // [DEFAULT]
 /// Ensure ETP is set to Strict
 
 pref("browser.contentblocking.category", "strict");
+
+/// Enable various important ETP protections...
+/// Usually unnecessary & covered by enabling ETP Strict - though based on my testing, these don't appear to be always set automatically for Fenix.
+
+pref("network.cookie.cookieBehavior", 5); // [DEFAULT]
+pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT]
+pref("privacy.fingerprintingProtection", true);
+pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT]
+pref("privacy.partition.network_state.ocsp_cache.pbmode", true); // [DEFAULT]
+pref("privacy.query_stripping.enabled", true);
+pref("privacy.query_stripping.enabled.pbmode", true);
+pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.emailtracking.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.enabled", true);
+pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.socialtracking.enabled", true); // [DEFAULT]
 
 /// Enforce Do Not Track & Global Privacy Control
 
@@ -607,6 +700,7 @@ pref("signon.privateBrowsingCapture.enabled", false);
 /// Always allow showing password when hidden
 
 pref("layout.forms.reveal-password-button.enabled", true);
+pref("layout.forms.reveal-password-context-menu.enabled", true); // [DEFAULT]
 
 /// Prevent websites from dictating whether to allow filling passwords
 // https://blog.0xbadc0de.be/archives/124
