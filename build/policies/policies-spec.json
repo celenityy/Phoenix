@@ -1400,6 +1400,10 @@
             "xpinstall.whitelist.required": {
                 "Value": true,
                 "Status": "locked"
+            },
+            "browser.phoenix.policies.applied": {
+                "Value": true,
+                "Status": "locked"
             }
         },
         "PrivateBrowsingModeAvailability": 0,
