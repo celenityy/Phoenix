@@ -1,6 +1,14 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "ads@mozac.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla Android Components - Ads Telemetry..."
+            },
+            "cookies@mozac.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla Android Components - Search Telemetry..."
+            },
             "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Adblock Plus, by Eyeo. Highly sketchy, avoid & just use uBlock Origin instead."
