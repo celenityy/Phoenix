@@ -956,7 +956,13 @@ pref("browser.phoenix.022.applied", true);
 /// Ensure we're always updating extensions by default
 
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]
+pref("extensions.update.autoUpdateDefault", true); // [HIDDEN]
 pref("extensions.update.enabled", true); // [DEFAULT]
+
+/// Ensure we always notify users for extension updates by default
+// https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs#253
+
+pref("extensions.update.notifyUser", true); // [HIDDEN]
 
 pref("browser.phoenix.023.applied", true);
 
