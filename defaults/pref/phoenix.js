@@ -1,5 +1,5 @@
 //
-pref("browser.phoenix.js.initialized", true, locked);
+//
 // Enforce that we (or any other mozilla.cfg files) do not get privileged browser access...
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 pref("general.config.sandbox_enabled", true, locked);
