@@ -661,11 +661,15 @@ pref("browser.contentblocking.category", "strict");
 pref("network.cookie.cookieBehavior", 5); // [DEFAULT]
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT]
-pref("privacy.fingerprintingProtection", true);
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+pref("privacy.fingerprintingProtection", true);
+pref("privacy.fingerprintingProtection.pbmode", true); // [DEFAULT]
+pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
+pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT]
+pref("privacy.partition.bloburl_per_partition_key", true); // [DEFAULT]
 pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT]
 pref("privacy.partition.network_state.ocsp_cache.pbmode", true); // [DEFAULT]
 pref("privacy.query_stripping.enabled", true);
@@ -676,6 +680,7 @@ pref("privacy.trackingprotection.emailtracking.enabled", true); // [DEFAULT]
 pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true); // [DEFAULT]
 pref("privacy.trackingprotection.enabled", true);
 pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.pbmode.enabled", true);
 pref("privacy.trackingprotection.socialtracking.enabled", true); // [DEFAULT]
 
 /// Enforce Do Not Track & Global Privacy Control
