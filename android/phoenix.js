@@ -271,6 +271,10 @@ pref("browser.xul.error_pages.expert_bad_cert", true);
 
 pref("security.tls.enable_0rtt_data", false);
 
+// Require safe renegotiations - Disables RFC 5746
+
+pref("security.ssl.require_safe_negotiation", true);
+
 /// Enforce preloading intermediates
 // https://wiki.mozilla.org/Security/CryptoEngineering/Intermediate_Preloading
 
