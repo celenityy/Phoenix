@@ -659,6 +659,7 @@ pref("browser.contentblocking.category", "strict");
 /// Usually unnecessary & covered by enabling ETP Strict - though based on my testing, these don't appear to be always set automatically for Fenix.
 
 pref("network.cookie.cookieBehavior", 5); // [DEFAULT]
+pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT]
 pref("privacy.fingerprintingProtection", true);
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT]
