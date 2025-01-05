@@ -2,7 +2,7 @@
 // The Phoenix shall rise from the ashes of what fell before it.
 // RIP Mull.
 
-pref("browser.phoenix.version", "20240103.2");
+pref("browser.phoenix.version", "05January2025v1");
 
 // Let's begin.
 
