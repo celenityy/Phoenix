@@ -923,6 +923,19 @@ pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 
+/// Never skip the assertion that about:pages don't have content security policies (CSP)
+// This is default on Standard Firefox releases, but not on ex. Thunderbird & other builds
+// https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
+
+pref("dom.security.skip_about_page_has_csp_assert", false); // [DEFAULT]
+
+/// Enable Trusted Types (Like Chromium)
+// https://w3c.github.io/trusted-types/dist/spec/
+// https://developer.mozilla.org/docs/Web/API/Trusted_Types_API
+// https://www.theregister.com/2023/12/21/mozilla_decides_trusted_types_is/
+
+pref("dom.security.trusted_types.enabled", true);
+
 pref("browser.phoenix.020.applied", true);
 
 // 021 BLOCK COOKIE BANNERS
