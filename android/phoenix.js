@@ -643,6 +643,12 @@ pref("webgl.disable-fail-if-major-performance-caveat", false);
 
 pref("browser.display.use_system_colors", false); // [DEFAULT]
 
+/// Enable fdlibm for Math.sin, Math.cos, and Math.tan
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
+// https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
+
+pref("javascript.options.use_fdlibm_for_sin_cos_tan", true);
+
 pref("browser.phoenix.016.applied", true);
 
 // 017 MISC. PRIVACY
