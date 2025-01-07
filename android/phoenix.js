@@ -103,7 +103,7 @@ pref("network.jar.record_failure_reason", false); // [DEFAULT] - https://searchf
 pref("network.traffic_analyzer.enabled", false); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13298
 pref("network.trr.confirmation_telemetry_enabled", false);
 pref("nimbus.telemetry.targetingContextEnabled", false); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
-pref("privacy.imageInputTelemetry.enableTestMode", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
+pref("privacy.imageInputTelemetry.enableTestMode", false); // [DEFAULT] "Event Telemetry" https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
 pref("toolkit.content-background-hang-monitor.disabled", true);
 pref("toolkit.telemetry.archive.enabled", false); // [HIDDEN]
