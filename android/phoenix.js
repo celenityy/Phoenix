@@ -931,7 +931,6 @@ pref("network.protocol-handler.warn-external.vnd.youtube", true);
 pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
-// This is default on Standard Firefox releases, but not on ex. Thunderbird & other builds
 // https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
 
 pref("dom.security.skip_about_page_has_csp_assert", false); // [DEFAULT]
