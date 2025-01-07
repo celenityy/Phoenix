@@ -41,11 +41,6 @@ pref("messaging-system.rsexperimentloader.collection_id", ""); // [HIDDEN]
 pref("nimbus.appId", "");  // [HIDDEN], https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 pref("toolkit.telemetry.pioneer-new-studies-available", false); // [HIDDEN]
 
-/// WebVTT Testing Events
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-
-pref("media.webvtt.testing.events", false); // [DEFAULT]
-
 /// Origin Trials
 // https://wiki.mozilla.org/Origin_Trials
 
@@ -1015,6 +1010,11 @@ pref("reader.errors.includeURLs", false); // [DEFAULT]
 pref("browser.phoenix.024.applied", true);
 
 /// 025 MISC.
+
+/// Disable WebVTT Testing Events
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+
+pref("media.webvtt.testing.events", false); // [DEFAULT]
 
 /// Always allow installing "incompatible" add-ons
 
