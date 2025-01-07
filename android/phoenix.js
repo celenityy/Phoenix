@@ -267,7 +267,8 @@ pref("browser.xul.error_pages.expert_bad_cert", true);
 
 pref("security.tls.enable_0rtt_data", false);
 
-// Require safe renegotiations - Disables RFC 5746
+/// Require safe renegotiations - Disables connections to servers without RFC 5746
+// https://wiki.mozilla.org/Security:Renegotiation
 
 pref("security.ssl.require_safe_negotiation", true);
 
