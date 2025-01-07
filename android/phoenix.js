@@ -244,6 +244,7 @@ pref("dom.security.https_only_mode.upgrade_local", true);
 pref("dom.security.https_only_mode_pbm", true);
 pref("security.mixed_content.block_active_content", true); // [DEFAULT]
 pref("security.mixed_content.block_display_content", true);
+pref("security.mixed_content.block_object_subrequest", true);
 pref("security.mixed_content.upgrade_display_content", true);
 pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
