@@ -392,6 +392,7 @@ pref("security.cert_pinning.enforcement_level", 2);
 
 /// Enable & Enforce Certificate Transparency
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15868
+// https://wiki.mozilla.org/SecurityEngineering/Certificate_Transparency
 
 pref("security.pki.certificate_transparency.mode", 2); // [Default = 0]
 pref("security.pki.certificate_transparency.disable_for_hosts", ""); // [DEFAULT]
