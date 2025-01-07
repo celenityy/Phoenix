@@ -386,6 +386,7 @@ pref("security.pki.crlite_mode", 2); // [DEFAULT on Nightly]
 pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT on Nightly]
 
 /// Enforce Strict Certificate Pinning
+// https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
 
 pref("security.cert_pinning.enforcement_level", 2);
 
