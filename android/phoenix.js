@@ -350,8 +350,6 @@ pref("network.notify.checkForNRPT", false);
 pref("network.notify.checkForProxies", false);
 
 /// Enforce EncryptedClientHello
-// We also set "DisableEncryptedClientHello" in policies
-// https://mozilla.github.io/policy-templates/#disableencryptedclienthello
 // https://blog.cloudflare.com/announcing-encrypted-client-hello
 
 pref("network.dns.echconfig.enabled", true); // [DEFAULT]
