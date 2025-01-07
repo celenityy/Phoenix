@@ -713,6 +713,13 @@ pref("dom.reporting.header.enabled", false); // [DEFAULT]
 
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT]
 
+/// Disable Network Information API
+// https://developer.mozilla.org/docs/Web/API/Network_Information_API
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1057169
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1637922
+
+pref("dom.netinfo.enabled", false); // [DEFAULT]
+
 /// Trim cross-origin referers (Like Safari)
 
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
