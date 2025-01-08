@@ -63,7 +63,7 @@ echo 'deb http://download.opensuse.org/repositories/home:/celenity/Debian_12/ /'
 echo
 
 echo_green_text "Adding celenity's GPG key..."
-wget -O- https://phoenix.celenity.dev/uninstall.sh 2>/dev/null | \
+wget -O-  https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key 2>/dev/null | \
 	gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
 echo
 
