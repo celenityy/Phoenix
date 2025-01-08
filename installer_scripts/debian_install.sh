@@ -4,6 +4,17 @@
 ## Downloaded files save in /tmp for moving
 cd /tmp
 
+## Colours
+blue='\e[1;34m'
+brown='\e[0;33m'
+coloroff='\e[0m' # Colour off
+cyan='\e[1;36m'
+gray='\e[1;30m'
+green='\e[0;32m'
+purple='\e[0;35m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+
 
 ## Functions
 echo_red_text() {
@@ -22,27 +33,43 @@ error_fn() {
 	exit 1
 }
 
+
 ## Asking users' firefox release
-read -p $'\e[32mFirefox or Firefox-esr? (firefox/firefox-esr) :\e[0m' FIREFOX_RELEASE
+echo -e "${yellow}phoenix package is for firefox and phoenix-esr package is for firefox-esr${coloroff}"
+echo -e "${yellow}Please choose your Firefox release (Its name or its number)${coloroff}"
+echo -e "${yellow}Your options are:${coloroff}"
+echo -e "${blue}1. firefox${coloroff}     - ${green}Firefox${coloroff}"
+echo -e "${red}2. firefox-esr${coloroff} - ${green}Firefox with Extended Support Release (Firefox-ESR)${coloroff}"
+read -p 'Enter your selection: ' FIREFOX_RELEASE
 
-if [[ "${FIREFOX_RELEASE}" = "firefox" ]]; then
-	PHOENIX_RELEASE="phoenix"
-else
-	PHOENIX_RELEASE="phoenix-esr"
-fi
+case "${FIREFOX_RELEASE}" in
+	"firefox" | "Firefox" | "FireFox" | "FIREFOX" | 1)
+		PHOENIX_RELEASE="phoenix"
+		;;
 
+	"firefox-esr" | "FireFox-esr" | "FIREFOX-ESR" | 2)
+		PHOENIX_RELEASE="phoenix-esr"
+		;;
+
+	*)
+	echo -e "${red}Invalid option.${coloroff}"
+	exit 1
+esac
 
 ## Install Phoenix
 echo_green_text "Adding celenity's OBS Repo to APT..."
 echo 'deb http://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | \
 	sudo tee /etc/apt/sources.list.d/home:celenity.list
+echo
 
 echo_green_text "Adding celenity's GPG key..."
-curl -fsSL https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key | \
+wget -O- https://phoenix.celenity.dev/uninstall.sh 2>/dev/null | \
 	gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
+echo
 
 echo_green_text "Updating APT cache..."
 sudo apt update || error_fn
+echo
 
 echo_green_text "Installing Phoenix..."
 sudo apt install "${PHOENIX_RELEASE}" || error_fn
