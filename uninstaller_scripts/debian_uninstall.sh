@@ -20,10 +20,17 @@ error_fn() {
 
 
 ## Uninstall Phoenix
-echo_green_text "Removing Phoenix..."
-sudo apt remove phoenix* || error_fn
+echo_green_text "Removing Phoenix or Phoenix-esr package..."
 
-read -p  $'\e[32mWould you also like to remove celenity''s OBS Repo? [Y/n] \e[0m' RESULT
+apt list -i phoenix 2>/dev/null | grep 'phoenix' &>/dev/null
+if [[ $? -eq 0 ]]; then
+	sudo apt remove phoenix
+else
+	sudo apt remove phoenix-esr
+fi
+
+echo -e "\033[32mWould you also like to remove celenity's OBS Repo? [Y/n] \033[0m"
+read RESULT
 echo
 
 case ${RESULT} in
