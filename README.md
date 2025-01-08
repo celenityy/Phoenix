@@ -8,14 +8,14 @@
 **Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.**
 
 > [!NOTE]
-> While Phoenix's home is [Codeberg](https://codeberg.org/celenity/Phoenix), this repo is also mirrored to both [GitLab](https://codeberg.org/ironfox-oss/IronFox) & [GitHub](https://github.com/celenityy/Phoenix).
+> While Phoenix's home is [Codeberg](https://codeberg.org/celenity/Phoenix), this repo is also mirrored to both [GitLab](https://gitlab.com/celenity/Phoenix) & [GitHub](https://github.com/celenityy/Phoenix).
 
 > [!NOTE]
 > **Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
 
 ### Want to join the Phoenix Community?
 
-We'd love to see you over on [Matrix](https://matrix.to/#/#ironfox:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/zbdzfRVyVh)!
+We'd love to see you over on [Matrix](https://matrix.to/#/#phoenix:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/AMZ2GRxxjr)!
 
 ___
 
