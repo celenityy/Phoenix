@@ -1,6 +1,21 @@
 # Phoenix
+<p align="center">
+    <img src="assets/phoenix.png"
+        alt="Phoenix"
+        height="200">
+</p>
 
 **Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.**
+
+> [!NOTE]
+> While Phoenix's home is [Codeberg](https://codeberg.org/celenity/Phoenix), this repo is also mirrored to both [GitLab](https://codeberg.org/ironfox-oss/IronFox) & [GitHub](https://github.com/celenityy/Phoenix).
+
+> [!NOTE]
+> **Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
+
+### Want to join the Phoenix Community?
+
+We'd love to see you over on [Matrix](https://matrix.to/#/#ironfox:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/zbdzfRVyVh)!
 
 ___
 
@@ -23,12 +38,6 @@ At the end of the day, above all else:
 > [!IMPORTANT]
 >**⚠️ All users MUST read the Wiki [here](https://phoenix.celenity.dev/wiki) before proceeding. The [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
 
-> [!NOTE]
-> This project is hosted on both [Codeberg](https://codeberg.org/celenity/Phoenix) **(which is the primary & preferred place to contribute)** & [GitHub](https://github.com/celenityy/Phoenix).
-
-> [!NOTE]
-> **Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
-
 ___
 
 # 📖Glossary
@@ -36,6 +45,7 @@ ___
 **<details><summary>Click me</summary>**
 
 - [Phoenix](#phoenix)
+		- [Want to join the Phoenix Community?](#want-to-join-the-phoenix-community)
 - [📖Glossary](#glossary)
 - [💪Motivation](#motivation)
 - [🚀Install](#install)
@@ -619,7 +629,7 @@ mv ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
 
 - **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
-	- Created the install & uninstall scripts, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
+	- Designed Phoenix's icon, created the install & uninstall scripts, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
 
 - **[GW72](https://codeberg.org/GW72)**
 	- Invaluable feedback & support of the project.
