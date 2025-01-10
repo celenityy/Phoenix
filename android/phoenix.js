@@ -814,6 +814,7 @@ pref("browser.phoenix.018.applied", true);
 pref("javascript.options.baselinejit", false);
 pref("javascript.options.ion", false);
 pref("javascript.options.native_regexp", false); //  https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+pref("javascript.options.main_process_disable_jit", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
 pref("javascript.options.wasm_baselinejit", false);
 
 /// Disable ASM.JS (More JIT)
