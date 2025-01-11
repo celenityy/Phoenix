@@ -219,6 +219,12 @@ pref("network.predictor.enable-prefetch", false);
 pref("network.predictor.enabled", false);
 pref("network.prefetch-next", false);
 
+/// Disable Preconnect
+// https://github.com/uBlockOrigin/uBlock-issues/issues/2913
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preconnect
+
+pref("network.preconnect", false);
+
 /// Disable Search Suggestions
 
 pref("browser.search.suggest.enabled", false);
