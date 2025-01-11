@@ -225,6 +225,14 @@ pref("network.prefetch-next", false);
 
 pref("network.preconnect", false);
 
+/// Disable Early Hints
+// https://developer.mozilla.org/docs/Web/HTTP/Status/103
+// https://github.com/bashi/early-hints-explainer/blob/main/explainer.md
+// Ex. like Cromite https://github.com/uazo/cromite/blob/master/build/patches/Client-hints-overrides.patch
+
+pref("network.early-hints.enabled", false);
+pref("network.early-hints.preconnect.enabled", false);
+
 /// Disable Search Suggestions
 
 pref("browser.search.suggest.enabled", false);
