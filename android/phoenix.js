@@ -829,12 +829,15 @@ pref("browser.phoenix.018.applied", true);
 
 /// Disable JavaScript Just-in-time Compilation (JIT)
 // https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
+// https://firefox-source-docs.mozilla.org/js/index.html#javascript-jits
+// https://codeberg.org/rusty-snake/firefox-config/src/branch/main/assets/user-overrides.js#L60
 
-pref("javascript.options.baselinejit", false);
-pref("javascript.options.ion", false);
+pref("javascript.options.baselinejit", false); // Baseline Compiler
+pref("javascript.options.blinterp", false); // Baseline Interpreter 
+pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.main_process_disable_jit", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
-pref("javascript.options.native_regexp", false); //  https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-pref("javascript.options.wasm_baselinejit", false);
+pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
 /// Disable ASM.JS (More JIT)
 // https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
