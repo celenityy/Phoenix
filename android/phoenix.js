@@ -512,6 +512,11 @@ pref("browser.phoenix.010.applied", true);
 
 pref("browser.ml.enable", false); // [DEFAULT, except for Nightly] - "Experimental Machine Learning Inference Engine"
 
+/// Disable AI/ML "Autofill Experiment"...
+// https://searchfox.org/mozilla-central/source/toolkit/components/formautofill/MLAutofill.sys.mjs
+
+pref("extensions.formautofill.ml.experiment.enabled", false);
+
 pref("browser.phoenix.011.applied", true);
 
 // 012 WEBRTC
