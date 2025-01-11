@@ -1321,6 +1321,10 @@
                 "Value": "",
                 "Status": "locked"
             },
+            "network.preconnect": {
+                "Value": false,
+                "Status": "locked"
+            },
             "network.protocol-handler.external.shell": {
                 "Value": false,
                 "Status": "locked"
