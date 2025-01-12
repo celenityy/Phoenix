@@ -1033,6 +1033,11 @@ pref("javascript.options.content_process_write_protect_code", true);
 pref("browser.opaqueResponseBlocking", true);
 pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 
+/// Enable the 'credentialless' COEP (Cross-Origin-Embedder-Policy) Header
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1829
+
+pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT on Nightly]
+
 pref("browser.phoenix.020.applied", true, locked);
 
 // 021 BLOCK COOKIE BANNERS
