@@ -927,6 +927,7 @@ pref("browser.contentanalysis.interception_point.print.enabled", false, locked);
 pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT]
 pref("fission.autostart", true);
 pref("fission.autostart.session", true);
+pref("fission.disableSessionHistoryInParent", false); // SHIP, required for Fission
 
 /// Yes, this is a real pref... 
 // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
