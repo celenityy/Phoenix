@@ -308,6 +308,11 @@ pref("security.tls.hello_downgrade_check", true, locked); // [DEFAULT]
 
 pref("network.websocket.allowInsecureFromHTTPS", false, locked); // [DEFAULT]
 
+/// Block access to Addon Manager over insecure protocols...
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5452
+
+pref("extensions.webapi.testing.http", false, locked); // [DEFAULT]
+
 /// Enable Post Quantum Key Agreement (Kyber)
 
 pref("media.webrtc.enable_pq_dtls", true, locked); // [DEFAULT]
