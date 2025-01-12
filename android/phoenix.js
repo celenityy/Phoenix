@@ -234,6 +234,7 @@ pref("network.preconnect", false, locked);
 
 pref("network.early-hints.enabled", false, locked);
 pref("network.early-hints.preconnect.enabled", false, locked);
+pref("network.early-hints.preconnect.max_connections", 0, locked);
 
 /// Disable Search Suggestions
 
