@@ -989,6 +989,11 @@ pref("security.allow_parent_unrestricted_js_loads", false);
 pref("security.allow_unsafe_parent_loads", false); // [DEFAULT]
 pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT]
 
+/// Always use a separate content process for `file://` URLs
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1848
+
+pref("browser.tabs.remote.separateFileUriProcess", true);
+
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
 
