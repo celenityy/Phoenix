@@ -2133,6 +2133,18 @@
         "Value": "",
         "Status": "locked"
       },
+      "network.early-hints.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.early-hints.preconnect.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.preconnect": {
+        "Value": false,
+        "Status": "locked"
+      },
       "network.protocol-handler.external.shell": {
         "Value": false,
         "Status": "locked"
