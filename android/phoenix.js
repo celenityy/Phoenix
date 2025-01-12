@@ -718,7 +718,7 @@ pref("privacy.globalprivacycontrol.pbmode.enabled", true, locked); // [DEFAULT]
 /// Disable "Privacy-Preserving Attribution"
 // https://support.mozilla.org/kb/privacy-preserving-attribution
 
-pref("dom.origin-trials.private-attribution.state", 0, locked);
+pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
 pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
 
 /// Disable Reporting API
