@@ -856,6 +856,16 @@ pref("mathml.disabled", true);
 pref("gfx.font_rendering.graphite.enabled", false);
 pref("gfx.font_rendering.opentype_svg.enabled", false);
 
+/// Disable SharedArrayBuffer using window.postMessage
+// https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
+// https://developer.mozilla.org/docs/Web/API/Window/postMessage
+// https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/
+// https://github.com/tc39/ecma262/issues/1435
+// By default, Firefox restricts the use of SharedArrayBuffer - this fully disables it.
+
+pref("dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled", false); // [DEFAULT]
+pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false);
+
 pref("browser.phoenix.019.applied", true);
 
 // 020 MISC. SECURITY
