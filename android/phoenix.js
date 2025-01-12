@@ -929,6 +929,13 @@ pref("fission.autostart", true);
 pref("fission.autostart.session", true);
 pref("fission.disableSessionHistoryInParent", false); // SHIP, required for Fission
 
+/// Always run extensions OOP (out of process...)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1613141
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1880856
+// https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
+
+pref("extensions.webextensions.remote", true, locked); // [DEFAULT]
+
 /// Yes, this is a real pref... 
 // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 
