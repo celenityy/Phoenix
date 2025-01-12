@@ -968,8 +968,14 @@ pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 /// Enforce various other important security-related prefs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15473
 
-lockPref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
-lockPref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
+pref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
+pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
+pref("security.all_resource_uri_content_accessible", false); // [DEFAULT]
+pref("security.allow_eval_in_parent_process", false);
+pref("security.allow_eval_with_system_principal", false);
+pref("security.allow_parent_unrestricted_js_loads", false);
+pref("security.allow_unsafe_parent_loads", false); // [DEFAULT]
+pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT]
 
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
