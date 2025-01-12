@@ -1013,6 +1013,12 @@ pref("dom.security.trusted_types.enabled", true);
 
 pref("javascript.options.content_process_write_protect_code", true);
 
+/// Enable Opaque Response Blocking
+// https://github.com/annevk/orb
+
+pref("browser.opaqueResponseBlocking", true);
+pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
+
 pref("browser.phoenix.020.applied", true, locked);
 
 // 021 BLOCK COOKIE BANNERS
