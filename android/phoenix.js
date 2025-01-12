@@ -769,6 +769,10 @@ pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _ope
 
 pref("privacy.query_stripping.strip_on_share.enabled", true);
 
+/// Ensure we never save clipboard history/clipboard contents to the cloud...
+
+pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false, locked); // [DEFAULT]
+
 pref("browser.phoenix.017.applied", true, locked);
 
 // 018 PASSWORDS & AUTHENTICATION
