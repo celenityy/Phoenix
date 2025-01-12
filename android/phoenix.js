@@ -965,6 +965,12 @@ pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 
+/// Enforce various other important security-related prefs
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15473
+
+lockPref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
+lockPref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
+
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
 
