@@ -1117,6 +1117,14 @@
                 "Value": 0,
                 "Status": "locked"
             },
+            "dom.prefetch_dns_for_anchor_http_document": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "dom.prefetch_dns_for_anchor_https_document": {
+                "Value": false,
+                "Status": "locked"
+            },
             "dom.private-attribution.submission.enabled": {
                 "Value": false,
                 "Status": "locked"

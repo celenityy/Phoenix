@@ -211,6 +211,8 @@ pref("browser.phoenix.003.applied", true, locked);
 
 pref("browser.places.speculativeConnect.enabled", false, locked); // [HIDDEN]
 pref("browser.urlbar.speculativeConnect.enabled", false, locked); // [HIDDEN]
+pref("dom.prefetch_dns_for_anchor_http_document", false, locked); // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
+pref("dom.prefetch_dns_for_anchor_https_document", false, locked); // [DEFAULT] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
 pref("network.dns.disablePrefetch", true, locked);
 pref("network.dns.disablePrefetchFromHTTPS", true, locked);
 pref("network.http.speculative-parallel-limit", 0, locked);
