@@ -1956,6 +1956,14 @@
         "Value": 0,
         "Status": "locked"
       },
+      "dom.prefetch_dns_for_anchor_http_document": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "dom.prefetch_dns_for_anchor_https_document": {
+        "Value": false,
+        "Status": "locked"
+      },
       "dom.private-attribution.submission.enabled": {
         "Value": false,
         "Status": "locked"
@@ -2092,6 +2100,30 @@
         "Value": false,
         "Status": "locked"
       },
+      "network.captive-portal-service.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.connectivity-service.DNSv4.domain": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "network.connectivity-service.DNSv6.domain": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "network.connectivity-service.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.connectivity-service.IPv4.url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "network.connectivity-service.IPv6.url": {
+        "Value": "",
+        "Status": "locked"
+      },
       "network.dns.disablePrefetch": {
         "Value": true,
         "Status": "locked"
@@ -2100,8 +2132,24 @@
         "Value": true,
         "Status": "locked"
       },
+      "network.early-hints.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.early-hints.preconnect.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.early-hints.preconnect.max_connections": {
+        "Value": 0,
+        "Status": "locked"
+      },
       "network.http.speculative-parallel-limit": {
         "Value": 0,
+        "Status": "locked"
+      },
+      "network.preconnect": {
+        "Value": false,
         "Status": "locked"
       },
       "network.predictor.enable-hover-on-ssl": {
@@ -2136,47 +2184,7 @@
         "Value": true,
         "Status": "default"
       },
-      "network.captive-portal-service.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.connectivity-service.DNSv4.domain": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "network.connectivity-service.DNSv6.domain": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "network.connectivity-service.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.connectivity-service.IPv4.url": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "network.connectivity-service.IPv6.url": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "network.early-hints.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.early-hints.preconnect.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.preconnect": {
-        "Value": false,
-        "Status": "locked"
-      },
       "network.protocol-handler.external.shell": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.trr.confirmation_telemetry_enabled": {
         "Value": false,
         "Status": "locked"
       },
@@ -2188,20 +2196,16 @@
         "Value": true,
         "Status": "locked"
       },
-      "network.trr.custom_uri": {
-        "Value": "https://dns.quad9.net/dns-query",
-        "Status": "default"
+      "network.trr.confirmation_telemetry_enabled": {
+        "Value": false,
+        "Status": "locked"
       },
       "network.trr.default_provider_uri": {
-        "Value": "",
-        "Status": "locked"
+        "Value": "https://dns.quad9.net/dns-query",
+        "Status": "default"
       },
       "network.trr.mode": {
         "Value": 3,
-        "Status": "default"
-      },
-      "network.trr.uri": {
-        "Value": "https://dns.quad9.net/dns-query",
         "Status": "default"
       },
       "pdfjs.enablePermissions": {
