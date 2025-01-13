@@ -508,7 +508,7 @@ pref("browser.region.update.enabled", false, locked);
 /// Geo Provider
 // Enable BeaconDB as a fallback for retrieving geolocation instead of Google
 
-pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
+pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
 pref("browser.phoenix.010.applied", true, locked);
 
