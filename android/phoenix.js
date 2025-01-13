@@ -1038,6 +1038,11 @@ pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 
 pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT on Nightly]
 
+/// Prevent remoteTypes from triggering process switches they shouldn't be able to...
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#1035
+
+pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true);
+
 pref("browser.phoenix.020.applied", true, locked);
 
 // 021 BLOCK COOKIE BANNERS
