@@ -353,13 +353,11 @@ pref("doh-rollout.disable-heuristics", true, locked); // [HIDDEN]
 pref("doh-rollout.enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.skipHeuristicsCheck", true, locked); // [HIDDEN]
 pref("doh-rollout.uri", "", locked); // [HIDDEN]
-pref("network.trr.default_provider_uri", "");
 
 /// Enable DoH & Set to Quad9 by default
 
-pref("network.trr.custom_uri", "https://dns.quad9.net/dns-query");
+pref("network.trr.default_provider_uri", "https://dns.quad9.net/dns-query");
 pref("network.trr.mode", 3);
-pref("network.trr.uri", "https://dns.quad9.net/dns-query");
 
 /// Skip DoH Connectivity Checks
 

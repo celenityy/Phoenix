@@ -1361,20 +1361,12 @@
                 "Value": false,
                 "Status": "locked"
             },
-            "network.trr.custom_uri": {
+            "network.trr.default_provider_uri": {
                 "Value": "https://dns.quad9.net/dns-query",
                 "Status": "default"
-            },
-            "network.trr.default_provider_uri": {
-                "Value": "",
-                "Status": "locked"
             },
             "network.trr.mode": {
                 "Value": 3,
-                "Status": "default"
-            },
-            "network.trr.uri": {
-                "Value": "https://dns.quad9.net/dns-query",
                 "Status": "default"
             },
             "pdfjs.enablePermissions": {
