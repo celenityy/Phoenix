@@ -1035,6 +1035,7 @@ pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1829
 
 pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT on Nightly]
+pref("dom.origin-trials.coep-credentialless.state", 1); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#3447
 
 /// Prevent remoteTypes from triggering process switches they shouldn't be able to...
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#1035
