@@ -23,7 +23,7 @@ ___
 
 **1:** You're first going to need to install ADB on your computer. You can see a guide to do this [here](https://www.xda-developers.com/install-adb-windows-macos-linux/). You also need to make sure you have Firefox's desktop application installed, and you'll need a USB (C) cable to connect your mobile device to your computer.
 
-**2:** In your Firefox-based web browser, navigate to `Settings`, scroll down to the bottom, and **enable** `Remote debugging via USB`.
+**2:** In your Firefox-based web browser **on your Android device**, navigate to `Settings`, scroll down to the bottom, and **enable** `Remote debugging via USB`.
 
 > [!IMPORTANT]
 > **Please remember to disable `Remote debugging via USB` when you're done, due to security concerns...**
@@ -74,6 +74,7 @@ var pref = function(pref, val){
   }
 }
 // Paste the contents of phoenix.js below:
+
 ```
 
 *Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case.*
