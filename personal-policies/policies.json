@@ -1953,7 +1953,7 @@
         "Status": "locked"
       },
       "dom.origin-trials.private-attribution.state": {
-        "Value": 0,
+        "Value": 2,
         "Status": "locked"
       },
       "dom.prefetch_dns_for_anchor_http_document": {
