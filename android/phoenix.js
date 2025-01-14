@@ -670,6 +670,10 @@ pref("webgl.disable-fail-if-major-performance-caveat", false, locked);
 
 pref("browser.display.use_system_colors", false, locked); // [DEFAULT]
 
+/// Prevent using system accent colors
+
+pref("widget.non-native-theme.use-theme-accent", false, locked);
+
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
