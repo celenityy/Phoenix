@@ -698,6 +698,7 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault", true, locked); // 
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true, locked); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true, locked); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true, locked);
+pref("privacy.bounceTrackingProtection.mode", 1, locked); // Fully enables Bounce Tracking Protection [DEFAULT on Nightly] - https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
 pref("privacy.fingerprintingProtection", true, locked);
 pref("privacy.fingerprintingProtection.pbmode", true, locked); // [DEFAULT]
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true, locked); // [DEFAULT]
