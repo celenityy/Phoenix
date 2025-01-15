@@ -443,6 +443,8 @@ pref("browser.phoenix.008.applied", true, locked);
 
 pref("browser.safebrowsing.blockedURIs.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.downloads.enabled", true);
+pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT]
+pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT]
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
