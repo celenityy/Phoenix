@@ -13,7 +13,7 @@ pref("browser.phoenix.version", "2025.01.14.1", locked);
 pref("general.aboutConfig.enable", true, locked);
 
 /// Disable annoying warnings when attempting to access the about:config
-pref("general.warnOnAboutConfig", false, locked);
+pref("general.warnOnAboutConfig", false);
 
 pref("browser.phoenix.000.applied", true, locked);
 
@@ -32,10 +32,10 @@ pref("app.normandy.api_url", "", locked); // [HIDDEN]
 pref("app.normandy.enabled", false, locked); // [HIDDEN]
 pref("app.normandy.first_run", false, locked); // [HIDDEN]
 pref("app.normandy.last_seen_buildid", "", locked); // [HIDDEN]
-pref("app.normandy.logging.level", 70, locked);  // [HIDDEN], Limits logging to fatal only
+pref("app.normandy.logging.level", 70);  // [HIDDEN], Limits logging to fatal only
 pref("app.normandy.user_id", "", locked); // [HIDDEN]
 pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN]
-pref("messaging-system.log", "off", locked); // Disables logging
+pref("messaging-system.log", "off"); // Disables logging
 pref("messaging-system.rsexperimentloader.enabled", false, locked); // [HIDDEN]
 pref("messaging-system.rsexperimentloader.collection_id", "", locked); // [HIDDEN]
 pref("nimbus.appId", "", locked);  // [HIDDEN], https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
@@ -150,20 +150,26 @@ pref("browser.phoenix.001.applied", true, locked);
 
 // 002 MOZILLA CRAP™
 
+/// "Privacy-Preserving Attribution"
+// https://support.mozilla.org/kb/privacy-preserving-attribution
+
+pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
+pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
+
 /// Firefox Recommendations & "Discovery"
 // https://support.mozilla.org/kb/recommendations-firefox
 // https://support.mozilla.org/kb/personalized-extension-recommendations
 
-pref("extensions.getAddons.browseAddons", "", locked);
-pref("extensions.getAddons.discovery.api_url", "data;", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.getAddons.showPane", false, locked); // [HIDDEN]
-pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
-pref("extensions.recommendations.themeRecommendationUrl", "", locked); // [DEFAULT]
+pref("extensions.getAddons.browseAddons", "");
+pref("extensions.getAddons.discovery.api_url", "data;"); // [HIDDEN] https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.getAddons.showPane", false); // [HIDDEN]
+pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+pref("extensions.recommendations.themeRecommendationUrl", ""); // [DEFAULT]
 
 /// Fakespot
 
-pref("toolkit.shopping.ohttpConfigURL", "", locked);
-pref("toolkit.shopping.ohttpRelayURL", "", locked);
+pref("toolkit.shopping.ohttpConfigURL", "");
+pref("toolkit.shopping.ohttpRelayURL", "");
 
 /// Prevent Mozilla domains from having special privileges
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
@@ -210,37 +216,37 @@ pref("browser.phoenix.003.applied", true, locked);
 /// Disable Network Prefetching
 // https://developer.mozilla.org/docs/Glossary/Prefetch
 
-pref("browser.places.speculativeConnect.enabled", false, locked); // [HIDDEN]
-pref("browser.urlbar.speculativeConnect.enabled", false, locked); // [HIDDEN]
-pref("dom.prefetch_dns_for_anchor_http_document", false, locked); // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
-pref("dom.prefetch_dns_for_anchor_https_document", false, locked); // [DEFAULT] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
-pref("network.dns.disablePrefetch", true, locked);
-pref("network.dns.disablePrefetchFromHTTPS", true, locked);
-pref("network.http.speculative-parallel-limit", 0, locked);
-pref("network.predictor.enable-hover-on-ssl", false, locked); // [DEFAULT]
-pref("network.predictor.enable-prefetch", false, locked);
-pref("network.predictor.enabled", false, locked);
-pref("network.prefetch-next", false, locked);
+pref("browser.places.speculativeConnect.enabled", false); // [HIDDEN]
+pref("browser.urlbar.speculativeConnect.enabled", false); // [HIDDEN]
+pref("dom.prefetch_dns_for_anchor_http_document", false); // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
+pref("dom.prefetch_dns_for_anchor_https_document", false); // [DEFAULT] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
+pref("network.dns.disablePrefetch", true);
+pref("network.dns.disablePrefetchFromHTTPS", true);
+pref("network.http.speculative-parallel-limit", 0);
+pref("network.predictor.enable-hover-on-ssl", false); // [DEFAULT]
+pref("network.predictor.enable-prefetch", false);
+pref("network.predictor.enabled", false);
+pref("network.prefetch-next", false);
 
 /// Disable Preconnect
 // https://github.com/uBlockOrigin/uBlock-issues/issues/2913
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preconnect
 
-pref("network.preconnect", false, locked);
+pref("network.preconnect", false);
 
 /// Disable Early Hints
 // https://developer.mozilla.org/docs/Web/HTTP/Status/103
 // https://github.com/bashi/early-hints-explainer/blob/main/explainer.md
 // Ex. like Cromite https://github.com/uazo/cromite/blob/master/build/patches/Client-hints-overrides.patch
 
-pref("network.early-hints.enabled", false, locked);
-pref("network.early-hints.preconnect.enabled", false, locked);
-pref("network.early-hints.preconnect.max_connections", 0, locked);
+pref("network.early-hints.enabled", false);
+pref("network.early-hints.preconnect.enabled", false);
+pref("network.early-hints.preconnect.max_connections", 0);
 
 /// Disable Search Suggestions
 
-pref("browser.search.suggest.enabled", false, locked);
-pref("browser.search.suggest.enabled.private", false, locked);
+pref("browser.search.suggest.enabled", false);
+pref("browser.search.suggest.enabled.private", false);
 
 pref("browser.phoenix.004.applied", true, locked);
 
@@ -258,10 +264,10 @@ pref("dom.security.https_only_mode_pbm", true);
 pref("security.mixed_content.block_active_content", true); // [DEFAULT]
 pref("security.mixed_content.block_display_content", true);
 pref("security.mixed_content.block_object_subrequest", true);
-pref("security.mixed_content.upgrade_display_content", true, locked);
-pref("security.mixed_content.upgrade_display_content.audio", true, locked); // [DEFAULT]
-pref("security.mixed_content.upgrade_display_content.image", true, locked); // [DEFAULT]
-pref("security.mixed_content.upgrade_display_content.video", true, locked); // [DEFAULT]
+pref("security.mixed_content.upgrade_display_content", true);
+pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
+pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
+pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 
 /// Prevent sending HTTP requests to websites that do not respond quickly to check if they support HTTPS
 
@@ -273,8 +279,8 @@ pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /// Always warn on insecure webpages
 
-pref("security.ssl.treat_unsafe_negotiation_as_broken", true, locked);
-pref("security.warn_submit_secure_to_insecure", true, locked); // [DEFAULT] - Warn when submitting a form from HTTP to HTTPS
+pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT] - Warn when submitting a form from HTTP to HTTPS
 
 /// Show detailed information on insecure warning pages
 
@@ -283,7 +289,7 @@ pref("browser.xul.error_pages.expert_bad_cert", true);
 /// Disable TLS1.3 0-RTT (Not forward secret)
 // https://github.com/tlswg/tls13-spec/issues/1001
 
-pref("security.tls.enable_0rtt_data", false, locked);
+pref("security.tls.enable_0rtt_data", false);
 
 /// Require safe renegotiations - Disables connections to servers without RFC 5746
 // https://wiki.mozilla.org/Security:Renegotiation
@@ -293,46 +299,46 @@ pref("security.ssl.require_safe_negotiation", true);
 /// Enforce preloading intermediates
 // https://wiki.mozilla.org/Security/CryptoEngineering/Intermediate_Preloading
 
-pref("security.remote_settings.intermediates.enabled", true, locked); // [DEFAULT]
+pref("security.remote_settings.intermediates.enabled", true); // [DEFAULT]
 
 /// Never downgrade to insecure TLS 1.0/1.1
 
-pref("security.tls.insecure_fallback_hosts", "", locked); // [DEFAULT]
+pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
 pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
 
 /// Enforce TLS 1.3 downgrade protection
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1576790
 
-pref("security.tls.hello_downgrade_check", true, locked); // [DEFAULT]
+pref("security.tls.hello_downgrade_check", true); // [DEFAULT]
 
 /// Only load secure websockets from HTTPS pages
 
-pref("network.websocket.allowInsecureFromHTTPS", false, locked); // [DEFAULT]
+pref("network.websocket.allowInsecureFromHTTPS", false); // [DEFAULT]
 
 /// Block access to Addon Manager over insecure protocols...
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5452
 
-pref("extensions.webapi.testing.http", false, locked); // [DEFAULT]
+pref("extensions.webapi.testing.http", false); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
 
-pref("media.webrtc.enable_pq_dtls", true, locked); // [DEFAULT]
-pref("network.http.http3.enable_kyber", true, locked);
-pref("security.tls.enable_kyber", true, locked);
+pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
+pref("network.http.http3.enable_kyber", true);
+pref("security.tls.enable_kyber", true);
 
 /// Disable Captive Portal Detection & Connectivity Checks
 // Privacy & security concerns, and in general best handled by the OS.
 // https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_network-detection
 // https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 
-pref("captivedetect.canonicalContent", "", locked);
-pref("captivedetect.canonicalURL", "", locked);
-pref("network.captive-portal-service.enabled", false, locked); // [DEFAULT]
-pref("network.connectivity-service.DNSv4.domain", "", locked);
-pref("network.connectivity-service.DNSv6.domain", "", locked);
-pref("network.connectivity-service.enabled", false, locked);
-pref("network.connectivity-service.IPv4.url", "", locked);
-pref("network.connectivity-service.IPv6.url", "", locked);
+pref("captivedetect.canonicalContent", "");
+pref("captivedetect.canonicalURL", "");
+pref("network.captive-portal-service.enabled", false); // [DEFAULT]
+pref("network.connectivity-service.DNSv4.domain", "");
+pref("network.connectivity-service.DNSv6.domain", "");
+pref("network.connectivity-service.enabled", false);
+pref("network.connectivity-service.IPv4.url", "");
+pref("network.connectivity-service.IPv6.url", "");
 
 /// Prevent Proxy bypasses & undesired information leakage
 
@@ -361,20 +367,20 @@ pref("network.trr.mode", 3);
 
 /// Skip DoH Connectivity Checks
 
-pref("network.connectivity-service.DNS_HTTPS.domain", "", locked);
-pref("network.trr.confirmationNS", "skip", locked);
+pref("network.connectivity-service.DNS_HTTPS.domain", "");
+pref("network.trr.confirmationNS", "skip");
 
 /// Never disable DoH from registry checks
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
-pref("network.notify.checkForNRPT", false, locked);
-pref("network.notify.checkForProxies", false, locked);
+pref("network.notify.checkForNRPT", false);
+pref("network.notify.checkForProxies", false);
 
-/// Enforce EncryptedClientHello
+/// Enable EncryptedClientHello
 // https://blog.cloudflare.com/announcing-encrypted-client-hello
 
-pref("network.dns.echconfig.enabled", true, locked); // [DEFAULT]
-pref("network.dns.http3_echconfig.enabled", true, locked); // [DEFAULT]
+pref("network.dns.echconfig.enabled", true); // [DEFAULT]
+pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
 /// Enable Native DNS HTTPS Lookups
 
@@ -456,8 +462,8 @@ pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.go
 // https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox
 // https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 
-pref("browser.safebrowsing.downloads.remote.enabled", false, locked);
-pref("browser.safebrowsing.downloads.remote.url", "", false, locked);
+pref("browser.safebrowsing.downloads.remote.enabled", false);
+pref("browser.safebrowsing.downloads.remote.url", "", false);
 
 /// Enforce that no data is shared with Google
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
@@ -498,14 +504,14 @@ pref("browser.phoenix.009.applied", true, locked);
 
 /// Prevent Wi-Fi Scanning
 
-pref("browser.region.network.scan", false, locked); // [DEFAULT]
-pref("geo.wifi.scan", false, locked); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
+pref("browser.region.network.scan", false); // [DEFAULT]
+pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
 
 /// Disable "Region Updates"
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
 
-pref("browser.region.network.url", "", locked);
-pref("browser.region.update.enabled", false, locked);
+pref("browser.region.network.url", "");
+pref("browser.region.update.enabled", false);
 
 /// Geo Provider
 // Enable BeaconDB as a fallback for retrieving geolocation instead of Google
@@ -547,7 +553,7 @@ pref("browser.phoenix.012.applied", true, locked);
 /// Disable Search & Form History - Can be leaked to sites
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 
-pref("browser.formfill.enable", false, locked);
+pref("browser.formfill.enable", false);
 
 /// Disable caching, might reconsider since we clear cache on exit anyways
 
@@ -597,9 +603,9 @@ pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT] Defense in depth,
 
 // Only allow signed extensions
 
-pref("extensions.langpacks.signatures.required", true, locked); // [DEFAULT]
-pref("xpinstall.signatures.required", true, locked); // [DEFAULT]
-pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
+pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
+pref("xpinstall.signatures.required", true); // [DEFAULT]
+pref("xpinstall.whitelist.required", true); // [DEFAULT]
 
 // Block extensions signed with weak signature algorithms
 
@@ -607,7 +613,7 @@ pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [HIDDEN
 
 // Enforce Extension Blocklist
 
-pref("extensions.blocklist.enabled", true, locked); // [DEFAULT]
+pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
 pref("browser.phoenix.014.applied", true, locked);
 
@@ -615,7 +621,7 @@ pref("browser.phoenix.014.applied", true, locked);
 
 /// Disable JavaScript
 
-pref("pdfjs.enableScripting", false, locked); // [HIDDEN]
+pref("pdfjs.enableScripting", false); // [HIDDEN]
 
 /// Disable XFA
 // https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html
@@ -628,7 +634,7 @@ pref("pdfjs.enableXfa", false); // [HIDDEN]
 
 /// Never allow documents to prevent copying text
 
-pref("pdfjs.enablePermissions", false, locked); // [HIDDEN]
+pref("pdfjs.enablePermissions", false); // [HIDDEN]
 
 /// Open PDFs in browser where possible
 
@@ -651,13 +657,9 @@ pref("privacy.spoof_english", 2);
 pref("privacy.window.maxInnerHeight", 900);
 pref("privacy.window.maxInnerWidth", 1600);
 
-/// Enable RFP letterboxing
-
-pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
-
 /// If RFP is enabled, unbreak Apple Maps by default
 
-pref("privacy.resistFingerprinting.exemptedDomains", "*.example.invalid,beta.maps.apple.com");
+pref("privacy.resistFingerprinting.exemptedDomains", "beta.maps.apple.com");
 
 /// Disable WebGPU
 // https://browserleaks.com/webgpu
@@ -666,15 +668,15 @@ pref("dom.webgpu.enabled", false); // [DEFAULT]
 
 /// Enforce that WebGL stays disabled if it is disabled
 
-pref("webgl.disable-fail-if-major-performance-caveat", false, locked);
+pref("webgl.disable-fail-if-major-performance-caveat", false);
 
 /// Prevent using system colors
 
-pref("browser.display.use_system_colors", false, locked); // [DEFAULT]
+pref("browser.display.use_system_colors", false); // [DEFAULT]
 
 /// Prevent using system accent colors
 
-pref("widget.non-native-theme.use-theme-accent", false, locked);
+pref("widget.non-native-theme.use-theme-accent", false);
 
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
@@ -693,67 +695,61 @@ pref("browser.contentblocking.category", "strict", locked);
 /// Enable various important ETP protections...
 /// Usually unnecessary & covered by enabling ETP Strict - though based on my testing, these don't appear to be always set automatically for Fenix.
 
-pref("network.cookie.cookieBehavior", 5, locked); // [DEFAULT]
-pref("network.cookie.cookieBehavior.optInPartitioning", true, locked);
-pref("network.cookie.cookieBehavior.pbmode", 5, locked); // [DEFAULT]
-pref("network.http.referer.disallowCrossSiteRelaxingDefault", true, locked); // [DEFAULT]
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true, locked); // [DEFAULT]
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true, locked); // [DEFAULT]
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true, locked);
-pref("privacy.bounceTrackingProtection.mode", 1, locked); // Fully enables Bounce Tracking Protection [DEFAULT on Nightly] - https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
-pref("privacy.fingerprintingProtection", true, locked);
-pref("privacy.fingerprintingProtection.pbmode", true, locked); // [DEFAULT]
-pref("privacy.partition.always_partition_third_party_non_cookie_storage", true, locked); // [DEFAULT]
-pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false, locked); // [DEFAULT]
-pref("privacy.partition.bloburl_per_partition_key", true, locked); // [DEFAULT]
-pref("privacy.partition.network_state.ocsp_cache", true, locked); // [DEFAULT]
-pref("privacy.partition.network_state.ocsp_cache.pbmode", true, locked); // [DEFAULT]
-pref("privacy.query_stripping.enabled", true, locked);
-pref("privacy.query_stripping.enabled.pbmode", true, locked);
-pref("privacy.socialtracking.block_cookies.enabled", true, locked); // [DEFAULT]
-pref("privacy.trackingprotection.cryptomining.enabled", true, locked); // [DEFAULT]
-pref("privacy.trackingprotection.emailtracking.enabled", true, locked); // [DEFAULT]
-pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true, locked); // [DEFAULT]
-pref("privacy.trackingprotection.enabled", true, locked);
-pref("privacy.trackingprotection.fingerprinting.enabled", true, locked); // [DEFAULT]
-pref("privacy.trackingprotection.pbmode.enabled", true, locked);
-pref("privacy.trackingprotection.socialtracking.enabled", true, locked); // [DEFAULT]
+pref("network.cookie.cookieBehavior", 5); // [DEFAULT]
+pref("network.cookie.cookieBehavior.optInPartitioning", true);
+pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT]
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+pref("privacy.bounceTrackingProtection.mode", 1); // Fully enables Bounce Tracking Protection [DEFAULT on Nightly] - https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
+pref("privacy.fingerprintingProtection", true);
+pref("privacy.fingerprintingProtection.pbmode", true); // [DEFAULT]
+pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
+pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT]
+pref("privacy.partition.bloburl_per_partition_key", true); // [DEFAULT]
+pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT]
+pref("privacy.partition.network_state.ocsp_cache.pbmode", true); // [DEFAULT]
+pref("privacy.query_stripping.enabled", true);
+pref("privacy.query_stripping.enabled.pbmode", true);
+pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.emailtracking.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.enabled", true);
+pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.pbmode.enabled", true);
+pref("privacy.trackingprotection.socialtracking.enabled", true); // [DEFAULT]
 
 /// Enforce Do Not Track & Global Privacy Control
 
-pref("privacy.donottrackheader.enabled", true, locked);
-pref("privacy.globalprivacycontrol.enabled", true, locked);
-pref("privacy.globalprivacycontrol.functionality.enabled", true, locked); // [DEFAULT]
-pref("privacy.globalprivacycontrol.pbmode.enabled", true, locked); // [DEFAULT]
-
-/// Disable "Privacy-Preserving Attribution"
-// https://support.mozilla.org/kb/privacy-preserving-attribution
-
-pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
-pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
+pref("privacy.donottrackheader.enabled", true);
+pref("privacy.globalprivacycontrol.enabled", true);
+pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT]
+pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT]
 
 /// Disable Reporting API
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
 
-pref("dom.reporting.crash.enabled", false, locked); // [DEFAULT]
-pref("dom.reporting.enabled", false, locked); // [DEFAULT]
-pref("dom.reporting.featurePolicy.enabled", false, locked); // [DEFAULT]
-pref("dom.reporting.header.enabled", false, locked); // [DEFAULT]
+pref("dom.reporting.crash.enabled", false); // [DEFAULT]
+pref("dom.reporting.enabled", false); // [DEFAULT]
+pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
+pref("dom.reporting.header.enabled", false); // [DEFAULT]
 
 /// Disable Network Error Logging
 // https://w3c.github.io/network-error-logging/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1145235
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
 
-pref("network.http.network_error_logging.enabled", false, locked); // [DEFAULT]
+pref("network.http.network_error_logging.enabled", false); // [DEFAULT]
 
 /// Disable Network Information API
 // https://developer.mozilla.org/docs/Web/API/Network_Information_API
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1057169
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1637922
 
-pref("dom.netinfo.enabled", false, locked); // [DEFAULT]
+pref("dom.netinfo.enabled", false); // [DEFAULT]
 
 /// Trim cross-origin referers (Like Safari)
 
@@ -767,9 +763,9 @@ pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/
 
-pref("browser.send_pings", false, locked); // [DEFAULT]
-pref("browser.send_pings.max_per_link", 0, locked); // [DEFENSE IN DEPTH]
-pref("browser.send_pings.require_same_host", true, locked); // [DEFENSE IN DEPTH]
+pref("browser.send_pings", false); // [DEFAULT]
+pref("browser.send_pings.max_per_link", 0); // [DEFENSE IN DEPTH]
+pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 
 /// Improve built-in query stripping to be on par with LibreWolf & Brave
 // https://codeberg.org/librewolf/settings/src/branch/master/librewolf.cfg#L77
@@ -782,7 +778,7 @@ pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 /// Ensure we never save clipboard history/clipboard contents to the cloud...
 
-pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false, locked); // [DEFAULT]
+pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
 
 pref("browser.phoenix.017.applied", true, locked);
 
@@ -792,8 +788,8 @@ pref("browser.phoenix.017.applied", true, locked);
 
 pref("signon.autofillForms", false);
 pref("signon.autofillForms.http", false); // [DEFAULT]
-pref("signon.formlessCapture.enabled", false, locked);
-pref("signon.privateBrowsingCapture.enabled", false, locked);
+pref("signon.formlessCapture.enabled", false);
+pref("signon.privateBrowsingCapture.enabled", false);
 
 /// Always allow showing password when hidden
 
@@ -823,18 +819,18 @@ pref("signon.generation.enabled", true); // [DEFAULT]
 
 /// Prevent cross-origin sub-resources from opening HTTP authentication dialogs
 
-pref("network.auth.subresource-http-auth-allow", 1, locked);
+pref("network.auth.subresource-http-auth-allow", 1);
 
 /// Disable Windows SSO
 
-pref("network.http.windows-sso.enabled", false, locked); // [DEFAULT]
-pref("network.http.windows-sso.container-enabled.0", false, locked);
+pref("network.http.windows-sso.enabled", false); // [DEFAULT]
+pref("network.http.windows-sso.container-enabled.0", false);
 
 /// Disable Microsoft Entra
 
-pref("network.http.microsoft-entra-sso.enabled", false, locked); // [DEFAULT]
-pref("network.http.microsoft-entra-sso.container-enabled.0", false, locked);
-pref("network.microsoft-sso-authority-list", "", locked); // DEFENSE IN DEPTH
+pref("network.http.microsoft-entra-sso.enabled", false); // [DEFAULT]
+pref("network.http.microsoft-entra-sso.container-enabled.0", false);
+pref("network.microsoft-sso-authority-list", ""); // DEFENSE IN DEPTH
 
 /// Prevent using Negotiate authentication by default 
 // https://people.redhat.com/mikeb/negotiate/
@@ -881,7 +877,7 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 // https://github.com/tc39/ecma262/issues/1435
 // By default, Firefox restricts the use of SharedArrayBuffer - this fully disables it.
 
-pref("dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled", false, locked); // [DEFAULT]
+pref("dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled", false); // [DEFAULT]
 pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false);
 
 pref("browser.phoenix.019.applied", true, locked);
@@ -939,7 +935,7 @@ pref("fission.disableSessionHistoryInParent", false); // SHIP, required for Fiss
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1880856
 // https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
 
-pref("extensions.webextensions.remote", true, locked); // [DEFAULT]
+pref("extensions.webextensions.remote", true); // [DEFAULT]
 
 /// Yes, this is a real pref... 
 // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
@@ -1064,9 +1060,9 @@ pref("browser.phoenix.021.applied", true, locked);
 /// Enforce validating signature for GMP when updating
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/all.js
 
-pref("media.gmp-manager.cert.checkAttributes", true, locked); // [DEFAULT]
-pref("media.gmp-manager.cert.requireBuiltIn", true, locked); // [DEFAULT]
-pref("media.gmp-manager.checkContentSignature", true, locked); // [DEFAULT]
+pref("media.gmp-manager.cert.checkAttributes", true); // [DEFAULT]
+pref("media.gmp-manager.cert.requireBuiltIn", true); // [DEFAULT]
+pref("media.gmp-manager.checkContentSignature", true); // [DEFAULT]
 
 /// Disable Autoplay by default
 
@@ -1077,14 +1073,14 @@ pref("userContent.player.click_to_play", true); // [HIDDEN] https://github.com/b
 // Garbage technology with freedom, privacy, & security concerns
 // https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
 
-pref("media.clearkey.persistent-license.enabled", false, locked); // [DEFAULT]
-pref("media.clearkey.test-key-systems.enabled", false, locked); // [DEFAULT]
-pref("media.eme.enabled", false, locked);
-pref("media.eme.encrypted-media-encryption-scheme.enabled", false, locked);
-pref("media.eme.hdcp-policy-check.enabled", false, locked);
-pref("media.eme.require-app-approval", true, locked); // [DEFAULT - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
-pref("media.gmp-widevinecdm.visible", false, locked);
-pref("media.mediadrm-widevinecdm.visible", false, locked); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#320
+pref("media.clearkey.persistent-license.enabled", false); // [DEFAULT]
+pref("media.clearkey.test-key-systems.enabled", false); // [DEFAULT]
+pref("media.eme.enabled", false);
+pref("media.eme.encrypted-media-encryption-scheme.enabled", false);
+pref("media.eme.hdcp-policy-check.enabled", false);
+pref("media.eme.require-app-approval", true); // [DEFAULT - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
+pref("media.gmp-widevinecdm.visible", false);
+pref("media.mediadrm-widevinecdm.visible", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#320
 
 pref("browser.phoenix.022.applied", true, locked);
 
@@ -1105,10 +1101,13 @@ pref("browser.phoenix.023.applied", true, locked);
 
 // 024 DEBUGGING
 
+// Allow Remote debugging, as it can be useful (especially on Android) - but ONLY per-session
+
+pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT]
+
 /// Enforce local debugging only
 
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
-pref("devtools.debugger.remote-enabled", false); // [DEFAULT]
 pref("devtools.inspector.remote", false, locked);
 
 // Always prompt before connecting...
@@ -1117,7 +1116,7 @@ pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT]
 
 /// Ensure that URLs are not being logged in Reader errors
 
-pref("reader.errors.includeURLs", false, locked); // [DEFAULT]
+pref("reader.errors.includeURLs", false); // [DEFAULT]
 
 pref("browser.phoenix.024.applied", true, locked);
 
@@ -1126,7 +1125,7 @@ pref("browser.phoenix.024.applied", true, locked);
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
-pref("media.webvtt.testing.events", false, locked); // [DEFAULT]
+pref("media.webvtt.testing.events", false); // [DEFAULT]
 
 /// Always allow installing "incompatible" add-ons
 
@@ -1145,8 +1144,8 @@ pref("privacy.userContext.ui.enabled", true); // [HIDDEN]
 
 /// Force pop-up windows to open in new tabs instead
 
-pref("browser.link.open_newwindow", 3, locked); // [DEFAULT]
-pref("browser.link.open_newwindow.restriction", 0, locked); // [DEFAULT]
+pref("browser.link.open_newwindow", 3); // [DEFAULT]
+pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT]
 
 /// Always block pop-ups by default
 
@@ -1158,12 +1157,12 @@ pref("dom.popup_allowed_events", "click dblclick");
 
 /// Prevent scripts from moving, resizing, and messing with windows
 
-pref("dom.disable_window_flip", true, locked);
-pref("dom.disable_window_move_resize", true, locked); // [DEFAULT]
+pref("dom.disable_window_flip", true);
+pref("dom.disable_window_move_resize", true); // [DEFAULT]
 
 /// Disable annoying Web Speech API errors
 
-pref("media.webspeech.synth.dont_notify_on_error", true, locked); // [HIDDEN]
+pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 
 pref("browser.phoenix.025.applied", true, locked);
 

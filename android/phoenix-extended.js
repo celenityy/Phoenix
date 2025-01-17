@@ -11,6 +11,10 @@
 
 pref("privacy.resistFingerprinting", true);
 
+/// Enable RFP letterboxing
+
+pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
+
 /// Disable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting
 // https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
