@@ -666,9 +666,10 @@ pref("privacy.resistFingerprinting.exemptedDomains", "beta.maps.apple.com");
 
 pref("dom.webgpu.enabled", false); // [DEFAULT]
 
-/// Enforce that WebGL stays disabled if it is disabled
+/// Disable failIfMajorPerformanceCaveat in WebGL contexts...
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
 
-pref("webgl.disable-fail-if-major-performance-caveat", false);
+pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 
 /// Prevent using system colors
 
@@ -1179,7 +1180,6 @@ pref("gfx.content.skia-font-cache-size", 20); // [Default = 5]
 pref("gfx.webrender.all", true);
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
-pref("layout.css.grid-template-masonry-value.enabled", true); // https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 pref("layout.css.report_errors", false); // [DEFAULT] - https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
 pref("media.memory_cache_max_size", 65536); // [Default = 8192]
 pref("network.dnsCacheEntries", 1000); // [Default = 400]
