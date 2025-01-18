@@ -657,8 +657,9 @@ pref("privacy.spoof_english", 2);
 pref("privacy.window.maxInnerHeight", 900);
 pref("privacy.window.maxInnerWidth", 1600);
 
-/// If RFP is enabled, unbreak Apple Maps by default
+/// Unbreak Apple Maps with FPP & RFP (if enabled)
 
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
 pref("privacy.resistFingerprinting.exemptedDomains", "beta.maps.apple.com");
 
 /// Disable WebGPU
