@@ -82,10 +82,9 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 pref("browser.places.interactions.enabled", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked); // [HIDDEN]
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [HIDDEN]
-pref("browser.search.serpMetricsRecordedCounter", 0, locked); // [HIDDEN - DEFAULT]
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
 pref("datareporting.healthreport.documentServerURI", "", locked); // [HIDDEN]
-pref("datareporting.healthreport.logging.consoleEnabled", false, locked); // [HIDDEN]
+pref("datareporting.healthreport.logging.consoleEnabled", false); // [HIDDEN]
 pref("datareporting.healthreport.service.enabled", false, locked); // [HIDDEN]
 pref("datareporting.healthreport.service.firstRun", false, locked); // [HIDDEN]
 pref("datareporting.healthreport.uploadEnabled", false, locked);
@@ -109,13 +108,13 @@ pref("toolkit.telemetry.dap.helper.hpke", "", locked);
 pref("toolkit.telemetry.dap.helper.url", "", locked);
 pref("toolkit.telemetry.dap.leader.hpke", "", locked);
 pref("toolkit.telemetry.dap.leader.url", "", locked);
-pref("toolkit.telemetry.dap.logLevel", "Off", locked);
+pref("toolkit.telemetry.dap.logLevel", "Off");
 pref("toolkit.telemetry.dap_enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_task1_enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_task1_taskid", "", locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_visit_counting_enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]", locked); // [DEFAULT]
-pref("toolkit.telemetry.debugSlowSql", false, locked); // [DEFAULT]
+pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
 pref("toolkit.telemetry.enabled", false, locked); // [DEFAULT on Stable, Focus, & Klar - Beta & Nightly are set to true...]
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
@@ -133,18 +132,18 @@ pref("toolkit.telemetry.unified", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.updatePing.enabled", false, locked); // [HIDDEN]
 pref("toolkit.telemetry.user_characteristics_ping.current_version", 0, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.last_version_sent", 0, locked); // [DEFAULT]
-pref("toolkit.telemetry.user_characteristics_ping.logLevel", "Off", locked);
+pref("toolkit.telemetry.user_characteristics_ping.logLevel", "Off");
 pref("toolkit.telemetry.user_characteristics_ping.opt-out", true, locked);
 pref("toolkit.telemetry.user_characteristics_ping.send-once", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.uuid", "", locked); // [DEFAULT]
 
 /// Misc. UX - Harmless but does not apply to us
 
-pref("app.normandy.shieldLearnMoreUrl", "", locked); // [HIDDEN]
-pref("datareporting.healthreport.infoURL", "", locked); // [HIDDEN]
-pref("extensions.recommendations.privacyPolicyUrl", "", locked); // [DEFAULT]
-pref("toolkit.crashreporter.infoURL", "", locked); // [HIDDEN]
-pref("toolkit.datacollection.infoURL", "", locked); // [HIDDEN]
+pref("app.normandy.shieldLearnMoreUrl", ""); // [HIDDEN]
+pref("datareporting.healthreport.infoURL", ""); // [HIDDEN]
+pref("extensions.recommendations.privacyPolicyUrl", ""); // [DEFAULT]
+pref("toolkit.crashreporter.infoURL", ""); // [HIDDEN]
+pref("toolkit.datacollection.infoURL", ""); // [HIDDEN]
 
 pref("browser.phoenix.001.applied", true, locked);
 
@@ -566,8 +565,6 @@ pref("browser.formfill.enable", false);
 
 pref("browser.cache.disk.enable", false);
 pref("browser.cache.disk_cache_ssl", false);
-pref("browser.cache.memory.enable", false);
-pref("browser.cache.memory.capacity", 0);
 pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
 /// Prevent storing unnecessary extra session data
