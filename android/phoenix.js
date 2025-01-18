@@ -855,6 +855,11 @@ pref("javascript.options.main_process_disable_jit", true); // https://searchfox.
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
+/// Disable JIT (Ion/WarpMonkey) for extensions
+// This is the default, but this lets us expose it...
+
+pref("javascript.options.jit_trustedprincipals", false); // [DEFAULT]
+
 /// Disable ASM.JS (More JIT)
 // https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
 
