@@ -258,9 +258,9 @@ pref("dom.security.https_first", true); // [DEFAULT on Beta & Nightly]
 pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT, DEFENSE IN DEPTH]
 pref("dom.security.https_first_pbm", true); // [DEFAULT]
 pref("dom.security.https_first_schemeless", true); // [DEFAULT]
-pref("dom.security.https_only_mode", true);
+pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode.upgrade_local", true);
-pref("dom.security.https_only_mode_pbm", true);
+pref("dom.security.https_only_mode_pbm", true, locked);
 pref("security.mixed_content.block_active_content", true); // [DEFAULT]
 pref("security.mixed_content.block_display_content", true);
 pref("security.mixed_content.block_object_subrequest", true);
@@ -416,6 +416,13 @@ pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT on Ni
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
 
 pref("security.cert_pinning.enforcement_level", 2);
+
+/// Disable third-party/OS-level root certificates
+// Things are different than on desktop since users can't manually import certificates on Fenix...
+// + Other programs can't just decide to change it (since Android has a working security model... ;) 
+// So we won't lock this, but we can still ensure it's the default
+
+pref("security.enterprise_roots.enabled", false); // [DEFAULT]
 
 /// Enable & Enforce Certificate Transparency
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15868

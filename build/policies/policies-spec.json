@@ -51,6 +51,9 @@
             }
         ],
         "CaptivePortal": false,
+        "Certificates": {
+            "ImportEnterpriseRoots": false
+        },
         "ContentAnalysis": {
             "DefaultResult": 0,
             "Enabled": false,
