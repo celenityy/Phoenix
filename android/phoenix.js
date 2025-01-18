@@ -648,7 +648,7 @@ pref("browser.phoenix.015.applied", true, locked);
 
 // 016 FINGERPRINTING PROTECTION
 
-/// Set RFP to spoof the English locale by default
+/// Spoof the English locale by default
 
 pref("privacy.spoof_english", 2);
 
