@@ -330,7 +330,6 @@ pref("security.tls.enable_kyber", true);
 // https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_network-detection
 // https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 
-pref("captivedetect.canonicalContent", "");
 pref("captivedetect.canonicalURL", "");
 pref("network.captive-portal-service.enabled", false); // [DEFAULT]
 pref("network.connectivity-service.DNSv4.domain", "");
@@ -469,7 +468,7 @@ pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.go
 // https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 
 pref("browser.safebrowsing.downloads.remote.enabled", false);
-pref("browser.safebrowsing.downloads.remote.url", "", false);
+pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%", false); // [DEFAULT]
 
 /// Enforce that no data is shared with Google
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
@@ -602,8 +601,8 @@ pref("browser.phoenix.013.applied", true, locked);
 /// https://archive.is/DYjAM
 /// https://github.com/arkenfox/user.js/blob/master/user.js#L612
 
-pref("extensions.enabledScopes", 5); // [DEFAULT]
 pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT] Defense in depth, ensures extensions installed via directories are disabled by default...
+pref("extensions.enabledScopes", 5); // [DEFAULT]
 
 // Only allow signed extensions
 
@@ -933,6 +932,7 @@ pref("browser.contentanalysis.interception_point.clipboard.enabled", false, lock
 pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false, locked);
 pref("browser.contentanalysis.interception_point.file_upload.enabled", false, locked);
 pref("browser.contentanalysis.interception_point.print.enabled", false, locked);
+pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] - Always notify users when Content Analysis blocks access to something...
 
 /// Enable Site Isolation & Isolate all websites
 // https://wiki.mozilla.org/Project_Fission
@@ -1000,12 +1000,12 @@ pref("network.protocol-handler.external.shell", false); // [DEFAULT]
 
 // Always warn users before launching other apps...
 
-pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("network.protocol-handler.warn-external.file", true);
 pref("network.protocol-handler.warn-external.mailto", true);
 pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
+pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 
 /// Enforce various other important security-related prefs
@@ -1185,8 +1185,8 @@ pref("browser.phoenix.025.applied", true, locked);
 // 026 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
-pref("browser.sessionstore.max_tabs_undo", 7); // [Default = 10]
 pref("browser.sessionhistory.max_total_viewers", 7); // [Default = -1 (Automatic)]
+pref("browser.sessionstore.max_tabs_undo", 7); // [Default = 10]
 pref("content.notify.interval", 100000); // [Default = 120000] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 pref("extensions.logging.enabled", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#232
 pref("gfx.canvas.accelerated.cache-items", 4096); // [Default = 2048]
