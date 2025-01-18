@@ -6,10 +6,10 @@
 
 // 001 ADVANCED FINGERPRINTING PROTECTION
 
-/// Disable RFP (resistFingerprinting)
-// https://github.com/arkenfox/user.js/blob/master/user.js#L745
+/// Reset FPP to only cover Mozilla's default targets
 
-pref("privacy.resistFingerprinting", false);
+pref("privacy.fingerprintingProtection.overrides", ""); // [DEFAULT]
+
 
 /// Enable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting

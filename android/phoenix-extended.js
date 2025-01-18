@@ -5,15 +5,20 @@
 
 // 001 ADVANCED FINGERPRINTING PROTECTION
 
-/// Enable RFP (resistFingerprinting)
-// https://github.com/arkenfox/user.js/blob/master/user.js#L745
+/// Disable RFP (resistFingerprinting)
+// It makes far more sense to use FPP with overrides (privacy.fingerprintingProtection.overrides) instead
+// With FPP overrides, you can get same protection as RFP, except you can override undesired functionaliy, and even
+// make granular overrides per-site without needing to disable ALL fingerprinting protection for a specific site...
+// https://support.mozilla.org/kb/resist-fingerprinting
 // NOTE: You can add site exceptions to `privacy.resistFingerprinting.exemptedDomains` in your about:config
 
-pref("privacy.resistFingerprinting", true);
+pref("privacy.resistFingerprinting", false); // [DEFAULT]
 
-/// Enable RFP letterboxing
+/// Set FPP to cover 'AllTargets', so that it's effectively identical to RFP
+// See why we're doing this above
+// There will be more changes to how we handle fingerprinting soon... ;) 
 
-pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets");
 
 /// Disable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting

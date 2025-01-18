@@ -657,6 +657,11 @@ pref("privacy.spoof_english", 2);
 pref("privacy.window.maxInnerHeight", 900);
 pref("privacy.window.maxInnerWidth", 1600);
 
+/// Enable dynamic rounding of content dimensions
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
+
+pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
+
 /// Unbreak Apple Maps with FPP & RFP (if enabled)
 
 pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
