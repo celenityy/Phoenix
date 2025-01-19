@@ -2138,6 +2138,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "network.dns.prefetch_via_proxy": {
+                "Value": false,
+                "Status": "default"
+            },
             "network.dnsCacheEntries": {
                 "Value": 1000,
                 "Status": "default"

@@ -221,6 +221,7 @@ pref("dom.prefetch_dns_for_anchor_http_document", false); // https://gitlab.torp
 pref("dom.prefetch_dns_for_anchor_https_document", false); // [DEFAULT] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
 pref("network.dns.disablePrefetch", true);
 pref("network.dns.disablePrefetchFromHTTPS", true);
+pref("network.dns.prefetch_via_proxy", false); // [DEFAULT]
 pref("network.http.speculative-parallel-limit", 0);
 pref("network.predictor.enable-hover-on-ssl", false); // [DEFAULT]
 pref("network.predictor.enable-prefetch", false);
