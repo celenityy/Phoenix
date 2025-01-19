@@ -286,9 +286,10 @@ pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT] - Warn when 
 
 pref("browser.xul.error_pages.expert_bad_cert", true);
 
-/// Disable TLS1.3 0-RTT (Not forward secret)
+/// Disable TLS 1.3 0-RTT (Not forward secret)
 // https://github.com/tlswg/tls13-spec/issues/1001
 
+pref("network.http.http3.enable_0rtt", false); // For HTTP3 https://bugzilla.mozilla.org/show_bug.cgi?id=1689550
 pref("security.tls.enable_0rtt_data", false);
 
 /// Require safe renegotiations - Disables connections to servers without RFC 5746

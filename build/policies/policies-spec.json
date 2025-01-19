@@ -2174,6 +2174,10 @@
                 "Value": "",
                 "Status": "default"
             },
+            "network.http.http3.enable_0rtt": {
+                "Value": false,
+                "Status": "default"
+            },
             "network.http.http3.enable_kyber": {
                 "Value": true,
                 "Status": "default"
