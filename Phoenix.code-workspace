@@ -25,6 +25,10 @@
 			"path": "../copr"
 		},
 		{
+			"name": "home:celenity",
+			"path": "../home:celenity"
+		},
+		{
 			"name": "pkgbuilds",
 			"path": "../pkgbuilds"
 		},

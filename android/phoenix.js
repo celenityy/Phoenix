@@ -780,6 +780,11 @@ pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT for Nig
 
 pref("privacy.spoof_english", 2);
 
+/// Enable light mode by default
+// This matches with RFP...
+
+pref("layout.css.prefers-color-scheme.content-override", 1);
+
 /// Disable WebGPU
 // https://browserleaks.com/webgpu
 

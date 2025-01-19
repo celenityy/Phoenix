@@ -1914,6 +1914,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "layout.css.prefers-color-scheme.content-override": {
+                "Value": 1,
+                "Status": "default"
+            },
             "layout.css.report_errors": {
                 "Value": false,
                 "Status": "default"
