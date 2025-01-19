@@ -5,20 +5,10 @@
 
 // 001 ADVANCED FINGERPRINTING PROTECTION
 
-/// Disable RFP (resistFingerprinting)
-// It makes far more sense to use FPP with overrides (privacy.fingerprintingProtection.overrides) instead
-// With FPP overrides, you can get same protection as RFP, except you can override undesired functionaliy, and even
-// make granular overrides per-site without needing to disable ALL fingerprinting protection for a specific site...
-// https://support.mozilla.org/kb/resist-fingerprinting
-// NOTE: You can add site exceptions to `privacy.resistFingerprinting.exemptedDomains` in your about:config
+/// Further harden FPP...
+// As explained here: https://codeberg.org/celenity/Phoenix/issues/46
 
-pref("privacy.resistFingerprinting", false); // [DEFAULT]
-
-/// Set FPP to cover 'AllTargets', so that it's effectively identical to RFP
-// See why we're doing this above
-// There will be more changes to how we handle fingerprinting soon... ;) 
-
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets");
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate");
 
 /// Disable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting

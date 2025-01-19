@@ -649,54 +649,7 @@ pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN]
 
 pref("browser.phoenix.015.applied", true, locked);
 
-// 016 FINGERPRINTING PROTECTION
-
-/// Spoof the English locale by default
-
-pref("privacy.spoof_english", 2);
-
-/// Round window sizes
-
-pref("privacy.window.maxInnerHeight", 900);
-pref("privacy.window.maxInnerWidth", 1600);
-
-/// Enable dynamic rounding of content dimensions
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
-
-pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
-
-/// Unbreak Apple Maps with FPP & RFP (if enabled)
-
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
-pref("privacy.resistFingerprinting.exemptedDomains", "beta.maps.apple.com");
-
-/// Disable WebGPU
-// https://browserleaks.com/webgpu
-
-pref("dom.webgpu.enabled", false); // [DEFAULT]
-
-/// Disable failIfMajorPerformanceCaveat in WebGL contexts...
-// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
-
-pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
-
-/// Prevent using system colors
-
-pref("browser.display.use_system_colors", false); // [DEFAULT]
-
-/// Prevent using system accent colors
-
-pref("widget.non-native-theme.use-theme-accent", false);
-
-/// Enable fdlibm for Math.sin, Math.cos, and Math.tan
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
-// https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
-
-pref("javascript.options.use_fdlibm_for_sin_cos_tan", true);
-
-pref("browser.phoenix.016.applied", true, locked);
-
-// 017 MISC. PRIVACY
+// 016 MISC. PRIVACY
 
 /// Ensure ETP is set to Strict
 
@@ -789,6 +742,67 @@ pref("privacy.query_stripping.strip_on_share.enabled", true);
 /// Ensure we never save clipboard history/clipboard contents to the cloud...
 
 pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
+
+pref("browser.phoenix.016.applied", true, locked);
+
+// 017 FINGERPRINTING PROTECTION
+
+/// Harden FPP (which we already enable above) to match RFP with a few exceptions...
+// As explained here: https://codeberg.org/celenity/Phoenix/issues/46
+// https://discuss.privacyguides.net/t/does-partial-resistfingerprinting-make-any-sense/18827/4
+// List of targets: https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
+// Easily build your own (global) override list: https://raw.githack.com/rindeal/Firefox-FPP-Override-List-Editor/master/FirefoxFPPOverrideListEditor.html
+
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC");
+
+/// Unbreak websites with FPP (if enabled)
+// Currently covers Apple Maps (completely broken)
+
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
+
+/// Round window sizes
+
+pref("privacy.window.maxInnerHeight", 900);
+pref("privacy.window.maxInnerWidth", 1600);
+
+/// Enable dynamic rounding of content dimensions
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
+
+pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
+
+/// Target 1080P instead of 480P for video playback...
+// This is the same as Nightly uses
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15315
+
+pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT for Nightly]
+
+/// Spoof locale to English by default
+
+pref("privacy.spoof_english", 2);
+
+/// Disable WebGPU
+// https://browserleaks.com/webgpu
+
+pref("dom.webgpu.enabled", false); // [DEFAULT]
+
+/// Disable failIfMajorPerformanceCaveat in WebGL contexts...
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
+
+pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
+
+/// Prevent using system colors
+
+pref("browser.display.use_system_colors", false); // [DEFAULT]
+
+/// Prevent using system accent colors
+
+pref("widget.non-native-theme.use-theme-accent", false);
+
+/// Enable fdlibm for Math.sin, Math.cos, and Math.tan
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
+// https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
+
+pref("javascript.options.use_fdlibm_for_sin_cos_tan", true);
 
 pref("browser.phoenix.017.applied", true, locked);
 
