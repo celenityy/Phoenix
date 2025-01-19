@@ -29,9 +29,9 @@ pref("browser.phoenix.extended.002.applied", true);
 
 // 003 MISC. PRIVACY
 
-/// Disable ETP WebCompat & Heuristics
+/// Disable dFPI Heuristics
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15404
 
-pref("privacy.antitracking.enableWebcompat", false);
 pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
 pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
 pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT]
