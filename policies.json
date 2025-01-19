@@ -50,7 +50,6 @@
         "Folder": "🥚"
       }
     ],
-    "CaptivePortal": false,
     "Certificates": {
       "ImportEnterpriseRoots": false
     },
@@ -78,7 +77,6 @@
     "DisableFirefoxStudies": true,
     "DisablePrivateBrowsing": false,
     "DisableProfileRefresh": true,
-    "DisableSystemAddonUpdate": false,
     "DisableTelemetry": true,
     "DisplayBookmarksToolbar": "always",
     "DNSOverHTTPS": {
