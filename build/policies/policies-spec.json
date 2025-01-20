@@ -1279,6 +1279,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "browser.tabs.unloadTabInContextMenu": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.toolbars.bookmarks.visibility": {
                 "Value": "always",
                 "Status": "default"
