@@ -745,6 +745,11 @@ pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
 
+/// Enable Smartblock Embeds/Placeholders
+// Makes certain resources click to load
+
+pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nightly]
+
 pref("browser.phoenix.cfg.core.status", "016", locked);
 
 // 017 FINGERPRINTING PROTECTION
