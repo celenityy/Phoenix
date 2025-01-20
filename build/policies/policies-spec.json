@@ -1827,6 +1827,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "extensions.webcompat.smartblockEmbeds.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "extensions.webcompat-reporter.enabled": {
                 "Value": false,
                 "Status": "locked"
