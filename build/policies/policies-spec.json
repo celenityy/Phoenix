@@ -2107,6 +2107,10 @@
                 "Value": "",
                 "Status": "default"
             },
+            "network.cookie.CHIPS.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "network.cookie.sameSite.laxByDefault": {
                 "Value": true,
                 "Status": "default"
