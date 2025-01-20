@@ -959,6 +959,10 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.privatebrowsing.felt-privacy-v1": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.privatebrowsing.forceMediaMemoryCache": {
                 "Value": true,
                 "Status": "default"

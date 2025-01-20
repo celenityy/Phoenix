@@ -1176,6 +1176,11 @@ pref("browser.phoenix.cfg.core.status", "024", locked);
 
 /// 025 MISC.
 
+/// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
+
+pref("browser.privatebrowsing.felt-privacy-v1", true);
+pref("security.certerrors.felt-privacy-v1", true);
+
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
