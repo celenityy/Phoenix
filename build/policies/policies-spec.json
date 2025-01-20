@@ -2482,9 +2482,9 @@
                 "Value": true,
                 "Status": "locked"
             },
-            "browser.phoenix.policies.applied": {
+            "browser.phoenix.policies.status": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "successfully applied :D"
             }
         },
         "PrivateBrowsingModeAvailability": 0,

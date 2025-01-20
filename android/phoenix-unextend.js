@@ -6,10 +6,9 @@
 
 // 001 ADVANCED FINGERPRINTING PROTECTION
 
-/// Reset FPP to only cover Mozilla's default targets
+/// Set FPP to only cover our default targets
 
-pref("privacy.fingerprintingProtection.overrides", ""); // [DEFAULT]
-
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC");
 
 /// Enable WebGL
 // https://blog.browserscan.net/docs/webgl-fingerprinting
