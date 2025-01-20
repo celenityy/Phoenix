@@ -8,4 +8,4 @@ pref("general.config.filename", "phoenix.cfg", locked);
 pref("general.config.vendor", "phoenix", locked);
 pref("general.config.obscure_value", 0, locked);
 
-lockPref("browser.phoenix.js.status", "successfully applied :D");
+pref("browser.phoenix.js.status", "successfully applied :D", locked);
