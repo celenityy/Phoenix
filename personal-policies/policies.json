@@ -76,6 +76,7 @@
     "DisableFeedbackCommands": true,
     "DisableFirefoxStudies": true,
     "DisablePrivateBrowsing": false,
+    "DisableProfileImport": true,
     "DisableProfileRefresh": true,
     "DisableTelemetry": true,
     "DisplayBookmarksToolbar": "always",
@@ -2061,8 +2062,16 @@
         "Value": true,
         "Status": "default"
       },
+      "browser.startup.homepage": {
+        "Value": "about:home",
+        "Status": "default"
+      },
       "browser.startup.homepage_override.mstone": {
         "Value": "ignore",
+        "Status": "default"
+      },
+      "browser.startup.page": {
+        "Value": 1,
         "Status": "default"
       },
       "browser.startup.upgradeDialog.enabled": {
@@ -2215,10 +2224,6 @@
       },
       "browser.urlbar.merino.providers": {
         "Value": "",
-        "Status": "default"
-      },
-      "browser.urlbar.openintab": {
-        "Value": true,
         "Status": "default"
       },
       "browser.urlbar.pocket.featureGate": {
@@ -2753,6 +2758,10 @@
         "Value": false,
         "Status": "default"
       },
+      "layout.css.prefers-color-scheme.content-override": {
+        "Value": 1,
+        "Status": "default"
+      },
       "layout.css.report_errors": {
         "Value": false,
         "Status": "default"
@@ -2965,6 +2974,10 @@
         "Value": true,
         "Status": "default"
       },
+      "network.dns.prefetch_via_proxy": {
+        "Value": false,
+        "Status": "default"
+      },
       "network.dnsCacheEntries": {
         "Value": 1000,
         "Status": "default"
@@ -2995,6 +3008,10 @@
       },
       "network.gio.supported-protocols": {
         "Value": "",
+        "Status": "default"
+      },
+      "network.http.http3.enable_0rtt": {
+        "Value": false,
         "Status": "default"
       },
       "network.http.http3.enable_kyber": {
@@ -3301,9 +3318,9 @@
         "Value": true,
         "Status": "locked"
       },
-      "browser.phoenix.policies.applied": {
+      "browser.phoenix.policies.status": {
         "Value": true,
-        "Status": "locked"
+        "Status": "successfully applied :D"
       },
       "browser.region.local-geocoding": {
         "Value": false,
@@ -4220,7 +4237,6 @@
     },
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
-    "DisableProfileImport": true,
     "OfferToSaveLogins": false,
     "PasswordManagerEnabled": false,
     "RequestedLocales": [
