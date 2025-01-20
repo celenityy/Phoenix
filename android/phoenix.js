@@ -662,7 +662,9 @@ pref("browser.contentblocking.category", "strict", locked);
 
 pref("network.cookie.cookieBehavior", 5); // [DEFAULT]
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
+pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
 pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT]
+pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT]
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT]
