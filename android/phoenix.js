@@ -750,6 +750,15 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
 
 pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nightly]
 
+/// Enable Cookies Having Independent Partitioned State (CHIPS)
+// This allows websites to set cookies with a 'Partitioned' attribute, meaning they're limited in scope
+// We still use ETP Strict for partioning anyways, so this could be useful as a defense in depth if a user decides to allow a specific domain (or domains) to access a third party cookie
+// https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
+// https://developer.mozilla.org/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies
+// https://github.com/privacycg/CHIPS
+
+pref("network.cookie.CHIPS.enabled", true); // [DEFAULT on Nightly]
+
 pref("browser.phoenix.cfg.core.status", "016", locked);
 
 // 017 FINGERPRINTING PROTECTION
