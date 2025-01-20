@@ -19,13 +19,13 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#phoenix:unredacted.or
 
 ___
 
-Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig) & [Enterprise Policies](https://mozilla.github.io/policy-templates/) functionality, and is installed on top of your standard, official Firefox installation. **This allows us to go above and beyond what a simple `user.js` file can offer, without the security risks of using a fork**. For example, forks often fall behind on Firefox updates, **which can leave users open to severe, detrimental vulnerabilities.** Phoenix's approach allows users to continue receiving immediate updates, directly from Mozilla.
+Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig) & [Enterprise Policies](https://mozilla.github.io/policy-templates/) functionality, and is installed on top of your standard, official Firefox installation. **This allows us to go above and beyond what a simple `user.js` file can offer, without the security risks a fork can introduce**. For example, forks often fall behind on Firefox updates, **which can leave users open to severe, detrimental vulnerabilities.** Phoenix's approach allows users to continue receiving immediate updates, directly from Mozilla.
 
 Phoenix's approach also provides users with a seamless experience that is accessible and easy to use. Gone are the days of creating `override` files, manually keeping track of updates, resetting old preferences, & adding your `user.js` file to each and every profile you make. **Not only is Phoenix the most effective & comprehensive approach to configuring Firefox, it is also the most accessible & easiest to use.**
 
 Phoenix's changes to Firefox are carefully considered based on extensive research & studying of Firefox's inner workings. **For an incomplete, non-exhaustive list of Phoenix's features & enhancements, see [here](https://phoenix.celenity.dev/features).**
 
-**Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers a **Hardened** extension. This is completely optional and recommended for advanced users. For more information on Phoenix's compatibility with websites & known issues, see [here](https://phoenix.celenity.dev/compat).
+**Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers an **Extended** config. This is completely optional and primarily recommended for advanced users. For more information on Phoenix's compatibility with websites and known issues, please see [here](https://phoenix.celenity.dev/compat).
 
 **You should also see [here](https://phoenix.celenity.dev/compare) for a comparison between Phoenix, standard Firefox, Arkenfox, Betterfox, LibreWolf, & various other widely used projects of similar nature.**
 
@@ -50,11 +50,11 @@ ___
 - [💪Motivation](#motivation)
 - [🚀Install](#install)
 - [👋Uninstall](#uninstall)
-- [🔥Hardened](#hardened)
-	- [Hardened Installation](#hardened-installation)
+- [🔥Extended](#extended)
+	- [Extended Installation](#extended-installation)
 - [💡Specialized Configs](#specialized-configs)
 - [📛Manual Installation](#manual-installation)
-	- [🤔Using Hardened or a Specialized Config](#using-hardened-or-a-specialized-config)
+	- [🤔Using Extended or a Specialized Config Manually](#using-extended-or-a-specialized-config-manually)
 - [💜Attribution](#attribution)
 
 </details>
@@ -115,21 +115,21 @@ Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, 
 
 ___
 
-# 🔥Hardened
+# 🔥Extended
 
-For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers a **Hardened** extension.
+For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers an **Extended** config.
 
 > [!TIP]
-> **Unlike Phoenix's standard default configuration, Hardened is profile specific.** This means that you can use our Hardened config as needed when you desire the extra protection, & revert back to Phoenix's standard config through another profile for everything else.
+> **Unlike Phoenix's standard default configuration, Extended is profile-specific.** This means that you can use our Extended config as needed when you desire the extra protection, & revert back to Phoenix's standard config through another profile for everything else.
 
-Personally, if you're up for it, I would highly recommend trying out the Hardened config, and setting overrides as needed.
+Personally, if you're up for it, I would highly recommend trying out the Extended config, and setting overrides as needed.
 
-> [!TIP] 
+> [!TIP]
 > Phoenix makes it very easy to set overrides through your `about:config`. No more manual `override` files! ;)
 
-You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites that have issues or quirks with Phoenix's **Hardened** extension, and what you need to toggle to fix them.
+You can see [here](https://phoenix.celenity.dev/compat#hardened) for a list of known sites that have issues or quirks with Phoenix's **Extended** config, and what you need to toggle to fix them.
 
-## Hardened Installation
+## Extended Installation
 
 **1:** Install Phoenix via the script for your platform of choice above.
 
@@ -202,13 +202,13 @@ mv /etc/firefox/phoenix/userjs/hardened/user.js /home/user/.mozilla/firefox/153a
 > [!IMPORTANT] 
 > ⚠️ **macOS (User) users must edit the `user.js` file and replace `phoenix-osx` with `phoenix-osx-user`. This will be simplified & handled better in the future.**
 
-Congratulations, you're done. Similar to the rest of the Phoenix project, your hardened config will automatically update with the rest of Phoenix via your package manager, and you can set any overrides you wish through the about:config. You can just sit back, relax, & enjoy.
+Congratulations, you're done. Similar to the rest of the Phoenix project, your Extended config will automatically update with the rest of Phoenix via your package manager, and you can set any overrides you wish through the about:config. You can just sit back, relax, and enjoy.
 
 # 💡Specialized Configs
 
 It should also be noted that Phoenix contains specialized configurations for **Discord**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these privacy-invasive services.
 
-The installation of these configs is the same as `Hardened`, with the only exception being the location of the `user.js` file. **You can find the location of these user.js files at the following locations:**
+The installation of these configs is the same as `Extended`, with the only exception being the location of the `user.js` file. **You can find the location of these user.js files at the following locations:**
 
 **<details><summary>Discord</summary>**
 
@@ -580,9 +580,9 @@ Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates
 
 ___
 
-## 🤔Using Hardened or a Specialized Config
+## 🤔Using Extended or a Specialized Config Manually
 
-With a manual installation of Phoenix, if you would like to use Phoenix's [Hardened](#hardened) extension, or one of our [specialized configs](#specialized-configs), you'll need to follow these steps.
+With a manual installation of Phoenix, if you would like to use Phoenix's [Extended](#extended) config, or one of our [specialized configs](#specialized-configs), you'll need to follow these steps.
 
 **1:** Download the `.cfg` file of your choice from [here](https://codeberg.org/celenity/Phoenix/src/branch/pages/configs). For this example, we'll use `youtube.cfg`. **Simply replace mentions of `youtube.cfg` below with the configuration you would like to use.**
 
