@@ -76,6 +76,7 @@
         "DisableFeedbackCommands": true,
         "DisableFirefoxStudies": true,
         "DisablePrivateBrowsing": false,
+        "DisableProfileImport": true,
         "DisableProfileRefresh": true,
         "DisableTelemetry": true,
         "DisplayBookmarksToolbar": "always",
