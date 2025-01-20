@@ -2480,8 +2480,8 @@
                 "Status": "locked"
             },
             "browser.phoenix.policies.status": {
-                "Value": true,
-                "Status": "successfully applied :D"
+                "Value": "successfully applied :D",
+                "Status": "default"
             }
         },
         "PrivateBrowsingModeAvailability": 0,
