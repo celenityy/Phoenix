@@ -1140,6 +1140,11 @@ pref("browser.phoenix.cfg.core.status", "022", locked);
 
 // 023 UPDATES
 
+/// Check for extension/theme updates hourly
+// Default is once every 24 hours...
+
+pref("extensions.update.interval", 3600);
+
 /// Ensure we're always updating extensions by default
 
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]

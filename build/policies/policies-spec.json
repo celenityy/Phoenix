@@ -1819,6 +1819,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "extensions.update.interval": {
+                "Value": 3600,
+                "Status": "default"
+            },
             "extensions.update.notifyUser": {
                 "Value": true,
                 "Status": "default"
