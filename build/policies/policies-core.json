@@ -1589,20 +1589,8 @@
                 "Value": true,
                 "Status": "default"
             },
-            "geo.provider.ms-windows-location": {
-                "Value": false,
-                "Status": "default"
-            },
             "geo.provider.network.url": {
                 "Value": "https://api.beacondb.net/v1/geolocate",
-                "Status": "default"
-            },
-            "geo.provider.use_corelocation": {
-                "Value": true,
-                "Status": "default"
-            },
-            "geo.provider.use_geoclue": {
-                "Value": true,
                 "Status": "default"
             },
             "geo.wifi.scan": {
