@@ -957,10 +957,6 @@ pref("browser.download.clearHistoryOnDelete", 2);
 
 pref("browser.privatebrowsing.resetPBM.enabled", true);
 
-/// Prevent automatically starting Firefox & restoring session after reboot on Windows
-
-pref("toolkit.winRegisterApplicationRestart", false);
-
 /// Disable LaterRun
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1200639

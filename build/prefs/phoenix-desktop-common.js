@@ -68,7 +68,13 @@ pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux 
 
 pref("browser.phoenix.desktop.common.status", "005", locked);
 
-// 006 PERFORMANCE
+// 006 DISK AVOIDANCE
+
+/// Prevent automatically starting Firefox & restoring session after reboot on Windows
+
+pref("toolkit.winRegisterApplicationRestart", false);
+
+// 007 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -78,9 +84,9 @@ pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "006", locked);
+pref("browser.phoenix.desktop.common.status", "007", locked);
 
-// 007 Personal Touch
+// 008 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -92,7 +98,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "007", locked);
+pref("browser.phoenix.desktop.common.status", "008", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
