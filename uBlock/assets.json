@@ -953,6 +953,7 @@
     "badhost": {
         "content": "filters",
         "group": "malware",
+        "off": true,
         "title": "💻 HaGeZi's Badware Hoster Blocklist",
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
