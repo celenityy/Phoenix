@@ -957,7 +957,7 @@
         "group": "malware",
         "off": true,
         "title": "💻 HaGeZi's Badware Hoster Blocklist",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "bpc-filters": {
@@ -1012,7 +1012,7 @@
         "content": "filters",
         "group": "malware",
         "title": "🔏 HaGeZi's Dynamic DNS Blocklist",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/dyndns.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/dyndns.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "ethical": {
@@ -1030,7 +1030,7 @@
         "group": "annoyances",
         "title": "🎰 HaGeZi's Gambling Blocklist",
         "off": true,
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "fmhybasic": {
@@ -1054,7 +1054,7 @@
         "off": true,
         "title": "📗 HaGeZi - Multi LIGHT",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/light.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/light.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multi": {
@@ -1063,7 +1063,7 @@
         "off": true,
         "title": "📘 HaGeZi - Multi NORMAL",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/multi.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/multi.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multipro": {
@@ -1072,7 +1072,7 @@
         "off": true,
         "title": "📒 HaGeZi - Multi PRO",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiproplus": {
@@ -1080,7 +1080,7 @@
         "group": "multipurpose",
         "title": "📙 HaGeZi - Multi PRO++",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.plus.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiultimate": {
@@ -1089,7 +1089,7 @@
         "off": true,
         "title": "📕 HaGeZi - Multi ULTIMATE",
         "tags": "ads privacy security",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/ultimate.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "nrds": {
@@ -1144,7 +1144,7 @@
         "content": "filters",
         "group": "malware",
         "title": "🔐 HaGeZi's Threat Intelligence Feeds",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "threatintelmed": {
@@ -1152,7 +1152,7 @@
         "group": "malware",
         "off": true,
         "title": "🔐 HaGeZi's Threat Intelligence Feeds - Medium",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.medium.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.medium.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "tlds": {
@@ -1160,7 +1160,7 @@
         "group": "malware",
         "title": "🔮 HaGeZi's Most Abused TLDs",
         "off": true,
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
+        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "unsafe": {
