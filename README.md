@@ -71,6 +71,9 @@ It doesn't have to be this way.
 
 # 🚀Install
 
+> [!IMPORTANT]
+> ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
+
 Phoenix currently provides official support for:
 
 * **Android**
