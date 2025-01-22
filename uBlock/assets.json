@@ -18,14 +18,7 @@
         "content": "internal",
         "updateAfter": 29,
         "contentURL": [
-            "https://ublockorigin.github.io/uAssets/filters/badlists.txt",
-            "assets/ublock/badlists.txt"
-        ],
-        "cdnURLs": [
-            "https://ublockorigin.github.io/uAssetsCDN/filters/badlists.txt",
-            "https://ublockorigin.pages.dev/filters/badlists.txt",
-            "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/badlists.txt",
-            "https://cdn.statically.io/gh/uBlockOrigin/uAssetsCDN/main/filters/badlists.txt"
+            "https://phoenix.celenity.dev/uBlock/badlists.txt"
         ]
     },
     "ublock-filters": {
