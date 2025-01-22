@@ -1381,11 +1381,6 @@ pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer
 
 pref("security.sandbox.gpu.level", 1);
 
-/// Disable GNOME Integration
-// https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
-
-pref("browser.gnome-search-provider.enabled", false);
-
 /// Protect against CSRF Attacks (Like Chromium)
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ
 // https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
