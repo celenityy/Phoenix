@@ -477,10 +477,10 @@ However, if this is not desirable for you & your situation, or you would simply 
 wget https://phoenix.celenity.dev/phoenix.cfg
 ```
 
-**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/defaults/pref/phoenix.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/defaults/pref/phoenix.js
+wget https://phoenix.celenity.dev/prefs/phoenix-desktop.js
 ```
 
 **3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
