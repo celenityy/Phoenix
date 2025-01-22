@@ -85,13 +85,13 @@ var pref = function(pref, val){
 https://phoenix.celenity.dev/prefs/phoenix-android.js
 ```
 
-**13:** If you'd instead like to use Phoenix's `Extended` config, it can be found [here](https://phoenix.celenity.dev/prefs/phoenix-extended-android.js):
+**13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix.js below:` line. **Now press enter.**
+
+**14:** If you'd also like to use Phoenix's `Extended` Hardening config, **repeat** Steps `11` & `12`, but replacing `https://phoenix.celenity.dev/prefs/phoenix-android.js` with `https://phoenix.celenity.dev/prefs/phoenix-extended-android.js`:
 
 ```sh
 https://phoenix.celenity.dev/prefs/phoenix-extended-android.js
 ```
-
-**14:** Copy the contents of the file correlating to the config you chose *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix.js below:` line. **Now press enter.**
 
 **15:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
 
