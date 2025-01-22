@@ -824,16 +824,11 @@ pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
 
-/// Geo Provider
+/// Geolocation Provider
 
-/// Deny websites geo permission by default
+/// Set BeaconDB as the network Geolocation provider instead of Google...
 
-pref("permissions.default.geo", 2);
-
-pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
-pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate"); // Enable experimental geolocation support for BeaconDB, better than nothing for Windows/Linux users
-pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
-pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
 pref("browser.phoenix.core.status", "010", locked);
 

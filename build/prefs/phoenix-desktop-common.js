@@ -45,7 +45,19 @@ pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ir
 
 pref("browser.phoenix.desktop.common.status", "003", locked);
 
-// 004 PERFORMANCE
+// 004 GEOLOCATION
+
+/// Blocks websites from accessing geolocation by default
+
+pref("permissions.default.geo", 2);
+
+/// Configure OS Geolocation Providers
+
+pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
+pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
+pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+
+// 005 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -55,9 +67,9 @@ pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "004", locked);
+pref("browser.phoenix.desktop.common.status", "005", locked);
 
-// 005 Personal Touch
+// 006 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -69,7 +81,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "005", locked);
+pref("browser.phoenix.desktop.common.status", "006", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
