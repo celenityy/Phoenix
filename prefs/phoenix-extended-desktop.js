@@ -4,7 +4,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.01.20.2", locked);
+pref("browser.phoenix.version", "2025.01.22.1", locked);
 
 // 000 ABOUT:CONFIG
 
@@ -78,11 +78,6 @@ pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
 pref("toolkit.coverage.endpoint.base", "", locked);
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
-
-/// Default Browser Agent
-// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
-
-pref("default-browser-agent.enabled", false, locked);
 
 /// Misc. Telemetry
 /// We also configure "DisableTelemetry" & "ImproveSuggest" in policies 
@@ -824,16 +819,11 @@ pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
 
-/// Geo Provider
+/// Geolocation Provider
 
-/// Deny websites geo permission by default
+/// Set BeaconDB as the network Geolocation provider instead of Google...
 
-pref("permissions.default.geo", 2);
-
-pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
-pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate"); // Enable experimental geolocation support for BeaconDB, better than nothing for Windows/Linux users
-pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
-pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
 pref("browser.phoenix.core.status", "010", locked);
 
@@ -967,10 +957,6 @@ pref("browser.download.clearHistoryOnDelete", 2);
 
 pref("browser.privatebrowsing.resetPBM.enabled", true);
 
-/// Prevent automatically starting Firefox & restoring session after reboot on Windows
-
-pref("toolkit.winRegisterApplicationRestart", false);
-
 /// Disable LaterRun
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1200639
@@ -1067,13 +1053,7 @@ pref("browser.phoenix.core.status", "015", locked);
 
 /// Enable ETP Strict
 
-pref("browser.contentblocking.category", "strict", sticky);
 pref("browser.contentblocking.category", "strict", locked);
-
-/// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
-// We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
-
-pref("librewolf.uBO.assetsBootstrapLocation", "https://phoenix.celenity.dev/uBlock/assets.json");
 
 /// Enforce container isolation of about:home content
 
@@ -1323,11 +1303,6 @@ pref("mathml.disabled", true);
 pref("gfx.font_rendering.graphite.enabled", false);
 pref("gfx.font_rendering.opentype_svg.enabled", false);
 
-/// Disable WebXR
-// https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
-
-pref("permissions.default.xr", 2);
-
 /// Disable SharedArrayBuffer using window.postMessage
 // https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
 // https://developer.mozilla.org/docs/Web/API/Window/postMessage
@@ -1405,11 +1380,6 @@ pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 
 pref("security.sandbox.gpu.level", 1);
-
-/// Disable GNOME Integration
-// https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
-
-pref("browser.gnome-search-provider.enabled", false);
 
 /// Protect against CSRF Attacks (Like Chromium)
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ
@@ -1566,7 +1536,6 @@ pref("media.clearkey.test-key-systems.enabled", false); // [DEFAULT]
 pref("media.eme.enabled", false);
 pref("media.eme.encrypted-media-encryption-scheme.enabled", false);
 pref("media.eme.hdcp-policy-check.enabled", false);
-pref("media.eme.playready.enabled", false);
 pref("media.eme.require-app-approval", true); // [DEFAULT - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
 pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
 pref("media.gmp-widevinecdm.enabled", false);
@@ -1730,7 +1699,6 @@ pref("gfx.webrender.all", true);
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
 pref("layout.css.report_errors", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("media.memory_cache_max_size", 65536); // [Default = 8192]
 pref("network.dnsCacheEntries", 1000); // [Default = 400]
 pref("network.dnsCacheExpiration", 3600); // [Default = 60]
@@ -1787,6 +1755,7 @@ pref("devtools.command-button-rulers.enabled", true);
 pref("devtools.command-button-screenshot.enabled", true);
 pref("devtools.dom.enabled", true);
 pref("devtools.debugger.ui.editor-wrapping", true);
+pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
 pref("findbar.highlightAll", true);
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
@@ -1997,16 +1966,25 @@ pref("browser.phoenix.core.status", "successfully applied :D", locked);
 
 // This file contains preferences shared across Phoenix & Dove on Desktop.
 
-// 001 HTTP(S) - Mixed Content & General Network Hardening
+// 001 DATA COLLECTION
+
+/// Default Browser Agent
+// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
+
+pref("default-browser-agent.enabled", false, locked);
+
+pref("browser.phoenix.desktop.common.status", "001", locked);
+
+// 002 HTTP(S) - Mixed Content & General Network Hardening
 
 /// Enforce using HTTPS as much as possible
 
 pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode_pbm", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "001", locked);
+pref("browser.phoenix.desktop.common.status", "002", locked);
 
-// 002 CERTIFICATES
+// 003 CERTIFICATES
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
@@ -2027,9 +2005,9 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.desktop.common.status", "002", locked);
+pref("browser.phoenix.desktop.common.status", "003", locked);
 
-// 003 SAFE BROWSING
+// 004 SAFE BROWSING
 
 /// Proxy Safe Browsing
 // These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
@@ -2037,9 +2015,57 @@ pref("browser.phoenix.desktop.common.status", "002", locked);
 pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 
-pref("browser.phoenix.desktop.common.status", "003", locked);
+pref("browser.phoenix.desktop.common.status", "004", locked);
 
-// 004 PERFORMANCE
+// 005 GEOLOCATION
+
+/// Blocks websites from accessing geolocation by default
+
+pref("permissions.default.geo", 2);
+
+/// Configure OS Geolocation Providers
+
+pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
+pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
+pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+
+pref("browser.phoenix.desktop.common.status", "005", locked);
+
+// 006 DISK AVOIDANCE
+
+/// Prevent automatically starting Firefox & restoring session after reboot on Windows
+
+pref("toolkit.winRegisterApplicationRestart", false);
+
+pref("browser.phoenix.desktop.common.status", "006", locked);
+
+// 007 ATTACK SURFACE REDUCTION
+
+/// Disable WebXR
+// https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
+
+pref("permissions.default.xr", 2);
+
+pref("browser.phoenix.desktop.common.status", "007", locked);
+
+// 008 MISC. SECURITY
+
+/// Disable GNOME Integration
+// https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
+
+pref("browser.gnome-search-provider.enabled", false);
+
+pref("browser.phoenix.desktop.common.status", "008", locked);
+
+// 009 MEDIA
+
+/// Microsoft PlayReady DRM
+
+pref("media.eme.playready.enabled", false);
+
+pref("browser.phoenix.desktop.common.status", "009", locked);
+
+// 010 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -2047,11 +2073,12 @@ pref("browser.sessionstore.interval", 60000);
 pref("gfx.webrender.compositor", true);
 pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "004", locked);
+pref("browser.phoenix.desktop.common.status", "010", locked);
 
-// 005 Personal Touch
+// 011 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -2063,7 +2090,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "005", locked);
+pref("browser.phoenix.desktop.common.status", "011", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
@@ -2126,7 +2153,16 @@ pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
 pref("browser.phoenix.desktop.status", "004", locked);
 
-/// 005 MISC.
+/// 005 MISC. PRIVACY
+
+/// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
+// We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
+
+pref("librewolf.uBO.assetsBootstrapLocation", "https://phoenix.celenity.dev/uBlock/assets.json");
+
+pref("browser.phoenix.desktop.status", "005", locked);
+
+/// 006 MISC.
 
 /// Set homepage to about:home, this is typically default, but overriden by some distro-packaged versions of Firefox (ex. Fedora)
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#325
@@ -2134,23 +2170,23 @@ pref("browser.phoenix.desktop.status", "004", locked);
 pref("browser.startup.homepage", "about:home"); // [DEFAULT]
 pref("browser.startup.page", 1); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "005", locked);
+pref("browser.phoenix.desktop.status", "006", locked);
 
-// 006 Personal Touch 💜
+// 007 Personal Touch 💜
 
 /// Clean-up default UI
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "006", locked);
+pref("browser.phoenix.desktop.status", "007", locked);
 
-// 007 Enable support for custom/specialized configs...
+// 008 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "007", locked);
+pref("browser.phoenix.desktop.status", "008", locked);
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 
