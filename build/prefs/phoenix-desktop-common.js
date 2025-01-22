@@ -94,7 +94,15 @@ pref("browser.gnome-search-provider.enabled", false);
 
 pref("browser.phoenix.desktop.common.status", "008", locked);
 
-// 009 PERFORMANCE
+// 009 MEDIA
+
+/// Microsoft PlayReady DRM
+
+pref("media.eme.playready.enabled", false);
+
+pref("browser.phoenix.desktop.common.status", "009", locked);
+
+// 010 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -102,11 +110,12 @@ pref("browser.sessionstore.interval", 60000);
 pref("gfx.webrender.compositor", true);
 pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "009", locked);
+pref("browser.phoenix.desktop.common.status", "010", locked);
 
-// 010 Personal Touch
+// 011 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -118,7 +127,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "010", locked);
+pref("browser.phoenix.desktop.common.status", "011", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 

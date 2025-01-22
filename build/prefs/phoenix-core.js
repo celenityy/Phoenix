@@ -1536,7 +1536,6 @@ pref("media.clearkey.test-key-systems.enabled", false); // [DEFAULT]
 pref("media.eme.enabled", false);
 pref("media.eme.encrypted-media-encryption-scheme.enabled", false);
 pref("media.eme.hdcp-policy-check.enabled", false);
-pref("media.eme.playready.enabled", false);
 pref("media.eme.require-app-approval", true); // [DEFAULT - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
 pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
 pref("media.gmp-widevinecdm.enabled", false);
@@ -1700,7 +1699,6 @@ pref("gfx.webrender.all", true);
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
 pref("layout.css.report_errors", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("media.memory_cache_max_size", 65536); // [Default = 8192]
 pref("network.dnsCacheEntries", 1000); // [Default = 400]
 pref("network.dnsCacheExpiration", 3600); // [Default = 60]
