@@ -19,7 +19,7 @@ pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.fire
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
 
-pref("browser.phoenix.desktop.status", "001", locked);
+pref("browser.phoenix.desktop.status", "001");
 
 // 002 GEOLOCATION
 
@@ -27,7 +27,7 @@ pref("browser.phoenix.desktop.status", "001", locked);
 
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 
-pref("browser.phoenix.desktop.status", "002", locked);
+pref("browser.phoenix.desktop.status", "002");
 
 // 003 EXTENSIONS
 
@@ -38,7 +38,7 @@ pref("browser.phoenix.desktop.status", "002", locked);
 
 pref("xpinstall.signatures.required", true, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "003", locked);
+pref("browser.phoenix.desktop.status", "003");
 
 // 004 FINGERPRINTING PROTECTION
 
@@ -55,7 +55,7 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "004", locked);
+pref("browser.phoenix.desktop.status", "004");
 
 /// 005 MISC. PRIVACY
 
@@ -64,7 +64,7 @@ pref("browser.phoenix.desktop.status", "004", locked);
 
 pref("librewolf.uBO.assetsBootstrapLocation", "https://phoenix.celenity.dev/uBlock/assets.json");
 
-pref("browser.phoenix.desktop.status", "005", locked);
+pref("browser.phoenix.desktop.status", "005");
 
 /// 006 MISC.
 
@@ -74,7 +74,7 @@ pref("browser.phoenix.desktop.status", "005", locked);
 pref("browser.startup.homepage", "about:home"); // [DEFAULT]
 pref("browser.startup.page", 1); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "006", locked);
+pref("browser.phoenix.desktop.status", "006");
 
 // 007 Personal Touch 💜
 
@@ -82,7 +82,7 @@ pref("browser.phoenix.desktop.status", "006", locked);
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "007", locked);
+pref("browser.phoenix.desktop.status", "007");
 
 // 008 Enable support for custom/specialized configs...
 
@@ -90,7 +90,7 @@ pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "008", locked);
+pref("browser.phoenix.desktop.status", "008");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

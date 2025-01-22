@@ -8,7 +8,7 @@
 
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/android/search?q=%TERMS%");
 
-pref("browser.phoenix.android.status", "001", locked);
+pref("browser.phoenix.android.status", "001");
 
 // 002 SAFE BROWSING
 
@@ -17,7 +17,7 @@ pref("browser.phoenix.android.status", "001", locked);
 pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT]
 pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT]
 
-pref("browser.phoenix.android.status", "002", locked);
+pref("browser.phoenix.android.status", "002");
 
 // 003 EXTENSIONS
 
@@ -25,7 +25,7 @@ pref("browser.phoenix.android.status", "002", locked);
 
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.android.status", "003", locked);
+pref("browser.phoenix.android.status", "003");
 
 // 004 FINGERPRINTING PROTECTION
 
@@ -42,7 +42,7 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 
 pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
 
-pref("browser.phoenix.android.status", "004", locked);
+pref("browser.phoenix.android.status", "004");
 
 // 005 MISC. SECURITY
 
@@ -53,7 +53,7 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.android.status", "005", locked);
+pref("browser.phoenix.android.status", "005");
 
 pref("browser.phoenix.android.status", "successfully applied :D", locked);
 

@@ -10,7 +10,7 @@
 
 pref("webgl.disabled", true);
 
-pref("browser.phoenix.extended.core.status", "001", locked);
+pref("browser.phoenix.extended.core.status", "001");
 
 // 002 WEBRTC
 
@@ -20,7 +20,7 @@ pref("browser.phoenix.extended.core.status", "001", locked);
 pref("media.peerconnection.ice.default_address_only", true);
 pref("media.peerconnection.ice.no_host", true);
 
-pref("browser.phoenix.extended.core.status", "002", locked);
+pref("browser.phoenix.extended.core.status", "002");
 
 // 003 MISC. PRIVACY
 
@@ -36,7 +36,7 @@ pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAUL
 
 pref("network.http.referer.XOriginPolicy", 2);
 
-pref("browser.phoenix.extended.core.status", "003", locked);
+pref("browser.phoenix.extended.core.status", "003");
 
 // 004 ATTACK SURFACE REDUCTION
 
@@ -45,7 +45,7 @@ pref("browser.phoenix.extended.core.status", "003", locked);
 
 pref("javascript.options.wasm", false);
 
-pref("browser.phoenix.extended.core.status", "004", locked);
+pref("browser.phoenix.extended.core.status", "004");
 
 // 005 MISC.
 
@@ -58,7 +58,7 @@ pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android
 
 pref("media.autoplay.blocking_policy", 2); // [Default = 0]
 
-pref("browser.phoenix.extended.core.status", "005", locked);
+pref("browser.phoenix.extended.core.status", "005");
 
 pref("browser.phoenix.extended.core.status", "successfully applied :D", locked);
 
