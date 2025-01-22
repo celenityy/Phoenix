@@ -79,11 +79,6 @@ pref("toolkit.coverage.endpoint.base", "", locked);
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
-/// Default Browser Agent
-// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
-
-pref("default-browser-agent.enabled", false, locked);
-
 /// Misc. Telemetry
 /// We also configure "DisableTelemetry" & "ImproveSuggest" in policies 
 // https://mozilla.github.io/policy-templates/#disabletelemetry 

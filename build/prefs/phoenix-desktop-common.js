@@ -3,16 +3,25 @@
 
 // This file contains preferences shared across Phoenix & Dove on Desktop.
 
-// 001 HTTP(S) - Mixed Content & General Network Hardening
+// 001 DATA COLLECTION
+
+/// Default Browser Agent
+// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
+
+pref("default-browser-agent.enabled", false, locked);
+
+pref("browser.phoenix.desktop.common.status", "001", locked);
+
+// 002 HTTP(S) - Mixed Content & General Network Hardening
 
 /// Enforce using HTTPS as much as possible
 
 pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode_pbm", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "001", locked);
+pref("browser.phoenix.desktop.common.status", "002", locked);
 
-// 002 CERTIFICATES
+// 003 CERTIFICATES
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
@@ -33,9 +42,9 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.desktop.common.status", "002", locked);
+pref("browser.phoenix.desktop.common.status", "003", locked);
 
-// 003 SAFE BROWSING
+// 004 SAFE BROWSING
 
 /// Proxy Safe Browsing
 // These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
@@ -43,9 +52,9 @@ pref("browser.phoenix.desktop.common.status", "002", locked);
 pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 
-pref("browser.phoenix.desktop.common.status", "003", locked);
+pref("browser.phoenix.desktop.common.status", "004", locked);
 
-// 004 GEOLOCATION
+// 005 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -57,7 +66,9 @@ pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location S
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
-// 005 PERFORMANCE
+pref("browser.phoenix.desktop.common.status", "005", locked);
+
+// 006 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -67,9 +78,9 @@ pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "005", locked);
+pref("browser.phoenix.desktop.common.status", "006", locked);
 
-// 006 Personal Touch
+// 007 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -81,7 +92,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "006", locked);
+pref("browser.phoenix.desktop.common.status", "007", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
