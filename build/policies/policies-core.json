@@ -1589,10 +1589,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "geo.provider.network.url": {
-                "Value": "https://api.beacondb.net/v1/geolocate",
-                "Status": "default"
-            },
             "geo.wifi.scan": {
                 "Value": false,
                 "Status": "default"

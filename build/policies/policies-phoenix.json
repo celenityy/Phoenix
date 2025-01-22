@@ -309,6 +309,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "geo.provider.network.url": {
+                "Value": "https://api.beacondb.net/v1/geolocate",
+                "Status": "default"
+            },
             "geo.provider.use_corelocation": {
                 "Value": true,
                 "Status": "default"
