@@ -921,6 +921,15 @@
         "supportURL": "https://github.com/lightswitch05/hosts/issues",
         "instructionURL": "https://brave.com/privacy-updates/18-de-amp/"
     },
+    "badblockclick": {
+        "content": "filters",
+        "group": "privacy",
+        "title": "🖱️ BadBlock - Click Tracking",
+        "tags": "privacy",
+        "contentURL": "https://badblock.celenity.dev/abp/click-tracking.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://badblock.celenity.dev"
+    },
     "badblocklite": {
         "content": "filters",
         "group": "multipurpose",
