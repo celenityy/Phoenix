@@ -74,7 +74,18 @@ pref("browser.phoenix.desktop.common.status", "005", locked);
 
 pref("toolkit.winRegisterApplicationRestart", false);
 
-// 007 PERFORMANCE
+pref("browser.phoenix.desktop.common.status", "006", locked);
+
+// 007 ATTACK SURFACE REDUCTION
+
+/// Disable WebXR
+// https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
+
+pref("permissions.default.xr", 2);
+
+pref("browser.phoenix.desktop.common.status", "007", locked);
+
+// 008 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -84,9 +95,9 @@ pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "007", locked);
+pref("browser.phoenix.desktop.common.status", "008", locked);
 
-// 008 Personal Touch
+// 009 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -98,7 +109,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "008", locked);
+pref("browser.phoenix.desktop.common.status", "009", locked);
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 

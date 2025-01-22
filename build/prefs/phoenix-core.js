@@ -1303,11 +1303,6 @@ pref("mathml.disabled", true);
 pref("gfx.font_rendering.graphite.enabled", false);
 pref("gfx.font_rendering.opentype_svg.enabled", false);
 
-/// Disable WebXR
-// https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
-
-pref("permissions.default.xr", 2);
-
 /// Disable SharedArrayBuffer using window.postMessage
 // https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
 // https://developer.mozilla.org/docs/Web/API/Window/postMessage
