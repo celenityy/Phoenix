@@ -57,7 +57,16 @@ pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
 pref("browser.phoenix.desktop.status", "004", locked);
 
-/// 005 MISC.
+/// 005 MISC. PRIVACY
+
+/// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
+// We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
+
+pref("librewolf.uBO.assetsBootstrapLocation", "https://phoenix.celenity.dev/uBlock/assets.json");
+
+pref("browser.phoenix.desktop.status", "005", locked);
+
+/// 006 MISC.
 
 /// Set homepage to about:home, this is typically default, but overriden by some distro-packaged versions of Firefox (ex. Fedora)
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#325
@@ -65,23 +74,23 @@ pref("browser.phoenix.desktop.status", "004", locked);
 pref("browser.startup.homepage", "about:home"); // [DEFAULT]
 pref("browser.startup.page", 1); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "005", locked);
+pref("browser.phoenix.desktop.status", "006", locked);
 
-// 006 Personal Touch 💜
+// 007 Personal Touch 💜
 
 /// Clean-up default UI
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "006", locked);
+pref("browser.phoenix.desktop.status", "007", locked);
 
-// 007 Enable support for custom/specialized configs...
+// 008 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "007", locked);
+pref("browser.phoenix.desktop.status", "008", locked);
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

@@ -1053,13 +1053,7 @@ pref("browser.phoenix.core.status", "015", locked);
 
 /// Enable ETP Strict
 
-pref("browser.contentblocking.category", "strict", sticky);
 pref("browser.contentblocking.category", "strict", locked);
-
-/// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
-// We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
-
-pref("librewolf.uBO.assetsBootstrapLocation", "https://phoenix.celenity.dev/uBlock/assets.json");
 
 /// Enforce container isolation of about:home content
 
