@@ -42,8 +42,7 @@
             "*": {
                 "blocked_install_message": "I am Iron Man.",
                 "install_sources": [
-                    "https://addons.mozilla.org/*/firefox/addon/*",
-                    "https://addons.mozilla.org/firefox/downloads/file/*",
+                    "https://addons.mozilla.org/*",
                     "https://agrd.io/extension_firefox_beta",
                     "https://archive.mozilla.org/pub/labs/*",
                     "https://archive.mozilla.org/pub/system-addons/*",
