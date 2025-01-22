@@ -4,7 +4,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.01.22.1", locked);
+pref("browser.phoenix.version", "2025.01.22.2", locked);
 
 // 000 ABOUT:CONFIG
 
@@ -761,8 +761,12 @@ pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
-pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.googleapis.com/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [DEFAULT]
-pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.googleapis.com/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [DEFAULT]
+
+/// Proxy Safe Browsing
+// These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
+
+pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
+pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 
 /// Prevent sending metadata of downloaded files to Google
 // https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox
@@ -2007,17 +2011,7 @@ pref("security.enterprise_roots.enabled", false, locked);
 
 pref("browser.phoenix.desktop.common.status", "003");
 
-// 004 SAFE BROWSING
-
-/// Proxy Safe Browsing
-// These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
-
-pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
-pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
-
-pref("browser.phoenix.desktop.common.status", "004");
-
-// 005 GEOLOCATION
+// 004 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -2029,53 +2023,52 @@ pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location S
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
-pref("browser.phoenix.desktop.common.status", "005");
+pref("browser.phoenix.desktop.common.status", "004");
 
-// 006 DISK AVOIDANCE
+// 005 DISK AVOIDANCE
 
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows
 
 pref("toolkit.winRegisterApplicationRestart", false);
 
-pref("browser.phoenix.desktop.common.status", "006");
+pref("browser.phoenix.desktop.common.status", "005");
 
-// 007 EXTENSIONS
+// 006 EXTENSIONS
 
 // Only allow signed language packs & whitelisted extensions...
 
 pref("extensions.langpacks.signatures.required", true, locked); // [DEFAULT]
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "007");
+pref("browser.phoenix.desktop.common.status", "006");
 
-// 008 ATTACK SURFACE REDUCTION
+// 007 ATTACK SURFACE REDUCTION
 
 /// Disable WebXR
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 
 pref("permissions.default.xr", 2);
 
-pref("browser.phoenix.desktop.common.status", "008");
+pref("browser.phoenix.desktop.common.status", "007");
 
-
-// 009 MISC. SECURITY
+// 008 MISC. SECURITY
 
 /// Disable GNOME Integration
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
 
 pref("browser.gnome-search-provider.enabled", false);
 
-pref("browser.phoenix.desktop.common.status", "009");
+pref("browser.phoenix.desktop.common.status", "008");
 
-// 010 MEDIA
+// 009 MEDIA
 
 /// Microsoft PlayReady DRM
 
 pref("media.eme.playready.enabled", false);
 
-pref("browser.phoenix.desktop.common.status", "010");
+pref("browser.phoenix.desktop.common.status", "009");
 
-// 011 PERFORMANCE
+// 010 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -2086,9 +2079,9 @@ pref("media.cache_resume_threshold", 3600);
 pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "011");
+pref("browser.phoenix.desktop.common.status", "010");
 
-// 012 Personal Touch
+// 011 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -2100,7 +2093,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "012");
+pref("browser.phoenix.desktop.common.status", "011");
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
