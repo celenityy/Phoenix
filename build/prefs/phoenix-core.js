@@ -1755,6 +1755,7 @@ pref("devtools.command-button-rulers.enabled", true);
 pref("devtools.command-button-screenshot.enabled", true);
 pref("devtools.dom.enabled", true);
 pref("devtools.debugger.ui.editor-wrapping", true);
+pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
 pref("findbar.highlightAll", true);
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
