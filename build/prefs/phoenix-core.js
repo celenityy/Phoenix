@@ -1505,9 +1505,11 @@ pref("browser.phoenix.core.status", "020");
 
 // 021 BLOCK COOKIE BANNERS
 
+pref("cookiebanners.cookieInjector.enabled", true); // [DEFAULT]
 pref("cookiebanners.service.mode", 1);
 pref("cookiebanners.service.mode.privateBrowsing", 1);
-pref("cookiebanners.service.enableGlobalRules", true);
+pref("cookiebanners.service.enableGlobalRules", true); // [DEFAULT]
+pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 pref("cookiebanners.ui.desktop.enabled", true);
 
 pref("browser.phoenix.core.status", "021");
