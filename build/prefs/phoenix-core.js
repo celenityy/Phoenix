@@ -662,6 +662,11 @@ pref("network.trr.disable-ECS", true); // [DEFAULT]
 pref("network.connectivity-service.DNS_HTTPS.domain", "");
 pref("network.trr.confirmationNS", "skip");
 
+/// Always warn before falling back from DoH to native DNS...
+
+pref("network.trr.display_fallback_warning", true);
+pref("network.trr_ui.show_fallback_warning_option", true);
+
 /// Never disable DoH from registry checks
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
