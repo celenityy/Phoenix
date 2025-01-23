@@ -2021,6 +2021,10 @@
                 "Value": "https://dns.quad9.net/dns-query",
                 "Status": "default"
             },
+            "network.trr.disable-ECS": {
+                "Value": true,
+                "Status": "default"
+            },
             "network.trr.mode": {
                 "Value": 3,
                 "Status": "default"
