@@ -2029,6 +2029,14 @@
                 "Value": 3,
                 "Status": "default"
             },
+            "network.trr.retry_on_recoverable_errors": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.trr.strict_native_fallback": {
+                "Value": true,
+                "Status": "default"
+            },
             "network.websocket.allowInsecureFromHTTPS": {
                 "Value": false,
                 "Status": "default"

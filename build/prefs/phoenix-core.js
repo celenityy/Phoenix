@@ -683,6 +683,12 @@ pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
 pref("network.dns.native_https_query", true); // [DEFAULT]
 
+/// Disable falling back to native DNS...
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#13855
+
+pref("network.trr.retry_on_recoverable_errors", true); // [DEFAULT]
+pref("network.trr.strict_native_fallback", true); // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst#438
+
 /// Fix IPv6 connectivity when DoH is enabled
 // https://codeberg.org/divested/brace/pulls/5
 
