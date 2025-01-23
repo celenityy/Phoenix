@@ -2037,6 +2037,18 @@
                 "Value": true,
                 "Status": "default"
             },
+            "network.trr.send_accept-language_headers": {
+                "Value": false,
+                "Status": "default"
+            },
+            "network.trr.send_empty_accept-encoding_headers": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.trr.send_user-agent_headers": {
+                "Value": false,
+                "Status": "default"
+            },
             "network.trr.strict_native_fallback": {
                 "Value": true,
                 "Status": "default"

@@ -657,6 +657,12 @@ pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protect
 
 pref("network.trr.disable-ECS", true); // [DEFAULT]
 
+/// Disable sending headers for DoH requests...
+
+pref("network.trr.send_accept-language_headers", false); // [DEFAULT]
+pref("network.trr.send_empty_accept-encoding_headers", true); // [DEFAULT]
+pref("network.trr.send_user-agent_headers", false); // [DEFAULT]
+
 /// Skip DoH Connectivity Checks
 
 pref("network.connectivity-service.DNS_HTTPS.domain", "");
