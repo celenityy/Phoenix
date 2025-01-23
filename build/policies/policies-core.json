@@ -2025,6 +2025,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "network.trr.display_fallback_warning": {
+                "Value": true,
+                "Status": "default"
+            },
             "network.trr.mode": {
                 "Value": 3,
                 "Status": "default"
@@ -2034,6 +2038,10 @@
                 "Status": "default"
             },
             "network.trr.strict_native_fallback": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.trr_ui.show_fallback_warning_option": {
                 "Value": true,
                 "Status": "default"
             },
