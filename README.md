@@ -199,7 +199,7 @@ If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-F
 **4:** Simply move *(or copy & paste)* your `user.js` file to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `/etc/firefox/phoenix/userjs/hardened/user.js`. **Yours may be different, and you should replace this path on the next step with the actual location of your user.js as described above.**
 
 ```sh
-mv /etc/firefox/phoenix/userjs/hardened/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
+cp /etc/firefox/phoenix/userjs/hardened/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
 > [!IMPORTANT] 
@@ -500,7 +500,7 @@ wget https://phoenix.celenity.dev/policies.json
 **5:** Move `phoenix.cfg` to the **root** of your installation directory. You can either drag and drop it manually, or run the following command, assuming `/usr/lib64/firefox` is your installation directory:
 
 ```sh
-sudo mv phoenix.cfg /usr/lib64/firefox/phoenix.cfg
+sudo cp phoenix.cfg /usr/lib64/firefox/phoenix.cfg
 ```
 
 **6:** **For macOS & Flatpak users**: If it does not already exist, in the **root** of your installation directory, create a folder named `defaults`, and inside this new `defaults` folder, create another folder titled `pref`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory *(it won't be)*, you could run the following command:
@@ -532,13 +532,13 @@ sudo chmod 655 /etc/firefox/defaults/pref
 **7:** Move `phoenix.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
-sudo mv phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
+sudo cp phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
 ```
 
 **For all non-Flatpak GNU/Linux users:**
 
 ```sh
-sudo mv phoenix.js /etc/firefox/defaults/pref/phoenix.js
+sudo cp phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
 
 **8:** On macOS & Windows, in the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
@@ -570,13 +570,13 @@ sudo chmod 655 /etc/firefox/policies
 **9:** Finally, those on Windows & macOS should move `policies.json` to the `distribution` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
-sudo mv policies.json /usr/lib64/firefox/distribution/policies.json
+sudo cp policies.json /usr/lib64/firefox/distribution/policies.json
 ```
 
 GNU/Linux users should **instead** move `policies.json` to their `/etc/firefox/policies` folder they just created.
 
 ```sh
-sudo mv policies.json /etc/firefox/policies/policies.json
+sudo cp policies.json /etc/firefox/policies/policies.json
 ```
 
 Congratulations, you're done. Enjoy Phoenix, and be sure to keep up with updates!
