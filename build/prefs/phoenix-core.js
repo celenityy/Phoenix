@@ -1363,6 +1363,7 @@ pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] 
 /// Enforce Site Isolation & Isolate all websites
 // https://wiki.mozilla.org/Project_Fission
 
+pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - except Thunderbird :/] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1737
 pref("dom.ipc.processCount.webIsolated", 1);
 pref("fission.autostart", true); // [DEFAULT]
 pref("fission.autostart.session", true); // [DEFAULT]

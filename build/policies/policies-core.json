@@ -841,6 +841,10 @@
                 "Value": 7,
                 "Status": "default"
             },
+            "browser.sessionstore.disable_platform_collection": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.sessionstore.interval": {
                 "Value": 60000,
                 "Status": "default"
