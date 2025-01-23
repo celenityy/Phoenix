@@ -297,6 +297,10 @@
                 "Value": "https://monitor.firefox.com/",
                 "Status": "default"
             },
+            "browser.contentblocking.report.vpn.url": {
+                "Value": "https://vpn.mozilla.org/",
+                "Status": "default"
+            },
             "browser.geolocation.warning.infoURL": {
                 "Value": "https://phoenix.celenity.dev/geo",
                 "Status": "default"
@@ -319,6 +323,10 @@
             },
             "geo.provider.use_geoclue": {
                 "Value": true,
+                "Status": "default"
+            },
+            "signon.firefoxRelay.manage_url": {
+                "Value": "https://relay.firefox.com/accounts/profile/",
                 "Status": "default"
             },
             "xpinstall.signatures.required": {

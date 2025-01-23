@@ -733,12 +733,16 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.safebrowsing.provider.google.advisoryName": {
+                "Value": "Google Safe Browsing (Legacy)",
+                "Status": "default"
+            },
             "browser.safebrowsing.provider.google.dataSharing.enabled": {
                 "Value": false,
                 "Status": "locked"
             },
             "browser.safebrowsing.provider.google.gethashURL": {
-                "Value": "https://safebrowsing.google.com/safebrowsing/gethash?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2",
+                "Value": "",
                 "Status": "default"
             },
             "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
@@ -754,7 +758,7 @@
                 "Status": "default"
             },
             "browser.safebrowsing.provider.google.updateURL": {
-                "Value": "https://safebrowsing.google.com/safebrowsing/downloads?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%",
+                "Value": "",
                 "Status": "default"
             },
             "browser.safebrowsing.provider.google4.dataSharing.enabled": {

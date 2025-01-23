@@ -17,7 +17,9 @@ pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/%LOCALE%/firefo
 pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
+pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
+pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
 pref("browser.phoenix.desktop.status", "001");
 

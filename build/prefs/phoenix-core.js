@@ -782,8 +782,16 @@ pref("browser.safebrowsing.downloads.enabled", true);
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
-pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
-pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
+
+/// Disable the legacy Safe Browsing API (v2.2...)
+// https://code.google.com/archive/p/google-safe-browsing/wikis/Protocolv2Spec.wiki
+// Has been nonfunctional since October 2018
+// https://security.googleblog.com/2018/01/announcing-turndown-of-deprecated.html
+// Let's make sure it's not used for defense in depth (and attack surface reduction...)
+
+pref("browser.safebrowsing.provider.google.advisoryName", "Google Safe Browsing (Legacy)"); // Label it so it's clearly distinguishable if it is ever enabled for whatever reason...
+pref("browser.safebrowsing.provider.google.gethashURL", "");
+pref("browser.safebrowsing.provider.google.updateURL", "");
 
 /// Proxy Safe Browsing
 // These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
