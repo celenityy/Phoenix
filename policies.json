@@ -733,12 +733,16 @@
         "Value": true,
         "Status": "default"
       },
+      "browser.safebrowsing.provider.google.advisoryName": {
+        "Value": "Google Safe Browsing (Legacy)",
+        "Status": "default"
+      },
       "browser.safebrowsing.provider.google.dataSharing.enabled": {
         "Value": false,
         "Status": "locked"
       },
       "browser.safebrowsing.provider.google.gethashURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/gethash?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2",
+        "Value": "",
         "Status": "default"
       },
       "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
@@ -754,7 +758,7 @@
         "Status": "default"
       },
       "browser.safebrowsing.provider.google.updateURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/downloads?client=SAFEBROWSING_ID&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%",
+        "Value": "",
         "Status": "default"
       },
       "browser.safebrowsing.provider.google4.dataSharing.enabled": {
@@ -839,6 +843,10 @@
       },
       "browser.sessionhistory.max_total_viewers": {
         "Value": 7,
+        "Status": "default"
+      },
+      "browser.sessionstore.disable_platform_collection": {
+        "Value": false,
         "Status": "default"
       },
       "browser.sessionstore.interval": {
@@ -1589,22 +1597,6 @@
         "Value": true,
         "Status": "default"
       },
-      "geo.provider.ms-windows-location": {
-        "Value": false,
-        "Status": "default"
-      },
-      "geo.provider.network.url": {
-        "Value": "https://api.beacondb.net/v1/geolocate",
-        "Status": "default"
-      },
-      "geo.provider.use_corelocation": {
-        "Value": true,
-        "Status": "default"
-      },
-      "geo.provider.use_geoclue": {
-        "Value": true,
-        "Status": "default"
-      },
       "geo.wifi.scan": {
         "Value": false,
         "Status": "default"
@@ -2033,8 +2025,40 @@
         "Value": "https://dns.quad9.net/dns-query",
         "Status": "default"
       },
+      "network.trr.disable-ECS": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.display_fallback_warning": {
+        "Value": true,
+        "Status": "default"
+      },
       "network.trr.mode": {
         "Value": 3,
+        "Status": "default"
+      },
+      "network.trr.retry_on_recoverable_errors": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.send_accept-language_headers": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.trr.send_empty_accept-encoding_headers": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.send_user-agent_headers": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.trr.strict_native_fallback": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr_ui.show_fallback_warning_option": {
+        "Value": true,
         "Status": "default"
       },
       "network.websocket.allowInsecureFromHTTPS": {
@@ -2201,12 +2225,36 @@
         "Value": "https://monitor.firefox.com/",
         "Status": "default"
       },
+      "browser.contentblocking.report.vpn.url": {
+        "Value": "https://vpn.mozilla.org/",
+        "Status": "default"
+      },
       "browser.geolocation.warning.infoURL": {
         "Value": "https://phoenix.celenity.dev/geo",
         "Status": "default"
       },
       "extensions.getAddons.search.browseURL": {
         "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
+        "Status": "default"
+      },
+      "geo.provider.ms-windows-location": {
+        "Value": false,
+        "Status": "default"
+      },
+      "geo.provider.network.url": {
+        "Value": "https://api.beacondb.net/v1/geolocate",
+        "Status": "default"
+      },
+      "geo.provider.use_corelocation": {
+        "Value": true,
+        "Status": "default"
+      },
+      "geo.provider.use_geoclue": {
+        "Value": true,
+        "Status": "default"
+      },
+      "signon.firefoxRelay.manage_url": {
+        "Value": "https://relay.firefox.com/accounts/profile/",
         "Status": "default"
       },
       "xpinstall.signatures.required": {
