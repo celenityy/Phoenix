@@ -44,7 +44,15 @@ pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
 
 pref("browser.phoenix.android.status", "004");
 
-// 005 MISC. SECURITY
+// 005 ATTACK SURFACE REDUCTION
+
+// Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
+// ex. https://gitlab.com/ironfox-oss/IronFox/-/issues/18
+pref("javascript.options.blinterp", true); // [DEFAULT]
+
+pref("browser.phoenix.android.status", "005");
+
+// 006 MISC. SECURITY
 
 // Always warn users before launching other apps...
 
@@ -53,7 +61,7 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.android.status", "005");
+pref("browser.phoenix.android.status", "006");
 
 pref("browser.phoenix.android.status", "successfully applied :D", locked);
 
