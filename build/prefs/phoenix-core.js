@@ -1271,7 +1271,9 @@ pref("signon.generation.enabled", true); // [DEFAULT]
 
 /// Prevent cross-origin sub-resources from opening HTTP authentication dialogs
 
+pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [DEFAULT]
 pref("network.auth.subresource-http-auth-allow", 1);
+pref("network.auth.subresource-img-cross-origin-http-auth-allow", false); // [DEFAULT]
 
 /// Disable Windows SSO
 

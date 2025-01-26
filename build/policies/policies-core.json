@@ -1769,8 +1769,16 @@
                 "Value": false,
                 "Status": "default"
             },
+            "network.auth.non-web-content-triggered-resources-http-auth-allow": {
+                "Value": false,
+                "Status": "default"
+            },
             "network.auth.subresource-http-auth-allow": {
                 "Value": 1,
+                "Status": "default"
+            },
+            "network.auth.subresource-img-cross-origin-http-auth-allow": {
+                "Value": false,
                 "Status": "default"
             },
             "network.captive-portal-service.enabled": {
