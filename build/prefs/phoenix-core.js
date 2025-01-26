@@ -1805,6 +1805,7 @@ pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 pref("security.xfocsp.hideOpenInNewWindow", false);
 pref("toolkit.cosmeticAnimations.enabled", true); // [DEFAULT, HIDDEN] Allows disabling browser animations, exposes it in the about:config https://searchfox.org/mozilla-release/source/remote/test/puppeteer/packages/browsers/src/browser-data/firefox.ts#389
 pref("ui.prefersReducedMotion", 0); // [DEFAULT, HIDDEN] Allows disabling certain UI animations, exposes it in the about:config https://searchfox.org/mozilla-release/source/browser/tools/mozscreenshots/mozscreenshots/extension/TestRunner.sys.mjs#122
+pref("view_source.syntax_highlight", true); // [DEFAULT]
 pref("view_source.wrap_long_lines", true); // [DEFAULT]
 
 pref("browser.phoenix.core.status", "028");
