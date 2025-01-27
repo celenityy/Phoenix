@@ -1868,6 +1868,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "network.early-hints.over-http-v1-1.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
             "network.early-hints.preconnect.enabled": {
                 "Value": false,
                 "Status": "default"

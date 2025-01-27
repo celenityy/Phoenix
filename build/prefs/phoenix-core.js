@@ -508,6 +508,7 @@ pref("network.preconnect", false);
 // Ex. like Cromite https://github.com/uazo/cromite/blob/master/build/patches/Client-hints-overrides.patch
 
 pref("network.early-hints.enabled", false);
+pref("network.early-hints.over-http-v1-1.enabled", false);
 pref("network.early-hints.preconnect.enabled", false);
 pref("network.early-hints.preconnect.max_connections", 0);
 
