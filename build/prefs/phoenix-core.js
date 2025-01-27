@@ -103,6 +103,8 @@ pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, at least on Nightly]
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
+pref("captchadetection.actor.enabled", false, locked); // [DEFAULT, except Nightly] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
+pref("captchadetection.loglevel", "Off");
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
 pref("datareporting.healthreport.documentServerURI", "", locked); // [HIDDEN]
 pref("datareporting.healthreport.logging.consoleEnabled", false); // [HIDDEN]
