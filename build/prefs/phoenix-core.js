@@ -113,6 +113,7 @@ pref("datareporting.policy.dataSubmissionEnabled", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyAccepted", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked);
 pref("datareporting.policy.firstRunURL", "", locked);
+pref("datareporting.usage.uploadEnabled", false, locked); // Disables sending "daily usage pings" to Mozilla - currently only on Nightly
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked);
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
