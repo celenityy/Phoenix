@@ -51,7 +51,6 @@
             "ProviderURL": "https://dns.quad9.net/dns-query",
             "Fallback": false
         },
-        "OfferToSaveLoginsDefault": false,
         "Preferences": {
             "accessibility.force_disabled": {
                 "Value": 1,
@@ -2186,10 +2185,6 @@
                 "Status": "default"
             },
             "signon.privateBrowsingCapture.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
-            "signon.rememberSignons": {
                 "Value": false,
                 "Status": "default"
             },

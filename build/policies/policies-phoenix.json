@@ -266,6 +266,7 @@
         },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
+        "OfferToSaveLoginsDefault": false,
         "Permissions": {
             "Location": {
                 "BlockNewRequests": true,
@@ -327,6 +328,10 @@
             },
             "signon.firefoxRelay.manage_url": {
                 "Value": "https://relay.firefox.com/accounts/profile/",
+                "Status": "default"
+            },
+            "signon.rememberSignons": {
+                "Value": false,
                 "Status": "default"
             },
             "xpinstall.signatures.required": {
