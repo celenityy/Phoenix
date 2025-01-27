@@ -1179,11 +1179,6 @@ pref("browser.phoenix.core.status", "016");
 
 // 017 FINGERPRINTING PROTECTION
 
-/// Unbreak websites with FPP (if enabled)
-// Currently covers Apple Maps (completely broken)
-
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
-
 /// Round window sizes
 
 pref("privacy.window.maxInnerHeight", 900);

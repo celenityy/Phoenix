@@ -52,6 +52,11 @@ pref("browser.phoenix.desktop.status", "003");
 
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-HttpUserAgent,-JSDateTimeUTC");
 
+/// Unbreak websites with FPP (if enabled)
+// Currently covers Apple Maps (completely broken)
+
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}]");
+
 /// Expose dynamic rounding of content dimensions to users, but do not enable by default
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
 
