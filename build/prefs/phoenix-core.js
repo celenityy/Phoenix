@@ -1069,8 +1069,8 @@ pref("pdfjs.enablePermissions", false); // [DEFAULT]
 /// Prevent checking if default PDF viewer
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 
-pref("browser.shell.checkpDF", false);
-pref("browser.shell.checkpDF.silencedByUser", true);
+pref("browser.shell.checkDefaultPDF", false);
+pref("browser.shell.checkDefaultPDF.silencedByUser", true);
 
 /// Never open Microsoft Edge for PDFs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
