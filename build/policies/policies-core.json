@@ -4,26 +4,26 @@
             "Extensions": {
                 "uBlock0@raymondhill.net": {
                     "adminSettings": {
-                        "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json",
-                        "userSettings": {
-                            "advancedUserEnabled": true,
-                            "autoUpdate": true,
-                            "cnameUncloakEnabled": true,
-                            "dynamicFilteringEnabled": true,
-                            "firewallPaneMinimized": false,
-                            "hyperlinkAuditingDisabled": true,
-                            "prefetchingDisabled": true,
-                            "suspendUntilListsAreLoaded": true
-                        }
+                        "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json"
                     },
+                    "userSettings": [
+                        [
+                            "advancedUserEnabled",
+                            "true"
+                        ],
+                        [
+                            "dynamicFilteringEnabled",
+                            "true"
+                        ],
+                        [
+                            "firewallPaneMinimized",
+                            "false"
+                        ]
+                    ],
                     "advancedSettings": [
                         [
                             "autoCommentFilterTemplate",
                             "{{url}}"
-                        ],
-                        [
-                            "autoUpdatePeriod",
-                            "1"
                         ],
                         [
                             "filterAuthorMode",
