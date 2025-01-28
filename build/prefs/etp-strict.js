@@ -2,6 +2,7 @@
 // This config manually enables various protections from ETP/Strict
 // Useful for ex. Android & Thunderbird, where ETP Strict either isn't supported or doesn't cover the same protections.
 
+pref("extensions.webcompat.enable_shims", true); // [HIDDEN]
 pref("network.cookie.cookieBehavior", 5);
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
