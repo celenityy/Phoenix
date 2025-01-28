@@ -54,13 +54,16 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 
 /// Unbreak websites with FPP (if the related target is enabled...)
 // Currently covers:
-// Apple Maps (apple.com) - Disables spoofing WebGL render capability (-WebGLRenderCapability) - causes complete breakage
+// Apple Maps (apple.com) - Disables spoofing WebGL render capability (-WebGLRenderCapability) - Causes complete breakage
 // Discord (discord.com) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (arcticfoxes.net) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (aria.im) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (element.io) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (mozilla.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (unredacted.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
 
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mozilla.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
 
 /// Expose dynamic rounding of content dimensions to users, but do not enable by default
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
