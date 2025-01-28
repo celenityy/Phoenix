@@ -6,20 +6,6 @@
                     "adminSettings": {
                         "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json"
                     },
-                    "userSettings": [
-                        [
-                            "advancedUserEnabled",
-                            "true"
-                        ],
-                        [
-                            "dynamicFilteringEnabled",
-                            "true"
-                        ],
-                        [
-                            "firewallPaneMinimized",
-                            "false"
-                        ]
-                    ],
                     "advancedSettings": [
                         [
                             "autoCommentFilterTemplate",
@@ -32,6 +18,20 @@
                         [
                             "updateAssetBypassBrowserCache",
                             "true"
+                        ]
+                    ],
+                    "userSettings": [
+                        [
+                            "advancedUserEnabled",
+                            "true"
+                        ],
+                        [
+                            "dynamicFilteringEnabled",
+                            "true"
+                        ],
+                        [
+                            "firewallPaneMinimized",
+                            "false"
                         ]
                     ]
                 }
