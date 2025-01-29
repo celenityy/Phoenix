@@ -89,6 +89,12 @@ pref("browser.phoenix.desktop.status", "005");
 pref("browser.startup.homepage", "about:home"); // [DEFAULT]
 pref("browser.startup.page", 1); // [DEFAULT]
 
+/// Add our own extension recommendations...
+
+pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extension-recommendations.json"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.getAddons.showPane", true); // [DEFAULT]
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is local/installed extensions...
+
 pref("browser.phoenix.desktop.status", "006");
 
 // 007 Personal Touch 💜
