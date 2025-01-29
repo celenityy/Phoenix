@@ -364,6 +364,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.newtabpage.activity-stream.default.sites": {
                 "Value": "",
                 "Status": "default"

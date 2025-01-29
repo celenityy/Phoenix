@@ -203,6 +203,7 @@ pref("extensions.webservice.discoverURL", "");
 /// Fakespot
 
 pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
 pref("browser.shopping.experience2023.active", false);
 pref("browser.shopping.experience2023.ads.enabled", false, locked); // [DEFAULT]
 pref("browser.shopping.experience2023.ads.exposure", false, locked); // [HIDDEN]
