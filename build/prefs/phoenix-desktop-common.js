@@ -73,6 +73,10 @@ pref("browser.phoenix.desktop.common.status", "005");
 pref("extensions.langpacks.signatures.required", true, locked); // [DEFAULT]
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
 
+// Enable panel for our own extension recommendations...
+
+pref("extensions.getAddons.showPane", true); // [DEFAULT]
+
 pref("browser.phoenix.desktop.common.status", "006");
 
 // 007 ATTACK SURFACE REDUCTION

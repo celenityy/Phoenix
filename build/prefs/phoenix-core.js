@@ -198,6 +198,7 @@ pref("extensions.getAddons.discovery.api_url", "data;"); // https://searchfox.or
 pref("extensions.getAddons.showPane", false);
 pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 pref("extensions.recommendations.themeRecommendationUrl", "");
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is local/installed extensions...
 pref("extensions.webservice.discoverURL", "");
 
 /// Fakespot

@@ -1472,6 +1472,10 @@
                 "Value": "",
                 "Status": "default"
             },
+            "extensions.getAddons.showPane": {
+                "Value": true,
+                "Status": "default"
+            },
             "extensions.htmlaboutaddons.recommendations.enabled": {
                 "Value": false,
                 "Status": "default"
@@ -1506,6 +1510,10 @@
             },
             "extensions.systemAddon.update.enabled": {
                 "Value": true,
+                "Status": "default"
+            },
+            "extensions.ui.lastCategory": {
+                "Value": "addons://list/extension",
                 "Status": "default"
             },
             "extensions.update.autoUpdateDefault": {
