@@ -1484,6 +1484,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "extensions.install.requireBuiltInCerts": {
+                "Value": true,
+                "Status": "locked"
+            },
             "extensions.langpacks.signatures.required": {
                 "Value": true,
                 "Status": "locked"
@@ -1607,6 +1611,10 @@
             "extensions.update.notifyUser": {
                 "Value": true,
                 "Status": "default"
+            },
+            "extensions.update.requireBuiltInCerts": {
+                "Value": true,
+                "Status": "locked"
             },
             "extensions.webapi.testing": {
                 "Value": false,

@@ -1027,6 +1027,11 @@ pref("extensions.enabledScopes", 5); // [DEFAULT]
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
 pref("xpinstall.whitelist.required", true); // [DEFAULT]
 
+/// Only allow installation and updates for extensions using Firefox's built-in certs...
+
+pref("extensions.install.requireBuiltInCerts", true, locked); // [HIDDEN]
+pref("extensions.update.requireBuiltInCerts", true, locked); // [HIDDEN]
+
 /// Block extensions signed with weak signature algorithms
 
 pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [HIDDEN]
