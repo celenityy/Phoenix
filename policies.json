@@ -4,26 +4,12 @@
       "Extensions": {
         "uBlock0@raymondhill.net": {
           "adminSettings": {
-            "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json",
-            "userSettings": {
-              "advancedUserEnabled": true,
-              "autoUpdate": true,
-              "cnameUncloakEnabled": true,
-              "dynamicFilteringEnabled": true,
-              "firewallPaneMinimized": false,
-              "hyperlinkAuditingDisabled": true,
-              "prefetchingDisabled": true,
-              "suspendUntilListsAreLoaded": true
-            }
+            "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json"
           },
           "advancedSettings": [
             [
               "autoCommentFilterTemplate",
               "{{url}}"
-            ],
-            [
-              "autoUpdatePeriod",
-              "1"
             ],
             [
               "filterAuthorMode",
@@ -32,6 +18,20 @@
             [
               "updateAssetBypassBrowserCache",
               "true"
+            ]
+          ],
+          "userSettings": [
+            [
+              "advancedUserEnabled",
+              "true"
+            ],
+            [
+              "dynamicFilteringEnabled",
+              "true"
+            ],
+            [
+              "firewallPaneMinimized",
+              "false"
             ]
           ]
         }
@@ -51,7 +51,6 @@
       "ProviderURL": "https://dns.quad9.net/dns-query",
       "Fallback": false
     },
-    "OfferToSaveLoginsDefault": false,
     "Preferences": {
       "accessibility.force_disabled": {
         "Value": 1,
@@ -362,6 +361,10 @@
         "Status": "locked"
       },
       "browser.newtabpage.activity-stream.contextualContent.fakespot.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled": {
         "Value": false,
         "Status": "default"
       },
@@ -1453,6 +1456,10 @@
         "Value": 5,
         "Status": "default"
       },
+      "extensions.experiments.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
       "extensions.formautofill.addresses.enabled": {
         "Value": false,
         "Status": "default"
@@ -1469,15 +1476,19 @@
         "Value": "",
         "Status": "default"
       },
-      "extensions.getAddons.discovery.api_url": {
-        "Value": "data;",
-        "Status": "default"
-      },
       "extensions.getAddons.showPane": {
-        "Value": false,
+        "Value": true,
         "Status": "default"
       },
       "extensions.htmlaboutaddons.recommendations.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.install.requireBuiltInCerts": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "extensions.installDistroAddons": {
         "Value": false,
         "Status": "default"
       },
@@ -1501,9 +1512,81 @@
         "Value": true,
         "Status": "default"
       },
-      "extensions.recommendations.privacyPolicyUrl": {
-        "Value": "",
-        "Status": "default"
+      "extensions.quarantineIgnoredByUser.ads@mozac.org": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.bravesearch@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.cookies@mozac.org": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.ddg@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.ecosia@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.kagi@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.kagi-html@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.leta-brave@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.leta-google@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.metager@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.mojeek@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.no-search@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.qwant@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.startpage@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.swisscows@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org": {
+        "Value": false,
+        "Status": "locked"
       },
       "extensions.recommendations.themeRecommendationUrl": {
         "Value": "",
@@ -1511,6 +1594,10 @@
       },
       "extensions.systemAddon.update.enabled": {
         "Value": true,
+        "Status": "default"
+      },
+      "extensions.ui.lastCategory": {
+        "Value": "addons://list/extension",
         "Status": "default"
       },
       "extensions.update.autoUpdateDefault": {
@@ -1528,6 +1615,10 @@
       "extensions.update.notifyUser": {
         "Value": true,
         "Status": "default"
+      },
+      "extensions.update.requireBuiltInCerts": {
+        "Value": true,
+        "Status": "locked"
       },
       "extensions.webapi.testing": {
         "Value": false,
@@ -1869,6 +1960,10 @@
         "Value": false,
         "Status": "default"
       },
+      "network.early-hints.over-http-v1-1.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
       "network.early-hints.preconnect.enabled": {
         "Value": false,
         "Status": "default"
@@ -2189,10 +2284,6 @@
         "Value": false,
         "Status": "default"
       },
-      "signon.rememberSignons": {
-        "Value": false,
-        "Status": "default"
-      },
       "signon.storeWhenAutocompleteOff": {
         "Value": false,
         "Status": "default"
@@ -2245,6 +2336,14 @@
         "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
         "Status": "default"
       },
+      "extensions.getAddons.discovery.api_url": {
+        "Value": "https://phoenix.celenity.dev/extensions/recommendations.json",
+        "Status": "default"
+      },
+      "extensions.recommendations.privacyPolicyUrl": {
+        "Value": "https://phoenix.celenity.dev/privacy#extension-recommendations",
+        "Status": "default"
+      },
       "geo.provider.ms-windows-location": {
         "Value": false,
         "Status": "default"
@@ -2265,6 +2364,10 @@
         "Value": "https://relay.firefox.com/accounts/profile/",
         "Status": "default"
       },
+      "signon.rememberSignons": {
+        "Value": false,
+        "Status": "default"
+      },
       "xpinstall.signatures.required": {
         "Value": true,
         "Status": "locked"
@@ -2278,6 +2381,7 @@
       "UseProxyForDNS": true
     },
     "SearchEngines": {
+      "Default": "DuckDuckGo",
       "PreventInstalls": false,
       "Remove": [
         "Google",
@@ -2287,6 +2391,30 @@
     },
     "SSLVersionMin": "tls1.2",
     "ExtensionSettings": {
+      "bravesearch@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
+      "kagi@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
+      "kagi-html@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
+      "metager@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
+      "leta-brave@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
+      "leta-google@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
       "ads@mozac.org": {
         "installation_mode": "blocked",
         "blocked_install_message": "Mozilla Android Components - Ads Telemetry..."
@@ -2466,6 +2594,10 @@
       "daum-kr@search.mozilla.org": {
         "installation_mode": "blocked",
         "blocked_install_message": "Mozilla's extension for the built-in Daum Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/daum-kr/manifest.json"
+      },
+      "ddg@search.mozilla.org": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla's extension for the built-in DuckDuckGo Search Engine. We replace with our own to set it as the default..."
       },
       "ebay@search.mozilla.org": {
         "installation_mode": "blocked",
@@ -3114,6 +3246,7 @@
           "https://ftp.mozilla.org/pub/system-addons/*",
           "https://ftp.mozilla.org/pub/vpn/addons/candidates/*",
           "https://ftp.mozilla.org/pub/vpn/addons/releases/*",
+          "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&inline=false",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases*",
@@ -3194,122 +3327,78 @@
         "temporarily_allow_weak_signatures": false
       },
       "uBlock0@raymondhill.net": {
+        "default_area": "navbar",
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
-        "default_area": "navbar",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
+        "private_browsing": true,
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": false
       },
       "@testpilot-containers": {
+        "default_area": "navbar",
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
-        "default_area": "navbar",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": false
       },
-      "bravesearch@celenity.dev": {
+      "ddg@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/default-brave-search/default-brave-search-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo/duckduckgo-latest.xpi",
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "duckduckgo-html@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "duckduckgo-lite@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "ecosia@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
-      },
-      "kagi@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/kagi/kagi-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
-      },
-      "kagi-html@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/kagi-html/kagi-html-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
-      },
-      "metager@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/metager/metager-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "mojeek@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
-      },
-      "leta-brave@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/leta-brave/leta-brave-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
-        "temporarily_allow_weak_signatures": false
-      },
-      "leta-google@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/leta-google/leta-google-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "no-search@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "qwant@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "qwant-junior@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "startpage@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       },
       "swisscows@celenity.dev": {
         "installation_mode": "normal_installed",
         "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-latest.xpi",
-        "default_area": "menupanel",
-        "updates_disabled": false,
+        "private_browsing": false,
         "temporarily_allow_weak_signatures": false
       }
     },
@@ -4121,7 +4210,12 @@
     },
     "HttpsOnlyMode": "force_enabled",
     "NoDefaultBookmarks": true,
+    "OfferToSaveLoginsDefault": false,
     "Permissions": {
+      "Autoplay": {
+        "Default": "block-audio-video",
+        "Locked": false
+      },
       "Location": {
         "BlockNewRequests": true,
         "Locked": false
@@ -4132,10 +4226,6 @@
       },
       "VirtualReality": {
         "BlockNewRequests": true,
-        "Locked": true
-      },
-      "Autoplay": {
-        "Default": "block-audio-video",
         "Locked": false
       }
     },
@@ -4160,97 +4250,6 @@
       "UrlbarInterventions": false,
       "MoreFromMozilla": false,
       "Locked": true
-    },
-    "WebsiteFilter": {
-      "Block": [
-        "*://*.telemetry.mozilla.org/*",
-        "*://*.ads.prod.webservices.mozgcp.net/*",
-        "*://*.ads.nonprod.webservices.mozgcp.net/*",
-        "*://*.anonymco.com/*",
-        "*://*.contile.services.mozilla.com/*",
-        "*://*.contile-images.services.mozilla.com/*",
-        "*://*.getpocket.com/*",
-        "*://*.snippets.allizom.org/*",
-        "*://*.snippets.cdn.mozilla.net/*",
-        "*://*.snippets.mozilla.com/*",
-        "*://*.snippets-prod.moz.works/*",
-        "*://*.snippets-prod.oregon-b.moz.works/*",
-        "*://*.snippets-prod.frankfurt.moz.works/*",
-        "*://*.snippets-stage.moz.works/*",
-        "*://*.snippets-stage.oregon-b.moz.works/*",
-        "*://*.crash-reports.allizom.org/*",
-        "*://*.crash-reports.mozilla.com/*",
-        "*://*.crash-reports-xpsp2.mozilla.com/*",
-        "*://*.crash-stacks.mozilla.com/*",
-        "*://*.crash-stats.allizom.org/*",
-        "*://*.crash-stats.mozilla.org/*",
-        "*://*.crash-stats.mozilla.com/*",
-        "*://*.socorro.prod.webservices.mozgcp.net/*",
-        "*://*.socorro-collector.services.mozilla.com/*",
-        "*://*.socorro-webapp-allizom.stage.mozaws.net/*",
-        "*://*.socorro-webapp.services.mozilla.com/*",
-        "*://*.talkback.mozilla.org/*",
-        "*://*.talkback-public.mozilla.org/*",
-        "*://*.talkback-reports.mozilla.org/*",
-        "*://*.data.mozilla.com/*",
-        "*://*.dataops.mozgcp.net/*",
-        "*://*.dataservices.mozgcp.net/*",
-        "*://*.download-stats.mozilla.org/*",
-        "*://*.download-stats.r53-2.services.mozilla.com/*",
-        "*://*.normandy.cdn.mozilla.net/*",
-        "*://*.normandy.nonprod.cloudops.mozgcp.net/*",
-        "*://*.normandy.prod.cloudops.mozgcp.net/*",
-        "*://*.normandy.services.mozilla.com/*",
-        "*://*.normandy-cdn.services.mozilla.com/*",
-        "*://*.normandy-devtools.services.mozilla.com/*",
-        "*://*.sentry.nonprod.cloudops.mozgcp.net/*",
-        "*://*.sentry.prod.cloudops.mozgcp.net/*",
-        "*://*.telemetry-coverage.mozilla.org/*",
-        "*://*.coverage.mozilla.org/*",
-        "*://*.telemetry-coverage.r53-2.services.mozilla.com/*",
-        "*://*.telemetry-data.r53-2.services.mozilla.com/*",
-        "*://*.telemetry-incoming.r53-2.services.mozilla.com/*",
-        "*://*.merino.nonprod.cloudops.mozgcp.net/*",
-        "*://*.merino.prod.cloudops.mozgcp.net/*",
-        "*://*.merino.services.mozilla.com/*",
-        "*://*.survey.mozilla.com/*",
-        "*://*.qsurvey.mozilla.com/*",
-        "*://*.fakespot.com/*",
-        "*://*.fakespot.io/*",
-        "*://*.getpocket.cdn.mozilla.net/*",
-        "*://*.getpocket.com/*",
-        "*://*.getpocket-cdn.prod.mozaws.net/*",
-        "*://*.img-getpocket.cdn.mozilla.net/*",
-        "*://*.mozilla-ohttp-fakespot.fastly-edge.com/*",
-        "*://*.pocket.prod.cloudops.mozgcp.net/*",
-        "*://*.pocket-image-cache.com/*",
-        "*://*.spocs.mozilla.net/*",
-        "*://*.getpocket.dev/*",
-        "*://*.google-analytics.com/*",
-        "*://*.googlesyndication.com/*",
-        "*://*.googletagmanager.com/*",
-        "*://*.analytics.google.com/*",
-        "*://*.googletagmanager.com/*",
-        "*://*.googletagservices.com/*",
-        "*://*.braze.com/*",
-        "*://*.sentry.io/*",
-        "*://*.omappapi.com/*",
-        "*://*.250analytics.com/*",
-        "*://*.discovery.addons.mozilla.org/*",
-        "*://*.discovery.addons.allizom.org/*",
-        "*://*.discovery.addons-dev.allizom.org/*",
-        "*://*.services.addons.mozilla.org/api/*/discovery/*",
-        "*://*.dap-09-3.api.divviup.org/*",
-        "*://*.dap.services.mozilla.com/*",
-        "*://*.dap.nonprod.webservices.mozgcp.net/*",
-        "*://*.dap.prod.webservices.mozgcp.net/*",
-        "*://*.fuzzing.mozilla.org/*",
-        "*://*.asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com/*",
-        "*://*.fuzzing.mozilla.org/*",
-        "*://*.incoming-telemetry.thunderbird.net/*",
-        "*://*.pipeline-incoming-prod-elb-149169523.us-west-2.elb.amazonaws.com/*",
-        "*://*.telemetry-prod-1054754349.us-east-1.elb.amazonaws.com/*"
-      ]
     }
   }
 }
