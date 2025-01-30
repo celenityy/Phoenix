@@ -1500,6 +1500,82 @@
                 "Value": true,
                 "Status": "default"
             },
+            "extensions.quarantineIgnoredByUser.ads@mozac.org": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.bravesearch@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.cookies@mozac.org": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.ddg@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.ecosia@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.kagi@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.kagi-html@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.leta-brave@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.leta-google@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.metager@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.mojeek@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.no-search@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.qwant@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.startpage@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.swisscows@celenity.dev": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org": {
+                "Value": false,
+                "Status": "locked"
+            },
             "extensions.recommendations.themeRecommendationUrl": {
                 "Value": "",
                 "Status": "default"
