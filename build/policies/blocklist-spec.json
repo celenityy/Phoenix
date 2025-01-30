@@ -1,6 +1,30 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "bravesearch@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "kagi@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "kagi-html@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "metager@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "leta-brave@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "leta-google@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
             "ads@mozac.org": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla Android Components - Ads Telemetry..."

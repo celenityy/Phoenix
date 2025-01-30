@@ -148,108 +148,57 @@
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
-            "bravesearch@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/default-brave-search/default-brave-search-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
             "duckduckgo-html@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "duckduckgo-lite@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "ecosia@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "kagi@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/kagi/kagi-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "kagi-html@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/kagi-html/kagi-html-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "metager@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/metager/metager-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "mojeek@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "leta-brave@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/leta-brave/leta-brave-latest.xpi",
-                "default_area": "menupanel",
-                "updates_disabled": false,
-                "temporarily_allow_weak_signatures": false
-            },
-            "leta-google@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/leta-google/leta-google-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "no-search@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "qwant@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "qwant-junior@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "startpage@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "swisscows@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-latest.xpi",
-                "default_area": "menupanel",
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             }
