@@ -1039,6 +1039,11 @@ pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
 pref("extensions.postDownloadThirdPartyPrompt", false, locked);
 
+/// Prevent unprivileged extensions from accessing experimental APIs by default
+// https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142
+
+pref("extensions.experiments.enabled", false); // [DEFAULT, except on ex. Nightly...]
+
 /// Allow LocalCDN to work on quarantined domains
 
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);

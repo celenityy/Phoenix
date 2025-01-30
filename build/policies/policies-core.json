@@ -1456,6 +1456,10 @@
                 "Value": 5,
                 "Status": "default"
             },
+            "extensions.experiments.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
             "extensions.formautofill.addresses.enabled": {
                 "Value": false,
                 "Status": "default"
