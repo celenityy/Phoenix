@@ -1,0 +1,30 @@
+{
+    "name": "DuckDuckGo",
+    "description": "Search DuckDuckGo",
+    "manifest_version": 3,
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "ddg@celenity.dev"
+        }
+    },
+    "hidden": true,
+    "chrome_settings_overrides": {
+        "search_provider": {
+            "keyword": [
+                "@duckduckgo",
+                "@ddg"
+            ],
+            "name": "DuckDuckGo",
+            "search_url": "https://duckduckgo.com/?q={searchTerms}",
+            "suggest_url": "https://duckduckgo.com/ac/?q={searchTerms}&type=list",
+            "favicon_url": "/imager/favicon.ico",
+            "is_default": true
+        }
+    },
+    "author": "celenity 💘 <celenity@celenity.dev>",
+    "homepage_url": "https://phoenix.celenity.dev",
+    "icons": {
+        "48": "imager/icon.png"
+    }
+}

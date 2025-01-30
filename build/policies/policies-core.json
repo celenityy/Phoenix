@@ -1500,10 +1500,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "extensions.recommendations.privacyPolicyUrl": {
-                "Value": "",
-                "Status": "default"
-            },
             "extensions.recommendations.themeRecommendationUrl": {
                 "Value": "",
                 "Status": "default"

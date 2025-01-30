@@ -312,7 +312,11 @@
                 "Status": "default"
             },
             "extensions.getAddons.discovery.api_url": {
-                "Value": "https://phoenix.celenity.dev/extension-recommendations.json",
+                "Value": "https://phoenix.celenity.dev/extensions/recommendations.json",
+                "Status": "default"
+            },
+            "extensions.recommendations.privacyPolicyUrl": {
+                "Value": "https://phoenix.celenity.dev/privacy#extension-recommendations",
                 "Status": "default"
             },
             "geo.provider.ms-windows-location": {

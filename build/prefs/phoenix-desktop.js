@@ -91,7 +91,8 @@ pref("browser.startup.page", 1); // [DEFAULT]
 
 /// Add our own extension recommendations...
 
-pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extension-recommendations.json"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extensions/recommendations.json"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
 
 pref("browser.phoenix.desktop.status", "006");
 
