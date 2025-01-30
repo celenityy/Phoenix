@@ -1488,6 +1488,10 @@
                 "Value": true,
                 "Status": "locked"
             },
+            "extensions.installDistroAddons": {
+                "Value": false,
+                "Status": "default"
+            },
             "extensions.langpacks.signatures.required": {
                 "Value": true,
                 "Status": "locked"

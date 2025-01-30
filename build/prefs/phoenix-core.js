@@ -1021,6 +1021,7 @@ pref("browser.phoenix.core.status", "013");
 
 pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT] Defense in depth, ensures extensions installed via directories are disabled by default...
 pref("extensions.enabledScopes", 5); // [DEFAULT]
+pref("extensions.installDistroAddons", false); // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 
 /// Only allow signed extensions
 
