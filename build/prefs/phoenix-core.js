@@ -1231,9 +1231,9 @@ pref("privacy.window.maxInnerWidth", 1600);
 
 pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT for Nightly]
 
-/// Spoof locale to English by default
+/// Prompt to spoof locale to en-US
 
-pref("privacy.spoof_english", 2);
+pref("privacy.spoof_english", 0); // [DEFAULT]
 
 /// Enable light mode by default
 // This matches with RFP...
