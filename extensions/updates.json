@@ -14,6 +14,15 @@
                 }
             ]
         },
+        "ddg@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
+                    "update_hash": "sha512:4ce51c61a5d02f85ea74c28e8ad4944d753c4b6cd37400c68324bdc93b097bb004e89bb085f656eda8830162060c28a8237234d25a7a38045405146f3aa89b19"
+                }
+            ]
+        },
         "duckduckgo-html@celenity.dev": {
             "updates": [
                 {

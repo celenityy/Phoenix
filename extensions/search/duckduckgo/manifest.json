@@ -5,7 +5,8 @@
     "version": "0.0.1",
     "browser_specific_settings": {
         "gecko": {
-            "id": "ddg@celenity.dev"
+            "id": "ddg@celenity.dev",
+            "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
         }
     },
     "hidden": true,

@@ -148,58 +148,54 @@
                 "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
+            "ddg@celenity.dev": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo/duckduckgo-latest.xpi",
+                "temporarily_allow_weak_signatures": false
+            },
             "duckduckgo-html@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "duckduckgo-lite@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "ecosia@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "mojeek@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "no-search@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "qwant@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "qwant-junior@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "startpage@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             },
             "swisscows@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-latest.xpi",
-                "updates_disabled": false,
                 "temporarily_allow_weak_signatures": false
             }
         },

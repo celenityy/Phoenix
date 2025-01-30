@@ -2229,6 +2229,7 @@
             "UseProxyForDNS": true
         },
         "SearchEngines": {
+            "Default": "DuckDuckGo",
             "PreventInstalls": false,
             "Remove": [
                 "Google",
