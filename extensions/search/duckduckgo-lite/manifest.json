@@ -1,30 +1,31 @@
 {
-    "manifest_version": 3,
     "name": "DuckDuckGo Lite",
-    "description": "Basic extension to add DuckDuckGo Lite as a search engine",
-    "version": "0.0.2",
+    "description": "Search DuckDuckGo Lite",
+    "manifest_version": 3,
+    "version": "0.0.3",
     "browser_specific_settings": {
         "gecko": {
             "id": "duckduckgo-lite@celenity.dev",
             "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
         }
     },
-    "developer": {
-        "name": "celenity 💘",
-        "url": "https://celenity.dev"
-    },
-    "homepage_url": "https://phoenix.celenity.dev",
-    "icons": {
-        "48": "imager/icon.png"
-    },
+    "hidden": true,
     "chrome_settings_overrides": {
         "search_provider": {
+            "keyword": [
+                "@duckduckgolite",
+                "@ddglite"
+            ],
             "name": "DuckDuckGo (Lite)",
             "search_url": "https://lite.duckduckgo.com/lite/?q={searchTerms}",
             "suggest_url": "https://duckduckgo.com/ac/?q={searchTerms}&type=list",
-            "keyword": "@ddgl",
             "favicon_url": "/imager/favicon.ico",
             "is_default": false
         }
+    },
+    "author": "celenity 💘 <celenity@celenity.dev>",
+    "homepage_url": "https://phoenix.celenity.dev",
+    "icons": {
+        "48": "imager/icon.png"
     }
 }

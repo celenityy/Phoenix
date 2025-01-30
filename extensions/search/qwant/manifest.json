@@ -1,30 +1,30 @@
 {
-    "manifest_version": 3,
     "name": "Qwant",
-    "description": "Basic extension to add Qwant as a search engine",
-    "version": "0.0.2",
+    "description": "Search Qwant",
+    "manifest_version": 3,
+    "version": "0.0.3",
     "browser_specific_settings": {
         "gecko": {
             "id": "qwant@celenity.dev",
             "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
         }
     },
-    "developer": {
-        "name": "celenity 💘",
-        "url": "https://celenity.dev"
-    },
-    "homepage_url": "https://phoenix.celenity.dev",
-    "icons": {
-        "48": "imager/icon.png"
-    },
+    "hidden": true,
     "chrome_settings_overrides": {
         "search_provider": {
+            "keyword": [
+                "@qwant"
+            ],
             "name": "Qwant",
             "search_url": "https://www.qwant.com?q={searchTerms}",
             "suggest_url": "https://api.qwant.com/v3/suggest/?q={searchTerms}",
-            "keyword": "@qwant",
             "favicon_url": "/imager/favicon.ico",
             "is_default": false
         }
+    },
+    "author": "celenity 💘 <celenity@celenity.dev>",
+    "homepage_url": "https://phoenix.celenity.dev",
+    "icons": {
+        "48": "imager/icon.png"
     }
 }

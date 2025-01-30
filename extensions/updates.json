@@ -29,6 +29,11 @@
                     "version": "0.0.2",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.2.xpi",
                     "update_hash": "sha512:c1c5f0ebad5071716a138edf09b4f4ba9b051b2e93cf52ec54977fa5f0bff0ec75249aff127cfd43e6af28882872ce8c91706cae0d2b98b130fb8e1846801176"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
+                    "update_hash": "sha512:acf1d907d7d3ce39d4eb6cc632db0b72d099db63667c26c88b12d5d6bf013c6b908de5399436079cb237cab02ea72b0d59b562a316058545c025c1feeac4b133"
                 }
             ]
         },
@@ -38,6 +43,11 @@
                     "version": "0.0.1",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.1.xpi",
                     "update_hash": "sha512:b4d269353183240067bcfe377f9655499958600a76e69b1d68312852aa0573e5bd66dcefd431703a7dc14ae8b0718912c291aa92e33cd4a4b6a03d473dd3b396"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
+                    "update_hash": "sha512:f4d24eeaf9b7fca3a83c5b23d3da526022400ab94940446768159879da54164d7a14abd6b2bbe8e038bfc81f7cdb0a91e6d43792b99a45df023a798d3ba26eb3"
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "version": "0.0.1",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-0.0.1.xpi",
                     "update_hash": "sha512:e84a5d44b95955aa3d659a281cb26be2e03524d56fd7575fccf911177c1ea212ff5a54e9bc563b53654c058d957e042b850aaf5a5aed69d42c73aac6b542da9c"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
+                    "update_hash": "sha512:6560cbc5c544ca9b88e1a210bf8b91bb36e4ccad63b9c2836451b4548b1e7bb1c3a8760ffd853927470372e8c0a81790c746bdff14568d3d50ede943614cbb84"
                 }
             ]
         },
@@ -131,6 +146,11 @@
                     "version": "0.0.2",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-0.0.2.xpi",
                     "update_hash": "sha512:ba88bfcc24a576fa6e277b957876b75a9aa7b25b605aa8a23a7f48a63650580473e3b65543a7af00c0c124671fa81a82e994456f85ab314b64c8d82db135fc05"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
+                    "update_hash": "sha512:bd63bb05032870aa3a0d6bb8852a7f94824cf3bcf861960fb0faff59564f261ead4dfa5d919817af5b266dd54d55e2cf4eb87ddea7c8e65e805a7c381ebb98d7"
                 }
             ]
         },
@@ -145,6 +165,11 @@
                     "version": "0.0.2",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-0.0.2.xpi",
                     "update_hash": "sha512:8d30d3edd9e9329d10f70610e9b6c17a096ceb15d1c069972025ab940f0a4169965758cadefd87f40324ef28e0a2a8fa7a3eeaff078388199532ead71a997764"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
+                    "update_hash": "sha512:d7a590d27b096db0ec95b534e3dadf376eef6f7c1a1654612b32e7911ab3dca6b2d4853a35692127f3d4ae3ac7a9687d06d9888bfaf6dcb5e9f45340ca230bfd"
                 }
             ]
         },
@@ -159,6 +184,11 @@
                     "version": "0.0.2",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-0.0.2.xpi",
                     "update_hash": "sha512:2632a5ca3cec6a16f2abb271d712e0b2907c138a1785e2438ae7828c37e29a7417fe0ebf98e69e0e7698ca9f93719687e78099dcc3b23a4ad8154522975f5826"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
+                    "update_hash": "sha512:e0b295c129f1ee223c9e1262412fe9d1f354d8182a92f2243b51423a6ace2a32cf5cb890853658f8287b07bd41f464e294c67dd3976fa722462715a853a19987"
                 }
             ]
         },
@@ -168,6 +198,11 @@
                     "version": "0.0.3",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-0.0.3.xpi",
                     "update_hash": "sha512:464950df34188acaf961a846afc81c5557a4b7d7a82769d3e94307c0b3f306d7411170a2c36bbe948f0d004073beb49d00ecf87115d5886389abbc170a48fccd"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
+                    "update_hash": "sha512:b120ab8065f2ea839ae0a550a155a369721303bab021871cf2a58c6525b98bcd773c748720166cef3dd2a110e2b598b2d8fa13c66848ea3a659e359fe62b2437"
                 }
             ]
         },
@@ -182,6 +217,11 @@
                     "version": "0.0.2",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-0.0.2.xpi",
                     "update_hash": "sha512:436a30e71f4fee38891f8a048ad80def5d45cb9ebe7e5abbe5dfa9e58f5a29d283d4a4bfba103ef683098dcdb08ab6fa72b0794d6bbb48aeba76520333fd1fb9"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
+                    "update_hash": "sha512:d2da76585e195cfb841c3ab696b7f6039eda00f9e4809de8bb707772ba649a731a3c46c8483621a62f314f910880b7dc206e7676bf620512c1ed37e4295ee5df"
                 }
             ]
         },
@@ -191,6 +231,11 @@
                     "version": "0.0.1",
                     "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-0.0.1.xpi",
                     "update_hash": "sha512:40d49d21996b1eaaa3d2e0d4f8d10cc0b5988f0d23d35e5431af0e6b91de95439282655d3d2c2a9325b102cba01546895d6dffe5d097ed09e53f3506ca440234"
+                },
+                {
+                    "version": "0.0.2",
+                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
+                    "update_hash": "sha512:d378f6cacb7d11eb9d9c7c204d58e5215e0090d63c0b0839fe41c0a597d7e09dcbf1ddfb35712ea1a8c96a4f515acee81e63f09bbc3f5e5e407ca0a74e0ade4e"
                 }
             ]
         }

@@ -1,30 +1,31 @@
 {
-    "manifest_version": 3,
     "name": "Qwant Junior",
-    "description": "Basic extension to add Qwant Junior as a search engine",
-    "version": "0.0.3",
+    "description": "Search Qwant Junior",
+    "manifest_version": 3,
+    "version": "0.0.4",
     "browser_specific_settings": {
         "gecko": {
             "id": "qwant-junior@celenity.dev",
             "update_url": "https://phoenix.celenity.dev/extensions/updates.json"
         }
     },
-    "developer": {
-        "name": "celenity 💘",
-        "url": "https://celenity.dev"
-    },
-    "homepage_url": "https://phoenix.celenity.dev",
-    "icons": {
-        "48": "imager/icon.png"
-    },
+    "hidden": true,
     "chrome_settings_overrides": {
         "search_provider": {
+            "keyword": [
+                "@qwantjunior",
+                "@qwantjr"
+            ],
             "name": "Qwant Junior",
             "search_url": "https://www.qwantjunior.com?q={searchTerms}",
             "suggest_url": "https://fdn.qwant.com/v3/egp/suggest/?q={searchTerms}",
-            "keyword": "@qwantjr",
             "favicon_url": "/imager/favicon.ico",
             "is_default": false
         }
+    },
+    "author": "celenity 💘 <celenity@celenity.dev>",
+    "homepage_url": "https://phoenix.celenity.dev",
+    "icons": {
+        "48": "imager/icon.png"
     }
 }
