@@ -1,7 +1,7 @@
 {
     "results": [
         {
-            "description_text": "⚖️ GPL-3.0-only - Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
+            "description_text": "Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 607454,
                 "authors": [
@@ -26,7 +26,7 @@
                 },
                 "guid": "uBlock0@raymondhill.net",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/ublock-origin.svg",
-                "name": "uBlock Origin",
+                "name": "⭐ uBlock Origin - ⚖️ GPL-3.0-only",
                 "slug": "ublock-origin",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/ublock-origin/"
@@ -34,7 +34,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MPL-2.0 - Multi-Account Containers helps you keep all the parts of your online life contained in different tabs. Custom labels and color-coded tabs help keep different activities — like online shopping, travel planning, or checking work email — separate.",
+            "description_text": "Multi-Account Containers helps you keep all the parts of your online life contained in different tabs. Custom labels and color-coded tabs help keep different activities — like online shopping, travel planning, or checking work email — separate. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 782160,
                 "authors": [
@@ -59,7 +59,7 @@
                 },
                 "guid": "@testpilot-containers",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/multi-account-containers.svg",
-                "name": "Firefox Multi-Account Containers",
+                "name": "⭐ Firefox Multi-Account Containers - ⚖️ MPL-2.0",
                 "slug": "multi-account-containers",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/multi-account-containers/"
@@ -67,7 +67,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information",
+            "description_text": "At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 735894,
                 "authors": [
@@ -92,7 +92,7 @@
                 },
                 "guid": "{446900e4-71c2-419f-a6a7-df9c091e268b}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/bitwarden-password-manager.png",
-                "name": "Bitwarden Password Manager",
+                "name": "⭐ Bitwarden Password Manager - ⚖️ GPL-3.0-only",
                 "slug": "bitwarden-password-manager",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/"
@@ -100,7 +100,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MIT - Bypass Paywalls of news sites",
+            "description_text": "Bypass Paywalls of news sites. Source: https://gitflic.ru/project/magnolia1234/bpc_uploads",
             "addon": {
                 "authors": [
                     {
@@ -123,7 +123,7 @@
                 },
                 "guid": "magnolia@12.34",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/bypass-paywalls-clean.png",
-                "name": "Bypass Paywalls Clean",
+                "name": "Bypass Paywalls Clean - ⚖️ MIT",
                 "slug": "bypass-paywalls-clean",
                 "type": "extension",
                 "url": "https://gitflic.ru/project/magnolia1234/bypass-paywalls-firefox-clean/"
@@ -131,7 +131,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ LGPL-3.0-only - Crowdsourcing titles and thumbnails to be descriptive and not sensational",
+            "description_text": "Crowdsourcing titles and thumbnails to be descriptive and not sensational. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2801577,
                 "authors": [
@@ -156,7 +156,7 @@
                 },
                 "guid": "deArrow@ajay.app",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/dearrow.png",
-                "name": "DeArrow",
+                "name": "DeArrow - ⚖️ LGPL-3.0-only",
                 "slug": "dearrow",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/dearrow/"
@@ -164,7 +164,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MIT - Choose what video and audio codecs YouTube should play for you",
+            "description_text": "Choose what video and audio codecs YouTube should play for you. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 1482534,
                 "authors": [
@@ -189,7 +189,7 @@
                 },
                 "guid": "{9a41dee2-b924-4161-a971-7fb35c053a4a}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/enhanced-h264ify.png",
-                "name": "enhanced-h264ify",
+                "name": "enhanced-h264ify - ⚖️ MIT",
                 "slug": "enhanced-h264ify",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/enhanced-h264ify/"
@@ -197,7 +197,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MPL-2.0 - View source code of Firefox addons and Chrome extensions (crx/nex/xpi) from addons.mozilla.org, the Chrome Webstore and elsewhere.",
+            "description_text": "View source code of Firefox addons and Chrome extensions (crx/nex/xpi) from addons.mozilla.org, the Chrome Webstore and elsewhere. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 717783,
                 "authors": [
@@ -222,7 +222,7 @@
                 },
                 "guid": "crxviewer-firefox@robwu.nl",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/crxviewer.png",
-                "name": "Extension source viewer",
+                "name": "Extension source viewer - ⚖️ MPL-2.0",
                 "slug": "crxviewer",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/crxviewer/"
@@ -230,7 +230,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MPL-2.0 - Theming experiment for Firefox Quantum and beyond.",
+            "description_text": "Theming experiment for Firefox Quantum and beyond. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 1004409,
                 "authors": [
@@ -255,7 +255,7 @@
                 },
                 "guid": "FirefoxColor@mozilla.com",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/firefox-color.svg",
-                "name": "Firefox Color",
+                "name": "⭐ Firefox Color - ⚖️ MPL-2.0",
                 "slug": "firefox-color",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/firefox-color/"
@@ -263,7 +263,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - KeePassXC integration for modern web browsers",
+            "description_text": "KeePassXC integration for modern web browsers. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 917354,
                 "authors": [
@@ -288,7 +288,7 @@
                 },
                 "guid": "keepassxc-browser@keepassxc.org",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/keepassxc-browser.svg",
-                "name": "KeePassXC-Browser",
+                "name": "KeePassXC-Browser - ⚖️ GPL-3.0-only",
                 "slug": "keepassxc-browser",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/keepassxc-browser/"
@@ -296,7 +296,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - A web extension that redirects popular sites to alternative privacy-friendly frontends and backends",
+            "description_text": "A web extension that redirects popular sites to alternative privacy-friendly frontends and backends. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2738435,
                 "authors": [
@@ -327,7 +327,7 @@
                 },
                 "guid": "7esoorv3@alefvanoon.anonaddy.me",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/libredirect.png",
-                "name": "LibRedirect",
+                "name": "LibRedirect - ⚖️ GPL-3.0-only",
                 "slug": "libredirect",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/libredirect/"
@@ -335,7 +335,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MPL-2.0 - Loads reddit images directly instead of referring to the HTML page containing the image.",
+            "description_text": "Loads reddit images directly instead of referring to the HTML page containing the image. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2802934,
                 "authors": [
@@ -360,7 +360,7 @@
                 },
                 "guid": "{4c421bb7-c1de-4dc6-80c7-ce8625e34d24}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
-                "name": "Load Reddit Images Directly",
+                "name": "Load Reddit Images Directly - ⚖️ MPL-2.0",
                 "slug": "load-reddit-images-directly",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/load-reddit-images-directly/"
@@ -368,7 +368,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-or-later - Improve your Mullvad VPN experience, in your browser.",
+            "description_text": "Improve your Mullvad VPN experience, in your browser. Source: https://mullvad.net",
             "addon": {
                 "authors": [
                     {
@@ -391,7 +391,7 @@
                 },
                 "guid": "{d19a89b9-76c1-4a61-bcd4-49e8de916403}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/mullvad-browser-extension.svg",
-                "name": "Mullvad Browser Extension",
+                "name": "Mullvad Browser Extension - ⚖️ GPL-3.0-or-later",
                 "slug": "mullvad-browser-extension",
                 "type": "extension",
                 "url": "https://mullvad.net/help/mullvad-browser-extension"
@@ -399,7 +399,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "Addon for querying the ID of an AMO extension to make it easier to install via policy",
+            "description_text": "Addon for querying the ID of an AMO extension to make it easier to install via policy. Source: https://github.com/mkaply/queryamoid",
             "addon": {
                 "authors": [
                     {
@@ -422,7 +422,7 @@
                 },
                 "guid": "queryamoid@kaply.com",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric.svg",
-                "name": "Query AMO Addon ID",
+                "name": "⭐ Query AMO Addon ID",
                 "slug": "queryamoid",
                 "type": "extension",
                 "url": "https://github.com/mkaply/queryamoid/"
@@ -430,7 +430,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - Returns ability to see dislikes",
+            "description_text": "Returns ability to see dislikes. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2729178,
                 "authors": [
@@ -455,7 +455,7 @@
                 },
                 "guid": "{762f9885-5a13-4abd-9c77-433dcd38b8fd}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/return-youtube-dislikes.png",
-                "name": "Return YouTube Dislike",
+                "name": "⭐ Return YouTube Dislike - ⚖️ GPL-3.0-only",
                 "slug": "return-youtube-dislikes",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/return-youtube-dislikes/"
@@ -463,7 +463,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - A powerful reverse image search tool, with support for various search engines, such as Google, Bing, Yandex, Baidu and TinEye.",
+            "description_text": "A powerful reverse image search tool, with support for various search engines, such as Google, Bing, Yandex, Baidu and TinEye. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 824288,
                 "authors": [
@@ -488,7 +488,7 @@
                 },
                 "guid": "{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/search_by_image.png",
-                "name": "Search by Image",
+                "name": "⭐ Search by Image - ⚖️ GPL-3.0-only",
                 "slug": "search_by_image",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/search_by_image/"
@@ -496,7 +496,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MIT - Skip intermediary pages that some pages use before redirecting to a final page.",
+            "description_text": "Skip intermediary pages that some pages use before redirecting to a final page. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 642100,
                 "authors": [
@@ -521,7 +521,7 @@
                 },
                 "guid": "skipredirect@sblask",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/skip-redirect.svg",
-                "name": "Skip Redirect",
+                "name": "Skip Redirect - ⚖️ MIT",
                 "slug": "skip-redirect",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/skip-redirect/"
@@ -529,7 +529,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ BSD-2-Clause - Allow users in censored countries to use your network connection to access the Tor network.",
+            "description_text": "Allow users in censored countries to use your network connection to access the Tor network. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2299025,
                 "authors": [
@@ -554,7 +554,7 @@
                 },
                 "guid": "{b11bea1f-a888-4332-8d8a-cec2be7d24b9}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/torproject-snowflake.png",
-                "name": "Snowflake",
+                "name": "Snowflake - ⚖️ BSD-2-Clause",
                 "slug": "torproject-snowflake",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/torproject-snowflake/"
@@ -562,7 +562,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ LGPL-3.0-only - Skip sponsorships, subscription begging and more on YouTube videos. Report sponsors on videos you watch to save others' time.",
+            "description_text": "Skip sponsorships, subscription begging and more on YouTube videos. Report sponsors on videos you watch to save others' time. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2590937,
                 "authors": [
@@ -587,7 +587,7 @@
                 },
                 "guid": "sponsorBlocker@ajay.app",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/sponsorblock.png",
-                "name": "SponsorBlock for YouTube - Skip Sponsorships",
+                "name": "⭐ SponsorBlock for YouTube - Skip Sponsorships - ⚖️ LGPL-3.0-only",
                 "slug": "sponsorblock",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/sponsorblock/"
@@ -595,7 +595,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.",
+            "description_text": "A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 850407,
                 "authors": [
@@ -620,7 +620,7 @@
                 },
                 "guid": "extension@tabliss.io",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/tabliss.png",
-                "name": "Tabliss",
+                "name": "⭐ Tabliss - ⚖️ GPL-3.0-only",
                 "slug": "tabliss",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/tabliss/"
@@ -628,7 +628,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ MIT - An open source userscript manager that supports a lot of browsers",
+            "description_text": "An open source userscript manager that supports a lot of browsers. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 797378,
                 "authors": [
@@ -659,7 +659,7 @@
                 },
                 "guid": "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/violentmonkey.png",
-                "name": "Violentmonkey",
+                "name": "Violentmonkey - ⚖️ MIT",
                 "slug": "violentmonkey",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/violentmonkey/"
@@ -667,7 +667,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ GPL-3.0-only - View archived and cached versions of web pages on various search engines, such as the Wayback Machine and Archive.is.",
+            "description_text": "View archived and cached versions of web pages on various search engines, such as the Wayback Machine and Archive.is. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 844320,
                 "authors": [
@@ -692,7 +692,7 @@
                 },
                 "guid": "{d07ccf11-c0cd-4938-a265-2a4d6ad01189}",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/web-archives.png",
-                "name": "Web Archives",
+                "name": "⭐ Web Archives - ⚖️ GPL-3.0-only",
                 "slug": "view-page-archive",
                 "type": "extension",
                 "url": "https://addons.mozilla.org/firefox/addon/view-page-archive/"
@@ -700,7 +700,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ CC-BY-3.0 - You leave the world a better place than you found it and lead others to believe.",
+            "description_text": "You leave the world a better place than you found it and lead others to believe. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2785297,
                 "authors": [
@@ -725,7 +725,7 @@
                 },
                 "guid": "activist-balanced-colorway@mozilla.org",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
-                "name": "Activist – Balanced",
+                "name": "⭐ Activist – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "activist-balanced_",
                 "type": "statictheme",
                 "url": "https://addons.mozilla.org/firefox/addon/activist-balanced_/"
@@ -733,7 +733,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ CC-BY-3.0 - Life is better in color. Make your browsing a little more joyful and vibrant.",
+            "description_text": "Life is better in color. Make your browsing a little more joyful and vibrant. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2785343,
                 "authors": [
@@ -758,7 +758,7 @@
                 },
                 "guid": "foto-soft-colorway@mozilla.org",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
-                "name": "Foto – Soft",
+                "name": "⭐ Foto – Soft - ⚖️ CC-BY-3.0",
                 "slug": "foto-soft",
                 "type": "statictheme",
                 "url": "https://addons.mozilla.org/firefox/addon/foto-soft/"
@@ -766,7 +766,7 @@
             "is_recommendation": true
         },
         {
-            "description_text": "⚖️ CC-BY-3.0 - You question the status quo and move others to imagine a better future.",
+            "description_text": "You question the status quo and move others to imagine a better future. Source: https://addons.mozilla.org",
             "addon": {
                 "id": 2785324,
                 "authors": [
@@ -791,7 +791,7 @@
                 },
                 "guid": "visionary-balanced-colorway@mozilla.org",
                 "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
-                "name": "Visionary – Balanced",
+                "name": "⭐ Visionary – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "visionary-balanced",
                 "type": "statictheme",
                 "url": "https://addons.mozilla.org/firefox/addon/visionary-balanced/"
