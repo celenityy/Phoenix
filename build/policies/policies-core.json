@@ -656,6 +656,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.preferences.experimental.hidden": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.preferences.moreFromMozilla": {
                 "Value": false,
                 "Status": "locked"
