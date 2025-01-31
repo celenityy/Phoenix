@@ -1011,6 +1011,11 @@ pref("layout.css.visited_links_enabled", false);
 
 pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
+/// Allow permissions manager to write to disk
+// This is already Firefox's default - but it's hidden, so this exposes it to the about:config
+
+pref("permissions.memory_only", false); // [HIDDEN - DEFAULT]
+
 pref("browser.phoenix.core.status", "013");
 
 // 014 EXTENSIONS
