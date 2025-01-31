@@ -1,6 +1,8 @@
 {
     "policies": {
         "Cookies": {
+            "Behavior": "reject-tracker-and-partition-foreign",
+            "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
             "Block": [
                 "http://google-analytics.com/",
                 "https://google-analytics.com/",

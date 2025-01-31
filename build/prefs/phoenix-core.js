@@ -1146,6 +1146,54 @@ pref("browser.phoenix.core.status", "015");
 
 pref("browser.contentblocking.category", "strict", locked);
 
+/// Manually enable ETP Strict protections...
+// These are typically configured by ETP Strict - but unfortunately Firefox doesn't set ETP Strict on the browser's first run :/
+// So we need to also manually configure them. We still also use ETP Strict (not 'Custom') due to our enforcement of it, so we should be covered by Mozilla changes/updates for protections.
+// Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
+// We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
+
+pref("network.cookie.cookieBehavior", 5);
+pref("network.cookie.cookieBehavior.optInPartitioning", true);
+pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
+pref("network.cookie.cookieBehavior.pbmode", 5);
+pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
+pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true);
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true);
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+pref("privacy.annotate_channels.strict_list.enabled", true);
+pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
+pref("privacy.bounceTrackingProtection.enabled", true);
+pref("privacy.bounceTrackingProtection.mode", 1); // Fully enables Bounce Tracking Protection - https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
+pref("privacy.fingerprintingProtection", true);
+pref("privacy.fingerprintingProtection.pbmode", true);
+pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
+pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
+pref("privacy.partition.bloburl_per_partition_key", true);
+pref("privacy.partition.network_state", true);
+pref("privacy.partition.network_state.ocsp_cache", true);
+pref("privacy.partition.network_state.ocsp_cache.pbmode", true);
+pref("privacy.partition.serviceWorkers", true);
+pref("privacy.query_stripping.enabled", true);
+pref("privacy.query_stripping.enabled.pbmode", true);
+pref("privacy.query_stripping.redirect", true);
+pref("privacy.reduceTimerPrecision", true);
+pref("privacy.socialtracking.block_cookies.enabled", true);
+pref("privacy.trackingprotection.cryptomining.enabled", true);
+pref("privacy.trackingprotection.emailtracking.enabled", true);
+pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true);
+pref("privacy.trackingprotection.enabled", true);
+pref("privacy.trackingprotection.fingerprinting.enabled", true);
+pref("privacy.trackingprotection.pbmode.enabled", true);
+pref("privacy.trackingprotection.socialtracking.enabled", true);
+
+// Enable SmartBlock & UA overrides/injections
+// Also typically covered by ETP/Strict
+
+pref("extensions.webcompat.enable_shims", true); // [HIDDEN]
+pref("extensions.webcompat.perform_injections", true); // [HIDDEN]
+pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN]
+
 /// Enforce container isolation of about:home content
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]

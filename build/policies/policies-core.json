@@ -1628,6 +1628,18 @@
                 "Value": false,
                 "Status": "default"
             },
+            "extensions.webcompat.enable_shims": {
+                "Value": true,
+                "Status": "default"
+            },
+            "extensions.webcompat.perform_injections": {
+                "Value": true,
+                "Status": "default"
+            },
+            "extensions.webcompat.perform_ua_overrides": {
+                "Value": true,
+                "Status": "default"
+            },
             "extensions.webcompat.smartblockEmbeds.enabled": {
                 "Value": true,
                 "Status": "default"
@@ -1908,6 +1920,26 @@
                 "Value": true,
                 "Status": "default"
             },
+            "network.cookie.cookieBehavior": {
+                "Value": 5,
+                "Status": "default"
+            },
+            "network.cookie.cookieBehavior.optInPartitioning": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.cookie.cookieBehavior.optInPartitioning.pbmode": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.cookie.cookieBehavior.pbmode": {
+                "Value": 5,
+                "Status": "default"
+            },
+            "network.cookie.cookieBehavior.trackerCookieBlocking": {
+                "Value": true,
+                "Status": "default"
+            },
             "network.cookie.sameSite.laxByDefault": {
                 "Value": true,
                 "Status": "default"
@@ -2026,6 +2058,22 @@
             },
             "network.http.referer.defaultPolicy.trackers.pbmode": {
                 "Value": 1,
+                "Status": "default"
+            },
+            "network.http.referer.disallowCrossSiteRelaxingDefault": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
+                "Value": true,
+                "Status": "default"
+            },
+            "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
+                "Value": true,
                 "Status": "default"
             },
             "network.http.referer.XOriginTrimmingPolicy": {

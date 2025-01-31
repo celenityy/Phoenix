@@ -34,6 +34,12 @@
         "DisableProfileImport": true,
         "DisableProfileRefresh": true,
         "DisplayBookmarksToolbar": "always",
+        "EnableTrackingProtection": {
+            "Cryptomining": true,
+            "EmailTracking": true,
+            "Fingerprinting": true,
+            "Value": true
+        },
         "EncryptedMediaExtensions": {
             "Enabled": false,
             "Locked": false
