@@ -18,7 +18,7 @@
             "updates": [
                 {
                     "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
                     "update_hash": "sha512:4ce51c61a5d02f85ea74c28e8ad4944d753c4b6cd37400c68324bdc93b097bb004e89bb085f656eda8830162060c28a8237234d25a7a38045405146f3aa89b19"
                 }
             ]
@@ -32,7 +32,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
                     "update_hash": "sha512:acf1d907d7d3ce39d4eb6cc632db0b72d099db63667c26c88b12d5d6bf013c6b908de5399436079cb237cab02ea72b0d59b562a316058545c025c1feeac4b133"
                 }
             ]
@@ -46,7 +46,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
                     "update_hash": "sha512:f4d24eeaf9b7fca3a83c5b23d3da526022400ab94940446768159879da54164d7a14abd6b2bbe8e038bfc81f7cdb0a91e6d43792b99a45df023a798d3ba26eb3"
                 }
             ]
@@ -60,7 +60,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
                     "update_hash": "sha512:6560cbc5c544ca9b88e1a210bf8b91bb36e4ccad63b9c2836451b4548b1e7bb1c3a8760ffd853927470372e8c0a81790c746bdff14568d3d50ede943614cbb84"
                 }
             ]
@@ -149,7 +149,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
                     "update_hash": "sha512:bd63bb05032870aa3a0d6bb8852a7f94824cf3bcf861960fb0faff59564f261ead4dfa5d919817af5b266dd54d55e2cf4eb87ddea7c8e65e805a7c381ebb98d7"
                 }
             ]
@@ -168,7 +168,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
                     "update_hash": "sha512:d7a590d27b096db0ec95b534e3dadf376eef6f7c1a1654612b32e7911ab3dca6b2d4853a35692127f3d4ae3ac7a9687d06d9888bfaf6dcb5e9f45340ca230bfd"
                 }
             ]
@@ -187,7 +187,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
                     "update_hash": "sha512:e0b295c129f1ee223c9e1262412fe9d1f354d8182a92f2243b51423a6ace2a32cf5cb890853658f8287b07bd41f464e294c67dd3976fa722462715a853a19987"
                 }
             ]
@@ -201,7 +201,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
                     "update_hash": "sha512:b120ab8065f2ea839ae0a550a155a369721303bab021871cf2a58c6525b98bcd773c748720166cef3dd2a110e2b598b2d8fa13c66848ea3a659e359fe62b2437"
                 }
             ]
@@ -220,7 +220,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
                     "update_hash": "sha512:d2da76585e195cfb841c3ab696b7f6039eda00f9e4809de8bb707772ba649a731a3c46c8483621a62f314f910880b7dc206e7676bf620512c1ed37e4295ee5df"
                 }
             ]
@@ -234,7 +234,7 @@
                 },
                 {
                     "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
                     "update_hash": "sha512:d378f6cacb7d11eb9d9c7c204d58e5215e0090d63c0b0839fe41c0a597d7e09dcbf1ddfb35712ea1a8c96a4f515acee81e63f09bbc3f5e5e407ca0a74e0ade4e"
                 }
             ]
