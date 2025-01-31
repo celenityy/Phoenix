@@ -263,6 +263,14 @@
                 "Value": "https://phoenix.celenity.dev/geo",
                 "Status": "default"
             },
+            "browser.startup.homepage": {
+                "Value": "about:home",
+                "Status": "default"
+            },
+            "browser.startup.page": {
+                "Value": 1,
+                "Status": "default"
+            },
             "extensions.getAddons.search.browseURL": {
                 "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
                 "Status": "default"

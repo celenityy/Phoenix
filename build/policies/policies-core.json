@@ -936,16 +936,8 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.startup.homepage": {
-                "Value": "about:home",
-                "Status": "default"
-            },
             "browser.startup.homepage_override.mstone": {
                 "Value": "ignore",
-                "Status": "default"
-            },
-            "browser.startup.page": {
-                "Value": 1,
                 "Status": "default"
             },
             "browser.startup.upgradeDialog.enabled": {
