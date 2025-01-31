@@ -3,7 +3,7 @@
         "content": "internal",
         "updateAfter": 13,
         "contentURL": [
-            "https://phoenix.celenity.dev/uBlock/assets.json"
+            "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json"
         ]
     },
     "public_suffix_list.dat": {
