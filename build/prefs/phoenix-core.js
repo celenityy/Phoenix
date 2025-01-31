@@ -859,6 +859,12 @@ pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
 
+/// Disable logging Geolocation requests by default
+// This is already Firefox's default setting - but setting here exposes it in the about:config since it's hidden...
+// https://searchfox.org/mozilla-central/source/dom/system/NetworkGeolocationProvider.sys.mjs#21
+
+pref("geo.provider.network.logging.enabled", false); // [DEFAULT - HIDDEN]
+
 /// Geolocation Provider
 
 /// Set BeaconDB as the network Geolocation provider instead of Google...
