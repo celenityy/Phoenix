@@ -1828,6 +1828,7 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", f
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 pref("browser.newtabpage.activity-stream.showRecentSaves", false);
+pref("browser.policies.loglevel", "error"); // [DEFAULT - HIDDEN] This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
 pref("browser.preferences.experimental", true);
 pref("browser.privateWindowSeparation.enabled", false);
 pref("browser.search.openintab", true);

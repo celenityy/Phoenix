@@ -648,6 +648,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "browser.policies.loglevel": {
+                "Value": "error",
+                "Status": "default"
+            },
             "browser.preferences.experimental": {
                 "Value": true,
                 "Status": "default"
