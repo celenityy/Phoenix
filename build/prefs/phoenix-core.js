@@ -1752,12 +1752,6 @@ pref("browser.phoenix.core.status", "024");
 
 /// 025 MISC.
 
-/// Block Web Notifications
-/// I have yet to see a legitimate use-case for websites using push notifications...
-// but I see them constantly abused for malicious purposes & spam
-
-pref("permissions.default.desktop-notification", 2);
-
 /// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
 
 pref("browser.privatebrowsing.felt-privacy-v1", true);

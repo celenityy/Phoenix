@@ -25,6 +25,10 @@ pref("browser.phoenix.desktop.status", "001");
 
 // 002 GEOLOCATION
 
+/// Blocks websites from accessing geolocation by default
+
+pref("permissions.default.geo", 2);
+
 /// Update info URL to ours so that users receive accurate information
 
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
@@ -82,6 +86,12 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 pref("browser.phoenix.desktop.status", "005");
 
 /// 006 MISC.
+
+/// Block web notification prompts by default
+/// I have yet to see a legitimate use-case for websites using push notifications...
+// but I see them constantly abused for malicious purposes & spam
+
+pref("permissions.default.desktop-notification", 2);
 
 /// Set homepage to about:home, this is typically default, but overriden by some distro-packaged versions of Firefox (ex. Fedora)
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#325

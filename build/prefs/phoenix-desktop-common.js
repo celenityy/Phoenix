@@ -50,10 +50,6 @@ pref("browser.phoenix.desktop.common.status", "003");
 
 // 004 GEOLOCATION
 
-/// Blocks websites from accessing geolocation by default
-
-pref("permissions.default.geo", 2);
-
 /// Configure OS Geolocation Providers
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
