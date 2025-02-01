@@ -480,7 +480,7 @@ However, if this is not desirable for you & your situation, or you would simply 
 wget https://phoenix.celenity.dev/phoenix.cfg
 ```
 
-**2:** Download `phoenix.js` from [here](https://phoenix.celenity.dev/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download `phoenix-desktop.js` from [here](https://phoenix.celenity.dev/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
 wget https://phoenix.celenity.dev/prefs/phoenix-desktop.js
@@ -529,16 +529,16 @@ sudo chmod 744 /usr/lib64/firefox/defaults/pref
 sudo chmod 655 /etc/firefox/defaults/pref
 ```
 
-**7:** Move `phoenix.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
+**7:** Move `phoenix-desktop.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
-sudo cp phoenix.js /usr/lib64/firefox/defaults/pref/phoenix.js
+sudo cp phoenix-desktop.js /usr/lib64/firefox/defaults/pref/phoeni-desktop.js
 ```
 
 **For all non-Flatpak GNU/Linux users:**
 
 ```sh
-sudo cp phoenix.js /etc/firefox/defaults/pref/phoenix.js
+sudo cp phoenix-desktop.js /etc/firefox/defaults/pref/phoenix-desktop.js
 ```
 
 **8:** On macOS & Windows, in the **root** of your installation directory, create a folder named `distribution`. You can do this manually through your file explorer, or assuming `/usr/lib64/firefox` is your installation directory, you can run the following command:
