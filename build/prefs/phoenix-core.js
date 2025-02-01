@@ -1062,6 +1062,11 @@ pref("extensions.postDownloadThirdPartyPrompt", false, locked);
 
 pref("extensions.experiments.enabled", false); // [DEFAULT, except on ex. Nightly...]
 
+/// Enable restricted/quarantined domains by default
+// https://support.mozilla.org/kb/quarantined-domains
+
+pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
+
 /// Allow LocalCDN to work on quarantined domains
 
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);

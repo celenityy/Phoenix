@@ -1504,6 +1504,10 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "extensions.quarantinedDomains.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}": {
                 "Value": true,
                 "Status": "default"
