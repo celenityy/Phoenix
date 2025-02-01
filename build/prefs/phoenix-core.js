@@ -1214,7 +1214,23 @@ pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false);
 pref("dom.reporting.header.enabled", false);
 
+/// Disable Beacon API (Navigator.sendBeacon)
+// I was originally against disabling this, but after careful consideration, I've changed my position.
+// The explicit, stated purpose/use case of this API is for analytics/tracking.
+// Websites *can* obtain the data shared from this API through other means; though the other ways to obtain it are more disruptive and less reliable.
+// Analytics/tracking is evidently not a use case that we, as the user agent, should support or assist with.
+// I don't see a justification for adding APIs/features to support this hostile behavior.
+// https://developer.mozilla.org/docs/Web/API/Beacon_API
+// https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+// https://udn.realityripple.com/docs/Web/API/Navigator/sendBeacon
+// https://w3c.github.io/beacon/#privacy-and-security
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1454252
+// Also disabled by ex. Cromite: https://github.com/uazo/cromite/blob/master/docs/FEATURES.md https://github.com/uazo/cromite/issues/1454
+
+pref("beacon.enabled", false);
+
 /// Disable Network Error Logging
+// https://developer.mozilla.org/docs/Web/HTTP/Network_Error_Logging
 // https://w3c.github.io/network-error-logging/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1145235
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
