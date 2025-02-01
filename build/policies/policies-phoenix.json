@@ -299,10 +299,6 @@
                 "Value": "https://phoenix.celenity.dev/privacy#extension-recommendations",
                 "Status": "default"
             },
-            "geo.provider.ms-windows-location": {
-                "Value": false,
-                "Status": "default"
-            },
             "geo.provider.network.url": {
                 "Value": "https://api.beacondb.net/v1/geolocate",
                 "Status": "default"

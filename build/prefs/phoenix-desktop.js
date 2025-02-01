@@ -33,6 +33,11 @@ pref("permissions.default.geo", 2);
 
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 
+/// Configure OS Geolocation Providers
+
+pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
+pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+
 pref("browser.phoenix.desktop.status", "002");
 
 // 003 EXTENSIONS

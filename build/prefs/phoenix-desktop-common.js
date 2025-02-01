@@ -53,8 +53,6 @@ pref("browser.phoenix.desktop.common.status", "003");
 /// Configure OS Geolocation Providers
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
-pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
-pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
 pref("browser.phoenix.desktop.common.status", "004");
 
