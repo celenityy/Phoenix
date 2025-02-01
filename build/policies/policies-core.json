@@ -2296,6 +2296,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "security.tls.hello_downgrade_check": {
+                "Value": true,
+                "Status": "default"
+            },
             "security.tls.version.enable-deprecated": {
                 "Value": false,
                 "Status": "locked"
