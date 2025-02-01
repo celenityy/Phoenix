@@ -2151,10 +2151,6 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-/// Ensure users can always view and manage Firefox's internal certificates...
-
-pref("security.disable_button.openCertManager", false, locked); // [DEFAULT]
-
 pref("browser.phoenix.desktop.common.status", "003");
 
 // 004 GEOLOCATION

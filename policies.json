@@ -2260,10 +2260,6 @@
         "Value": "Ask Every Time",
         "Status": "locked"
       },
-      "security.disable_button.openCertManager": {
-        "Value": false,
-        "Status": "locked"
-      },
       "security.insecure_connection_text.enabled": {
         "Value": true,
         "Status": "default"
