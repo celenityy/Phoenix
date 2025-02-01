@@ -4,7 +4,7 @@
       "Extensions": {
         "uBlock0@raymondhill.net": {
           "adminSettings": {
-            "assetsBootstrapLocation": "https://phoenix.celenity.dev/uBlock/assets.json"
+            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json"
           },
           "advancedSettings": [
             [
@@ -648,8 +648,16 @@
         "Value": false,
         "Status": "default"
       },
+      "browser.policies.loglevel": {
+        "Value": "error",
+        "Status": "default"
+      },
       "browser.preferences.experimental": {
         "Value": true,
+        "Status": "default"
+      },
+      "browser.preferences.experimental.hidden": {
+        "Value": false,
         "Status": "default"
       },
       "browser.preferences.moreFromMozilla": {
@@ -936,16 +944,8 @@
         "Value": true,
         "Status": "default"
       },
-      "browser.startup.homepage": {
-        "Value": "about:home",
-        "Status": "default"
-      },
       "browser.startup.homepage_override.mstone": {
         "Value": "ignore",
-        "Status": "default"
-      },
-      "browser.startup.page": {
-        "Value": 1,
         "Status": "default"
       },
       "browser.startup.upgradeDialog.enabled": {
@@ -1504,6 +1504,10 @@
         "Value": false,
         "Status": "locked"
       },
+      "extensions.quarantinedDomains.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
       "extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}": {
         "Value": true,
         "Status": "default"
@@ -1628,6 +1632,18 @@
         "Value": false,
         "Status": "default"
       },
+      "extensions.webcompat.enable_shims": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat.perform_injections": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat.perform_ua_overrides": {
+        "Value": true,
+        "Status": "default"
+      },
       "extensions.webcompat.smartblockEmbeds.enabled": {
         "Value": true,
         "Status": "default"
@@ -1677,6 +1693,14 @@
         "Status": "default"
       },
       "gfx.font_rendering.opentype_svg.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "geo.provider.ms-windows-location": {
+        "Value": false,
+        "Status": "default"
+      },
+      "geo.provider.network.logging.enabled": {
         "Value": false,
         "Status": "default"
       },
@@ -1904,6 +1928,26 @@
         "Value": true,
         "Status": "default"
       },
+      "network.cookie.cookieBehavior": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.optInPartitioning": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.optInPartitioning.pbmode": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.pbmode": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.trackerCookieBlocking": {
+        "Value": true,
+        "Status": "default"
+      },
       "network.cookie.sameSite.laxByDefault": {
         "Value": true,
         "Status": "default"
@@ -2022,6 +2066,22 @@
       },
       "network.http.referer.defaultPolicy.trackers.pbmode": {
         "Value": 1,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
+        "Value": true,
         "Status": "default"
       },
       "network.http.referer.XOriginTrimmingPolicy": {
@@ -2200,6 +2260,10 @@
         "Value": "Ask Every Time",
         "Status": "locked"
       },
+      "security.disable_button.openCertManager": {
+        "Value": false,
+        "Status": "locked"
+      },
       "security.insecure_connection_text.enabled": {
         "Value": true,
         "Status": "default"
@@ -2242,6 +2306,10 @@
       },
       "security.tls.enable_0rtt_data": {
         "Value": false,
+        "Status": "default"
+      },
+      "security.tls.hello_downgrade_check": {
+        "Value": true,
         "Status": "default"
       },
       "security.tls.version.enable-deprecated": {
@@ -2332,6 +2400,14 @@
         "Value": "https://phoenix.celenity.dev/geo",
         "Status": "default"
       },
+      "browser.startup.homepage": {
+        "Value": "about:home",
+        "Status": "default"
+      },
+      "browser.startup.page": {
+        "Value": 1,
+        "Status": "default"
+      },
       "extensions.getAddons.search.browseURL": {
         "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
         "Status": "default"
@@ -2342,10 +2418,6 @@
       },
       "extensions.recommendations.privacyPolicyUrl": {
         "Value": "https://phoenix.celenity.dev/privacy#extension-recommendations",
-        "Status": "default"
-      },
-      "geo.provider.ms-windows-location": {
-        "Value": false,
         "Status": "default"
       },
       "geo.provider.network.url": {
@@ -3343,66 +3415,78 @@
       },
       "ddg@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo/duckduckgo-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "duckduckgo-html@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-html/duckduckgo-html-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "duckduckgo-lite@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "ecosia@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "mojeek@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/mojeek/mojeek-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "no-search@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/no-search/no-search-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "qwant@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "qwant-junior@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "startpage@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/startpage/startpage-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       },
       "swisscows@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://phoenix.celenity.dev/extensions/xpi/search/swisscows/swisscows-latest.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
         "private_browsing": false,
-        "temporarily_allow_weak_signatures": false
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
       }
     },
     "Cookies": {
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
       "Block": [
         "http://google-analytics.com/",
         "https://google-analytics.com/",
@@ -4193,6 +4277,12 @@
     "DisableProfileImport": true,
     "DisableProfileRefresh": true,
     "DisplayBookmarksToolbar": "always",
+    "EnableTrackingProtection": {
+      "Cryptomining": true,
+      "EmailTracking": true,
+      "Fingerprinting": true,
+      "Value": true
+    },
     "EncryptedMediaExtensions": {
       "Enabled": false,
       "Locked": false
