@@ -115,7 +115,7 @@ pref("datareporting.policy.dataSubmissionEnabled", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyAccepted", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked);
 pref("datareporting.policy.firstRunURL", "", locked);
-pref("datareporting.usage.uploadEnabled", false, locked); // Disables sending "daily usage pings" to Mozilla - currently only on Nightly
+pref("datareporting.usage.uploadEnabled", false, locked); // Disables sending "daily usage pings" to Mozilla - currently only on Nightly https://support.mozilla.org/kb/usage-ping-settings
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked);
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
@@ -556,6 +556,7 @@ pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 pref("dom.security.https_only_mode_send_http_background_request", false);
 
 /// Show suggestions when an HTTPS page can not be found 
+// Ex. If 'example.com' isn't secure, it may suggest 'www.example.com'
 
 pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
@@ -629,12 +630,30 @@ pref("network.connectivity-service.enabled", false);
 pref("network.connectivity-service.IPv4.url", "");
 pref("network.connectivity-service.IPv6.url", "");
 
-/// Prevent Proxy bypasses & undesired information leakage
+// Prevent Proxy bypasses & undesired information leakage
+
+/// Disable Uniform Naming Convention (UNC) file paths
+// https://bugzilla.mozilla.org/1413868
 
 pref("network.file.disable_unc_paths", true); // [HIDDEN]
+
+/// Disable GIO
+// https://bugzilla.mozilla.org/1433507
+
 pref("network.gio.supported-protocols", ""); // [HIDDEN]
+
+/// Disable bypassing the proxy (if configured) for system connections that include the `bypassProxy` flag
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1732792
+
 pref("network.proxy.allow_bypass", false);
+
+/// Disable automatic failover from the proxy (if configured) to direct connections when certain system requests fail
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1720221
+
 pref("network.proxy.failover_direct", false);
+
+/// Use the proxy (if configured) for remote DNS lookups
+
 pref("network.proxy.socks_remote_dns", true);
 pref("network.proxy.socks5_remote_dns", true); // [DEFAULT]
 
@@ -717,12 +736,13 @@ pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Hard-fail OCSP by default
-// Personally have not ran into any issues from this in YEARS... & it provides a significant security improvement
-// Can reconsider if people start having issues
+// Significant security improvement
+// https://github.com/arkenfox/user.js/issues/1576
 
 pref("security.OCSP.require", true);
 
 /// Enable CRLite & use where possible
+// https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/
 
 pref("security.pki.crlite_mode", 2);
 pref("security.remote_settings.crlite_filters.enabled", true);
@@ -850,7 +870,7 @@ pref("browser.phoenix.core.status", "009");
 
 /// Prevent Wi-Fi Scanning
 
-pref("browser.region.network.scan", false); // [DEFAULT]
+pref("browser.region.network.scan", false); // https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs#20 [DEFAULT]
 pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
 
 /// Disable "Region Updates"
@@ -919,9 +939,19 @@ pref("media.peerconnection.ice.obfuscate_host_addresses", true); // [DEFAULT - D
 
 pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
-pref("privacy.webrtc.allowSilencingNotifications", true);
+/// Always allow user to silence notifications when screen sharing
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2452
+
+pref("privacy.webrtc.allowSilencingNotifications", true); // [DEFAULT]
+pref("privacy.webrtc.hideGlobalIndicator", false); // [DEFAULT]
+
+/// Enable global toggles for muting the camera/microphone in WebRTC
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2452
+
 pref("privacy.webrtc.globalMuteToggles", true);
-pref("privacy.webrtc.hideGlobalIndicator", false);
+
+/// Warn users when attempting to switch tabs in a window being shared over WebRTC
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2459
 pref("privacy.webrtc.sharedTabWarning", true);
 
 /// Always sandbox Media Transport
@@ -942,6 +972,9 @@ pref("browser.formfill.enable", false);
 
 pref("browser.cache.disk.enable", false);
 pref("browser.cache.disk_cache_ssl", false);
+
+/// Do not write media cache (ex. for video streaming) to disk in private windows
+
 pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
 /// Prevent storing unnecessary extra session data
@@ -980,11 +1013,13 @@ pref("identity.fxaccounts.migrateToDevEdition", false);
 pref("browser.contentblocking.cfr-milestone.enabled", false);
 pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android]
 
-/// Disable favicons in shortcuts, prevents .ico files from persisting even after deletion
+/// Disable favicons in shortcuts
+// Prevents .ico files from persisting, even after deletion
 
 pref("browser.shell.shortcutFavicons", false);
 
-/// Delete cached files from windows opened with external applications
+/// Removes cached files from browser windows opened with external applications
+// https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574
 
 pref("browser.download.start_downloads_in_tmp_dir", true);
 pref("browser.helperApps.deleteTempFileOnExit", true);
@@ -999,7 +1034,7 @@ pref("privacy.exposeContentTitleInWindow.pbm", false);
 
 pref("browser.download.clearHistoryOnDelete", 2);
 
-/// Adds a fire button in Private Browsing Windows to reset session
+/// Enables a fire button in Private Browsing Windows to reset session
 
 pref("browser.privatebrowsing.resetPBM.enabled", true);
 
@@ -1017,7 +1052,7 @@ pref("layout.css.visited_links_enabled", false);
 
 pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
-/// Allow permissions manager to write to disk
+/// Allow permission manager to write to disk
 // This is already Firefox's default - but it's hidden, so this exposes it to the about:config
 // https://searchfox.org/mozilla-central/source/extensions/permissions/PermissionManager.cpp#758
 
@@ -1033,14 +1068,18 @@ pref("browser.phoenix.core.status", "013");
 
 pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT] Defense in depth, ensures extensions installed via directories are disabled by default...
 pref("extensions.enabledScopes", 5); // [DEFAULT]
-pref("extensions.installDistroAddons", false); // https://support.mozilla.org/kb/deploying-firefox-with-extensions
+
+/// Disable automatic installation/enablement of third party extensions in Firefox's installation directory
+// https://support.mozilla.org/kb/deploying-firefox-with-extensions
+
+pref("extensions.installDistroAddons", false);
 
 /// Only allow signed extensions
 
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
 pref("xpinstall.whitelist.required", true); // [DEFAULT]
 
-/// Only allow installation and updates for extensions using Firefox's built-in certs...
+/// Only allow installation and updates of extensions using Firefox's built-in certificates...
 
 pref("extensions.install.requireBuiltInCerts", true, locked); // [HIDDEN]
 pref("extensions.update.requireBuiltInCerts", true, locked); // [HIDDEN]
@@ -1135,7 +1174,7 @@ pref("browser.shell.checkDefaultPDF.silencedByUser", true);
 
 pref("browser.pdf.launchDefaultEdgeAsApp", false);
 
-/// Open PDFs in browser where possible
+/// Open PDFs inline where possible
 
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Android]
 
@@ -1148,30 +1187,27 @@ pref("browser.phoenix.core.status", "015");
 // 016 MISC. PRIVACY
 
 /// Enable ETP Strict
+// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop?as=u#w_strict-enhanced-tracking-protection
 
 pref("browser.contentblocking.category", "strict", locked);
 
-/// Manually enable ETP Strict protections...
+/// Manually enable ETP/Strict protections...
 // These are typically configured by ETP Strict - but unfortunately Firefox doesn't set ETP Strict on the browser's first run :/
 // So we need to also manually configure them. We still also use ETP Strict (not 'Custom') due to our enforcement of it, so we should be covered by Mozilla changes/updates for protections.
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
+// Enable TCP/dFPI
+// https://support.mozilla.org/kb/introducing-total-cookie-protection-standard-mode
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2828
+
 pref("network.cookie.cookieBehavior", 5);
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
 pref("network.cookie.cookieBehavior.pbmode", 5);
-pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
-pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true);
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true);
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
-pref("privacy.annotate_channels.strict_list.enabled", true);
-pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
-pref("privacy.bounceTrackingProtection.enabled", true);
-pref("privacy.bounceTrackingProtection.mode", 1); // Fully enables Bounce Tracking Protection - https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
-pref("privacy.fingerprintingProtection", true);
-pref("privacy.fingerprintingProtection.pbmode", true);
+
+// Enable State Partitioning
+
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
 pref("privacy.partition.bloburl_per_partition_key", true);
@@ -1179,18 +1215,70 @@ pref("privacy.partition.network_state", true);
 pref("privacy.partition.network_state.ocsp_cache", true);
 pref("privacy.partition.network_state.ocsp_cache.pbmode", true);
 pref("privacy.partition.serviceWorkers", true);
+
+// Ignore less restricted referer policies (than the default)
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
+
+pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // for cross-site requests
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // for cross-site requests in Private Browsing
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // for top navigations in Private Browsing
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
+
+/// Block known tracking resources
+
+pref("privacy.trackingprotection.annotate_channels", true);
+pref("privacy.trackingprotection.enabled", true);
+pref("privacy.trackingprotection.pbmode.enabled", true);
+
+// Block known tracking resources using the `strict` (Level 2) list
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15192
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804
+
+pref("privacy.annotate_channels.strict_list.enabled", true);
+pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
+
+// Block known third-party tracking cookies
+
+pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
+pref("privacy.socialtracking.block_cookies.enabled", true);
+
+/// Block known third party cryptomining resources
+
+pref("privacy.trackingprotection.cryptomining.enabled", true);
+
+/// Block known third party email tracking resources
+
+pref("privacy.trackingprotection.emailtracking.enabled", true);
+pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true);
+
+/// Block known third party fingerprinting resources
+
+pref("privacy.trackingprotection.fingerprinting.enabled", true);
+
+/// Block known third party social tracking resources
+
+pref("privacy.trackingprotection.socialtracking.enabled", true);
+
+// Enable Bounce Tracking Protection
+// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
+// https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
+
+pref("privacy.bounceTrackingProtection.enabled", true);
+pref("privacy.bounceTrackingProtection.mode", 1);
+
+// Enable Suspected Fingerprinters Protection
+// https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
+
+pref("privacy.fingerprintingProtection", true);
+pref("privacy.fingerprintingProtection.pbmode", true);
+pref("privacy.reduceTimerPrecision", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15353
+
+// Enable Query Parameter Stripping
+// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
+
 pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true);
-pref("privacy.reduceTimerPrecision", true);
-pref("privacy.socialtracking.block_cookies.enabled", true);
-pref("privacy.trackingprotection.cryptomining.enabled", true);
-pref("privacy.trackingprotection.emailtracking.enabled", true);
-pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true);
-pref("privacy.trackingprotection.enabled", true);
-pref("privacy.trackingprotection.fingerprinting.enabled", true);
-pref("privacy.trackingprotection.pbmode.enabled", true);
-pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // Enable SmartBlock & UA overrides/injections
 // Also typically covered by ETP/Strict

@@ -49,5 +49,7 @@
 			"path": "../../../../opt/firefox-dev"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"editor.wordWrap": "on"
+	}
 }
