@@ -1330,13 +1330,6 @@ pref("beacon.enabled", false);
 
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT]
 
-/// Disable Network Information API
-// https://developer.mozilla.org/docs/Web/API/Network_Information_API
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1057169
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1637922
-
-pref("dom.netinfo.enabled", false); // [DEFAULT]
-
 /// Trim cross-origin referers (Like Safari)
 
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
@@ -1362,7 +1355,7 @@ pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _ope
 
 pref("privacy.query_stripping.strip_on_share.enabled", true); // [DEFAULT]
 
-/// Ensure we never save clipboard history/clipboard contents to the cloud...
+/// Ensure we never save clipboard history/contents to the cloud...
 
 pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
 
@@ -1374,8 +1367,8 @@ pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nigh
 /// Enable Cookies Having Independent Partitioned State (CHIPS)
 // This allows websites to set cookies with a 'Partitioned' attribute, meaning they're limited in scope
 // We still use ETP Strict for partioning anyways, so this could be useful as a defense in depth if a user decides to allow a specific domain (or domains) to access a third party cookie
-// https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
 // https://developer.mozilla.org/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies
+// https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
 // https://github.com/privacycg/CHIPS
 
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT on Nightly]

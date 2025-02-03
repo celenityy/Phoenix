@@ -1336,10 +1336,6 @@
                 "Value": 1,
                 "Status": "default"
             },
-            "dom.netinfo.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
             "dom.origin-trials.coep-credentialless.state": {
                 "Value": 1,
                 "Status": "default"
