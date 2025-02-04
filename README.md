@@ -5,7 +5,7 @@
         height="200">
 </p>
 
-**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.**
+**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.** A detailed list of Phoenix's features & enhancements can be found **[here](https://phoenix.celenity.dev/features).**
 
 > [!NOTE]
 > While Phoenix's home is [Codeberg](https://codeberg.org/celenity/Phoenix), this repo is also mirrored to both [GitLab](https://gitlab.com/celenity/Phoenix) & [GitHub](https://github.com/celenityy/Phoenix).
@@ -23,9 +23,7 @@ Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/k
 
 Phoenix's approach also provides users with a seamless experience that is accessible and easy to use. Gone are the days of creating `override` files, manually keeping track of updates, resetting old preferences, & adding your `user.js` file to each and every profile you make. **Not only is Phoenix the most effective & comprehensive approach to configuring Firefox, it is also the most accessible & easiest to use.**
 
-Phoenix's changes to Firefox are carefully considered based on extensive research & studying of Firefox's inner workings. **For an incomplete, non-exhaustive list of Phoenix's features & enhancements, see [here](https://phoenix.celenity.dev/features).**
-
-**Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers an **Extended** config. This is completely optional and primarily recommended for advanced users. For more information on Phoenix's compatibility with websites and known issues, please see [here](https://phoenix.celenity.dev/compat).
+Phoenix's changes to Firefox are carefully considered based on extensive research & studying of Firefox's inner workings. **Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers an **Extended** config. This is completely optional and primarily recommended for advanced users. For more information on Phoenix's compatibility with websites and known issues, please see [here](https://phoenix.celenity.dev/compat).
 
 **You should also see [here](https://phoenix.celenity.dev/compare) for a comparison between Phoenix, standard Firefox, Arkenfox, Betterfox, LibreWolf, & various other widely used projects of similar nature.**
 
@@ -120,7 +118,7 @@ ___
 
 # 🔥Extended
 
-For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers an **Extended** config.
+For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers an **Extended** config. **For a list of features specific to Phoenix Extended, please see [here](https://phoenix.celenity.dev/extended)**.
 
 > [!TIP]
 > **Unlike Phoenix's standard default configuration, Extended is profile-specific.** This means that you can use our Extended config as needed when you desire the extra protection, & revert back to Phoenix's standard config through another profile for everything else.
