@@ -29,8 +29,8 @@ pref("browser.phoenix.extended.core.status", "002");
 
 // 003 MISC. PRIVACY
 
-/// Disable dFPI Heuristics
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15404
+/// Disable TCP/dFPI storage access heuristics
+// https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
 
 pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
 pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
