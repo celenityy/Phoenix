@@ -92,7 +92,7 @@ pref("browser.phoenix.desktop.status", "005");
 
 /// 006 MISC.
 
-/// Block web notification prompts by default
+/// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
 // but I see them constantly abused for malicious purposes & spam
 

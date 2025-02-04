@@ -526,6 +526,11 @@ pref("browser.urlbar.suggest.searches", false);
 pref("browser.fixup.dns_first_for_single_words", false); // [DEFAULT]
 pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
+/// Disable middle mouse clicks from pasting clipboard contents by default
+// Too easy to accidentally press...
+
+pref("middlemouse.paste", false);
+
 /// Prevent middle click on new tab button opening URLs or searches from clipboard
 
 pref("browser.tabs.searchclipboardfor.middleclick", false);
@@ -1434,10 +1439,15 @@ pref("browser.phoenix.core.status", "017");
 
 pref("signon.autofillForms", false);
 pref("signon.autofillForms.http", false); // [DEFAULT]
+
+/// Disable formless capture of log-in credentials
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+
 pref("signon.formlessCapture.enabled", false);
 pref("signon.privateBrowsingCapture.enabled", false);
 
-/// Always allow showing password when hidden
+/// Always display a `reveal password` button in `password` `<input>` types 
+// https://developer.mozilla.org/docs/Web/HTML/Element/input/password
 
 pref("layout.forms.reveal-password-button.enabled", true);
 pref("layout.forms.reveal-password-context-menu.enabled", true); // [DEFAULT]
@@ -1447,13 +1457,15 @@ pref("layout.forms.reveal-password-context-menu.enabled", true); // [DEFAULT]
 
 pref("signon.storeWhenAutocompleteOff", false);
 
-/// Never truncate passwords
+/// Disable password truncation
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 
 pref("editor.truncate_user_pastes", false);
 
 /// Disable Password Manager by default - Insecure & unencrypted
 /// You should instead use something like Bitwarden or Proton Pass
+// https://support.mozilla.org/kb/manage-your-logins-firefox-password-manager
+// https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 
 pref("extensions.formautofill.addresses.enabled", false);
 pref("extensions.formautofill.creditCards.enabled", false);
@@ -1471,24 +1483,29 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 
 pref("signon.generation.enabled", true); // [DEFAULT]
 
-/// Prevent cross-origin sub-resources from opening HTTP authentication dialogs
+/// Prevent cross-origin sub-resources from opening HTTP authentication dialogs to protect against phishing
+// (Meaning dialogs for embedded items are only presented when originating from the same site)
+// https://support.mozilla.org/questions/1245144
 
 pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [DEFAULT]
 pref("network.auth.subresource-http-auth-allow", 1);
 pref("network.auth.subresource-img-cross-origin-http-auth-allow", false); // [DEFAULT]
 
 /// Disable Windows SSO
+// https://support.mozilla.org/kb/windows-sso
 
 pref("network.http.windows-sso.container-enabled.0", false);
 pref("network.http.windows-sso.enabled", false); // [DEFAULT]
 
 /// Disable Microsoft Entra
+// https://www.microsoft.com/security/business/identity-access/microsoft-entra-single-sign-on
 
 pref("network.http.microsoft-entra-sso.container-enabled.0", false);
 pref("network.http.microsoft-entra-sso.enabled", false); // [DEFAULT]
 pref("network.microsoft-sso-authority-list", ""); // DEFENSE IN DEPTH
 
 /// Prevent using Negotiate authentication by default 
+// This is modified by ex. RedHat/Fedora
 // https://people.redhat.com/mikeb/negotiate/
 
 pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
@@ -1602,6 +1619,7 @@ pref("dom.ipc.processCount.webIsolated", 1);
 pref("fission.autostart", true); // [DEFAULT]
 pref("fission.autostart.session", true); // [DEFAULT]
 pref("fission.disableSessionHistoryInParent", false); // [DEFAULT] SHIP, required for Fission
+pref("gfx.webrender.all", true);
 
 /// Always run extensions OOP (out of process...)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1613141
@@ -1762,7 +1780,8 @@ pref("media.gmp-manager.cert.checkAttributes", true); // [DEFAULT]
 pref("media.gmp-manager.cert.requireBuiltIn", true); // [DEFAULT]
 pref("media.gmp-manager.checkContentSignature", true); // [DEFAULT]
 
-/// Disable Autoplay by default
+/// Blocks media autoplay by default
+// https://support.mozilla.org/kb/block-autoplay
 
 pref("media.autoplay.default", 5);
 pref("userContent.player.click_to_play", true); // [HIDDEN] https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
@@ -1818,6 +1837,7 @@ pref("browser.phoenix.core.status", "023");
 // 024 DEBUGGING
 
 // Allow Remote debugging, as it can be useful (especially on Android) - but ONLY per-session
+// https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
 
 pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT]
 
@@ -1856,11 +1876,6 @@ pref("media.webvtt.testing.events", false); // [DEFAULT]
 // Especially useful on Android & Thunderbird...
 
 pref("extensions.strictCompatibility", false);
-
-/// Disable middle mouse clicks from pasting clipboard contents by default
-// Too easy to accidentally press...
-
-pref("middlemouse.paste", false);
 
 /// Enable Containers & isolate permissions per container
 
@@ -1930,7 +1945,6 @@ pref("extensions.logging.enabled", false); // [DEFAULT] https://searchfox.org/mo
 pref("gfx.canvas.accelerated.cache-items", 4096); // [Default = 2048]
 pref("gfx.canvas.accelerated.cache-size", 512); // [Default = 256]
 pref("gfx.content.skia-font-cache-size", 20); // [Default = 5]
-pref("gfx.webrender.all", true);
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
 pref("layout.css.report_errors", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
@@ -1945,7 +1959,6 @@ pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Def
 pref("browser.phoenix.core.status", "026");
 
 // 027 SCROLLING
-// Taken directly from https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 
 pref("apz.overscroll.enabled", true);
 pref("general.autoScroll", true);
@@ -1980,8 +1993,8 @@ pref("browser.search.openintab", true);
 pref("browser.search.widget.inNavBar", true);
 pref("browser.spin_cursor_while_busy", true);
 pref("browser.tabs.loadBookmarksInTabs", true);
-pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload tab' option to context menu when right clicking tabs
-pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default
+pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
+pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
 pref("browser.translations.alwaysTranslateLanguages", "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi");
 pref("browser.translations.automaticallyPopup", true); // [DEFAULT]
 pref("browser.translations.enable", true); // [DEFAULT]
@@ -1991,11 +2004,11 @@ pref("devtools.command-button-measure.enabled", true);
 pref("devtools.command-button-rulers.enabled", true);
 pref("devtools.command-button-screenshot.enabled", true);
 pref("devtools.dom.enabled", true);
-pref("devtools.debugger.ui.editor-wrapping", true);
+pref("devtools.debugger.ui.editor-wrapping", true); // Enables long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
 pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
-pref("findbar.highlightAll", true);
+pref("findbar.highlightAll", true); // Highlights all Findbar (Ctrl + F) results by default
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
 pref("full-screen-api.warning.delay", -1); // [Default = -1 (Automatic)]
