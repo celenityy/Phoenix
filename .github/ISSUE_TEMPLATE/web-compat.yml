@@ -11,7 +11,7 @@ body:
     attributes:
       label: Confirmation
       options:
-        - label: **BEFORE PROCEEDING**: Please confirm that you have checked the [Website Compatibility](phoenix.celenity.dev/compat) wiki page, and that this issue is **not** already listed.
+        - label: **BEFORE PROCEEDING**: Please confirm that you have checked the [Website Compatibility](https://phoenix.celenity.dev/compat) wiki page, and that this issue is **not** already listed.
           required: true
 
   - type: textarea
