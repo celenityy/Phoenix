@@ -8,5 +8,7 @@ assignees:
 body:
   - type: textarea
     id: reason
+    attributes:
+      label: Please explain your inquiry.
     validations:
       required: true
