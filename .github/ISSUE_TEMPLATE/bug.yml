@@ -1,6 +1,6 @@
 name: Bug
 description: For any general issues or unexpected/unintended behavior you come across while using Phoenix.
-title: "[BUG] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE"
+title: "[BUG] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
 labels: ["bug"]
 assignees:
   - celenity
@@ -46,7 +46,7 @@ body:
     attributes:
       label: Other
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: reason
