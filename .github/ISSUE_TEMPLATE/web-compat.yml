@@ -6,6 +6,14 @@ assignees:
   - celenity
   - celenityy
 body:
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: **BEFORE PROCEEDING**: Please confirm that you have checked the [Website Compatibility](phoenix.celenity.dev/compat) wiki page, and that this issue is **not** already listed.
+          required: true
+
   - type: textarea
     id: version
     attributes:
