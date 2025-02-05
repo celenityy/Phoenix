@@ -11,7 +11,7 @@ body:
     attributes:
       label: Confirmation
       options:
-        - label: Please confirm that you have checked the Website Compatibility wiki page (https://phoenix.celenity.dev/compat), and that this issue is not already listed.
+        - label: Please confirm that you have already checked the Website Compatibility wiki page (https://phoenix.celenity.dev/compat), and that this issue is NOT currently listed.
           required: true
 
   - type: textarea
@@ -53,22 +53,5 @@ body:
     id: other
     attributes:
       label: Other
-    validations:
-      required: false
-
-body:
-  - type: textarea
-    id: domains
-    attributes:
-      label: Which domain(s) are you experiencing this issue on?
-    validations:
-      required: true
-
-  - type: textarea
-    id: reason
-    attributes:
-      label: Please explain the issue you are experiencing.
-      description: |
-        Be sure to include as many relevant details as possible! :)
     validations:
       required: true
