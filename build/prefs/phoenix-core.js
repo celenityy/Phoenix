@@ -1378,6 +1378,19 @@ pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nigh
 
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT on Nightly]
 
+/// Disable Firefox Sync by default
+// When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
+// This allows the user to control and choose for themselves what they'd like to sync...
+
+pref("services.sync.engine.addons", false);
+pref("services.sync.engine.addresses", false); // [DEFAULT]
+pref("services.sync.engine.bookmarks", false);
+pref("services.sync.engine.creditcards", false); // [DEFAULT]
+pref("services.sync.engine.history", false);
+pref("services.sync.engine.passwords", false);
+pref("services.sync.engine.prefs", false);
+pref("services.sync.engine.tabs", false);
+
 /// If a remote AutoConfig is being used, ensure identifying info is never shared...
 
 pref("autoadmin.append_emailaddr", false, locked);
