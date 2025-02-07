@@ -1392,12 +1392,6 @@ pref("browser.phoenix.core.status", "016");
 pref("privacy.window.maxInnerHeight", 900);
 pref("privacy.window.maxInnerWidth", 1600);
 
-/// Target 1080P instead of 480P for video playback...
-// This is the same as Nightly uses
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15315
-
-pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT for Nightly]
-
 /// Prompt to spoof locale to en-US
 
 pref("privacy.spoof_english", 0); // [DEFAULT]
