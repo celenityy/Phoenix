@@ -73,19 +73,19 @@ var pref = function(pref, val){
     console.log("pref:" + pref + " val:" + val + " e:" + e);
   }
 }
-// Paste the contents of phoenix.js below:
+// Paste the contents of phoenix-android.js below:
 
 ```
 
 *Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case.*
 
-**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to [phoenix.js](https://phoenix.celenity.dev/prefs/phoenix-android.js). It can be found at the following link:
+**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to [phoenix-android.js](https://phoenix.celenity.dev/prefs/phoenix-android.js). It can be found at the following link:
 
 ```sh
 https://phoenix.celenity.dev/prefs/phoenix-android.js
 ```
 
-**13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix.js below:` line. **Now press enter.**
+**13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix-android.js below:` line. **Now press enter.**
 
 **14:** If you'd also like to use Phoenix's `Extended` Hardening config, **repeat** Steps `11` & `12`, but replacing `https://phoenix.celenity.dev/prefs/phoenix-android.js` with `https://phoenix.celenity.dev/prefs/phoenix-extended-android.js`:
 
