@@ -53,26 +53,22 @@ ___
 **11:** Paste the following content into your Web Console, but do **NOT** enter it yet:
 
 ```sh
-//
-var pref = function(pref, val){
-
+var locked = "ignore";
+var sticky = "ignore";
+var pref = function(pref, val, locked, sticky) {
   try {
-    if(typeof val == "string"){
-
-         Services.prefs.setStringPref(pref, val);    
+    if (typeof val == "string") {
+      Services.prefs.setStringPref(pref, val);
+    } else if (typeof val == "number") {
+      Services.prefs.setIntPref(pref, val);
+    } else if (typeof val == "boolean") {
+      Services.prefs.setBoolPref(pref, val);
     }
-    else if(typeof val == "number"){
-
-         Services.prefs.setIntPref(pref, val);    
-    }
-    else if(typeof val == "boolean"){
-
-         Services.prefs.setBoolPref(pref, val);    
-    }
-  } catch(e){
+  } catch (e) {
     console.log("pref:" + pref + " val:" + val + " e:" + e);
   }
 }
+
 // Paste the contents of phoenix-android.js below:
 
 ```
@@ -87,18 +83,20 @@ https://phoenix.celenity.dev/prefs/phoenix-android.js
 
 **13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix-android.js below:` line. **Now press enter.**
 
-**14:** If you'd also like to use Phoenix's `Extended` Hardening config, **repeat** Steps `11` & `12`, but replacing `https://phoenix.celenity.dev/prefs/phoenix-android.js` with `https://phoenix.celenity.dev/prefs/phoenix-extended-android.js`:
+**14:** If you'd also like to use Phoenix's `Extended` Hardening config, you'll first need to navigate to the `about:config` on your Android device & set `devtools.debugger.remote-enabled` to `true`.
+
+**15:** You should then reconnect to your mobile device from `about:debugging` on your computer. You can now **repeat** Steps `11` & `12`, but replace `https://phoenix.celenity.dev/prefs/phoenix-android.js` with `https://phoenix.celenity.dev/prefs/phoenix-extended-android.js`:
 
 ```sh
 https://phoenix.celenity.dev/prefs/phoenix-extended-android.js
 ```
 
-**15:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
+**16:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
 
-**16:** Back on your Android device, within Firefox, navigate to `Settings`, scroll down to the bottom, and **disable** `Remote debugging via USB`.
+**17:** Back on your Android device, within Firefox, navigate to `Settings`, scroll down to the bottom, and **disable** `Remote debugging via USB`.
 
-**17:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` *(via the same way you accessed it in Step `3`)*, and **disable** `USB debugging`.
+**18:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` *(via the same way you accessed it in Step `3`)*, and **disable** `USB debugging`.
 
-**18:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
+**19:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
 
-**19:** You're done, enjoy :).
+**20:** You're done, enjoy :).
