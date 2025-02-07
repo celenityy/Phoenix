@@ -20,22 +20,18 @@ pref("browser.phoenix.unextend.001.applied", true);
 
 /// 002 WEBRTC
 
-// Potentially leak IP addresses in certain trusted scenarios - This *will* break WebRTC
-
 pref("media.peerconnection.ice.default_address_only", false);
 pref("media.peerconnection.ice.no_host", false);
+pref("media.peerconnection.ice.relay_only", false);
 
 pref("browser.phoenix.unextend.002.applied", true);
 
 // 003 MISC. PRIVACY
 
-/// Enable ETP WebCompat & Heuristics
+/// Enable dFPI/TCP storage heuristics
 
-pref("privacy.antitracking.enableWebcompat", true);
 pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", true);
 pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", true);
-pref("privacy.restrict3rdpartystorage.heuristic.redirect", true);
-pref("privacy.restrict3rdpartystorage.heuristic.window_open", true);
 
 /// Always send cross-origin referers
 
