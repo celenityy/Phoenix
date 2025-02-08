@@ -46,7 +46,7 @@ pref("browser.phoenix.desktop.common.status", "003");
 
 // 004 GEOLOCATION
 
-/// Configure OS Geolocation Providers
+/// Configure OS Geolocation providers
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
 

@@ -69,6 +69,7 @@ pref("browser.phoenix.android.status", "004");
 
 // Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
 // ex. https://gitlab.com/ironfox-oss/IronFox/-/issues/18
+
 pref("javascript.options.blinterp", true); // [DEFAULT]
 
 pref("browser.phoenix.android.status", "005");
