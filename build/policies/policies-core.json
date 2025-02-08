@@ -656,10 +656,6 @@
                 "Value": false,
                 "Status": "locked"
             },
-            "browser.privacySegmentation.preferences.show": {
-                "Value": false,
-                "Status": "locked"
-            },
             "browser.privatebrowsing.felt-privacy-v1": {
                 "Value": true,
                 "Status": "default"

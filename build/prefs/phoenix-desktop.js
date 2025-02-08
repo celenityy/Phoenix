@@ -37,6 +37,7 @@ pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 /// Misc. Telemetry
 
 pref("browser.aboutwelcome.log", "off"); // Disable logging
+pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
 
 pref("browser.phoenix.desktop.status", "001");
 
