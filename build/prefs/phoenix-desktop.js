@@ -29,7 +29,9 @@ pref("browser.phoenix.desktop.status", "001");
 
 pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
 
-// 002 GEOLOCATION
+pref("browser.phoenix.desktop.status", "002");
+
+// 003 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -44,9 +46,9 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
-pref("browser.phoenix.desktop.status", "002");
+pref("browser.phoenix.desktop.status", "003");
 
-// 003 EXTENSIONS
+// 004 EXTENSIONS
 
 // Only allow signed extensions
 // I'd like to unlock these in the future (We already don't lock it on Android)
@@ -55,9 +57,9 @@ pref("browser.phoenix.desktop.status", "002");
 
 pref("xpinstall.signatures.required", true, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "003");
+pref("browser.phoenix.desktop.status", "004");
 
-// 004 FINGERPRINTING PROTECTION
+// 005 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -86,18 +88,18 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "004");
+pref("browser.phoenix.desktop.status", "005");
 
-/// 005 MISC. PRIVACY
+/// 006 MISC. PRIVACY
 
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
 
 pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json");
 
-pref("browser.phoenix.desktop.status", "005");
+pref("browser.phoenix.desktop.status", "006");
 
-/// 006 MISC.
+/// 007 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -116,23 +118,23 @@ pref("browser.startup.page", 1); // [DEFAULT]
 pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extensions/recommendations.json"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
 
-pref("browser.phoenix.desktop.status", "006");
+pref("browser.phoenix.desktop.status", "007");
 
-// 007 Personal Touch 💜
+// 008 Personal Touch 💜
 
 /// Clean-up default UI
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "007");
+pref("browser.phoenix.desktop.status", "008");
 
-// 008 Enable support for custom/specialized configs...
+// 009 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "008");
+pref("browser.phoenix.desktop.status", "009");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 
