@@ -263,6 +263,14 @@
             "Locked": false
         },
         "Preferences": {
+            "browser.aboutwelcome.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.aboutwelcome.log": {
+                "Value": "off",
+                "Status": "default"
+            },
             "browser.contentblocking.report.monitor.sign_in_url": {
                 "Value": "https://monitor.firefox.com/oauth/init",
                 "Status": "default"

@@ -72,14 +72,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "browser.aboutwelcome.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.aboutwelcome.log": {
-                "Value": "off",
-                "Status": "default"
-            },
             "browser.bookmarks.autoExportHTML": {
                 "Value": true,
                 "Status": "default"

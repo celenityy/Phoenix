@@ -72,7 +72,6 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 
-pref("browser.aboutwelcome.log", "off"); // Disable logging
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.impressionId", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
@@ -326,7 +325,6 @@ pref("identity.sendtabpromo.url", "", locked);
 
 /// Kill about:welcome & Onboarding
 
-pref("browser.aboutwelcome.enabled", false);
 pref("browser.EULA.override", true); // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 pref("browser.startup.homepage_override.mstone", "ignore");
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]

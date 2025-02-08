@@ -34,9 +34,17 @@ pref("toolkit.coverage.endpoint.base", "", locked);
 pref("toolkit.coverage.log-level", 70); // Limits logging to fatal only
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 
+/// Misc. Telemetry
+
+pref("browser.aboutwelcome.log", "off"); // Disable logging
+
 pref("browser.phoenix.desktop.status", "001");
 
 // 002 MOZILLA CRAP™
+
+/// Kill about:welcome & Onboarding
+
+pref("browser.aboutwelcome.enabled", false);
 
 /// Prevent Mozilla domains from having special privileges
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
