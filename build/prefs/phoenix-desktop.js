@@ -19,7 +19,6 @@ pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.fire
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
 pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
-pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
 pref("browser.phoenix.desktop.status", "001");
 

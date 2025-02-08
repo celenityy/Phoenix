@@ -2328,6 +2328,10 @@
                 "Value": "disabled",
                 "Status": "default"
             },
+            "signon.firefoxRelay.manage_url": {
+                "Value": "https://relay.firefox.com/accounts/profile/",
+                "Status": "default"
+            },
             "signon.formlessCapture.enabled": {
                 "Value": false,
                 "Status": "default"

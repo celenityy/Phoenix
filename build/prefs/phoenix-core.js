@@ -413,6 +413,10 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "", locked);
 pref("ui.new-webcompat-reporter.enabled", false, locked); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
 pref("ui.new-webcompat-reporter.send-more-info-link", false, locked); // [DEFAULT]
 
+/// Remove Mozilla URL tracking params
+
+pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
+
 pref("browser.phoenix.core.status", "002");
 
 // 003 Search & URL Bar

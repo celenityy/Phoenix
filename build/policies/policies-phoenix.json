@@ -311,10 +311,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "signon.firefoxRelay.manage_url": {
-                "Value": "https://relay.firefox.com/accounts/profile/",
-                "Status": "default"
-            },
             "signon.rememberSignons": {
                 "Value": false,
                 "Status": "default"
