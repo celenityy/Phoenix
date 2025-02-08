@@ -1880,6 +1880,10 @@
                 "Value": false,
                 "Status": "default"
             },
+            "media.wmf.media-engine.enabled": {
+                "Value": 3,
+                "Status": "default"
+            },
             "network.auth.non-web-content-triggered-resources-http-auth-allow": {
                 "Value": false,
                 "Status": "default"
