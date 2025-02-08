@@ -47,10 +47,6 @@ pref("dom.origin-trials.enabled", false, locked);
 pref("asanreporter.apiurl", "", locked);
 pref("asanreporter.clientid", "", locked);
 pref("breakpad.reportURL", "", locked);
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [DEFAULT]
-pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAULT on Stable - but set to true on Nightly :/]
-pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
-pref("browser.tabs.crashReporting.sendReport", false, locked);
 pref("toolkit.crashreporter.include_context_heap", false, locked); // Defense in depth
 
 /// X-Frame Options Error Reporting

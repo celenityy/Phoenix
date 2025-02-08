@@ -10,6 +10,15 @@
 
 pref("default-browser-agent.enabled", false, locked);
 
+/// Crash Reporting
+// https://github.com/mozilla-services/socorro
+// https://wiki.mozilla.org/Socorro
+
+pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [DEFAULT]
+pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAULT on Stable - but set to true on Nightly :/]
+pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
+pref("browser.tabs.crashReporting.sendReport", false, locked);
+
 /// Misc. Telemetry
 
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
