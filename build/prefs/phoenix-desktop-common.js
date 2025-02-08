@@ -93,9 +93,18 @@ pref("browser.phoenix.desktop.common.status", "008");
 
 // 009 MEDIA
 
-/// Microsoft PlayReady DRM
+/// Disable Microsoft PlayReady DRM
 
 pref("media.eme.playready.enabled", false);
+
+/// Explicitly disable Windows Media Foundation Clearkey DRM
+
+pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
+
+/// Disable Windows Media Foundation Media Engine for protected content (DRM), but enable it for standard content
+// https://learn.microsoft.com/windows/win32/medfound/about-the-media-foundation-sdk
+
+pref("media.wmf.media-engine.enabled", 3);
 
 pref("browser.phoenix.desktop.common.status", "009");
 
