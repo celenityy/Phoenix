@@ -20,6 +20,10 @@ pref("app.normandy.last_seen_buildid", "", locked);
 pref("app.normandy.logging.level", 70); // Limits logging to fatal only
 pref("app.normandy.user_id", "", locked);
 pref("app.shield.optoutstudies.enabled", false, locked);
+pref("messaging-system.log", "off"); // Disables logging
+pref("messaging-system.rsexperimentloader.enabled", false, locked);
+pref("messaging-system.rsexperimentloader.collection_id", "", locked);
+pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 
 pref("browser.phoenix.desktop.status", "001");
 

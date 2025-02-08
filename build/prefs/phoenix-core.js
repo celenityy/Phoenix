@@ -32,10 +32,6 @@ pref("browser.phoenix.core.status", "000");
 // https://experimenter.info/
 // resource://nimbus/ExperimentAPI.sys.mjs
 
-pref("messaging-system.log", "off"); // Disables logging
-pref("messaging-system.rsexperimentloader.enabled", false, locked);
-pref("messaging-system.rsexperimentloader.collection_id", "", locked);
-pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 pref("toolkit.telemetry.pioneer-new-studies-available", false, locked);
 
 /// Origin Trials
