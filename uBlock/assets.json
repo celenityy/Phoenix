@@ -1143,6 +1143,7 @@
     "threatintel": {
         "content": "filters",
         "group": "malware",
+        "off": true,
         "title": "🔐 HaGeZi's Threat Intelligence Feeds",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
@@ -1150,7 +1151,6 @@
     "threatintelmed": {
         "content": "filters",
         "group": "malware",
-        "off": true,
         "title": "🔐 HaGeZi's Threat Intelligence Feeds - Medium",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.medium.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
