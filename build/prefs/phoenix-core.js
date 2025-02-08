@@ -95,8 +95,6 @@ pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked
 pref("datareporting.policy.firstRunURL", "", locked);
 pref("datareporting.usage.uploadEnabled", false, locked); // Disables sending "daily usage pings" to Mozilla - currently only on Nightly https://support.mozilla.org/kb/usage-ping-settings
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked);
-pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
-pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
 pref("network.jar.record_failure_reason", false, locked); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#14397
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13191
 pref("network.trr.confirmation_telemetry_enabled", false, locked);

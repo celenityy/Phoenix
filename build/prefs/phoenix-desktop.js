@@ -38,6 +38,8 @@ pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 
 pref("browser.aboutwelcome.log", "off"); // Disable logging
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
+pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
+pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
 
 pref("browser.phoenix.desktop.status", "001");
 
