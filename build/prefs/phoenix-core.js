@@ -146,6 +146,7 @@ pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
 pref("toolkit.telemetry.enabled", false, locked);  // [DEFAULT on Stable Desktop, not on Nightly & elsewhere...]
 pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked);
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
+pref("toolkit.telemetry.log.level", "Off"); // [HIDDEN]
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
 pref("toolkit.telemetry.pioneerId", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.previousBuildID", "", locked);
