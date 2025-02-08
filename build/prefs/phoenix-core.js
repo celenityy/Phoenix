@@ -1775,11 +1775,6 @@ pref("browser.phoenix.core.status", "021");
 
 // 022 MEDIA
 
-/// Always sandbox GMP
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-
-pref("media.gmp.insecure.allow", false); // [DEFAULT]
-
 /// Enforce validating signature for GMP when updating
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/all.js
 

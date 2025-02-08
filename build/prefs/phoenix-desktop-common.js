@@ -93,6 +93,11 @@ pref("browser.phoenix.desktop.common.status", "008");
 
 // 009 MEDIA
 
+/// Always sandbox GMP on GNU/Linux
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+
+pref("media.gmp.insecure.allow", false); // [DEFAULT]
+
 /// Remove DRM toggle in `about:preferences#general`
 
 pref("browser.eme.ui.enabled", false);
