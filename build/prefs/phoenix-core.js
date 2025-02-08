@@ -1797,19 +1797,17 @@ pref("userContent.player.click_to_play", true); // [HIDDEN] https://github.com/b
 // Garbage technology with freedom, privacy, & security concerns
 // https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
 
-pref("browser.eme.ui.enabled", false);
 pref("media.clearkey.persistent-license.enabled", false); // [DEFAULT]
 pref("media.clearkey.test-key-systems.enabled", false); // [DEFAULT]
 pref("media.eme.enabled", false);
 pref("media.eme.encrypted-media-encryption-scheme.enabled", false);
 pref("media.eme.hdcp-policy-check.enabled", false);
-pref("media.eme.require-app-approval", true); // [DEFAULT - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
-pref("media.eme.widevine.experiment.enabled", false); // [DEFAULT - HIDDEN]
+pref("media.eme.require-app-approval", true); // [DEFAULT (Android) - DEFENSE IN DEPTH]: Enforce locking DRM behind permission https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#304
+pref("media.eme.widevine.experiment.enabled", false); // [DEFAULT - HIDDEN] Widevine L1 https://searchfox.org/mozilla-central/source/dom/media/eme/MediaKeySystemAccess.cpp#141
 pref("media.gmp-widevinecdm.enabled", false);
 pref("media.gmp-widevinecdm.visible", false);
-pref("media.gmp-widevinecdm-l1.enabled", false);
-pref("media.gmp-widevinecdm-l1.visible", false);
-pref("media.mediadrm-widevinecdm.visible", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#320
+pref("media.gmp-widevinecdm-l1.enabled", false); // [DEFAULT (Except for Nightly) - HIDDEN]
+pref("media.gmp-widevinecdm-l1.visible", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 
 pref("browser.phoenix.core.status", "022");
 

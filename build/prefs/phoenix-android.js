@@ -84,5 +84,13 @@ pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
 pref("browser.phoenix.android.status", "006");
 
+// 007 MEDIA
+
+/// Disable Widevine MediaDrm/MediaKeySystem
+// https://developer.android.com/reference/android/media/MediaDrm
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
+
+pref("media.mediadrm-widevinecdm.visible", false);
+
 pref("browser.phoenix.android.status", "successfully applied :D", locked);
 

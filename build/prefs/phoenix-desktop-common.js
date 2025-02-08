@@ -93,6 +93,10 @@ pref("browser.phoenix.desktop.common.status", "008");
 
 // 009 MEDIA
 
+/// Remove DRM toggle in `about:preferences#general`
+
+pref("browser.eme.ui.enabled", false);
+
 /// Disable Microsoft PlayReady DRM
 
 pref("media.eme.playready.enabled", false);

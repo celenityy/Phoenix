@@ -1852,10 +1852,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "media.mediadrm-widevinecdm.visible": {
-                "Value": false,
-                "Status": "default"
-            },
             "media.memory_cache_max_size": {
                 "Value": 65536,
                 "Status": "default"
