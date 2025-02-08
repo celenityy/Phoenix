@@ -22,7 +22,7 @@ pref("browser.phoenix.core.status", "000");
 // A lot of defense in depth...
 
 /// Shield Studies/Normandy/Nimbus
-// We also set "DisableFirefoxStudies" in policies 
+// We also set "DisableFirefoxStudies" in policies on Desktop
 // https://mozilla.github.io/policy-templates/#disablefirefoxstudies
 // https://mozilla.github.io/normandy/
 // https://wiki.mozilla.org/Firefox/Shield/Shield_Studies
@@ -32,13 +32,6 @@ pref("browser.phoenix.core.status", "000");
 // https://experimenter.info/
 // resource://nimbus/ExperimentAPI.sys.mjs
 
-pref("app.normandy.api_url", "", locked);
-pref("app.normandy.enabled", false, locked);
-pref("app.normandy.first_run", false, locked);
-pref("app.normandy.last_seen_buildid", "", locked);
-pref("app.normandy.logging.level", 70); // Limits logging to fatal only
-pref("app.normandy.user_id", "", locked);
-pref("app.shield.optoutstudies.enabled", false, locked);
 pref("messaging-system.log", "off"); // Disables logging
 pref("messaging-system.rsexperimentloader.enabled", false, locked);
 pref("messaging-system.rsexperimentloader.collection_id", "", locked);
@@ -80,7 +73,7 @@ pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 /// Misc. Telemetry
-/// We also configure "DisableTelemetry" & "ImproveSuggest" in policies 
+/// We also configure "DisableTelemetry" & "ImproveSuggest" in policies on Desktop
 // https://mozilla.github.io/policy-templates/#disabletelemetry 
 // https://mozilla.github.io/policy-templates/#firefoxsuggest
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
