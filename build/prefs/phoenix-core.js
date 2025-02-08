@@ -59,9 +59,6 @@ pref("security.xfocsp.errorReporting.enabled", false, locked);
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
 // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
 
-pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
-pref("toolkit.coverage.endpoint.base", "", locked);
-pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 /// Misc. Telemetry

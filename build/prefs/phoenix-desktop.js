@@ -25,6 +25,14 @@ pref("messaging-system.rsexperimentloader.enabled", false, locked);
 pref("messaging-system.rsexperimentloader.collection_id", "", locked);
 pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 
+/// Coverage
+// https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
+// https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
+
+pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
+pref("toolkit.coverage.endpoint.base", "", locked);
+pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
+
 pref("browser.phoenix.desktop.status", "001");
 
 // 002 MOZILLA CRAP™
