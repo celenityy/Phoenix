@@ -31,6 +31,7 @@ pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/sourc
 
 pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
 pref("toolkit.coverage.endpoint.base", "", locked);
+pref("toolkit.coverage.log-level", 70); // Limits logging to fatal only
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 
 pref("browser.phoenix.desktop.status", "001");
