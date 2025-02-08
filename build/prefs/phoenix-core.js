@@ -93,7 +93,6 @@ pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked);
 pref("network.jar.record_failure_reason", false, locked); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#14397
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13191
 pref("network.trr.confirmation_telemetry_enabled", false, locked);
-pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
 pref("privacy.imageInputTelemetry.enableTestMode", false, locked); // [HIDDEN] "Event Telemetry" https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false, locked);
 pref("toolkit.content-background-hang-monitor.disabled", true, locked); // BHR https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#16720
@@ -142,7 +141,6 @@ pref("toolkit.telemetry.user_characteristics_ping.uuid", "", locked); // [DEFAUL
 
 /// Misc. UX - Harmless but does not apply to us
 
-pref("app.normandy.shieldLearnMoreUrl", "");
 pref("datareporting.healthreport.infoURL", "");
 pref("extensions.recommendations.privacyPolicyUrl", "");
 pref("toolkit.crashreporter.infoURL", "");

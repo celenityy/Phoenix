@@ -45,6 +45,11 @@ pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
+pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
+
+/// Misc. UX - Harmless but does not apply to us
+
+pref("app.normandy.shieldLearnMoreUrl", "");
 
 pref("browser.phoenix.desktop.status", "001");
 
