@@ -37,6 +37,11 @@ pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 /// Misc. Telemetry
 
 pref("browser.aboutwelcome.log", "off"); // Disable logging
+pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
+pref("browser.newtabpage.activity-stream.impressionId", "", locked);
+pref("browser.newtabpage.activity-stream.telemetry", false, locked);
+pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
@@ -44,6 +49,95 @@ pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
 pref("browser.phoenix.desktop.status", "001");
 
 // 002 MOZILLA CRAP™
+
+/// Firefox Recommendations & "Discovery"
+
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
+
+/// Fakespot
+
+pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
+
+/// Pocket
+
+pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
+pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+
+/// "Top Sites"/Sponsored content/etc.
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
+
+pref("browser.newtabpage.activity-stream.default.sites", "");
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked);
+pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", true); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
+pref("browser.newtabpage.activity-stream.feeds.section.topstories", false, locked);
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}", locked);
+
+/// Misc. Activity Stream (about:home)
+// We also configure "FirefoxHome" in policies
+// https://mozilla.github.io/policy-templates/#firefoxhome
+// https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
+
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.useRemoteL10n", false);
+pref("browser.newtabpage.activity-stream.discoverystream.config", "[]", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds", "", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint", "", locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", "", locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false, locked);
+pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", false, locked);
+pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
+pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
+pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
+pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
+pref("messaging-system.askForFeedback", false, locked);
+
+/// Firefox Suggest
+// We also configure "FirefoxSuggest" & "UrlbarInterventions" in policies
+// https://mozilla.github.io/policy-templates/#firefoxsuggest
+// https://mozilla.github.io/policy-templates/#usermessaging
+// https://mozilla-services.github.io/merino/firefox.html
+// https://github.com/mozilla-services/merino-py
+
+pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
+pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
+
+/// Misc. Promotions
+
+pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
+pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
 
 /// Kill about:welcome & Onboarding
 
@@ -162,9 +256,22 @@ pref("browser.startup.page", 1); // [DEFAULT]
 pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extensions/recommendations.json"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
 
+/// Disable weather on about:home by default
+
+pref("browser.newtabpage.activity-stream.showWeather", false);
+
 pref("browser.phoenix.desktop.status", "008");
 
 // 009 Personal Touch 💜
+
+pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
+pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+pref("browser.newtabpage.activity-stream.showRecentSaves", false);
 
 /// Clean-up default UI
 

@@ -72,11 +72,6 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 
-pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
-pref("browser.newtabpage.activity-stream.impressionId", "", locked);
-pref("browser.newtabpage.activity-stream.telemetry", false, locked);
-pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
-pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
 pref("browser.places.interactions.enabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.rights.3.shown", true);
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
@@ -168,8 +163,6 @@ pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
 pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
 pref("browser.discovery.enabled", false);
 pref("browser.discovery.sites", "");
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
 pref("extensions.getAddons.browseAddons", ""); // Android?
 pref("extensions.getAddons.discovery.api_url", "data;"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 pref("extensions.getAddons.showPane", false);
@@ -180,8 +173,6 @@ pref("extensions.webservice.discoverURL", "");
 
 /// Fakespot
 
-pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
-pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
 pref("browser.shopping.experience2023.active", false);
 pref("browser.shopping.experience2023.ads.enabled", false, locked); // [DEFAULT]
 pref("browser.shopping.experience2023.ads.exposure", false, locked); // [HIDDEN]
@@ -199,10 +190,6 @@ pref("toolkit.shopping.ohttpRelayURL", "");
 
 /// Pocket
 
-pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false);
-pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
-pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
-pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 pref("extensions.pocket.enabled", false);
 
 /// Firefox Relay
@@ -219,15 +206,6 @@ pref("toolkit.contentRelevancy.log", false, locked);
 /// "Top Sites"/Sponsored content/etc.
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 
-pref("browser.newtabpage.activity-stream.default.sites", "");
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked);
-pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", true); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
-pref("browser.newtabpage.activity-stream.feeds.section.topstories", false, locked);
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}", locked);
 pref("browser.newtabpage.pinned", "");
 pref("browser.partnerlink.attributionURL", "", locked);
 pref("browser.partnerlink.campaign.topsites", "", locked);
@@ -236,60 +214,6 @@ pref("browser.topsites.contile.enabled", false, locked);
 pref("browser.topsites.contile.endpoint", "", locked);
 pref("browser.topsites.contile.sov.enabled", false, locked);
 pref("browser.topsites.useRemoteSetting", false, locked);
-
-/// Misc. Activity Stream (about:home)
-// We also configure "FirefoxHome" in policies
-// https://mozilla.github.io/policy-templates/#firefoxhome
-// https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
-// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
-
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.useRemoteL10n", false);
-pref("browser.newtabpage.activity-stream.discoverystream.config", "[]", locked);
-pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds", "", locked);
-pref("browser.newtabpage.activity-stream.discoverystream.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "", locked);
-pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "", locked);
-pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint", "", locked); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", "", locked); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled", false, locked); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false, locked);
-pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", false, locked);
-pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
-pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
-pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
-pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "", locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
-pref("messaging-system.askForFeedback", false, locked);
-
-/// Firefox Suggest
-// We also configure "FirefoxSuggest" & "UrlbarInterventions" in policies
-// https://mozilla.github.io/policy-templates/#firefoxsuggest
-// https://mozilla.github.io/policy-templates/#usermessaging
-// https://mozilla-services.github.io/merino/firefox.html
-// https://github.com/mozilla-services/merino-py
-
-pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
-pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
-pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
 
 /// Misc. Promotions
 
@@ -302,8 +226,6 @@ pref("browser.contentblocking.report.show_mobile_app", false, locked);
 pref("browser.contentblocking.report.vpn-android.url", "", locked);
 pref("browser.contentblocking.report.vpn-ios.url", "", locked);
 pref("browser.contentblocking.report.vpn-promo.url", "", locked);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
 pref("browser.preferences.moreFromMozilla", false, locked);
 pref("browser.privatebrowsing.vpnpromourl", "", locked);
 pref("browser.promo.cookiebanners.enabled", false, locked);
@@ -1826,10 +1748,6 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 
-/// Disable weather on about:home by default
-
-pref("browser.newtabpage.activity-stream.showWeather", false);
-
 /// Disable Firefox "Reset/Refresh Profile" prompt
 /// This could cause Phoenix users serious issues, especially those with user.js files...
 
@@ -1879,14 +1797,6 @@ pref("browser.compactmode.show", true);
 pref("browser.mailto.dualPrompt", false); // Prevent prompting to use as mailto handler
 pref("browser.mailto.prompt.os", false); // Prevent prompting to use as mailto handler
 pref("browser.menu.showViewImageInfo", true);
-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
-pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
-pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
-pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
-pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
-pref("browser.newtabpage.activity-stream.showRecentSaves", false);
 pref("browser.policies.loglevel", "error"); // [DEFAULT - HIDDEN] This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
 pref("browser.preferences.experimental", true); // [DEFAULT]
 pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
