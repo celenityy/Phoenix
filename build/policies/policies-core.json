@@ -1800,6 +1800,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "media.eme.widevine.experiment.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
             "media.eme.wmf.clearkey.enabled": {
                 "Value": false,
                 "Status": "default"
