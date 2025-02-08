@@ -101,8 +101,6 @@ pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT
 pref("browser.rights.3.shown", true);
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, at least on Nightly]
-pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
-pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
 pref("captchadetection.actor.enabled", false, locked); // [DEFAULT, except Nightly] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
 pref("captchadetection.loglevel", "Off");
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
@@ -217,8 +215,6 @@ pref("browser.shopping.experience2023.optedIn", 2);
 pref("browser.shopping.experience2023.shoppingSidebar", false);
 pref("browser.shopping.experience2023.survey.enabled", false);
 pref("browser.shopping.experience2023.survey.hasSeen", true);
-pref("browser.urlbar.fakespot.featureGate", false); // [DEFAULT]
-pref("browser.urlbar.suggest.fakespot", false);
 pref("toolkit.shopping.ohttpConfigURL", "");
 pref("toolkit.shopping.ohttpRelayURL", "");
 
@@ -228,8 +224,6 @@ pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", f
 pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-pref("browser.urlbar.pocket.featureGate", false);
-pref("browser.urlbar.suggest.pocket", false);
 pref("extensions.pocket.enabled", false);
 
 /// Firefox Relay
@@ -263,7 +257,6 @@ pref("browser.topsites.contile.enabled", false, locked);
 pref("browser.topsites.contile.endpoint", "", locked);
 pref("browser.topsites.contile.sov.enabled", false, locked);
 pref("browser.topsites.useRemoteSetting", false, locked);
-pref("browser.urlbar.sponsoredTopSites", false, locked);
 
 /// Misc. Activity Stream (about:home)
 // We also configure "FirefoxHome" in policies
@@ -318,28 +311,6 @@ pref("messaging-system.askForFeedback", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
-pref("browser.urlbar.addons.featureGate", false);
-pref("browser.urlbar.groupLabels.enabled", false);
-pref("browser.urlbar.mdn.featureGate", false);
-pref("browser.urlbar.merino.endpointURL", "");
-pref("browser.urlbar.merino.providers", "");
-pref("browser.urlbar.quicksuggest.contextualOptIn", false);
-pref("browser.urlbar.quicksuggest.enabled", false);
-pref("browser.urlbar.quicksuggest.hideSettingsUI", true);
-pref("browser.urlbar.quicksuggest.scenario", "offline");
-pref("browser.urlbar.quicksuggest.shouldShowOnboardingDialog", false);
-pref("browser.urlbar.quicksuggest.showedOnboardingDialog", true);
-pref("browser.urlbar.quicksuggest.sponsoredPriority", false, locked);
-pref("browser.urlbar.suggest.addons", false);
-pref("browser.urlbar.suggest.mdn", false);
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked);
-pref("browser.urlbar.suggest.trending", false);
-pref("browser.urlbar.suggest.weather", false);
-pref("browser.urlbar.suggest.yelp", false);
-pref("browser.urlbar.trending.featureGate", false);
-pref("browser.urlbar.weather.featureGate", false);
-pref("browser.urlbar.yelp.featureGate", false);
 
 /// Misc. Promotions
 
@@ -421,15 +392,6 @@ pref("browser.phoenix.core.status", "002");
 
 // 003 Search & URL Bar
 
-/// Allow adding custom search engines in about:preferences#search
-
-pref("browser.urlbar.update2.engineAliasRefresh", true);
-
-/// Never trim URLs
-
-pref("browser.urlbar.trimHttps", false);
-pref("browser.urlbar.trimURLs", false);
-
 /// Allow using a different search engine in Private Windows vs. Normal Windows
 
 pref("browser.search.separatePrivateDefault.ui.enabled", true);
@@ -443,44 +405,10 @@ pref("browser.search.separatePrivateDefault", false);
 
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
 
-// Remove Search Engine Placeholders
-
-pref("browser.urlbar.placeholderName", "");
-pref("browser.urlbar.placeholderName.private", "");
-
 /// Always show Punycode - Helps prevent phishing & IDN Homograph Attacks
 // https://wikipedia.org/wiki/IDN_homograph_attack
 
 pref("network.IDN_show_punycode", true);
-
-/// Do not autofill/autocomplete URLs by default
-
-pref("browser.urlbar.autoFill", false);
-
-// Always show URL instead of search terms
-
-pref("browser.urlbar.showSearchTerms.enabled", false);
-pref("browser.urlbar.showSearchTerms.featureGate", false);
-
-/// Enforce that JavaScript URLS are excluded from results
-
-pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
-
-/// Disable "Recent Searches" being suggested since we disable Search & Form History anyways
-
-pref("browser.urlbar.recentsearches.featureGate", false);
-pref("browser.urlbar.suggest.recentsearches", false);
-
-// Nice to have
-
-pref("browser.urlbar.clipboard.featureGate", false);
-pref("browser.urlbar.suggest.bookmark", true);
-pref("browser.urlbar.suggest.calculator", true);
-pref("browser.urlbar.suggest.clipboard", false);
-pref("browser.urlbar.suggest.engines", false);
-pref("browser.urlbar.suggest.history", false);
-pref("browser.urlbar.suggest.openpage", true);
-pref("browser.urlbar.unitConversion.enabled", true);
 
 pref("browser.phoenix.core.status", "003");
 
@@ -490,7 +418,6 @@ pref("browser.phoenix.core.status", "003");
 // https://developer.mozilla.org/docs/Glossary/Prefetch
 
 pref("browser.places.speculativeConnect.enabled", false);
-pref("browser.urlbar.speculativeConnect.enabled", false);
 pref("dom.prefetch_dns_for_anchor_http_document", false); // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
 pref("dom.prefetch_dns_for_anchor_https_document", false); // [DEFAULT] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42684
 pref("network.dns.disablePrefetch", true);
@@ -522,13 +449,10 @@ pref("network.early-hints.preconnect.max_connections", 0);
 
 pref("browser.search.suggest.enabled", false); // [DEFAULT - Android]
 pref("browser.search.suggest.enabled.private", false); // [DEFAULT - Android]
-pref("browser.urlbar.showSearchSuggestionsFirst", false);
-pref("browser.urlbar.suggest.searches", false);
 
-/// Prevent leaking single word searches to DNS provider
+/// Prevent leaking single word searches to DNS resolver
 
 pref("browser.fixup.dns_first_for_single_words", false); // [DEFAULT]
-pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
 /// Disable middle mouse clicks from pasting clipboard contents by default
 // Too easy to accidentally press...
