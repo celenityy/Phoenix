@@ -1117,6 +1117,7 @@
     "sproutannoyances": {
         "content": "filters",
         "group": "annoyances",
+        "off": true,
         "title": "⚙️ Dandelion Sprout's Annoyances List",
         "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList",
         "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
