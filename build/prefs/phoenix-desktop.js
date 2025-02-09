@@ -238,7 +238,7 @@ pref("browser.phoenix.desktop.status", "006");
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
 
-pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json");
+pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Phoenix/raw/commit/c0a0ba67d30ec25ddc8e27895942927c0a983ead/uBlock/assets.json");
 
 pref("browser.phoenix.desktop.status", "007");
 

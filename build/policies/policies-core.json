@@ -4,7 +4,7 @@
             "Extensions": {
                 "uBlock0@raymondhill.net": {
                     "adminSettings": {
-                        "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json"
+                        "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/c0a0ba67d30ec25ddc8e27895942927c0a983ead/uBlock/assets.json"
                     },
                     "advancedSettings": [
                         [
