@@ -1,10 +1,7 @@
 {
     "assets.json": {
         "content": "internal",
-        "updateAfter": 13,
-        "contentURL": [
-            "https://codeberg.org/celenity/Phoenix/raw/commit/a04acc906925202d3e32db33b10497578553e68c/uBlock/assets.json"
-        ]
+        "updateAfter": 13
     },
     "public_suffix_list.dat": {
         "content": "internal",
