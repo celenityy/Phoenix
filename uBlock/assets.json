@@ -1,7 +1,7 @@
 {
     "assets.json": {
         "content": "internal",
-        "updateAfter": 13
+        "updateAfter": 1
     },
     "public_suffix_list.dat": {
         "content": "internal",
@@ -13,7 +13,7 @@
     },
     "ublock-badlists": {
         "content": "internal",
-        "updateAfter": 29,
+        "updateAfter": 1,
         "contentURL": [
             "https://phoenix.celenity.dev/uBlock/badlists.txt"
         ]
@@ -1092,6 +1092,7 @@
     "multiproplus": {
         "content": "filters",
         "group": "multipurpose",
+        "off": true,
         "title": "📙 HaGeZi - Multi PRO++",
         "tags": "ads privacy security",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.plus.txt",
@@ -1118,7 +1119,6 @@
     "multiultimatemini": {
         "content": "filters",
         "group": "multipurpose",
-        "off": true,
         "title": "📕 HaGeZi - Multi ULTIMATE mini",
         "tags": "ads privacy security",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/ultimate.mini.txt",
@@ -1193,6 +1193,7 @@
     "threatintelmed": {
         "content": "filters",
         "group": "malware",
+        "off": true,
         "title": "🔐 HaGeZi - Threat Intelligence Feeds - Medium",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.medium.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
@@ -1200,7 +1201,6 @@
     "threatintelmini": {
         "content": "filters",
         "group": "malware",
-        "off": true,
         "title": "🔐 HaGeZi - Threat Intelligence Feeds - Mini",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
