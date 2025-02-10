@@ -43,9 +43,11 @@ pref("dom.origin-trials.enabled", false, locked);
 // https://github.com/mozilla-services/socorro
 // https://wiki.mozilla.org/Socorro
 // https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html
+// https://github.com/choller/firefox-asan-reporter
 
 pref("asanreporter.apiurl", "", locked);
 pref("asanreporter.clientid", "", locked);
+pref("asanreporter.loglevel", 70);
 pref("breakpad.reportURL", "", locked);
 pref("toolkit.crashreporter.include_context_heap", false, locked); // Defense in depth
 
