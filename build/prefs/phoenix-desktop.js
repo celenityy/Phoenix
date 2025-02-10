@@ -2,6 +2,14 @@
 
 // This file contains preferences specific to Phoenix on desktop.
 
+// 000 ABOUT:CONFIG
+
+// Disable annoying warnings when attempting to access the about:config
+
+pref("browser.aboutConfig.showWarning", false);
+
+pref("browser.phoenix.desktop.status", "000");
+
 // 001 DATA COLLECTION
 
 /// Shield Studies/Normandy/Nimbus
@@ -57,6 +65,9 @@ pref("browser.phoenix.desktop.status", "001");
 
 /// Firefox Recommendations & "Discovery"
 
+pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
+pref("browser.discovery.enabled", false);
+pref("browser.discovery.sites", "");
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
 
@@ -64,6 +75,20 @@ pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false
 
 pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
+pref("browser.shopping.experience2023.active", false);
+pref("browser.shopping.experience2023.ads.enabled", false, locked); // [DEFAULT]
+pref("browser.shopping.experience2023.ads.exposure", false, locked); // [HIDDEN]
+pref("browser.shopping.experience2023.ads.userEnabled", false, locked);
+pref("browser.shopping.experience2023.autoOpen.enabled", false); // [DEFAULT]
+pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
+pref("browser.shopping.experience2023.enabled", false); // [DEFAULT]
+pref("browser.shopping.experience2023.integratedSidebar", false); // [DEFAULT]
+pref("browser.shopping.experience2023.optedIn", 2);
+pref("browser.shopping.experience2023.shoppingSidebar", false);
+pref("browser.shopping.experience2023.survey.enabled", false);
+pref("browser.shopping.experience2023.survey.hasSeen", true);
+pref("browser.urlbar.fakespot.featureGate", false); // [DEFAULT]
+pref("browser.urlbar.suggest.fakespot", false);
 
 /// Pocket
 
@@ -71,6 +96,16 @@ pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", f
 pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+pref("browser.urlbar.pocket.featureGate", false);
+pref("browser.urlbar.suggest.pocket", false);
+pref("extensions.pocket.enabled", false);
+
+/// "Interest-based Content Relevance Ranking"
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1886207
+
+pref("toolkit.contentRelevancy.enabled", false, locked);
+pref("toolkit.contentRelevancy.ingestEnabled", false, locked);
+pref("toolkit.contentRelevancy.log", false, locked);
 
 /// "Top Sites"/Sponsored content/etc.
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
@@ -84,6 +119,15 @@ pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.ha
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
 pref("browser.newtabpage.activity-stream.feeds.section.topstories", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}", locked);
+pref("browser.newtabpage.pinned", "");
+pref("browser.partnerlink.attributionURL", "", locked);
+pref("browser.partnerlink.campaign.topsites", "", locked);
+pref("browser.topsites.component.enabled", false, locked); // [DEFAULT]
+pref("browser.topsites.contile.enabled", false, locked);
+pref("browser.topsites.contile.endpoint", "", locked);
+pref("browser.topsites.contile.sov.enabled", false, locked);
+pref("browser.topsites.useRemoteSetting", false, locked);
+pref("browser.urlbar.sponsoredTopSites", false, locked);
 
 /// Misc. Activity Stream (about:home)
 // We also configure "FirefoxHome" in policies
@@ -138,21 +182,85 @@ pref("messaging-system.askForFeedback", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
+pref("browser.urlbar.addons.featureGate", false);
+pref("browser.urlbar.groupLabels.enabled", false);
+pref("browser.urlbar.mdn.featureGate", false);
+pref("browser.urlbar.merino.endpointURL", "");
+pref("browser.urlbar.merino.providers", "");
+pref("browser.urlbar.quicksuggest.contextualOptIn", false);
+pref("browser.urlbar.quicksuggest.enabled", false);
+pref("browser.urlbar.quicksuggest.hideSettingsUI", true);
+pref("browser.urlbar.quicksuggest.scenario", "offline");
+pref("browser.urlbar.quicksuggest.shouldShowOnboardingDialog", false);
+pref("browser.urlbar.quicksuggest.showedOnboardingDialog", true);
+pref("browser.urlbar.quicksuggest.sponsoredPriority", false, locked);
+pref("browser.urlbar.suggest.addons", false);
+pref("browser.urlbar.suggest.mdn", false);
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked);
+pref("browser.urlbar.suggest.trending", false);
+pref("browser.urlbar.suggest.weather", false);
+pref("browser.urlbar.suggest.yelp", false);
+pref("browser.urlbar.trending.featureGate", false);
+pref("browser.urlbar.weather.featureGate", false);
+pref("browser.urlbar.yelp.featureGate", false);
 
 /// Misc. Promotions
 
+pref("browser.contentblocking.report.hide_vpn_banner", true, locked);
+pref("browser.contentblocking.report.lockwise.enabled", false);
+pref("browser.contentblocking.report.monitor.enabled", false); // [DEFAULT]
+pref("browser.contentblocking.report.proxy.enabled", false); // [DEFAULT]
+pref("browser.contentblocking.report.proxy_extension.url", "", locked);
+pref("browser.contentblocking.report.show_mobile_app", false, locked);
+pref("browser.contentblocking.report.vpn-android.url", "", locked);
+pref("browser.contentblocking.report.vpn-ios.url", "", locked);
+pref("browser.contentblocking.report.vpn-promo.url", "", locked);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
+pref("browser.preferences.moreFromMozilla", false, locked);
+pref("browser.promo.cookiebanners.enabled", false, locked); // [DEFAULT]
+pref("browser.promo.focus.enabled", false, locked);
+pref("browser.promo.pin.enabled", false, locked);
+pref("browser.protections_panel.infoMessage.seen", true); // Disables ETP Banner
+pref("browser.vpn_promo.enabled", false, locked);
+pref("cookiebanners.ui.desktop.showCallout", false);
+pref("identity.fxaccounts.toolbar.pxiToolbarEnabled", false, locked);
+pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.monitorEnabled", false, locked);
+pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.relayEnabled", false, locked);
+pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled", false, locked);
+pref("identity.mobilepromo.android", "", locked);
+pref("identity.mobilepromo.ios", "", locked);
+pref("identity.sendtabpromo.url", "", locked);
 
-/// Kill about:welcome & Onboarding
+/// Kill about:welcome & onboarding
 
 pref("browser.aboutwelcome.enabled", false);
+pref("browser.startup.homepage_override.mstone", "ignore");
+pref("browser.suppress_first_window_animation", true); // [DEFAULT]
+pref("browser.usedOnWindows10.introURL", ""); // [HIDDEN] https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
+
+/// Kill "Feature Tours"
+
+pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+pref("browser.newtab.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // [HIDDEN]
+pref("browser.pdfjs.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 /// Prevent Mozilla domains from having special privileges
-// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
-// This breaks installing extensions on Android & Thunderbird :/
 
-pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+pref("browser.uitour.enabled", false, locked);
+pref("browser.uitour.loglevel", "Off");
+pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
+pref("browser.uitour.surveyDuration", 0, locked);
+pref("browser.uitour.url", "", locked);
+pref("privacy.resistFingerprinting.block_mozAddonManager", true); // This breaks installing extensions on Android & Thunderbird :/
+
+/// Disable Mozilla Web Compatibility Reporter
+// Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
+// Also acts as attack surface reduction & a potential performance improvement
+
+pref("ui.new-webcompat-reporter.enabled", false); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
+pref("ui.new-webcompat-reporter.send-more-info-link", false); // [DEFAULT on non-Nightly]
 
 /// Remove Mozilla URL tracking params
 
@@ -166,15 +274,81 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCAL
 
 pref("browser.phoenix.desktop.status", "002");
 
-// 003 DNS
+// 003 Search & URL Bar
+
+/// Allow adding custom search engines in about:preferences#search
+
+pref("browser.urlbar.update2.engineAliasRefresh", true); // [HIDDEN]
+
+/// Never trim URLs
+
+pref("browser.urlbar.trimHttps", false);
+pref("browser.urlbar.trimURLs", false);
+
+// Remove Search Engine Placeholders
+
+pref("browser.urlbar.placeholderName", "");
+pref("browser.urlbar.placeholderName.private", "");
+
+/// Do not autofill/autocomplete URLs by default
+
+pref("browser.urlbar.autoFill", false);
+
+// Always show URL instead of search terms
+
+pref("browser.urlbar.showSearchTerms.enabled", false);
+pref("browser.urlbar.showSearchTerms.featureGate", false);
+
+/// Enforce that JavaScript URLS are excluded from results
+
+pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
+
+/// Disable "Recent Searches" being suggested since we disable Search & Form History anyways
+
+pref("browser.urlbar.recentsearches.featureGate", false);
+pref("browser.urlbar.suggest.recentsearches", false);
+
+// Nice to have
+
+pref("browser.urlbar.clipboard.featureGate", false);
+pref("browser.urlbar.suggest.bookmark", true); // [DEFAULT]
+pref("browser.urlbar.suggest.calculator", true);
+pref("browser.urlbar.suggest.clipboard", false);
+pref("browser.urlbar.suggest.engines", false);
+pref("browser.urlbar.suggest.history", false);
+pref("browser.urlbar.suggest.openpage", true); // [DEFAULT]
+pref("browser.urlbar.suggest.quickactions", false);
+pref("browser.urlbar.unitConversion.enabled", true);
+
+pref("browser.phoenix.desktop.status", "003");
+
+// 004 Implicit Connections
+
+/// Disable Network Prefetching
+
+pref("browser.urlbar.speculativeConnect.enabled", false);
+
+/// Disable Search Suggestions
+
+pref("browser.urlbar.showSearchSuggestionsFirst", false);
+pref("browser.urlbar.suggest.searches", false);
+
+/// Prevent leaking single word searches to DNS provider
+
+pref("browser.fixup.dns_first_for_single_words", false); // [DEFAULT]
+pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // [DEFAULT]
+
+pref("browser.phoenix.desktop.status", "004");
+
+// 005 DNS
 
 /// Improve list of built-in DoH resolvers
 
 pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "003");
+pref("browser.phoenix.desktop.status", "005");
 
-// 004 GEOLOCATION
+// 006 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -189,9 +363,45 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
-pref("browser.phoenix.desktop.status", "004");
+pref("browser.phoenix.desktop.status", "006");
 
-// 005 EXTENSIONS
+// 007 AI
+// https://support.mozilla.org/kb/ai-chatbot
+
+/// Ensure that AI functionality is disabled by default
+
+pref("browser.ml.chat.enabled", false); // [DEFAULT] - AI Chatbot
+pref("browser.ml.chat.shortcuts", false); // Pop-up when highlighting text
+
+/// If AI Chatbot is enabled, set it to DuckDuckGo AI Chat by default
+/// Unfortunately this is not compatible with the pop-up when selecting text. There is also not a way at the moment to add it as a persistent option.
+
+pref("browser.ml.chat.provider", "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat");
+
+/// If AI Chatbot is enabled, remove built-in Anthropic Claude, ChatGPT, Google Gemini, & Le Chat Mistral options due to the terrible privacy policies...
+/// HuggingChat is generally solid, though it does leave room for some questions, best option out of the built-in
+
+pref("browser.ml.chat.providers", "huggingchat");
+
+/// Allow toggling AI via about:preferences#experimental by default
+
+pref("browser.ml.chat.hideFromLabs", false);
+
+/// If pop-up when highlighting text is enabled, allow typing a custom prompt based on your selection
+
+pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
+
+pref("browser.phoenix.desktop.status", "007");
+
+// 008 DISK AVOIDANCE
+
+// Prevent automatically sharing Firefox Sync accounts...
+
+pref("identity.fxaccounts.migrateToDevEdition", false);
+
+pref("browser.phoenix.desktop.status", "008");
+
+// 009 EXTENSIONS
 
 // Only allow signed extensions
 // I'd like to unlock these in the future (We already don't lock it on Android)
@@ -200,9 +410,9 @@ pref("browser.phoenix.desktop.status", "004");
 
 pref("xpinstall.signatures.required", true, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "005");
+pref("browser.phoenix.desktop.status", "009");
 
-// 006 FINGERPRINTING PROTECTION
+// 010 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -231,18 +441,22 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "006");
+pref("browser.phoenix.desktop.status", "010");
 
-/// 007 MISC. PRIVACY
+/// 011 MISC. PRIVACY
 
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
 
 pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Phoenix/raw/commit/c0a0ba67d30ec25ddc8e27895942927c0a983ead/uBlock/assets.json");
 
-pref("browser.phoenix.desktop.status", "007");
+/// Enforce container isolation of about:home content
 
-/// 008 MISC.
+pref("browser.discovery.containers.enabled", true); // [DEFAULT]
+
+pref("browser.phoenix.desktop.status", "011");
+
+/// 012 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -265,9 +479,9 @@ pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.de
 
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
-pref("browser.phoenix.desktop.status", "008");
+pref("browser.phoenix.desktop.status", "012");
 
-// 009 Personal Touch 💜
+// 013 Personal Touch 💜
 
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
@@ -277,20 +491,22 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", f
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 pref("browser.newtabpage.activity-stream.showRecentSaves", false);
+pref("browser.preferences.experimental", true); // [DEFAULT]
+pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
 
 /// Clean-up default UI
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "009");
+pref("browser.phoenix.desktop.status", "013");
 
-// 010 Enable support for custom/specialized configs...
+// 014 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "010");
+pref("browser.phoenix.desktop.status", "014");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

@@ -263,12 +263,28 @@
             "Locked": false
         },
         "Preferences": {
+            "browser.aboutConfig.showWarning": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.aboutwelcome.enabled": {
                 "Value": false,
                 "Status": "default"
             },
             "browser.aboutwelcome.log": {
                 "Value": "off",
+                "Status": "default"
+            },
+            "browser.contentblocking.report.hide_vpn_banner": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "browser.contentblocking.report.lockwise.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.contentblocking.report.monitor.enabled": {
+                "Value": false,
                 "Status": "default"
             },
             "browser.contentblocking.report.monitor.sign_in_url": {
@@ -279,12 +295,88 @@
                 "Value": "https://monitor.firefox.com/",
                 "Status": "default"
             },
+            "browser.contentblocking.report.proxy.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.contentblocking.report.proxy_extension.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.contentblocking.report.show_mobile_app": {
+                "Value": false,
+                "Status": "locked"
+            },
             "browser.contentblocking.report.vpn.url": {
                 "Value": "https://vpn.mozilla.org/",
                 "Status": "default"
             },
+            "browser.contentblocking.report.vpn-android.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.contentblocking.report.vpn-ios.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.contentblocking.report.vpn-promo.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.dataFeatureRecommendations.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.discovery.containers.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.discovery.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.discovery.sites": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.firefox-view.feature-tour": {
+                "Value": "{\"screen\":\"\",\"complete\":true}",
+                "Status": "default"
+            },
+            "browser.fixup.dns_first_for_single_words": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.geolocation.warning.infoURL": {
                 "Value": "https://phoenix.celenity.dev/geo",
+                "Status": "default"
+            },
+            "browser.ml.chat.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.ml.chat.hideFromLabs": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.ml.chat.provider": {
+                "Value": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat",
+                "Status": "default"
+            },
+            "browser.ml.chat.providers": {
+                "Value": "huggingchat",
+                "Status": "default"
+            },
+            "browser.ml.chat.shortcuts": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.ml.chat.shortcuts.custom": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.newtab.feature-tour": {
+                "Value": "{\"screen\":\"\",\"complete\":true}",
                 "Status": "default"
             },
             "browser.newtabpage.activity-stream.asrouter.providers.cfr": {
@@ -571,17 +663,373 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.newtabpage.pinned": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.partnerlink.attributionURL": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.partnerlink.campaign.topsites": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.pdfjs.feature-tour": {
+                "Value": "{\"screen\":\"\",\"complete\":true}",
+                "Status": "default"
+            },
+            "browser.preferences.experimental": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.preferences.experimental.hidden": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.preferences.moreFromMozilla": {
+                "Value": false,
+                "Status": "locked"
+            },
             "browser.privacySegmentation.preferences.show": {
                 "Value": false,
                 "Status": "locked"
+            },
+            "browser.promo.cookiebanners.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.promo.focus.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.promo.pin.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.protections_panel.infoMessage.seen": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.active": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.ads.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.shopping.experience2023.ads.exposure": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.shopping.experience2023.ads.userEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.shopping.experience2023.autoOpen.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.autoOpen.userEnabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.integratedSidebar": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.optedIn": {
+                "Value": 2,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.shoppingSidebar": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.survey.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shopping.experience2023.survey.hasSeen": {
+                "Value": true,
+                "Status": "default"
             },
             "browser.startup.homepage": {
                 "Value": "about:home",
                 "Status": "default"
             },
+            "browser.startup.homepage_override.mstone": {
+                "Value": "ignore",
+                "Status": "default"
+            },
             "browser.startup.page": {
                 "Value": 1,
                 "Status": "default"
+            },
+            "browser.suppress_first_window_animation": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.topsites.component.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.topsites.contile.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.topsites.contile.endpoint": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.topsites.contile.sov.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.topsites.useRemoteSetting": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.uitour.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.uitour.loglevel": {
+                "Value": "Off",
+                "Status": "default"
+            },
+            "browser.uitour.requireSecure": {
+                "Value": true,
+                "Status": "locked"
+            },
+            "browser.uitour.surveyDuration": {
+                "Value": 0,
+                "Status": "locked"
+            },
+            "browser.uitour.url": {
+                "Value": "",
+                "Status": "locked"
+            },
+            "browser.urlbar.addons.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.autoFill": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.clipboard.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.dnsResolveSingleWordsAfterSearch": {
+                "Value": 0,
+                "Status": "default"
+            },
+            "browser.urlbar.fakespot.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.filter.javascript": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.groupLabels.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.mdn.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.merino.endpointURL": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.urlbar.merino.providers": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.urlbar.pocket.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.placeholderName": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.urlbar.placeholderName.private": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.contextualOptIn": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.dataCollection.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.urlbar.quicksuggest.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.hideSettingsUI": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.onboardingDialogChoice": {
+                "Value": "reject_2",
+                "Status": "locked"
+            },
+            "browser.urlbar.quicksuggest.scenario": {
+                "Value": "offline",
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.shouldShowOnboardingDialog": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.showedOnboardingDialog": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.quicksuggest.sponsoredPriority": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.urlbar.recentsearches.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.showSearchSuggestionsFirst": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.showSearchTerms.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.showSearchTerms.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.speculativeConnect.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.sponsoredTopSites": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.urlbar.suggest.addons": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.bookmark": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.calculator": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.clipboard": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.engines": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.fakespot": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.history": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.mdn": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.openpage": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.pocket": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.quicksuggest.nonsponsored": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.quicksuggest.sponsored": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.urlbar.suggest.recentsearches": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.searches": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.trending": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.weather": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.suggest.yelp": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.trending.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.trimHttps": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.trimURLs": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.unitConversion.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.update2.engineAliasRefresh": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.urlbar.weather.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.urlbar.yelp.featureGate": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.usedOnWindows10.introURL": {
+                "Value": "",
+                "Status": "default"
+            },
+            "browser.vpn_promo.enabled": {
+                "Value": false,
+                "Status": "locked"
             },
             "extensions.getAddons.search.browseURL": {
                 "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
@@ -589,6 +1037,10 @@
             },
             "extensions.getAddons.discovery.api_url": {
                 "Value": "https://phoenix.celenity.dev/extensions/recommendations.json",
+                "Status": "default"
+            },
+            "extensions.pocket.enabled": {
+                "Value": false,
                 "Status": "default"
             },
             "extensions.recommendations.privacyPolicyUrl": {
@@ -607,13 +1059,37 @@
                 "Value": true,
                 "Status": "default"
             },
+            "identity.fxaccounts.toolbar.pxiToolbarEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "identity.fxaccounts.toolbar.pxiToolbarEnabled.monitorEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "identity.fxaccounts.toolbar.pxiToolbarEnabled.relayEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
             "signon.rememberSignons": {
+                "Value": false,
+                "Status": "default"
+            },
+            "ui.new-webcompat-reporter.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "ui.new-webcompat-reporter.send-more-info-link": {
                 "Value": false,
                 "Status": "default"
             },
             "xpinstall.signatures.required": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "browser.phoenix.policies.status": {
                 "Value": "successfully applied :D",

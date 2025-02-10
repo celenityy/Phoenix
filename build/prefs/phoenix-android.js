@@ -17,6 +17,11 @@ pref("browser.phoenix.android.status", "001");
 pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT]
 pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT]
 
+/// Enforce that no data is shared with Google
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
+
+pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT]
+
 pref("browser.phoenix.android.status", "002");
 
 // 003 EXTENSIONS

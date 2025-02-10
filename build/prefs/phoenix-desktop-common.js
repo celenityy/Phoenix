@@ -28,122 +28,19 @@ pref("browser.phoenix.desktop.common.status", "001");
 
 // 002 MOZILLA CRAP™
 
-/// Fakespot
+/// Firefox Recommendations & "Discovery"
 
-pref("browser.urlbar.fakespot.featureGate", false); // [DEFAULT]
-pref("browser.urlbar.suggest.fakespot", false);
+pref("extensions.getAddons.discovery.api_url", "data;"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is local/installed extensions...
 
-/// Pocket
+/// Prevent Mozilla domains from having special privileges
 
-pref("browser.urlbar.pocket.featureGate", false);
-pref("browser.urlbar.suggest.pocket", false);
-
-/// "Top Sites"/Sponsored content/etc.
-// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
-
-pref("browser.urlbar.sponsoredTopSites", false, locked);
-
-/// Firefox Suggest
-
-pref("browser.urlbar.addons.featureGate", false);
-pref("browser.urlbar.groupLabels.enabled", false);
-pref("browser.urlbar.mdn.featureGate", false);
-pref("browser.urlbar.merino.endpointURL", "");
-pref("browser.urlbar.merino.providers", "");
-pref("browser.urlbar.quicksuggest.contextualOptIn", false);
-pref("browser.urlbar.quicksuggest.enabled", false);
-pref("browser.urlbar.quicksuggest.hideSettingsUI", true);
-pref("browser.urlbar.quicksuggest.scenario", "offline");
-pref("browser.urlbar.quicksuggest.shouldShowOnboardingDialog", false);
-pref("browser.urlbar.quicksuggest.showedOnboardingDialog", true);
-pref("browser.urlbar.quicksuggest.sponsoredPriority", false, locked);
-pref("browser.urlbar.suggest.addons", false);
-pref("browser.urlbar.suggest.mdn", false);
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked);
-pref("browser.urlbar.suggest.trending", false);
-pref("browser.urlbar.suggest.weather", false);
-pref("browser.urlbar.suggest.yelp", false);
-pref("browser.urlbar.trending.featureGate", false);
-pref("browser.urlbar.weather.featureGate", false);
-pref("browser.urlbar.yelp.featureGate", false);
+pref("permissions.manager.defaultsUrl", "", locked);
+pref("services.sync.addons.trustedSourceHostnames", "");
 
 pref("browser.phoenix.desktop.common.status", "002");
 
-// 003 Search & URL Bar
-
-/// Allow adding custom search engines in about:preferences#search
-
-pref("browser.urlbar.update2.engineAliasRefresh", true); // [HIDDEN]
-
-/// Never trim URLs
-
-pref("browser.urlbar.trimHttps", false);
-pref("browser.urlbar.trimURLs", false);
-
-// Remove Search Engine Placeholders
-
-pref("browser.urlbar.placeholderName", "");
-pref("browser.urlbar.placeholderName.private", "");
-
-/// Do not autofill/autocomplete URLs by default
-
-pref("browser.urlbar.autoFill", false);
-
-// Always show URL instead of search terms
-
-pref("browser.urlbar.showSearchTerms.enabled", false);
-pref("browser.urlbar.showSearchTerms.featureGate", false);
-
-/// Enforce that JavaScript URLS are excluded from results
-
-pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
-
-/// Disable "Recent Searches" being suggested since we disable Search & Form History anyways
-
-pref("browser.urlbar.recentsearches.featureGate", false);
-pref("browser.urlbar.suggest.recentsearches", false);
-
-// Nice to have
-
-pref("browser.urlbar.clipboard.featureGate", false);
-pref("browser.urlbar.suggest.bookmark", true);
-pref("browser.urlbar.suggest.calculator", true);
-pref("browser.urlbar.suggest.clipboard", false);
-pref("browser.urlbar.suggest.engines", false);
-pref("browser.urlbar.suggest.history", false);
-pref("browser.urlbar.suggest.openpage", true);
-pref("browser.urlbar.unitConversion.enabled", true);
-
-pref("browser.phoenix.desktop.common.status", "003");
-
-// 004 Implicit Connections
-
-/// Disable Network Prefetching
-
-pref("browser.urlbar.speculativeConnect.enabled", false);
-
-/// Disable Search Suggestions
-
-pref("browser.urlbar.showSearchSuggestionsFirst", false);
-pref("browser.urlbar.suggest.searches", false);
-
-/// Prevent leaking single word searches to DNS provider
-
-pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
-
-pref("browser.phoenix.desktop.common.status", "004");
-
-// 005 HTTP(S) - Mixed Content & General Network Hardening
-
-/// Enforce using HTTPS as much as possible
-
-pref("dom.security.https_only_mode", true, locked);
-pref("dom.security.https_only_mode_pbm", true, locked);
-
-pref("browser.phoenix.desktop.common.status", "005");
-
-// 006 CERTIFICATES
+// 003 CERTIFICATES
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
@@ -164,25 +61,25 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.desktop.common.status", "006");
+pref("browser.phoenix.desktop.common.status", "003");
 
-// 007 GEOLOCATION
+// 004 GEOLOCATION
 
 /// Configure OS Geolocation providers
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
 
-pref("browser.phoenix.desktop.common.status", "007");
+pref("browser.phoenix.desktop.common.status", "004");
 
-// 008 DISK AVOIDANCE
+// 005 DISK AVOIDANCE
 
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows
 
 pref("toolkit.winRegisterApplicationRestart", false);
 
-pref("browser.phoenix.desktop.common.status", "008");
+pref("browser.phoenix.desktop.common.status", "005");
 
-// 009 EXTENSIONS
+// 006 EXTENSIONS
 
 // Only allow signed language packs & whitelisted extensions...
 
@@ -193,27 +90,27 @@ pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
 
 pref("extensions.getAddons.showPane", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "009");
+pref("browser.phoenix.desktop.common.status", "006");
 
-// 010 ATTACK SURFACE REDUCTION
+// 007 ATTACK SURFACE REDUCTION
 
 /// Disable WebXR
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 
-pref("permissions.default.xr", 2);
+pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.desktop.common.status", "010");
+pref("browser.phoenix.desktop.common.status", "007");
 
-// 011 MISC. SECURITY
+// 008 MISC. SECURITY
 
 /// Disable GNOME Integration
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
 
 pref("browser.gnome-search-provider.enabled", false);
 
-pref("browser.phoenix.desktop.common.status", "011");
+pref("browser.phoenix.desktop.common.status", "008");
 
-// 012 MEDIA
+// 009 MEDIA
 
 /// Always sandbox GMP on GNU/Linux
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
@@ -237,9 +134,9 @@ pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
 
 pref("media.wmf.media-engine.enabled", 3);
 
-pref("browser.phoenix.desktop.common.status", "012");
+pref("browser.phoenix.desktop.common.status", "009");
 
-// 013 PERFORMANCE
+// 010 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -250,9 +147,9 @@ pref("media.cache_resume_threshold", 3600);
 pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "013");
+pref("browser.phoenix.desktop.common.status", "010");
 
-// 014 Personal Touch
+// 011 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -264,7 +161,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "014");
+pref("browser.phoenix.desktop.common.status", "011");
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 
