@@ -953,7 +953,7 @@
         "content": "filters",
         "group": "malware",
         "off": true,
-        "title": "💻 HaGeZi's Badware Hoster Blocklist",
+        "title": "💻 HaGeZi - Badware Hoster",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
@@ -1008,7 +1008,7 @@
     "dyndns": {
         "content": "filters",
         "group": "malware",
-        "title": "🔏 HaGeZi's Dynamic DNS Blocklist",
+        "title": "🔏 HaGeZi - Dynamic DNS",
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/dyndns.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
@@ -1208,7 +1208,7 @@
     "tlds": {
         "content": "filters",
         "group": "malware",
-        "title": "🔮 HaGeZi's Most Abused TLDs",
+        "title": "🔮 HaGeZi - Most Abused TLDs",
         "off": true,
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
