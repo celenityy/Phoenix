@@ -124,10 +124,6 @@
                 "Value": "strict",
                 "Status": "locked"
             },
-            "browser.contentblocking.cfr-milestone.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
             "browser.contentblocking.database.enabled": {
                 "Value": false,
                 "Status": "default"
@@ -196,10 +192,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.laterrun.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
             "browser.link.force_default_user_context_id_for_external_opens": {
                 "Value": true,
                 "Status": "default"
@@ -234,14 +226,6 @@
             },
             "browser.opaqueResponseBlocking.javascriptValidator": {
                 "Value": true,
-                "Status": "default"
-            },
-            "browser.pagethumbnails.capturing_disabled": {
-                "Value": true,
-                "Status": "default"
-            },
-            "browser.pdf.launchDefaultEdgeAsApp": {
-                "Value": false,
                 "Status": "default"
             },
             "browser.places.interactions.enabled": {
@@ -308,6 +292,62 @@
                 "Value": "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%",
                 "Status": "default"
             },
+            "browser.safebrowsing.features.blockedURIs.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.cryptomining.annotate.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.cryptomining.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.downloads.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.emailtracking.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.emailtracking.datacollection.update": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.safebrowsing.features.fingerprinting.annotate.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.fingerprinting.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.malware.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.phishing.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.socialtracking.annotate.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.socialtracking.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.trackingAnnotation.update": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.safebrowsing.features.trackingProtection.update": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.safebrowsing.malware.enabled": {
                 "Value": true,
                 "Status": "default"
@@ -319,6 +359,10 @@
             "browser.safebrowsing.provider.google.advisoryName": {
                 "Value": "Google Safe Browsing (Legacy)",
                 "Status": "default"
+            },
+            "browser.safebrowsing.provider.google.dataSharing.enabled": {
+                "Value": false,
+                "Status": "locked"
             },
             "browser.safebrowsing.provider.google.gethashURL": {
                 "Value": "",
@@ -374,6 +418,10 @@
             },
             "browser.safebrowsing.reportPhishURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=",
+                "Status": "default"
+            },
+            "browser.safebrowsing.update.enabled": {
+                "Value": true,
                 "Status": "default"
             },
             "browser.search.openintab": {
@@ -444,31 +492,7 @@
                 "Value": 2,
                 "Status": "default"
             },
-            "browser.shell.checkDefaultBrowser": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.shell.checkDefaultPDF": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.shell.checkDefaultPDF.silencedByUser": {
-                "Value": true,
-                "Status": "default"
-            },
-            "browser.shell.shortcutFavicons": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.shell.skipDefaultBrowserCheckOnFirstRun": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.spin_cursor_while_busy": {
-                "Value": true,
-                "Status": "default"
-            },
-            "browser.startup.upgradeDialog.enabled": {
                 "Value": true,
                 "Status": "default"
             },
@@ -742,15 +766,11 @@
             },
             "extensions.install.requireBuiltInCerts": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "extensions.installDistroAddons": {
                 "Value": false,
                 "Status": "default"
-            },
-            "extensions.langpacks.signatures.required": {
-                "Value": true,
-                "Status": "locked"
             },
             "extensions.postDownloadThirdPartyPrompt": {
                 "Value": false,
@@ -874,7 +894,7 @@
             },
             "extensions.update.requireBuiltInCerts": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "extensions.webapi.testing": {
                 "Value": false,
@@ -985,10 +1005,6 @@
                 "Status": "default"
             },
             "layout.forms.reveal-password-button.enabled": {
-                "Value": true,
-                "Status": "default"
-            },
-            "layout.forms.reveal-password-context-menu.enabled": {
                 "Value": true,
                 "Status": "default"
             },
@@ -1404,10 +1420,6 @@
                 "Value": false,
                 "Status": "locked"
             },
-            "network.protocol-handler.warn-external.mailto": {
-                "Value": true,
-                "Status": "default"
-            },
             "network.protocol-handler.warn-external-default": {
                 "Value": true,
                 "Status": "default"
@@ -1580,14 +1592,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "signon.management.page.breach-alerts.enabled": {
-                "Value": true,
-                "Status": "default"
-            },
-            "signon.management.page.vulnerable-passwords.enabled": {
-                "Value": true,
-                "Status": "default"
-            },
             "signon.privateBrowsingCapture.enabled": {
                 "Value": false,
                 "Status": "default"
@@ -1610,7 +1614,7 @@
             },
             "xpinstall.whitelist.required": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "default"
             },
             "browser.phoenix.core.policies.status": {
                 "Value": "successfully applied :D",

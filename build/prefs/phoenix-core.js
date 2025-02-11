@@ -61,6 +61,7 @@ pref("security.xfocsp.errorReporting.enabled", false, locked);
 /// Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
 // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1487578
 
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
@@ -77,6 +78,7 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 pref("browser.places.interactions.enabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.rights.3.shown", true);
+pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, at least on Nightly]
 pref("captchadetection.actor.enabled", false, locked); // [DEFAULT, except Nightly] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
@@ -174,18 +176,18 @@ pref("toolkit.shopping.ohttpRelayURL", "");
 
 /// Firefox Relay
 
-pref("signon.firefoxRelay.feature", "disabled");
+pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
 /// Misc. Promotions
 
-pref("browser.privatebrowsing.vpnpromourl", "", locked); // [HIDDEN - non-desktop/Thunderbird builds]
+pref("browser.privatebrowsing.vpnpromourl", "", locked); // [HIDDEN - Android/Thunderbird]
 
 /// Kill about:welcome & onboarding
 
-pref("startup.homepage_override_url", ""); // [HIDDEN - non-desktop/Thunderbird builds]
-pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
-pref("startup.homepage_welcome_url", ""); // [HIDDEN - non-desktop/Thunderbird builds]
-pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("startup.homepage_override_url", ""); // [HIDDEN - Android/Thunderbird]
+pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT, HIDDEN - Android/Thunderbird]
+pref("startup.homepage_welcome_url", ""); // [HIDDEN - Android/Thunderbird]
+pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 /// Prevent Mozilla domains from having special privileges
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
@@ -195,7 +197,7 @@ pref("browser.tabs.remote.separatedMozillaDomains", "", locked);
 pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
 pref("extensions.webapi.testing", false, locked); // [DEFAULT] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5445
 pref("extensions.webextensions.restrictedDomains", "");
-pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT on non-desktop/Thunderbird builds]
+pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT on Android/Thunderbird]
 
 /// Disable Mozilla Web Compatibility Reporter
 // Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
@@ -266,6 +268,7 @@ pref("network.early-hints.preconnect.enabled", false);
 pref("network.early-hints.preconnect.max_connections", 0);
 
 /// Disable Search Suggestions
+// These prefs appear to have no impact on Android & Thunderbird, but they still appear in both by default... so we can set anyways
 
 pref("browser.search.suggest.enabled", false); // [DEFAULT - Android]
 pref("browser.search.suggest.enabled.private", false); // [DEFAULT]
@@ -365,7 +368,7 @@ pref("security.tls.enable_kyber", true);
 /// Enforce MITM Detection
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
 
-pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 /// Disable Captive Portal Detection & Connectivity Checks
 // Privacy & security concerns, and in general best handled by the OS.
@@ -373,7 +376,7 @@ pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT, HIDDEN - no
 // https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 
 pref("captivedetect.canonicalURL", "");
-pref("network.captive-portal-service.enabled", false); // [DEFAULT on non-desktop/Thunderbird builds]
+pref("network.captive-portal-service.enabled", false); // [DEFAULT on Android/Thunderbird]
 pref("network.connectivity-service.DNSv4.domain", "");
 pref("network.connectivity-service.DNSv6.domain", "");
 pref("network.connectivity-service.enabled", false);
@@ -495,7 +498,7 @@ pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - Nig
 
 /// Make exceptions for certificate errors session only
 
-pref("security.certerrors.permanentOverride", false); // [HIDDEN - non-desktop/Thunderbird builds]
+pref("security.certerrors.permanentOverride", false); // [HIDDEN - Android/Thunderbird]
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
@@ -534,16 +537,16 @@ pref("browser.download.useDownloadDir", false); // [DEFAULT - Thunderbird]
 
 // Always notify when downloading files
 
-pref("browser.download.alwaysOpenPanel", true); // [DEFAULT - Desktop, HIDDEN - non-desktop/Thunderbird builds]
+pref("browser.download.alwaysOpenPanel", true); // [DEFAULT - Desktop, HIDDEN - Android/Thunderbird]
 
 // Enforce blocking insecure downloads
 
 pref("dom.block_download_insecure", true); // [DEFAULT]
 
 /// Disable extra download logging by default
-// This lets us expose it in the about:config for non-desktop/Thunderbird builds
+// This lets us expose it in the about:config for Android/Thunderbird
 
-pref("browser.download.loglevel", "Error"); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("browser.download.loglevel", "Error"); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 pref("browser.phoenix.core.status", "008");
 
@@ -557,8 +560,13 @@ pref("browser.phoenix.core.status", "008");
 pref("browser.safebrowsing.blockedURIs.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.downloads.enabled", true); // [DEFAULT - non-Android]
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
+pref("browser.safebrowsing.features.blockedURIs.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.downloads.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
+pref("browser.safebrowsing.update.enabled", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto"); // [DEFAULT - non-Android]
 pref("urlclassifier.downloadBlockTable", "goog-badbinurl-proto"); // [DEFAULT - non-Android]
 
@@ -587,12 +595,13 @@ pref("browser.safebrowsing.downloads.remote.enabled", false);
 /// Enforce that no data is shared with Google
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
 
+pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT, HIDDEN - non-Android]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
 
 /// Show advanced details on pages blocked by Safe Browsing by default
 
-pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [HIDDEN - non-desktop/Thunderbird builds]
+pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [HIDDEN - Android/Thunderbird]
 
 /// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla & Google (NOT PROXIED), as well as your locale to Mozilla
 // Ex. https://en-us.phish-error.mozilla.com/?url=example.org - Which redirects you directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org 
@@ -674,8 +683,8 @@ pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 /// Always allow user to silence notifications when screen sharing
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2452
 
-pref("privacy.webrtc.allowSilencingNotifications", true); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
-pref("privacy.webrtc.hideGlobalIndicator", false); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("privacy.webrtc.allowSilencingNotifications", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
+pref("privacy.webrtc.hideGlobalIndicator", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 /// Enable global toggles for muting the camera/microphone in WebRTC
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2452
@@ -685,12 +694,12 @@ pref("privacy.webrtc.globalMuteToggles", true); // [HIDDEN - Android]
 /// Warn users when attempting to switch tabs in a window being shared over WebRTC
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2459
 
-pref("privacy.webrtc.sharedTabWarning", true); // [HIDDEN - non-desktop/Thunderbird builds]
+pref("privacy.webrtc.sharedTabWarning", true); // [HIDDEN - Android/Thunderbird]
 
 /// Always sandbox Media Transport
 // https://searchfox.org/mozilla-central/source/security/sandbox/common/SandboxSettings.cpp
 
-pref("media.peerconnection.mtransport_process", true); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("media.peerconnection.mtransport_process", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 pref("browser.phoenix.core.status", "012");
 
@@ -714,72 +723,35 @@ pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
 pref("browser.sessionstore.privacy_level", 2); // [HIDDEN - Thunderbird]
 
-/// Sanitize on exit
+/// Sanitization
 // Clears browsing history, cache, download history, & sessions on exit by default
 
-pref("privacy.clearHistory.cache", true);
-pref("privacy.clearHistory.historyFormDataAndDownloads", true);
-pref("privacy.clearSiteData.cache", true);
-pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
 pref("privacy.clearOnShutdown.cache", true);
-pref("privacy.clearOnShutdown.downloads", true);
-pref("privacy.clearOnShutdown.formdata", true);
-pref("privacy.clearOnShutdown.history", true);
-pref("privacy.clearOnShutdown.offlineApps", true);
-pref("privacy.clearOnShutdown.sessions", true);
+pref("privacy.clearOnShutdown.downloads", true); // [HIDDEN - Android/Thunderbird]
+pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Android/Thunderbird]
+pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.cache", true);
-pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true);
-pref("privacy.cpd.cache", true);
-pref("privacy.cpd.formdata", true);
-pref("privacy.sanitize.sanitizeOnShutdown", true); // Allows selectively clearing data on shutdown
-
-/// Set time range when manually clearing data to "everything" by default
-
-pref("privacy.sanitize.timeSpan", 0);
+pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [HIDDEN - Android/Thunderbird]
+pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 /// Prevent logging blocked domains in about:protections
 
-pref("browser.contentblocking.cfr-milestone.enabled", false);
-pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android]
-
-/// Disable favicons in shortcuts
-// Prevents .ico files from persisting, even after deletion
-
-pref("browser.shell.shortcutFavicons", false);
+pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
 
 /// Removes cached files from browser windows opened with external applications
 // https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574
 
 pref("browser.download.start_downloads_in_tmp_dir", true);
-pref("browser.helperApps.deleteTempFileOnExit", true);
-
-// Prevent exposing content in the window title for Private Browsing windows
-// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
-
-pref("privacy.exposeContentTitleInWindow.pbm", false);
+pref("browser.helperApps.deleteTempFileOnExit", true); // [DEFAULT - Thunderbird]
 
 /// When a file is deleted in Firefox, also remove from session list & history 
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 
-pref("browser.download.clearHistoryOnDelete", 2);
-
-/// Enables a fire button in Private Browsing Windows to reset session
-
-pref("browser.privatebrowsing.resetPBM.enabled", true);
-
-/// Disable LaterRun
-// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1200639
-
-pref("browser.laterrun.enabled", false);
+pref("browser.download.clearHistoryOnDelete", 2); // [HIDDEN - Android/Thunderbird]
 
 /// Prevent coloring visited links
 
 pref("layout.css.visited_links_enabled", false);
-
-/// Disable collecting & generating background thumbnails
-
-pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 /// Allow permission manager to write to disk
 // This is already Firefox's default - but it's hidden, so this exposes it to the about:config
@@ -795,27 +767,26 @@ pref("browser.phoenix.core.status", "013");
 // https://archive.is/DYjAM
 // https://github.com/arkenfox/user.js/blob/master/user.js#L612
 
-pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT] Defense in depth, ensures extensions installed via directories are disabled by default...
-pref("extensions.enabledScopes", 5); // [DEFAULT]
+pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures extensions installed via directories are disabled by default...
+pref("extensions.enabledScopes", 5); // [HIDDEN]
 
 /// Disable automatic installation/enablement of third party extensions in Firefox's installation directory
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 
-pref("extensions.installDistroAddons", false);
+pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT - Android]
 
-/// Only allow signed extensions
+/// Only allow signed extensions by default
 
-pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
 pref("xpinstall.whitelist.required", true); // [DEFAULT]
 
-/// Only allow installation and updates of extensions using Firefox's built-in certificates...
+/// Only allow installation and updates of extensions using Firefox's built-in certificates by default...
 
-pref("extensions.install.requireBuiltInCerts", true, locked); // [HIDDEN]
-pref("extensions.update.requireBuiltInCerts", true, locked); // [HIDDEN]
+pref("extensions.install.requireBuiltInCerts", true); // [HIDDEN]
+pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
 
 /// Block extensions signed with weak signature algorithms
 
-pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [HIDDEN]
+pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAULT, HIDDEN]
 
 /// Enforce Extension Blocklist
 
@@ -823,12 +794,12 @@ pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
 /// Never bypass 3rd party extension install prompts
 
-pref("extensions.postDownloadThirdPartyPrompt", false, locked);
+pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird]
 
 /// Prevent unprivileged extensions from accessing experimental APIs by default
 // https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142
 
-pref("extensions.experiments.enabled", false); // [DEFAULT, except on ex. Nightly...]
+pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
 
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
@@ -892,24 +863,13 @@ pref("pdfjs.enableXfa", false);
 
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
 
-/// Prevent checking if default PDF viewer
-// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
-
-pref("browser.shell.checkDefaultPDF", false);
-pref("browser.shell.checkDefaultPDF.silencedByUser", true);
-
-/// Never open Microsoft Edge for PDFs
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-
-pref("browser.pdf.launchDefaultEdgeAsApp", false);
-
 /// Open PDFs inline where possible
 
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Android]
 
 /// Show sidebar by default when viewing PDFs
 
-pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN]
+pref("pdfjs.sidebarViewOnLoad", 2);
 
 pref("browser.phoenix.core.status", "015");
 
@@ -918,7 +878,7 @@ pref("browser.phoenix.core.status", "015");
 /// Enable ETP Strict
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop?as=u#w_strict-enhanced-tracking-protection
 
-pref("browser.contentblocking.category", "strict", locked);
+pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 
 /// Manually enable ETP/Strict protections...
 // These are typically configured by ETP Strict - but unfortunately Firefox doesn't set ETP Strict on the browser's first run :/
@@ -955,6 +915,15 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", tru
 
 /// Block known tracking resources
 
+pref("browser.safebrowsing.features.cryptomining.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.cryptomining.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.emailtracking.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.fingerprinting.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.fingerprinting.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.socialtracking.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.socialtracking.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.trackingAnnotation.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.trackingProtection.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.safebrowsing.provider.mozilla.updateURL", "moz-sbrs:://antitracking"); // [DEFAULT - non-Thunderbird]
 pref("privacy.trackingprotection.annotate_channels", true);
 pref("privacy.trackingprotection.enabled", true);
@@ -993,8 +962,8 @@ pref("privacy.trackingprotection.socialtracking.enabled", true);
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 // https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
 
-pref("privacy.bounceTrackingProtection.enabled", true);
-pref("privacy.bounceTrackingProtection.mode", 1);
+pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - non-Thunderbird]
+pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Thunderbird]
 
 // Enable Suspected Fingerprinters Protection
 // https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
@@ -1021,17 +990,17 @@ pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN]
 
 pref("privacy.donottrackheader.enabled", true);
 pref("privacy.globalprivacycontrol.enabled", true);
-pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT]
-pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT]
+pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT - non-Thunderbird]
+pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thunderbird]
 
 /// Disable Reporting API
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
 
-pref("dom.reporting.crash.enabled", false);
+pref("dom.reporting.crash.enabled", false); // [DEFAULT]
 pref("dom.reporting.enabled", false); // [DEFAULT]
-pref("dom.reporting.featurePolicy.enabled", false);
-pref("dom.reporting.header.enabled", false);
+pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
+pref("dom.reporting.header.enabled", false); // [DEFAULT]
 
 /// Disable Beacon API (Navigator.sendBeacon)
 // I was originally against disabling this, but after careful consideration, I've changed my position.
@@ -1054,7 +1023,7 @@ pref("beacon.enabled", false);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1145235
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
 
-pref("network.http.network_error_logging.enabled", false); // [DEFAULT]
+pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Trim cross-origin referers (Like Safari)
 
@@ -1062,8 +1031,8 @@ pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /// Restrict tracking referers
 
-pref("network.http.referer.policy.trackers", 1);
-pref("network.http.referer.policy.trackers.pbmode", 1);
+pref("network.http.referer.defaultPolicy.trackers", 1);
+pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/
@@ -1079,16 +1048,12 @@ pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _ope
 
 /// Strip tracking parameters from URLs when shared by default
 
-pref("privacy.query_stripping.strip_on_share.enabled", true); // [DEFAULT]
-
-/// Ensure we never save clipboard history/contents to the cloud...
-
-pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
+pref("privacy.query_stripping.strip_on_share.enabled", true); // [DEFAULT - non-Android/Thunderbird]
 
 /// Enable Smartblock Embeds/Placeholders
 // Makes certain resources click to load
 
-pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nightly]
+pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Nightly, HIDDEN - Android/Thunderbird]
 
 /// Enable Cookies Having Independent Partitioned State (CHIPS)
 // This allows websites to set cookies with a 'Partitioned' attribute, meaning they're limited in scope
@@ -1097,25 +1062,7 @@ pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT on Nigh
 // https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
 // https://github.com/privacycg/CHIPS
 
-pref("network.cookie.CHIPS.enabled", true); // [DEFAULT on Nightly]
-
-/// Disable Firefox Sync by default
-// When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
-// This allows the user to control and choose for themselves what they'd like to sync...
-
-pref("services.sync.engine.addons", false);
-pref("services.sync.engine.addresses", false); // [DEFAULT]
-pref("services.sync.engine.bookmarks", false);
-pref("services.sync.engine.creditcards", false); // [DEFAULT]
-pref("services.sync.engine.history", false);
-pref("services.sync.engine.passwords", false);
-pref("services.sync.engine.prefs", false);
-pref("services.sync.engine.tabs", false);
-
-/// If a remote AutoConfig is being used, ensure identifying info is never shared...
-
-pref("autoadmin.append_emailaddr", false, locked);
-pref("mail.identity.useremail", "", locked);
+pref("network.cookie.CHIPS.enabled", true); // [DEFAULT - Nightly]
 
 pref("browser.phoenix.core.status", "016");
 
@@ -1123,7 +1070,7 @@ pref("browser.phoenix.core.status", "016");
 
 /// Round window sizes
 
-pref("privacy.window.maxInnerHeight", 900);
+pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
 
 /// Prompt to spoof locale to en-US
@@ -1138,7 +1085,7 @@ pref("layout.css.prefers-color-scheme.content-override", 1);
 /// Disable WebGPU
 // https://browserleaks.com/webgpu
 
-pref("dom.webgpu.enabled", false); // [DEFAULT]
+pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
 
 /// Disable failIfMajorPerformanceCaveat in WebGL contexts...
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
@@ -1147,17 +1094,17 @@ pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 
 /// Prevent using system colors
 
-pref("browser.display.use_system_colors", false);
+pref("browser.display.use_system_colors", false); // [DEFAULT - non-Windows]
 
 /// Prevent using system accent colors
 
-pref("widget.non-native-theme.use-theme-accent", false);
+pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thunderbird Windows]
 
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
 
-pref("javascript.options.use_fdlibm_for_sin_cos_tan", true);
+pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-Android/Windows/Thunderbird]
 
 pref("browser.phoenix.core.status", "017");
 
@@ -1178,7 +1125,6 @@ pref("signon.privateBrowsingCapture.enabled", false);
 // https://developer.mozilla.org/docs/Web/HTML/Element/input/password
 
 pref("layout.forms.reveal-password-button.enabled", true);
-pref("layout.forms.reveal-password-context-menu.enabled", true); // [DEFAULT]
 
 /// Prevent websites from dictating whether to allow filling passwords
 // https://blog.0xbadc0de.be/archives/124
@@ -1199,14 +1145,6 @@ pref("extensions.formautofill.addresses.enabled", false);
 pref("extensions.formautofill.creditCards.enabled", false);
 pref("signon.rememberSignons", false);
 
-/// If password manager is enabled, enable alerts for breached & vulnerable passwords by default, harmless and never sends passwords or sensitive data to Mozilla
-// https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords
-// https://blog.mozilla.org/security/2018/06/25/scanning-breached-accounts-k-anonymity/
-// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
-
-pref("signon.management.page.breach-alerts.enabled", true); // [DEFAULT]
-pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
-
 /// If password manager is enabled, enable strong password generation by default
 
 pref("signon.generation.enabled", true); // [DEFAULT]
@@ -1215,9 +1153,9 @@ pref("signon.generation.enabled", true); // [DEFAULT]
 // (Meaning dialogs for embedded items are only presented when originating from the same site)
 // https://support.mozilla.org/questions/1245144
 
-pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [DEFAULT]
+pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [DEFAULT - non-Thunderbird]
 pref("network.auth.subresource-http-auth-allow", 1);
-pref("network.auth.subresource-img-cross-origin-http-auth-allow", false); // [DEFAULT]
+pref("network.auth.subresource-img-cross-origin-http-auth-allow", false); // [DEFAULT - non-Thunderbird]
 
 /// Disable Windows SSO
 // https://support.mozilla.org/kb/windows-sso
@@ -1240,13 +1178,7 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
 
 /// Enforce crashing on insecure password input
 
-pref("intl.allow-insecure-text-input", false); // [DEFAULT]
-
-/// Protect against password spoofing for cross-domain auth requests
-// https://bugzilla.mozilla.org/show_bug.cgi?id=791594
-// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
-
-pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
+pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
 
 pref("browser.phoenix.core.status", "018");
 
@@ -1260,7 +1192,7 @@ pref("browser.phoenix.core.status", "018");
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.blinterp", false); // Baseline Interpreter 
 pref("javascript.options.ion", false); // WarpMonkey
-pref("javascript.options.main_process_disable_jit", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
+pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] Main process https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
@@ -1307,6 +1239,7 @@ pref("browser.phoenix.core.status", "019");
 // 020 MISC. SECURITY
 
 // Prevent websites from automatically downloading as many files as they want to a user's device...
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1731668
 // Can be used for denial of service
 // Allows overriding for specific downloads if needed
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41764
@@ -1330,7 +1263,7 @@ pref("security.default_personal_cert", "Ask Every Time", locked); // [DEFAULT]
 // "Firefox Accessibility Service is a technology built into Firefox that provides 3rd party applications running on the same device the ability to inspect, monitor, visualize, and alter web page content hosted within Firefox."
 
 pref("accessibility.force_disabled", 1);
-pref("devtools.accessibility.enabled", false); // https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
+pref("devtools.accessibility.enabled", false); // [HIDDEN - Android] https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 
 /// Enforce that Content Analysis is disabled
 /// We also set "ContentAnalysis" in policies
@@ -1339,20 +1272,20 @@ pref("devtools.accessibility.enabled", false); // https://firefox-source-docs.mo
 
 pref("browser.contentanalysis.default_result", 0, locked); // [DEFAULT]
 pref("browser.contentanalysis.enabled", false, locked); // [DEFAULT]
-pref("browser.contentanalysis.interception_point.clipboard.enabled", false, locked);
-pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false, locked);
-pref("browser.contentanalysis.interception_point.file_upload.enabled", false, locked);
-pref("browser.contentanalysis.interception_point.print.enabled", false, locked);
+pref("browser.contentanalysis.interception_point.clipboard.enabled", false, locked); // [HIDDEN - Thunderbird]
+pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false, locked); // [HIDDEN - Thunderbird]
+pref("browser.contentanalysis.interception_point.file_upload.enabled", false, locked); // [HIDDEN - Thunderbird]
+pref("browser.contentanalysis.interception_point.print.enabled", false, locked); // [HIDDEN - Thunderbird]
 pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] - Always notify users when Content Analysis blocks access to something...
 
 /// Enforce Site Isolation & Isolate all websites
 // https://wiki.mozilla.org/Project_Fission
 
-pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - except Thunderbird :/] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1737
-pref("dom.ipc.processCount.webIsolated", 1);
-pref("fission.autostart", true); // [DEFAULT]
-pref("fission.autostart.session", true); // [DEFAULT]
-pref("fission.disableSessionHistoryInParent", false); // [DEFAULT] SHIP, required for Fission
+pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1737
+pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT - Android]
+pref("fission.autostart", true); // [DEFAULT - non-Android]
+pref("fission.autostart.session", true); // [DEFAULT - non-Android]
+pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
 pref("gfx.webrender.all", true);
 
 /// Always run extensions OOP (out of process...)
@@ -1365,12 +1298,12 @@ pref("extensions.webextensions.remote", true); // [DEFAULT]
 /// Yes, this is a real pref... 
 // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
 
-pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer", false, locked); // [HIDDEN - DEFAULT]
+pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer", false, locked); // [DEFAULT, HIDDEN]
 
 /// Enable GPU Sandboxing
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 
-pref("security.sandbox.gpu.level", 1);
+pref("security.sandbox.gpu.level", 1); // [DEFAULT - Windows]
 
 /// Protect against CSRF Attacks (Like Chromium)
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ
@@ -1381,8 +1314,8 @@ pref("security.sandbox.gpu.level", 1);
 // https://web.dev/articles/schemeful-samesite
 
 pref("network.cookie.sameSite.laxByDefault", true);
-pref("network.cookie.sameSite.noneRequiresSecure", true);
-pref("network.cookie.sameSite.schemeful", true);
+pref("network.cookie.sameSite.noneRequiresSecure", true); // [DEFAULT - non-Thunderbird]
+pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
 /// Enforce Strict file:// Origin Policy
 // https://stuffandnonsense.co.uk/blog/firefoxs_file_uri_origin_policy_and_web_fonts
@@ -1403,25 +1336,16 @@ pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
 pref("media.devices.insecure.enabled", false); // [DEFAULT]
 pref("media.getusermedia.insecure.enabled", false); // [DEFAULT]
 
-/// Disable Win32k System Calls
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15638
-// https://security.googleblog.com/2016/10/disclosing-vulnerabilities-to-protect.html
-// https://docs.google.com/document/d/1gJDlk-9xkh6_8M_awrczWCaUuyr0Zd2TKjNBCiPO_G4/edit
-
-pref("security.sandbox.content.win32k-disable", true); // [DEFAULT]
-pref("security.sandbox.gmp.win32k-disable", true);
-pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT]
-
-// Ensure that Firefox can't access the system's Shell...
+/// Never expose shell access to websites...
 // https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
 
 pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT]
 
-// Always warn users before launching other apps...
+/// Always warn users before launching other apps...
 
 pref("network.protocol-handler.warn-external.mailto", true);
 pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
-pref("security.external_protocol_requires_permission", true); // [DEFAULT]
+pref("security.external_protocol_requires_permission", true); // [DEFAULT - non-Thunderbird] Removed from Firefox, but we'll keep for ESR for the time being...
 
 /// Enforce various other important security-related prefs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15473
@@ -1429,27 +1353,27 @@ pref("security.external_protocol_requires_permission", true); // [DEFAULT]
 pref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
 pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
 pref("security.all_resource_uri_content_accessible", false); // [DEFAULT]
-pref("security.allow_eval_in_parent_process", false); //[DEFAULT on standard Firefox releases only, not on ex. Thunderbird & other builds]
-pref("security.allow_eval_with_system_principal", false); // [DEFAULT on standard Firefox releases only, not on ex. Thunderbird & other builds]
-pref("security.allow_parent_unrestricted_js_loads", false); // [DEFAULT on standard Firefox releases only, not on ex. Thunderbird & other builds]
+pref("security.allow_eval_in_parent_process", false); //[DEFAULT - non-Android/Thunderbird]
+pref("security.allow_eval_with_system_principal", false); // [DEFAULT - non-Android]
+pref("security.allow_parent_unrestricted_js_loads", false); // [DEFAULT - non-Android/Thunderbird]
 pref("security.allow_unsafe_parent_loads", false); // [DEFAULT]
 pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT]
 
 /// Always use a separate content process for `file://` URLs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1848
 
-pref("browser.tabs.remote.separateFileUriProcess", true); // [DEFAULT]
+pref("browser.tabs.remote.separateFileUriProcess", true); // [DEFAULT - non-Android]
 
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // This is default on Standard Firefox releases, but not on ex. Thunderbird & other builds
 // https://searchfox.org/comm-central/source/mozilla/modules/libpref/init/StaticPrefList.yaml#3987
 
-pref("dom.security.skip_about_page_has_csp_assert", false);
+pref("dom.security.skip_about_page_has_csp_assert", false); // [DEFAULT - non-Thunderbird]
 
 /// Apply CSP to internal browser.xhtml
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15628
 
-pref("security.browser_xhtml_csp.enabled", true); // [HIDDEN]
+pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Enable Trusted Types (Like Chromium)
 // https://w3c.github.io/trusted-types/dist/spec/
@@ -1463,37 +1387,33 @@ pref("dom.security.trusted_types.enabled", true);
 // Might cause issues in certain specific set-ups
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1876632
 
-pref("javascript.options.content_process_write_protect_code", true);
+pref("javascript.options.content_process_write_protect_code", true); // [DEFAULT - OpenBSD?]
 
 /// Enable Opaque Response Blocking
 // https://github.com/annevk/orb
 
-pref("browser.opaqueResponseBlocking", true);
+pref("browser.opaqueResponseBlocking", true); // [DEFAULT - non-Android]
 pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 
 /// Enable the 'credentialless' COEP (Cross-Origin-Embedder-Policy) Header
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#1829
 
-pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT - Desktop & Nightly Android]
+pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT - non-Android stable]
 pref("dom.origin-trials.coep-credentialless.state", 1); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#3447
 
 /// Prevent remoteTypes from triggering process switches they shouldn't be able to...
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#1035
 
-pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT on Nightly]
-
-/// If a remote AutoConfig is being used, block it from gaining privileged browser access...
-// https://www.mozilla.org/firefox/62.0/releasenotes/
-
-pref("general.config.sandbox_enabled", true, locked);
+pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - Nightly Desktop]
 
 pref("browser.phoenix.core.status", "020");
 
 // 021 BLOCK COOKIE BANNERS
 
+pref("cookiebanners.bannerClicking.enabled", true); // [DEFAULT]
 pref("cookiebanners.cookieInjector.enabled", true); // [DEFAULT]
 pref("cookiebanners.service.mode", 1);
-pref("cookiebanners.service.mode.privateBrowsing", 1);
+pref("cookiebanners.service.mode.privateBrowsing", 1); // [DEFAULT - Nightly Android]
 pref("cookiebanners.service.enableGlobalRules", true); // [DEFAULT]
 pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 pref("cookiebanners.ui.desktop.enabled", true);
@@ -1513,7 +1433,6 @@ pref("media.gmp-manager.checkContentSignature", true); // [DEFAULT]
 // https://support.mozilla.org/kb/block-autoplay
 
 pref("media.autoplay.default", 5);
-pref("userContent.player.click_to_play", true); // [HIDDEN] https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 
 /// DRM
 // Garbage technology with freedom, privacy, & security concerns
@@ -1535,13 +1454,6 @@ pref("browser.phoenix.core.status", "022");
 
 // 023 UPDATES
 
-/// Browser Updates
-
-pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
-pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
-pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
-pref("browser.startup.upgradeDialog.enabled", true); // Enables showing a dialog/pop-up on major upgrades
-
 /// Check for extension/theme updates hourly
 // Default is once every 24 hours...
 
@@ -1550,9 +1462,9 @@ pref("extensions.update.interval", 3600);
 /// Ensure we're always updating extensions by default
 
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]
-pref("extensions.update.autoUpdateDefault", true); // [HIDDEN]
+pref("extensions.update.autoUpdateDefault", true); // [DEFAULT, HIDDEN - ANDROID]
 pref("extensions.update.enabled", true); // [DEFAULT]
-pref("media.gmp-manager.updateEnabled", true);
+pref("media.gmp-manager.updateEnabled", true); // [DEFAULT, HIDDEN]
 
 /// Ensure we always notify users for extension updates by default
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs#253
@@ -1560,9 +1472,9 @@ pref("media.gmp-manager.updateEnabled", true);
 pref("extensions.update.notifyUser", true); // [HIDDEN]
 
 /// Allow "What's New" Pages by default
-// This lets us expose it in the about:config for non-desktop/Thunderbird builds
+// This lets us expose it in the about:config for Android/Thunderbird
 
-pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT, HIDDEN - non-desktop/Thunderbird builds]
+pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 pref("browser.phoenix.core.status", "023");
 
@@ -1571,20 +1483,20 @@ pref("browser.phoenix.core.status", "023");
 // Allow Remote debugging, as it can be useful (especially on Android) - but ONLY per-session
 // https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
 
-pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT]
+pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thunderbird]
 
 /// Enforce local debugging only
 
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
-pref("devtools.inspector.remote", false, locked);
+pref("devtools.inspector.remote", false, locked); // [DEFAULT, HIDDEN - Android]
 
 // Always prompt before connecting...
 
-pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT]
+pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nightly]
 
 /// Ensure that URLs are not being logged in Reader errors
 
-pref("reader.errors.includeURLs", false); // [DEFAULT]
+pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 
 pref("browser.phoenix.core.status", "024");
 

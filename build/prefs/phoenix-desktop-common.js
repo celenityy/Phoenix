@@ -73,6 +73,15 @@ pref("browser.phoenix.desktop.common.status", "004");
 
 // 005 DISK AVOIDANCE
 
+/// Sanitization
+// Clears cache on sanitization dialog by default
+
+pref("privacy.cpd.cache", true); // [DEFAULT]
+
+/// Set time range when manually clearing data to "everything" by default
+
+pref("privacy.sanitize.timeSpan", 0);
+
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows
 
 pref("toolkit.winRegisterApplicationRestart", false);
@@ -92,25 +101,64 @@ pref("extensions.getAddons.showPane", true); // [DEFAULT]
 
 pref("browser.phoenix.desktop.common.status", "006");
 
-// 007 ATTACK SURFACE REDUCTION
+// 007 MISC. PRIVACY
+
+/// [WINDOWS] Ensure we never save clipboard history/contents to the cloud...
+
+pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
+
+/// Disable Firefox Sync by default
+// When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
+// This allows the user to control and choose for themselves what they'd like to sync...
+
+pref("services.sync.engine.addons", false);
+pref("services.sync.engine.addresses", false); // [DEFAULT]
+pref("services.sync.engine.bookmarks", false);
+pref("services.sync.engine.creditcards", false); // [DEFAULT]
+pref("services.sync.engine.history", false);
+pref("services.sync.engine.passwords", false);
+pref("services.sync.engine.prefs", false);
+pref("services.sync.engine.tabs", false);
+
+/// If a remote AutoConfig is being used, ensure identifying info is never shared...
+
+pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
+
+pref("browser.phoenix.desktop.common.status", "007");
+
+// 008 ATTACK SURFACE REDUCTION
 
 /// Disable WebXR
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 
 pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.desktop.common.status", "007");
+pref("browser.phoenix.desktop.common.status", "008");
 
-// 008 MISC. SECURITY
+// 009 MISC. SECURITY
+
+/// [WINDOWS] Disable Win32k System Calls
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15638
+// https://security.googleblog.com/2016/10/disclosing-vulnerabilities-to-protect.html
+// https://docs.google.com/document/d/1gJDlk-9xkh6_8M_awrczWCaUuyr0Zd2TKjNBCiPO_G4/edit
+
+pref("security.sandbox.content.win32k-disable", true); // [DEFAULT]
+pref("security.sandbox.gmp.win32k-disable", true);
+pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT]
 
 /// Disable GNOME Integration
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
 
 pref("browser.gnome-search-provider.enabled", false);
 
-pref("browser.phoenix.desktop.common.status", "008");
+/// If a remote AutoConfig is being used, block it from gaining privileged browser access...
+// https://www.mozilla.org/firefox/62.0/releasenotes/
 
-// 009 MEDIA
+pref("general.config.sandbox_enabled", true, locked);
+
+pref("browser.phoenix.desktop.common.status", "009");
+
+// 010 MEDIA
 
 /// Always sandbox GMP on GNU/Linux
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
@@ -134,9 +182,25 @@ pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
 
 pref("media.wmf.media-engine.enabled", 3);
 
-pref("browser.phoenix.desktop.common.status", "009");
+/// Enable click to play UI for certain CSS skins by default...
+// https://github.com/black7375/Firefox-UI-Fix/blob/master/css/leptonContent.css#L223
+// https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 
-// 010 PERFORMANCE
+pref("userContent.player.click_to_play", true); // [HIDDEN] 
+
+pref("browser.phoenix.desktop.common.status", "010");
+
+// 011 UPDATES
+
+/// Browser Updates
+
+pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
+pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
+pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
+
+pref("browser.phoenix.desktop.common.status", "011");
+
+// 012 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 pref("browser.cache.jsbc_compression_level", 3);
@@ -147,9 +211,9 @@ pref("media.cache_resume_threshold", 3600);
 pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
 pref("network.http.max-connections", 1800);
 
-pref("browser.phoenix.desktop.common.status", "010");
+pref("browser.phoenix.desktop.common.status", "012");
 
-// 011 Personal Touch
+// 013 Personal Touch
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -161,7 +225,7 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "011");
+pref("browser.phoenix.desktop.common.status", "013");
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 

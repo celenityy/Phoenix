@@ -50,16 +50,14 @@
                 "install_sources": [
                     "https://addons.mozilla.org/*",
                     "https://agrd.io/extension_firefox_beta",
+                    "https://archive.mozilla.org/pub/firefox/*",
                     "https://archive.mozilla.org/pub/labs/*",
                     "https://archive.mozilla.org/pub/system-addons/*",
-                    "https://archive.mozilla.org/pub/vpn/addons/candidates/*",
-                    "https://archive.mozilla.org/pub/vpn/addons/releases/*",
                     "https://cdn.mullvad.net/browser-extension/*",
                     "https://codeberg.org/celenity/Phoenix/*",
+                    "https://ftp.mozilla.org/pub/firefox/*",
                     "https://ftp.mozilla.org/pub/labs/*",
                     "https://ftp.mozilla.org/pub/system-addons/*",
-                    "https://ftp.mozilla.org/pub/vpn/addons/candidates/*",
-                    "https://ftp.mozilla.org/pub/vpn/addons/releases/*",
                     "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&inline=false",
                     "https://github.com/AdguardTeam/AdguardBrowserExtension/releases",
                     "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
@@ -128,6 +126,9 @@
                     "https://objects.githubusercontent.com/github-production-release-asset-2e65be/873923787/*",
                     "https://phoenix.celenity.dev/extensions/xpi/*",
                     "https://privacybadger.org/*",
+                    "https://releases.mozilla.org/pub/firefox/*",
+                    "https://releases.mozilla.org/pub/labs/*",
+                    "https://releases.mozilla.org/pub/system-addons/*",
                     "https://static.adguard.com/extensions/adguardadblocker/beta/firefox.xpi",
                     "https://static.adtidy.org/extensions/adguardadblocker/beta/firefox.xpi"
                 ],
@@ -275,6 +276,10 @@
                 "Value": "off",
                 "Status": "default"
             },
+            "browser.contentblocking.cfr-milestone.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.contentblocking.report.hide_vpn_banner": {
                 "Value": true,
                 "Status": "locked"
@@ -349,6 +354,10 @@
             },
             "browser.geolocation.warning.infoURL": {
                 "Value": "https://phoenix.celenity.dev/geo",
+                "Status": "default"
+            },
+            "browser.laterrun.enabled": {
+                "Value": false,
                 "Status": "default"
             },
             "browser.ml.chat.enabled": {
@@ -667,6 +676,10 @@
                 "Value": "",
                 "Status": "default"
             },
+            "browser.pagethumbnails.capturing_disabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.partnerlink.attributionURL": {
                 "Value": "",
                 "Status": "locked"
@@ -695,6 +708,10 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.privatebrowsing.resetPBM.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.promo.cookiebanners.enabled": {
                 "Value": false,
                 "Status": "locked"
@@ -709,6 +726,26 @@
             },
             "browser.protections_panel.infoMessage.seen": {
                 "Value": true,
+                "Status": "default"
+            },
+            "browser.shell.checkDefaultBrowser": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shell.skipDefaultBrowserCheckOnFirstRun": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.shell.checkDefaultPDF": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.shell.checkDefaultPDF.silencedByUser": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.shell.shortcutFavicons": {
+                "Value": false,
                 "Status": "default"
             },
             "browser.shopping.experience2023.active": {
@@ -769,6 +806,10 @@
             },
             "browser.startup.page": {
                 "Value": 1,
+                "Status": "default"
+            },
+            "browser.startup.upgradeDialog.enabled": {
+                "Value": true,
                 "Status": "default"
             },
             "browser.suppress_first_window_animation": {
@@ -1039,6 +1080,10 @@
                 "Value": "https://phoenix.celenity.dev/extensions/recommendations.json",
                 "Status": "default"
             },
+            "extensions.langpacks.signatures.required": {
+                "Value": true,
+                "Status": "default"
+            },
             "extensions.pocket.enabled": {
                 "Value": false,
                 "Status": "default"
@@ -1074,6 +1119,18 @@
             "identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled": {
                 "Value": false,
                 "Status": "locked"
+            },
+            "network.protocol-handler.warn-external.mailto": {
+                "Value": true,
+                "Status": "default"
+            },
+            "signon.management.page.breach-alerts.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
+            "signon.management.page.vulnerable-passwords.enabled": {
+                "Value": true,
+                "Status": "default"
             },
             "signon.rememberSignons": {
                 "Value": false,

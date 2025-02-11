@@ -10,29 +10,16 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCAL
 
 pref("browser.phoenix.android.status", "001");
 
-// 002 SAFE BROWSING
+// 002 EXTENSIONS
 
-/// Enable Safe Browsing by default
+/// Only allow signed extensions by default
 
-pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT]
-pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT]
-
-/// Enforce that no data is shared with Google
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
-
-pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT]
+pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
+pref("xpinstall.signatures.required", true); // [DEFAULT]
 
 pref("browser.phoenix.android.status", "002");
 
-// 003 EXTENSIONS
-
-/// Only allow signed extensions
-
-pref("xpinstall.signatures.required", true); // [DEFAULT]
-
-pref("browser.phoenix.android.status", "003");
-
-// 004 FINGERPRINTING PROTECTION
+// 003 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -68,18 +55,18 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
 
-pref("browser.phoenix.android.status", "004");
+pref("browser.phoenix.android.status", "003");
 
-// 005 ATTACK SURFACE REDUCTION
+// 004 ATTACK SURFACE REDUCTION
 
 // Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
 // ex. https://gitlab.com/ironfox-oss/IronFox/-/issues/18
 
 pref("javascript.options.blinterp", true); // [DEFAULT]
 
-pref("browser.phoenix.android.status", "005");
+pref("browser.phoenix.android.status", "004");
 
-// 006 MISC. SECURITY
+// 005 MISC. SECURITY
 
 // Always warn users before launching other apps...
 
@@ -88,15 +75,17 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.android.status", "006");
+pref("browser.phoenix.android.status", "005");
 
-// 007 MEDIA
+// 006 MEDIA
 
 /// Disable Widevine MediaDrm/MediaKeySystem
 // https://developer.android.com/reference/android/media/MediaDrm
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
 
 pref("media.mediadrm-widevinecdm.visible", false);
+
+pref("browser.phoenix.android.status", "006");
 
 pref("browser.phoenix.android.status", "successfully applied :D", locked);
 

@@ -272,6 +272,11 @@ pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/
 pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
 
+/// Prevent checking if Firefox is the default browser
+
+pref("browser.shell.checkDefaultBrowser", false);
+pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
+
 pref("browser.phoenix.desktop.status", "002");
 
 // 003 Search & URL Bar
@@ -395,6 +400,43 @@ pref("browser.phoenix.desktop.status", "007");
 
 // 008 DISK AVOIDANCE
 
+/// Sanitization
+// Checks the boxes for clearing browsing history, cache, download history, & sessions when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
+
+pref("privacy.clearHistory.cache", true);
+pref("privacy.clearHistory.historyFormDataAndDownloads", true);
+pref("privacy.clearSiteData.cache", true);
+pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
+
+/// Prevent logging blocked domains in about:protections
+
+pref("browser.contentblocking.cfr-milestone.enabled", false);
+
+/// Disable favicons in shortcuts
+// Prevents .ico files from persisting, even after deletion
+
+pref("browser.shell.shortcutFavicons", false);
+
+// Prevent exposing content in the window title for Private Browsing windows
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
+
+pref("privacy.exposeContentTitleInWindow.pbm", false);
+
+/// Enables a fire button in Private Browsing Windows to reset session
+
+pref("browser.privatebrowsing.resetPBM.enabled", true); // [DEFAULT - Nightly]
+
+/// Disable LaterRun
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1200639
+
+pref("browser.laterrun.enabled", false); // [DEFAULT]
+
+/// Disable collecting & generating background thumbnails
+// https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
+
+pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
+
 // Prevent automatically sharing Firefox Sync accounts...
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
@@ -403,16 +445,23 @@ pref("browser.phoenix.desktop.status", "008");
 
 // 009 EXTENSIONS
 
-// Only allow signed extensions
-// I'd like to unlock these in the future (We already don't lock it on Android)
-// - But I still have concerns for desktop due to malware attempting to override this.
-// Will have to do more thinking and find the best approach.
+// Only allow signed extensions by default
+// Extensions are still limited to the sources we allow in policies...
 
-pref("xpinstall.signatures.required", true, locked); // [DEFAULT]
+pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
+pref("xpinstall.signatures.required", true); // [DEFAULT]
 
 pref("browser.phoenix.desktop.status", "009");
 
-// 010 FINGERPRINTING PROTECTION
+// 010 PDF.js
+
+/// Prevent checking if Firefox is the default PDF viewer
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
+
+pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
+pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
+
+// 011 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -441,9 +490,9 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "010");
+pref("browser.phoenix.desktop.status", "011");
 
-/// 011 MISC. PRIVACY
+/// 012 MISC. PRIVACY
 
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
@@ -454,9 +503,36 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "011");
+pref("browser.phoenix.desktop.status", "012");
 
-/// 012 MISC.
+// 013 PASSWORDS & AUTHENTICATION
+
+/// If password manager is enabled, enable alerts for breached & vulnerable passwords by default, harmless and never sends passwords or sensitive data to Mozilla
+// https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords
+// https://blog.mozilla.org/security/2018/06/25/scanning-breached-accounts-k-anonymity/
+// https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
+
+pref("signon.management.page.breach-alerts.enabled", true); // [DEFAULT]
+pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
+
+/// Protect against password spoofing for cross-domain auth requests
+// https://bugzilla.mozilla.org/show_bug.cgi?id=791594
+
+pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
+
+pref("browser.phoenix.desktop.status", "013");
+
+// 014 UPDATES
+
+/// Browser Updates
+
+// Enables a dialog/pop-up on major upgrades
+
+pref("browser.startup.upgradeDialog.enabled", true);
+
+pref("browser.phoenix.desktop.status", "014");
+
+/// 015 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -479,9 +555,9 @@ pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.de
 
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
-pref("browser.phoenix.desktop.status", "012");
+pref("browser.phoenix.desktop.status", "015");
 
-// 013 Personal Touch 💜
+// 016 Personal Touch 💜
 
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
@@ -498,15 +574,15 @@ pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "013");
+pref("browser.phoenix.desktop.status", "016");
 
-// 014 Enable support for custom/specialized configs...
+// 017 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "014");
+pref("browser.phoenix.desktop.status", "017");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 
