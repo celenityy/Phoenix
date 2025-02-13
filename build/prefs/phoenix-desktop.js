@@ -651,6 +651,8 @@ pref("browser.phoenix.desktop.status", "016");
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 
+pref("sidebar.animation.enabled", false); // Disable sidebar animations
+
 pref("browser.phoenix.desktop.status", "017");
 
 // 018 Personal Touch 💜
