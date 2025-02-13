@@ -1049,7 +1049,7 @@
                 "Status": "default"
             },
             "media.wmf.media-engine.enabled": {
-                "Value": 3,
+                "Value": 0,
                 "Status": "default"
             },
             "network.auth.non-web-content-triggered-resources-http-auth-allow": {

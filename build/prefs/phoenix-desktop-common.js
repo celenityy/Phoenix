@@ -187,10 +187,12 @@ pref("media.eme.playready.enabled", false);
 
 pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
 
-/// Disable Windows Media Foundation Media Engine for protected content (DRM), but enable it for standard content
+/// Disable Windows Media Foundation Media Engine 
+// By default, it's enabled for protected content (DRM)
+// Enabling it for standard content appears to cause video playback issues (ex. on YouTube)
 // https://learn.microsoft.com/windows/win32/medfound/about-the-media-foundation-sdk
 
-pref("media.wmf.media-engine.enabled", 3);
+pref("media.wmf.media-engine.enabled", 0);
 
 /// Enable click to play UI for certain CSS skins by default...
 // https://github.com/black7375/Firefox-UI-Fix/blob/master/css/leptonContent.css#L223
