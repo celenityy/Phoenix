@@ -91,9 +91,7 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 pref("browser.places.interactions.enabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.rights.3.shown", true);
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
-pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, at least on Nightly]
-pref("captchadetection.actor.enabled", false, locked); // [DEFAULT, except Nightly] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
+pref("captchadetection.actor.enabled", false, locked); // [DEFAULT - non-Nightly] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
 pref("captchadetection.loglevel", "Off");
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
 pref("datareporting.healthreport.documentServerURI", "", locked); // [HIDDEN]
@@ -175,11 +173,11 @@ pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
 
 /// Firefox Recommendations & "Discovery"
 
-pref("extensions.getAddons.browseAddons", ""); // [HIDDEN - non-Android builds]
+pref("extensions.getAddons.browseAddons", ""); // [HIDDEN - non-Android]
 pref("extensions.getAddons.showPane", false);
 pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 pref("extensions.recommendations.themeRecommendationUrl", "");
-pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird builds]
+pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird]
 
 /// Fakespot
 
@@ -209,7 +207,7 @@ pref("browser.tabs.remote.separatedMozillaDomains", "", locked);
 pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
 pref("extensions.webapi.testing", false, locked); // [DEFAULT] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5445
 pref("extensions.webextensions.restrictedDomains", "");
-pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT on Android/Thunderbird]
+pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
 /// Disable Mozilla Web Compatibility Reporter
 // Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
@@ -379,7 +377,7 @@ pref("security.tls.enable_kyber", true);
 // https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 
 pref("captivedetect.canonicalURL", "");
-pref("network.captive-portal-service.enabled", false); // [DEFAULT on Android/Thunderbird]
+pref("network.captive-portal-service.enabled", false); // [DEFAULT - Android/Thunderbird]
 pref("network.connectivity-service.DNSv4.domain", "");
 pref("network.connectivity-service.DNSv6.domain", "");
 pref("network.connectivity-service.enabled", false);

@@ -768,6 +768,14 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.search.serpEventTelemetryCategorization.enabled": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.search.serpEventTelemetryCategorization.regionEnabled": {
+                "Value": false,
+                "Status": "locked"
+            },
             "browser.search.widget.inNavBar": {
                 "Value": true,
                 "Status": "default"
