@@ -152,6 +152,10 @@
                 "Value": "Error",
                 "Status": "default"
             },
+            "browser.download.manager.addToRecentDocs": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.download.open_pdf_attachments_inline": {
                 "Value": true,
                 "Status": "default"

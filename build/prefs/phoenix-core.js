@@ -762,6 +762,10 @@ pref("layout.css.visited_links_enabled", false);
 
 pref("permissions.memory_only", false); // [HIDDEN - DEFAULT]
 
+/// Disable adding downloads to "recent documents"
+
+pref("browser.download.manager.addToRecentDocs", false);
+
 pref("browser.phoenix.core.status", "013");
 
 // 014 EXTENSIONS
