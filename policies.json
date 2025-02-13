@@ -4,7 +4,7 @@
       "Extensions": {
         "uBlock0@raymondhill.net": {
           "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/08d147ee865c1d740540e8ec83c758d7a4df3e8b/uBlock/assets.json"
+            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/ccaf778427b3f8c8b02e99f9bfc565adc7ed0633/uBlock/assets.json"
           },
           "advancedSettings": [
             [
@@ -68,26 +68,6 @@
         "Value": 3600,
         "Status": "default"
       },
-      "browser.aboutConfig.showWarning": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.aboutwelcome.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.aboutwelcome.log": {
-        "Value": "off",
-        "Status": "default"
-      },
-      "browser.bookmarks.autoExportHTML": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.bookmarks.openInTabClosesMenu": {
-        "Value": false,
-        "Status": "default"
-      },
       "browser.cache.disk.enable": {
         "Value": false,
         "Status": "default"
@@ -136,11 +116,1467 @@
         "Value": "strict",
         "Status": "locked"
       },
-      "browser.contentblocking.cfr-milestone.enabled": {
+      "browser.contentblocking.database.enabled": {
         "Value": false,
         "Status": "default"
       },
-      "browser.contentblocking.database.enabled": {
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.crashReports.unsubmittedCheck.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.display.use_system_colors": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.download.always_ask_before_handling_new_types": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.download.alwaysOpenPanel": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.download.clearHistoryOnDelete": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "browser.download.enable_spam_prevention": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.download.loglevel": {
+        "Value": "Error",
+        "Status": "default"
+      },
+      "browser.download.manager.addToRecentDocs": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.download.open_pdf_attachments_inline": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.download.start_downloads_in_tmp_dir": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.download.useDownloadDir": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.eme.ui.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.formfill.enable": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.gnome-search-provider.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.helperApps.deleteTempFileOnExit": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.link.open_newwindow": {
+        "Value": 3,
+        "Status": "default"
+      },
+      "browser.link.open_newwindow.restriction": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "browser.ml.enable": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.opaqueResponseBlocking": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.opaqueResponseBlocking.javascriptValidator": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.places.interactions.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.places.speculativeConnect.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.policies.loglevel": {
+        "Value": "error",
+        "Status": "default"
+      },
+      "browser.privatebrowsing.forceMediaMemoryCache": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.privatebrowsing.vpnpromourl": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.region.network.scan": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.region.network.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.region.update.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.rights.3.shown": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.blockedURIs.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.downloads.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.downloads.remote.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.safebrowsing.downloads.remote.url": {
+        "Value": "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%",
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.blockedURIs.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.cryptomining.annotate.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.cryptomining.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.downloads.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.emailtracking.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.emailtracking.datacollection.update": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.features.fingerprinting.annotate.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.fingerprinting.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.malware.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.phishing.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.socialtracking.annotate.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.socialtracking.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.trackingAnnotation.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.features.trackingProtection.update": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.malware.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.phishing.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.advisoryName": {
+        "Value": "Google Safe Browsing (Legacy)",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.dataSharing.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.provider.google.gethashURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
+        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportPhishMistakeURL": {
+        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportURL": {
+        "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.updateURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.dataSharing.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.provider.google4.dataSharingURL": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.safebrowsing.provider.google4.gethashURL": {
+        "Value": "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportMalwareMistakeURL": {
+        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportPhishMistakeURL": {
+        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportURL": {
+        "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.updateURL": {
+        "Value": "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.mozilla.updateURL": {
+        "Value": "moz-sbrs:://antitracking",
+        "Status": "default"
+      },
+      "browser.safebrowsing.reportPhishURL": {
+        "Value": "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=",
+        "Status": "default"
+      },
+      "browser.safebrowsing.update.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.search.separatePrivateDefault": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.search.separatePrivateDefault.ui.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.search.suggest.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.search.suggest.enabled.private": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.send_pings": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.send_pings.max_per_link": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "browser.send_pings.require_same_host": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.sessionhistory.max_total_viewers": {
+        "Value": 7,
+        "Status": "default"
+      },
+      "browser.sessionstore.disable_platform_collection": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.sessionstore.interval": {
+        "Value": 60000,
+        "Status": "default"
+      },
+      "browser.sessionstore.privacy_level": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "browser.tabs.remote.coep.credentialles": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.tabs.remote.enforceRemoteTypeRestrictions": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.tabs.remote.separateFileUriProcess": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.tabs.remote.separatedMozillaDomains": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.tabs.searchclipboardfor.middleclick": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.translations.alwaysTranslateLanguages": {
+        "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi",
+        "Status": "default"
+      },
+      "browser.translations.automaticallyPopup": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.translations.enable": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.translations.select.enable": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.xul.error_pages.expert_bad_cert": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.xul.error_pages.show_safe_browsing_details_on_load": {
+        "Value": true,
+        "Status": "default"
+      },
+      "datareporting.policy.dataSubmissionEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "datareporting.policy.dataSubmissionPolicyAccepted": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "datareporting.policy.dataSubmissionPolicyBypassNotification": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "datareporting.policy.firstRunURL": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "dom.block_download_insecure": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.block_external_protocol_in_iframes": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.block_external_protocol_navigation_from_sandbox": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.disable_open_during_load": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.disable_window_flip": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.disable_window_move_resize": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.ipc.processCount.privilegedmozilla": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      "dom.ipc.processCount.webIsolated": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "dom.origin-trials.coep-credentialless.state": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "dom.origin-trials.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "dom.origin-trials.private-attribution.state": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      "dom.popup_allowed_events": {
+        "Value": "click dblclick",
+        "Status": "default"
+      },
+      "dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.postMessage.sharedArrayBuffer.withCOOP_COEP": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.prefetch_dns_for_anchor_http_document": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.prefetch_dns_for_anchor_https_document": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.private-attribution.submission.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "dom.reporting.crash.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.reporting.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.reporting.featurePolicy.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.reporting.header.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.security.https_first": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_first_for_custom_ports": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_first_pbm": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_first_schemeless": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_only_mode": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "dom.security.https_only_mode.upgrade_local": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_only_mode_error_page_user_suggestions": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.https_only_mode_pbm": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "dom.security.https_only_mode_send_http_background_request": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.security.skip_about_page_has_csp_assert": {
+        "Value": false,
+        "Status": "default"
+      },
+      "dom.security.trusted_types.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.security.unexpected_system_load_telemetry_enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "dom.webgpu.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.autoDisableScopes": {
+        "Value": 15,
+        "Status": "locked"
+      },
+      "extensions.blocklist.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.enabledScopes": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "extensions.experiments.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.formautofill.addresses.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.formautofill.creditCards.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.formautofill.ml.experiment.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.getAddons.browseAddons": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.showPane": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.htmlaboutaddons.recommendations.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.install.requireBuiltInCerts": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.installDistroAddons": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.postDownloadThirdPartyPrompt": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantinedDomains.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.quarantineIgnoredByUser.ads@mozac.org": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.bravesearch@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.cookies@mozac.org": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.ddg@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.ecosia@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.kagi@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.kagi-html@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.leta-brave@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.leta-google@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.metager@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.mojeek@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.no-search@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.qwant@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.startpage@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.swisscows@celenity.dev": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.recommendations.themeRecommendationUrl": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.systemAddon.update.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.ui.lastCategory": {
+        "Value": "addons://list/extension",
+        "Status": "default"
+      },
+      "extensions.update.autoUpdateDefault": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.update.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.update.interval": {
+        "Value": 3600,
+        "Status": "default"
+      },
+      "extensions.update.notifyUser": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.update.requireBuiltInCerts": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webapi.testing": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.webapi.testing.http": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.webcompat.enable_shims": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat.perform_injections": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat.perform_ua_overrides": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat.smartblockEmbeds.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webcompat-reporter.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.webcompat-reporter.newIssueEndpoint": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.webextensions.remote": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.webextensions.restrictedDomains": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.webservice.discoverURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "general.autoScroll": {
+        "Value": true,
+        "Status": "default"
+      },
+      "general.smoothScroll": {
+        "Value": true,
+        "Status": "default"
+      },
+      "gfx.canvas.accelerated": {
+        "Value": true,
+        "Status": "default"
+      },
+      "gfx.canvas.accelerated.cache-items": {
+        "Value": 8192,
+        "Status": "default"
+      },
+      "gfx.canvas.accelerated.cache-size": {
+        "Value": 512,
+        "Status": "default"
+      },
+      "gfx.content.skia-font-cache-size": {
+        "Value": 20,
+        "Status": "default"
+      },
+      "gfx.font_rendering.graphite.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "gfx.font_rendering.opentype_svg.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "geo.provider.ms-windows-location": {
+        "Value": false,
+        "Status": "default"
+      },
+      "geo.provider.network.logging.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "gfx.webrender.all": {
+        "Value": true,
+        "Status": "default"
+      },
+      "gfx.webrender.compositor": {
+        "Value": true,
+        "Status": "default"
+      },
+      "geo.wifi.scan": {
+        "Value": false,
+        "Status": "default"
+      },
+      "intl.allow-insecure-text-input": {
+        "Value": false,
+        "Status": "default"
+      },
+      "layout.css.prefers-color-scheme.content-override": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "layout.css.report_errors": {
+        "Value": false,
+        "Status": "default"
+      },
+      "layout.css.visited_links_enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "layout.forms.reveal-password-button.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "layout.spellcheckDefault": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "media.autoplay.default": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "media.cache_readahead_limit": {
+        "Value": 7200,
+        "Status": "default"
+      },
+      "media.cache_resume_threshold": {
+        "Value": 3600,
+        "Status": "default"
+      },
+      "media.clearkey.persistent-license.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.clearkey.test-key-systems.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.devices.insecure.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.encrypted-media-encryption-scheme.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.hdcp-policy-check.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.playready.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.require-app-approval": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.eme.widevine.experiment.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.eme.wmf.clearkey.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.ffmpeg.vaapi.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.getusermedia.insecure.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.gmp.insecure.allow": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.gmp-manager.cert.checkAttributes": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.gmp-manager.cert.requireBuiltIn": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.gmp-manager.checkContentSignature": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.gmp-manager.updateEnabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.gmp-widevinecdm.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.gmp-widevinecdm.visible": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.gmp-widevinecdm-l1.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.gmp-widevinecdm-l1.visible": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.memory_cache_max_size": {
+        "Value": 65536,
+        "Status": "default"
+      },
+      "media.peerconnection.ice.obfuscate_host_addresses": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.peerconnection.ice.proxy_only_if_behind_proxy": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.peerconnection.mtransport_process": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.webrtc.enable_pq_dtls": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.webspeech.synth.dont_notify_on_error": {
+        "Value": true,
+        "Status": "default"
+      },
+      "media.webvtt.testing.events": {
+        "Value": false,
+        "Status": "default"
+      },
+      "media.wmf.media-engine.enabled": {
+        "Value": 3,
+        "Status": "default"
+      },
+      "network.auth.non-web-content-triggered-resources-http-auth-allow": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.auth.subresource-http-auth-allow": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "network.auth.subresource-img-cross-origin-http-auth-allow": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.captive-portal-service.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.connectivity-service.DNS_HTTPS.domain": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.connectivity-service.DNSv4.domain": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.connectivity-service.DNSv6.domain": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.connectivity-service.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.connectivity-service.IPv4.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.connectivity-service.IPv6.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.cookie.CHIPS.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.optInPartitioning": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.optInPartitioning.pbmode": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.pbmode": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "network.cookie.cookieBehavior.trackerCookieBlocking": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.sameSite.laxByDefault": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.sameSite.noneRequiresSecure": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.cookie.sameSite.schemeful": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.disablePrefetch": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.disablePrefetchFromHTTPS": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.echconfig.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.http3_echconfig.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.native_https_query": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.preferIPv6": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.dns.prefetch_via_proxy": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.dnsCacheEntries": {
+        "Value": 1000,
+        "Status": "default"
+      },
+      "network.dnsCacheExpiration": {
+        "Value": 3600,
+        "Status": "default"
+      },
+      "network.dnsCacheExpirationGracePeriod": {
+        "Value": 240,
+        "Status": "default"
+      },
+      "network.early-hints.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.early-hints.over-http-v1-1.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.early-hints.preconnect.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.early-hints.preconnect.max_connections": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "network.file.disable_unc_paths": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.gio.supported-protocols": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.http.http3.enable_0rtt": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.http.http3.enable_kyber": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.max-connections": {
+        "Value": 1800,
+        "Status": "default"
+      },
+      "network.http.max-persistent-connections-per-proxy": {
+        "Value": 48,
+        "Status": "default"
+      },
+      "network.http.max-persistent-connections-per-server": {
+        "Value": 10,
+        "Status": "default"
+      },
+      "network.http.max-urgent-start-excessive-connections-per-host": {
+        "Value": 5,
+        "Status": "default"
+      },
+      "network.http.microsoft-entra-sso.container-enabled.0": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.http.microsoft-entra-sso.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.http.network_error_logging.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.http.referer.defaultPolicy.trackers": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "network.http.referer.defaultPolicy.trackers.pbmode": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.referer.XOriginTrimmingPolicy": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "network.http.speculative-parallel-limit": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "network.http.windows-sso.container-enabled.0": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.http.windows-sso.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.IDN_show_punycode": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.jar.record_failure_reason": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.microsoft-sso-authority-list": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.negotiate-auth.trusted-uris": {
+        "Value": "",
+        "Status": "default"
+      },
+      "network.notify.checkForNRPT": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.notify.checkForProxies": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.preconnect": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.predictor.enable-hover-on-ssl": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.predictor.enable-prefetch": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.predictor.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.prefetch-next": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.proxy.allow_bypass": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.proxy.failover_direct": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.proxy.socks_remote_dns": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.proxy.socks5_remote_dns": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.protocol-handler.external.shell": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.protocol-handler.warn-external-default": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.traffic_analyzer.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.trr.confirmation_telemetry_enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.trr.confirmationNS": {
+        "Value": "skip",
+        "Status": "default"
+      },
+      "network.trr.default_provider_uri": {
+        "Value": "https://dns.quad9.net/dns-query",
+        "Status": "default"
+      },
+      "network.trr.disable-ECS": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.display_fallback_warning": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.mode": {
+        "Value": 3,
+        "Status": "default"
+      },
+      "network.trr.retry_on_recoverable_errors": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.send_accept-language_headers": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.trr.send_empty_accept-encoding_headers": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr.send_user-agent_headers": {
+        "Value": false,
+        "Status": "default"
+      },
+      "network.trr.strict_native_fallback": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.trr_ui.show_fallback_warning_option": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.websocket.allowInsecureFromHTTPS": {
+        "Value": false,
+        "Status": "default"
+      },
+      "pdfjs.enablePermissions": {
+        "Value": false,
+        "Status": "default"
+      },
+      "pdfjs.enableScripting": {
+        "Value": false,
+        "Status": "default"
+      },
+      "pdfjs.enableXfa": {
+        "Value": false,
+        "Status": "default"
+      },
+      "pdfjs.sidebarViewOnLoad": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "privacy.globalprivacycontrol.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "privacy.userContext.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.default_personal_cert": {
+        "Value": "Ask Every Time",
+        "Status": "locked"
+      },
+      "security.insecure_connection_text.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.insecure_connection_text.pbmode.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.mixed_content.block_active_content": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.mixed_content.block_display_content": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.mixed_content.upgrade_display_content": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.OCSP.enabled": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "security.OCSP.require": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.pki.certificate_transparency.mode": {
+        "Value": 2,
+        "Status": "default"
+      },
+      "security.ssl.enable_ocsp_stapling": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.ssl.require_safe_negotiation": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.tls.enable_0rtt_data": {
+        "Value": false,
+        "Status": "default"
+      },
+      "security.tls.hello_downgrade_check": {
+        "Value": true,
+        "Status": "default"
+      },
+      "security.tls.version.enable-deprecated": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "security.warn_submit_secure_to_insecure": {
+        "Value": true,
+        "Status": "default"
+      },
+      "signon.autofillForms": {
+        "Value": false,
+        "Status": "default"
+      },
+      "signon.autofillForms.http": {
+        "Value": false,
+        "Status": "default"
+      },
+      "signon.firefoxRelay.feature": {
+        "Value": "disabled",
+        "Status": "default"
+      },
+      "signon.firefoxRelay.manage_url": {
+        "Value": "https://relay.firefox.com/accounts/profile/",
+        "Status": "default"
+      },
+      "signon.formlessCapture.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "signon.generation.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "signon.privateBrowsingCapture.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "signon.storeWhenAutocompleteOff": {
+        "Value": false,
+        "Status": "default"
+      },
+      "toolkit.legacyUserProfileCustomizations.stylesheets": {
+        "Value": true,
+        "Status": "default"
+      },
+      "ui.hideCursorWhileTyping": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "ui.key.menuAccessKeyFocuses": {
+        "Value": false,
+        "Status": "default"
+      },
+      "ui.panelAnimations": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "ui.prefersReducedMotion": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "ui.prefersReducedTransparency": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "ui.scrollToClick": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "ui.swipeAnimationEnabled": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "ui.useAccessibilityTheme": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "widget.non-native-theme.use-theme-accent": {
+        "Value": false,
+        "Status": "default"
+      },
+      "xpinstall.whitelist.required": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.phoenix.core.policies.status": {
+        "Value": "successfully applied :D",
+        "Status": "locked"
+      },
+      "browser.aboutConfig.showWarning": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.aboutwelcome.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.aboutwelcome.log": {
+        "Value": "off",
+        "Status": "default"
+      },
+      "browser.bookmarks.autoExportHTML": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.bookmarks.openInTabClosesMenu": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.contentblocking.cfr-milestone.enabled": {
         "Value": false,
         "Status": "default"
       },
@@ -156,6 +1592,14 @@
         "Value": false,
         "Status": "default"
       },
+      "browser.contentblocking.report.monitor.sign_in_url": {
+        "Value": "https://monitor.firefox.com/oauth/init",
+        "Status": "default"
+      },
+      "browser.contentblocking.report.monitor.url": {
+        "Value": "https://monitor.firefox.com/",
+        "Status": "default"
+      },
       "browser.contentblocking.report.proxy.enabled": {
         "Value": false,
         "Status": "default"
@@ -168,6 +1612,10 @@
         "Value": false,
         "Status": "locked"
       },
+      "browser.contentblocking.report.vpn.url": {
+        "Value": "https://vpn.mozilla.org/",
+        "Status": "default"
+      },
       "browser.contentblocking.report.vpn-android.url": {
         "Value": "",
         "Status": "locked"
@@ -178,14 +1626,6 @@
       },
       "browser.contentblocking.report.vpn-promo.url": {
         "Value": "",
-        "Status": "locked"
-      },
-      "browser.crashReports.unsubmittedCheck.autoSubmit2": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "browser.crashReports.unsubmittedCheck.enabled": {
-        "Value": false,
         "Status": "locked"
       },
       "browser.dataFeatureRecommendations.enabled": {
@@ -208,46 +1648,6 @@
         "Value": "",
         "Status": "default"
       },
-      "browser.display.use_system_colors": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.download.always_ask_before_handling_new_types": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.download.alwaysOpenPanel": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.download.clearHistoryOnDelete": {
-        "Value": 2,
-        "Status": "default"
-      },
-      "browser.download.enable_spam_prevention": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.download.open_pdf_attachments_inline": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.download.start_downloads_in_tmp_dir": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.download.useDownloadDir": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.eme.ui.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.EULA.override": {
-        "Value": true,
-        "Status": "default"
-      },
       "browser.firefox-view.feature-tour": {
         "Value": "{\"screen\":\"\",\"complete\":true}",
         "Status": "default"
@@ -256,16 +1656,8 @@
         "Value": false,
         "Status": "default"
       },
-      "browser.formfill.enable": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.gnome-search-provider.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.helperApps.deleteTempFileOnExit": {
-        "Value": true,
+      "browser.geolocation.warning.infoURL": {
+        "Value": "https://phoenix.celenity.dev/geo",
         "Status": "default"
       },
       "browser.laterrun.enabled": {
@@ -276,19 +1668,7 @@
         "Value": true,
         "Status": "default"
       },
-      "browser.link.open_newwindow": {
-        "Value": 3,
-        "Status": "default"
-      },
-      "browser.link.open_newwindow.restriction": {
-        "Value": 0,
-        "Status": "default"
-      },
       "browser.mailto.dualPrompt": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.mailto.prompt.os": {
         "Value": false,
         "Status": "default"
       },
@@ -320,8 +1700,8 @@
         "Value": true,
         "Status": "default"
       },
-      "browser.ml.enable": {
-        "Value": false,
+      "browser.newtab.feature-tour": {
+        "Value": "{\"screen\":\"\",\"complete\":true}",
         "Status": "default"
       },
       "browser.newtabpage.activity-stream.asrouter.providers.cfr": {
@@ -612,14 +1992,6 @@
         "Value": "",
         "Status": "default"
       },
-      "browser.opaqueResponseBlocking": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.opaqueResponseBlocking.javascriptValidator": {
-        "Value": true,
-        "Status": "default"
-      },
       "browser.pagethumbnails.capturing_disabled": {
         "Value": true,
         "Status": "default"
@@ -632,24 +2004,8 @@
         "Value": "",
         "Status": "locked"
       },
-      "browser.pdf.launchDefaultEdgeAsApp": {
-        "Value": false,
-        "Status": "default"
-      },
       "browser.pdfjs.feature-tour": {
         "Value": "{\"screen\":\"\",\"complete\":true}",
-        "Status": "default"
-      },
-      "browser.places.interactions.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "browser.places.speculativeConnect.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.policies.loglevel": {
-        "Value": "error",
         "Status": "default"
       },
       "browser.preferences.experimental": {
@@ -672,13 +2028,9 @@
         "Value": true,
         "Status": "default"
       },
-      "browser.privatebrowsing.forceMediaMemoryCache": {
+      "browser.privatebrowsing.resetPBM.enabled": {
         "Value": true,
         "Status": "default"
-      },
-      "browser.privatebrowsing.vpnpromourl": {
-        "Value": "",
-        "Status": "locked"
       },
       "browser.privateWindowSeparation.enabled": {
         "Value": false,
@@ -704,118 +2056,6 @@
         "Value": true,
         "Status": "default"
       },
-      "browser.region.network.scan": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.region.network.url": {
-        "Value": "",
-        "Status": "default"
-      },
-      "browser.region.update.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.rights.3.shown": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "browser.safebrowsing.blockedURIs.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.safebrowsing.downloads.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.safebrowsing.downloads.remote.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.safebrowsing.downloads.remote.url": {
-        "Value": "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%",
-        "Status": "default"
-      },
-      "browser.safebrowsing.malware.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.safebrowsing.phishing.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.advisoryName": {
-        "Value": "Google Safe Browsing (Legacy)",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.dataSharing.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "browser.safebrowsing.provider.google.gethashURL": {
-        "Value": "",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.reportPhishMistakeURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.reportURL": {
-        "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google.updateURL": {
-        "Value": "",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google4.dataSharing.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "browser.safebrowsing.provider.google4.dataSharingURL": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "browser.safebrowsing.provider.google4.gethashURL": {
-        "Value": "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google4.reportMalwareMistakeURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google4.reportPhishMistakeURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google4.reportURL": {
-        "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
-        "Status": "default"
-      },
-      "browser.safebrowsing.provider.google4.updateURL": {
-        "Value": "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
-        "Status": "default"
-      },
-      "browser.safebrowsing.reportPhishURL": {
-        "Value": "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=",
-        "Status": "default"
-      },
-      "browser.search.openintab": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.search.separatePrivateDefault": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.search.separatePrivateDefault.ui.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
       "browser.search.separatePrivateDefault.urlbarResult.enabled": {
         "Value": true,
         "Status": "default"
@@ -828,52 +2068,20 @@
         "Value": false,
         "Status": "locked"
       },
-      "browser.search.suggest.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.search.suggest.enabled.private": {
-        "Value": false,
-        "Status": "default"
-      },
       "browser.search.widget.inNavBar": {
         "Value": true,
-        "Status": "default"
-      },
-      "browser.send_pings": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.send_pings.max_per_link": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "browser.send_pings.require_same_host": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.sessionhistory.max_total_viewers": {
-        "Value": 7,
-        "Status": "default"
-      },
-      "browser.sessionstore.disable_platform_collection": {
-        "Value": false,
-        "Status": "default"
-      },
-      "browser.sessionstore.interval": {
-        "Value": 60000,
         "Status": "default"
       },
       "browser.sessionstore.max_tabs_undo": {
         "Value": 7,
         "Status": "default"
       },
-      "browser.sessionstore.privacy_level": {
-        "Value": 2,
-        "Status": "default"
-      },
       "browser.shell.checkDefaultBrowser": {
         "Value": false,
+        "Status": "default"
+      },
+      "browser.shell.skipDefaultBrowserCheckOnFirstRun": {
+        "Value": true,
         "Status": "default"
       },
       "browser.shell.checkDefaultPDF": {
@@ -886,10 +2094,6 @@
       },
       "browser.shell.shortcutFavicons": {
         "Value": false,
-        "Status": "default"
-      },
-      "browser.shell.skipDefaultBrowserCheckOnFirstRun": {
-        "Value": true,
         "Status": "default"
       },
       "browser.shopping.experience2023.active": {
@@ -944,8 +2148,16 @@
         "Value": true,
         "Status": "default"
       },
+      "browser.startup.homepage": {
+        "Value": "about:home",
+        "Status": "default"
+      },
       "browser.startup.homepage_override.mstone": {
         "Value": "ignore",
+        "Status": "default"
+      },
+      "browser.startup.page": {
+        "Value": 1,
         "Status": "default"
       },
       "browser.startup.upgradeDialog.enabled": {
@@ -966,30 +2178,6 @@
       },
       "browser.tabs.loadBookmarksInTabs": {
         "Value": true,
-        "Status": "default"
-      },
-      "browser.tabs.remote.coep.credentialles": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.tabs.remote.enforceRemoteTypeRestrictions": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.tabs.remote.separateFileUriProcess": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "browser.tabs.remote.separatedMozillaDomains": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "browser.tabs.searchclipboardfor.middleclick": {
-        "Value": false,
         "Status": "default"
       },
       "browser.tabs.unloadTabInContextMenu": {
@@ -1020,23 +2208,7 @@
         "Value": false,
         "Status": "locked"
       },
-      "browser.translations.alwaysTranslateLanguages": {
-        "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi",
-        "Status": "default"
-      },
-      "browser.translations.automaticallyPopup": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.translations.enable": {
-        "Value": true,
-        "Status": "default"
-      },
       "browser.translations.newSettingsUI.enable": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.translations.select.enable": {
         "Value": true,
         "Status": "default"
       },
@@ -1280,1136 +2452,20 @@
         "Value": false,
         "Status": "locked"
       },
-      "browser.xul.error_pages.expert_bad_cert": {
-        "Value": true,
-        "Status": "default"
-      },
-      "browser.xul.error_pages.show_safe_browsing_details_on_load": {
-        "Value": true,
-        "Status": "default"
-      },
-      "datareporting.policy.dataSubmissionEnabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "datareporting.policy.dataSubmissionPolicyAccepted": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "datareporting.policy.dataSubmissionPolicyBypassNotification": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "datareporting.policy.firstRunURL": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "dom.block_download_insecure": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.block_external_protocol_in_iframes": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.block_external_protocol_navigation_from_sandbox": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.disable_open_during_load": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.disable_window_flip": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.disable_window_move_resize": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.ipc.processCount.privilegedmozilla": {
-        "Value": 0,
-        "Status": "locked"
-      },
-      "dom.ipc.processCount.webIsolated": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "dom.netinfo.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.origin-trials.coep-credentialless.state": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "dom.origin-trials.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "dom.origin-trials.private-attribution.state": {
-        "Value": 2,
-        "Status": "locked"
-      },
-      "dom.popup_allowed_events": {
-        "Value": "click dblclick",
-        "Status": "default"
-      },
-      "dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.postMessage.sharedArrayBuffer.withCOOP_COEP": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.prefetch_dns_for_anchor_http_document": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.prefetch_dns_for_anchor_https_document": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.private-attribution.submission.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "dom.reporting.crash.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.reporting.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.reporting.featurePolicy.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.reporting.header.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.security.https_first": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_first_for_custom_ports": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_first_pbm": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_first_schemeless": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_only_mode": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "dom.security.https_only_mode.upgrade_local": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_only_mode_error_page_user_suggestions": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.https_only_mode_pbm": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "dom.security.https_only_mode_send_http_background_request": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.security.skip_about_page_has_csp_assert": {
-        "Value": false,
-        "Status": "default"
-      },
-      "dom.security.trusted_types.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "dom.security.unexpected_system_load_telemetry_enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "dom.webgpu.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.autoDisableScopes": {
-        "Value": 15,
-        "Status": "locked"
-      },
-      "extensions.blocklist.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.enabledScopes": {
-        "Value": 5,
-        "Status": "default"
-      },
-      "extensions.experiments.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.formautofill.addresses.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.formautofill.creditCards.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.formautofill.ml.experiment.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.getAddons.browseAddons": {
-        "Value": "",
-        "Status": "default"
-      },
-      "extensions.getAddons.showPane": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.htmlaboutaddons.recommendations.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.install.requireBuiltInCerts": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "extensions.installDistroAddons": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.langpacks.signatures.required": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "extensions.pocket.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.postDownloadThirdPartyPrompt": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantinedDomains.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.quarantineIgnoredByUser.ads@mozac.org": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.bravesearch@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.cookies@mozac.org": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.ddg@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.ecosia@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.kagi@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.kagi-html@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.leta-brave@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.leta-google@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.metager@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.mojeek@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.no-search@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.qwant@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.startpage@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.swisscows@celenity.dev": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.recommendations.themeRecommendationUrl": {
-        "Value": "",
-        "Status": "default"
-      },
-      "extensions.systemAddon.update.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.ui.lastCategory": {
-        "Value": "addons://list/extension",
-        "Status": "default"
-      },
-      "extensions.update.autoUpdateDefault": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.update.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.update.interval": {
-        "Value": 3600,
-        "Status": "default"
-      },
-      "extensions.update.notifyUser": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.update.requireBuiltInCerts": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "extensions.webapi.testing": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.webapi.testing.http": {
-        "Value": false,
-        "Status": "default"
-      },
-      "extensions.webcompat.enable_shims": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.webcompat.perform_injections": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.webcompat.perform_ua_overrides": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.webcompat.smartblockEmbeds.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.webcompat-reporter.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "extensions.webcompat-reporter.newIssueEndpoint": {
-        "Value": "",
-        "Status": "locked"
-      },
-      "extensions.webextensions.remote": {
-        "Value": true,
-        "Status": "default"
-      },
-      "extensions.webextensions.restrictedDomains": {
-        "Value": "",
-        "Status": "default"
-      },
-      "extensions.webservice.discoverURL": {
-        "Value": "",
-        "Status": "default"
-      },
-      "general.autoScroll": {
-        "Value": true,
-        "Status": "default"
-      },
-      "general.smoothScroll": {
-        "Value": true,
-        "Status": "default"
-      },
-      "gfx.canvas.accelerated.cache-items": {
-        "Value": 4096,
-        "Status": "default"
-      },
-      "gfx.canvas.accelerated.cache-size": {
-        "Value": 512,
-        "Status": "default"
-      },
-      "gfx.content.skia-font-cache-size": {
-        "Value": 20,
-        "Status": "default"
-      },
-      "gfx.font_rendering.graphite.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "gfx.font_rendering.opentype_svg.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "geo.provider.ms-windows-location": {
-        "Value": false,
-        "Status": "default"
-      },
-      "geo.provider.network.logging.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "gfx.webrender.all": {
-        "Value": true,
-        "Status": "default"
-      },
-      "gfx.webrender.compositor": {
-        "Value": true,
-        "Status": "default"
-      },
-      "geo.wifi.scan": {
-        "Value": false,
-        "Status": "default"
-      },
-      "identity.fxaccounts.toolbar.pxiToolbarEnabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "identity.fxaccounts.toolbar.pxiToolbarEnabled.monitorEnabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "identity.fxaccounts.toolbar.pxiToolbarEnabled.relayEnabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "intl.allow-insecure-text-input": {
-        "Value": false,
-        "Status": "default"
-      },
-      "layout.css.prefers-color-scheme.content-override": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "layout.css.report_errors": {
-        "Value": false,
-        "Status": "default"
-      },
-      "layout.css.visited_links_enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "layout.forms.reveal-password-button.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "layout.forms.reveal-password-context-menu.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "layout.spellcheckDefault": {
-        "Value": 2,
-        "Status": "default"
-      },
-      "media.autoplay.default": {
-        "Value": 5,
-        "Status": "default"
-      },
-      "media.cache_readahead_limit": {
-        "Value": 7200,
-        "Status": "default"
-      },
-      "media.cache_resume_threshold": {
-        "Value": 3600,
-        "Status": "default"
-      },
-      "media.clearkey.persistent-license.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.clearkey.test-key-systems.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.devices.insecure.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.eme.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.eme.encrypted-media-encryption-scheme.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.eme.hdcp-policy-check.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.eme.playready.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.eme.require-app-approval": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.eme.wmf.clearkey.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.ffmpeg.vaapi.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.getusermedia.insecure.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.gmp.insecure.allow": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.gmp-manager.cert.checkAttributes": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.gmp-manager.cert.requireBuiltIn": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.gmp-manager.checkContentSignature": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.gmp-manager.updateEnabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.gmp-widevinecdm.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.gmp-widevinecdm.visible": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.gmp-widevinecdm-l1.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.gmp-widevinecdm-l1.visible": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.mediadrm-widevinecdm.visible": {
-        "Value": false,
-        "Status": "default"
-      },
-      "media.memory_cache_max_size": {
-        "Value": 65536,
-        "Status": "default"
-      },
-      "media.peerconnection.ice.obfuscate_host_addresses": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.peerconnection.ice.proxy_only_if_behind_proxy": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.peerconnection.mtransport_process": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.webrtc.enable_pq_dtls": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.webspeech.synth.dont_notify_on_error": {
-        "Value": true,
-        "Status": "default"
-      },
-      "media.webvtt.testing.events": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.auth.non-web-content-triggered-resources-http-auth-allow": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.auth.subresource-http-auth-allow": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "network.auth.subresource-img-cross-origin-http-auth-allow": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.captive-portal-service.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.connectivity-service.DNS_HTTPS.domain": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.connectivity-service.DNSv4.domain": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.connectivity-service.DNSv6.domain": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.connectivity-service.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.connectivity-service.IPv4.url": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.connectivity-service.IPv6.url": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.cookie.CHIPS.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.cookieBehavior": {
-        "Value": 5,
-        "Status": "default"
-      },
-      "network.cookie.cookieBehavior.optInPartitioning": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.cookieBehavior.optInPartitioning.pbmode": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.cookieBehavior.pbmode": {
-        "Value": 5,
-        "Status": "default"
-      },
-      "network.cookie.cookieBehavior.trackerCookieBlocking": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.sameSite.laxByDefault": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.sameSite.noneRequiresSecure": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.cookie.sameSite.schemeful": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.disablePrefetch": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.disablePrefetchFromHTTPS": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.echconfig.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.http3_echconfig.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.native_https_query": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.preferIPv6": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.dns.prefetch_via_proxy": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.dnsCacheEntries": {
-        "Value": 1000,
-        "Status": "default"
-      },
-      "network.dnsCacheExpiration": {
-        "Value": 3600,
-        "Status": "default"
-      },
-      "network.dnsCacheExpirationGracePeriod": {
-        "Value": 240,
-        "Status": "default"
-      },
-      "network.early-hints.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.early-hints.over-http-v1-1.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.early-hints.preconnect.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.early-hints.preconnect.max_connections": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "network.file.disable_unc_paths": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.gio.supported-protocols": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.http.http3.enable_0rtt": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.http.http3.enable_kyber": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.http.max-connections": {
-        "Value": 1800,
-        "Status": "default"
-      },
-      "network.http.max-persistent-connections-per-proxy": {
-        "Value": 48,
-        "Status": "default"
-      },
-      "network.http.max-persistent-connections-per-server": {
-        "Value": 10,
-        "Status": "default"
-      },
-      "network.http.max-urgent-start-excessive-connections-per-host": {
-        "Value": 5,
-        "Status": "default"
-      },
-      "network.http.microsoft-entra-sso.container-enabled.0": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.http.microsoft-entra-sso.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.http.network_error_logging.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.http.referer.defaultPolicy.trackers": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "network.http.referer.defaultPolicy.trackers.pbmode": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "network.http.referer.disallowCrossSiteRelaxingDefault": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.http.referer.XOriginTrimmingPolicy": {
-        "Value": 2,
-        "Status": "default"
-      },
-      "network.http.speculative-parallel-limit": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "network.http.windows-sso.container-enabled.0": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.http.windows-sso.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.IDN_show_punycode": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.jar.record_failure_reason": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.microsoft-sso-authority-list": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.negotiate-auth.trusted-uris": {
-        "Value": "",
-        "Status": "default"
-      },
-      "network.notify.checkForNRPT": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.notify.checkForProxies": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.preconnect": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.predictor.enable-hover-on-ssl": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.predictor.enable-prefetch": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.predictor.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.prefetch-next": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.proxy.allow_bypass": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.proxy.failover_direct": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.proxy.socks_remote_dns": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.proxy.socks5_remote_dns": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.protocol-handler.external.shell": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.protocol-handler.warn-external.mailto": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.protocol-handler.warn-external-default": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.traffic_analyzer.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.trr.confirmation_telemetry_enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "network.trr.confirmationNS": {
-        "Value": "skip",
-        "Status": "default"
-      },
-      "network.trr.default_provider_uri": {
-        "Value": "https://dns.quad9.net/dns-query",
-        "Status": "default"
-      },
-      "network.trr.disable-ECS": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.trr.display_fallback_warning": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.trr.mode": {
-        "Value": 3,
-        "Status": "default"
-      },
-      "network.trr.retry_on_recoverable_errors": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.trr.send_accept-language_headers": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.trr.send_empty_accept-encoding_headers": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.trr.send_user-agent_headers": {
-        "Value": false,
-        "Status": "default"
-      },
-      "network.trr.strict_native_fallback": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.trr_ui.show_fallback_warning_option": {
-        "Value": true,
-        "Status": "default"
-      },
-      "network.websocket.allowInsecureFromHTTPS": {
-        "Value": false,
-        "Status": "default"
-      },
-      "pdfjs.enablePermissions": {
-        "Value": false,
-        "Status": "default"
-      },
-      "pdfjs.enableScripting": {
-        "Value": false,
-        "Status": "default"
-      },
-      "pdfjs.enableXfa": {
-        "Value": false,
-        "Status": "default"
-      },
-      "pdfjs.sidebarViewOnLoad": {
-        "Value": 2,
-        "Status": "default"
-      },
-      "privacy.globalprivacycontrol.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "privacy.userContext.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "privacy.userContext.ui.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.default_personal_cert": {
-        "Value": "Ask Every Time",
-        "Status": "locked"
-      },
-      "security.insecure_connection_text.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.insecure_connection_text.pbmode.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.mixed_content.block_active_content": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.mixed_content.block_display_content": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.mixed_content.upgrade_display_content": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.OCSP.enabled": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "security.OCSP.require": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.pki.certificate_transparency.mode": {
-        "Value": 2,
-        "Status": "default"
-      },
-      "security.ssl.enable_ocsp_stapling": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.ssl.require_safe_negotiation": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.tls.enable_0rtt_data": {
-        "Value": false,
-        "Status": "default"
-      },
-      "security.tls.hello_downgrade_check": {
-        "Value": true,
-        "Status": "default"
-      },
-      "security.tls.version.enable-deprecated": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "security.warn_submit_secure_to_insecure": {
-        "Value": true,
-        "Status": "default"
-      },
-      "signon.autofillForms": {
-        "Value": false,
-        "Status": "default"
-      },
-      "signon.autofillForms.http": {
-        "Value": false,
-        "Status": "default"
-      },
-      "signon.firefoxRelay.feature": {
-        "Value": "disabled",
-        "Status": "default"
-      },
-      "signon.formlessCapture.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "signon.generation.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "signon.management.page.breach-alerts.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "signon.management.page.vulnerable-passwords.enabled": {
-        "Value": true,
-        "Status": "default"
-      },
-      "signon.privateBrowsingCapture.enabled": {
-        "Value": false,
-        "Status": "default"
-      },
-      "signon.storeWhenAutocompleteOff": {
-        "Value": false,
-        "Status": "default"
-      },
-      "toolkit.legacyUserProfileCustomizations.stylesheets": {
-        "Value": true,
-        "Status": "default"
-      },
-      "ui.new-webcompat-reporter.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "ui.new-webcompat-reporter.send-more-info-link": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "ui.prefersReducedMotion": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "widget.non-native-theme.use-theme-accent": {
-        "Value": false,
-        "Status": "default"
-      },
-      "xpinstall.whitelist.required": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "browser.phoenix.core.policies.status": {
-        "Value": "successfully applied :D",
-        "Status": "locked"
-      },
-      "browser.contentblocking.report.monitor.sign_in_url": {
-        "Value": "https://monitor.firefox.com/oauth/init",
-        "Status": "default"
-      },
-      "browser.contentblocking.report.monitor.url": {
-        "Value": "https://monitor.firefox.com/",
-        "Status": "default"
-      },
-      "browser.contentblocking.report.vpn.url": {
-        "Value": "https://vpn.mozilla.org/",
-        "Status": "default"
-      },
-      "browser.geolocation.warning.infoURL": {
-        "Value": "https://phoenix.celenity.dev/geo",
-        "Status": "default"
-      },
-      "browser.startup.homepage": {
-        "Value": "about:home",
-        "Status": "default"
-      },
-      "browser.startup.page": {
-        "Value": 1,
-        "Status": "default"
-      },
       "extensions.getAddons.search.browseURL": {
         "Value": "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%",
         "Status": "default"
       },
       "extensions.getAddons.discovery.api_url": {
         "Value": "https://phoenix.celenity.dev/extensions/recommendations.json",
+        "Status": "default"
+      },
+      "extensions.langpacks.signatures.required": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.pocket.enabled": {
+        "Value": false,
         "Status": "default"
       },
       "extensions.recommendations.privacyPolicyUrl": {
@@ -2428,17 +2484,53 @@
         "Value": true,
         "Status": "default"
       },
-      "signon.firefoxRelay.manage_url": {
-        "Value": "https://relay.firefox.com/accounts/profile/",
+      "identity.fxaccounts.toolbar.pxiToolbarEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "identity.fxaccounts.toolbar.pxiToolbarEnabled.monitorEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "identity.fxaccounts.toolbar.pxiToolbarEnabled.relayEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "network.protocol-handler.warn-external.mailto": {
+        "Value": true,
+        "Status": "default"
+      },
+      "privacy.userContext.ui.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "signon.management.page.breach-alerts.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "signon.management.page.vulnerable-passwords.enabled": {
+        "Value": true,
         "Status": "default"
       },
       "signon.rememberSignons": {
         "Value": false,
         "Status": "default"
       },
+      "ui.new-webcompat-reporter.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "ui.new-webcompat-reporter.send-more-info-link": {
+        "Value": false,
+        "Status": "default"
+      },
       "xpinstall.signatures.required": {
         "Value": true,
-        "Status": "locked"
+        "Status": "default"
       },
       "browser.phoenix.policies.status": {
         "Value": "successfully applied :D",
@@ -3304,16 +3396,14 @@
         "install_sources": [
           "https://addons.mozilla.org/*",
           "https://agrd.io/extension_firefox_beta",
+          "https://archive.mozilla.org/pub/firefox/*",
           "https://archive.mozilla.org/pub/labs/*",
           "https://archive.mozilla.org/pub/system-addons/*",
-          "https://archive.mozilla.org/pub/vpn/addons/candidates/*",
-          "https://archive.mozilla.org/pub/vpn/addons/releases/*",
           "https://cdn.mullvad.net/browser-extension/*",
           "https://codeberg.org/celenity/Phoenix/*",
+          "https://ftp.mozilla.org/pub/firefox/*",
           "https://ftp.mozilla.org/pub/labs/*",
           "https://ftp.mozilla.org/pub/system-addons/*",
-          "https://ftp.mozilla.org/pub/vpn/addons/candidates/*",
-          "https://ftp.mozilla.org/pub/vpn/addons/releases/*",
           "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&inline=false",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases",
           "https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*",
@@ -3382,6 +3472,9 @@
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/873923787/*",
           "https://phoenix.celenity.dev/extensions/xpi/*",
           "https://privacybadger.org/*",
+          "https://releases.mozilla.org/pub/firefox/*",
+          "https://releases.mozilla.org/pub/labs/*",
+          "https://releases.mozilla.org/pub/system-addons/*",
           "https://static.adguard.com/extensions/adguardadblocker/beta/firefox.xpi",
           "https://static.adtidy.org/extensions/adguardadblocker/beta/firefox.xpi"
         ],
