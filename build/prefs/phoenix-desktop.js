@@ -45,6 +45,14 @@ pref("messaging-system.rsexperimentloader.enabled", false, locked);
 pref("messaging-system.rsexperimentloader.collection_id", "", locked);
 pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 
+/// Crash Reporting
+// https://github.com/mozilla-services/socorro
+// https://wiki.mozilla.org/Socorro
+// These are for `about:tabcrashed` specifically...
+
+pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
+pref("browser.tabs.crashReporting.sendReport", false, locked);
+
 /// Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
 // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs

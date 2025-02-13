@@ -868,6 +868,14 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.tabs.crashReporting.includeURL": {
+                "Value": false,
+                "Status": "locked"
+            },
+            "browser.tabs.crashReporting.sendReport": {
+                "Value": false,
+                "Status": "locked"
+            },
             "browser.tabs.loadBookmarksInTabs": {
                 "Value": true,
                 "Status": "default"

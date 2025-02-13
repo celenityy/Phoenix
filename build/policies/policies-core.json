@@ -440,14 +440,6 @@
                 "Value": 2,
                 "Status": "default"
             },
-            "browser.tabs.crashReporting.includeURL": {
-                "Value": false,
-                "Status": "locked"
-            },
-            "browser.tabs.crashReporting.sendReport": {
-                "Value": false,
-                "Status": "locked"
-            },
             "browser.tabs.remote.coep.credentialles": {
                 "Value": true,
                 "Status": "default"
