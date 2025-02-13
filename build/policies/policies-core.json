@@ -68,14 +68,6 @@
                 "Value": 3600,
                 "Status": "default"
             },
-            "browser.bookmarks.autoExportHTML": {
-                "Value": true,
-                "Status": "default"
-            },
-            "browser.bookmarks.openInTabClosesMenu": {
-                "Value": false,
-                "Status": "default"
-            },
             "browser.cache.disk.enable": {
                 "Value": false,
                 "Status": "default"
@@ -136,10 +128,6 @@
                 "Value": false,
                 "Status": "locked"
             },
-            "browser.disableResetPrompt": {
-                "Value": true,
-                "Status": "locked"
-            },
             "browser.display.use_system_colors": {
                 "Value": false,
                 "Status": "default"
@@ -192,28 +180,12 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.link.force_default_user_context_id_for_external_opens": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.link.open_newwindow": {
                 "Value": 3,
                 "Status": "default"
             },
             "browser.link.open_newwindow.restriction": {
                 "Value": 0,
-                "Status": "default"
-            },
-            "browser.mailto.dualPrompt": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.mailto.prompt.os": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.menu.showViewImageInfo": {
-                "Value": true,
                 "Status": "default"
             },
             "browser.ml.enable": {
@@ -240,10 +212,6 @@
                 "Value": "error",
                 "Status": "default"
             },
-            "browser.privatebrowsing.felt-privacy-v1": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.privatebrowsing.forceMediaMemoryCache": {
                 "Value": true,
                 "Status": "default"
@@ -251,14 +219,6 @@
             "browser.privatebrowsing.vpnpromourl": {
                 "Value": "",
                 "Status": "locked"
-            },
-            "browser.privateWindowSeparation.enabled": {
-                "Value": false,
-                "Status": "default"
-            },
-            "browser.profiles.enabled": {
-                "Value": true,
-                "Status": "default"
             },
             "browser.region.network.scan": {
                 "Value": false,
@@ -424,10 +384,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.search.openintab": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.search.separatePrivateDefault": {
                 "Value": false,
                 "Status": "default"
@@ -456,10 +412,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "browser.search.widget.inNavBar": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.send_pings": {
                 "Value": false,
                 "Status": "default"
@@ -484,16 +436,8 @@
                 "Value": 60000,
                 "Status": "default"
             },
-            "browser.sessionstore.max_tabs_undo": {
-                "Value": 7,
-                "Status": "default"
-            },
             "browser.sessionstore.privacy_level": {
                 "Value": 2,
-                "Status": "default"
-            },
-            "browser.spin_cursor_while_busy": {
-                "Value": true,
                 "Status": "default"
             },
             "browser.tabs.crashReporting.includeURL": {
@@ -503,10 +447,6 @@
             "browser.tabs.crashReporting.sendReport": {
                 "Value": false,
                 "Status": "locked"
-            },
-            "browser.tabs.loadBookmarksInTabs": {
-                "Value": true,
-                "Status": "default"
             },
             "browser.tabs.remote.coep.credentialles": {
                 "Value": true,
@@ -532,14 +472,6 @@
                 "Value": false,
                 "Status": "default"
             },
-            "browser.tabs.unloadTabInContextMenu": {
-                "Value": true,
-                "Status": "default"
-            },
-            "browser.toolbars.bookmarks.visibility": {
-                "Value": "always",
-                "Status": "default"
-            },
             "browser.translations.alwaysTranslateLanguages": {
                 "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi",
                 "Status": "default"
@@ -552,16 +484,8 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.translations.newSettingsUI.enable": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.translations.select.enable": {
                 "Value": true,
-                "Status": "default"
-            },
-            "browser.uiCustomization.state": {
-                "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}",
                 "Status": "default"
             },
             "browser.xul.error_pages.expert_bad_cert": {
@@ -948,8 +872,12 @@
                 "Value": true,
                 "Status": "default"
             },
+            "gfx.canvas.accelerated": {
+                "Value": true,
+                "Status": "default"
+            },
             "gfx.canvas.accelerated.cache-items": {
-                "Value": 4096,
+                "Value": 8192,
                 "Status": "default"
             },
             "gfx.canvas.accelerated.cache-size": {
@@ -1504,10 +1432,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "privacy.userContext.ui.enabled": {
-                "Value": true,
-                "Status": "default"
-            },
             "security.default_personal_cert": {
                 "Value": "Ask Every Time",
                 "Status": "locked"
@@ -1604,7 +1528,35 @@
                 "Value": true,
                 "Status": "default"
             },
+            "ui.hideCursorWhileTyping": {
+                "Value": 1,
+                "Status": "default"
+            },
+            "ui.key.menuAccessKeyFocuses": {
+                "Value": false,
+                "Status": "default"
+            },
+            "ui.panelAnimations": {
+                "Value": 0,
+                "Status": "default"
+            },
             "ui.prefersReducedMotion": {
+                "Value": 1,
+                "Status": "default"
+            },
+            "ui.prefersReducedTransparency": {
+                "Value": 0,
+                "Status": "default"
+            },
+            "ui.scrollToClick": {
+                "Value": 1,
+                "Status": "default"
+            },
+            "ui.swipeAnimationEnabled": {
+                "Value": 0,
+                "Status": "default"
+            },
+            "ui.useAccessibilityTheme": {
                 "Value": 0,
                 "Status": "default"
             },

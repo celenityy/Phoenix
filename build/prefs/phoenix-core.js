@@ -377,11 +377,6 @@ pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT, HIDDEN - Thunderbird]
 pref("network.http.http3.enable_kyber", true);
 pref("security.tls.enable_kyber", true);
 
-/// Enforce MITM Detection
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
-
-pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
-
 /// Disable Captive Portal Detection & Connectivity Checks
 // Privacy & security concerns, and in general best handled by the OS.
 // https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_network-detection
@@ -507,10 +502,6 @@ pref("security.OCSP.require", true);
 
 pref("security.pki.crlite_mode", 2); // [DEFAULT on Nightly]
 pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - Nightly Desktop]
-
-/// Make exceptions for certificate errors session only
-
-pref("security.certerrors.permanentOverride", false); // [HIDDEN - Android/Thunderbird]
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
@@ -1500,7 +1491,6 @@ pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thund
 /// Enforce local debugging only
 
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
-pref("devtools.inspector.remote", false, locked); // [DEFAULT, HIDDEN - Android]
 
 // Always prompt before connecting...
 
@@ -1514,15 +1504,6 @@ pref("browser.phoenix.core.status", "024");
 
 /// 025 MISC.
 
-/// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
-
-pref("browser.privatebrowsing.felt-privacy-v1", true);
-pref("security.certerrors.felt-privacy-v1", true);
-
-/// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
-
-pref("permissions.media.show_always_ask.enabled", true);
-
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 
@@ -1531,80 +1512,61 @@ pref("media.webvtt.testing.events", false); // [DEFAULT]
 /// Always allow installing "incompatible" add-ons
 // Especially useful on Android & Thunderbird...
 
-pref("extensions.strictCompatibility", false);
+pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
 
-/// Enable Containers & isolate permissions per container
+/// Isolate permissions per container (if containers are enabled...)
+// https://support.mozilla.org/kb/how-use-firefox-containers
 
 pref("permissions.isolateBy.userContext", true);
-pref("privacy.userContext.enabled", true);
-pref("privacy.userContext.ui.enabled", true);
-
-/// Prevent Firefox from automatically guessing which container to open an external link in, instead stick to the default
-// This can lead to cross contamination for those who keep separate containers exclusively for specific websites.
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1874599#c8
-
-pref("browser.link.force_default_user_context_id_for_external_opens", true);
-
-/// Never hide any extensions in about:debugging
-
-pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
-
-/// Enable Desktop Profiles UI
-// Only works on Nightly?
-
-pref("browser.profiles.enabled", true);
 
 /// Force pop-up windows to open in new tabs instead
 
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
-pref("browser.link.open_newwindow.restriction", 0);
+pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunderbird]
 
 /// Always block pop-ups by default
 
-pref("dom.disable_open_during_load", true); // [DEFAULT]
+pref("dom.disable_open_during_load", true); // [DEFAULT - non-Thunderbird]
 
 /// Limit what events can cause pop-ups
 
 pref("dom.popup_allowed_events", "click dblclick");
 
-/// Notify on Pop-up blocking by default
-
-pref("privacy.popups.showBrowserMessage", true);
-
 /// Prevent scripts from moving, resizing, and messing with windows
 
-pref("dom.disable_window_flip", true); // [DEFAULT - Desktop]
+pref("dom.disable_window_flip", true); // [DEFAULT - non-Android]
 pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 
 /// Disable annoying Web Speech API errors
+// https://searchfox.org/mozilla-central/source/browser/actors/SpeechDispatcherParent.sys.mjs#8
 
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
-
-/// Disable Firefox "Reset/Refresh Profile" prompt
-/// This could cause Phoenix users serious issues, especially those with user.js files...
-
-pref("browser.disableResetPrompt", true, locked);
 
 pref("browser.phoenix.core.status", "025");
 
 // 026 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
+pref("browser.cache.jsbc_compression_level", 3); // [Default = 0]
+pref("browser.sessionstore.interval", 60000);
 pref("browser.sessionhistory.max_total_viewers", 7); // [Default = -1 (Automatic)]
-pref("browser.sessionstore.max_tabs_undo", 7); // [Default = 10]
 pref("content.notify.interval", 100000); // [Default = 120000] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 pref("extensions.logging.enabled", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#232
-pref("gfx.canvas.accelerated.cache-items", 4096); // [Default = 2048]
+pref("gfx.canvas.accelerated", true); // [DEFAULT]
+pref("gfx.canvas.accelerated.cache-items", 8192); // [DEFAULT - non-Thunderbird]
 pref("gfx.canvas.accelerated.cache-size", 512); // [Default = 256]
 pref("gfx.content.skia-font-cache-size", 20); // [Default = 5]
+pref("gfx.webrender.compositor", true); // [DEFAULT - macOS/Windows]
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
-pref("layout.css.report_errors", false); // https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
+pref("layout.css.report_errors", false); // [DEFAULT - Android] https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
+pref("media.cache_readahead_limit", 7200);
+pref("media.cache_resume_threshold", 3600);
 pref("media.memory_cache_max_size", 65536); // [Default = 8192]
-pref("network.dnsCacheEntries", 1000); // [Default = 400]
+pref("network.dnsCacheEntries", 1000); // [Default = 800 - Nightly Desktop, 400 - Non-Nightly Desktop]
 pref("network.dnsCacheExpiration", 3600); // [Default = 60]
 pref("network.dnsCacheExpirationGracePeriod", 240); // [Default = 60]
-pref("network.http.max-persistent-connections-per-proxy", 48); // [Default = 20]
+pref("network.http.max-persistent-connections-per-proxy", 48); // [Default = 20 - Android, 32 - non-Android]
 pref("network.http.max-persistent-connections-per-server", 10); // [Default = 6]
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Default = 3]
 
@@ -1612,9 +1574,10 @@ pref("browser.phoenix.core.status", "026");
 
 // 027 SCROLLING
 
-pref("apz.overscroll.enabled", true);
-pref("general.autoScroll", true);
-pref("general.smoothScroll", true); // [DEFAULT]
+pref("apz.autoscroll.enabled", true); // [DEFAULT]
+pref("apz.overscroll.enabled", true); // [DEFAULT - non-Thunderbird]
+pref("general.autoScroll", true); // [DEFAULT - non-Unix (excluding macOS)/Thunderbird, HIDDEN - Android]
+pref("general.smoothScroll", true); // [DEFAULT - non-Thunderbird]
 
 pref("browser.phoenix.core.status", "027");
 
@@ -1623,43 +1586,20 @@ pref("browser.phoenix.core.status", "027");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
-pref("browser.bookmarks.autoExportHTML", true);
-pref("browser.bookmarks.openInTabClosesMenu", false);
-pref("browser.compactmode.show", true);
-pref("browser.mailto.dualPrompt", false); // Prevent prompting to use as mailto handler
-pref("browser.mailto.prompt.os", false); // Prevent prompting to use as mailto handler
-pref("browser.menu.showViewImageInfo", true);
-pref("browser.policies.loglevel", "error"); // [DEFAULT - HIDDEN] This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
-pref("browser.privateWindowSeparation.enabled", false);
-pref("browser.search.openintab", true);
-pref("browser.search.widget.inNavBar", true);
-pref("browser.spin_cursor_while_busy", true);
-pref("browser.tabs.loadBookmarksInTabs", true);
-pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
-pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
 pref("browser.translations.alwaysTranslateLanguages", "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi");
 pref("browser.translations.automaticallyPopup", true); // [DEFAULT]
-pref("browser.translations.enable", true); // [DEFAULT]
-pref("browser.translations.select.enable", true);
-pref("devtools.chrome.enabled", true);
-pref("devtools.command-button-measure.enabled", true);
-pref("devtools.command-button-rulers.enabled", true);
-pref("devtools.command-button-screenshot.enabled", true);
-pref("devtools.dom.enabled", true);
-pref("devtools.debugger.ui.editor-wrapping", true); // Enables long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
-pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
-pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
-pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
+pref("browser.translations.enable", true); // [DEFAULT - non-Thunderbird]
+pref("browser.translations.select.enable", true); // [DEFAULT - non-Android/Thunderbird]
+pref("devtools.chrome.enabled", true); // [DEFAULT - Thunderbird]
 pref("findbar.highlightAll", true); // Highlights all Findbar (Ctrl + F) results by default
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
-pref("full-screen-api.warning.delay", -1); // [Default = -1 (Automatic)]
+pref("full-screen-api.warning.delay", -1); // [Default = 500, -1 = Automatic]
 pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 pref("security.xfocsp.hideOpenInNewWindow", false);
-pref("toolkit.cosmeticAnimations.enabled", true); // [DEFAULT, HIDDEN] Allows disabling browser animations, exposes it in the about:config https://searchfox.org/mozilla-release/source/remote/test/puppeteer/packages/browsers/src/browser-data/firefox.ts#389
-pref("ui.prefersReducedMotion", 0); // [DEFAULT, HIDDEN] Allows disabling certain UI animations, exposes it in the about:config https://searchfox.org/mozilla-release/source/browser/tools/mozscreenshots/mozscreenshots/extension/TestRunner.sys.mjs#122
-pref("view_source.syntax_highlight", true); // [DEFAULT]
-pref("view_source.wrap_long_lines", true); // [DEFAULT]
+pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux] Prevent alt key from toggling menu bar by default
+pref("view_source.syntax_highlight", true); // [DEFAULT - non-Thunderbird]
+pref("view_source.wrap_long_lines", true); // [DEFAULT - Android]
 
 pref("browser.phoenix.core.status", "028");
 

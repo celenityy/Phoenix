@@ -289,6 +289,11 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCAL
 pref("browser.shell.checkDefaultBrowser", false);
 pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
 
+/// Prevent checking if Firefox is the default mailto: handler
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1864216
+
+pref("browser.mailto.dualPrompt", false); // [DEFAULT]
+
 pref("browser.phoenix.desktop.status", "002");
 
 // 003 Search & URL Bar
@@ -365,7 +370,21 @@ pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protect
 
 pref("browser.phoenix.desktop.status", "005");
 
-// 006 GEOLOCATION
+// 006 CERTIFICATES
+
+/// Enforce MITM Detection
+// https://github.com/arkenfox/user.js/issues/740
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
+
+pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
+
+/// Make exceptions for certificate errors session only
+
+pref("security.certerrors.permanentOverride", false);
+
+pref("browser.phoenix.desktop.status", "006");
+
+// 007 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -380,9 +399,9 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
 
-pref("browser.phoenix.desktop.status", "006");
+pref("browser.phoenix.desktop.status", "007");
 
-// 007 AI
+// 008 AI
 // https://support.mozilla.org/kb/ai-chatbot
 
 /// Ensure that AI functionality is disabled by default
@@ -408,9 +427,9 @@ pref("browser.ml.chat.hideFromLabs", false);
 
 pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "007");
+pref("browser.phoenix.desktop.status", "008");
 
-// 008 DISK AVOIDANCE
+// 009 DISK AVOIDANCE
 
 /// Sanitization
 // Checks the boxes for clearing browsing history, cache, download history, & sessions when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
@@ -453,9 +472,9 @@ pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
 
-pref("browser.phoenix.desktop.status", "008");
+pref("browser.phoenix.desktop.status", "009");
 
-// 009 EXTENSIONS
+// 010 EXTENSIONS
 
 // Only allow signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
@@ -463,9 +482,9 @@ pref("browser.phoenix.desktop.status", "008");
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "009");
+pref("browser.phoenix.desktop.status", "010");
 
-// 010 PDF.js
+// 011 PDF.js
 
 /// Prevent checking if Firefox is the default PDF viewer
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
@@ -473,7 +492,9 @@ pref("browser.phoenix.desktop.status", "009");
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-// 011 FINGERPRINTING PROTECTION
+pref("browser.phoenix.desktop.status", "011");
+
+// 012 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -502,9 +523,9 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "011");
+pref("browser.phoenix.desktop.status", "012");
 
-/// 012 MISC. PRIVACY
+/// 013 MISC. PRIVACY
 
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
@@ -515,9 +536,9 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "012");
+pref("browser.phoenix.desktop.status", "013");
 
-// 013 PASSWORDS & AUTHENTICATION
+// 014 PASSWORDS & AUTHENTICATION
 
 /// If password manager is enabled, enable alerts for breached & vulnerable passwords by default, harmless and never sends passwords or sensitive data to Mozilla
 // https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords
@@ -532,9 +553,9 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "013");
+pref("browser.phoenix.desktop.status", "014");
 
-// 014 UPDATES
+// 015 UPDATES
 
 /// Browser Updates
 
@@ -542,9 +563,9 @@ pref("browser.phoenix.desktop.status", "013");
 
 pref("browser.startup.upgradeDialog.enabled", true);
 
-pref("browser.phoenix.desktop.status", "014");
+pref("browser.phoenix.desktop.status", "015");
 
-/// 015 MISC.
+/// 016 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -567,10 +588,57 @@ pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.de
 
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
-pref("browser.phoenix.desktop.status", "015");
+/// Enable experimental Profiles UI
 
-// 016 Personal Touch 💜
+pref("browser.profiles.enabled", true);
 
+/// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
+
+pref("browser.privatebrowsing.felt-privacy-v1", true);
+pref("security.certerrors.felt-privacy-v1", true);
+
+/// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
+
+pref("permissions.media.show_always_ask.enabled", true);
+
+/// Enable the containers UI...
+
+pref("privacy.userContext.ui.enabled", true); // [DEFAULT - Nightly]
+
+/// Prevent Firefox from automatically guessing which container to open an external link in, instead stick to the default (if containers are enabled...)
+// This can lead to cross contamination for those who keep separate containers exclusively for specific websites.
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1874599#c8
+
+pref("browser.link.force_default_user_context_id_for_external_opens", true);
+
+/// Notify on Pop-up blocking by default
+
+pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
+
+/// Disable Firefox "Reset/Refresh Profile" prompt
+// This could cause Phoenix users serious issues, especially those with custom configs/user.js files...
+// We also configure the "DisableProfileRefresh" policy
+// https://mozilla.github.io/policy-templates/#disableprofilerefresh 
+
+pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
+
+pref("browser.phoenix.desktop.status", "016");
+
+// 017 PERFORMANCE
+
+pref("browser.sessionstore.max_tabs_undo", 7);
+
+pref("browser.phoenix.desktop.status", "017");
+
+// 018 Personal Touch 💜
+
+/// Things that are  nice to have™
+// Not directly privacy & security related
+
+pref("browser.bookmarks.autoExportHTML", true); // Export bookmarks to a bookmarks.html file
+pref("browser.bookmarks.openInTabClosesMenu", false); // Don't automatically close bookmarks menu after selecting a bookmark
+pref("browser.compactmode.show", true);
+pref("browser.menu.showViewImageInfo", true); // [DEFAULT - Developer Edition]
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
@@ -581,20 +649,27 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", fal
 pref("browser.newtabpage.activity-stream.showRecentSaves", false);
 pref("browser.preferences.experimental", true); // [DEFAULT]
 pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
+pref("browser.privateWindowSeparation.enabled", false); // [WINDOWS]
+pref("browser.search.widget.inNavBar", true); // [HIDDEN]
+pref("browser.spin_cursor_while_busy", true);
+pref("browser.tabs.loadBookmarksInTabs", true);
+pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
+pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
+pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences`
 
 /// Clean-up default UI
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "016");
+pref("browser.phoenix.desktop.status", "018");
 
-// 017 Enable support for custom/specialized configs...
+// 019 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "017");
+pref("browser.phoenix.desktop.status", "019");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

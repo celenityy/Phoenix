@@ -99,5 +99,12 @@ pref("media.mediadrm-widevinecdm.visible", false);
 
 pref("browser.phoenix.android.status", "006");
 
+// 007 PERFORMANCE
+
+pref("browser.sessionstore.max_tabs_undo", 7);
+pref("network.http.max-connections", 256); // [Default = 128]
+
+pref("browser.phoenix.android.status", "007");
+
 pref("browser.phoenix.android.status", "successfully applied :D", locked);
 

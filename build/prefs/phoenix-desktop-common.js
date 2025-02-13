@@ -161,7 +161,7 @@ pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT]
 /// Disable GNOME Integration
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
 
-pref("browser.gnome-search-provider.enabled", false);
+pref("browser.gnome-search-provider.enabled", false); // [HIDDEN]
 
 /// If a remote AutoConfig is being used, block it from gaining privileged browser access...
 // https://www.mozilla.org/firefox/62.0/releasenotes/
@@ -212,20 +212,47 @@ pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts
 
 pref("browser.phoenix.desktop.common.status", "011");
 
-// 012 PERFORMANCE
-// A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
+// 012 DEBUGGING
 
-pref("browser.cache.jsbc_compression_level", 3);
-pref("browser.sessionstore.interval", 60000);
-pref("gfx.webrender.compositor", true);
-pref("media.cache_readahead_limit", 7200);
-pref("media.cache_resume_threshold", 3600);
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
-pref("network.http.max-connections", 1800);
+/// Enforce local debugging only
+
+pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
 pref("browser.phoenix.desktop.common.status", "012");
 
-// 013 Personal Touch
+// 013 MISC.
+
+/// Enable Containers by default
+// https://support.mozilla.org/kb/how-use-firefox-containers
+
+pref("privacy.userContext.enabled", true);
+
+/// Never hide any extensions in about:debugging
+
+pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
+
+pref("browser.phoenix.desktop.common.status", "013");
+
+// 014 PERFORMANCE
+// A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
+
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
+pref("network.http.max-connections", 1800); // [Default = 900]
+
+/// Disables certain UI animations
+// https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
+// https://searchfox.org/mozilla-central/source/widget/LookAndFeel.h
+
+pref("ui.panelAnimations", 0); // [HIDDEN]
+pref("ui.prefersReducedMotion", 1); // [HIDDEN] 
+pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
+
+pref("browser.phoenix.desktop.common.status", "014");
+
+// 015 Personal Touch 💜
+
+/// Things that are  nice to have™
+// Not directly privacy & security related
 
 /// Enable Spellcheck for both multi-line and single-line boxes
 // [Default = 1, only checks multi-line boxes]
@@ -237,7 +264,33 @@ pref("layout.spellcheckDefault", 2);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-pref("browser.phoenix.desktop.common.status", "013");
+/// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
+// https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
+
+pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
+
+/// Developer tools...
+
+pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
+pref("devtools.command-button-measure.enabled", true);
+pref("devtools.command-button-rulers.enabled", true);
+pref("devtools.command-button-screenshot.enabled", true);
+pref("devtools.debugger.ui.editor-wrapping", true); // Enables long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
+pref("devtools.dom.enabled", true);
+pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
+
+/// Expose hidden UI preferences in the about:config...
+// https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
+// https://searchfox.org/mozilla-central/source/widget/LookAndFeel.h
+
+pref("ui.hideCursorWhileTyping", 1); // [DEFAULT, HIDDEN]
+pref("ui.prefersReducedTransparency", 0); // [DEFAULT, HIDDEN]
+pref("ui.scrollToClick", 1); // [HIDDEN]
+pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
+
+pref("browser.phoenix.desktop.common.status", "015");
 
 pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
 

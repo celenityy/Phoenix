@@ -276,6 +276,14 @@
                 "Value": "off",
                 "Status": "default"
             },
+            "browser.bookmarks.autoExportHTML": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.bookmarks.openInTabClosesMenu": {
+                "Value": false,
+                "Status": "default"
+            },
             "browser.contentblocking.cfr-milestone.enabled": {
                 "Value": false,
                 "Status": "default"
@@ -332,6 +340,10 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.disableResetPrompt": {
+                "Value": true,
+                "Status": "locked"
+            },
             "browser.discovery.containers.enabled": {
                 "Value": true,
                 "Status": "default"
@@ -358,6 +370,18 @@
             },
             "browser.laterrun.enabled": {
                 "Value": false,
+                "Status": "default"
+            },
+            "browser.link.force_default_user_context_id_for_external_opens": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.mailto.dualPrompt": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.menu.showViewImageInfo": {
+                "Value": true,
                 "Status": "default"
             },
             "browser.ml.chat.enabled": {
@@ -708,7 +732,19 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.privatebrowsing.felt-privacy-v1": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.privatebrowsing.resetPBM.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.privateWindowSeparation.enabled": {
+                "Value": false,
+                "Status": "default"
+            },
+            "browser.profiles.enabled": {
                 "Value": true,
                 "Status": "default"
             },
@@ -726,6 +762,14 @@
             },
             "browser.protections_panel.infoMessage.seen": {
                 "Value": true,
+                "Status": "default"
+            },
+            "browser.search.widget.inNavBar": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.sessionstore.max_tabs_undo": {
+                "Value": 7,
                 "Status": "default"
             },
             "browser.shell.checkDefaultBrowser": {
@@ -796,6 +840,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.spin_cursor_while_busy": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.startup.homepage": {
                 "Value": "about:home",
                 "Status": "default"
@@ -814,6 +862,18 @@
             },
             "browser.suppress_first_window_animation": {
                 "Value": true,
+                "Status": "default"
+            },
+            "browser.tabs.loadBookmarksInTabs": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.tabs.unloadTabInContextMenu": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.toolbars.bookmarks.visibility": {
+                "Value": "always",
                 "Status": "default"
             },
             "browser.topsites.component.enabled": {
@@ -835,6 +895,14 @@
             "browser.topsites.useRemoteSetting": {
                 "Value": false,
                 "Status": "locked"
+            },
+            "browser.translations.newSettingsUI.enable": {
+                "Value": true,
+                "Status": "default"
+            },
+            "browser.uiCustomization.state": {
+                "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}",
+                "Status": "default"
             },
             "browser.uitour.enabled": {
                 "Value": false,
@@ -1121,6 +1189,10 @@
                 "Status": "locked"
             },
             "network.protocol-handler.warn-external.mailto": {
+                "Value": true,
+                "Status": "default"
+            },
+            "privacy.userContext.ui.enabled": {
                 "Value": true,
                 "Status": "default"
             },
