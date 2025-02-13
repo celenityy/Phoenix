@@ -884,6 +884,10 @@
                 "Value": false,
                 "Status": "locked"
             },
+            "browser.tabs.groups.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.tabs.loadBookmarksInTabs": {
                 "Value": true,
                 "Status": "default"

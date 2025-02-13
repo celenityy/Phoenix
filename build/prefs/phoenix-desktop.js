@@ -675,6 +675,7 @@ pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
 pref("browser.privateWindowSeparation.enabled", false); // [WINDOWS]
 pref("browser.search.widget.inNavBar", true); // [HIDDEN]
 pref("browser.spin_cursor_while_busy", true);
+pref("browser.tabs.groups.enabled", true); // [DEFAULT - Nightly] Enable Tab Groups https://www.ghacks.net/2024/12/03/how-to-enable-tab-groups-in-firefox/
 pref("browser.tabs.loadBookmarksInTabs", true);
 pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
 pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
