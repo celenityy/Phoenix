@@ -431,6 +431,10 @@ pref("browser.phoenix.desktop.status", "008");
 
 // 009 DISK AVOIDANCE
 
+/// Enable 'Use Custom settings' for history by default
+
+pref("privacy.history.custom", true);
+
 /// Sanitization
 // Checks the boxes for clearing browsing history, cache, download history, & sessions when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
 
