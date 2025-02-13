@@ -53,6 +53,11 @@ pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/sourc
 pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
+/// Default Browser Agent
+// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
+
+pref("default-browser-agent.enabled", false, locked);
+
 /// Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
 // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs

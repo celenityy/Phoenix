@@ -17,11 +17,6 @@
 
 // 001 DATA COLLECTION
 
-/// Default Browser Agent
-// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
-
-pref("default-browser-agent.enabled", false, locked);
-
 /// Crash Reporting
 // https://github.com/mozilla-services/socorro
 // https://wiki.mozilla.org/Socorro
