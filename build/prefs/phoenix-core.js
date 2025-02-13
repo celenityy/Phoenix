@@ -130,10 +130,10 @@ pref("toolkit.telemetry.dap_task1_taskid", "", locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_visit_counting_enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]", locked); // [DEFAULT]
 pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
-pref("toolkit.telemetry.enabled", false, locked);  // [DEFAULT on Stable Desktop, not on Nightly & elsewhere...]
+pref("toolkit.telemetry.enabled", false, locked);  // [DEFAULT - non-Nightly]
 pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked);
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
-pref("toolkit.telemetry.log.level", "Off"); // [HIDDEN]
+pref("toolkit.telemetry.log.level", "Error"); // [HIDDEN, DEFAULT] - To expose via about:config...
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
 pref("toolkit.telemetry.pioneerId", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.previousBuildID", "", locked);
