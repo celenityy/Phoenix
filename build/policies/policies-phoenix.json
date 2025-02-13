@@ -764,6 +764,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.search.separatePrivateDefault.urlbarResult.enabled": {
+                "Value": true,
+                "Status": "default"
+            },
             "browser.search.widget.inNavBar": {
                 "Value": true,
                 "Status": "default"

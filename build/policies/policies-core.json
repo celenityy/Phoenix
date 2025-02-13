@@ -396,10 +396,6 @@
                 "Value": true,
                 "Status": "default"
             },
-            "browser.search.separatePrivateDefault.urlbarResult.enabled": {
-                "Value": true,
-                "Status": "default"
-            },
             "browser.search.serpEventTelemetryCategorization.enabled": {
                 "Value": false,
                 "Status": "locked"

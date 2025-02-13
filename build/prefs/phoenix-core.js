@@ -235,10 +235,6 @@ pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
 pref("browser.search.separatePrivateDefault", false);
 
-// Prompt to use Private Browsing
-
-pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
-
 /// Always show Punycode - Helps prevent phishing & IDN Homograph Attacks
 // https://wikipedia.org/wiki/IDN_homograph_attack
 

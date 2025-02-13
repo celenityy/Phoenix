@@ -342,6 +342,10 @@ pref("browser.urlbar.suggest.openpage", true); // [DEFAULT]
 pref("browser.urlbar.suggest.quickactions", false);
 pref("browser.urlbar.unitConversion.enabled", true);
 
+// Prompt to use Private Browsing
+
+pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
+
 pref("browser.phoenix.desktop.status", "003");
 
 // 004 Implicit Connections
