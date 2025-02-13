@@ -6,9 +6,9 @@ python3 build/convert.py prefs/phoenix-desktop.js phoenix.cfg
 
 cat build/prefs/extended/phoenix-extended-core.js build/prefs/extended/phoenix-extended-desktop-common.js build/prefs/extended/phoenix-extended-desktop.js > prefs/phoenix-extended-desktop.js
 
-python3 build/convert.py prefs/phoenix-extended-desktop.js configs/extended.cfg
+python3 build/convert.py prefs/phoenix-extended-desktop.js configs/hardened.cfg
 
-cat configs/extended.cfg configs/ui-fix.cfg > configs/ui-fix/extended.cfg
+cat configs/hardened.cfg configs/ui-fix.cfg > configs/ui-fix/hardened.cfg
 
 cat build/configs/specialized-spec.cfg build/configs/discord-spec.cfg > configs/discord.cfg
 
