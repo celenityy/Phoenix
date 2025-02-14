@@ -676,8 +676,8 @@ pref("browser.bookmarks.openInTabClosesMenu", false); // Don't automatically clo
 pref("browser.compactmode.show", true);
 pref("browser.menu.showViewImageInfo", true); // [DEFAULT - Developer Edition]
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
@@ -700,13 +700,98 @@ pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-
 
 pref("browser.phoenix.desktop.status", "018");
 
-// 019 Enable support for custom/specialized configs...
+// Sync more prefs
+
+pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true);
+pref("services.sync.prefs.sync.browser.bookmarks.openInTabClosesMenu", true);
+pref("services.sync.prefs.sync.browser.cache.disk.enable", true);
+pref("services.sync.prefs.sync.browser.cache.disk_cache_ssl", true);
+pref("services.sync.prefs.sync.browser.compactmode.show", true);
+pref("services.sync.prefs.sync.browser.download.open_pdf_attachments_inline", true);
+pref("services.sync.prefs.sync.browser.mailto.dualPrompt", true);
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", true);
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true);
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true);
+pref("services.sync.prefs.sync.browser.preferences.experimental", true);
+pref("services.sync.prefs.sync.browser.privatebrowsing.resetPBM.enabled", true);
+pref("services.sync.prefs.sync.browser.privateWindowSeparation.enabled", true);
+pref("services.sync.prefs.sync.browser.profiles.enabled", true);
+pref("services.sync.prefs.sync.browser.search.openintab", true);
+pref("services.sync.prefs.sync.browser.search.separatePrivateDefault.ui.enabled", true);
+pref("services.sync.prefs.sync.browser.search.separatePrivateDefault.urlbarResult.enabled", true);
+pref("services.sync.prefs.sync.browser.spin_cursor_while_busy", true);
+pref("services.sync.prefs.sync.browser.tabs.groups.enabled", true);
+pref("services.sync.prefs.sync.browser.tabs.loadBookmarksInTabs", true);
+pref("services.sync.prefs.sync.browser.toolbars.bookmarks.visibility", true)
+pref("services.sync.prefs.sync.browser.translations.alwaysTranslateLanguages", true);
+pref("services.sync.prefs.sync.browser.translations.enable", true);
+pref("services.sync.prefs.sync.browser.translations.neverTranslateLanguages", true);
+pref("services.sync.prefs.sync.browser.urlbar.clipboard.featureGate", true);
+pref("services.sync.prefs.sync.browser.urlbar.openintab", true);
+pref("services.sync.prefs.sync.browser.urlbar.suggest.calculator", true);
+pref("services.sync.prefs.sync.browser.urlbar.suggest.clipboard", true);
+pref("services.sync.prefs.sync.browser.urlbar.unitConversion.enabled", true);
+pref("services.sync.prefs.sync.browser.urlbar.update2.engineAliasRefresh", true);
+pref("services.sync.prefs.sync.browser.xul.error_pages.expert_bad_cert", true);
+pref("services.sync.prefs.sync.browser.xul.error_pages.show_safe_browsing_details_on_load", true);
+pref("services.sync.prefs.sync.cookiebanners.service.mode", true);
+pref("services.sync.prefs.sync.cookiebanners.service.mode.privateBrowsing", true);
+pref("services.sync.prefs.sync.cookiebanners.ui.desktop.enabled", true);
+pref("services.sync.prefs.sync.devtools.chrome.enabled", true);
+pref("services.sync.prefs.sync.devtools.command-button-measure.enabled", true);
+pref("services.sync.prefs.sync.devtools.command-button-rulers.enabled", true);
+pref("services.sync.prefs.sync.devtools.command-button-screenshot.enabled", true);
+pref("services.sync.prefs.sync.devtools.dom.enabled", true);
+pref("services.sync.prefs.sync.devtools.debugger.ui.editor-wrapping", true);
+pref("services.sync.prefs.sync.doh-rollout.provider-list", true);
+pref("services.sync.prefs.sync.dom.security.https_only_mode_error_page_user_suggestions", true);
+pref("services.sync.prefs.sync.dom.security.https_only_mode_send_http_background_request", true);
+pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
+pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
+pref("services.sync.prefs.sync.findbar.highlightAll", true);
+pref("services.sync.prefs.sync.javascript.options.wasm", true);
+pref("services.sync.prefs.sync.layout.forms.reveal-password-button.enabled", true);
+pref("services.sync.prefs.sync.media.autoplay.blocking_policy", true);
+pref("services.sync.prefs.sync.media.ffmpeg.vaapi.enabled", true);
+pref("services.sync.prefs.sync.middlemouse.paste", true);
+pref("services.sync.prefs.sync.network.http.referer.XOriginPolicy", true);
+pref("services.sync.prefs.sync.network.IDN_show_punycode", true);
+pref("services.sync.prefs.sync.network.trr.custom_uri", true);
+pref("services.sync.prefs.sync.network.trr.mode", true);
+pref("services.sync.prefs.sync.network.trr.uri", true);
+pref("services.sync.prefs.sync.pdfjs.sidebarViewOnLoad", true);
+pref("services.sync.prefs.sync.permissions.default.camera", true);
+pref("services.sync.prefs.sync.permissions.default.desktop-notification", true);
+pref("services.sync.prefs.sync.permissions.default.geo", true);
+pref("services.sync.prefs.sync.permissions.default.microphone", true);
+pref("services.sync.prefs.sync.permissions.default.xr", true);
+pref("services.sync.prefs.sync.privacy.antitracking.enableWebcompat", true);
+pref("services.sync.prefs.sync.privacy.fingerprintingProtection.remoteOverrides.enabled", true);
+pref("services.sync.prefs.sync.privacy.popups.showBrowserMessage", true);
+pref("services.sync.prefs.sync.privacy.resistFingerprinting", true);
+pref("services.sync.prefs.sync.privacy.resistFingerprinting.letterboxing", true);
+pref("services.sync.prefs.sync.privacy.spoof_english", true);
+pref("services.sync.prefs.sync.privacy.userContext.ui.enabled", true);
+pref("services.sync.prefs.sync.privacy.webrtc.globalMuteToggles", true);
+pref("services.sync.prefs.sync.security.OCSP.require", true);
+pref("services.sync.prefs.sync.security.ssl.require_safe_negotiation", true);
+pref("services.sync.prefs.sync.security.xfocsp.hideOpenInNewWindow", true);
+pref("services.sync.prefs.sync.signon.management.page.vulnerable-passwords.enabled", true);
+pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", true);
+pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
+pref("services.sync.prefs.sync.webgl.disabled", true);
+
+pref("browser.phoenix.desktop.status", "019");
+
+// 020 Enable support for custom/specialized configs...
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
 pref("general.config.vendor", "phoenix");
 
-pref("browser.phoenix.desktop.status", "019");
+pref("browser.phoenix.desktop.status", "020");
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 
