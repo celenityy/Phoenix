@@ -261,11 +261,17 @@ pref("identity.mobilepromo.ios", "", locked);
 pref("identity.sendtabpromo.url", "", locked);
 
 /// Kill about:welcome & onboarding
+// Privacy concerns - unsolicited connection
+// + just annoying...
 
 pref("browser.aboutwelcome.enabled", false);
 pref("browser.startup.homepage_override.mstone", "ignore");
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
 pref("browser.usedOnWindows10.introURL", ""); // [HIDDEN] https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
+pref("startup.homepage_override_url", "");
+pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT
+pref("startup.homepage_welcome_url", "");
+pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT]
 
 /// Kill "Feature Tours"
 
@@ -585,6 +591,10 @@ pref("browser.phoenix.desktop.status", "014");
 // Enables a dialog/pop-up on major upgrades
 
 pref("browser.startup.upgradeDialog.enabled", true);
+
+/// Allow "What's New" Pages by default
+
+pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
 pref("browser.phoenix.desktop.status", "015");
 

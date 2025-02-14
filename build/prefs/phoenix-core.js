@@ -192,13 +192,6 @@ pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
 pref("browser.privatebrowsing.vpnpromourl", "", locked); // [HIDDEN - Android/Thunderbird]
 
-/// Kill about:welcome & onboarding
-
-pref("startup.homepage_override_url", ""); // [HIDDEN - Android/Thunderbird]
-pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT, HIDDEN - Android/Thunderbird]
-pref("startup.homepage_welcome_url", ""); // [HIDDEN - Android/Thunderbird]
-pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT, HIDDEN - Android/Thunderbird]
-
 /// Prevent Mozilla domains from having special privileges
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
 
@@ -1471,11 +1464,6 @@ pref("media.gmp-manager.updateEnabled", true); // [DEFAULT, HIDDEN]
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs#253
 
 pref("extensions.update.notifyUser", true); // [HIDDEN]
-
-/// Allow "What's New" Pages by default
-// This lets us expose it in the about:config for Android/Thunderbird
-
-pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 pref("browser.phoenix.core.status", "023");
 
