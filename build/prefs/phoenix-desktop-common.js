@@ -125,6 +125,10 @@ pref("services.sync.engine.passwords", false);
 pref("services.sync.engine.prefs", false);
 pref("services.sync.engine.tabs", false);
 
+/// Disable sharing unnecessary version info as part of Firefox Sync
+
+pref("services.sync.sendVersionInfo", false);
+
 /// If a remote AutoConfig is being used, ensure identifying info is never shared...
 
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
