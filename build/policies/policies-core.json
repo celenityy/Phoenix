@@ -1564,9 +1564,9 @@
             "Default": "DuckDuckGo",
             "PreventInstalls": false,
             "Remove": [
-                "Google",
+                "Amazon.com",
                 "Bing",
-                "Amazon.com"
+                "Google"
             ]
         },
         "SSLVersionMin": "tls1.2"
