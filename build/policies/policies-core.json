@@ -453,7 +453,7 @@
                 "Status": "default"
             },
             "browser.translations.alwaysTranslateLanguages": {
-                "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi",
+                "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,ja,ko,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi,zh-Hans",
                 "Status": "default"
             },
             "browser.translations.automaticallyPopup": {
