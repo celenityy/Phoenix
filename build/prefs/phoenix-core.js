@@ -188,10 +188,6 @@ pref("toolkit.shopping.ohttpRelayURL", "");
 
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
-/// Misc. Promotions
-
-pref("browser.privatebrowsing.vpnpromourl", "", locked); // [HIDDEN - Android/Thunderbird]
-
 /// Prevent Mozilla domains from having special privileges
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
 

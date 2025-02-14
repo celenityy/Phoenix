@@ -740,6 +740,10 @@
                 "Value": true,
                 "Status": "default"
             },
+            "browser.privatebrowsing.vpnpromourl": {
+                "Value": "",
+                "Status": "locked"
+            },
             "browser.privateWindowSeparation.enabled": {
                 "Value": false,
                 "Status": "default"

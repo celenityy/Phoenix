@@ -246,6 +246,7 @@ pref("browser.contentblocking.report.vpn-promo.url", "", locked);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
 pref("browser.preferences.moreFromMozilla", false, locked);
+pref("browser.privatebrowsing.vpnpromourl", "", locked);
 pref("browser.promo.cookiebanners.enabled", false, locked); // [DEFAULT]
 pref("browser.promo.focus.enabled", false, locked);
 pref("browser.promo.pin.enabled", false, locked);
