@@ -724,7 +724,7 @@ pref("services.sync.prefs.sync.browser.search.separatePrivateDefault.urlbarResul
 pref("services.sync.prefs.sync.browser.spin_cursor_while_busy", true);
 pref("services.sync.prefs.sync.browser.tabs.groups.enabled", true);
 pref("services.sync.prefs.sync.browser.tabs.loadBookmarksInTabs", true);
-pref("services.sync.prefs.sync.browser.toolbars.bookmarks.visibility", true)
+pref("services.sync.prefs.sync.browser.toolbars.bookmarks.visibility", true);
 pref("services.sync.prefs.sync.browser.translations.alwaysTranslateLanguages", true);
 pref("services.sync.prefs.sync.browser.translations.enable", true);
 pref("services.sync.prefs.sync.browser.translations.neverTranslateLanguages", true);
