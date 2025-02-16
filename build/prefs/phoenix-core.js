@@ -841,6 +841,7 @@ pref("browser.phoenix.core.status", "014");
 pref("pdfjs.enableScripting", false);
 
 /// Disable XFA
+// https://learn.microsoft.com/deployedge/microsoft-edge-policies#viewxfapdfiniemodeallowedorigins
 // https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html
 // https://www.sentinelone.com/blog/malicious-pdfs-revealing-techniques-behind-attacks/
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=xfa
