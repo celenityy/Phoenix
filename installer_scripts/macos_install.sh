@@ -17,12 +17,6 @@ error_fn() {
 	exit 1
 }
 
-## Check SUDO permisson
-if [ $(id --user) -ne 0 ]; then
-	echo_red_text "You must run this script with sudo"
-	exit 1
-fi
-
 ## Downloaded files save in /tmp
 cd /tmp
 
