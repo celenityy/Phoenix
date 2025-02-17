@@ -32,7 +32,7 @@ red='\e[1;31m'
 yellow='\e[1;33m'
 
 ## Download and run initialization script
-install_phoenix() {
+initialize_phoenix() {
 	wget -nv $1
 	echo
 	echo
@@ -121,8 +121,12 @@ case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
         TARGET_SCRIPT="${SCRIPT[0]}"
 		;;
+
 	"user" | "User" | "USER" | 2)
 		TARGET_SCRIPT="${SCRIPT[1]}"
 		;;
 esac
 ;;
+
+## Download and run choosen initializion script
+initialize_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"
