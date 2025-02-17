@@ -126,7 +126,6 @@ case ${LOCATION} in
 		TARGET_SCRIPT="${SCRIPT[1]}"
 		;;
 esac
-;;
 
 ## Download and run choosen initializion script
 initialize_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"
