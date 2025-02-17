@@ -61,8 +61,8 @@ echo_green_text "Updating Homebrew cache..."
 brew update && brew upgrade --force --verbose || error_fn
 echo
 
-echo_green_text "Installing phoenix-osx package..."
-brew install phoenix-osx || error_fn
+echo_green_text "Installing phoenix-wip package..."
+brew install phoenix-wip || error_fn
 echo
 
 echo_green_text "Downloading phoenix-apply.sh..."
