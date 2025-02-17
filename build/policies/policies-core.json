@@ -51,6 +51,7 @@
             "ProviderURL": "https://dns.quad9.net/dns-query",
             "Fallback": false
         },
+        "EnterprisePoliciesEnabled": true,
         "Preferences": {
             "accessibility.force_disabled": {
                 "Value": 1,
