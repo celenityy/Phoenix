@@ -55,1107 +55,1383 @@
         "Preferences": {
             "accessibility.force_disabled": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "app.update.badgeWaitTime": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "app.update.notifyDuringDownload": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "app.update.promptWaitTime": {
                 "Value": 3600,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.cache.disk.enable": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.cache.disk_cache_ssl": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.cache.jsbc_compression_level": {
                 "Value": 3,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.compactmode.show": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.contentanalysis.default_result": {
                 "Value": 0,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "number"
             },
             "browser.contentanalysis.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentanalysis.interception_point.clipboard.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentanalysis.interception_point.drag_and_drop.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentanalysis.interception_point.file_upload.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentanalysis.interception_point.print.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentanalysis.show_blocked_result": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.contentblocking.category": {
                 "Value": "strict",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             },
             "browser.contentblocking.database.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.crashReports.unsubmittedCheck.autoSubmit2": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.crashReports.unsubmittedCheck.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.display.use_system_colors": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.always_ask_before_handling_new_types": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.alwaysOpenPanel": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.clearHistoryOnDelete": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.download.enable_spam_prevention": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.loglevel": {
                 "Value": "Error",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.download.manager.addToRecentDocs": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.open_pdf_attachments_inline": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.start_downloads_in_tmp_dir": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.download.useDownloadDir": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.eme.ui.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.formfill.enable": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.gnome-search-provider.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.helperApps.deleteTempFileOnExit": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.link.open_newwindow": {
                 "Value": 3,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.link.open_newwindow.restriction": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.ml.enable": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.opaqueResponseBlocking": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.opaqueResponseBlocking.javascriptValidator": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.places.interactions.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.places.speculativeConnect.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.policies.loglevel": {
                 "Value": "error",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.privatebrowsing.forceMediaMemoryCache": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.region.network.scan": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.region.network.url": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.region.update.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.rights.3.shown": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.safebrowsing.blockedURIs.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.downloads.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.downloads.remote.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.downloads.remote.url": {
                 "Value": "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.features.blockedURIs.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.cryptomining.annotate.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.cryptomining.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.downloads.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.emailtracking.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.emailtracking.datacollection.update": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.fingerprinting.annotate.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.fingerprinting.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.malware.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.phishing.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.socialtracking.annotate.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.socialtracking.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.trackingAnnotation.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.features.trackingProtection.update": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.malware.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.phishing.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.safebrowsing.provider.google.advisoryName": {
                 "Value": "Google Safe Browsing (Legacy)",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google.dataSharing.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.safebrowsing.provider.google.gethashURL": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google.reportPhishMistakeURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google.reportURL": {
                 "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google.updateURL": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.dataSharing.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.safebrowsing.provider.google4.dataSharingURL": {
                 "Value": "",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.gethashURL": {
                 "Value": "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.reportMalwareMistakeURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.reportPhishMistakeURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.reportURL": {
                 "Value": "https://transparencyreport.google.com/safe-browsing/search?url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.google4.updateURL": {
                 "Value": "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.provider.mozilla.updateURL": {
                 "Value": "moz-sbrs:://antitracking",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.reportPhishURL": {
                 "Value": "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.safebrowsing.update.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.search.separatePrivateDefault": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.search.separatePrivateDefault.ui.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.search.suggest.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.search.suggest.enabled.private": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.send_pings": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.send_pings.max_per_link": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.send_pings.require_same_host": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.sessionhistory.max_total_viewers": {
                 "Value": 7,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.sessionstore.disable_platform_collection": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.sessionstore.interval": {
                 "Value": 60000,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.sessionstore.privacy_level": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "browser.tabs.remote.coep.credentialles": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.tabs.remote.enforceRemoteTypeRestrictions": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.tabs.remote.separateFileUriProcess": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "browser.tabs.remote.separatedMozillaDomains": {
                 "Value": "",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             },
             "browser.tabs.searchclipboardfor.middleclick": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.translations.alwaysTranslateLanguages": {
                 "Value": "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,ja,ko,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi,zh-Hans",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "browser.translations.automaticallyPopup": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.translations.enable": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.translations.select.enable": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.xul.error_pages.expert_bad_cert": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.xul.error_pages.show_safe_browsing_details_on_load": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "datareporting.policy.dataSubmissionEnabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "datareporting.policy.dataSubmissionPolicyAccepted": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "datareporting.policy.dataSubmissionPolicyBypassNotification": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "datareporting.policy.firstRunURL": {
                 "Value": "",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             },
             "dom.block_download_insecure": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.block_external_protocol_in_iframes": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.block_external_protocol_navigation_from_sandbox": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.disable_open_during_load": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.disable_window_flip": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.disable_window_move_resize": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.ipc.processCount.privilegedmozilla": {
                 "Value": 0,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "number"
             },
             "dom.ipc.processCount.webIsolated": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "dom.origin-trials.coep-credentialless.state": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "dom.origin-trials.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "dom.origin-trials.private-attribution.state": {
                 "Value": 2,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "number"
             },
             "dom.popup_allowed_events": {
                 "Value": "click dblclick",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.postMessage.sharedArrayBuffer.withCOOP_COEP": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.prefetch_dns_for_anchor_http_document": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.prefetch_dns_for_anchor_https_document": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.private-attribution.submission.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "dom.reporting.crash.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.reporting.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.reporting.featurePolicy.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.reporting.header.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_first": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_first_for_custom_ports": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_first_pbm": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_first_schemeless": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_only_mode": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "dom.security.https_only_mode.upgrade_local": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_only_mode_error_page_user_suggestions": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.https_only_mode_pbm": {
                 "Value": true,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "dom.security.https_only_mode_send_http_background_request": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.skip_about_page_has_csp_assert": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.trusted_types.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "dom.security.unexpected_system_load_telemetry_enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "dom.webgpu.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.autoDisableScopes": {
                 "Value": 15,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "number"
             },
             "extensions.blocklist.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.enabledScopes": {
                 "Value": 5,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "extensions.experiments.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.formautofill.addresses.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.formautofill.creditCards.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.formautofill.ml.experiment.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.getAddons.browseAddons": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "extensions.getAddons.showPane": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.htmlaboutaddons.recommendations.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.install.requireBuiltInCerts": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.installDistroAddons": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.postDownloadThirdPartyPrompt": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantinedDomains.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.ads@mozac.org": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.bravesearch@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.cookies@mozac.org": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.ddg@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.ecosia@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.kagi@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.kagi-html@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.leta-brave@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.leta-google@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.metager@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.mojeek@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.no-search@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.qwant@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.startpage@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.swisscows@celenity.dev": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.recommendations.themeRecommendationUrl": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "extensions.systemAddon.update.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.ui.lastCategory": {
                 "Value": "addons://list/extension",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "extensions.update.autoUpdateDefault": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.update.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.update.interval": {
                 "Value": 3600,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "extensions.update.notifyUser": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.update.requireBuiltInCerts": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webapi.testing": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "extensions.webapi.testing.http": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat.enable_shims": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat.perform_injections": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat.perform_ua_overrides": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat.smartblockEmbeds.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat-reporter.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webcompat-reporter.newIssueEndpoint": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "extensions.webextensions.remote": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "extensions.webextensions.restrictedDomains": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "extensions.webservice.discoverURL": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "general.autoScroll": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "general.smoothScroll": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "gfx.canvas.accelerated": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "gfx.canvas.accelerated.cache-items": {
                 "Value": 8192,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "gfx.canvas.accelerated.cache-size": {
                 "Value": 512,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "gfx.content.skia-font-cache-size": {
                 "Value": 20,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "gfx.font_rendering.graphite.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "gfx.font_rendering.opentype_svg.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "geo.provider.ms-windows-location": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "geo.provider.network.logging.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "gfx.webrender.all": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "gfx.webrender.compositor": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "geo.wifi.scan": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "intl.allow-insecure-text-input": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "layout.css.prefers-color-scheme.content-override": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "layout.css.report_errors": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "layout.css.visited_links_enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "layout.forms.reveal-password-button.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "layout.spellcheckDefault": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "media.autoplay.default": {
                 "Value": 5,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "media.cache_readahead_limit": {
                 "Value": 7200,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "media.cache_resume_threshold": {
                 "Value": 3600,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "media.clearkey.persistent-license.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.clearkey.test-key-systems.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.devices.insecure.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.encrypted-media-encryption-scheme.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.hdcp-policy-check.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.playready.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.require-app-approval": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.widevine.experiment.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.eme.wmf.clearkey.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.ffmpeg.vaapi.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.getusermedia.insecure.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp.insecure.allow": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-manager.cert.checkAttributes": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-manager.cert.requireBuiltIn": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-manager.checkContentSignature": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-manager.updateEnabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-widevinecdm.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-widevinecdm.visible": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-widevinecdm-l1.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.gmp-widevinecdm-l1.visible": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.memory_cache_max_size": {
                 "Value": 65536,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "media.peerconnection.ice.obfuscate_host_addresses": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.peerconnection.ice.proxy_only_if_behind_proxy": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.peerconnection.mtransport_process": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.webrtc.enable_pq_dtls": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.webspeech.synth.dont_notify_on_error": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.webvtt.testing.events": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "media.wmf.media-engine.enabled": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.auth.non-web-content-triggered-resources-http-auth-allow": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.auth.subresource-http-auth-allow": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.auth.subresource-img-cross-origin-http-auth-allow": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.captive-portal-service.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.connectivity-service.DNS_HTTPS.domain": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.connectivity-service.DNSv4.domain": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.connectivity-service.DNSv6.domain": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.connectivity-service.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.connectivity-service.IPv4.url": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.connectivity-service.IPv6.url": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.cookie.CHIPS.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.cookieBehavior": {
                 "Value": 5,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.cookie.cookieBehavior.optInPartitioning": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.cookieBehavior.optInPartitioning.pbmode": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.cookieBehavior.pbmode": {
                 "Value": 5,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.cookie.cookieBehavior.trackerCookieBlocking": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.sameSite.laxByDefault": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.sameSite.noneRequiresSecure": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.cookie.sameSite.schemeful": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.disablePrefetch": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.disablePrefetchFromHTTPS": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.echconfig.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.http3_echconfig.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.native_https_query": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.preferIPv6": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dns.prefetch_via_proxy": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.dnsCacheEntries": {
                 "Value": 1000,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.dnsCacheExpiration": {
                 "Value": 3600,
@@ -1163,395 +1439,493 @@
             },
             "network.dnsCacheExpirationGracePeriod": {
                 "Value": 240,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.early-hints.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.early-hints.over-http-v1-1.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.early-hints.preconnect.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.early-hints.preconnect.max_connections": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.file.disable_unc_paths": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.gio.supported-protocols": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.http.http3.enable_0rtt": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.http3.enable_kyber": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.max-connections": {
                 "Value": 1800,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.max-persistent-connections-per-proxy": {
                 "Value": 48,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.max-persistent-connections-per-server": {
                 "Value": 10,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.max-urgent-start-excessive-connections-per-host": {
                 "Value": 5,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.microsoft-entra-sso.container-enabled.0": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.microsoft-entra-sso.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.network_error_logging.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.referer.defaultPolicy.trackers": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.referer.defaultPolicy.trackers.pbmode": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.referer.disallowCrossSiteRelaxingDefault": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.referer.XOriginTrimmingPolicy": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.speculative-parallel-limit": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.http.windows-sso.container-enabled.0": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.http.windows-sso.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.IDN_show_punycode": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.jar.record_failure_reason": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "network.microsoft-sso-authority-list": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.negotiate-auth.trusted-uris": {
                 "Value": "",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.notify.checkForNRPT": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.notify.checkForProxies": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.preconnect": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.predictor.enable-hover-on-ssl": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.predictor.enable-prefetch": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.predictor.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.prefetch-next": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.proxy.allow_bypass": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.proxy.failover_direct": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.proxy.socks_remote_dns": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.proxy.socks5_remote_dns": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.protocol-handler.external.shell": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "network.protocol-handler.warn-external-default": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.traffic_analyzer.enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "network.trr.confirmation_telemetry_enabled": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "network.trr.confirmationNS": {
                 "Value": "skip",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.trr.default_provider_uri": {
                 "Value": "https://dns.quad9.net/dns-query",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "network.trr.disable-ECS": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.display_fallback_warning": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.mode": {
                 "Value": 3,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "network.trr.retry_on_recoverable_errors": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.send_accept-language_headers": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.send_empty_accept-encoding_headers": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.send_user-agent_headers": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr.strict_native_fallback": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.trr_ui.show_fallback_warning_option": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "network.websocket.allowInsecureFromHTTPS": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "pdfjs.enablePermissions": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "pdfjs.enableScripting": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "pdfjs.enableXfa": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "pdfjs.sidebarViewOnLoad": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "privacy.globalprivacycontrol.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "privacy.userContext.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.default_personal_cert": {
                 "Value": "Ask Every Time",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             },
             "security.insecure_connection_text.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.insecure_connection_text.pbmode.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.mixed_content.block_active_content": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.mixed_content.block_display_content": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.mixed_content.upgrade_display_content": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.OCSP.enabled": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "security.OCSP.require": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.pki.certificate_transparency.mode": {
                 "Value": 2,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "security.ssl.enable_ocsp_stapling": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.ssl.require_safe_negotiation": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.tls.enable_0rtt_data": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.tls.hello_downgrade_check": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "security.tls.version.enable-deprecated": {
                 "Value": false,
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "boolean"
             },
             "security.warn_submit_secure_to_insecure": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.autofillForms": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.autofillForms.http": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.firefoxRelay.feature": {
                 "Value": "disabled",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "signon.firefoxRelay.manage_url": {
                 "Value": "https://relay.firefox.com/accounts/profile/",
-                "Status": "default"
+                "Status": "default",
+                "Type": "string"
             },
             "signon.formlessCapture.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.generation.enabled": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.privateBrowsingCapture.enabled": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "signon.storeWhenAutocompleteOff": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "toolkit.legacyUserProfileCustomizations.stylesheets": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "ui.hideCursorWhileTyping": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.key.menuAccessKeyFocuses": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "ui.panelAnimations": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.prefersReducedMotion": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.prefersReducedTransparency": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.scrollToClick": {
                 "Value": 1,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.swipeAnimationEnabled": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "ui.useAccessibilityTheme": {
                 "Value": 0,
-                "Status": "default"
+                "Status": "default",
+                "Type": "number"
             },
             "widget.non-native-theme.use-theme-accent": {
                 "Value": false,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "xpinstall.whitelist.required": {
                 "Value": true,
-                "Status": "default"
+                "Status": "default",
+                "Type": "boolean"
             },
             "browser.phoenix.core.policies.status": {
                 "Value": "successfully applied :D",
-                "Status": "locked"
+                "Status": "locked",
+                "Type": "string"
             }
         },
         "Proxy": {

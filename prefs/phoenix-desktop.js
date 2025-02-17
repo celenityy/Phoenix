@@ -841,6 +841,7 @@ pref("browser.phoenix.core.status", "014");
 pref("pdfjs.enableScripting", false);
 
 /// Disable XFA
+// https://learn.microsoft.com/deployedge/microsoft-edge-policies#viewxfapdfiniemodeallowedorigins
 // https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html
 // https://www.sentinelone.com/blog/malicious-pdfs-revealing-techniques-behind-attacks/
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=xfa
@@ -1667,13 +1668,13 @@ pref("security.enterprise_roots.enabled", false, locked);
 
 pref("browser.phoenix.desktop.common.status", "003");
 
-// 004 GEOLOCATION
+// 004 GEOLOCATION [NO-OSX]
 
-/// Configure OS Geolocation providers
+/// Configure OS Geolocation providers [NO-OSX]
 
-pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users
+pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users [NO-OSX]
 
-pref("browser.phoenix.desktop.common.status", "004");
+pref("browser.phoenix.desktop.common.status", "004"); // [NO-OSX]
 
 // 005 DISK AVOIDANCE
 
@@ -1686,9 +1687,9 @@ pref("privacy.cpd.cache", true); // [DEFAULT]
 
 pref("privacy.sanitize.timeSpan", 0);
 
-/// Prevent automatically starting Firefox & restoring session after reboot on Windows
+/// Prevent automatically starting Firefox & restoring session after reboot on Windows [NO-OSX]
 
-pref("toolkit.winRegisterApplicationRestart", false);
+pref("toolkit.winRegisterApplicationRestart", false); // [NO-OSX]
 
 pref("browser.phoenix.desktop.common.status", "005");
 
@@ -1707,9 +1708,9 @@ pref("browser.phoenix.desktop.common.status", "006");
 
 // 007 MISC. PRIVACY
 
-/// [WINDOWS] Ensure we never save clipboard history/contents to the cloud...
+/// [WINDOWS] Ensure we never save clipboard history/contents to the cloud... [NO-OSX]
 
-pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT]
+pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] [NO-OSX]
 
 /// Disable Firefox Sync by default
 // When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
@@ -1745,19 +1746,19 @@ pref("browser.phoenix.desktop.common.status", "008");
 
 // 009 MISC. SECURITY
 
-/// [WINDOWS] Disable Win32k System Calls
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15638
-// https://security.googleblog.com/2016/10/disclosing-vulnerabilities-to-protect.html
-// https://docs.google.com/document/d/1gJDlk-9xkh6_8M_awrczWCaUuyr0Zd2TKjNBCiPO_G4/edit
+/// [WINDOWS] Disable Win32k System Calls [NO-OSX]
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15638 [NO-OSX]
+// https://security.googleblog.com/2016/10/disclosing-vulnerabilities-to-protect.html [NO-OSX]
+// https://docs.google.com/document/d/1gJDlk-9xkh6_8M_awrczWCaUuyr0Zd2TKjNBCiPO_G4/edit [NO-OSX]
 
-pref("security.sandbox.content.win32k-disable", true); // [DEFAULT]
-pref("security.sandbox.gmp.win32k-disable", true);
-pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT]
+pref("security.sandbox.content.win32k-disable", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.gmp.win32k-disable", true); // [NO-OSX]
+pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT] [NO-OSX]
 
-/// Disable GNOME Integration
-// https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp
+/// Disable GNOME Integration [NO-OSX]
+// https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [NO-OSX]
 
-pref("browser.gnome-search-provider.enabled", false); // [HIDDEN]
+pref("browser.gnome-search-provider.enabled", false); // [HIDDEN] [NO-OSX]
 
 /// If a remote AutoConfig is being used, block it from gaining privileged browser access...
 // https://www.mozilla.org/firefox/62.0/releasenotes/
@@ -1768,29 +1769,29 @@ pref("browser.phoenix.desktop.common.status", "009");
 
 // 010 MEDIA
 
-/// Always sandbox GMP on GNU/Linux
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+/// Always sandbox GMP on GNU/Linux [NO-OSX]
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml [NO-OSX]
 
-pref("media.gmp.insecure.allow", false); // [DEFAULT]
+pref("media.gmp.insecure.allow", false); // [DEFAULT] [NO-OSX]
 
 /// Remove DRM toggle in `about:preferences#general`
 
 pref("browser.eme.ui.enabled", false);
 
-/// Disable Microsoft PlayReady DRM
+/// Disable Microsoft PlayReady DRM [NO-OSX]
 
-pref("media.eme.playready.enabled", false);
+pref("media.eme.playready.enabled", false); // [NO-OSX]
 
-/// Explicitly disable Windows Media Foundation Clearkey DRM
+/// Explicitly disable Windows Media Foundation Clearkey DRM [NO-OSX]
 
-pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT]
+pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT] [NO-OSX]
 
-/// Disable Windows Media Foundation Media Engine 
-// By default, it's enabled for protected content (DRM)
-// Enabling it for standard content appears to cause video playback issues (ex. on YouTube)
-// https://learn.microsoft.com/windows/win32/medfound/about-the-media-foundation-sdk
+/// Disable Windows Media Foundation Media Engine [NO-OSX]
+// By default, it's enabled for protected content (DRM) [NO-OSX]
+// Enabling it for standard content appears to cause video playback issues (ex. on YouTube) [NO-OSX]
+// https://learn.microsoft.com/windows/win32/medfound/about-the-media-foundation-sdk [NO-OSX]
 
-pref("media.wmf.media-engine.enabled", 0);
+pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 
 /// Enable click to play UI for certain CSS skins by default...
 // https://github.com/black7375/Firefox-UI-Fix/blob/master/css/leptonContent.css#L223
@@ -1834,7 +1835,7 @@ pref("browser.phoenix.desktop.common.status", "013");
 // 014 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("network.http.max-connections", 1800); // [Default = 900]
 
 /// Disables certain UI animations
@@ -1947,10 +1948,10 @@ pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/sourc
 pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
-/// Default Browser Agent
-// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
+/// Default Browser Agent [NO-OSX]
+// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html [NO-OSX]
 
-pref("default-browser-agent.enabled", false, locked);
+pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 
 /// Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
@@ -2317,7 +2318,7 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 /// Configure OS Geolocation providers
 
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
-pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros [NO-OSX]
 
 pref("browser.phoenix.desktop.status", "007");
 
@@ -2431,6 +2432,7 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 /// Unbreak websites with FPP (if the related target is enabled...)
 // Currently covers:
 // Apple Maps (apple.com) - Disables spoofing WebGL render capability (-WebGLRenderCapability) - Causes complete breakage
+// Chipotle (chipotle.com) - Disables timezone spoofing (-JSDateTimeUTC) for order confirmation/estimated arrival times
 // Cinny (cinny.in) - Disables timezone spoofing (-JSDateTimeUTC)
 // Discord (discord.com) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (arcticfoxes.net) - Disables timezone spoofing (-JSDateTimeUTC)
@@ -2440,7 +2442,7 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // Element (unredacted.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
 
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"cinny.in\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mozilla.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chipotle.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"cinny.in\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mozilla.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
 
 /// Expose dynamic rounding of content dimensions to users, but do not enable by default
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
@@ -2679,13 +2681,13 @@ pref("services.sync.prefs.sync.webgl.disabled", true);
 
 pref("browser.phoenix.desktop.status", "019");
 
-// 020 Enable support for custom/specialized configs...
+// 020 Enable support for custom/specialized configs... [NO-OSX]
 
-pref("general.config.filename", "phoenix.cfg");
-pref("general.config.obscure_value", 0);
-pref("general.config.vendor", "phoenix");
+pref("general.config.filename", "phoenix.cfg"); // [NO-OSX]
+pref("general.config.obscure_value", 0); // [NO-OSX]
+pref("general.config.vendor", "phoenix"); // [NO-OSX]
 
-pref("browser.phoenix.desktop.status", "020");
+pref("browser.phoenix.desktop.status", "020"); // [NO-OSX]
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

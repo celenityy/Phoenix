@@ -53,10 +53,10 @@ pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/sourc
 pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - Defense in depth
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
-/// Default Browser Agent
-// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html
+/// Default Browser Agent [NO-OSX]
+// https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html [NO-OSX]
 
-pref("default-browser-agent.enabled", false, locked);
+pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 
 /// Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
@@ -423,7 +423,7 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 /// Configure OS Geolocation providers
 
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
-pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros
+pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros [NO-OSX]
 
 pref("browser.phoenix.desktop.status", "007");
 
@@ -786,13 +786,13 @@ pref("services.sync.prefs.sync.webgl.disabled", true);
 
 pref("browser.phoenix.desktop.status", "019");
 
-// 020 Enable support for custom/specialized configs...
+// 020 Enable support for custom/specialized configs... [NO-OSX]
 
-pref("general.config.filename", "phoenix.cfg");
-pref("general.config.obscure_value", 0);
-pref("general.config.vendor", "phoenix");
+pref("general.config.filename", "phoenix.cfg"); // [NO-OSX]
+pref("general.config.obscure_value", 0); // [NO-OSX]
+pref("general.config.vendor", "phoenix"); // [NO-OSX]
 
-pref("browser.phoenix.desktop.status", "020");
+pref("browser.phoenix.desktop.status", "020"); // [NO-OSX]
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 

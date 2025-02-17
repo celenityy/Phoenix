@@ -25,3 +25,5 @@ cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
 cat build/configs/specialized-spec.cfg build/configs/twitter-spec.cfg > configs/twitter.cfg
 
 cat configs/twitter.cfg configs/ui-fix.cfg > configs/ui-fix/twitter.cfg
+
+awk '!/NO-OSX/' phoenix.cfg > macos/phoenix.cfg

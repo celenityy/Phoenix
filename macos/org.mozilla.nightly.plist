@@ -912,7 +912,7 @@
 		<key>Locked</key>
 		<false/>
 	</dict>
-	<key>EnterprisePoliciesEnabled</key> 
+	<key>EnterprisePoliciesEnabled</key>
 	<true/>
 	<key>ExtensionSettings</key>
 	<dict>
@@ -2717,6 +2717,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -2724,6 +2726,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -2731,6 +2735,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2738,6 +2744,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3600</integer>
 		</dict>
@@ -2745,6 +2753,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2752,6 +2762,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2759,6 +2771,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>off</string>
 		</dict>
@@ -2766,6 +2780,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2773,6 +2789,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2780,6 +2798,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2787,6 +2807,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2794,6 +2816,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3</integer>
 		</dict>
@@ -2801,6 +2825,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2808,6 +2834,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -2815,6 +2843,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2822,6 +2852,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2829,6 +2861,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2836,6 +2870,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2843,6 +2879,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2850,6 +2888,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2857,6 +2897,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>strict</string>
 		</dict>
@@ -2864,6 +2906,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2871,6 +2915,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2878,6 +2924,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2885,6 +2933,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2892,6 +2942,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2899,6 +2951,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://monitor.firefox.com/oauth/init</string>
 		</dict>
@@ -2906,6 +2960,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://monitor.firefox.com/</string>
 		</dict>
@@ -2913,6 +2969,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2920,6 +2978,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -2927,6 +2987,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2934,6 +2996,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -2941,6 +3005,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -2948,6 +3014,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -2955,6 +3023,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://vpn.mozilla.org/</string>
 		</dict>
@@ -2962,6 +3032,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2969,6 +3041,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2976,6 +3050,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -2983,6 +3059,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2990,6 +3068,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -2997,6 +3077,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3004,6 +3086,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3011,6 +3095,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3018,6 +3104,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3025,6 +3113,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3032,6 +3122,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -3039,6 +3131,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3046,6 +3140,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>Error</string>
 		</dict>
@@ -3053,6 +3149,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3060,6 +3158,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3067,6 +3167,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3074,6 +3176,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3081,6 +3185,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3088,6 +3194,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>{"screen":"","complete":true}</string>
 		</dict>
@@ -3095,6 +3203,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3102,6 +3212,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3109,6 +3221,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://phoenix.celenity.dev/geo</string>
 		</dict>
@@ -3116,6 +3230,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3123,6 +3239,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3130,6 +3248,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3137,6 +3257,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3144,6 +3266,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3</integer>
 		</dict>
@@ -3151,6 +3275,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -3158,6 +3284,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3165,6 +3293,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3172,6 +3302,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3179,6 +3311,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3186,6 +3320,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&amp;ia=chat</string>
 		</dict>
@@ -3193,6 +3329,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>huggingchat</string>
 		</dict>
@@ -3200,6 +3338,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3207,6 +3347,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3214,6 +3356,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3221,6 +3365,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>{"screen":"","complete":true}</string>
 		</dict>
@@ -3228,6 +3374,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3235,6 +3383,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3242,6 +3392,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3249,6 +3401,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3256,6 +3410,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3263,6 +3419,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>null</string>
 		</dict>
@@ -3270,6 +3428,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3277,6 +3437,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3284,6 +3446,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3291,6 +3455,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3298,6 +3464,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3305,6 +3473,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>[]</string>
 		</dict>
@@ -3312,6 +3482,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3319,6 +3491,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3326,6 +3500,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3333,6 +3509,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3340,6 +3518,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3347,6 +3527,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3354,6 +3536,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3361,6 +3545,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3368,6 +3554,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3375,6 +3563,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3382,6 +3572,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3389,6 +3581,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3396,6 +3590,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3403,6 +3599,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3410,6 +3608,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3417,6 +3617,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3424,6 +3626,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3431,6 +3635,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3438,6 +3644,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3445,6 +3653,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3452,6 +3662,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3459,6 +3671,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3466,6 +3680,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3473,6 +3689,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3480,6 +3698,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3487,6 +3707,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3494,6 +3716,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3501,6 +3725,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>{"hidden":true}</string>
 		</dict>
@@ -3508,6 +3734,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3515,6 +3743,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3522,6 +3752,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3529,6 +3761,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3536,6 +3770,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3543,6 +3779,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3550,6 +3788,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3557,6 +3797,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3564,6 +3806,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3571,6 +3815,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3578,6 +3824,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3585,6 +3833,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3592,6 +3842,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3599,6 +3851,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3606,6 +3860,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3613,6 +3869,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3620,6 +3878,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3627,6 +3887,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3634,6 +3896,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3641,6 +3905,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3648,6 +3914,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3655,6 +3923,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3662,6 +3932,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3669,6 +3941,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3676,6 +3950,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3683,6 +3959,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3690,6 +3968,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3697,6 +3977,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3704,6 +3986,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3711,6 +3995,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3718,6 +4004,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3725,6 +4013,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3732,6 +4022,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3739,6 +4031,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3746,6 +4040,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3753,6 +4049,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3760,6 +4058,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3767,6 +4067,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>{"screen":"","complete":true}</string>
 		</dict>
@@ -3774,6 +4076,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>successfully applied :D</string>
 		</dict>
@@ -3781,6 +4085,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>successfully applied :D</string>
 		</dict>
@@ -3788,6 +4094,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3795,6 +4103,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3802,6 +4112,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>error</string>
 		</dict>
@@ -3809,6 +4121,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3816,6 +4130,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3823,6 +4139,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3830,6 +4148,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3837,6 +4157,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3844,6 +4166,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3851,6 +4175,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3858,6 +4184,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3865,6 +4193,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3872,6 +4202,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3879,6 +4211,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3886,6 +4220,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3893,6 +4229,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3900,6 +4238,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3907,6 +4247,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3914,6 +4256,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -3921,6 +4265,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3928,6 +4274,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3935,6 +4283,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3942,6 +4292,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3949,6 +4301,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3956,6 +4310,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%</string>
 		</dict>
@@ -3963,6 +4319,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3970,6 +4328,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3977,6 +4337,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3984,6 +4346,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -3991,6 +4355,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -3998,6 +4364,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4005,6 +4373,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4012,6 +4382,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4019,6 +4391,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4026,6 +4400,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4033,6 +4409,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4040,6 +4418,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4047,6 +4427,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4054,6 +4436,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4061,6 +4445,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4068,6 +4454,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4075,6 +4463,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>Google Safe Browsing (Legacy)</string>
 		</dict>
@@ -4082,6 +4472,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4089,6 +4481,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4096,6 +4490,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&amp;url=</string>
 		</dict>
@@ -4103,6 +4499,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&amp;url=</string>
 		</dict>
@@ -4110,6 +4508,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://transparencyreport.google.com/safe-browsing/search?url=</string>
 		</dict>
@@ -4117,6 +4517,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4124,6 +4526,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4131,6 +4535,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4138,6 +4544,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&amp;key=%GOOGLE_SAFEBROWSING_API_KEY%&amp;$httpMethod=POST</string>
 		</dict>
@@ -4145,6 +4553,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&amp;url=</string>
 		</dict>
@@ -4152,6 +4562,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&amp;url=</string>
 		</dict>
@@ -4159,6 +4571,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://transparencyreport.google.com/safe-browsing/search?url=</string>
 		</dict>
@@ -4166,6 +4580,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&amp;key=%GOOGLE_SAFEBROWSING_API_KEY%&amp;$httpMethod=POST</string>
 		</dict>
@@ -4173,6 +4589,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>moz-sbrs:://antitracking</string>
 		</dict>
@@ -4180,6 +4598,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&amp;url=</string>
 		</dict>
@@ -4187,6 +4607,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4194,6 +4616,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4201,6 +4625,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4208,6 +4634,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4215,6 +4643,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4222,6 +4652,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4229,6 +4661,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4236,6 +4670,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4243,6 +4679,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4250,6 +4688,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4257,6 +4697,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -4264,6 +4706,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4271,6 +4715,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>7</integer>
 		</dict>
@@ -4278,6 +4724,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4285,6 +4733,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>60000</integer>
 		</dict>
@@ -4292,6 +4742,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>7</integer>
 		</dict>
@@ -4299,6 +4751,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -4306,6 +4760,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4313,6 +4769,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4320,6 +4778,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4327,6 +4787,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4334,6 +4796,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4341,6 +4805,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4348,6 +4814,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4355,6 +4823,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4362,6 +4832,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4369,6 +4841,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4376,6 +4850,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4383,6 +4859,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4390,6 +4868,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4397,6 +4877,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -4404,6 +4886,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4411,6 +4895,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4418,6 +4904,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4425,6 +4913,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4432,6 +4922,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>about:home</string>
 		</dict>
@@ -4439,6 +4931,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>ignore</string>
 		</dict>
@@ -4446,6 +4940,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -4453,6 +4949,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4460,6 +4958,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4467,6 +4967,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4474,6 +4976,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4481,6 +4985,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4488,6 +4994,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4495,6 +5003,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4502,6 +5012,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4509,6 +5021,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4516,6 +5030,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4523,6 +5039,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4530,6 +5048,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4537,6 +5057,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4544,6 +5066,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>always</string>
 		</dict>
@@ -4551,6 +5075,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4558,6 +5084,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4565,6 +5093,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4572,6 +5102,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4579,6 +5111,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4586,6 +5120,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,ja,ko,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi,zh-Hans</string>
 		</dict>
@@ -4593,6 +5129,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4600,6 +5138,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4607,6 +5147,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4614,6 +5156,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4621,6 +5165,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","reset-pbm-toolbar-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","unified-extensions-button"],"TabsToolbar":["tabbrowser-tabs","new-tab-button"],"vertical-tabs":[],"PersonalToolbar":["personal-bookmarks"]},"seen":["reset-pbm-toolbar-button","developer-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","unified-extensions-area","TabsToolbar"],"currentVersion":20,"newElementCount":4}</string>
 		</dict>
@@ -4628,6 +5174,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4635,6 +5183,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>Off</string>
 		</dict>
@@ -4642,6 +5192,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4649,6 +5201,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -4656,6 +5210,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4663,6 +5219,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4670,6 +5228,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4677,6 +5237,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4684,6 +5246,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -4691,6 +5255,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4698,6 +5264,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4705,6 +5273,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4712,6 +5282,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4719,6 +5291,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4726,6 +5300,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4733,6 +5309,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4740,6 +5318,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -4747,6 +5327,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4754,6 +5336,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4761,6 +5345,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4768,6 +5354,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4775,6 +5363,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4782,6 +5372,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>reject_2</string>
 		</dict>
@@ -4789,6 +5381,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>offline</string>
 		</dict>
@@ -4796,6 +5390,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4803,6 +5399,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4810,6 +5408,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4817,6 +5417,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4824,6 +5426,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4831,6 +5435,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4838,6 +5444,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4845,6 +5453,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4852,6 +5462,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4859,6 +5471,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4866,6 +5480,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4873,6 +5489,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4880,6 +5498,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4887,6 +5507,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4894,6 +5516,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4901,6 +5525,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4908,6 +5534,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4915,6 +5543,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -4922,6 +5552,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4929,6 +5561,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4936,6 +5570,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4943,6 +5579,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4950,6 +5588,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4957,6 +5597,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4964,6 +5606,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4971,6 +5615,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4978,6 +5624,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4985,6 +5633,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4992,6 +5642,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -4999,6 +5651,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5006,6 +5660,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5013,6 +5669,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5020,6 +5678,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5027,6 +5687,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5034,6 +5696,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5041,6 +5705,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5048,6 +5714,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5055,6 +5723,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5062,6 +5732,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5069,6 +5741,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5076,6 +5750,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5083,6 +5759,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5090,6 +5768,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5097,6 +5777,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5104,6 +5786,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5111,6 +5795,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5118,6 +5804,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5125,6 +5813,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -5132,6 +5822,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -5139,6 +5831,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -5146,6 +5840,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5153,6 +5849,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -5160,6 +5858,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>click dblclick</string>
 		</dict>
@@ -5167,6 +5867,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5174,6 +5876,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5181,6 +5885,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5188,6 +5894,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5195,6 +5903,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5202,6 +5912,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5209,6 +5921,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5216,6 +5930,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5223,6 +5939,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5230,6 +5948,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5237,6 +5957,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5244,6 +5966,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5251,6 +5975,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5258,6 +5984,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5265,6 +5993,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5272,6 +6002,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5279,6 +6011,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5286,6 +6020,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5293,6 +6029,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5300,6 +6038,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5307,6 +6047,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5314,6 +6056,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5321,6 +6065,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>15</integer>
 		</dict>
@@ -5328,6 +6074,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5335,6 +6083,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>5</integer>
 		</dict>
@@ -5342,6 +6092,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5349,6 +6101,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5356,6 +6110,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5363,6 +6119,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5370,6 +6128,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5377,6 +6137,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://phoenix.celenity.dev/extensions/recommendations.json</string>
 		</dict>
@@ -5384,6 +6146,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%</string>
 		</dict>
@@ -5391,6 +6155,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5398,6 +6164,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5405,6 +6173,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5412,6 +6182,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5419,6 +6191,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5426,6 +6200,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5433,6 +6209,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5440,6 +6218,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5447,6 +6227,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5454,6 +6236,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5461,6 +6245,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5468,6 +6254,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5475,6 +6263,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5482,6 +6272,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5489,6 +6281,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5496,6 +6290,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5503,6 +6299,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5510,6 +6308,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5517,6 +6317,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5524,6 +6326,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5531,6 +6335,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5538,6 +6344,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5545,6 +6353,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5552,6 +6362,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5559,6 +6371,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5566,6 +6380,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5573,6 +6389,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5580,6 +6398,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5587,6 +6407,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5594,6 +6416,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://phoenix.celenity.dev/privacy#extension-recommendations</string>
 		</dict>
@@ -5601,6 +6425,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5608,6 +6434,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5615,6 +6443,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>addons://list/extension</string>
 		</dict>
@@ -5622,6 +6452,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5629,6 +6461,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5636,6 +6470,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3600</integer>
 		</dict>
@@ -5643,6 +6479,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5650,6 +6488,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5657,6 +6497,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5664,6 +6506,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5671,6 +6515,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5678,6 +6524,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5685,6 +6533,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5692,6 +6542,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5699,6 +6551,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5706,6 +6560,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5713,6 +6569,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5720,6 +6578,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5727,6 +6587,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -5734,6 +6596,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5741,6 +6605,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5748,6 +6614,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5755,6 +6623,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5762,6 +6632,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://api.beacondb.net/v1/geolocate</string>
 		</dict>
@@ -5769,6 +6641,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5776,6 +6650,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5783,6 +6659,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5790,6 +6668,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5797,6 +6677,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>8192</integer>
 		</dict>
@@ -5804,6 +6686,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>512</integer>
 		</dict>
@@ -5811,6 +6695,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>20</integer>
 		</dict>
@@ -5818,6 +6704,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5825,6 +6713,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5832,6 +6722,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5839,6 +6731,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5846,6 +6740,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5853,6 +6749,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5860,6 +6758,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5867,6 +6767,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5874,6 +6776,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5881,6 +6785,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -5888,6 +6794,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5895,6 +6803,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5902,6 +6812,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5909,6 +6821,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -5916,6 +6830,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>5</integer>
 		</dict>
@@ -5923,6 +6839,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>7200</integer>
 		</dict>
@@ -5930,6 +6848,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3600</integer>
 		</dict>
@@ -5937,6 +6857,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5944,6 +6866,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5951,6 +6875,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5958,6 +6884,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5965,6 +6893,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5972,6 +6902,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5979,6 +6911,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -5986,6 +6920,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -5993,6 +6929,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6000,6 +6938,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6007,6 +6947,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6014,6 +6956,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6021,6 +6965,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6028,6 +6974,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6035,6 +6983,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6042,6 +6992,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6049,6 +7001,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6056,6 +7010,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6063,6 +7019,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6070,6 +7028,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6077,6 +7037,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6084,6 +7046,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>65536</integer>
 		</dict>
@@ -6091,6 +7055,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6098,6 +7064,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6105,6 +7073,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6112,6 +7082,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6119,6 +7091,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6126,6 +7100,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6133,6 +7109,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -6140,6 +7118,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6147,6 +7127,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6154,6 +7136,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -6161,6 +7145,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6168,6 +7154,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6175,6 +7163,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6182,6 +7172,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6189,6 +7181,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6196,6 +7190,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6203,6 +7199,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6210,6 +7208,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6217,6 +7217,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6224,6 +7226,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>5</integer>
 		</dict>
@@ -6231,6 +7235,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6238,6 +7244,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6245,6 +7253,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>5</integer>
 		</dict>
@@ -6252,6 +7262,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6259,6 +7271,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6266,6 +7280,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6273,6 +7289,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6280,6 +7298,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6287,6 +7307,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6294,6 +7316,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6301,6 +7325,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6308,6 +7334,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6315,6 +7343,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6322,6 +7352,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6329,6 +7361,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1000</integer>
 		</dict>
@@ -6343,6 +7377,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>240</integer>
 		</dict>
@@ -6350,6 +7386,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6357,6 +7395,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6364,6 +7404,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6371,6 +7413,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -6378,6 +7422,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6385,6 +7431,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6392,6 +7440,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6399,6 +7449,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6406,6 +7458,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1800</integer>
 		</dict>
@@ -6413,6 +7467,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>48</integer>
 		</dict>
@@ -6420,6 +7476,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>10</integer>
 		</dict>
@@ -6427,6 +7485,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>5</integer>
 		</dict>
@@ -6434,6 +7494,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6441,6 +7503,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6448,6 +7512,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6455,6 +7521,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -6462,6 +7530,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -6469,6 +7539,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -6476,6 +7548,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6483,6 +7557,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6490,6 +7566,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6497,6 +7575,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6504,6 +7584,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -6511,6 +7593,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6518,6 +7602,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6525,6 +7611,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6532,6 +7620,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6539,6 +7629,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string></string>
 		</dict>
@@ -6546,6 +7638,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6553,6 +7647,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6560,6 +7656,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6567,6 +7665,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6574,6 +7674,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6581,6 +7683,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6588,6 +7692,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6595,6 +7701,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6602,6 +7710,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6609,6 +7719,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6616,6 +7728,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6623,6 +7737,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6630,6 +7746,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6637,6 +7755,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6644,6 +7764,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6651,6 +7773,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>skip</string>
 		</dict>
@@ -6658,6 +7782,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6665,6 +7791,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://dns.quad9.net/dns-query</string>
 		</dict>
@@ -6672,6 +7800,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6679,6 +7809,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6686,6 +7818,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>3</integer>
 		</dict>
@@ -6693,6 +7827,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6700,6 +7836,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6707,6 +7845,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6714,6 +7854,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6721,6 +7863,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6728,6 +7872,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6735,6 +7881,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6742,6 +7890,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6749,6 +7899,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6756,6 +7908,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6763,6 +7917,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -6770,6 +7926,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6777,6 +7935,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6784,6 +7944,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6791,6 +7953,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -6798,6 +7962,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6805,6 +7971,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>Ask Every Time</string>
 		</dict>
@@ -6812,6 +7980,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6819,6 +7989,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6826,6 +7998,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6833,6 +8007,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6840,6 +8016,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6847,6 +8025,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>2</integer>
 		</dict>
@@ -6854,6 +8034,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6861,6 +8043,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6868,6 +8052,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6875,6 +8061,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6882,6 +8070,8 @@
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6889,6 +8079,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6896,6 +8088,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6903,6 +8097,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6910,6 +8106,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>disabled</string>
 		</dict>
@@ -6917,6 +8115,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>string</string>
 			<key>Value</key>
 			<string>https://relay.firefox.com/accounts/profile/</string>
 		</dict>
@@ -6924,6 +8124,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6931,6 +8133,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6938,6 +8142,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6945,6 +8151,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6952,6 +8160,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6959,6 +8169,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6966,6 +8178,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -6973,6 +8187,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -6980,6 +8196,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -6987,13 +8205,17 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
 		<key>ui.new-webcompat-reporter.enabled</key>
 		<dict>
 			<key>Status</key>
-			<string>locked</string>
+			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -7001,6 +8223,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -7008,6 +8232,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -7015,6 +8241,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -7022,6 +8250,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -7029,6 +8259,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>1</integer>
 		</dict>
@@ -7036,6 +8268,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -7043,6 +8277,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>number</string>
 			<key>Value</key>
 			<integer>0</integer>
 		</dict>
@@ -7050,6 +8286,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<false/>
 		</dict>
@@ -7057,6 +8295,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
@@ -7064,6 +8304,8 @@
 		<dict>
 			<key>Status</key>
 			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
 			<key>Value</key>
 			<true/>
 		</dict>
