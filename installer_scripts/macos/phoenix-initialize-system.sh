@@ -57,4 +57,4 @@ echo_red_text "Your system will now reboot to finalize your installation."
 echo_green_text "Press enter to continue."
 read
 
-reboot
+sudo reboot
