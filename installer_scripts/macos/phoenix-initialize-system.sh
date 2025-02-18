@@ -30,7 +30,7 @@ sudo /bin/cp phoenix-bootstrap.js /Applications/'Firefox Nightly'.app/Contents/R
 echo
 
 echo_green_text "Copying phoenix-bootstrap.cfg to /Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg.."
-sudo /bin/cp phoenix-bootstrap.cfg /Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.js || error_fn
+sudo /bin/cp phoenix-bootstrap.cfg /Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at some of the user.js files we offer, such as our 'Hardened' option for more comprehensive protection, at the cost of minimal breakage.\nYou can learn more here https://phoenix.celenity.dev/#extended.\n"
