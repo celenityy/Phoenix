@@ -20,7 +20,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi"
                         }
                     ]
                 },
@@ -29,7 +29,7 @@
                 "name": "⭐ uBlock Origin - ⚖️ GPL-3.0-only",
                 "slug": "ublock-origin",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/ublock-origin/"
+                "url": "https://addons.mozilla.org/firefox/addon/uBlock0@raymondhill.net/"
             },
             "is_recommendation": true
         },
@@ -53,7 +53,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi"
                         }
                     ]
                 },
@@ -62,7 +62,7 @@
                 "name": "⭐ Firefox Multi-Account Containers - ⚖️ MPL-2.0",
                 "slug": "multi-account-containers",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/multi-account-containers/"
+                "url": "https://addons.mozilla.org/firefox/addon/@testpilot-containers/"
             },
             "is_recommendation": true
         },
@@ -86,7 +86,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{446900e4-71c2-419f-a6a7-df9c091e268b}/latest.xpi"
                         }
                     ]
                 },
@@ -95,7 +95,7 @@
                 "name": "⭐ Bitwarden Password Manager - ⚖️ GPL-3.0-only",
                 "slug": "bitwarden-password-manager",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/"
+                "url": "https://addons.mozilla.org/firefox/addon/{446900e4-71c2-419f-a6a7-df9c091e268b}/"
             },
             "is_recommendation": true
         },
@@ -150,7 +150,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/deArrow@ajay.app/latest.xpi"
                         }
                     ]
                 },
@@ -159,7 +159,7 @@
                 "name": "DeArrow - ⚖️ LGPL-3.0-only",
                 "slug": "dearrow",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/dearrow/"
+                "url": "https://addons.mozilla.org/firefox/addon/deArrow@ajay.app/"
             },
             "is_recommendation": true
         },
@@ -183,7 +183,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{9a41dee2-b924-4161-a971-7fb35c053a4a}/latest.xpi"
                         }
                     ]
                 },
@@ -192,7 +192,7 @@
                 "name": "enhanced-h264ify - ⚖️ MIT",
                 "slug": "enhanced-h264ify",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/enhanced-h264ify/"
+                "url": "https://addons.mozilla.org/firefox/addon/{9a41dee2-b924-4161-a971-7fb35c053a4a}/"
             },
             "is_recommendation": true
         },
@@ -216,7 +216,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/crxviewer/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/crxviewer-firefox@robwu.nl/latest.xpi"
                         }
                     ]
                 },
@@ -225,7 +225,7 @@
                 "name": "Extension source viewer - ⚖️ MPL-2.0",
                 "slug": "crxviewer",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/crxviewer/"
+                "url": "https://addons.mozilla.org/firefox/addon/crxviewer-firefox@robwu.nl/"
             },
             "is_recommendation": true
         },
@@ -249,7 +249,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/FirefoxColor@mozilla.com/latest.xpi"
                         }
                     ]
                 },
@@ -258,7 +258,7 @@
                 "name": "⭐ Firefox Color - ⚖️ MPL-2.0",
                 "slug": "firefox-color",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/firefox-color/"
+                "url": "https://addons.mozilla.org/firefox/addon/FirefoxColor@mozilla.com/"
             },
             "is_recommendation": true
         },
@@ -282,7 +282,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser@keepassxc.org/latest.xpi"
                         }
                     ]
                 },
@@ -291,7 +291,7 @@
                 "name": "KeePassXC-Browser - ⚖️ GPL-3.0-only",
                 "slug": "keepassxc-browser",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/keepassxc-browser/"
+                "url": "https://addons.mozilla.org/firefox/addon/keepassxc-browser@keepassxc.org/"
             },
             "is_recommendation": true
         },
@@ -321,7 +321,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/7esoorv3@alefvanoon.anonaddy.me/latest.xpi"
                         }
                     ]
                 },
@@ -330,7 +330,7 @@
                 "name": "LibRedirect - ⚖️ GPL-3.0-only",
                 "slug": "libredirect",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/libredirect/"
+                "url": "https://addons.mozilla.org/firefox/addon/7esoorv3@alefvanoon.anonaddy.me/"
             },
             "is_recommendation": true
         },
@@ -354,7 +354,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/load-reddit-images-directly/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{4c421bb7-c1de-4dc6-80c7-ce8625e34d24}/latest.xpi"
                         }
                     ]
                 },
@@ -363,7 +363,7 @@
                 "name": "Load Reddit Images Directly - ⚖️ MPL-2.0",
                 "slug": "load-reddit-images-directly",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/load-reddit-images-directly/"
+                "url": "https://addons.mozilla.org/firefox/addon/{4c421bb7-c1de-4dc6-80c7-ce8625e34d24}/"
             },
             "is_recommendation": true
         },
@@ -449,7 +449,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{762f9885-5a13-4abd-9c77-433dcd38b8fd}/latest.xpi"
                         }
                     ]
                 },
@@ -458,7 +458,7 @@
                 "name": "⭐ Return YouTube Dislike - ⚖️ GPL-3.0-only",
                 "slug": "return-youtube-dislikes",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/return-youtube-dislikes/"
+                "url": "https://addons.mozilla.org/firefox/addon/{762f9885-5a13-4abd-9c77-433dcd38b8fd}/"
             },
             "is_recommendation": true
         },
@@ -482,7 +482,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/search_by_image/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}/latest.xpi"
                         }
                     ]
                 },
@@ -491,7 +491,7 @@
                 "name": "⭐ Search by Image - ⚖️ GPL-3.0-only",
                 "slug": "search_by_image",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/search_by_image/"
+                "url": "https://addons.mozilla.org/firefox/addon/{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}/"
             },
             "is_recommendation": true
         },
@@ -515,7 +515,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/skipredirect@sblask/latest.xpi"
                         }
                     ]
                 },
@@ -524,7 +524,7 @@
                 "name": "Skip Redirect - ⚖️ MIT",
                 "slug": "skip-redirect",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/skip-redirect/"
+                "url": "https://addons.mozilla.org/firefox/addon/skipredirect@sblask/"
             },
             "is_recommendation": true
         },
@@ -548,7 +548,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/torproject-snowflake/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{b11bea1f-a888-4332-8d8a-cec2be7d24b9}/latest.xpi"
                         }
                     ]
                 },
@@ -557,7 +557,7 @@
                 "name": "Snowflake - ⚖️ BSD-2-Clause",
                 "slug": "torproject-snowflake",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/torproject-snowflake/"
+                "url": "https://addons.mozilla.org/firefox/addon/{b11bea1f-a888-4332-8d8a-cec2be7d24b9}/"
             },
             "is_recommendation": true
         },
@@ -581,7 +581,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorBlocker@ajay.app/latest.xpi"
                         }
                     ]
                 },
@@ -590,7 +590,7 @@
                 "name": "⭐ SponsorBlock for YouTube - Skip Sponsorships - ⚖️ LGPL-3.0-only",
                 "slug": "sponsorblock",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/sponsorblock/"
+                "url": "https://addons.mozilla.org/firefox/addon/sponsorBlocker@ajay.app/"
             },
             "is_recommendation": true
         },
@@ -614,7 +614,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/extension@tabliss.io/latest.xpi"
                         }
                     ]
                 },
@@ -623,7 +623,7 @@
                 "name": "⭐ Tabliss - ⚖️ GPL-3.0-only",
                 "slug": "tabliss",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/tabliss/"
+                "url": "https://addons.mozilla.org/firefox/addon/extension@tabliss.io/"
             },
             "is_recommendation": true
         },
@@ -653,7 +653,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{aecec67f-0d10-4fa7-b7c7-609a2db280cf}/latest.xpi"
                         }
                     ]
                 },
@@ -662,7 +662,7 @@
                 "name": "Violentmonkey - ⚖️ MIT",
                 "slug": "violentmonkey",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/violentmonkey/"
+                "url": "https://addons.mozilla.org/firefox/addon/{aecec67f-0d10-4fa7-b7c7-609a2db280cf}/"
             },
             "is_recommendation": true
         },
@@ -686,7 +686,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/view-page-archive/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/{d07ccf11-c0cd-4938-a265-2a4d6ad01189}/latest.xpi"
                         }
                     ]
                 },
@@ -695,7 +695,7 @@
                 "name": "⭐ Web Archives - ⚖️ GPL-3.0-only",
                 "slug": "view-page-archive",
                 "type": "extension",
-                "url": "https://addons.mozilla.org/firefox/addon/view-page-archive/"
+                "url": "https://addons.mozilla.org/firefox/addon/{d07ccf11-c0cd-4938-a265-2a4d6ad01189}/"
             },
             "is_recommendation": true
         },
@@ -719,7 +719,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/activist-balanced_/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/activist-balanced-colorway@mozilla.org/latest.xpi"
                         }
                     ]
                 },
@@ -728,7 +728,7 @@
                 "name": "⭐ Activist – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "activist-balanced_",
                 "type": "statictheme",
-                "url": "https://addons.mozilla.org/firefox/addon/activist-balanced_/"
+                "url": "https://addons.mozilla.org/firefox/addon/activist-balanced-colorway@mozilla.org/"
             },
             "is_recommendation": true
         },
@@ -752,7 +752,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/foto-soft/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/foto-soft-colorway@mozilla.org/latest.xpi"
                         }
                     ]
                 },
@@ -761,7 +761,7 @@
                 "name": "⭐ Foto – Soft - ⚖️ CC-BY-3.0",
                 "slug": "foto-soft",
                 "type": "statictheme",
-                "url": "https://addons.mozilla.org/firefox/addon/foto-soft/"
+                "url": "https://addons.mozilla.org/firefox/addon/foto-soft-colorway@mozilla.org/"
             },
             "is_recommendation": true
         },
@@ -785,7 +785,7 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://addons.mozilla.org/firefox/downloads/latest/visionary-balanced/latest.xpi"
+                            "url": "https://addons.mozilla.org/firefox/downloads/latest/visionary-balanced-colorway@mozilla.org/latest.xpi"
                         }
                     ]
                 },
@@ -794,7 +794,7 @@
                 "name": "⭐ Visionary – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "visionary-balanced",
                 "type": "statictheme",
-                "url": "https://addons.mozilla.org/firefox/addon/visionary-balanced/"
+                "url": "https://addons.mozilla.org/firefox/addon/visionary-balanced-colorway@mozilla.org/"
             },
             "is_recommendation": true
         }
