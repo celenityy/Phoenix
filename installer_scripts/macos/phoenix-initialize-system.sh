@@ -45,6 +45,7 @@ sudo /bin/cp phoenix-bootstrap.cfg /Applications/'Firefox Nightly'.app/Contents/
 echo
 
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+echo_green_text "PLEASE SELECT "Later" WHEN IT ASKS YOU TO QUIT AND RE-OPEN YOUR TERMINAL..."
 open /System/Applications/'System Settings'.app
 /bin/sleep 5
 echo_green_text "Press enter to continue once you are finished."
