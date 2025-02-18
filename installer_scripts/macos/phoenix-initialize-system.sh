@@ -32,16 +32,16 @@ echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
 sudo /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
 echo
 
-echo_green_text "Creating /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref directory..."
-sudo /bin/mkdir -v -p /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
+echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+sudo /bin/mkdir -v -p /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 echo
 
-echo_green_text "Copying phoenix-bootstrap.js to /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
-sudo /bin/cp phoenix-bootstrap.js /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+echo_green_text "Copying phoenix-bootstrap.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
+sudo /bin/cp phoenix-bootstrap.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
-echo_green_text "Copying phoenix-bootstrap.cfg to /Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg.."
-sudo /bin/cp phoenix-bootstrap.cfg /Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+echo_green_text "Copying phoenix-bootstrap.cfg to /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg.."
+sudo /bin/cp phoenix-bootstrap.cfg /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"

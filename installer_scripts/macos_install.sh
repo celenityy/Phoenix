@@ -29,7 +29,7 @@ initialize_phoenix() {
 }
 
 ## Scripts are here
-URL="https://codeberg.org/celenity/Phoenix/raw/branch/dev/installer_scripts/macos"
+URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos"
 
 ## Scripts file
 SCRIPT=("phoenix-initialize-system.sh"
