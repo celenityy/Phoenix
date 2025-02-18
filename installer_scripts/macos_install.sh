@@ -20,17 +20,6 @@ error_fn() {
 ## Downloaded files save in /tmp
 cd /tmp
 
-## Colours
-blue='\e[1;34m'
-brown='\e[0;33m'
-coloroff='\e[0m' # Colour off
-cyan='\e[1;36m'
-gray='\e[1;30m'
-green='\e[0;32m'
-purple='\e[1;35m'
-red='\e[1;31m'
-yellow='\e[1;33m'
-
 ## Download and run initialization script
 initialize_phoenix() {
 	wget -nv $1
@@ -45,6 +34,14 @@ URL="https://codeberg.org/celenity/Phoenix/raw/branch/dev/installer_scripts/maco
 ## Scripts file
 SCRIPT=("phoenix-initialize-system.sh"
 		"phoenix-initialize-user.sh")
+
+echo_green_text "Welcome to the Phoenix installer for macOS!"
+echo_red_text "Before proceeding: You MUST grant your Terminal the 'App Management permission' by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+echo_red_text "This is ONLY required for initial installation, and you are strongly recommended to revoke the 'App Management' permission once you are done."
+echo_green_text "If you are unable/unwilling to grant your Terminal this permission, you can follow the instructions here to copy the files manually: https://phoenix.celenity.dev#manual-installation."
+/bin/sleep 5
+echo_red_text "Press enter to continue."
+read
 
 ## Install Phoenix
 echo_green_text "Adding celenity's Tap to Homebrew..."
@@ -99,24 +96,16 @@ echo_green_text "Downloading phoenix-bootstrap.js..."
 wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
-echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
-sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
-echo
-
 echo_green_text "Downloading phoenix-bootstrap.cfg..."
 wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/phoenix-bootstrap.cfg || error_fn
 echo
 
-echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
-sudo /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
-echo
-
 echo -e ""
-echo -e "${brown}Where is your installation of Firefox located?${coloroff}";
-echo -e "${brown}Your options are:${coloroff}";
-echo -e "${blue}1. system${coloroff} - ${green}/Applications/Firefox.app${coloroff}";
-echo -e "${red}2. user${coloroff}  - ${green}~/Applications/Firefox.app${coloroff}";
-read -p 'Enter your selection: ' LOCATION
+echo_green_text "Where is your installation of Firefox located?";
+echo_green_text "${brown}Your options are:";
+echo_red_text "1. system - /Applications/Firefox.app";
+echo_green_text "2. user - ~/Applications/Firefox.app";
+read -p 'Please enter your selection: ' LOCATION
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
         TARGET_SCRIPT="${SCRIPT[0]}"

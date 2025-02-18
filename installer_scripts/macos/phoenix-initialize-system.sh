@@ -17,6 +17,17 @@ error_fn() {
 	exit 1
 }
 
+## Downloaded files save in /tmp
+cd /tmp
+
+echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
+sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
+echo
+
+echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
+sudo /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
+echo
+
 echo_green_text "Creating /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref directory..."
 sudo /bin/mkdir -v -p /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
 echo

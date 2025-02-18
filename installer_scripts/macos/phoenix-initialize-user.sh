@@ -17,20 +17,31 @@ error_fn() {
 	exit 1
 }
 
+## Downloaded files save in /tmp
+cd /tmp
+
+echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
+/bin/chmod -v 644 phoenix-bootstrap.js || error_fn
+echo
+
+echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
+/bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
+echo
+
 echo_green_text "Creating ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref directory..."
-sudo /bin/mkdir -v -p ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
+/bin/mkdir -v -p ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
 echo
 
 echo_green_text "Changing permissions of ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref to 644..."
-sudo /bin/chmod -v 644 ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
+/bin/chmod -v 644 ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
 echo
 
 echo_green_text "Copying phoenix-bootstrap.js to ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
-sudo /bin/cp phoenix-bootstrap.js ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+/bin/cp phoenix-bootstrap.js ~/Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
 echo_green_text "Copying phoenix-bootstrap.cfg to ~/Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg.."
-sudo /bin/cp phoenix-bootstrap.cfg ~/Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+/bin/cp phoenix-bootstrap.cfg ~/Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at our 'Extended' config for more comprehensive protection, at the cost of ocassional breakage.\nYou can learn more here: https://phoenix.celenity.dev/#extended.\n"
