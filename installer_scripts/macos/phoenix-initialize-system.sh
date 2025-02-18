@@ -22,7 +22,7 @@ cd /tmp
 
 ## Ensure Firefox isn't quarantined so we don't break it...
 # https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-sudo xattr -v -r -d /Applications/Firefox.app
+sudo xattr -v -r -d com.apple.quarantine /Applications/Firefox.app
 
 echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
 sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
@@ -34,10 +34,6 @@ echo
 
 echo_green_text "Creating /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref directory..."
 sudo /bin/mkdir -v -p /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
-echo
-
-echo_green_text "Changing permissions of /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref to 644..."
-sudo /bin/chmod -v 644 /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref || error_fn
 echo
 
 echo_green_text "Copying phoenix-bootstrap.js to /Applications/'Firefox Nightly'.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
