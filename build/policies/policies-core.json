@@ -488,6 +488,11 @@
                 "Status": "default",
                 "Type": "boolean"
             },
+            "browser.search.update": {
+                "Value": false,
+                "Status": "default",
+                "Type": "boolean"
+            },
             "browser.send_pings": {
                 "Value": false,
                 "Status": "default",

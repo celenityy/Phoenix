@@ -1397,6 +1397,14 @@ pref("dom.origin-trials.coep-credentialless.state", 1); // https://searchfox.org
 
 pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - Nightly Desktop]
 
+/// Disable automatic updates for OpenSearch engines
+// Doesn't appear to impact Mozilla's built-in search engines
+// Also has privacy implications (extra unsolicited connections to third parties...)
+// https://firefox-source-docs.mozilla.org/toolkit/search/Preferences.html#hidden
+// https://developer.mozilla.org/docs/Web/XML/Guides/OpenSearch#supporting_automatic_updates_for_opensearch_plugins
+
+pref("browser.search.update", false); // [DEFAULT - Android]
+
 pref("browser.phoenix.core.status", "020");
 
 // 021 BLOCK COOKIE BANNERS
