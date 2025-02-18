@@ -25,7 +25,7 @@ initialize_phoenix() {
 	wget -nv $1
 	echo
 	echo
-	sudo bash $2
+	bash $2
 }
 
 ## Scripts are here
