@@ -59,7 +59,7 @@ brew install phoenix-wip || error_fn
 echo
 
 echo_green_text "Downloading phoenix-apply.sh..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
 echo
 
 echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
@@ -79,7 +79,7 @@ sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || erro
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
@@ -95,11 +95,11 @@ sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.pl
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.js..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/defaults/pref/phoenix-bootstrap.js || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.cfg..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/dev/macos/phoenix-bootstrap.cfg || error_fn
+wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo -e ""
