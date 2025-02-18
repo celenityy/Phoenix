@@ -41,7 +41,7 @@ echo_red_text "This is ONLY required for initial installation, and you are stron
 echo_green_text "If you are unable/unwilling to grant your Terminal this permission, you can follow the instructions here to copy the files manually: https://phoenix.celenity.dev#manual-installation."
 open /System/Applications/'System Settings'.app
 /bin/sleep 5
-echo_green_text "Press enter to continue."
+echo_red_text "Press enter to continue."
 read
 
 ## Install Phoenix
