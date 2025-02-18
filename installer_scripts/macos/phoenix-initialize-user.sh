@@ -44,6 +44,17 @@ echo_green_text "Copying phoenix-bootstrap.cfg to ~/Applications/'Firefox Nightl
 /bin/cp phoenix-bootstrap.cfg ~/Applications/'Firefox Nightly'.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
 echo
 
+echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+open /System/Applications/'System Settings'.app
+/bin/sleep 5
+echo_green_text "Press enter to continue once you are finished."
+read
+
 echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at our 'Extended' config for more comprehensive protection, at the cost of ocassional breakage.\nYou can learn more here: https://phoenix.celenity.dev/#extended.\n"
 
-echo_red_text "You are now recommended to reboot your system for Phoenix & it's changes to apply..."
+echo_red_text "Your system will now reboot to finalize your installation."
+/bin/sleep 5
+echo_green_text "Press enter to continue."
+read
+
+reboot
