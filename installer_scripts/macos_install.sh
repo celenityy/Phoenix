@@ -104,7 +104,7 @@ echo
 
 echo -e ""
 echo_green_text "Where is your installation of Firefox located?";
-echo_green_text "${brown}Your options are:";
+echo_green_text "Your options are:";
 echo_red_text "1. system - /Applications/Firefox.app";
 echo_green_text "2. user - ~/Applications/Firefox.app";
 read -p 'Please enter your selection: ' LOCATION
