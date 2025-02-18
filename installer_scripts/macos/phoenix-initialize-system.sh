@@ -20,6 +20,10 @@ error_fn() {
 ## Downloaded files save in /tmp
 cd /tmp
 
+## Ensure Firefox isn't quarantined so we don't break it...
+# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+sudo xattr -v -r -d /Applications/Firefox.app
+
 echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
 sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
 echo
