@@ -23,7 +23,7 @@ uninstall_phoenix() {
 }
 
 ## Scripts are here
-URL="https://phoenix.celenity.dev/uninstaller_scripts"
+URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts"
 
 ## Scripts file
 SCRIPT=("arch_uninstall_paru.sh"

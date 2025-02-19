@@ -23,7 +23,7 @@ install_phoenix() {
 }
 
 ## Scripts are here
-URL="https://phoenix.celenity.dev/installer_scripts"
+URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts"
 
 ## Scripts file
 SCRIPT=("arch_install_paru.sh"
