@@ -65,7 +65,7 @@ echo
 sudo /bin/rm -f ~/Library/Preferences/org.mozilla.firefox.plist || error_fn
 echo
 
-echo_green_text "Uninstalling phoenix-osx if installed..."
+echo_green_text "Uninstalling phoenix-osx..."
 brew uninstall phoenix-osx || error_fn
 echo
 
