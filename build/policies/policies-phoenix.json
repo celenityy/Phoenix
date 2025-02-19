@@ -1454,6 +1454,11 @@
                 "Status": "locked",
                 "Type": "boolean"
             },
+            "media.wmf.media-engine.enabled": {
+                "Value": 0,
+                "Status": "default",
+                "Type": "number"
+            },
             "network.protocol-handler.warn-external.mailto": {
                 "Value": true,
                 "Status": "default",
@@ -1479,6 +1484,11 @@
                 "Status": "default",
                 "Type": "boolean"
             },
+            "ui.hideCursorWhileTyping": {
+                "Value": 1,
+                "Status": "default",
+                "Type": "number"
+            },
             "ui.new-webcompat-reporter.enabled": {
                 "Value": false,
                 "Status": "default",
@@ -1488,6 +1498,36 @@
                 "Value": false,
                 "Status": "default",
                 "Type": "boolean"
+            },
+            "ui.panelAnimations": {
+                "Value": 0,
+                "Status": "default",
+                "Type": "number"
+            },
+            "ui.prefersReducedMotion": {
+                "Value": 1,
+                "Status": "default",
+                "Type": "number"
+            },
+            "ui.prefersReducedTransparency": {
+                "Value": 0,
+                "Status": "default",
+                "Type": "number"
+            },
+            "ui.scrollToClick": {
+                "Value": 1,
+                "Status": "default",
+                "Type": "number"
+            },
+            "ui.swipeAnimationEnabled": {
+                "Value": 0,
+                "Status": "default",
+                "Type": "number"
+            },
+            "ui.useAccessibilityTheme": {
+                "Value": 0,
+                "Status": "default",
+                "Type": "number"
             },
             "xpinstall.signatures.required": {
                 "Value": true,

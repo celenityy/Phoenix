@@ -1298,11 +1298,6 @@
                 "Status": "default",
                 "Type": "boolean"
             },
-            "media.wmf.media-engine.enabled": {
-                "Value": 0,
-                "Status": "default",
-                "Type": "number"
-            },
             "network.auth.non-web-content-triggered-resources-http-auth-allow": {
                 "Value": false,
                 "Status": "default",
@@ -1877,45 +1872,10 @@
                 "Status": "default",
                 "Type": "boolean"
             },
-            "ui.hideCursorWhileTyping": {
-                "Value": 1,
-                "Status": "default",
-                "Type": "number"
-            },
             "ui.key.menuAccessKeyFocuses": {
                 "Value": false,
                 "Status": "default",
                 "Type": "boolean"
-            },
-            "ui.panelAnimations": {
-                "Value": 0,
-                "Status": "default",
-                "Type": "number"
-            },
-            "ui.prefersReducedMotion": {
-                "Value": 1,
-                "Status": "default",
-                "Type": "number"
-            },
-            "ui.prefersReducedTransparency": {
-                "Value": 0,
-                "Status": "default",
-                "Type": "number"
-            },
-            "ui.scrollToClick": {
-                "Value": 1,
-                "Status": "default",
-                "Type": "number"
-            },
-            "ui.swipeAnimationEnabled": {
-                "Value": 0,
-                "Status": "default",
-                "Type": "number"
-            },
-            "ui.useAccessibilityTheme": {
-                "Value": 0,
-                "Status": "default",
-                "Type": "number"
             },
             "widget.non-native-theme.use-theme-accent": {
                 "Value": false,
