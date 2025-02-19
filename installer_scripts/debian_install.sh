@@ -40,6 +40,7 @@ echo -e "${yellow}Please choose your Firefox release (Its name or its number)${c
 echo -e "${yellow}Your options are:${coloroff}"
 echo -e "${blue}1. firefox${coloroff}     - ${green}Firefox${coloroff}"
 echo -e "${red}2. firefox-esr${coloroff} - ${green}Firefox with Extended Support Release (Firefox-ESR)${coloroff}"
+echo -e "${cyan}3. flatpak${coloroff} - ${green}Firefox (Flatpak - System)${coloroff}"
 read -p 'Enter your selection: ' FIREFOX_RELEASE
 
 case "${FIREFOX_RELEASE}" in
@@ -50,6 +51,10 @@ case "${FIREFOX_RELEASE}" in
 	"firefox-esr" | "FireFox-esr" | "FIREFOX-ESR" | 2)
 		PHOENIX_RELEASE="phoenix-esr"
 		;;
+
+	"flatpak" | "Flatpak" | "FLATPAK" | 2)
+		PHOENIX_RELEASE="phoenix-flatpak"
+		;;		
 
 	*)
 	echo -e "${red}Invalid option.${coloroff}"
