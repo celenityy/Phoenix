@@ -52,7 +52,7 @@ case "${FIREFOX_RELEASE}" in
 		PHOENIX_RELEASE="phoenix-esr"
 		;;
 
-	"flatpak" | "Flatpak" | "FLATPAK" | 2)
+	"flatpak" | "Flatpak" | "FLATPAK" | 3)
 		PHOENIX_RELEASE="phoenix-flatpak"
 		;;		
 
