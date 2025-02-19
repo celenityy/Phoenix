@@ -83,7 +83,7 @@ Phoenix currently provides official support for:
 * **Ubuntu** *(& derivatives...)*
 
 > [!IMPORTANT]
-> ⚠️ **macOS users must have [Homebrew](https://brew.sh/) installed, and must grant Terminal the `App Management` Permission.**
+> ⚠️ **macOS users must have [Homebrew](https://brew.sh/) installed.**
 
 > [!IMPORTANT]
 > ⚠️ **Flatpak *(User)* & Snap packages of Firefox are currently not supported.**
