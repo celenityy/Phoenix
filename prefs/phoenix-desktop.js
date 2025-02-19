@@ -1397,6 +1397,14 @@ pref("dom.origin-trials.coep-credentialless.state", 1); // https://searchfox.org
 
 pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - Nightly Desktop]
 
+/// Disable automatic updates for OpenSearch engines
+// Doesn't appear to impact Mozilla's built-in search engines
+// Also has privacy implications (extra unsolicited connections to third parties...)
+// https://firefox-source-docs.mozilla.org/toolkit/search/Preferences.html#hidden
+// https://developer.mozilla.org/docs/Web/XML/Guides/OpenSearch#supporting_automatic_updates_for_opensearch_plugins
+
+pref("browser.search.update", false); // [DEFAULT - Android]
+
 pref("browser.phoenix.core.status", "020");
 
 // 021 BLOCK COOKIE BANNERS
@@ -1407,7 +1415,6 @@ pref("cookiebanners.service.mode", 1);
 pref("cookiebanners.service.mode.privateBrowsing", 1); // [DEFAULT - Nightly Android]
 pref("cookiebanners.service.enableGlobalRules", true); // [DEFAULT]
 pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
-pref("cookiebanners.ui.desktop.enabled", true);
 
 pref("browser.phoenix.core.status", "021");
 
@@ -2481,7 +2488,15 @@ pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
 pref("browser.phoenix.desktop.status", "014");
 
-// 015 UPDATES
+// 015 BLOCK COOKIE BANNERS
+
+/// Enable UI in `about:preferences#privacy`
+
+pref("cookiebanners.ui.desktop.enabled", true);
+
+pref("browser.phoenix.core.status", "015");
+
+// 016 UPDATES
 
 /// Browser Updates
 
@@ -2493,9 +2508,9 @@ pref("browser.startup.upgradeDialog.enabled", true);
 
 pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "015");
+pref("browser.phoenix.desktop.status", "016");
 
-/// 016 MISC.
+/// 017 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -2552,17 +2567,17 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "016");
+pref("browser.phoenix.desktop.status", "017");
 
-// 017 PERFORMANCE
+// 018 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
-pref("browser.phoenix.desktop.status", "017");
+pref("browser.phoenix.desktop.status", "018");
 
-// 018 Personal Touch 💜
+// 019 Personal Touch 💜
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -2594,7 +2609,7 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "018");
+pref("browser.phoenix.desktop.status", "019");
 
 // Sync more prefs
 

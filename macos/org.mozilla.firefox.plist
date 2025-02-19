@@ -1100,7 +1100,7 @@
 			<key>default_area</key>
 			<string>navbar</string>
 			<key>install_url</key>
-			<string>https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi</string>
+			<string>https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>temporarily_allow_weak_signatures</key>
@@ -2104,7 +2104,7 @@
 			<key>default_area</key>
 			<string>navbar</string>
 			<key>install_url</key>
-			<string>https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi</string>
+			<string>https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -4667,6 +4667,15 @@
 			<false/>
 		</dict>
 		<key>browser.search.suggest.enabled.private</key>
+		<dict>
+			<key>Status</key>
+			<string>default</string>
+			<key>Type</key>
+			<string>boolean</string>
+			<key>Value</key>
+			<false/>
+		</dict>
+		<key>browser.search.update</key>
 		<dict>
 			<key>Status</key>
 			<string>default</string>
