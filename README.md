@@ -90,10 +90,16 @@ Phoenix currently provides official support for:
 
 Other platforms have unfortunately proven difficult to support, though progress **is** being made. Contributions are always welcome and appreciated.
 
-**If your platform is supported *(with the exception of Android)*, simply run the following command in your terminal to install Phoenix:**
+**If your platform is supported *(with the exception of Android & macOS)*, simply run the following command in your terminal to install Phoenix:**
 
 ```sh
-sudo bash -c "$(wget -O- https://phoenix.celenity.dev/install.sh 2>/dev/null)"
+sudo bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/install.sh 2>/dev/null)"
+```
+
+**macOS** users should instead run the following command to install Phoenix:
+
+```sh
+bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos_install.sh 2>/dev/null)"
 ```
 
 > [!IMPORTANT]
@@ -110,7 +116,13 @@ If Phoenix isn't right for you - no worries!
 **Simply run the following command in your terminal to uninstall Phoenix:**
 
 ```sh
-sudo bash -c "$(wget -O- https://phoenix.celenity.dev/uninstall.sh 2>/dev/null)"
+sudo bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstall.sh 2>/dev/null)"
+```
+
+**macOS** users should instead run the following command to uninstall Phoenix:
+
+```sh
+bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
 ```
 
 Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!

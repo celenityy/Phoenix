@@ -29,8 +29,7 @@ URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts"
 SCRIPT=("arch_install_paru.sh"
 		"arch_install_yay.sh"
 		"debian_install.sh"
-		"fedora_install.sh"
-		"macos_install.sh")
+		"fedora_install.sh")
 
 ## Choose platform
 echo -e "${purple}Welcome to the Phoenix installer!${coloroff}"
@@ -40,8 +39,7 @@ echo -e "${yellow}Your options are:${coloroff}"
 echo -e "${cyan}1. arch${coloroff}   - ${green}Arch Linux (AUR)${coloroff}"
 echo -e "${red}2. debian${coloroff} - ${green}Debian GNU/Linux & Derivatives (openSUSE Build System)${coloroff}"
 echo -e "${blue}3. fedora${coloroff} - ${green}Fedora Linux (COPR)${coloroff}"
-echo -e "${gray}4. macOS${coloroff}  - ${green}macOS (Homebrew)${coloroff}"
-echo -e "${brown}5. exit ${coloroff}  - ${green}Exit from the Phoenix installer${coloroff}"
+echo -e "${brown}4. exit ${coloroff}  - ${green}Exit the Phoenix installer${coloroff}"
 
 read -p 'Enter your selection: ' PLATFORM
 
@@ -77,11 +75,7 @@ case ${PLATFORM} in
 		TARGET_SCRIPT="${SCRIPT[3]}"
 		;;
 
-	"macOS" | "macos" | "MacOS" | "MACOS" | 4)
-		TARGET_SCRIPT="${SCRIPT[4]}"
-		;;
-
-	"exit" | "Exit" | "EXIT" | 5)
+	"exit" | "Exit" | "EXIT" | 4)
 		exit 0
 		;;
 
