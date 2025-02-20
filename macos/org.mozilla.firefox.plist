@@ -4072,7 +4072,7 @@
 			<key>Value</key>
 			<string>{"screen":"","complete":true}</string>
 		</dict>
-		<key>browser.phoenix.core.policies.status</key>
+		<key>browser.phoenix.status.policies</key>
 		<dict>
 			<key>Status</key>
 			<string>locked</string>
@@ -4081,7 +4081,7 @@
 			<key>Value</key>
 			<string>successfully applied :D</string>
 		</dict>
-		<key>browser.phoenix.policies.status</key>
+		<key>browser.phoenix.status.policies.core</key>
 		<dict>
 			<key>Status</key>
 			<string>locked</string>

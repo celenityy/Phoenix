@@ -28,7 +28,7 @@ pref("general.aboutConfig.enable", true, locked); // [DEFAULT on Desktop]
 
 pref("general.warnOnAboutConfig", false);
 
-pref("browser.phoenix.core.status", "000");
+pref("browser.phoenix.status.core", "000");
 
 // 001 DATA COLLECTION
 
@@ -161,7 +161,7 @@ pref("extensions.recommendations.privacyPolicyUrl", "");
 pref("toolkit.crashreporter.infoURL", "");
 pref("toolkit.datacollection.infoURL", "");
 
-pref("browser.phoenix.core.status", "001");
+pref("browser.phoenix.status.core", "001");
 
 // 002 MOZILLA CRAP™
 
@@ -209,7 +209,7 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
-pref("browser.phoenix.core.status", "002");
+pref("browser.phoenix.status.core", "002");
 
 // 003 Search & URL Bar
 
@@ -227,7 +227,7 @@ pref("browser.search.separatePrivateDefault", false);
 
 pref("network.IDN_show_punycode", true);
 
-pref("browser.phoenix.core.status", "003");
+pref("browser.phoenix.status.core", "003");
 
 // 004 Implicit Connections
 
@@ -278,7 +278,7 @@ pref("middlemouse.paste", false);
 pref("browser.tabs.searchclipboardfor.middleclick", false);
 pref("middlemouse.contentLoadURL", false); // [DEFAULT]
 
-pref("browser.phoenix.core.status", "004");
+pref("browser.phoenix.status.core", "004");
 
 // 005 HTTP(S) - Mixed Content & General Network Hardening
 
@@ -400,7 +400,7 @@ pref("network.proxy.failover_direct", false);
 pref("network.proxy.socks_remote_dns", true);
 pref("network.proxy.socks5_remote_dns", true); // [DEFAULT]
 
-pref("browser.phoenix.core.status", "005");
+pref("browser.phoenix.status.core", "005");
 
 // 006 DNS
 
@@ -464,7 +464,7 @@ pref("network.trr.strict_native_fallback", true); // https://searchfox.org/mozil
 
 pref("network.dns.preferIPv6", true);
 
-pref("browser.phoenix.core.status", "006");
+pref("browser.phoenix.status.core", "006");
 
 // 007 CERTIFICATES
 
@@ -512,7 +512,7 @@ pref("security.pki.certificate_transparency.mode", 2); // [DEFAULT - Nightly Des
 pref("security.pki.certificate_transparency.disable_for_hosts", ""); // [DEFAULT]
 pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [DEFAULT]
 
-pref("browser.phoenix.core.status", "007");
+pref("browser.phoenix.status.core", "007");
 
 // 008 DOWNLOADS
 
@@ -534,7 +534,7 @@ pref("dom.block_download_insecure", true); // [DEFAULT]
 
 pref("browser.download.loglevel", "Error"); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
-pref("browser.phoenix.core.status", "008");
+pref("browser.phoenix.status.core", "008");
 
 // 009 SAFE BROWSING
 
@@ -611,7 +611,7 @@ pref("browser.safebrowsing.reportPhishURL", "https://safebrowsing.google.com/saf
 pref("browser.safebrowsing.provider.google.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url=");
 pref("browser.safebrowsing.provider.google4.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url=");
 
-pref("browser.phoenix.core.status", "009");
+pref("browser.phoenix.status.core", "009");
 
 // 010 GEOLOCATION
 
@@ -638,7 +638,7 @@ pref("geo.provider.network.logging.enabled", false); // [DEFAULT - HIDDEN]
 
 pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
-pref("browser.phoenix.core.status", "010");
+pref("browser.phoenix.status.core", "010");
 
 // 011 AI
 // https://support.mozilla.org/kb/ai-chatbot
@@ -652,7 +652,7 @@ pref("browser.ml.enable", false); // [DEFAULT - non-Nightly] - "Experimental Mac
 
 pref("extensions.formautofill.ml.experiment.enabled", false); // [HIDDEN - Thunderbird]
 
-pref("browser.phoenix.core.status", "011");
+pref("browser.phoenix.status.core", "011");
 
 // 012 WEBRTC
 
@@ -687,7 +687,7 @@ pref("privacy.webrtc.sharedTabWarning", true); // [HIDDEN - Android/Thunderbird]
 
 pref("media.peerconnection.mtransport_process", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
-pref("browser.phoenix.core.status", "012");
+pref("browser.phoenix.status.core", "012");
 
 // 013 DISK AVOIDANCE
 
@@ -749,7 +749,7 @@ pref("permissions.memory_only", false); // [HIDDEN - DEFAULT]
 
 pref("browser.download.manager.addToRecentDocs", false);
 
-pref("browser.phoenix.core.status", "013");
+pref("browser.phoenix.status.core", "013");
 
 // 014 EXTENSIONS
 
@@ -832,7 +832,7 @@ pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozi
 pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry...
 pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine...
 
-pref("browser.phoenix.core.status", "014");
+pref("browser.phoenix.status.core", "014");
 
 // 015 PDF.js
 
@@ -862,7 +862,7 @@ pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Androi
 
 pref("pdfjs.sidebarViewOnLoad", 2);
 
-pref("browser.phoenix.core.status", "015");
+pref("browser.phoenix.status.core", "015");
 
 // 016 MISC. PRIVACY
 
@@ -1017,6 +1017,7 @@ pref("beacon.enabled", false);
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Trim cross-origin referers (Like Safari)
+// https://wiki.mozilla.org/Security/Referrer
 
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
@@ -1055,7 +1056,7 @@ pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Night
 
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT - Nightly]
 
-pref("browser.phoenix.core.status", "016");
+pref("browser.phoenix.status.core", "016");
 
 // 017 FINGERPRINTING PROTECTION
 
@@ -1097,7 +1098,7 @@ pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thund
 
 pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-Android/Windows/Thunderbird]
 
-pref("browser.phoenix.core.status", "017");
+pref("browser.phoenix.status.core", "017");
 
 // 018 PASSWORDS & AUTHENTICATION
 
@@ -1171,7 +1172,7 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
 
 pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
 
-pref("browser.phoenix.core.status", "018");
+pref("browser.phoenix.status.core", "018");
 
 // 019 ATTACK SURFACE REDUCTION
 
@@ -1225,7 +1226,7 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 pref("dom.postMessage.sharedArrayBuffer.bypassCOOP_COEP.insecure.enabled", false); // [DEFAULT]
 pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false);
 
-pref("browser.phoenix.core.status", "019");
+pref("browser.phoenix.status.core", "019");
 
 // 020 MISC. SECURITY
 
@@ -1405,7 +1406,7 @@ pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - N
 
 pref("browser.search.update", false); // [DEFAULT - Android]
 
-pref("browser.phoenix.core.status", "020");
+pref("browser.phoenix.status.core", "020");
 
 // 021 BLOCK COOKIE BANNERS
 
@@ -1416,7 +1417,7 @@ pref("cookiebanners.service.mode.privateBrowsing", 1); // [DEFAULT - Nightly And
 pref("cookiebanners.service.enableGlobalRules", true); // [DEFAULT]
 pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 
-pref("browser.phoenix.core.status", "021");
+pref("browser.phoenix.status.core", "021");
 
 // 022 MEDIA
 
@@ -1448,7 +1449,7 @@ pref("media.gmp-widevinecdm.visible", false);
 pref("media.gmp-widevinecdm-l1.enabled", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 pref("media.gmp-widevinecdm-l1.visible", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 
-pref("browser.phoenix.core.status", "022");
+pref("browser.phoenix.status.core", "022");
 
 // 023 UPDATES
 
@@ -1469,7 +1470,7 @@ pref("media.gmp-manager.updateEnabled", true); // [DEFAULT, HIDDEN]
 
 pref("extensions.update.notifyUser", true); // [HIDDEN]
 
-pref("browser.phoenix.core.status", "023");
+pref("browser.phoenix.status.core", "023");
 
 // 024 DEBUGGING
 
@@ -1490,7 +1491,7 @@ pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nig
 
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 
-pref("browser.phoenix.core.status", "024");
+pref("browser.phoenix.status.core", "024");
 
 /// 025 MISC.
 
@@ -1532,7 +1533,7 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 
-pref("browser.phoenix.core.status", "025");
+pref("browser.phoenix.status.core", "025");
 
 // 026 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
@@ -1560,7 +1561,7 @@ pref("network.http.max-persistent-connections-per-proxy", 48); // [Default = 20 
 pref("network.http.max-persistent-connections-per-server", 10); // [Default = 6]
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Default = 3]
 
-pref("browser.phoenix.core.status", "026");
+pref("browser.phoenix.status.core", "026");
 
 // 027 SCROLLING
 
@@ -1569,7 +1570,7 @@ pref("apz.overscroll.enabled", true); // [DEFAULT - non-Thunderbird]
 pref("general.autoScroll", true); // [DEFAULT - non-Unix (excluding macOS)/Thunderbird, HIDDEN - Android]
 pref("general.smoothScroll", true); // [DEFAULT - non-Thunderbird]
 
-pref("browser.phoenix.core.status", "027");
+pref("browser.phoenix.status.core", "027");
 
 // 028 Personal Touch 💜
 
@@ -1591,19 +1592,9 @@ pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux] Pre
 pref("view_source.syntax_highlight", true); // [DEFAULT - non-Thunderbird]
 pref("view_source.wrap_long_lines", true); // [DEFAULT - Android]
 
-pref("browser.phoenix.core.status", "028");
+pref("browser.phoenix.status.core", "028");
 
-// 029 Specialized/Custom configs
-
-/// Configure the behavior of remote autoconfig files (if active)
-
-pref("autoadmin.failover_to_cached", true);
-pref("autoadmin.offline_failover", true);
-pref("autoadmin.refresh_interval", 60);
-
-pref("browser.phoenix.core.status", "029");
-
-pref("browser.phoenix.core.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.core", "successfully applied :D", locked);
 
 
 //
@@ -1636,7 +1627,7 @@ pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAUL
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
 
-pref("browser.phoenix.desktop.common.status", "001");
+pref("browser.phoenix.status.desktop.common", "001");
 
 // 002 MOZILLA CRAP™
 
@@ -1650,7 +1641,7 @@ pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensur
 pref("permissions.manager.defaultsUrl", "", locked);
 pref("services.sync.addons.trustedSourceHostnames", "");
 
-pref("browser.phoenix.desktop.common.status", "002");
+pref("browser.phoenix.status.desktop.common", "002");
 
 // 003 CERTIFICATES
 
@@ -1673,7 +1664,7 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.desktop.common.status", "003");
+pref("browser.phoenix.status.desktop.common", "003");
 
 // 004 GEOLOCATION [NO-OSX]
 
@@ -1681,7 +1672,7 @@ pref("browser.phoenix.desktop.common.status", "003");
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users [NO-OSX]
 
-pref("browser.phoenix.desktop.common.status", "004"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "004"); // [NO-OSX]
 
 // 005 DISK AVOIDANCE
 
@@ -1698,7 +1689,7 @@ pref("privacy.sanitize.timeSpan", 0);
 
 pref("toolkit.winRegisterApplicationRestart", false); // [NO-OSX]
 
-pref("browser.phoenix.desktop.common.status", "005");
+pref("browser.phoenix.status.desktop.common", "005");
 
 // 006 EXTENSIONS
 
@@ -1711,7 +1702,7 @@ pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
 
 pref("extensions.getAddons.showPane", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "006");
+pref("browser.phoenix.status.desktop.common", "006");
 
 // 007 MISC. PRIVACY
 
@@ -1740,7 +1731,7 @@ pref("services.sync.sendVersionInfo", false);
 
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "007");
+pref("browser.phoenix.status.desktop.common", "007");
 
 // 008 ATTACK SURFACE REDUCTION
 
@@ -1749,7 +1740,7 @@ pref("browser.phoenix.desktop.common.status", "007");
 
 pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.desktop.common.status", "008");
+pref("browser.phoenix.status.desktop.common", "008");
 
 // 009 MISC. SECURITY
 
@@ -1772,7 +1763,7 @@ pref("browser.gnome-search-provider.enabled", false); // [HIDDEN] [NO-OSX]
 
 pref("general.config.sandbox_enabled", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "009");
+pref("browser.phoenix.status.desktop.common", "009");
 
 // 010 MEDIA
 
@@ -1806,7 +1797,7 @@ pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 
 pref("userContent.player.click_to_play", true); // [HIDDEN] 
 
-pref("browser.phoenix.desktop.common.status", "010");
+pref("browser.phoenix.status.desktop.common", "010");
 
 // 011 UPDATES
 
@@ -1816,7 +1807,7 @@ pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
 
-pref("browser.phoenix.desktop.common.status", "011");
+pref("browser.phoenix.status.desktop.common", "011");
 
 // 012 DEBUGGING
 
@@ -1824,7 +1815,7 @@ pref("browser.phoenix.desktop.common.status", "011");
 
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "012");
+pref("browser.phoenix.status.desktop.common", "012");
 
 // 013 MISC.
 
@@ -1837,7 +1828,7 @@ pref("privacy.userContext.enabled", true);
 
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "013");
+pref("browser.phoenix.status.desktop.common", "013");
 
 // 014 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
@@ -1853,7 +1844,7 @@ pref("ui.panelAnimations", 0); // [HIDDEN]
 pref("ui.prefersReducedMotion", 1); // [HIDDEN] 
 pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "014");
+pref("browser.phoenix.status.desktop.common", "014");
 
 // 015 Personal Touch 💜
 
@@ -1896,9 +1887,19 @@ pref("ui.prefersReducedTransparency", 0); // [DEFAULT, HIDDEN]
 pref("ui.scrollToClick", 1); // [HIDDEN]
 pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "015");
+pref("browser.phoenix.status.desktop.common", "015");
 
-pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
+// 016 Specialized/Custom configs
+
+/// Configure the behavior of remote autoconfig files (if active)
+
+pref("autoadmin.failover_to_cached", true);
+pref("autoadmin.offline_failover", true);
+pref("autoadmin.refresh_interval", 60);
+
+pref("browser.phoenix.status.desktop.common", "016");
+
+pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 
 //
 
@@ -1922,7 +1923,7 @@ pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked)
 
 pref("browser.aboutConfig.showWarning", false);
 
-pref("browser.phoenix.desktop.status", "000");
+pref("browser.phoenix.status.desktop", "000");
 
 // 001 DATA COLLECTION
 
@@ -1988,7 +1989,7 @@ pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://sear
 
 pref("app.normandy.shieldLearnMoreUrl", "");
 
-pref("browser.phoenix.desktop.status", "001");
+pref("browser.phoenix.status.desktop", "001");
 
 // 002 MOZILLA CRAP™
 
@@ -2218,7 +2219,7 @@ pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
 
 pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "002");
+pref("browser.phoenix.status.desktop", "002");
 
 // 003 Search & URL Bar
 
@@ -2270,7 +2271,7 @@ pref("browser.urlbar.unitConversion.enabled", true);
 
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "003");
+pref("browser.phoenix.status.desktop", "003");
 
 // 004 Implicit Connections
 
@@ -2288,7 +2289,7 @@ pref("browser.urlbar.suggest.searches", false);
 pref("browser.fixup.dns_first_for_single_words", false); // [DEFAULT]
 pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "004");
+pref("browser.phoenix.status.desktop", "004");
 
 // 005 DNS
 
@@ -2296,7 +2297,7 @@ pref("browser.phoenix.desktop.status", "004");
 
 pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "005");
+pref("browser.phoenix.status.desktop", "005");
 
 // 006 CERTIFICATES
 
@@ -2310,7 +2311,7 @@ pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
 
 pref("security.certerrors.permanentOverride", false);
 
-pref("browser.phoenix.desktop.status", "006");
+pref("browser.phoenix.status.desktop", "006");
 
 // 007 GEOLOCATION
 
@@ -2327,7 +2328,7 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros [NO-OSX]
 
-pref("browser.phoenix.desktop.status", "007");
+pref("browser.phoenix.status.desktop", "007");
 
 // 008 AI
 // https://support.mozilla.org/kb/ai-chatbot
@@ -2355,7 +2356,7 @@ pref("browser.ml.chat.hideFromLabs", false);
 
 pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "008");
+pref("browser.phoenix.status.desktop", "008");
 
 // 009 DISK AVOIDANCE
 
@@ -2404,7 +2405,7 @@ pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
 
-pref("browser.phoenix.desktop.status", "009");
+pref("browser.phoenix.status.desktop", "009");
 
 // 010 EXTENSIONS
 
@@ -2414,7 +2415,7 @@ pref("browser.phoenix.desktop.status", "009");
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "010");
+pref("browser.phoenix.status.desktop", "010");
 
 // 011 PDF.js
 
@@ -2424,7 +2425,7 @@ pref("browser.phoenix.desktop.status", "010");
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "011");
+pref("browser.phoenix.status.desktop", "011");
 
 // 012 FINGERPRINTING PROTECTION
 
@@ -2456,7 +2457,7 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "012");
+pref("browser.phoenix.status.desktop", "012");
 
 /// 013 MISC. PRIVACY
 
@@ -2469,7 +2470,7 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "013");
+pref("browser.phoenix.status.desktop", "013");
 
 // 014 PASSWORDS & AUTHENTICATION
 
@@ -2486,7 +2487,7 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "014");
+pref("browser.phoenix.status.desktop", "014");
 
 // 015 BLOCK COOKIE BANNERS
 
@@ -2494,7 +2495,7 @@ pref("browser.phoenix.desktop.status", "014");
 
 pref("cookiebanners.ui.desktop.enabled", true);
 
-pref("browser.phoenix.core.status", "015");
+pref("browser.phoenix.status.desktop", "015");
 
 // 016 UPDATES
 
@@ -2508,7 +2509,7 @@ pref("browser.startup.upgradeDialog.enabled", true);
 
 pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "016");
+pref("browser.phoenix.status.desktop", "016");
 
 /// 017 MISC.
 
@@ -2567,7 +2568,7 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "017");
+pref("browser.phoenix.status.desktop", "017");
 
 // 018 PERFORMANCE
 
@@ -2575,7 +2576,7 @@ pref("browser.sessionstore.max_tabs_undo", 7);
 
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
-pref("browser.phoenix.desktop.status", "018");
+pref("browser.phoenix.status.desktop", "018");
 
 // 019 Personal Touch 💜
 
@@ -2609,7 +2610,7 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "019");
+pref("browser.phoenix.status.desktop", "019");
 
 // Sync more prefs
 
@@ -2694,7 +2695,7 @@ pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", tr
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
 pref("services.sync.prefs.sync.webgl.disabled", true);
 
-pref("browser.phoenix.desktop.status", "019");
+pref("browser.phoenix.status.desktop", "019");
 
 // 020 Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 
@@ -2702,7 +2703,7 @@ pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
 pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
 pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.desktop.status", "020"); // [NO-OSX] [NO-SPEC]
+pref("browser.phoenix.status.desktop", "020"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.desktop", "successfully applied :D", locked);
 
