@@ -177,13 +177,6 @@
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
-            "ecosia@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
             "mojeek@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
@@ -194,20 +187,6 @@
             "no-search@celenity.dev": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "qwant@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "qwant-junior@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true

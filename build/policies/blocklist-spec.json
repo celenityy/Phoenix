@@ -5,6 +5,10 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
             },
+            "ecosia@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
             "kagi@celenity.dev": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
@@ -13,15 +17,23 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
             },
-            "metager@celenity.dev": {
-                "installation_mode": "blocked",
-                "blocked_install_message": "Deprecated"
-            },
             "leta-brave@celenity.dev": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
             },
             "leta-google@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "metager@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "qwant@celenity.dev": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Deprecated"
+            },
+            "qwant-junior@celenity.dev": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
             },
@@ -213,6 +225,10 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in eBay Search Engine. eBay should be avoided due to its horrible privacy practices, but regardless, eBay still appears to be selectable as a search engine with this removed. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/ebay/manifest.json"
             },
+            "ecosia@search.mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's extension for the built-in Ecosia Search Engine. Should be avoided due to poor privacy practices, but regardless, can still be added manually if needed. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/ecosia/manifest.json"
+            },
             "eudict@search.mozilla.org": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in EUdict Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/eudict/manifest.json"
@@ -276,6 +292,14 @@
             "prisjakt-sv-SE@search.mozilla.org": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in Prisjakt Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/prisjakt-sv-SE/manifest.json"
+            },
+            "qwant@search.mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's extension for the built-in Qwant Search Engine. Should be avoided due to poor privacy practices, but regardless, can still be added manually if needed. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/qwant/manifest.json"
+            },
+            "qwantjr@search.mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's extension for the built-in Qwant Junior Search Engine. Should be avoided due to poor privacy practices, but regardless, can still be added manually if needed. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/qwant/manifest.json"
             },
             "rakuten@search.mozilla.org": {
                 "installation_mode": "blocked",
