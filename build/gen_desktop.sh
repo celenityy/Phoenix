@@ -16,6 +16,10 @@ rm build/configs/hardened-temp.cfg build/configs/spec-temp.cfg
 
 cat configs/hardened.cfg configs/ui-fix.cfg > configs/ui-fix/hardened.cfg
 
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/apple-maps-spec.cfg > configs/apple-maps.cfg
+
+cat configs/apple-maps.cfg configs/ui-fix.cfg > configs/ui-fix/apple-maps.cfg
+
 cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/discord-spec.cfg > configs/discord.cfg
 
 cat configs/discord.cfg configs/ui-fix.cfg > configs/ui-fix/discord.cfg
@@ -24,12 +28,16 @@ cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/elemen
 
 cat configs/element.cfg configs/ui-fix.cfg > configs/ui-fix/element.cfg
 
-cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/google-maps-spec.cfg > configs/google-maps.cfg
 
-cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
+cat configs/google-maps.cfg configs/ui-fix.cfg > configs/ui-fix/google-maps.cfg
 
 cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/twitter-spec.cfg > configs/twitter.cfg
 
 cat configs/twitter.cfg configs/ui-fix.cfg > configs/ui-fix/twitter.cfg
+
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
+
+cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
 
 awk '!/NO-OSX/' phoenix.cfg > macos/phoenix.cfg
