@@ -20,7 +20,7 @@
 
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/android/search?q=%TERMS%");
 
-pref("browser.phoenix.android.status", "001");
+pref("browser.phoenix.status.android", "001");
 
 // 002 EXTENSIONS
 
@@ -29,7 +29,7 @@ pref("browser.phoenix.android.status", "001");
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.android.status", "002");
+pref("browser.phoenix.status.android", "002");
 
 // 003 FINGERPRINTING PROTECTION
 
@@ -68,7 +68,7 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
 
-pref("browser.phoenix.android.status", "003");
+pref("browser.phoenix.status.android", "003");
 
 // 004 ATTACK SURFACE REDUCTION
 
@@ -77,7 +77,7 @@ pref("browser.phoenix.android.status", "003");
 
 pref("javascript.options.blinterp", true); // [DEFAULT]
 
-pref("browser.phoenix.android.status", "004");
+pref("browser.phoenix.status.android", "004");
 
 // 005 MISC. SECURITY
 
@@ -88,7 +88,7 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.android.status", "005");
+pref("browser.phoenix.status.android", "005");
 
 // 006 MEDIA
 
@@ -98,14 +98,14 @@ pref("browser.phoenix.android.status", "005");
 
 pref("media.mediadrm-widevinecdm.visible", false);
 
-pref("browser.phoenix.android.status", "006");
+pref("browser.phoenix.status.android", "006");
 
 // 007 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("network.http.max-connections", 256); // [Default = 128]
 
-pref("browser.phoenix.android.status", "007");
+pref("browser.phoenix.status.android", "007");
 
-pref("browser.phoenix.android.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.android", "successfully applied :D", locked);
 

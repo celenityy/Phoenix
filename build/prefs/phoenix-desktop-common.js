@@ -29,7 +29,7 @@ pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAUL
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
 
-pref("browser.phoenix.desktop.common.status", "001");
+pref("browser.phoenix.status.desktop.common", "001");
 
 // 002 MOZILLA CRAP™
 
@@ -43,7 +43,7 @@ pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensur
 pref("permissions.manager.defaultsUrl", "", locked);
 pref("services.sync.addons.trustedSourceHostnames", "");
 
-pref("browser.phoenix.desktop.common.status", "002");
+pref("browser.phoenix.status.desktop.common", "002");
 
 // 003 CERTIFICATES
 
@@ -66,7 +66,7 @@ pref("security.cert_pinning.enforcement_level", 2, locked);
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.desktop.common.status", "003");
+pref("browser.phoenix.status.desktop.common", "003");
 
 // 004 GEOLOCATION [NO-OSX]
 
@@ -74,7 +74,7 @@ pref("browser.phoenix.desktop.common.status", "003");
 
 pref("geo.provider.ms-windows-location", false); // Disable Microsoft Location Services for Windows users [NO-OSX]
 
-pref("browser.phoenix.desktop.common.status", "004"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "004"); // [NO-OSX]
 
 // 005 DISK AVOIDANCE
 
@@ -91,7 +91,7 @@ pref("privacy.sanitize.timeSpan", 0);
 
 pref("toolkit.winRegisterApplicationRestart", false); // [NO-OSX]
 
-pref("browser.phoenix.desktop.common.status", "005");
+pref("browser.phoenix.status.desktop.common", "005");
 
 // 006 EXTENSIONS
 
@@ -104,7 +104,7 @@ pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
 
 pref("extensions.getAddons.showPane", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "006");
+pref("browser.phoenix.status.desktop.common", "006");
 
 // 007 MISC. PRIVACY
 
@@ -133,7 +133,7 @@ pref("services.sync.sendVersionInfo", false);
 
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "007");
+pref("browser.phoenix.status.desktop.common", "007");
 
 // 008 ATTACK SURFACE REDUCTION
 
@@ -142,7 +142,7 @@ pref("browser.phoenix.desktop.common.status", "007");
 
 pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.desktop.common.status", "008");
+pref("browser.phoenix.status.desktop.common", "008");
 
 // 009 MISC. SECURITY
 
@@ -165,7 +165,7 @@ pref("browser.gnome-search-provider.enabled", false); // [HIDDEN] [NO-OSX]
 
 pref("general.config.sandbox_enabled", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "009");
+pref("browser.phoenix.status.desktop.common", "009");
 
 // 010 MEDIA
 
@@ -199,7 +199,7 @@ pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 
 pref("userContent.player.click_to_play", true); // [HIDDEN] 
 
-pref("browser.phoenix.desktop.common.status", "010");
+pref("browser.phoenix.status.desktop.common", "010");
 
 // 011 UPDATES
 
@@ -209,7 +209,7 @@ pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
 
-pref("browser.phoenix.desktop.common.status", "011");
+pref("browser.phoenix.status.desktop.common", "011");
 
 // 012 DEBUGGING
 
@@ -217,7 +217,7 @@ pref("browser.phoenix.desktop.common.status", "011");
 
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.desktop.common.status", "012");
+pref("browser.phoenix.status.desktop.common", "012");
 
 // 013 MISC.
 
@@ -230,7 +230,7 @@ pref("privacy.userContext.enabled", true);
 
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 
-pref("browser.phoenix.desktop.common.status", "013");
+pref("browser.phoenix.status.desktop.common", "013");
 
 // 014 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
@@ -246,7 +246,7 @@ pref("ui.panelAnimations", 0); // [HIDDEN]
 pref("ui.prefersReducedMotion", 1); // [HIDDEN] 
 pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "014");
+pref("browser.phoenix.status.desktop.common", "014");
 
 // 015 Personal Touch 💜
 
@@ -289,7 +289,17 @@ pref("ui.prefersReducedTransparency", 0); // [DEFAULT, HIDDEN]
 pref("ui.scrollToClick", 1); // [HIDDEN]
 pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.common.status", "015");
+pref("browser.phoenix.status.desktop.common", "015");
 
-pref("browser.phoenix.desktop.common.status", "successfully applied :D", locked);
+// 016 Specialized/Custom configs
+
+/// Configure the behavior of remote autoconfig files (if active)
+
+pref("autoadmin.failover_to_cached", true);
+pref("autoadmin.offline_failover", true);
+pref("autoadmin.refresh_interval", 60);
+
+pref("browser.phoenix.status.desktop.common", "016");
+
+pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 

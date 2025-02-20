@@ -22,7 +22,5 @@
 
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate");
 
-pref("browser.phoenix.extended.desktop.status", "001");
-
-pref("browser.phoenix.extended.desktop.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.extended.desktop", "successfully applied :D", locked);
 

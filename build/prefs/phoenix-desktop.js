@@ -20,7 +20,7 @@
 
 pref("browser.aboutConfig.showWarning", false);
 
-pref("browser.phoenix.desktop.status", "000");
+pref("browser.phoenix.status.desktop", "000");
 
 // 001 DATA COLLECTION
 
@@ -86,7 +86,7 @@ pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://sear
 
 pref("app.normandy.shieldLearnMoreUrl", "");
 
-pref("browser.phoenix.desktop.status", "001");
+pref("browser.phoenix.status.desktop", "001");
 
 // 002 MOZILLA CRAP™
 
@@ -316,7 +316,7 @@ pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
 
 pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "002");
+pref("browser.phoenix.status.desktop", "002");
 
 // 003 Search & URL Bar
 
@@ -368,7 +368,7 @@ pref("browser.urlbar.unitConversion.enabled", true);
 
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "003");
+pref("browser.phoenix.status.desktop", "003");
 
 // 004 Implicit Connections
 
@@ -386,7 +386,7 @@ pref("browser.urlbar.suggest.searches", false);
 pref("browser.fixup.dns_first_for_single_words", false); // [DEFAULT]
 pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "004");
+pref("browser.phoenix.status.desktop", "004");
 
 // 005 DNS
 
@@ -394,7 +394,7 @@ pref("browser.phoenix.desktop.status", "004");
 
 pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "005");
+pref("browser.phoenix.status.desktop", "005");
 
 // 006 CERTIFICATES
 
@@ -408,7 +408,7 @@ pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
 
 pref("security.certerrors.permanentOverride", false);
 
-pref("browser.phoenix.desktop.status", "006");
+pref("browser.phoenix.status.desktop", "006");
 
 // 007 GEOLOCATION
 
@@ -425,7 +425,7 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros [NO-OSX]
 
-pref("browser.phoenix.desktop.status", "007");
+pref("browser.phoenix.status.desktop", "007");
 
 // 008 AI
 // https://support.mozilla.org/kb/ai-chatbot
@@ -453,7 +453,7 @@ pref("browser.ml.chat.hideFromLabs", false);
 
 pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "008");
+pref("browser.phoenix.status.desktop", "008");
 
 // 009 DISK AVOIDANCE
 
@@ -502,7 +502,7 @@ pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
 
-pref("browser.phoenix.desktop.status", "009");
+pref("browser.phoenix.status.desktop", "009");
 
 // 010 EXTENSIONS
 
@@ -512,7 +512,7 @@ pref("browser.phoenix.desktop.status", "009");
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "010");
+pref("browser.phoenix.status.desktop", "010");
 
 // 011 PDF.js
 
@@ -522,7 +522,7 @@ pref("browser.phoenix.desktop.status", "010");
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "011");
+pref("browser.phoenix.status.desktop", "011");
 
 // 012 FINGERPRINTING PROTECTION
 
@@ -554,7 +554,7 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.desktop.status", "012");
+pref("browser.phoenix.status.desktop", "012");
 
 /// 013 MISC. PRIVACY
 
@@ -567,7 +567,7 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "013");
+pref("browser.phoenix.status.desktop", "013");
 
 // 014 PASSWORDS & AUTHENTICATION
 
@@ -584,7 +584,7 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "014");
+pref("browser.phoenix.status.desktop", "014");
 
 // 015 BLOCK COOKIE BANNERS
 
@@ -592,7 +592,7 @@ pref("browser.phoenix.desktop.status", "014");
 
 pref("cookiebanners.ui.desktop.enabled", true);
 
-pref("browser.phoenix.core.status", "015");
+pref("browser.phoenix.status.desktop", "015");
 
 // 016 UPDATES
 
@@ -606,7 +606,7 @@ pref("browser.startup.upgradeDialog.enabled", true);
 
 pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
-pref("browser.phoenix.desktop.status", "016");
+pref("browser.phoenix.status.desktop", "016");
 
 /// 017 MISC.
 
@@ -665,7 +665,7 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
-pref("browser.phoenix.desktop.status", "017");
+pref("browser.phoenix.status.desktop", "017");
 
 // 018 PERFORMANCE
 
@@ -673,7 +673,7 @@ pref("browser.sessionstore.max_tabs_undo", 7);
 
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
-pref("browser.phoenix.desktop.status", "018");
+pref("browser.phoenix.status.desktop", "018");
 
 // 019 Personal Touch 💜
 
@@ -707,7 +707,7 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.desktop.status", "019");
+pref("browser.phoenix.status.desktop", "019");
 
 // Sync more prefs
 
@@ -792,7 +792,7 @@ pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", tr
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
 pref("services.sync.prefs.sync.webgl.disabled", true);
 
-pref("browser.phoenix.desktop.status", "019");
+pref("browser.phoenix.status.desktop", "019");
 
 // 020 Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 
@@ -800,7 +800,7 @@ pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
 pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
 pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.desktop.status", "020"); // [NO-OSX] [NO-SPEC]
+pref("browser.phoenix.status.desktop", "020"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.desktop", "successfully applied :D", locked);
 

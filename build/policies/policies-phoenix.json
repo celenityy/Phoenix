@@ -1534,7 +1534,7 @@
                 "Status": "default",
                 "Type": "boolean"
             },
-            "browser.phoenix.policies.status": {
+            "browser.phoenix.status.policies": {
                 "Value": "successfully applied :D",
                 "Status": "locked",
                 "Type": "string"

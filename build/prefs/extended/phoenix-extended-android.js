@@ -22,7 +22,5 @@
 
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate");
 
-pref("browser.phoenix.extended.android.status", "001");
-
-pref("browser.phoenix.extended.android.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.extended.android", "successfully applied :D", locked);
 

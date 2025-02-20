@@ -21,5 +21,5 @@
 
 pref("privacy.resistFingerprinting.letterboxing", true);
 
-pref("browser.phoenix.extended.desktop.common.status", "successfully applied :D", locked);
+pref("browser.phoenix.status.extended.desktop.common", "successfully applied :D", locked);
 
