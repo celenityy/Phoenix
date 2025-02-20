@@ -1,19 +1,5 @@
 {
     "addons": {
-        "bravesearch@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/default-brave-search/default-brave-search-0.0.1.xpi",
-                    "update_hash": "sha512:efe0b6aa799d20df2bd3baa17a5a6c84b3e6b7435611aa888ff7e79c106989195af6fb1ed6e0a227ef60e47360bbb1f6d90bc9e371fd3b9973b6fa674fd823aa"
-                },
-                {
-                    "version": "0.2.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/default-brave-search/default-brave-search-0.2.1.xpi",
-                    "update_hash": "sha512:c0ab31090f4ccda3554ddcd7ea04e4c7503ffebe9bb69eca51fca94f4d43a69a4b32c2686378a65832c6ede219b29b6a9ef371b835e21cc7f43b12e3807508dc"
-                }
-            ]
-        },
         "ddg@celenity.dev": {
             "updates": [
                 {
@@ -48,90 +34,6 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
                     "update_hash": "sha512:f4d24eeaf9b7fca3a83c5b23d3da526022400ab94940446768159879da54164d7a14abd6b2bbe8e038bfc81f7cdb0a91e6d43792b99a45df023a798d3ba26eb3"
-                }
-            ]
-        },
-        "ecosia@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/ecosia/ecosia-0.0.1.xpi",
-                    "update_hash": "sha512:e84a5d44b95955aa3d659a281cb26be2e03524d56fd7575fccf911177c1ea212ff5a54e9bc563b53654c058d957e042b850aaf5a5aed69d42c73aac6b542da9c"
-                },
-                {
-                    "version": "0.0.3",
-                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/ecosia/ecosia-0.0.3.xpi",
-                    "update_hash": "sha512:6560cbc5c544ca9b88e1a210bf8b91bb36e4ccad63b9c2836451b4548b1e7bb1c3a8760ffd853927470372e8c0a81790c746bdff14568d3d50ede943614cbb84"
-                }
-            ]
-        },
-        "kagi@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/kagi/kagi-0.0.1.xpi",
-                    "update_hash": "sha512:7607d586d67d18460f70b33fb3ce5b4cfb12a67876caa93f5347050586bdc8253c9fbfbb53d97d95d37599eb149a9cef831cca07a8ef3c8261548973771c79f5"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/kagi/kagi-0.0.2.xpi",
-                    "update_hash": "sha512:e78a96a41e00890f2c308464f29e9ebd4efcd4b06033147e50830931e4b040b41e60b01750f5861fdad1158c71d3df6dd561d4d7ea0aa4ffdc59a5cf41464d1d"
-                }
-            ]
-        },
-        "kagi-html@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/kagi-html/kagi-html-0.0.1.xpi",
-                    "update_hash": "sha512:96eaa4b42a94234c3c51f782cf0781cae87f155cdd3d1bea8fc0ab364fd6a3885825128c0a197a3f6569d269b363bb235c493438739af330bf41888a8f9058bf"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/kagi-html/kagi-html-0.0.2.xpi",
-                    "update_hash": "sha512:8aff8b24fe9117638a9fc6cf9610e18117c8d08d438fbea075606d031ceea66ad73eb9ef9838e2fe9e546dce610abdf053c2f38ad56859ec3bf96aa98405679a"
-                }
-            ]
-        },
-        "leta-brave@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
-                    "update_hash": "sha512:5ada68d7dff65f2fb92d476c1e21799899010d0bfeab713204b60ce6f37ea85b72f5a8157b164b9ae00f5430c37be74f81cb85ffdd6525efc26585aac13ce5ee"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/leta-brave/leta-brave-0.0.2.xpi",
-                    "update_hash": "sha512:ea3ef0bfb7d7cf716ffa0cb52809ed8499db31c5beca7781850636c9a5cc2756e3748cc1300b38be09b9a0a4fed619d8dc7bf1325de8032799f553c128640e18"
-                }
-            ]
-        },
-        "leta-google@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
-                    "update_hash": "sha512:9a68a834f490c5d8233b2118bdec91d3f637b66bdecbe007157c5b30d2b0bf6aa706f4d89faac89506d8343f44be9d5bf47720001538838a18350db4473b3c05"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/leta-google/leta-google-0.0.2.xpi",
-                    "update_hash": "sha512:5197cda6f5ae98ddbaba08fc717874c96a0488e33ecce6325b44e400b2fee688bb04212d0debc4b73b6d004465c24c952956d3175e4f09a5c2c7b42cfb611b8d"
-                }
-            ]
-        },
-        "metager@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/metager/metager-0.0.1.xpi",
-                    "update_hash": "sha512:dba2b7c9e1f7f80d5111878497e57ab8a6ea04401547a9a746674a444c88f56c7ce741bff6d3016959b058e9fdd2f2bf53ec8276a18ed678155e826d9a25e5f6"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/metager/metager-0.0.2.xpi",
-                    "update_hash": "sha512:313e0f1952b3bd19282a9082117d57dfa675cbfa238e613e80ac52e5c17447768b9ea1d8f85dd169b2b2844323d7c945d22c0bbe3c23aef4bedba4a0c7da4b69"
                 }
             ]
         },
@@ -170,39 +72,6 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
                     "update_hash": "sha512:d7a590d27b096db0ec95b534e3dadf376eef6f7c1a1654612b32e7911ab3dca6b2d4853a35692127f3d4ae3ac7a9687d06d9888bfaf6dcb5e9f45340ca230bfd"
-                }
-            ]
-        },
-        "qwant@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-0.0.1.xpi",
-                    "update_hash": "sha512:219cd32c8edc863eb4f4e445a6ba04b0f404967c1aefc323503e8a8a336887f2c2a770c7b9af5adecdde4e98abe258ee9b3a3ccc996db1d978b8a8df3e56ab8a"
-                },
-                {
-                    "version": "0.0.2",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant/qwant-0.0.2.xpi",
-                    "update_hash": "sha512:2632a5ca3cec6a16f2abb271d712e0b2907c138a1785e2438ae7828c37e29a7417fe0ebf98e69e0e7698ca9f93719687e78099dcc3b23a4ad8154522975f5826"
-                },
-                {
-                    "version": "0.0.3",
-                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant/qwant-0.0.3.xpi",
-                    "update_hash": "sha512:e0b295c129f1ee223c9e1262412fe9d1f354d8182a92f2243b51423a6ace2a32cf5cb890853658f8287b07bd41f464e294c67dd3976fa722462715a853a19987"
-                }
-            ]
-        },
-        "qwant-junior@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.3",
-                    "update_link": "https://phoenix.celenity.dev/extensions/xpi/search/qwant-junior/qwant-junior-0.0.3.xpi",
-                    "update_hash": "sha512:464950df34188acaf961a846afc81c5557a4b7d7a82769d3e94307c0b3f306d7411170a2c36bbe948f0d004073beb49d00ecf87115d5886389abbc170a48fccd"
-                },
-                {
-                    "version": "0.0.4",
-                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/qwant-junior/qwant-junior-0.0.4.xpi",
-                    "update_hash": "sha512:b120ab8065f2ea839ae0a550a155a369721303bab021871cf2a58c6525b98bcd773c748720166cef3dd2a110e2b598b2d8fa13c66848ea3a659e359fe62b2437"
                 }
             ]
         },
