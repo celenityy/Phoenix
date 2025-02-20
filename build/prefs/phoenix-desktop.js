@@ -794,13 +794,13 @@ pref("services.sync.prefs.sync.webgl.disabled", true);
 
 pref("browser.phoenix.desktop.status", "019");
 
-// 020 Enable support for custom/specialized configs... [NO-OSX]
+// 020 Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 
-pref("general.config.filename", "phoenix.cfg"); // [NO-OSX]
-pref("general.config.obscure_value", 0); // [NO-OSX]
-pref("general.config.vendor", "phoenix"); // [NO-OSX]
+pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
+pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
+pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.desktop.status", "020"); // [NO-OSX]
+pref("browser.phoenix.desktop.status", "020"); // [NO-OSX] [NO-SPEC]
 
 pref("browser.phoenix.desktop.status", "successfully applied :D", locked);
 
