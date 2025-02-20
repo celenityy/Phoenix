@@ -50,6 +50,7 @@ pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT -
 pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
 
 /// Only send cross-origin referers if hosts match
+// https://wiki.mozilla.org/Security/Referrer
 
 pref("network.http.referer.XOriginPolicy", 2);
 

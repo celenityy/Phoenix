@@ -213,16 +213,56 @@ If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-F
 cp /etc/firefox/phoenix/userjs/extended/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
-> [!IMPORTANT] 
-> ⚠️ **macOS (User) users must edit the `user.js` file and replace `phoenix-osx` with `phoenix-osx-user`. This will be simplified & handled better in the future.**
-
 Congratulations, you're done. Similar to the rest of the Phoenix project, your Extended config will automatically update with the rest of Phoenix via your package manager, and you can set any overrides you wish through the about:config. You can just sit back, relax, and enjoy.
 
 # 💡Specialized Configs
 
-It should also be noted that Phoenix contains specialized configurations for **Discord**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these privacy-invasive services.
+It should also be noted that Phoenix contains specialized configurations for **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these services, like you would any other app on your device.
+
+> [!IMPORTANT] 
+> ⚠️ **Discord**, **Google Maps**, **Twitter**, and **YouTube** are explicitly **not** recommended for use, due to their privacy-invasive nature. These configs are simply meant to provide **harm reduction** for users who need to use these services for whatever reason, **but it is still best to avoid them entirely if possible.**
 
 The installation of these configs is the same as `Extended`, with the only exception being the location of the `user.js` file. **You can find the location of these user.js files at the following locations:**
+
+**<details><summary>Apple Maps</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/apple-maps/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/apple-maps/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Apple Maps (Firefox-UI-Fix)</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/apple-maps/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/apple-maps/user.js
+```
+
+</details>
+
+</details>
 
 **<details><summary>Discord</summary>**
 
@@ -236,16 +276,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/discord/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/discord/user.js
 ```
 
 </details>
@@ -264,16 +296,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/discord/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/discord/user.js
 ```
 
 </details>
@@ -292,16 +316,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/element/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/element/user.js
 ```
 
 </details>
@@ -320,16 +336,48 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/element/user.js
 ```
 
-**User**:
+</details>
+
+</details>
+
+**<details><summary>Google Maps</summary>**
+
+**<details><summary>GNU/Linux</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/element/user.js
+/etc/firefox/phoenix/userjs/google-maps/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/google-maps/user.js
+```
+
+</details>
+
+</details>
+
+**<details><summary>Google Maps (Firefox-UI-Fix)</summary>**
+
+**<details><summary>GNU/Linux</summary>**
+
+```sh
+/etc/firefox/phoenix/userjs/ui-fix/google-maps/user.js
+```
+
+</details>
+
+**<details><summary>macOS</summary>**
+
+```sh
+/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/google-maps/user.js
 ```
 
 </details>
@@ -348,16 +396,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/twitter/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/twitter/user.js
 ```
 
 </details>
@@ -376,44 +416,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/twitter/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/twitter/user.js
-```
-
-</details>
-
-</details>
-
-**<details><summary>Twitter</summary>**
-
-**<details><summary>GNU/Linux</summary>**
-
-```sh
-/etc/firefox/phoenix/userjs/twitter/user.js
-```
-
-</details>
-
-**<details><summary>macOS</summary>**
-
-**System**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/twitter/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/twitter/user.js
 ```
 
 </details>
@@ -432,16 +436,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/youtube/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/youtube/user.js
 ```
 
 </details>
@@ -460,16 +456,8 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>macOS</summary>**
 
-**System**:
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/youtube/user.js
-```
-
-**User**:
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/youtube/user.js
 ```
 
 </details>

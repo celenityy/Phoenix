@@ -1017,6 +1017,7 @@ pref("beacon.enabled", false);
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Trim cross-origin referers (Like Safari)
+// https://wiki.mozilla.org/Security/Referrer
 
 pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
