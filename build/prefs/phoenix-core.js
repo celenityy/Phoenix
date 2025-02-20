@@ -1417,7 +1417,7 @@ pref("cookiebanners.service.mode.privateBrowsing", 1); // [DEFAULT - Nightly And
 pref("cookiebanners.service.enableGlobalRules", true); // [DEFAULT]
 pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 
-pref("browser.phoenix.core.status", "021");
+pref("browser.phoenix.status.core", "021");
 
 // 022 MEDIA
 
