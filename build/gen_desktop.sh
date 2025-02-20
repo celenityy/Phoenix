@@ -12,26 +12,24 @@ awk '!/NO-SPEC/' phoenix.cfg > build/configs/spec-temp.cfg
 
 cat build/configs/spec-temp.cfg build/configs/hardened-temp.cfg > configs/hardened.cfg
 
-rm build/configs/hardened-temp.cfg
+rm build/configs/hardened-temp.cfg build/configs/spec-temp.cfg
 
 cat configs/hardened.cfg configs/ui-fix.cfg > configs/ui-fix/hardened.cfg
 
-cat build/configs/spec-temp.cfg build/configs/specialized-spec.cfg build/configs/discord-spec.cfg > configs/discord.cfg
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/discord-spec.cfg > configs/discord.cfg
 
 cat configs/discord.cfg configs/ui-fix.cfg > configs/ui-fix/discord.cfg
 
-cat build/configs/spec-temp.cfg build/configs/specialized-spec.cfg build/configs/element-spec.cfg > configs/element.cfg
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/element-spec.cfg > configs/element.cfg
 
 cat configs/element.cfg configs/ui-fix.cfg > configs/ui-fix/element.cfg
 
-cat build/configs/spec-temp.cfg build/configs/specialized-spec.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
 
 cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
 
-cat build/configs/spec-temp.cfg build/configs/specialized-spec.cfg build/configs/twitter-spec.cfg > configs/twitter.cfg
+cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/twitter-spec.cfg > configs/twitter.cfg
 
 cat configs/twitter.cfg configs/ui-fix.cfg > configs/ui-fix/twitter.cfg
-
-rm build/configs/spec-temp.cfg
 
 awk '!/NO-OSX/' phoenix.cfg > macos/phoenix.cfg
