@@ -1194,11 +1194,6 @@ pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
 pref("javascript.options.jit_trustedprincipals", false); // [DEFAULT]
 
-/// If WASM (WebAssembly) is disabled, also disable it for extensions
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1576254
-
-pref("javascript.options.wasm_trustedprincipals", false);
-
 /// Disable ASM.JS (More JIT)
 // https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
 
