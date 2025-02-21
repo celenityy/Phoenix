@@ -153,24 +153,24 @@ Depending on your operating system, it will be located at:
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/extended/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/extended/user.js
 ```
 
 </details>
 
 **<details><summary>macOS</summary>**
 
-**System**
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/extended/user.js
-```
-
-**User**
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/extended/user.js
 ```
 
 </details>
@@ -181,24 +181,24 @@ If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-F
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/extended/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/extended/user.js
 ```
 
 </details>
 
 **<details><summary>macOS</summary>**
 
-**System**
-
 ```sh
 /opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/extended/user.js
-```
-
-**User**
-
-```sh
-/opt/homebrew/opt/phoenix-osx-user/userjs/macos/ui-fix/extended/user.js
 ```
 
 </details>
@@ -228,8 +228,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/apple-maps/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/apple-maps/user.js
 ```
 
 </details>
@@ -248,8 +256,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/apple-maps/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/apple-maps/user.js
 ```
 
 </details>
@@ -268,8 +284,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/discord/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/discord/user.js
 ```
 
 </details>
@@ -288,8 +312,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/discord/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/discord/user.js
 ```
 
 </details>
@@ -308,8 +340,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/element/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/element/user.js
 ```
 
 </details>
@@ -328,8 +368,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/element/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/element/user.js
 ```
 
 </details>
@@ -348,8 +396,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/google-maps/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/google-maps/user.js
 ```
 
 </details>
@@ -368,8 +424,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/google-maps/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/google-maps/user.js
 ```
 
 </details>
@@ -388,8 +452,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/twitter/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/twitter/user.js
 ```
 
 </details>
@@ -408,8 +480,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/twitter/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/twitter/user.js
 ```
 
 </details>
@@ -428,8 +508,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/youtube/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/youtube/user.js
 ```
 
 </details>
@@ -448,8 +536,16 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 **<details><summary>GNU/Linux</summary>**
 
+**Standard**:
+
 ```sh
 /etc/firefox/phoenix/userjs/ui-fix/youtube/user.js
+```
+
+**Flatpak**:
+
+```sh
+/var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/youtube/user.js
 ```
 
 </details>
