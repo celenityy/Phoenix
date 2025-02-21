@@ -1554,6 +1554,7 @@ pref("layout.css.report_errors", false); // [DEFAULT - Android] https://searchfo
 pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
 pref("media.memory_cache_max_size", 65536); // [Default = 8192]
+pref("media.webrtc.hw.h264.enabled", true); // [DEFAULT - Android] Enables H264 hardware decoding, helps with performance + nice for folks who disable GMP/OpenH264, also enabled by LibreWolf https://bugzilla.mozilla.org/show_bug.cgi?id=1717679
 pref("network.dnsCacheEntries", 1000); // [Default = 800 - Nightly Desktop, 400 - Non-Nightly Desktop]
 pref("network.dnsCacheExpiration", 3600); // [Default = 60]
 pref("network.dnsCacheExpirationGracePeriod", 240); // [Default = 60]
