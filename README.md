@@ -170,7 +170,7 @@ Depending on your operating system, it will be located at:
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/extended/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/extended/user.js
 ```
 
 </details>
@@ -198,7 +198,7 @@ If you use any of the [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-F
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/extended/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/extended/user.js
 ```
 
 </details>
@@ -245,7 +245,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/apple-maps/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/apple-maps/user.js
 ```
 
 </details>
@@ -273,7 +273,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/apple-maps/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/apple-maps/user.js
 ```
 
 </details>
@@ -301,7 +301,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/discord/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/discord/user.js
 ```
 
 </details>
@@ -329,7 +329,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/discord/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/discord/user.js
 ```
 
 </details>
@@ -357,7 +357,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/element/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/element/user.js
 ```
 
 </details>
@@ -385,7 +385,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/element/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/element/user.js
 ```
 
 </details>
@@ -413,7 +413,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/google-maps/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/google-maps/user.js
 ```
 
 </details>
@@ -441,7 +441,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/google-maps/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/google-maps/user.js
 ```
 
 </details>
@@ -469,7 +469,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/twitter/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/twitter/user.js
 ```
 
 </details>
@@ -497,7 +497,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/twitter/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/twitter/user.js
 ```
 
 </details>
@@ -525,7 +525,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/youtube/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/youtube/user.js
 ```
 
 </details>
@@ -553,7 +553,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 **<details><summary>macOS</summary>**
 
 ```sh
-/opt/homebrew/opt/phoenix-osx/userjs/macos/ui-fix/youtube/user.js
+/opt/homebrew/opt/phoenix-osx/userjs/ui-fix/youtube/user.js
 ```
 
 </details>
