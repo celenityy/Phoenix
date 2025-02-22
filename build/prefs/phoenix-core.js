@@ -1232,15 +1232,6 @@ pref("browser.phoenix.status.core", "019");
 
 // 020 MISC. SECURITY
 
-// Prevent websites from automatically downloading as many files as they want to a user's device...
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1731668
-// Can be used for denial of service
-// Allows overriding for specific downloads if needed
-// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41764
-// Ex. also enabled by Tor Browser
-
-pref("browser.download.enable_spam_prevention", true);
-
 // Do not disable Spectre mitigations for isolated content...
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8689
 
