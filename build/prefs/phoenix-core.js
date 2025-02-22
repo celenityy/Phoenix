@@ -1369,6 +1369,17 @@ pref("dom.security.skip_about_page_has_csp_assert", false); // [DEFAULT - non-Th
 
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT, HIDDEN - Thunderbird]
 
+/// Enable the Sanitizer API
+// https://github.com/WICG/sanitizer-api
+
+pref("dom.security.sanitizer.enabled", true);
+
+/// Enable Element.setHTML
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1805632
+// https://webdocs.dev/en-us/docs/web/api/element/sethtml
+
+pref("dom.security.setHTML.enabled", true);
+
 /// Enable Trusted Types (Like Chromium)
 // https://w3c.github.io/trusted-types/dist/spec/
 // https://developer.mozilla.org/docs/Web/API/Trusted_Types_API
