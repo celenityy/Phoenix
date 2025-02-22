@@ -791,6 +791,13 @@ pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - And
 
 pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
 
+/// Enable Add-on Distribution Control (Install Origins)
+// Allows extensions to only be installed from websites they specify in their manifest
+// https://groups.google.com/g/firefox-dev/c/U7GpHE4R-ZY
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#403
+
+pref("extensions.install_origins.enabled", true);
+
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
 
