@@ -2,17 +2,9 @@
 
 cat build/prefs/phoenix-core.js build/prefs/phoenix-desktop-common.js build/prefs/phoenix-desktop.js > prefs/phoenix-desktop.js
 
-python3 build/convert.py prefs/phoenix-desktop.js phoenix.cfg
-
 cat build/prefs/extended/phoenix-extended-core.js build/prefs/extended/phoenix-extended-desktop-common.js build/prefs/extended/phoenix-extended-desktop.js > prefs/phoenix-extended-desktop.js
 
-python3 build/convert.py prefs/phoenix-extended-desktop.js build/configs/hardened-temp.cfg
-
-awk '!/NO-SPEC/' phoenix.cfg > build/configs/spec-temp.cfg
-
-cat build/configs/spec-temp.cfg build/configs/hardened-temp.cfg > configs/hardened.cfg
-
-rm build/configs/hardened-temp.cfg build/configs/spec-temp.cfg
+python3 build/convert.py prefs/phoenix-extended-desktop.js configs/hardened.cfg
 
 cat configs/hardened.cfg configs/ui-fix.cfg > configs/ui-fix/hardened.cfg
 
@@ -39,5 +31,3 @@ cat configs/twitter.cfg configs/ui-fix.cfg > configs/ui-fix/twitter.cfg
 cat configs/hardened.cfg build/configs/specialized-spec.cfg build/configs/youtube-spec.cfg > configs/youtube.cfg
 
 cat configs/youtube.cfg configs/ui-fix.cfg > configs/ui-fix/youtube.cfg
-
-awk '!/NO-OSX/' phoenix.cfg > macos/phoenix.cfg
