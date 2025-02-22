@@ -695,7 +695,7 @@ wget https://phoenix.celenity.dev/configs/youtube.cfg
 You can either drag and drop the file manually, or run the command below:
 
 ```sh
-mv youtube.cfg ~/youtube.cfg
+cp youtube.cfg ~/youtube.cfg
 ```
 
 **3:** Download the `user.js` file located [here](https://phoenix.celenity.dev/user.js).
@@ -716,10 +716,10 @@ user_pref("autoadmin.global_config_url", "file:///home/user/youtube.cfg");
 
 **5:** Find your Firefox profile's directory. This depends on your platform, but an easy way to find it is by navigating to `about:profiles`, and it'll be the path listed beside **Root Directory**. For example's sake, we'll say our profile's directory is `/home/user/.mozilla/firefox/153acxao.default-release`. **Yours will be different, and you should replace this path on the next step with your actual profile directory's path.**
 
-**6:** Simply move *(or copy & paste)* your `user.js` file to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `~/Downloads/user.js`. **If this is not the path of your downloaded `user.js` file from Step 3, replace it with its actual location.**
+**6:** Simply copy & paste your `user.js` file to your profile's directory! You can either drag and drop it manually, or run the command below. For example's sake, we'll say our user.js is located at `~/Downloads/user.js`. **If this is not the path of your downloaded `user.js` file from Step 3, replace it with its actual location.**
 
 ```sh
-mv ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
+cp ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
 # 💜Attribution
