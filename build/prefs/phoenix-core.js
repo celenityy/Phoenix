@@ -415,6 +415,15 @@ pref("doh-rollout.uri", "", locked); // [HIDDEN]
 pref("network.trr.default_provider_uri", "https://dns.quad9.net/dns-query");
 pref("network.trr.mode", 3);
 
+/// Expose the DoH bootstrap pref, but don't configure by default
+// This is the DNS server Firefox uses to resolve the address of your DoH server
+// By default, Firefox just uses the system DNS
+// This value MUST match the address of the DoH server you're using
+// Ex. you could set this to "9.9.9.9" for Quad9
+// We won't configure this by default to prevent unexpected breakage for users when switching DNS providers, but it's hidden - so we can at least expose it in the about:config
+
+pref("network.trr.bootstrapAddr", ""); // [DEFAULT, HIDDEN]
+
 /// Explicitly disable EDNS Client Subnet (ECS) to prevent leaking general location data to authoritative DNS servers...
 // https://wikipedia.org/wiki/EDNS_Client_Subnet
 
