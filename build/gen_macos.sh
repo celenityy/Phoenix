@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-python3 build/convert.py prefs/phoenix-desktop.js build/configs/phoenix-spec.cfg
-
-awk '!/NO-OSX/' build/configs/phoenix-spec.cfg > macos/phoenix.cfg
+awk '!/NO-OSX/' configs/phoenix.cfg > macos/phoenix.cfg
 
 cat macos/phoenix.cfg configs/hardened.cfg > configs/macos/hardened.cfg
 

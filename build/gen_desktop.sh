@@ -2,6 +2,8 @@
 
 cat build/prefs/phoenix-core.js build/prefs/phoenix-desktop-common.js build/prefs/phoenix-desktop.js > prefs/phoenix-desktop.js
 
+python3 build/convert.py prefs/phoenix-desktop.js configs/phoenix.cfg
+
 cat build/prefs/extended/phoenix-extended-core.js build/prefs/extended/phoenix-extended-desktop-common.js build/prefs/extended/phoenix-extended-desktop.js > prefs/phoenix-extended-desktop.js
 
 python3 build/convert.py prefs/phoenix-extended-desktop.js configs/hardened.cfg
