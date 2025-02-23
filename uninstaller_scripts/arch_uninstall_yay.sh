@@ -40,4 +40,20 @@ case ${LOCATION} in
 		;;
 esac
 
+echo_green_text "Removing `phoenix-desktop.js` from `/usr/lib/firefox` if present..."
+sudo rm -f /usr/lib/firefox/defaults/pref/phoenix-desktop.js || error_fn
+echo
+
+echo_green_text "Removing legacy `phoenix.js` from `/etc/firefox` if present..."
+sudo rm -f /etc/firefox/defaults/pref/phoenix.js || error_fn
+echo
+ 
+echo_green_text "Removing legacy `phoenix.js` from `/usr/lib/firefox` if present..."
+sudo rm -f /usr/lib/firefox/defaults/pref/phoenix.js || error_fn
+echo
+
+echo_green_text "Removing `policies.json` from `/usr/lib/firefox` if present..."
+sudo rm -f /usr/lib/firefox/distribution/policies.json || error_fn
+echo
+
 echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(. Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"
