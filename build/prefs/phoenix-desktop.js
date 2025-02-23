@@ -372,8 +372,10 @@ pref("browser.phoenix.status.desktop", "003");
 
 // 004 Implicit Connections
 
-/// Disable Network Prefetching
+/// Disable speculative pre-connections
+// https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_speculative-pre-connections
 
+pref("browser.places.speculativeConnect.enabled", false);
 pref("browser.urlbar.speculativeConnect.enabled", false);
 
 /// Disable Search Suggestions
