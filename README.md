@@ -78,6 +78,7 @@ Phoenix currently provides official support for:
 * **Arch Linux**
 * **Debian** *(& derivatives...)*
 * **Fedora Linux** *(39-41)*
+* **NixOS**
 * **Flatpak** *(System)*
 * **macOS**
 * **Ubuntu** *(& derivatives...)*
@@ -90,7 +91,7 @@ Phoenix currently provides official support for:
 
 Other platforms have unfortunately proven difficult to support, though progress **is** being made. Contributions are always welcome and appreciated.
 
-**If your platform is supported *(with the exception of Android & macOS)*, simply run the following command in your terminal to install Phoenix:**
+**If your platform is supported *(with the exception of NixOS, Android & macOS)*, simply run the following command in your terminal to install Phoenix:**
 
 ```sh
 sudo bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/install.sh 2>/dev/null)"
@@ -105,7 +106,39 @@ bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/insta
 > [!IMPORTANT]
 > **Android users are recommended to install [IronFox](https://gitlab.com/ironfox-oss/IronFox) *(Recommended)*, which uses Phoenix for its configs. Android users can also manually install Phoenix for any Firefox-based browser on Android via the directions [here](https://phoenix.celenity.dev/android).**
 
-**If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](#manual-installation).**
+## NixOS
+
+NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/Flakes#Using_nix_flakes_with_NixOS):
+1. add the Phoenix module to your flake inputs:
+1. add phoenix as one of the arguments to your output function
+1. add the Phoenix NixOS Module to your configuration
+```nix
+{
+  inputs = {
+    # Note that this assumes you have a flake-input called nixpkgs,
+    # which is often the case. If you've named it something else,
+    # you'll need to change the `nixpkgs` below.
+    phoenix = {
+      url = "git+https://codeberg.org/celenity/Phoenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  # Add the `phoenix` argument to your output function, as below:
+  outputs = {nixpkgs, phoenix, ...}: {
+	# The configuration here is an example; it will look slightly different
+	# based on your machine name and architecture.
+    nixosConfigurations.your-box = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # This is the important part -- add this line to your module list!
+        phoenix.nixosModules.default
+      ];
+	};
+  };
+}
+```
+
+## **If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](#manual-installation).**
 
 ___
 
