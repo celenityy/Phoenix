@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cat build/prefs/phoenix-core.js build/prefs/phoenix-desktop-common.js build/prefs/phoenix-desktop.js > prefs/phoenix-desktop.js
 

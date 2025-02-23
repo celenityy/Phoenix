@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 python3 build/convert.py prefs/phoenix-desktop.js build/configs/phoenix-spec.cfg
 
