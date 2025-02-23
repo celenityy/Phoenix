@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This is a basic script used to create the .zip files you see in the 'archives' directory.
 # We could just clone the entire source code - though lots of of it are completely unnecessary for packaging.

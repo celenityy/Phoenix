@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 jq -s '.[0] * .[1]' build/policies/policies-core.json build/policies/blocklist-spec.json > build/policies/temp1.json
 
