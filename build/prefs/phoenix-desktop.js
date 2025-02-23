@@ -687,14 +687,15 @@ pref("browser.bookmarks.autoExportHTML", true); // Export bookmarks to a bookmar
 pref("browser.bookmarks.openInTabClosesMenu", false); // Don't automatically close bookmarks menu after selecting a bookmark
 pref("browser.compactmode.show", true);
 pref("browser.menu.showViewImageInfo", true); // [DEFAULT - Developer Edition]
+pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 pref("browser.newtabpage.activity-stream.showRecentSaves", false);
+pref("browser.newtabpage.activity-stream.system.showWeather", true); // Allow enabling the weather on `about:home` - this only controls the UI setting, browser.newtabpage.activity-stream.showWeather is what controls whether the weather is actually displayed or not...
 pref("browser.preferences.experimental", true); // [DEFAULT]
 pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
 pref("browser.privateWindowSeparation.enabled", false); // [WINDOWS]
