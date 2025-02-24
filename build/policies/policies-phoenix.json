@@ -231,14 +231,16 @@
             }
         },
         "FirefoxHome": {
+            "Pocket": false,
+            "Snippets": false,
             "SponsoredTopSites": false,
             "SponsoredPocket": false,
-            "Snippets": false,
             "Locked": true
         },
         "FirefoxSuggest": {
-            "SponsoredSuggestions": false,
             "ImproveSuggest": false,
+            "SponsoredSuggestions": false,
+            "WebSuggestions": false,
             "Locked": true
         },
         "HttpsOnlyMode": "force_enabled",
@@ -280,8 +282,8 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
-            "UrlbarInterventions": false,
             "MoreFromMozilla": false,
+            "UrlbarInterventions": false,
             "Locked": true
         }
     }
