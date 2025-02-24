@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "dynamic-probe-telemetry-extension@mozilla.com": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla 'Dynamic Probe Telemetry' https://github.com/mozilla-extensions/dynamic-probe-telemetry-extension"
+            },
             "bravesearch@celenity.dev": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
