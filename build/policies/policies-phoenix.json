@@ -271,6 +271,8 @@
         "PrivateBrowsingModeAvailability": 0,
         "SanitizeOnShutdown": {
             "Cache": true,
+            "Downloads": true,
+            "FormData": true,
             "History": true,
             "Sessions": true,
             "Locked": false
