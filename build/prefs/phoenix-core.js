@@ -1607,6 +1607,7 @@ pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
 pref("full-screen-api.warning.delay", -1); // [Default = 500, -1 = Automatic]
 pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 pref("security.xfocsp.hideOpenInNewWindow", false);
+pref("services.settings.loglevel", "warn"); /// [DEFAULT, HIDDEN] This pref allows controlling the log level of Remote Settings, set here to the default value so that it's exposed in the about:config
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux] Prevent alt key from toggling menu bar by default
 pref("view_source.syntax_highlight", true); // [DEFAULT - non-Thunderbird]
 pref("view_source.wrap_long_lines", true); // [DEFAULT - Android]
