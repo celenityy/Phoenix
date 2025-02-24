@@ -163,6 +163,7 @@ pref("browser.urlbar.sponsoredTopSites", false, locked);
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 
+pref("browser.newtabpage.activity-stream.asrouter.debugLogLevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config`... // https://searchfox.org/mozilla-central/source/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
