@@ -109,9 +109,9 @@ bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/insta
 ## NixOS
 
 NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/Flakes#Using_nix_flakes_with_NixOS):
-1. add the Phoenix module to your flake inputs:
-1. add phoenix as one of the arguments to your output function
-1. add the Phoenix NixOS Module to your configuration
+1. Add the Phoenix repository to your flake inputs.
+1. Add `phoenix` as one of the arguments to your output function.
+1. Add the Phoenix NixOS Module to your configuration.
 ```nix
 {
   inputs = {
