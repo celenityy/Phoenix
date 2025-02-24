@@ -209,6 +209,11 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
+/// Disable Remote Settings 'Preview' Buckets by default
+// Nice to expose via about:config
+
+pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
+
 pref("browser.phoenix.status.core", "002");
 
 // 003 Search & URL Bar
