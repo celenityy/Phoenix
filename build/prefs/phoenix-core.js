@@ -1418,6 +1418,12 @@ pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - N
 
 pref("browser.search.update", false); // [DEFAULT - Android]
 
+/// Sync with Remote Settings hourly, rather than the default of only once a day
+// This is used for delivering lots of security-critical databases (Ex. CRLite/revocation checks, malicious add-on blocklists, etc...)
+// So let's make sure our users are up to date as quick as possible
+
+pref("services.settings.poll_interval", 3600);
+
 pref("browser.phoenix.status.core", "020");
 
 // 021 BLOCK COOKIE BANNERS
