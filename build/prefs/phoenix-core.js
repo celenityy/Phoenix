@@ -1141,7 +1141,7 @@ pref("layout.forms.reveal-password-button.enabled", true);
 /// Prevent websites from dictating whether to allow filling passwords
 // https://blog.0xbadc0de.be/archives/124
 
-pref("signon.storeWhenAutocompleteOff", false);
+pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 
 /// Disable password truncation
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
