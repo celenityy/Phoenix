@@ -369,7 +369,6 @@ pref("browser.urlbar.suggest.recentsearches", false);
 
 // Nice to have
 
-pref("browser.urlbar.clipboard.featureGate", false);
 pref("browser.urlbar.suggest.bookmark", true); // [DEFAULT]
 pref("browser.urlbar.suggest.calculator", true);
 pref("browser.urlbar.suggest.clipboard", false);
