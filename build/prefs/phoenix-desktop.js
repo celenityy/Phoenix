@@ -187,6 +187,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", 
 pref("browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
