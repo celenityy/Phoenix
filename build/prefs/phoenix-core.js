@@ -1128,7 +1128,15 @@ pref("signon.autofillForms", false);
 pref("signon.autofillForms.http", false); // [DEFAULT]
 
 /// Disable formless capture of log-in credentials
+// This gets very complicated very fast, and there's very little documentation on this - but TL;DR:
+// Firefox's built-in password manager has historically prompted users to save passwords by detecting standard <form> elements and waiting for specific events (ex. `onsubmit`)
+// The problem is that not all websites use <form> elements for password fields, meaning Firefox can't always use this standard method.
+// So, in order to detect these "formless" password entries (to ask users whether they want to save the password), Firefox uses a heuristic that temporarily monitors & stores user keystrokes...
+// Note that with this disabled, Firefox will still show a password icon in the URL bar that allows you to store credentials, this only impacts the actual pop-up (for sites with these "formless" password entires)
+// Unfortunately, it appears that Fenix doesn't support showing a password icon in the URL bar like Firefox on desktop does - so we're probably going to have to override this (`signon.formlessCapture.enabled`) for Android (but we'll still keep formless capture disabled in private browsing with `signon.privateBrowsingCapture.enabled`)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1119035#c2
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1119077#c1
 
 pref("signon.formlessCapture.enabled", false);
 pref("signon.privateBrowsingCapture.enabled", false);
@@ -1150,7 +1158,8 @@ pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 pref("editor.truncate_user_pastes", false);
 
 /// Disable Password Manager by default - Insecure & unencrypted
-/// You should instead use something like Bitwarden or Proton Pass
+// You should instead use a proper solution (ex. Bitwarden)
+// https://www.wired.com/2016/08/browser-password-manager-probably-isnt-enough/
 // https://support.mozilla.org/kb/manage-your-logins-firefox-password-manager
 // https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 
