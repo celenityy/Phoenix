@@ -710,9 +710,12 @@ pref("browser.bookmarks.openInTabClosesMenu", false); // Don't automatically clo
 pref("browser.compactmode.show", true);
 pref("browser.menu.showViewImageInfo", true); // [DEFAULT - Developer Edition]
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+pref("browser.newtabpage.activity-stream.feeds.wallpaperfeed", true); // [DEFAULT] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
-pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [DEFAULT]
-pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.newtabWallpapers.customColor.enabled", true); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs
+pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs
+pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [DEFAULT] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs
+pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs
 pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
