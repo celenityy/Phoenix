@@ -1139,6 +1139,7 @@ pref("signon.privateBrowsingCapture.enabled", false);
 pref("layout.forms.reveal-password-button.enabled", true);
 
 /// Prevent websites from dictating whether to allow filling passwords
+// https://bugzilla.mozilla.org/show_bug.cgi?id=956906
 // https://blog.0xbadc0de.be/archives/124
 
 pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
