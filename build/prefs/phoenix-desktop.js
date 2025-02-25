@@ -157,6 +157,18 @@ pref("browser.topsites.contile.sov.enabled", false, locked);
 pref("browser.topsites.useRemoteSetting", false, locked);
 pref("browser.urlbar.sponsoredTopSites", false, locked);
 
+/// Mozilla Ad Routing Service (MARS) :/
+// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#221
+
+pref("browser.newtabpage.activity-stream.feeds.adsfeed", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.spocs.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
+
 /// Misc. Activity Stream (about:home)
 // We also configure "FirefoxHome" in policies
 // https://mozilla.github.io/policy-templates/#firefoxhome
@@ -194,12 +206,6 @@ pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "", locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
-pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
 pref("messaging-system.askForFeedback", false, locked);
 
 /// Firefox Suggest
