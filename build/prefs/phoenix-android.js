@@ -71,27 +71,38 @@ pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
 
 pref("browser.phoenix.status.android", "003");
 
-// 004 ATTACK SURFACE REDUCTION
+// 004 PASSWORDS & AUTHENTICATION
 
-// Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
+/// Re-enable formless capture in standard windows
+// See `018` at `Phoenix-Core` for details
+// We still keep formless capture disabled in private browsing with `signon.privateBrowsingCapture.enabled`, and we still disable the password manager itself by default anyways...
+// https://gitlab.com/ironfox-oss/IronFox/-/issues/11
+
+pref("signon.formlessCapture.enabled", true); // [DEFAULT]
+
+pref("browser.phoenix.status.android", "004");
+
+// 005 ATTACK SURFACE REDUCTION
+
+/// Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
 // ex. https://gitlab.com/ironfox-oss/IronFox/-/issues/18
 
 pref("javascript.options.blinterp", true); // [DEFAULT]
 
-pref("browser.phoenix.status.android", "004");
+pref("browser.phoenix.status.android", "005");
 
-// 005 MISC. SECURITY
+// 006 MISC. SECURITY
 
-// Always warn users before launching other apps...
+/// Always warn users before launching other apps...
 
 pref("network.protocol-handler.warn-external.file", true);
 pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.status.android", "005");
+pref("browser.phoenix.status.android", "006");
 
-// 006 MEDIA
+// 007 MEDIA
 
 /// Disable Widevine MediaDrm/MediaKeySystem
 // https://developer.android.com/reference/android/media/MediaDrm
@@ -99,14 +110,14 @@ pref("browser.phoenix.status.android", "005");
 
 pref("media.mediadrm-widevinecdm.visible", false);
 
-pref("browser.phoenix.status.android", "006");
+pref("browser.phoenix.status.android", "007");
 
-// 007 PERFORMANCE
+// 008 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("network.http.max-connections", 256); // [Default = 128]
 
-pref("browser.phoenix.status.android", "007");
+pref("browser.phoenix.status.android", "008");
 
 pref("browser.phoenix.status.android", "successfully applied :D", locked);
 

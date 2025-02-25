@@ -1133,7 +1133,7 @@ pref("signon.autofillForms.http", false); // [DEFAULT]
 // The problem is that not all websites use <form> elements for password fields, meaning Firefox can't always use this standard method.
 // So, in order to detect these "formless" password entries (to ask users whether they want to save the password), Firefox uses a heuristic that temporarily monitors & stores user keystrokes...
 // Note that with this disabled, Firefox will still show a password icon in the URL bar that allows you to store credentials, this only impacts the actual pop-up (for sites with these "formless" password entires)
-// Unfortunately, it appears that Fenix doesn't support showing a password icon in the URL bar like Firefox on desktop does - so we're probably going to have to override this (`signon.formlessCapture.enabled`) for Android (but we'll still keep formless capture disabled in private browsing with `signon.privateBrowsingCapture.enabled`)
+// Unfortunately, it appears that Fenix doesn't support showing a password icon in the URL bar like Firefox on desktop does - so we're going to override this (`signon.formlessCapture.enabled`) for Android (but we'll still keep formless capture disabled in private browsing with `signon.privateBrowsingCapture.enabled`, and we still disable the password manager itself by default anyways...)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1119035#c2
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1119077#c1
