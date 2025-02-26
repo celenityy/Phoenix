@@ -207,6 +207,11 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 
 /// Remove Mozilla URL tracking params
 
+pref("browser.backup.template.fallback-download.aurora", "https://www.mozilla.org/firefox/channel/desktop/#developer");
+pref("browser.backup.template.fallback-download.beta", "https://www.mozilla.org/firefox/channel/desktop/#beta");
+pref("browser.backup.template.fallback-download.esr", "https://www.mozilla.org/firefox/enterprise/#download");
+pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.org/firefox/channel/desktop/#nightly");
+pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
 pref("browser.phoenix.status.core", "002");
