@@ -207,11 +207,6 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 
 /// Remove Mozilla URL tracking params
 
-pref("browser.backup.template.fallback-download.aurora", "https://www.mozilla.org/firefox/channel/desktop/#developer");
-pref("browser.backup.template.fallback-download.beta", "https://www.mozilla.org/firefox/channel/desktop/#beta");
-pref("browser.backup.template.fallback-download.esr", "https://www.mozilla.org/firefox/enterprise/#download");
-pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.org/firefox/channel/desktop/#nightly");
-pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
 pref("browser.phoenix.status.core", "002");
@@ -2198,7 +2193,6 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", true); // This breaks
 // Also acts as attack surface reduction & a potential performance improvement
 
 pref("ui.new-webcompat-reporter.enabled", false); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
-pref("ui.new-webcompat-reporter.reason-dropdown", 0); // Do not ask for a reason... https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#3275
 pref("ui.new-webcompat-reporter.send-more-info-link", false); // [DEFAULT on non-Nightly]
 
 /// Remove Mozilla URL tracking params
