@@ -656,6 +656,10 @@ pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.de
 
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
+/// Hide the Firefox logo on about:home by default
+
+pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
+
 /// Enable experimental Profiles UI
 
 pref("browser.profiles.enabled", true);
