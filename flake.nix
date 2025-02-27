@@ -27,14 +27,8 @@
                 // {
                   default = true;
                 };
-              package = lib.mkOption {
-                type = lib.types.package;
-                default = self.packages.${pkgs.system}.phoenix;
-                description = "The Phoenix package to use.";
-                defaultText = lib.literalExpression "phoenix";
-              };
               firefoxPackages = lib.mkOption {
-                type = lib.types.listOf lib.types.string;
+                type = lib.types.listOf lib.types.str;
                 default = [ "firefox" ];
                 description = "The name of Firefox packages of current pkgs to patch with phoenix config and policy.";
               };
@@ -51,22 +45,15 @@
                   }
                 ];
                 environment.etc."firefox/defaults/pref/phoenix-desktop.js".source =
-                  "${cfg.package}/prefs/phoenix-desktop.js";
-                environment.etc."firefox/phoenix/userjs".source = "${cfg.package}/userjs";
-                environment.etc."firefox/phoenix/configs".source = "${cfg.package}/configs";
+                  "${pkgs.phoenix}/prefs/phoenix-desktop.js";
+                environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
+                environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
                 nixpkgs.overlays = [
+                  self.overlays.default
                   (
-                    self: super:
+                    final: prev:
                     builtins.listToAttrs (
-                      map (
-                        p:
-                        lib.nameValuePair p (
-                          super.${p}.override {
-                            extraPoliciesFiles = [ "${cfg.package}/policies.json" ];
-                            extraPrefsFiles = [ "${cfg.package}/phoenix.cfg" ];
-                          }
-                        )
-                      ) cfg.firefoxPackages
+                      map (p: lib.nameValuePair p (final.withPhoenix prev.${p})) cfg.firefoxPackages
                     )
                   )
                 ];
@@ -74,58 +61,112 @@
           };
       };
 
-      packages = forAllSystems (system: rec {
-        default = phoenix;
-        phoenix = nixpkgs.legacyPackages.${system}.callPackage (
-          {
-            stdenvNoCC,
-            python3,
-            jq,
-            zip,
-            ...
-          }:
-          stdenvNoCC.mkDerivation {
-            name = "phoenix";
-            src = ./.;
-            nativeBuildInputs = [
-              python3
-              jq
-              zip
-            ];
-            buildPhase = ''
-              runHook preBuild
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
+        in
+        rec {
+          default = phoenix;
+          inherit (pkgs) phoenix;
+          firefox = pkgs.withPhoenix pkgs.firefox;
+        }
+      );
 
-              patchShebangs ./build/*.sh
-              ./build/build.sh
+      overlays = {
+        default = final: prev: {
+          phoenix = final.callPackage (
+            {
+              stdenvNoCC,
+              python3,
+              jq,
+              zip,
+              ...
+            }:
+            stdenvNoCC.mkDerivation {
+              name = "phoenix";
+              src = ./.;
+              nativeBuildInputs = [
+                python3
+                jq
+                zip
+              ];
+              buildPhase = ''
+                runHook preBuild
 
-              runHook postBuild
-            '';
-            installPhase = ''
-              runHook preInstall
+                patchShebangs ./build/*.sh
+                ./build/build.sh
 
-              mkdir $out
-              ${
-                if stdenvNoCC.isDarwin then
-                  ''
-                    cp $src/macos/* $out/
-                    cp -r $src/configs/macos $out/configs
-                    cp -r $src/userjs/macos $out/userjs
-                  ''
-                else
-                  ''
-                    cp -r $src/policies.json $src/phoenix.cfg $src/prefs $src/configs $out/
-                    cp -r $src/userjs/linux $out/userjs
-                  ''
-              }
-              install -Dm644 $src/COPYING $out/share/doc/phoenix/COPYING
-              install -Dm644 $src/README.md $out/share/doc/phoenix/README.md
-              install -Dm644 $src/userjs/README.md $out/share/doc/phoenix/userjs/README.md
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
 
-              runHook postInstall
-            '';
-          }
-        ) { };
-      });
+                mkdir $out
+                ${
+                  if stdenvNoCC.isDarwin then
+                    ''
+                      cp $src/macos/* $out/
+                      cp -r $src/configs/macos $out/configs
+                      cp -r $src/userjs/macos $out/userjs
+                    ''
+                  else
+                    ''
+                      cp -r $src/policies.json $src/phoenix.cfg $src/prefs $src/configs $out/
+                      cp -r $src/userjs/linux $out/userjs
+                    ''
+                }
+                install -Dm644 $src/COPYING $out/share/doc/phoenix/COPYING
+                install -Dm644 $src/README.md $out/share/doc/phoenix/README.md
+                install -Dm644 $src/userjs/README.md $out/share/doc/phoenix/userjs/README.md
+
+                runHook postInstall
+              '';
+            }
+          ) { };
+
+          wrapFirefox =
+            browser: args:
+            (prev.wrapFirefox browser args).overrideAttrs (old: {
+              nativeBuildInputs =
+                (old.nativeBuildInputs or [ ])
+                ++ (with prev; [
+                  zip
+                  unzip
+                  gnused
+                ]);
+              buildCommand =
+                ''
+                  export buildRoot="$(pwd)"
+                ''
+                + old.buildCommand
+                # Allows Search Engine Policies on non-ESR builds,
+                # copied from https://hedgedoc.grimmauld.de/s/rVnTq0-Rs#
+                + ''
+                  if [ -f $out/lib/firefox/browser/omni.ja ]; then
+                    pushd $buildRoot
+                    unzip $out/lib/firefox/browser/omni.ja -d patched_omni || ret=$?
+                    if [[ $ret && $ret -ne 2 ]]; then
+                      echo "unzip exited with unexpected error"
+                      exit $ret
+                    fi
+                    rm $out/lib/firefox/browser/omni.ja
+                    cd patched_omni
+                    sed -i 's/"enterprise_only"\s*:\s*true,//' modules/policies/schema.sys.mjs
+                    zip -0DXqr $out/lib/firefox/browser/omni.ja * # potentially qr9XD
+                    popd
+                  fi
+                '';
+            });
+
+          withPhoenix =
+            firefoxPackage:
+            firefoxPackage.override {
+              extraPoliciesFiles = [ "${final.phoenix}/policies.json" ];
+              extraPrefsFiles = [ "${final.phoenix}/phoenix.cfg" ];
+            };
+        };
+      };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
