@@ -1,7 +1,8 @@
 {
     "assets.json": {
         "content": "internal",
-        "updateAfter": 1
+        "updateAfter": 1,
+        "contentURL": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
     },
     "public_suffix_list.dat": {
         "content": "internal",
