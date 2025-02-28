@@ -816,6 +816,14 @@ pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
 
 pref("extensions.install_origins.enabled", true);
 
+/// Harden CSP policy
+// Currently disables WebAssembly (WASM) & upgrades insecure requests
+
+pref("extensions.webextensions.base-content-security-policy", "script-src 'self' https://* http://localhost:* http://127.0.0.1:* moz-extension: blob: filesystem: 'unsafe-eval' 'unsafe-inline'; upgrade-insecure-requests;");
+pref("extensions.webextensions.base-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;");
+pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
+pref("extensions.webextensions.default-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;"); // [DEFAULT]
+
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
 
