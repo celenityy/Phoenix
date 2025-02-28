@@ -19,7 +19,7 @@
             "https://codeberg.org/celenity/Phoenix/raw/branch/dev/uBlock/badlists.txt"
         ]
     },
-    "ublock-filters": {
+    "ublock0-filters": {
         "content": "filters",
         "group": "default",
         "parent": "uBlock filters",
@@ -38,7 +38,7 @@
         ],
         "supportURL": "https://github.com/uBlockOrigin/uAssets"
     },
-    "ublock-badware": {
+    "ublock0-badware": {
         "content": "filters",
         "group": "default",
         "parent": "uBlock filters",
@@ -58,7 +58,7 @@
         "supportURL": "https://github.com/uBlockOrigin/uAssets",
         "instructionURL": "https://github.com/gorhill/uBlock/wiki/Badware-risks"
     },
-    "ublock-privacy": {
+    "ublock0-privacy": {
         "content": "filters",
         "group": "default",
         "parent": "uBlock filters",
@@ -77,7 +77,7 @@
         ],
         "supportURL": "https://github.com/uBlockOrigin/uAssets"
     },
-    "ublock-unbreak": {
+    "ublock0-unbreak": {
         "content": "filters",
         "group": "default",
         "parent": "uBlock filters",
@@ -95,7 +95,7 @@
         ],
         "supportURL": "https://github.com/uBlockOrigin/uAssets"
     },
-    "ublock-quick-fixes": {
+    "ublock0-quick-fixes": {
         "content": "filters",
         "group": "default",
         "parent": "uBlock filters",
@@ -230,7 +230,7 @@
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/18.txt",
         "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
     },
-    "ublock-cookies-adguard": {
+    "ublock0-cookies-adguard": {
         "content": "filters",
         "group": "annoyances",
         "group2": "cookies",
@@ -267,7 +267,7 @@
         ],
         "supportURL": "https://github.com/easylist/easylist#fanboy-lists"
     },
-    "ublock-cookies-easylist": {
+    "ublock0-cookies-easylist": {
         "content": "filters",
         "group": "annoyances",
         "group2": "cookies",
@@ -428,7 +428,7 @@
         ],
         "supportURL": "https://easylist.to/"
     },
-    "ublock-annoyances": {
+    "ublock0-annoyances": {
         "content": "filters",
         "group": "annoyances",
         "title": "uBlock filters – Annoyances",
