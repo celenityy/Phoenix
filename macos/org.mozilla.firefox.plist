@@ -11,7 +11,7 @@
 				<key>adminSettings</key>
 				<dict>
 					<key>assetsBootstrapLocation</key>
-					<string>https://codeberg.org/celenity/Phoenix/raw/commit/ccaf778427b3f8c8b02e99f9bfc565adc7ed0633/uBlock/assets.json</string>
+					<string>https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json</string>
 				</dict>
 				<key>advancedSettings</key>
 				<array>
@@ -176,8 +176,6 @@
 	<dict>
 		<key>Enabled</key>
 		<false/>
-		<key>Locked</key>
-		<false/>
 	</dict>
 	<key>EnterprisePoliciesEnabled</key>
 	<true/>
@@ -228,6 +226,24 @@
 				<string>https://github.com/gorhill/uBlock/releases</string>
 				<string>https://github.com/gorhill/uBlock/releases/*</string>
 				<string>https://github.com/gorhill/uBlock/releases*</string>
+				<string>https://github.com/mozilla-extensions/aboutsync/releases</string>
+				<string>https://github.com/mozilla-extensions/aboutsync/releases/*</string>
+				<string>https://github.com/mozilla-extensions/aboutsync/releases*</string>
+				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases</string>
+				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases/*</string>
+				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases*</string>
+				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases</string>
+				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases/*</string>
+				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases*</string>
+				<string>https://github.com/mozilla-extensions/normandy-devtools/releases</string>
+				<string>https://github.com/mozilla-extensions/normandy-devtools/releases/*</string>
+				<string>https://github.com/mozilla-extensions/normandy-devtools/releases*</string>
+				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases</string>
+				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases/*</string>
+				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases*</string>
+				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases</string>
+				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases/*</string>
+				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases*</string>
 				<string>https://github.com/mkaply/queryamoid/releases</string>
 				<string>https://github.com/mkaply/queryamoid/releases/*</string>
 				<string>https://github.com/mkaply/queryamoid/releases*</string>
@@ -263,7 +279,9 @@
 				<string>https://mullvad.net/zh-hans/download/browser/extension</string>
 				<string>https://mullvad.net/zh-hant/download/browser/extension</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/12558645/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/134775419/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/196117722/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/232824822/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/26682105/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/275181477/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/33263118/*</string>
@@ -271,6 +289,10 @@
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/404295988/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/46041549/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/537167055/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/54078039/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/671874733/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/811220552/*</string>
+				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/81214532/*</string>
 				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/873923787/*</string>
 				<string>https://phoenix.celenity.dev/extensions/xpi/*</string>
 				<string>https://privacybadger.org/*</string>
@@ -742,6 +764,13 @@
 			<false/>
 			<key>updates_disabled</key>
 			<true/>
+		</dict>
+		<key>dynamic-probe-telemetry-extension@mozilla.com</key>
+		<dict>
+			<key>blocked_install_message</key>
+			<string>Mozilla 'Dynamic Probe Telemetry' https://github.com/mozilla-extensions/dynamic-probe-telemetry-extension</string>
+			<key>installation_mode</key>
+			<string>blocked</string>
 		</dict>
 		<key>earthview360_newvers@earthview360.org</key>
 		<dict>
@@ -1921,6 +1950,8 @@
 	<dict>
 		<key>Locked</key>
 		<true/>
+		<key>Pocket</key>
+		<false/>
 		<key>Snippets</key>
 		<false/>
 		<key>SponsoredPocket</key>
@@ -1935,6 +1966,8 @@
 		<key>Locked</key>
 		<true/>
 		<key>SponsoredSuggestions</key>
+		<false/>
+		<key>WebSuggestions</key>
 		<false/>
 	</dict>
 	<key>HttpsOnlyMode</key>
@@ -1990,17 +2023,6 @@
 	</dict>
 	<key>SSLVersionMin</key>
 	<string>tls1.2</string>
-	<key>SanitizeOnShutdown</key>
-	<dict>
-		<key>Cache</key>
-		<true/>
-		<key>History</key>
-		<true/>
-		<key>Locked</key>
-		<false/>
-		<key>Sessions</key>
-		<true/>
-	</dict>
 	<key>SearchEngines</key>
 	<dict>
 		<key>Default</key>

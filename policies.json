@@ -4,7 +4,7 @@
       "Extensions": {
         "uBlock0@raymondhill.net": {
           "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/commit/ccaf778427b3f8c8b02e99f9bfc565adc7ed0633/uBlock/assets.json"
+            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
           },
           "advancedSettings": [
             [
@@ -121,6 +121,10 @@
     },
     "SSLVersionMin": "tls1.2",
     "ExtensionSettings": {
+      "dynamic-probe-telemetry-extension@mozilla.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Mozilla 'Dynamic Probe Telemetry' https://github.com/mozilla-extensions/dynamic-probe-telemetry-extension"
+      },
       "bravesearch@celenity.dev": {
         "installation_mode": "blocked",
         "blocked_install_message": "Deprecated"
@@ -1020,6 +1024,24 @@
           "https://github.com/gorhill/uBlock/releases",
           "https://github.com/gorhill/uBlock/releases/*",
           "https://github.com/gorhill/uBlock/releases*",
+          "https://github.com/mozilla-extensions/aboutsync/releases",
+          "https://github.com/mozilla-extensions/aboutsync/releases/*",
+          "https://github.com/mozilla-extensions/aboutsync/releases*",
+          "https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases",
+          "https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases/*",
+          "https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases*",
+          "https://github.com/mozilla-extensions/nimbus-devtools/releases",
+          "https://github.com/mozilla-extensions/nimbus-devtools/releases/*",
+          "https://github.com/mozilla-extensions/nimbus-devtools/releases*",
+          "https://github.com/mozilla-extensions/normandy-devtools/releases",
+          "https://github.com/mozilla-extensions/normandy-devtools/releases/*",
+          "https://github.com/mozilla-extensions/normandy-devtools/releases*",
+          "https://github.com/mozilla-extensions/remote-settings-devtools/releases",
+          "https://github.com/mozilla-extensions/remote-settings-devtools/releases/*",
+          "https://github.com/mozilla-extensions/remote-settings-devtools/releases*",
+          "https://github.com/mozilla-extensions/searchengine-devtools/releases",
+          "https://github.com/mozilla-extensions/searchengine-devtools/releases/*",
+          "https://github.com/mozilla-extensions/searchengine-devtools/releases*",
           "https://github.com/mkaply/queryamoid/releases",
           "https://github.com/mkaply/queryamoid/releases/*",
           "https://github.com/mkaply/queryamoid/releases*",
@@ -1055,7 +1077,9 @@
           "https://mullvad.net/zh-hans/download/browser/extension",
           "https://mullvad.net/zh-hant/download/browser/extension",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/12558645/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/134775419/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/196117722/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/232824822/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/26682105/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/275181477/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/33263118/*",
@@ -1063,6 +1087,10 @@
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/404295988/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/46041549/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/537167055/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/54078039/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/671874733/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/811220552/*",
+          "https://objects.githubusercontent.com/github-production-release-asset-2e65be/81214532/*",
           "https://objects.githubusercontent.com/github-production-release-asset-2e65be/873923787/*",
           "https://phoenix.celenity.dev/extensions/xpi/*",
           "https://privacybadger.org/*",
@@ -1213,18 +1241,19 @@
       "Value": true
     },
     "EncryptedMediaExtensions": {
-      "Enabled": false,
-      "Locked": false
+      "Enabled": false
     },
     "FirefoxHome": {
+      "Pocket": false,
+      "Snippets": false,
       "SponsoredTopSites": false,
       "SponsoredPocket": false,
-      "Snippets": false,
       "Locked": true
     },
     "FirefoxSuggest": {
-      "SponsoredSuggestions": false,
       "ImproveSuggest": false,
+      "SponsoredSuggestions": false,
+      "WebSuggestions": false,
       "Locked": true
     },
     "HttpsOnlyMode": "force_enabled",
@@ -1253,12 +1282,6 @@
       "Locked": false
     },
     "PrivateBrowsingModeAvailability": 0,
-    "SanitizeOnShutdown": {
-      "Cache": true,
-      "History": true,
-      "Sessions": true,
-      "Locked": false
-    },
     "SupportMenu": {
       "Title": "Phoenix Issue Tracker",
       "URL": "https://phoenix.celenity.dev/issues"
@@ -1266,8 +1289,8 @@
     "UserMessaging": {
       "ExtensionRecommendations": false,
       "FeatureRecommendations": false,
-      "UrlbarInterventions": false,
       "MoreFromMozilla": false,
+      "UrlbarInterventions": false,
       "Locked": true
     }
   }
