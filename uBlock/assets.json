@@ -16,7 +16,7 @@
         "content": "internal",
         "updateAfter": 1,
         "contentURL": [
-            "https://phoenix.celenity.dev/uBlock/badlists.txt"
+            "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/badlists.txt"
         ]
     },
     "ublock-filters": {
@@ -917,7 +917,7 @@
         "group": "privacy",
         "title": "🖱️ BadBlock - Click Tracking",
         "tags": "privacy",
-        "contentURL": "https://badblock.celenity.dev/abp/click-tracking.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/click-tracking.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -927,7 +927,7 @@
         "off": true,
         "title": "⚡️ BadBlock Lite",
         "tags": "ads privacy security",
-        "contentURL": "https://badblock.celenity.dev/abp/badblock_lite.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock_lite.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -937,7 +937,7 @@
         "off": true,
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
-        "contentURL": "https://badblock.celenity.dev/abp/badblock.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -946,7 +946,7 @@
         "group": "multipurpose",
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
-        "contentURL": "https://badblock.celenity.dev/abp/badblock_plus.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock_plus.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -1003,7 +1003,7 @@
         "group": "annoyances",
         "title": "🔒 DRM Blocklist",
         "off": true,
-        "contentURL": "https://badblock.celenity.dev/abp/drm.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/drm.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "dyndns": {
@@ -1019,7 +1019,7 @@
         "off": true,
         "title": "😇 BadBlock - Ethical Whitelist",
         "tags": "ads privacy",
-        "contentURL": "https://badblock.celenity.dev/abp/ethical_whitelist.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/ethical_whitelist.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/base/whitelists/ethical.txt"
     },
@@ -1218,7 +1218,7 @@
         "content": "filters",
         "group": "malware",
         "title": "⚠️ BadBlock - Unsafe",
-        "contentURL": "https://badblock.celenity.dev/abp/unsafe.txt",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/unsafe.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "ytneuter": {
