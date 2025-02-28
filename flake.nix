@@ -95,6 +95,7 @@
                 runHook preBuild
 
                 patchShebangs ./build/*.sh
+                sed -i '/general.config.filename/d' build/prefs/phoenix-desktop.js
                 ./build/build.sh
 
                 runHook postBuild
@@ -106,19 +107,19 @@
                 ${
                   if stdenvNoCC.isDarwin then
                     ''
-                      cp $src/macos/* $out/
-                      cp -r $src/configs/macos $out/configs
-                      cp -r $src/userjs/macos $out/userjs
+                      cp macos/* $out/
+                      cp -r configs/macos $out/configs
+                      cp -r userjs/macos $out/userjs
                     ''
                   else
                     ''
-                      cp -r $src/policies.json $src/phoenix.cfg $src/prefs $src/configs $out/
-                      cp -r $src/userjs/linux $out/userjs
+                      cp -r policies.json phoenix.cfg prefs configs $out/
+                      cp -r userjs/linux $out/userjs
                     ''
                 }
-                install -Dm644 $src/COPYING $out/share/doc/phoenix/COPYING
-                install -Dm644 $src/README.md $out/share/doc/phoenix/README.md
-                install -Dm644 $src/userjs/README.md $out/share/doc/phoenix/userjs/README.md
+                install -Dm644 COPYING $out/share/doc/phoenix/COPYING
+                install -Dm644 README.md $out/share/doc/phoenix/README.md
+                install -Dm644 userjs/README.md $out/share/doc/phoenix/userjs/README.md
 
                 runHook postInstall
               '';
