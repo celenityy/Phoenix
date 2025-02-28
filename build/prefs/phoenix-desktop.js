@@ -699,7 +699,7 @@ pref("browser.phoenix.status.desktop", "017");
 // 018 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
-
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
 pref("browser.phoenix.status.desktop", "018");

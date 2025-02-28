@@ -235,7 +235,6 @@ pref("browser.phoenix.status.desktop.common", "013");
 // 014 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("network.http.max-connections", 1800); // [Default = 900]
 
 /// Disables certain UI animations
