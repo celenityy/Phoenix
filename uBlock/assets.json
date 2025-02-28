@@ -966,6 +966,14 @@
         "contentURL": "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt",
         "supportURL": "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters"
     },
+    "cel": {
+        "content": "filters",
+        "group": "annoyances",
+        "off": true,
+        "title": "⭐ celenity's personal filters",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/personal-filters.txt",
+        "supportURL": "https://badblock.celenity.dev/issues"
+    },
     "click2load": {
         "content": "filters",
         "group": "privacy",
@@ -1183,6 +1191,25 @@
         "contentURL": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
         "supportURL": "https://github.com/StevenBlack/hosts/issues"
     },
+    "svg": {
+        "content": "filters",
+        "off": true,
+        "parent": "🛡️ Block SVG",
+        "title": "🛡️ Block SVG",
+        "tags": "security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-svg.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "svg-unbreak": {
+        "content": "filters",
+        "parent": "🛡️ Block SVG",
+        "title": "🛡️ Block SVG - Unbreak",
+        "tags": "security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-svg.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
     "threatintel": {
         "content": "filters",
         "group": "malware",
@@ -1220,6 +1247,63 @@
         "title": "⚠️ BadBlock - Unsafe",
         "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/unsafe.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
+    },
+    "webgl": {
+        "content": "filters",
+        "off": true,
+        "parent": "🛡️ Block WebGL",
+        "title": "🛡️ Block WebGL",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webgl.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "webgl-unbreak": {
+        "content": "filters",
+        "parent": "🛡️ Block WebGL",
+        "title": "🛡️ Block WebGL - Unbreak",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webgl.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "webgpu": {
+        "content": "filters",
+        "off": true,
+        "parent": "🛡️ Block WebGPU",
+        "title": "🛡️ Block WebGPU",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webgpu.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "webgpu-unbreak": {
+        "content": "filters",
+        "parent": "🛡️ Block WebGPU",
+        "title": "🛡️ Block WebGPU - Unbreak",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webgpu.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "webrtc": {
+        "content": "filters",
+        "off": true,
+        "parent": "🛡️ Block WebRTC",
+        "title": "🛡️ Block WebRTC",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webrtc.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
+    },
+    "webrtc-unbreak": {
+        "content": "filters",
+        "parent": "🛡️ Block WebRTC",
+        "title": "🛡️ Block WebRTC - Unbreak",
+        "tags": "privacy security",
+        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webrtc.txt",
+        "supportURL": "https://badblock.celenity.dev/issues",
+        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
     "ytneuter": {
         "content": "filters",
