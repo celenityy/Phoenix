@@ -1100,6 +1100,8 @@ pref("privacy.spoof_english", 0); // [DEFAULT]
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
 /// Disable WebGPU
+// https://gpuweb.github.io/gpuweb/#privacy-considerations
+// https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
 
 pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
