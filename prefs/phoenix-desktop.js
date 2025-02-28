@@ -2113,7 +2113,7 @@ pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.se
 pref("browser.newtabpage.activity-stream.feeds.section.topstories", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}", locked);
 pref("browser.newtabpage.activity-stream.feeds.system.topstories", false, locked); // Controls the visibility of the `about:home` setting
-pref("browser.newtabpage.pinned", "[]"); // [HIDDEN]
+pref("browser.newtabpage.pinned", '[]'); // [HIDDEN]
 pref("browser.partnerlink.attributionURL", "", locked);
 pref("browser.partnerlink.campaign.topsites", "", locked);
 pref("browser.topsites.component.enabled", false, locked); // [DEFAULT]
