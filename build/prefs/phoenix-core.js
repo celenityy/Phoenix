@@ -914,7 +914,7 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
-// Enable TCP/dFPI
+/// Enable TCP/dFPI
 // https://support.mozilla.org/kb/introducing-total-cookie-protection-standard-mode
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2828
 
@@ -923,7 +923,7 @@ pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
 pref("network.cookie.cookieBehavior.pbmode", 5);
 
-// Enable State Partitioning
+/// Enable State Partitioning
 
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
@@ -933,7 +933,7 @@ pref("privacy.partition.network_state.ocsp_cache", true);
 pref("privacy.partition.network_state.ocsp_cache.pbmode", true);
 pref("privacy.partition.serviceWorkers", true);
 
-// Ignore less restricted referer policies (than the default)
+/// Ignore less restricted referer policies (than the default)
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
 
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // for cross-site requests
@@ -957,14 +957,14 @@ pref("privacy.trackingprotection.annotate_channels", true);
 pref("privacy.trackingprotection.enabled", true);
 pref("privacy.trackingprotection.pbmode.enabled", true);
 
-// Block known tracking resources using the `strict` (Level 2) list
+/// Block known tracking resources using the `strict` (Level 2) list
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15192
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804
 
 pref("privacy.annotate_channels.strict_list.enabled", true);
 pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
 
-// Block known third-party tracking cookies
+/// Block known third-party tracking cookies
 
 pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
 pref("privacy.socialtracking.block_cookies.enabled", true);
@@ -986,28 +986,28 @@ pref("privacy.trackingprotection.fingerprinting.enabled", true);
 
 pref("privacy.trackingprotection.socialtracking.enabled", true);
 
-// Enable Bounce Tracking Protection
+/// Enable Bounce Tracking Protection
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 // https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
 
 pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - non-Thunderbird]
 pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Thunderbird]
 
-// Enable Suspected Fingerprinters Protection
+/// Enable Suspected Fingerprinters Protection
 // https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
 
 pref("privacy.fingerprintingProtection", true);
 pref("privacy.fingerprintingProtection.pbmode", true);
 pref("privacy.reduceTimerPrecision", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15353
 
-// Enable Query Parameter Stripping
+/// Enable Query Parameter Stripping
 // https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
 
 pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true);
 
-// Enable SmartBlock & UA overrides/injections
+/// Enable SmartBlock & UA overrides/injections
 // Also typically covered by ETP/Strict
 
 pref("extensions.webcompat.enable_shims", true); // [HIDDEN]
