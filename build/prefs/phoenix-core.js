@@ -322,7 +322,11 @@ pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 pref("security.insecure_connection_text.enabled", true);
 pref("security.insecure_connection_text.pbmode.enabled", true);
 pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
-pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT] Warn when submitting a form from HTTP to HTTPS
+
+/// Always warn when submitting a form from HTTP to HTTPS, even on local IP addresses
+
+pref("security.insecure_field_warning.ignore_local_ip_address", false);
+pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 
 /// Show detailed information on insecure warning pages
 
