@@ -602,22 +602,22 @@ By default, Phoenix is installed & updated via your operating system's package m
 
 However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported operating system, you can manually install Phoenix with the following steps:
 
-**1:** Download `phoenix.cfg` from [here](https://phoenix.celenity.dev/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**1:** Download `phoenix.cfg` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/phoenix.cfg
+wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/phoenix.cfg
 ```
 
-**2:** Download `phoenix-desktop.js` from [here](https://phoenix.celenity.dev/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download `phoenix-desktop.js` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/prefs/phoenix-desktop.js
+wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/prefs/phoenix-desktop.js
 ```
 
-**3:** Download `policies.json` from [here](https://phoenix.celenity.dev/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/policies.json
+wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/policies.json
 ```
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform. An easy way to find it id by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
@@ -660,7 +660,7 @@ sudo chmod 655 /etc/firefox/defaults/pref
 **7:** Move `phoenix-desktop.js` to the `pref` folder that you just created. Assuming your installation directory is `/usr/lib64/firefox`, you can run the following command:
 
 ```sh
-sudo cp phoenix-desktop.js /usr/lib64/firefox/defaults/pref/phoeni-desktop.js
+sudo cp phoenix-desktop.js /usr/lib64/firefox/defaults/pref/phoenix-desktop.js
 ```
 
 **For all non-Flatpak GNU/Linux users:**
