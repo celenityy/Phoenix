@@ -3,9 +3,6 @@
         "3rdparty": {
             "Extensions": {
                 "uBlock0@raymondhill.net": {
-                    "adminSettings": {
-                        "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
-                    },
                     "advancedSettings": [
                         [
                             "autoCommentFilterTemplate",
