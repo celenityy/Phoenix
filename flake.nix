@@ -48,6 +48,8 @@
                   "${pkgs.phoenix}/prefs/phoenix-desktop.js";
                 environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
                 environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
+                programs.firefox.policies =
+                  (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/policies.json")).policies;
                 nixpkgs.overlays = [
                   self.overlays.default
                   (
