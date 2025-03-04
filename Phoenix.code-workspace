@@ -13,8 +13,8 @@
 			"path": "../Phoenix-Debian"
 		},
 		{
-			"name": "Phoenix-Policies-Flatpak",
-			"path": "../Phoenix-Policies-Flatpak"
+			"name": "Phoenix-Flatpak",
+			"path": "../Phoenix-Flatpak"
 		},
 		{
 			"name": "Phoenix-Policies-Windows",
