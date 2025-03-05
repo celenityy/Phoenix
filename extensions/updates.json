@@ -37,6 +37,24 @@
                 }
             ]
         },
+        "brave-leta@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
+                    "update_hash": "sha512:d3ff769c55ce6cf5f5c72db9b394d2f19e2b600edff878a8d13ead5c38719c9b99d519650085f22bcb328e1f0eb45dd6972f20d91f1279799e8d4b489c3b5df3"
+                }
+            ]
+        },
+        "google-leta@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
+                    "update_hash": "sha512:febc383c4e4efae2e254761dae3b46b6c6b9c0435304db03bdd0197be8c88bfb25303ac1e9abd2a39d081ce41beee4f0cc2edf27a63c470f9fd2db67ad503135"
+                }
+            ]
+        },
         "mojeek@celenity.dev": {
             "updates": [
                 {
