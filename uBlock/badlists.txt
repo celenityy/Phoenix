@@ -95,8 +95,8 @@ https://badblock.celenity.dev/abp/browser_whitelist.txt
 https://badblock.celenity.dev/abp/captcha_whitelist.txt
 https://badblock.celenity.dev/abp/captive_whitelist.txt
 https://badblock.celenity.dev/abp/certs_whitelist.txt
+https://badblock.celenity.dev/abp/click-tracking_whitelist.txt
 https://badblock.celenity.dev/abp/content-blocking_whitelist.txt
-https://badblock.celenity.dev/abp/email_whitelist.txt
 https://badblock.celenity.dev/abp/emergency_whitelist.txt
 https://badblock.celenity.dev/abp/lan_whitelist.txt
 https://badblock.celenity.dev/abp/linux_whitelist.txt
@@ -116,8 +116,8 @@ https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/browser_whitelist.tx
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/captcha_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/captive_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/certs_whitelist.txt
+https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/click-tracking_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/content-blocking_whitelist.txt
-https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/email_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/emergency_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/lan_whitelist.txt
 https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/linux_whitelist.txt
@@ -145,10 +145,10 @@ https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/captive_whitelist
 https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/captive_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/certs_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/certs_whitelist.txt
+https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/click-tracking_whitelist.txt
+https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/click-tracking_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/content-blocking_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/content-blocking_whitelist.txt
-https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/email_whitelist.txt
-https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/email_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/emergency_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/refs/heads/pages/abp/emergency_whitelist.txt
 https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/lan_whitelist.txt
