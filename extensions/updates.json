@@ -6,6 +6,11 @@
                     "version": "0.0.1",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
                     "update_hash": "sha512:4ce51c61a5d02f85ea74c28e8ad4944d753c4b6cd37400c68324bdc93b097bb004e89bb085f656eda8830162060c28a8237234d25a7a38045405146f3aa89b19"
+                },
+                {
+                    "version": "0.0.2",
+                    "update_link": "",
+                    "update_hash": "sha512:d44438b9a4241a277977d4d9ca6e2a6c7a18c963c1f9f0f257ba8caf6ea20a62f1cdec6de4dcd3232d130783e1a0bf9b2c476a168d35615e63ea4fe9ac343801"
                 }
             ]
         },
@@ -20,6 +25,11 @@
                     "version": "0.0.4",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
                     "update_hash": "sha512:acf1d907d7d3ce39d4eb6cc632db0b72d099db63667c26c88b12d5d6bf013c6b908de5399436079cb237cab02ea72b0d59b562a316058545c025c1feeac4b133"
+                },
+                {
+                    "version": "0.0.6",
+                    "update_link": "",
+                    "update_hash": "sha512:96b2e08984952def79c67885f65c858f6569e1b990c6e2dd31034b5be3a3a4a22a90339252578dab9cfebc00abfbc5b8e58d69a9c34716535e4089305ac0a871"
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
                     "update_hash": "sha512:f4d24eeaf9b7fca3a83c5b23d3da526022400ab94940446768159879da54164d7a14abd6b2bbe8e038bfc81f7cdb0a91e6d43792b99a45df023a798d3ba26eb3"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "",
+                    "update_hash": "sha512:4f6e2c7b74ae7bfd70987ee641c6d553a24b2b410ee43da6a6d8660294e76a04202c56974e9c6ff7647f1843d93f4056065be47471cb685d68073fbec2d64466"
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
                     "update_hash": "sha512:bd63bb05032870aa3a0d6bb8852a7f94824cf3bcf861960fb0faff59564f261ead4dfa5d919817af5b266dd54d55e2cf4eb87ddea7c8e65e805a7c381ebb98d7"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "",
+                    "update_hash": "sha512:489c07e74ed36a4991a8002c54fa5823b0464714ae51ba3be596ffb699bdcb8b01fa068f93a96653cb075e52851d65f818ecffd0a927b266dfca68687c50a106"
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
                     "update_hash": "sha512:d7a590d27b096db0ec95b534e3dadf376eef6f7c1a1654612b32e7911ab3dca6b2d4853a35692127f3d4ae3ac7a9687d06d9888bfaf6dcb5e9f45340ca230bfd"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "",
+                    "update_hash": "sha512:8c2db4af572b0b0965cfb4633fe8cec1a5fdffc6ba66251315338d1a3f9b7c91e6ba374aacc965377f94b8cbe9e161d93de049d5e3e16436db69be172bce9edd"
                 }
             ]
         },
@@ -109,6 +134,11 @@
                     "version": "0.0.3",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
                     "update_hash": "sha512:d2da76585e195cfb841c3ab696b7f6039eda00f9e4809de8bb707772ba649a731a3c46c8483621a62f314f910880b7dc206e7676bf620512c1ed37e4295ee5df"
+                },
+                {
+                    "version": "0.0.4",
+                    "update_link": "",
+                    "update_hash": "sha512:37d6119ea5c7b5b1d7055f56327ed6baee3c7dfdc09ae992b50a7a8cd2ed6b38f909b3d7881a6c49d964983010c8f49928936862c123f8e4f5438aff72801d8d"
                 }
             ]
         },
@@ -123,6 +153,11 @@
                     "version": "0.0.2",
                     "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
                     "update_hash": "sha512:d378f6cacb7d11eb9d9c7c204d58e5215e0090d63c0b0839fe41c0a597d7e09dcbf1ddfb35712ea1a8c96a4f515acee81e63f09bbc3f5e5e407ca0a74e0ade4e"
+                },
+                {
+                    "version": "0.0.3",
+                    "update_link": "",
+                    "update_hash": "sha512:fd26b2a2d39ced7bf7835350eda1b44cff8812c33be930d37947508855f74db2943c7ae046df42c306feda9a0d30d41bdfc79a01fecc08ec3c0fa38d932f0133"
                 }
             ]
         }
