@@ -190,63 +190,63 @@
             },
             "brave-leta@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "ddg@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo/duckduckgo-0.0.2.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "duckduckgo-html@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.6.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "duckduckgo-lite@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.4.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "google-leta@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "mojeek@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/mojeek/mojeek-0.0.4.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "no-search@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/no-search/no-search-0.0.4.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "startpage@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/startpage/startpage-0.0.4.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
             },
             "swisscows@celenity.dev": {
                 "installation_mode": "normal_installed",
-                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
+                "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/swisscows/swisscows-0.0.3.xpi",
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true

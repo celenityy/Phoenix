@@ -1,5 +1,14 @@
 {
     "addons": {
+        "brave-leta@celenity.dev": {
+            "updates": [
+                {
+                    "version": "0.0.1",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
+                    "update_hash": "sha512:d3ff769c55ce6cf5f5c72db9b394d2f19e2b600edff878a8d13ead5c38719c9b99d519650085f22bcb328e1f0eb45dd6972f20d91f1279799e8d4b489c3b5df3"
+                }
+            ]
+        },
         "ddg@celenity.dev": {
             "updates": [
                 {
@@ -9,7 +18,7 @@
                 },
                 {
                     "version": "0.0.2",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo/duckduckgo-0.0.2.xpi",
                     "update_hash": "sha512:d44438b9a4241a277977d4d9ca6e2a6c7a18c963c1f9f0f257ba8caf6ea20a62f1cdec6de4dcd3232d130783e1a0bf9b2c476a168d35615e63ea4fe9ac343801"
                 }
             ]
@@ -28,7 +37,7 @@
                 },
                 {
                     "version": "0.0.6",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.6.xpi",
                     "update_hash": "sha512:96b2e08984952def79c67885f65c858f6569e1b990c6e2dd31034b5be3a3a4a22a90339252578dab9cfebc00abfbc5b8e58d69a9c34716535e4089305ac0a871"
                 }
             ]
@@ -47,17 +56,8 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.4.xpi",
                     "update_hash": "sha512:4f6e2c7b74ae7bfd70987ee641c6d553a24b2b410ee43da6a6d8660294e76a04202c56974e9c6ff7647f1843d93f4056065be47471cb685d68073fbec2d64466"
-                }
-            ]
-        },
-        "brave-leta@celenity.dev": {
-            "updates": [
-                {
-                    "version": "0.0.1",
-                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
-                    "update_hash": "sha512:d3ff769c55ce6cf5f5c72db9b394d2f19e2b600edff878a8d13ead5c38719c9b99d519650085f22bcb328e1f0eb45dd6972f20d91f1279799e8d4b489c3b5df3"
                 }
             ]
         },
@@ -65,7 +65,7 @@
             "updates": [
                 {
                     "version": "0.0.1",
-                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/ba921f32fd82add44e35667a6f1e07d9a1aa77f3/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
                     "update_hash": "sha512:febc383c4e4efae2e254761dae3b46b6c6b9c0435304db03bdd0197be8c88bfb25303ac1e9abd2a39d081ce41beee4f0cc2edf27a63c470f9fd2db67ad503135"
                 }
             ]
@@ -89,7 +89,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/mojeek/mojeek-0.0.4.xpi",
                     "update_hash": "sha512:489c07e74ed36a4991a8002c54fa5823b0464714ae51ba3be596ffb699bdcb8b01fa068f93a96653cb075e52851d65f818ecffd0a927b266dfca68687c50a106"
                 }
             ]
@@ -113,7 +113,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/no-search/no-search-0.0.4.xpi",
                     "update_hash": "sha512:8c2db4af572b0b0965cfb4633fe8cec1a5fdffc6ba66251315338d1a3f9b7c91e6ba374aacc965377f94b8cbe9e161d93de049d5e3e16436db69be172bce9edd"
                 }
             ]
@@ -137,7 +137,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/startpage/startpage-0.0.4.xpi",
                     "update_hash": "sha512:37d6119ea5c7b5b1d7055f56327ed6baee3c7dfdc09ae992b50a7a8cd2ed6b38f909b3d7881a6c49d964983010c8f49928936862c123f8e4f5438aff72801d8d"
                 }
             ]
@@ -156,7 +156,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "",
+                    "update_link": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/swisscows/swisscows-0.0.3.xpi",
                     "update_hash": "sha512:fd26b2a2d39ced7bf7835350eda1b44cff8812c33be930d37947508855f74db2943c7ae046df42c306feda9a0d30d41bdfc79a01fecc08ec3c0fa38d932f0133"
                 }
             ]
