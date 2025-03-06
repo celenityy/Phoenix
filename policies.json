@@ -3,9 +3,6 @@
     "3rdparty": {
       "Extensions": {
         "uBlock0@raymondhill.net": {
-          "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
-          },
           "advancedSettings": [
             [
               "autoCommentFilterTemplate",
@@ -33,7 +30,10 @@
               "firewallPaneMinimized",
               "false"
             ]
-          ]
+          ],
+          "adminSettings": {
+            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
+          }
         }
       }
     },
@@ -340,10 +340,6 @@
       "daum-kr@search.mozilla.org": {
         "installation_mode": "blocked",
         "blocked_install_message": "Mozilla's extension for the built-in Daum Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/daum-kr/manifest.json"
-      },
-      "ddg@search.mozilla.org": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Mozilla's extension for the built-in DuckDuckGo Search Engine. We replace with our own to set it as the default..."
       },
       "ebay@search.mozilla.org": {
         "installation_mode": "blocked",
@@ -1124,51 +1120,65 @@
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": false
       },
+      "brave-leta@celenity.dev": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi",
+        "private_browsing": false,
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
+      },
       "ddg@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo/duckduckgo-0.0.2.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "duckduckgo-html@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.6.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "duckduckgo-lite@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.4.xpi",
+        "private_browsing": false,
+        "temporarily_allow_weak_signatures": false,
+        "updates_disabled": true
+      },
+      "google-leta@celenity.dev": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "mojeek@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/mojeek/mojeek-0.0.4.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "no-search@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/no-search/no-search-0.0.4.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "startpage@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/startpage/startpage-0.0.4.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
       },
       "swisscows@celenity.dev": {
         "installation_mode": "normal_installed",
-        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi",
+        "install_url": "https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/swisscows/swisscows-0.0.3.xpi",
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true

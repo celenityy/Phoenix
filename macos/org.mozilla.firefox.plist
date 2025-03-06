@@ -684,6 +684,19 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
+		<key>brave-leta@celenity.dev</key>
+		<dict>
+			<key>install_url</key>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi</string>
+			<key>installation_mode</key>
+			<string>normal_installed</string>
+			<key>private_browsing</key>
+			<false/>
+			<key>temporarily_allow_weak_signatures</key>
+			<false/>
+			<key>updates_disabled</key>
+			<true/>
+		</dict>
 		<key>bravesearch@celenity.dev</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -722,7 +735,7 @@
 		<key>ddg@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/862d3a65f0fab5fe463f2fbca10bce85b86a85fa/extensions/xpi/search/duckduckgo/duckduckgo-0.0.1.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo/duckduckgo-0.0.2.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -732,17 +745,10 @@
 			<key>updates_disabled</key>
 			<true/>
 		</dict>
-		<key>ddg@search.mozilla.org</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Mozilla's extension for the built-in DuckDuckGo Search Engine. We replace with our own to set it as the default...</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>duckduckgo-html@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.4.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.6.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -755,7 +761,7 @@
 		<key>duckduckgo-lite@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.3.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.4.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -897,6 +903,19 @@
 			<string>Mozilla's extension for the built-in GMX Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/gmx/manifest.json</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
+		</dict>
+		<key>google-leta@celenity.dev</key>
+		<dict>
+			<key>install_url</key>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi</string>
+			<key>installation_mode</key>
+			<string>normal_installed</string>
+			<key>private_browsing</key>
+			<false/>
+			<key>temporarily_allow_weak_signatures</key>
+			<false/>
+			<key>updates_disabled</key>
+			<true/>
 		</dict>
 		<key>google@search.mozilla.org</key>
 		<dict>
@@ -1097,7 +1116,7 @@
 		<key>mojeek@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/mojeek/mojeek-0.0.3.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/mojeek/mojeek-0.0.4.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1117,7 +1136,7 @@
 		<key>no-search@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/no-search/no-search-0.0.3.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/no-search/no-search-0.0.4.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1347,7 +1366,7 @@
 		<key>startpage@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/startpage/startpage-0.0.3.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/startpage/startpage-0.0.4.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1374,7 +1393,7 @@
 		<key>swisscows@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/7149e9458e7d28096590fdb42df606463cb98fa0/extensions/xpi/search/swisscows/swisscows-0.0.2.xpi</string>
+			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/swisscows/swisscows-0.0.3.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>

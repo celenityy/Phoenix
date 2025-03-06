@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.02.28.1", locked);
+pref("browser.phoenix.version", "2025.03.05.1", locked);
 
 // 000 ABOUT:CONFIG
 
@@ -322,7 +322,11 @@ pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 pref("security.insecure_connection_text.enabled", true);
 pref("security.insecure_connection_text.pbmode.enabled", true);
 pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
-pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT] Warn when submitting a form from HTTP to HTTPS
+
+/// Always warn when submitting a form from HTTP to HTTPS, even on local IP addresses
+
+pref("security.insecure_field_warning.ignore_local_ip_address", false);
+pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 
 /// Show detailed information on insecure warning pages
 
@@ -734,9 +738,17 @@ pref("privacy.clearOnShutdown.cache", true);
 pref("privacy.clearOnShutdown.downloads", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown_v2.cache", true);
+pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
+pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.downloads", true); // [HIDDEN]
+pref("privacy.clearOnShutdown_v2.formdata", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.sanitize.sanitizeOnShutdown", true);
+
+/// Ensure we're not clearing passwords & site settings by default
+
+pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
+pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 /// Prevent logging blocked domains in about:protections
 
@@ -910,7 +922,7 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
-// Enable TCP/dFPI
+/// Enable TCP/dFPI
 // https://support.mozilla.org/kb/introducing-total-cookie-protection-standard-mode
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2828
 
@@ -919,7 +931,7 @@ pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
 pref("network.cookie.cookieBehavior.pbmode", 5);
 
-// Enable State Partitioning
+/// Enable State Partitioning
 
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
@@ -929,7 +941,7 @@ pref("privacy.partition.network_state.ocsp_cache", true);
 pref("privacy.partition.network_state.ocsp_cache.pbmode", true);
 pref("privacy.partition.serviceWorkers", true);
 
-// Ignore less restricted referer policies (than the default)
+/// Ignore less restricted referer policies (than the default)
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
 
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // for cross-site requests
@@ -953,14 +965,14 @@ pref("privacy.trackingprotection.annotate_channels", true);
 pref("privacy.trackingprotection.enabled", true);
 pref("privacy.trackingprotection.pbmode.enabled", true);
 
-// Block known tracking resources using the `strict` (Level 2) list
+/// Block known tracking resources using the `strict` (Level 2) list
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15192
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804
 
 pref("privacy.annotate_channels.strict_list.enabled", true);
 pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
 
-// Block known third-party tracking cookies
+/// Block known third-party tracking cookies
 
 pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
 pref("privacy.socialtracking.block_cookies.enabled", true);
@@ -982,28 +994,28 @@ pref("privacy.trackingprotection.fingerprinting.enabled", true);
 
 pref("privacy.trackingprotection.socialtracking.enabled", true);
 
-// Enable Bounce Tracking Protection
+/// Enable Bounce Tracking Protection
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 // https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
 
 pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - non-Thunderbird]
 pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Thunderbird]
 
-// Enable Suspected Fingerprinters Protection
+/// Enable Suspected Fingerprinters Protection
 // https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
 
 pref("privacy.fingerprintingProtection", true);
 pref("privacy.fingerprintingProtection.pbmode", true);
 pref("privacy.reduceTimerPrecision", true); // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15353
 
-// Enable Query Parameter Stripping
+/// Enable Query Parameter Stripping
 // https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
 
 pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true);
 
-// Enable SmartBlock & UA overrides/injections
+/// Enable SmartBlock & UA overrides/injections
 // Also typically covered by ETP/Strict
 
 pref("extensions.webcompat.enable_shims", true); // [HIDDEN]
@@ -1740,9 +1752,32 @@ pref("browser.phoenix.status.desktop.common", "004"); // [NO-OSX]
 // 005 DISK AVOIDANCE
 
 /// Sanitization
-// Clears cache on sanitization dialog by default
+// Checks the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
 
+pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearHistory.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearHistory.formdata", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.browsingHistoryAndDownloads", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.formdata", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.historyFormDataAndDownloads", true); // [HIDDEN - Thunderbird]
 pref("privacy.cpd.cache", true); // [DEFAULT]
+pref("privacy.cpd.downloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.cpd.formdata", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.cpd.history", true); // [DEFAULT]
+pref("privacy.cpd.sessions", true); // [DEFAULT, HIDDEN - Thunderbird]
+
+// Except for cookies... (as this ignores `Allow` exceptions)
+
+pref("privacy.clearHistory.cookiesAndStorage", false);
+pref("privacy.clearSiteData.cookiesAndStorage", false);
+pref("privacy.cpd.cookies", false);
+pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
+
+// and passwords...
+
+pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Set time range when manually clearing data to "everything" by default
 
@@ -1896,7 +1931,6 @@ pref("browser.phoenix.status.desktop.common", "013");
 // 014 PERFORMANCE
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
-pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("network.http.max-connections", 1800); // [Default = 900]
 
 /// Disables certain UI animations
@@ -2445,12 +2479,18 @@ pref("browser.phoenix.status.desktop", "008");
 pref("privacy.history.custom", true);
 
 /// Sanitization
-// Checks the boxes for clearing browsing history, cache, download history, & sessions when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
 
-pref("privacy.clearHistory.cache", true);
-pref("privacy.clearHistory.historyFormDataAndDownloads", true);
-pref("privacy.clearSiteData.cache", true);
-pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
+// Don't clear cookies by default...
+
+pref("privacy.clearOnShutdown.cookies", false);
+pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
+
+// Don't clear site settings by default at `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
+
+pref("privacy.clearHistory.siteSettings", false); // [DEFAULT]
+pref("privacy.clearSiteData.siteSettings", false); // [DEFAULT]
+pref("privacy.cpd.siteSettings", false); // [DEFAULT]
 
 /// Prevent logging blocked domains in about:protections
 
@@ -2522,7 +2562,7 @@ pref("browser.phoenix.status.desktop", "011");
 // List of targets: https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
 // Easily build your own (global) override list: https://raw.githack.com/rindeal/Firefox-FPP-Override-List-Editor/master/FirefoxFPPOverrideListEditor.html
 
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-HttpUserAgent,-JSDateTimeUTC");
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC");
 
 /// Unbreak websites with FPP (if the related target is enabled...)
 // Currently covers:
@@ -2665,7 +2705,7 @@ pref("browser.phoenix.status.desktop", "017");
 // 018 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
-
+pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
 pref("browser.phoenix.status.desktop", "018");
