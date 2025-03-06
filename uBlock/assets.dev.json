@@ -1062,6 +1062,24 @@
         "contentURL": "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist.txt",
         "supportURL": "https://github.com/fmhy/FMHYFilterlist/issues"
     },
+    "huge-ai": {
+        "content": "filters",
+        "group": "annoyances",
+        "parent": "Huge AI Blocklist",
+        "off": true,
+        "title": "Huge AI Blocklist",
+        "contentURL": "https://raw.githubusercontent.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/main/list.txt",
+        "supportURL": "https://github.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/issues"
+    },
+    "huge-ai-nuclear": {
+        "content": "filters",
+        "group": "annoyances",
+        "parent": "Huge AI Blocklist",
+        "off": true,
+        "title": "NUCLEAR AI Blocklist",
+        "contentURL": "https://raw.githubusercontent.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/main/additional_list_nuclear.txt",
+        "supportURL": "https://github.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/issues"
+    },
     "multilight": {
         "content": "filters",
         "group": "multipurpose",
