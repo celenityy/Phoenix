@@ -297,9 +297,9 @@ pref("dom.security.https_first", true);
 pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT, DEFENSE IN DEPTH]
 pref("dom.security.https_first_pbm", true); // [DEFAULT]
 pref("dom.security.https_first_schemeless", true);
-pref("dom.security.https_only_mode", true, locked);
+pref("dom.security.https_only_mode", true);
 pref("dom.security.https_only_mode.upgrade_local", true);
-pref("dom.security.https_only_mode_pbm", true, locked);
+pref("dom.security.https_only_mode_pbm", true);
 pref("security.mixed_content.block_active_content", true);
 pref("security.mixed_content.block_display_content", true);
 pref("security.mixed_content.block_object_subrequest", true);
