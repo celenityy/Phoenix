@@ -297,9 +297,9 @@ pref("dom.security.https_first", true);
 pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT, DEFENSE IN DEPTH]
 pref("dom.security.https_first_pbm", true); // [DEFAULT]
 pref("dom.security.https_first_schemeless", true);
-pref("dom.security.https_only_mode", true, locked);
+pref("dom.security.https_only_mode", true);
 pref("dom.security.https_only_mode.upgrade_local", true);
-pref("dom.security.https_only_mode_pbm", true, locked);
+pref("dom.security.https_only_mode_pbm", true);
 pref("security.mixed_content.block_active_content", true);
 pref("security.mixed_content.block_display_content", true);
 pref("security.mixed_content.block_object_subrequest", true);
@@ -851,30 +851,33 @@ pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}"
 
 /// Block our search 'extensions' from accessing quarantined domains...
 
+pref("extensions.quarantineIgnoredByUser.brave-leta@celenity.dev", false, locked); // Mullvad Leta (Brave)
 pref("extensions.quarantineIgnoredByUser.ddg@celenity.dev", false, locked); // DuckDuckGo
 pref("extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev", false, locked); // DuckDuckGo HTML
 pref("extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev", false, locked); // DuckDuckGo Lite
-pref("extensions.quarantineIgnoredByUser.ecosia@celenity.dev", false, locked); // Ecosia
+pref("extensions.quarantineIgnoredByUser.google-leta@celenity.dev", false, locked); // Mullvad Leta (Google)
 pref("extensions.quarantineIgnoredByUser.mojeek@celenity.dev", false, locked); // Mojeek
 pref("extensions.quarantineIgnoredByUser.no-search@celenity.dev", false, locked); // No Search
-pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
-pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
 pref("extensions.quarantineIgnoredByUser.startpage@celenity.dev", false, locked); // Startpage
-pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Startpage
+pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
 
 /// We can also include our deprecated search 'extensions' for defense in depth...
 
 pref("extensions.quarantineIgnoredByUser.bravesearch@celenity.dev", false, locked); // Brave Search
+pref("extensions.quarantineIgnoredByUser.ecosia@celenity.dev", false, locked); // Ecosia
 pref("extensions.quarantineIgnoredByUser.kagi@celenity.dev", false, locked); // Kagi
 pref("extensions.quarantineIgnoredByUser.kagi-html@celenity.dev", false, locked); // Kagi HTML
 pref("extensions.quarantineIgnoredByUser.leta-brave@celenity.dev", false, locked); // Mullvad Leta (Brave)
 pref("extensions.quarantineIgnoredByUser.leta-google@celenity.dev", false, locked); // Mullvad Leta (Google)
 pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); // MetaGer
+pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
+pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
 
 /// Block certain Mozilla extensions from accessing quarantined domains...
 
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
 pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry...
+pref("extensions.quarantineIgnoredByUser.ddg@search.mozilla.org", false, locked); // DuckDuckGo - search engine...
 pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine...
 
 pref("browser.phoenix.status.core", "014");
@@ -2398,15 +2401,26 @@ pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // [DEFAULT]
 
 pref("browser.phoenix.status.desktop", "004");
 
-// 005 DNS
+// 005 HTTP(S) - Mixed Content & General Network Hardening
+
+/// Enforce using HTTPS as much as possible
+// We're not locking this for Android/Thundebird since it's unfortunately not possible to add persistent exceptions there...
+// https://gitlab.com/ironfox-oss/IronFox/-/issues/48
+
+pref("dom.security.https_only_mode", true, locked);
+pref("dom.security.https_only_mode_pbm", true, locked);
+
+pref("browser.phoenix.status.desktop", "005");
+
+// 006 DNS
 
 /// Improve list of built-in DoH resolvers
 
 pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop", "005");
+pref("browser.phoenix.status.desktop", "006");
 
-// 006 CERTIFICATES
+// 007 CERTIFICATES
 
 /// Enforce MITM Detection
 // https://github.com/arkenfox/user.js/issues/740
@@ -2418,9 +2432,9 @@ pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
 
 pref("security.certerrors.permanentOverride", false);
 
-pref("browser.phoenix.status.desktop", "006");
+pref("browser.phoenix.status.desktop", "007");
 
-// 007 GEOLOCATION
+// 008 GEOLOCATION
 
 /// Blocks websites from accessing geolocation by default
 
@@ -2435,9 +2449,9 @@ pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 pref("geo.provider.use_corelocation", true); // [DEFAULT] - Enable Apple Location Services for macOS
 pref("geo.provider.use_geoclue", true); // [DEFAULT] - Enable Geoclue for Linux distros [NO-OSX]
 
-pref("browser.phoenix.status.desktop", "007");
+pref("browser.phoenix.status.desktop", "008");
 
-// 008 AI
+// 009 AI
 // https://support.mozilla.org/kb/ai-chatbot
 
 /// Ensure that AI functionality is disabled by default
@@ -2463,9 +2477,9 @@ pref("browser.ml.chat.hideFromLabs", false);
 
 pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "008");
+pref("browser.phoenix.status.desktop", "009");
 
-// 009 DISK AVOIDANCE
+// 010 DISK AVOIDANCE
 
 /// Enable 'Use Custom settings' for history by default
 
@@ -2525,9 +2539,9 @@ pref("identity.fxaccounts.migrateToDevEdition", false);
 
 pref("browser.newtabpage.activity-stream.feeds.places", false);
 
-pref("browser.phoenix.status.desktop", "009");
+pref("browser.phoenix.status.desktop", "010");
 
-// 010 EXTENSIONS
+// 011 EXTENSIONS
 
 // Only allow signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
@@ -2535,9 +2549,9 @@ pref("browser.phoenix.status.desktop", "009");
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "010");
+pref("browser.phoenix.status.desktop", "011");
 
-// 011 PDF.js
+// 012 PDF.js
 
 /// Prevent checking if Firefox is the default PDF viewer
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
@@ -2545,9 +2559,9 @@ pref("browser.phoenix.status.desktop", "010");
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop", "011");
+pref("browser.phoenix.status.desktop", "012");
 
-// 012 FINGERPRINTING PROTECTION
+// 013 FINGERPRINTING PROTECTION
 
 /// Harden FPP (which we already enable above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/issues/46
@@ -2578,9 +2592,9 @@ pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain
 
 pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.status.desktop", "012");
+pref("browser.phoenix.status.desktop", "013");
 
-/// 013 MISC. PRIVACY
+/// 014 MISC. PRIVACY
 
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that ever changes in the future.
@@ -2591,9 +2605,9 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Pho
 
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "013");
+pref("browser.phoenix.status.desktop", "014");
 
-// 014 PASSWORDS & AUTHENTICATION
+// 015 PASSWORDS & AUTHENTICATION
 
 /// If password manager is enabled, enable alerts for breached & vulnerable passwords by default, harmless and never sends passwords or sensitive data to Mozilla
 // https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords
@@ -2608,17 +2622,17 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "014");
+pref("browser.phoenix.status.desktop", "015");
 
-// 015 BLOCK COOKIE BANNERS
+// 016 BLOCK COOKIE BANNERS
 
 /// Enable UI in `about:preferences#privacy`
 
 pref("cookiebanners.ui.desktop.enabled", true);
 
-pref("browser.phoenix.status.desktop", "015");
+pref("browser.phoenix.status.desktop", "016");
 
-// 016 UPDATES
+// 017 UPDATES
 
 /// Browser Updates
 
@@ -2630,9 +2644,9 @@ pref("browser.startup.upgradeDialog.enabled", true);
 
 pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "016");
+pref("browser.phoenix.status.desktop", "017");
 
-/// 017 MISC.
+/// 018 MISC.
 
 /// Block web notifications by default
 /// I have yet to see a legitimate use-case for websites using push notifications...
@@ -2693,17 +2707,17 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop", "017");
+pref("browser.phoenix.status.desktop", "018");
 
-// 018 PERFORMANCE
+// 019 PERFORMANCE
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("media.ffmpeg.vaapi.enabled", true); // Enable VA-API by default [NO-OSX]
 pref("sidebar.animation.enabled", false); // Disable sidebar animations
 
-pref("browser.phoenix.status.desktop", "018");
+pref("browser.phoenix.status.desktop", "019");
 
-// 019 Personal Touch 💜
+// 020 Personal Touch 💜
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -2739,7 +2753,7 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
-pref("browser.phoenix.status.desktop", "019");
+pref("browser.phoenix.status.desktop", "020");
 
 // Sync more prefs
 
@@ -2822,15 +2836,15 @@ pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", tr
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
 pref("services.sync.prefs.sync.webgl.disabled", true);
 
-pref("browser.phoenix.status.desktop", "019");
+pref("browser.phoenix.status.desktop", "021");
 
-// 020 Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
+// 022 Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 
 pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
 pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
 pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.status.desktop", "020"); // [NO-OSX] [NO-SPEC]
+pref("browser.phoenix.status.desktop", "022"); // [NO-OSX] [NO-SPEC]
 
 pref("browser.phoenix.status.desktop", "successfully applied :D", locked);
 
