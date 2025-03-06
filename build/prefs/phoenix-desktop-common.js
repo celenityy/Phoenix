@@ -79,9 +79,32 @@ pref("browser.phoenix.status.desktop.common", "004"); // [NO-OSX]
 // 005 DISK AVOIDANCE
 
 /// Sanitization
-// Clears cache on sanitization dialog by default
+// Checks the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
 
+pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearHistory.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearHistory.formdata", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.browsingHistoryAndDownloads", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.formdata", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearSiteData.historyFormDataAndDownloads", true); // [HIDDEN - Thunderbird]
 pref("privacy.cpd.cache", true); // [DEFAULT]
+pref("privacy.cpd.downloads", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.cpd.formdata", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("privacy.cpd.history", true); // [DEFAULT]
+pref("privacy.cpd.sessions", true); // [DEFAULT, HIDDEN - Thunderbird]
+
+// Except for cookies... (as this ignores `Allow` exceptions)
+
+pref("privacy.clearHistory.cookiesAndStorage", false);
+pref("privacy.clearSiteData.cookiesAndStorage", false);
+pref("privacy.cpd.cookies", false);
+pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
+
+// and passwords...
+
+pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Set time range when manually clearing data to "everything" by default
 

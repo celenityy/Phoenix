@@ -740,9 +740,15 @@ pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.downloads", true); // [HIDDEN]
 pref("privacy.clearOnShutdown_v2.formdata", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [HIDDEN - Android/Thunderbird]
 pref("privacy.sanitize.sanitizeOnShutdown", true);
+
+/// Ensure we're not clearing passwords & site settings by default
+
+pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
+pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
 /// Prevent logging blocked domains in about:protections
 
