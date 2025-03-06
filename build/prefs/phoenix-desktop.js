@@ -481,16 +481,20 @@ pref("privacy.history.custom", true);
 /// Sanitization
 // Checks the boxes for clearing browsing history, cache, download history, & sessions when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
 
-pref("privacy.clearHistory.cache", true);
-pref("privacy.clearHistory.historyFormDataAndDownloads", true);
-pref("privacy.clearSiteData.cache", true);
+pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT]
+pref("privacy.clearHistory.cache", true); // [DEFAULT]
+pref("privacy.clearHistory.formdata", true);
+pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [DEFAULT]
+pref("privacy.clearSiteData.browsingHistoryAndDownloads", true);
+pref("privacy.clearSiteData.cache", true); // [DEFAULT]
+pref("privacy.clearSiteData.formdata", true);
 pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
 
 // Don't clear cookies by default...
 
-pref("privacy.clearOnShutdown.cookies", false); // [DEFAULT]
+pref("privacy.clearOnShutdown.cookies", false);
 pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
-pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
 
 /// Prevent logging blocked domains in about:protections
 
