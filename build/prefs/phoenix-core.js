@@ -849,30 +849,6 @@ pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}"
 
 pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
 
-/// Block our search 'extensions' from accessing quarantined domains...
-
-pref("extensions.quarantineIgnoredByUser.brave-leta@celenity.dev", false, locked); // Mullvad Leta (Brave)
-pref("extensions.quarantineIgnoredByUser.ddg@celenity.dev", false, locked); // DuckDuckGo
-pref("extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev", false, locked); // DuckDuckGo HTML
-pref("extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev", false, locked); // DuckDuckGo Lite
-pref("extensions.quarantineIgnoredByUser.google-leta@celenity.dev", false, locked); // Mullvad Leta (Google)
-pref("extensions.quarantineIgnoredByUser.mojeek@celenity.dev", false, locked); // Mojeek
-pref("extensions.quarantineIgnoredByUser.no-search@celenity.dev", false, locked); // No Search
-pref("extensions.quarantineIgnoredByUser.startpage@celenity.dev", false, locked); // Startpage
-pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
-
-/// We can also include our deprecated search 'extensions' for defense in depth...
-
-pref("extensions.quarantineIgnoredByUser.bravesearch@celenity.dev", false, locked); // Brave Search
-pref("extensions.quarantineIgnoredByUser.ecosia@celenity.dev", false, locked); // Ecosia
-pref("extensions.quarantineIgnoredByUser.kagi@celenity.dev", false, locked); // Kagi
-pref("extensions.quarantineIgnoredByUser.kagi-html@celenity.dev", false, locked); // Kagi HTML
-pref("extensions.quarantineIgnoredByUser.leta-brave@celenity.dev", false, locked); // Mullvad Leta (Brave)
-pref("extensions.quarantineIgnoredByUser.leta-google@celenity.dev", false, locked); // Mullvad Leta (Google)
-pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); // MetaGer
-pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
-pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
-
 /// Block certain Mozilla extensions from accessing quarantined domains...
 
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
