@@ -486,6 +486,12 @@ pref("privacy.clearHistory.historyFormDataAndDownloads", true);
 pref("privacy.clearSiteData.cache", true);
 pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
 
+// Don't clear cookies by default...
+
+pref("privacy.clearOnShutdown.cookies", false); // [DEFAULT]
+pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false); // [DEFAULT]
+
 /// Prevent logging blocked domains in about:protections
 
 pref("browser.contentblocking.cfr-milestone.enabled", false);
