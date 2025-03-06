@@ -1421,13 +1421,6 @@ pref("dom.security.sanitizer.enabled", true);
 
 pref("dom.security.setHTML.enabled", true);
 
-/// Enable Trusted Types (Like Chromium)
-// https://w3c.github.io/trusted-types/dist/spec/
-// https://developer.mozilla.org/docs/Web/API/Trusted_Types_API
-// https://www.theregister.com/2023/12/21/mozilla_decides_trusted_types_is/
-
-pref("dom.security.trusted_types.enabled", true);
-
 /// Prevent marking JIT code pages as both writable and executable, only one or the other...
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8714
 // Might cause issues in certain specific set-ups
