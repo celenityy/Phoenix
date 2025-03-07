@@ -760,7 +760,7 @@ cp ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
 
 - **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
-	- Designed Phoenix's icon, created the install & uninstall scripts, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
+	- Designed Phoenix's icon, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
 
 - **[GW72](https://codeberg.org/GW72)**
 	- Invaluable feedback & support of the project.
