@@ -101,10 +101,10 @@ Firefox Packman:
 yay -S phoenix-arch
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-yay -S phoenix-flatpack
+yay -S phoenix-flatpak
 ```
 </details>
 
@@ -123,10 +123,10 @@ Firefox DEB:
 sudo apt install phoenix
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-sudo apt install phoenix-flatpack
+sudo apt install phoenix-flatpak
 ```
 
 Firefox-ESR DEB:
@@ -150,10 +150,10 @@ Firefox RPM:
 sudo dnf install phoenix
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-sudo dnf install phoenix-flatpack
+sudo dnf install phoenix-flatpak
 ```
 </details>
 
@@ -215,10 +215,10 @@ Firefox Packman:
 yay -Rcns phoenix-arch
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-yay -Rcns phoenix-flatpack
+yay -Rcns phoenix-flatpak
 ```
 </details>
 
@@ -230,10 +230,10 @@ Firefox DEB:
 sudo apt remove phoenix
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-sudo apt remove phoenix-flatpack
+sudo apt remove phoenix-flatpak
 ```
 
 Firefox-ESR DEB:
@@ -258,10 +258,10 @@ Firefox RPM:
 sudo dnf remove phoenix
 ```
 
-Firefox Flatpack:
+Firefox Flatpak:
 
 ```
-sudo dnf remove install phoenix-flatpack
+sudo dnf remove install phoenix-flatpak
 ```
 
 You can remove Celenity's COPR Repo if you want:
