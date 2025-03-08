@@ -51,7 +51,7 @@ brew tap celenity/tap https://codeberg.org/celenity/tap || error_fn
 echo
 
 echo_green_text "Updating Homebrew cache..."
-brew update && brew upgrade --force --verbose || error_fn
+brew update || error_fn
 echo
 
 echo_green_text "Installing phoenix-osx package..."
