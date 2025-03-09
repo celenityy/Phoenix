@@ -164,6 +164,9 @@ sudo dnf install phoenix-flatpak
 
 **<details><summary>macOS</summary>**
 
+> [!IMPORTANT]
+> ⚠️ **Before proceeding, you must have [Homebrew](https://brew.sh/) installed.**
+
 Run the following installation script in your terminal of choice:
 
 ```sh
