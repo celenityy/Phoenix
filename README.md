@@ -740,7 +740,7 @@ The installation of these configs is the same as `Extended`, with the only excep
 
 # 📛Manual Installation
 
-> [!CAUTION] 
+> [!CAUTION]
 >**This is NOT recommended for most users.**
 
 By default, Phoenix is installed & updated via your operating system's package manager. This allows for fast, easy updates & fixes as needed, right with the rest of your system!
