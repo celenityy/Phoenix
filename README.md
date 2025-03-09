@@ -79,34 +79,92 @@ Phoenix currently provides official support for:
 * **Debian** *(& derivatives...)*
 * **Fedora Linux** *(39-41)*
 * **NixOS**
-* **Flatpak** *(System)*
 * **macOS**
 * **Ubuntu** *(& derivatives...)*
 
-> [!IMPORTANT]
-> ⚠️ **macOS users must have [Homebrew](https://brew.sh/) installed.**
-
-> [!IMPORTANT]
-> ⚠️ **Flatpak *(User)* & Snap packages of Firefox are currently not supported.**
-
 Other platforms have unfortunately proven difficult to support, though progress **is** being made. Contributions are always welcome and appreciated.
 
-**If your platform is supported *(with the exception of NixOS, Android & macOS)*, simply run the following command in your terminal to install Phoenix:**
-
-```sh
-sudo bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/install.sh 2>/dev/null)"
-```
-
-**macOS** users should instead run the following command to install Phoenix:
-
-```sh
-bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos_install.sh 2>/dev/null)"
-```
+> [!NOTE]
+> ⚠️ **Flatpak *(User)* & Snap packages of Firefox are currently not supported.**
 
 > [!IMPORTANT]
 > **Android users are recommended to install [IronFox](https://gitlab.com/ironfox-oss/IronFox) *(Recommended)*, which uses Phoenix for its configs. Android users can also manually install Phoenix for any Firefox-based browser on Android via the directions [here](https://phoenix.celenity.dev/android).**
 
-## NixOS
+**<details><summary>Arch</summary>**
+
+> [!NOTE]
+> You can use paru instead of yay with the same options
+
+Firefox Packman:
+
+```
+yay -S phoenix-arch
+```
+
+Firefox Flatpak:
+
+```
+yay -S phoenix-flatpak
+```
+</details>
+
+**<details><summary>Debian & Ubutnu & derivatives...</summary>**
+
+ For installing and updating packages add Celenity's OBS Repo:
+ ```
+ echo 'deb http://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
+ curl -fsSL https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
+ sudo apt update
+ ```
+
+Firefox DEB:
+
+```
+sudo apt install phoenix
+```
+
+Firefox Flatpak:
+
+```
+sudo apt install phoenix-flatpak
+```
+
+Firefox-ESR DEB:
+
+```
+sudo apt install phoenix-esr
+```
+</details>
+
+**<details><summary>Fedora</summary>**
+
+ For installing and updating packages add Celenity's COPR Repo:
+ ```
+ sudo dnf copr enable celenity/copr
+ sudo dnf update --refresh
+ ```
+
+Firefox RPM:
+
+```
+sudo dnf install phoenix
+```
+
+Firefox Flatpak:
+
+```
+sudo dnf install phoenix-flatpak
+```
+</details>
+
+**<details><summary>macOS</summary>**
+
+**Add phoenix tap ?**
+
+**Install phoenix for Firefox DMG ?**
+</details>
+
+**<details><summary>NixOS</summary>**
 
 NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/Flakes#Using_nix_flakes_with_NixOS):
 1. Add the Phoenix repository to your flake inputs.
@@ -137,6 +195,8 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
   };
 }
 ```
+</details>
+
 
 ## **If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](#manual-installation).**
 
@@ -144,19 +204,86 @@ ___
 
 # 👋Uninstall
 
-If Phoenix isn't right for you - no worries!
+**<details><summary>Arch</summary>**
 
-**Simply run the following command in your terminal to uninstall Phoenix:**
+> [!NOTE]
+> You can use paru instead of yay with the same options
 
-```sh
-sudo bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstall.sh 2>/dev/null)"
+Firefox Packman:
+
+```
+yay -Rcns phoenix-arch
 ```
 
-**macOS** users should instead run the following command to uninstall Phoenix:
+Firefox Flatpak:
 
-```sh
-bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
 ```
+yay -Rcns phoenix-flatpak
+```
+</details>
+
+**<details><summary>Debian & Ubutnu & derivatives</summary>**
+
+Firefox DEB:
+
+```
+sudo apt remove phoenix
+```
+
+Firefox Flatpak:
+
+```
+sudo apt remove phoenix-flatpak
+```
+
+Firefox-ESR DEB:
+
+```
+sudo apt remove phoenix-esr
+```
+
+You can remove Celenity's OBS Repo if you want:
+```
+sudo rm /etc/apt/sources.list.d/home:celenity.list
+sudo rm /etc/apt/trusted.gpg.d/home_celenity.gpg
+sudo apt update
+```
+</details>
+
+**<details><summary>Fedora</summary>**
+
+Firefox RPM:
+
+```
+sudo dnf remove phoenix
+```
+
+Firefox Flatpak:
+
+```
+sudo dnf remove install phoenix-flatpak
+```
+
+You can remove Celenity's COPR Repo if you want:
+```
+sudo dnf copr remove celenity/copr
+sudo dnf update --refresh
+```
+</details>
+
+**<details><summary>macOS</summary>**
+
+**Remove phoenix ?**
+
+**Remove brew tap ?**
+</details>
+
+**<details><summary>NixOS</summary>**
+
+**?**
+
+</details>
+
 
 Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!
 
