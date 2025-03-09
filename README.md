@@ -93,83 +93,91 @@ Other platforms have unfortunately proven difficult to support, though progress 
 **<details><summary>Arch</summary>**
 
 > [!NOTE]
-> You can use paru instead of yay with the same options
+> You can use **`paru`** instead of **`yay`** with the same options.
 
-Firefox Packman:
+Firefox *(Standard)*:
 
-```
+```sh
 yay -S phoenix-arch
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 yay -S phoenix-flatpak
 ```
+
 </details>
 
-**<details><summary>Debian & Ubutnu & derivatives...</summary>**
+**<details><summary>Debian/Ubuntu & derivatives</summary>**
 
- For installing and updating packages add Celenity's OBS Repo:
- ```
- echo 'deb http://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
+ Before installing Phoenix, you'll first need to add [celenity's OBS repo](https://build.opensuse.org/project/show/home:celenity):
+
+ ```sh
+ echo 'deb https://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
  curl -fsSL https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
  sudo apt update
  ```
 
-Firefox DEB:
+Firefox *(Standard)*:
 
-```
+```sh
 sudo apt install phoenix
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 sudo apt install phoenix-flatpak
 ```
 
-Firefox-ESR DEB:
+Firefox *(ESR)*:
 
-```
+```sh
 sudo apt install phoenix-esr
 ```
+
 </details>
 
 **<details><summary>Fedora</summary>**
 
- For installing and updating packages add Celenity's COPR Repo:
- ```
+ Before installing Phoenix, you'll first need to add [celenity's COPR repo](https://copr.fedorainfracloud.org/coprs/celenity/copr/):
+
+ ```sh
  sudo dnf copr enable celenity/copr
- sudo dnf update --refresh
+ sudo dnf makecache
  ```
 
-Firefox RPM:
+Firefox *(Standard)*:
 
-```
+```sh
 sudo dnf install phoenix
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 sudo dnf install phoenix-flatpak
 ```
+
 </details>
 
 **<details><summary>macOS</summary>**
 
-**Add phoenix tap ?**
+Run the following installation script in your terminal of choice:
 
-**Install phoenix for Firefox DMG ?**
+```sh
+bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos_install.sh 2>/dev/null)"
+```
+
 </details>
 
 **<details><summary>NixOS</summary>**
 
 NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/Flakes#Using_nix_flakes_with_NixOS):
 1. Add the Phoenix repository to your flake inputs.
-1. Add `phoenix` as one of the arguments to your output function.
-1. Add the Phoenix NixOS Module to your configuration.
+2. Add `phoenix` as one of the arguments to your output function.
+3. Add the Phoenix NixOS Module to your configuration.
 ```nix
 {
   inputs = {
@@ -195,8 +203,8 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
   };
 }
 ```
-</details>
 
+</details>
 
 ## **If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](#manual-installation).**
 
@@ -207,75 +215,83 @@ ___
 **<details><summary>Arch</summary>**
 
 > [!NOTE]
-> You can use paru instead of yay with the same options
+> You can use **`paru`** instead of **`yay`** with the same options.
 
-Firefox Packman:
+Firefox *(Standard)*:
 
-```
+```sh
 yay -Rcns phoenix-arch
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 yay -Rcns phoenix-flatpak
 ```
+
 </details>
 
-**<details><summary>Debian & Ubutnu & derivatives</summary>**
+**<details><summary>Debian/Ubuntu & derivatives</summary>**
 
-Firefox DEB:
+Firefox *(Standard)*:
 
-```
+```sh
 sudo apt remove phoenix
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 sudo apt remove phoenix-flatpak
 ```
 
-Firefox-ESR DEB:
+Firefox *(ESR)*:
 
-```
+```sh
 sudo apt remove phoenix-esr
 ```
 
-You can remove Celenity's OBS Repo if you want:
-```
+You can also remove [celenity's OBS repo](https://build.opensuse.org/project/show/home:celenity) if desired:
+
+```sh
 sudo rm /etc/apt/sources.list.d/home:celenity.list
 sudo rm /etc/apt/trusted.gpg.d/home_celenity.gpg
 sudo apt update
 ```
+
 </details>
 
 **<details><summary>Fedora</summary>**
 
-Firefox RPM:
+Firefox *(Standard)*:
 
-```
+```sh
 sudo dnf remove phoenix
 ```
 
-Firefox Flatpak:
+Firefox *(System Flatpak)*:
 
-```
+```sh
 sudo dnf remove install phoenix-flatpak
 ```
 
-You can remove Celenity's COPR Repo if you want:
-```
+You can also remove [celenity's COPR repo](https://copr.fedorainfracloud.org/coprs/celenity/copr/) if desired:
+
+```sh
 sudo dnf copr remove celenity/copr
-sudo dnf update --refresh
+sudo dnf makecache
 ```
+
 </details>
 
 **<details><summary>macOS</summary>**
 
-**Remove phoenix ?**
+Run the following uninstall script in your terminal of choice:
 
-**Remove brew tap ?**
+```sh
+bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
+```
+
 </details>
 
 **<details><summary>NixOS</summary>**
@@ -283,7 +299,6 @@ sudo dnf update --refresh
 **?**
 
 </details>
-
 
 Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!
 
