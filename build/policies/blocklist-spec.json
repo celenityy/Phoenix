@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "extension@ciuvo.com": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "'Picky' https://addons.mozilla.org/firefox/addon/ciuvo/ - Tracks users, poor privacy practices..."
+            },
             "dynamic-probe-telemetry-extension@mozilla.com": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla 'Dynamic Probe Telemetry' https://github.com/mozilla-extensions/dynamic-probe-telemetry-extension"
