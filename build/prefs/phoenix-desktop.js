@@ -536,13 +536,6 @@ pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
 
-/// Stop Firefox from automatically pinning recently visited websites to the `about:home` by default
-// The UI toggle (browser.newtabpage.activity-stream.feeds.topsites) disables both pinning visited websites AND prevents users from adding their own pinned sites
-// Using this pref instead allows users to still pin websites
-// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/PlacesFeed.sys.mjs
-
-pref("browser.newtabpage.activity-stream.feeds.places", false);
-
 pref("browser.phoenix.status.desktop", "010");
 
 // 011 EXTENSIONS
