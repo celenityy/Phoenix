@@ -794,7 +794,6 @@ pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystrea
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
-pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.sectionOrder", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showWeather", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", true);
