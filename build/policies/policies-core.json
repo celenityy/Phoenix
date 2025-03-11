@@ -1,39 +1,5 @@
 {
     "policies": {
-        "3rdparty": {
-            "Extensions": {
-                "uBlock0@raymondhill.net": {
-                    "advancedSettings": [
-                        [
-                            "autoCommentFilterTemplate",
-                            "{{url}}"
-                        ],
-                        [
-                            "filterAuthorMode",
-                            "true"
-                        ],
-                        [
-                            "updateAssetBypassBrowserCache",
-                            "true"
-                        ]
-                    ],
-                    "userSettings": [
-                        [
-                            "advancedUserEnabled",
-                            "true"
-                        ],
-                        [
-                            "dynamicFilteringEnabled",
-                            "true"
-                        ],
-                        [
-                            "firewallPaneMinimized",
-                            "false"
-                        ]
-                    ]
-                }
-            }
-        },
         "BlockAboutAddons": false,
         "BlockAboutConfig": false,
         "BlockAboutProfiles": false,
