@@ -267,29 +267,6 @@
         },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
-        "OfferToSaveLoginsDefault": false,
-        "Permissions": {
-            "Autoplay": {
-                "Default": "block-audio-video",
-                "Locked": false
-            },
-            "Location": {
-                "BlockNewRequests": true,
-                "Locked": false
-            },
-            "Notifications": {
-                "BlockNewRequests": true,
-                "Locked": false
-            },
-            "VirtualReality": {
-                "BlockNewRequests": true,
-                "Locked": false
-            }
-        },
-        "PopupBlocking": {
-            "Default": true,
-            "Locked": false
-        },
         "PrivateBrowsingModeAvailability": 0,
         "SupportMenu": {
             "Title": "Phoenix Issue Tracker",
