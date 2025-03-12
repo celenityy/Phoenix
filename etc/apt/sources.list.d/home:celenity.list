@@ -1,0 +1,2 @@
+# Temporary file to upgrade the repo tp HTTPS for users with existing installs
+deb https://download.opensuse.org/repositories/home:/celenity/Debian_12/ /
