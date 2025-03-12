@@ -1627,7 +1627,6 @@ pref("browser.phoenix.status.core", "027");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
-pref("browser.translations.alwaysTranslateLanguages", "bg,ca,cs,da,de,el,en,es,et,fi,fr,hr,hu,id,it,ja,ko,lv,lt,nl,pl,pt,ro,ru,sk,sl,sr,sv,tr,uk,vi,zh-Hans");
 pref("browser.translations.automaticallyPopup", true); // [DEFAULT]
 pref("browser.translations.enable", true); // [DEFAULT - non-Thunderbird]
 pref("browser.translations.select.enable", true); // [DEFAULT - non-Android/Thunderbird]
