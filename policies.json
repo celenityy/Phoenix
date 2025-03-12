@@ -1,42 +1,5 @@
 {
   "policies": {
-    "3rdparty": {
-      "Extensions": {
-        "uBlock0@raymondhill.net": {
-          "advancedSettings": [
-            [
-              "autoCommentFilterTemplate",
-              "{{url}}"
-            ],
-            [
-              "filterAuthorMode",
-              "true"
-            ],
-            [
-              "updateAssetBypassBrowserCache",
-              "true"
-            ]
-          ],
-          "userSettings": [
-            [
-              "advancedUserEnabled",
-              "true"
-            ],
-            [
-              "dynamicFilteringEnabled",
-              "true"
-            ],
-            [
-              "firewallPaneMinimized",
-              "false"
-            ]
-          ],
-          "adminSettings": {
-            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
-          }
-        }
-      }
-    },
     "BlockAboutAddons": false,
     "BlockAboutConfig": false,
     "BlockAboutProfiles": false,
@@ -121,6 +84,10 @@
     },
     "SSLVersionMin": "tls1.2",
     "ExtensionSettings": {
+      "extension@ciuvo.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "'Picky' https://addons.mozilla.org/firefox/addon/ciuvo/ - Tracks users, poor privacy practices..."
+      },
       "dynamic-probe-telemetry-extension@mozilla.com": {
         "installation_mode": "blocked",
         "blocked_install_message": "Mozilla 'Dynamic Probe Telemetry' https://github.com/mozilla-extensions/dynamic-probe-telemetry-extension"
@@ -1210,6 +1177,15 @@
         "https://youtube-nocookie.com/"
       ]
     },
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "adminSettings": {
+            "assetsBootstrapLocation": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
+          }
+        }
+      }
+    },
     "Bookmarks": [
       {
         "Title": "about:netscape",
@@ -1268,29 +1244,6 @@
     },
     "HttpsOnlyMode": "force_enabled",
     "NoDefaultBookmarks": true,
-    "OfferToSaveLoginsDefault": false,
-    "Permissions": {
-      "Autoplay": {
-        "Default": "block-audio-video",
-        "Locked": false
-      },
-      "Location": {
-        "BlockNewRequests": true,
-        "Locked": false
-      },
-      "Notifications": {
-        "BlockNewRequests": true,
-        "Locked": false
-      },
-      "VirtualReality": {
-        "BlockNewRequests": true,
-        "Locked": false
-      }
-    },
-    "PopupBlocking": {
-      "Default": true,
-      "Locked": false
-    },
     "PrivateBrowsingModeAvailability": 0,
     "SupportMenu": {
       "Title": "Phoenix Issue Tracker",

@@ -13,36 +13,6 @@
 					<key>assetsBootstrapLocation</key>
 					<string>https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json</string>
 				</dict>
-				<key>advancedSettings</key>
-				<array>
-					<array>
-						<string>autoCommentFilterTemplate</string>
-						<string>{{url}}</string>
-					</array>
-					<array>
-						<string>filterAuthorMode</string>
-						<string>true</string>
-					</array>
-					<array>
-						<string>updateAssetBypassBrowserCache</string>
-						<string>true</string>
-					</array>
-				</array>
-				<key>userSettings</key>
-				<array>
-					<array>
-						<string>advancedUserEnabled</string>
-						<string>true</string>
-					</array>
-					<array>
-						<string>dynamicFilteringEnabled</string>
-						<string>true</string>
-					</array>
-					<array>
-						<string>firewallPaneMinimized</string>
-						<string>false</string>
-					</array>
-				</array>
 			</dict>
 		</dict>
 	</dict>
@@ -838,6 +808,13 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Mozilla's extension for the built-in EUdict Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/eudict/manifest.json</string>
+			<key>installation_mode</key>
+			<string>blocked</string>
+		</dict>
+		<key>extension@ciuvo.com</key>
+		<dict>
+			<key>blocked_install_message</key>
+			<string>'Picky' https://addons.mozilla.org/firefox/addon/ciuvo/ - Tracks users, poor privacy practices...</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1993,46 +1970,6 @@
 	<string>force_enabled</string>
 	<key>NoDefaultBookmarks</key>
 	<true/>
-	<key>OfferToSaveLoginsDefault</key>
-	<false/>
-	<key>Permissions</key>
-	<dict>
-		<key>Autoplay</key>
-		<dict>
-			<key>Default</key>
-			<string>block-audio-video</string>
-			<key>Locked</key>
-			<false/>
-		</dict>
-		<key>Location</key>
-		<dict>
-			<key>BlockNewRequests</key>
-			<true/>
-			<key>Locked</key>
-			<false/>
-		</dict>
-		<key>Notifications</key>
-		<dict>
-			<key>BlockNewRequests</key>
-			<true/>
-			<key>Locked</key>
-			<false/>
-		</dict>
-		<key>VirtualReality</key>
-		<dict>
-			<key>BlockNewRequests</key>
-			<true/>
-			<key>Locked</key>
-			<false/>
-		</dict>
-	</dict>
-	<key>PopupBlocking</key>
-	<dict>
-		<key>Default</key>
-		<true/>
-		<key>Locked</key>
-		<false/>
-	</dict>
 	<key>PrivateBrowsingModeAvailability</key>
 	<integer>0</integer>
 	<key>Proxy</key>

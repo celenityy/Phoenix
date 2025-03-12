@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.03.05.1", locked);
+pref("browser.phoenix.version", "2025.03.12.1", locked);
 
 // 000 ABOUT:CONFIG
 
@@ -1079,6 +1079,11 @@ pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Night
 // https://github.com/privacycg/CHIPS
 
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT - Nightly]
+
+/// Exclude third party trackers from TCP/dFPI storage access heuristics
+// https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
+
+pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
 
 pref("browser.phoenix.status.core", "016");
 
@@ -2508,13 +2513,6 @@ pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
 
 pref("identity.fxaccounts.migrateToDevEdition", false);
 
-/// Stop Firefox from automatically pinning recently visited websites to the `about:home` by default
-// The UI toggle (browser.newtabpage.activity-stream.feeds.topsites) disables both pinning visited websites AND prevents users from adding their own pinned sites
-// Using this pref instead allows users to still pin websites
-// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/PlacesFeed.sys.mjs
-
-pref("browser.newtabpage.activity-stream.feeds.places", false);
-
 pref("browser.phoenix.status.desktop", "010");
 
 // 011 EXTENSIONS
@@ -2766,7 +2764,6 @@ pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystrea
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
-pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.sectionOrder", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showWeather", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", true);
