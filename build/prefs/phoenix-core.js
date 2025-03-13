@@ -923,9 +923,9 @@ pref("privacy.partition.serviceWorkers", true);
 /// Ignore less restricted referer policies (than the default)
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
 
-pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // for cross-site requests
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // for cross-site requests in Private Browsing
-pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // for top navigations in Private Browsing
+pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT] - for cross-site requests
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT] - for cross-site requests in Private Browsing
+pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT] - for top navigations in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
 
 /// Block known tracking resources
