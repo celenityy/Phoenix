@@ -1,22 +1,10 @@
-# WEB COMPAT
+# BUG
 
-<!-- For reporting breakage or unexpected/unintended behavior with specific websites.
+<!-- This is for any general issues or unexpected/unintended behavior you come across while using Phoenix.
 
-Please set the title of your issue to "[WEB COMPAT]", followed by a summary of your issue..."
+Please set the title of your issue to "[BUG]", followed by a summary of your issue..."
 
 Note that anything between <!- - and - -> won't be shown when your issue is created.
--->
-
-### Confirmation
-<!-- Please confirm that you have already checked the Website Compatibility wiki page (https://phoenix.celenity.dev/compat), and that this issue is NOT currently listed, by typing "I confirm." below.
--->
-
-<!-- I confirm.
--->
-
-### Domains
-
-<!-- Which domain(s) are you experiencing this issue on?
 -->
 
 ### Version

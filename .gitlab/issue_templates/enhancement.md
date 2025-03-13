@@ -1,14 +1,13 @@
-name: Enhancement
-description: Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
-title: "[ENHANCEMENT] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR SUGGESTION..."
-labels: enhancement
-assignees:
-  - celenity
-  - celenityy
-body:
-  - type: textarea
-    id: reason
-    attributes:
-      label: Please explain your proposal with as many details as necessary (Ex. what you're suggesting, why you're suggesting it, what need you thinks it will fill, who it will benefit, etc...).
-    validations:
-      required: true
+# ENHANCEMENT
+
+<!-- Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
+
+Please set the title of your issue to "[ENHANCEMENT]", followed by a summary of your issue..."
+
+Note that anything between <!- - and - -> won't be shown when your issue is created.
+-->
+
+___
+
+<!-- Please explain your proposal with as many details as necessary (Ex. what you're suggesting, why you're suggesting it, what need you thinks it will fill, who it will benefit, etc...).
+-->
