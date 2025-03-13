@@ -1,7 +1,7 @@
 name: Other
 description: Anything else not already covered by other categories.
 title: "[OTHER] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
-labels: other
+labels: ["other"]
 assignees:
   - celenity
   - celenityy
