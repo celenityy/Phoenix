@@ -95,7 +95,7 @@ Other platforms have unfortunately proven difficult to support, though progress 
 > [!NOTE]
 > You can use **`paru`** instead of **`yay`** with the same options.
 
-Firefox *(Standard)*:
+Firefox *(Pacman)*:
 
 ```sh
 yay -S phoenix-arch
@@ -115,11 +115,11 @@ yay -S phoenix-flatpak
 
  ```sh
  echo 'deb https://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
- curl -fsSL https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
+ wget -O- https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key 2>/dev/null | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
  sudo apt update
  ```
 
-Firefox *(Standard)*:
+Firefox *(DEB)*:
 
 ```sh
 sudo apt install phoenix
@@ -131,7 +131,7 @@ Firefox *(System Flatpak)*:
 sudo apt install phoenix-flatpak
 ```
 
-Firefox *(ESR)*:
+Firefox-ESR *(DEB)*:
 
 ```sh
 sudo apt install phoenix-esr
@@ -148,7 +148,7 @@ sudo apt install phoenix-esr
  sudo dnf makecache
  ```
 
-Firefox *(Standard)*:
+Firefox *(RPM)*:
 
 ```sh
 sudo dnf install phoenix
