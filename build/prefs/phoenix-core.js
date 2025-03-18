@@ -1213,6 +1213,13 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
 
 pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
 
+/// Disable Basic authentication over HTTP
+// Requires secure HTTPS
+// https://chromeenterprise.google/policies/#BasicAuthOverHttpEnabled
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1763671
+
+pref("network.http.basic_http_auth.enabled", false);
+
 pref("browser.phoenix.status.core", "018");
 
 // 019 ATTACK SURFACE REDUCTION
@@ -1226,7 +1233,7 @@ pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.blinterp", false); // Baseline Interpreter 
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] Main process https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
-pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865 https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
 /// If JIT (Ion/WarpMonkey) is disabled, also disable it for extensions
