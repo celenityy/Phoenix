@@ -1214,7 +1214,7 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
 pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
 
 /// Disable Basic authentication over HTTP
-// Requires secure HTTPS
+// This requires secure HTTPS
 // https://chromeenterprise.google/policies/#BasicAuthOverHttpEnabled
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1763671
 
