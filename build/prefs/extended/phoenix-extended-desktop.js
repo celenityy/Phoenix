@@ -14,12 +14,17 @@
 
 // This file contains preferences specific to Phoenix (Extended) on Desktop.
 
-// 001 ADVANCED FINGERPRINTING PROTECTION
+/* INDEX 
+
+001: FINGERPRINTING PROTECTION
+
+*/
+
+/*** 001 FINGERPRINTING PROTECTION ***/
 
 /// Further harden FPP...
-// As explained here: https://codeberg.org/celenity/Phoenix/issues/46
+// As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
 // Compared to standard, this just removes '-JSDateTimeUTC' - meaning timezone is spoofed to UTC-0...
-
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate");
 
 pref("browser.phoenix.status.extended.desktop", "successfully applied :D", locked);
