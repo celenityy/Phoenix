@@ -753,6 +753,8 @@ pref("services.sync.prefs.sync.privacy.webrtc.globalMuteToggles", true);
 pref("services.sync.prefs.sync.security.OCSP.require", true);
 pref("services.sync.prefs.sync.security.ssl.require_safe_negotiation", true);
 pref("services.sync.prefs.sync.security.xfocsp.hideOpenInNewWindow", true);
+pref("services.sync.prefs.sync.sidebar.main.tools", true);
+pref("services.sync.prefs.sync.sidebar.revamp", true);
 pref("services.sync.prefs.sync.signon.management.page.vulnerable-passwords.enabled", true);
 pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", true);
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
@@ -794,6 +796,11 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 
 /// Clean-up default UI
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
+
+/// Enable + customize the new Sidebar by default
+pref("sidebar.main.tools", "bookmarks,syncedtabs,history"); // Removes AI Chat, adds Bookmarks
+pref("sidebar.revamp", true); // [DEFAULT - Nightly]
+pref("sidebar.visibility", "hide-sidebar"); // Hide by default
 
 /// Enable Taskbar Tabs (PWAs) by default [WINDOWS] [NO-OSX]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1915736 [NO-OSX]
