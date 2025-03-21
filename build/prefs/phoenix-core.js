@@ -888,10 +888,10 @@ pref("browser.phoenix.status.core", "015");
 
 /*** 016 EXTENSIONS ***/
 
-/// Allow LocalCDN to work on quarantined domains (if installed) by default
+/// Allow LocalCDN (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
 
-/// Allow Mullvad's extension to work on quarantined domains (if installed) by default
+/// Allow Mullvad's extension (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
 
 /// Block extensions signed with weak signature algorithms
