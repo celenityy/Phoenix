@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Version of Phoenix you'd like to build
-export phoenix_version=2025.03.12.1
+export phoenix_version=2025.03.20.1
