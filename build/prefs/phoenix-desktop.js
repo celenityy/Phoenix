@@ -570,6 +570,10 @@ pref("browser.ml.chat.shortcuts.custom", true); // [DEFAULT]
 pref("browser.ml.chat.enabled", false); // [DEFAULT] - AI Chatbot
 pref("browser.ml.chat.shortcuts", false); // Pop-up when highlighting text
 
+/// Disable Link Preview
+// https://searchfox.org/mozilla-central/source/browser/components/genai/tests/browser/browser_link_preview.js
+pref("browser.ml.linkPreview.enabled", false); // [DEFAULT] [NIGHTLY]
+
 /// Remove privacy-invasive AI Chatbot providers
 // (Anthropic Claude, ChatGPT, Google Gemini, and Le Chat Mistral)
 // HuggingChat's privacy policy is OK, though it does leave room for improvement - best option out of the built-in
