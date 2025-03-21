@@ -1383,6 +1383,7 @@ pref("gfx.content.skia-font-cache-size", 20); // [Default = 5]
 pref("gfx.webrender.compositor", true); // [DEFAULT - macOS/Windows]
 pref("image.mem.decode_bytes_at_a_time", 32768); // [Default = 16384]
 pref("image.mem.shared.unmap.min_expiration_ms", 120000); // [Default = 60000]
+pref("layout.css.grid-template-masonry-value.enabled", true); // [DEFAULT - Nightly & Thunderbird] Enable CSS Masonry Layout - https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/ - for testing: https://codepen.io/rachelandrew/pen/wvWmZWB 
 pref("layout.css.report_errors", false); // [DEFAULT - Android] https://searchfox.org/mozilla-central/source/mobile/android/app/geckoview-prefs.js#299
 pref("media.cache_readahead_limit", 7200);
 pref("media.cache_resume_threshold", 3600);
@@ -1393,6 +1394,7 @@ pref("network.dnsCacheExpirationGracePeriod", 240); // [Default = 60]
 pref("network.http.max-persistent-connections-per-proxy", 48); // [Default = 20 - Android, 32 - non-Android]
 pref("network.http.max-persistent-connections-per-server", 10); // [Default = 6]
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Default = 3]
+pref("network.ssl_tokens_cache_capacity", 10240); // [Default = 2048] Increase TLS token caching - https://codeberg.org/celenity/Phoenix/issues/84
 
 pref("browser.phoenix.status.core", "025");
 
