@@ -798,6 +798,7 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 
 /// Enable + customize the new Sidebar by default
+pref("sidebar.backupState", "{\"command\":\"\",\"launcherWidth\":0,\"launcherExpanded\":false,\"launcherVisible\":false}"); // Hide by default
 pref("sidebar.main.tools", "bookmarks,syncedtabs,history"); // Removes AI Chat, adds Bookmarks
 pref("sidebar.revamp", true); // [DEFAULT - Nightly]
 pref("sidebar.visibility", "hide-sidebar"); // Hide by default
