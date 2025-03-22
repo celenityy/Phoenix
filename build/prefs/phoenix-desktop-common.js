@@ -195,11 +195,11 @@ pref("services.sync.engine.tabs", false);
 /// Disable sharing unnecessary version info as part of Firefox Sync
 pref("services.sync.sendVersionInfo", false);
 
-/// Enable Containers by default
+/// Enable Containers
 // https://support.mozilla.org/kb/how-use-firefox-containers
 pref("privacy.userContext.enabled", true);
 
-/// Prevent saving clipboard history/contents to the cloud... [WINDOWS] [NO-OSX]
+/// Prevent saving clipboard history/contents to the cloud [WINDOWS] [NO-OSX]
 pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] [NO-OSX]
 
 /// Prevent sharing identifying info if a remote AutoConfig is being used

@@ -16,25 +16,15 @@
 
 /* INDEX 
 
-001: FINGERPRINTING PROTECTION
-002: WEBRTC
-003: ATTACK SURFACE REDUCTION
+001: WEBRTC
+002: ATTACK SURFACE REDUCTION
+003: MISC. PRIVACY + SECURITY
 004: MISC. PRIVACY
 005: MISC.
 
 */
 
-/*** 001 FINGERPRINTING PROTECTION ***/
-
-/// Disable WebGL
-// Also provides attack surface reduction
-// https://blog.browserscan.net/docs/webgl-fingerprinting
-// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
-pref("webgl.disabled", true);
-
-pref("browser.phoenix.status.extended", "001");
-
-/*** 002 WEBRTC ***/
+/*** 001 WEBRTC ***/
 // This will likely break WebRTC...
 
 /// Always exclude local IP addresses, even in trusted scenarios
@@ -48,13 +38,24 @@ pref("media.peerconnection.ice.default_address_only", true);
 // https://gitlab.torproject.org/tpo/applications/mullvad-browser/-/issues/40#note_2884663
 pref("media.peerconnection.ice.relay_only", true);
 
-pref("browser.phoenix.status.extended", "002");
+pref("browser.phoenix.status.extended", "001");
 
-/*** 003 ATTACK SURFACE REDUCTION ***/
+/*** 002 ATTACK SURFACE REDUCTION ***/
 
 /// Disable WebAssembly
 // https://spectrum.ieee.org/more-worries-over-the-security-of-web-assembly
 pref("javascript.options.wasm", false);
+
+pref("browser.phoenix.status.extended", "002");
+
+/*** 003 MISC. PRIVACY + SECURITY ***/
+
+/// Disable WebGL
+// PRIVACY: Fingerprinting concerns
+// SECURITY: Attack Surface Reduction
+// https://blog.browserscan.net/docs/webgl-fingerprinting
+// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
+pref("webgl.disabled", true);
 
 pref("browser.phoenix.status.extended", "003");
 
