@@ -1421,6 +1421,7 @@ pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
 pref("full-screen-api.warning.delay", -1); // [Default = 500, -1 = Automatic]
 pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
+pref("layout.word_select.eat_space_to_next_word", false); // [DEFAULT - non-Windows] Prevent including the space next to words when double-clicking/selecting text - https://codeberg.org/celenity/Phoenix/issues/84#issuecomment-3097957
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN] Disable annoying Web Speech API errors, especially relevant on Linux - https://searchfox.org/mozilla-central/source/browser/actors/SpeechDispatcherParent.sys.mjs#8
 pref("security.xfocsp.hideOpenInNewWindow", false);
 pref("services.settings.loglevel", "warn"); // [DEFAULT, HIDDEN] This pref allows controlling the log level of Remote Settings, set here to the default value so that it's exposed in the `about:config`
