@@ -230,11 +230,11 @@ pref("browser.urlbar.pocket.featureGate", false);
 pref("browser.urlbar.suggest.pocket", false);
 pref("extensions.pocket.enabled", false);
 
-/// Disable "Interest-based Content Relevance Ranking"
+/// Disable "Interest-based Content Relevance Ranking and Personalization"
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1886207
-pref("toolkit.contentRelevancy.enabled", false, locked);
-pref("toolkit.contentRelevancy.ingestEnabled", false, locked);
-pref("toolkit.contentRelevancy.log", false, locked);
+pref("toolkit.contentRelevancy.enabled", false, locked); // [DEFAULT]
+pref("toolkit.contentRelevancy.ingestEnabled", false, locked); // [DEFAULT]
+pref("toolkit.contentRelevancy.log", false); // [DEFAULT]
 
 /// Disable the Mozilla Ad Routing Service (MARS) :/
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#221
