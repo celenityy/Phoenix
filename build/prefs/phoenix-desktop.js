@@ -475,6 +475,7 @@ pref("browser.urlbar.update2.engineAliasRefresh", true); // [HIDDEN]
 pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
 
 // Nice to have
+pref("browser.urlbar.scotchBonnet.enableOverride", true); // [DEFAULT - Nightly] Add button to easily switch search engines in URL Bar - https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/
 pref("browser.urlbar.suggest.bookmark", true); // [DEFAULT]
 pref("browser.urlbar.suggest.calculator", true);
 pref("browser.urlbar.suggest.clipboard", false);
