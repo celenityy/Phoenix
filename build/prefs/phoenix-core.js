@@ -1159,6 +1159,15 @@ pref("dom.reporting.header.enabled", false); // [DEFAULT]
 // https://browserleaks.com/webgpu
 pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
 
+/// Enable Messaging Layer Security (MLS)
+// PRIVACY: Ensures messages are only received by the intended recipient
+// SECURITY: Protects the authenticity and integrity of messages
+// Security layer for E2EE messaging
+// https://wikipedia.org/wiki/Messaging_Layer_Security
+// https://blog.mozilla.org/mozilla/messaging-layer-security-is-now-an-internet-standard/
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1876002
+pref("dom.origin-trials.mls.state", 1);
+
 pref("browser.phoenix.status.core", "022");
 
 /*** 023 MISC. PRIVACY ***/
