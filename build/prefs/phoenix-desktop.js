@@ -680,6 +680,10 @@ pref("browser.sessionstore.max_tabs_undo", 7);
 /// Disable sidebar animations by default
 pref("sidebar.animation.enabled", false);
 
+/// Disable tab hover previews by default
+pref("browser.tabs.hoverPreview.enabled", false);
+pref("browser.tabs.hoverPreview.showThumbnails", false);
+
 /// Enable VA-API by default [LINUX] [NO-OSX]
 pref("media.ffmpeg.vaapi.enabled", true); // [NO-OSX]
 
