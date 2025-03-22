@@ -115,7 +115,7 @@ pref("browser.phoenix.status.desktop", "001");
 // https://mozilla.github.io/policy-templates/#firefoxhome
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
-pref("browser.newtabpage.activity-stream.asrouter.debugLogLevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config`... // https://searchfox.org/mozilla-central/source/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs
+pref("browser.newtabpage.activity-stream.asrouter.debugLogLevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config` - https://searchfox.org/mozilla-central/source/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
@@ -123,6 +123,7 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiment
 pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.useRemoteL10n", false);
+pref("browser.newtabpage.activity-stream.debug", false); // [DEFAULT] [HIDDEN - non-Nightly] To expose via the `about:config`
 pref("browser.newtabpage.activity-stream.discoverystream.config", "[]", locked);
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds", "", locked);
@@ -794,8 +795,8 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", f
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 pref("browser.newtabpage.activity-stream.showRecentSaves", false);
 pref("browser.newtabpage.activity-stream.system.showWeather", true); // Allow enabling the weather on `about:home` - this only controls the UI setting, browser.newtabpage.activity-stream.showWeather is what controls whether the weather is actually displayed or not...
-pref("browser.preferences.experimental", true); // [DEFAULT]
-pref("browser.preferences.experimental.hidden", false); // [DEFAULT]
+pref("browser.preferences.experimental", true); // [DEFAULT] Enable Firefox Labs (`about:preferences#experimental`)
+pref("browser.preferences.experimental.hidden", false); // [DEFAULT] Enable Firefox Labs (`about:preferences#experimental`)
 pref("browser.privateWindowSeparation.enabled", false); // [WINDOWS]
 pref("browser.search.widget.inNavBar", true); // [HIDDEN]
 pref("browser.spin_cursor_while_busy", true);
