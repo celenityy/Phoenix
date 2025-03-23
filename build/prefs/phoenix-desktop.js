@@ -362,16 +362,40 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // Apple Maps (apple.com) - Disables spoofing WebGL render capability (-WebGLRenderCapability) - Causes complete breakage
 // Chipotle (chipotle.com) - Disables timezone spoofing (-JSDateTimeUTC) for order confirmation/estimated arrival times
 // Cinny (cinny.in) - Disables timezone spoofing (-JSDateTimeUTC)
+// Cinny (pendora.io) - Disables timezone spoofing (-JSDateTimeUTC)
+// Cinny/Element (transfem.dev) - Disables timezone spoofing (-JSDateTimeUTC)
+// Cinny/SchildiChat (the-apothecary.club) - Disables timezone spoofing (-JSDateTimeUTC)
 // City Barbeque (citybbq.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
 // Discord (discord.com) - Disables timezone spoofing (-JSDateTimeUTC)
 // DoorDash (doordash.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
 // Element (arcticfoxes.net) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (aria.im) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (bitcoinist.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (chatwave.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (duesen.chat) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (element.io) - Disables timezone spoofing (-JSDateTimeUTC)
-// Element (mozilla.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (flieger.chat) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (g24.at) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (gemeinsam.jetzt) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (gnulinux.club) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (hot-chilli.im) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (kosmikdog.eu) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (mtrx.nz) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (neat.chat) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (nitro.chat) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (nope.chat) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (oblak.be) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (pcriot.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (rollenspiel.chat) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (socialnetwork24.com) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (studichat.de) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (synod.im) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (unredacted.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (utwente.io) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (we2.ee) - Disables timezone spoofing (-JSDateTimeUTC)
+// Element (yatrix.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chipotle.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"cinny.in\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"citybbq.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"doordash.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mozilla.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
+pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"apple.com\", \"overrides\": \"-WebGLRenderCapability\"}, {\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"bitcoinist.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chatwave.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chipotle.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"cinny.in\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"citybbq.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"doordash.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"duesen.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"flieger.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"g24.at\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"gemeinsam.jetzt\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"gnulinux.club\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"hot-chilli.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"kosmikdog.eu\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mtrx.nz\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"neat.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"nitro.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"nope.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"oblak.be\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"pcriot.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"pendora.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"rollenspiel.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"socialnetwork24.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"studichat.de\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"synod.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"the-apothecary.club\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"transfem.dev\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"utwente.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"we2.ee\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"yatrix.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
 
 pref("browser.phoenix.status.desktop", "003");
 
