@@ -1291,7 +1291,7 @@ pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 pref("dom.security.sanitizer.enabled", true);
 
 /// Enable Spectre mitigations for isolated content
-// Like Tor Browser
+// Also enabled by ex. Tor Browser
 pref("javascript.options.spectre.disable_for_isolated_content", false);
 
 /// Enforce Site Isolation + isolate all websites
@@ -1427,6 +1427,7 @@ pref("network.dnsCacheExpirationGracePeriod", 240); // [Default = 60]
 pref("network.http.max-persistent-connections-per-proxy", 48); // [Default = 20 - Android, 32 - non-Android]
 pref("network.http.max-persistent-connections-per-server", 10); // [Default = 6]
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Default = 3]
+pref("network.http.pacing.requests.enabled", false); // Disable pacing requests - https://codeberg.org/celenity/Phoenix/issues/84
 pref("network.ssl_tokens_cache_capacity", 10240); // [Default = 2048] Increase TLS token caching - https://codeberg.org/celenity/Phoenix/issues/84
 
 pref("browser.phoenix.status.core", "026");
