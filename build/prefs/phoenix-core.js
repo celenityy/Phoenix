@@ -1204,6 +1204,7 @@ pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 // https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
 // https://github.com/privacycg/CHIPS
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT - Nightly]
+pref("network.cookie.chips.partitionLimitDryRun", false); // [DEFAULT - Nightly]
 
 /// Enable Do Not Track & Global Privacy Control
 // Do Not Track is also covered by ETP Strict, pref to be removed soon...
