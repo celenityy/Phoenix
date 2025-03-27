@@ -9,7 +9,7 @@
                 },
                 {
                     "version": "0.0.2",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/leta-brave/leta-brave-0.0.2.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-brave/leta-brave-0.0.2.xpi",
                     "update_hash": "sha512:7cdcf740c95fdaee9ac20213518fcea8aaf31c3ddde7de596e3c44e043dc4ae36de6f389c6a485864c615b6e9ff37486e02349c47b07faa6d404883fc5b946a5"
                 }
             ]
@@ -28,7 +28,7 @@
                 },
                 {
                     "version": "0.0.3",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/duckduckgo/duckduckgo-0.0.3.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo/duckduckgo-0.0.3.xpi",
                     "update_hash": "sha512:5625fb364642675b4fea9afb5bfeac0e790f29a585e633f0536b78943f9b804376db118ab7fbc830f3dcbc6cad316beefded02fbc3947aab4261f1deb62ab4ef"
                 }
             ]
@@ -52,7 +52,7 @@
                 },
                 {
                     "version": "0.0.7",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.7.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.7.xpi",
                     "update_hash": "sha512:e55a7478988f5fcf3783681b7585b85020dfcca4ce304f923e19d495193a5185301bc015308d0e5920999afd62ac8911d2bde61697d595f4e42b9cb427f4a1a9"
                 }
             ]
@@ -76,7 +76,7 @@
                 },
                 {
                     "version": "0.0.5",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.5.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.5.xpi",
                     "update_hash": "sha512:1d34af28a90fdf076202caa229291dec2de9309415d57814cd54055002d5a6903931031ead94b07a5d4a94ca5870f2ebe3c12ac94b0c29cb11e801d72925df7a"
                 }
             ]
@@ -90,7 +90,7 @@
                 },
                 {
                     "version": "0.0.2",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/leta-google/leta-google-0.0.2.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-google/leta-google-0.0.2.xpi",
                     "update_hash": "sha512:ee506adef03b089f38f387ce869e6edd503ec3cc5cce60955e8273a9731f3db77feb884c082a0ef9ec6795c42e1afae618e983c5d319abeb3f76098a3d64a87a"
                 }
             ]
@@ -119,7 +119,7 @@
                 },
                 {
                     "version": "0.0.5",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/mojeek/mojeek-0.0.5.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/mojeek/mojeek-0.0.5.xpi",
                     "update_hash": "sha512:0da66703978695ab0a7905c2d19dad86db76dc4ed82f033b220edb5e2e1c7fbe65e23ecf1a80917206929f191e2e449d3dddc967462912556deac0e34e0f7e5d"
                 }
             ]
@@ -148,7 +148,7 @@
                 },
                 {
                     "version": "0.0.5",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/no-search/no-search-0.0.5.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/no-search/no-search-0.0.5.xpi",
                     "update_hash": "sha512:83e1e0a3625bf4f85fed0e9ce182734601a0bb8d15bcf80bc5b364462a27b4dca91249f91f7f58d3c1d395be2047f69811cd6bb754bac3e15c53b30e27a7a459"
                 }
             ]
@@ -177,7 +177,7 @@
                 },
                 {
                     "version": "0.0.5",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/startpage/startpage-0.0.5.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/startpage/startpage-0.0.5.xpi",
                     "update_hash": "sha512:3ac30d4c44809f097c70c3e0379659d88c0eade88bb315fd1580566e9bc4124c501965a48cc6aa0e101e9206a9756d3be627a9ccc258e8e8bea1111b4bf55012"
                 }
             ]
@@ -201,7 +201,7 @@
                 },
                 {
                     "version": "0.0.4",
-                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/.../extensions/xpi/search/swisscows/swisscows-0.0.4.xpi",
+                    "update_link": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/swisscows/swisscows-0.0.4.xpi",
                     "update_hash": "sha512:7bc4d52e5b95ad6472d6cddfc4207600d1ffe14a2f5d31494f22f92febdf01766f357c7d22b1d1f2488cd369d8c60874ec1a3d1c0371dc2431a1259773d6cb23"
                 }
             ]
