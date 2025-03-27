@@ -1,0 +1,19 @@
+! Title: Beacon API Stub
+! Version: 26March2025v1
+! Expires: 12 hours
+! Homepage: https://phoenix.celenity.dev
+
+! For context, we currently disable the Beacon API (beacon.enabled), due to privacy concerns (This API's explicit purpose is to be used for analytics/tracking...), and for extra attack surface reduction.
+! https://developer.mozilla.org/docs/Web/API/Beacon_API
+! https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+! https://udn.realityripple.com/docs/Web/API/Navigator/sendBeacon
+! https://w3c.github.io/beacon/#privacy-and-security
+! https://bugzilla.mozilla.org/show_bug.cgi?id=1454252
+
+! This basic list spoofs the value of this API (navigator.sendBeacon()) to always return "true" (even though we disable it).
+! This is beneficial for a few reasons:
+! 1. Reduces breakage - ex. www.perplexity.ai (https://gitlab.com/ironfox-oss/IronFox/-/issues/43).
+! 2. Protects against fingerprinting - We no longer stick out from stock Firefox by disabling this.
+! 3. Breaks trackers - A lot of trackers will fallback to other methods of sending data if this API is unavailable (though a lot also don't...), this prevents those trackers from falling back by making them think they're successfully sending data with Beacon (when they're not, as we've actually disabled the API... you can verify this via the web console/uBlock Origin's logger/etc.).
+
+*##+js(set, navigator.sendBeacon, trueFunc)

@@ -958,6 +958,14 @@
         "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
+    "beacon": {
+        "content": "filters",
+        "group": "default",
+        "parent": "Phoenix",
+        "title": "Beacon API Stub",
+        "contentURL": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/beacon.txt",
+        "supportURL": "https://badblock.celenity.dev/issues"
+    },
     "bpc-filters": {
         "content": "filters",
         "group": "annoyances",
