@@ -1,5 +1,5 @@
 ! Title: Beacon API Stub
-! Version: 26March2025v1
+! Version: 27March2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
@@ -11,6 +11,8 @@
 ! https://bugzilla.mozilla.org/show_bug.cgi?id=1454252
 
 ! This basic list spoofs the value of this API (navigator.sendBeacon()) to always return "true" (even though we disable it).
+! https://github.com/gorhill/uBlock/wiki/Resources-Library#set-constantjs-
+
 ! This is beneficial for a few reasons:
 ! 1. Reduces breakage - ex. www.perplexity.ai (https://gitlab.com/ironfox-oss/IronFox/-/issues/43).
 ! 2. Protects against fingerprinting - We no longer stick out from stock Firefox by disabling this.
