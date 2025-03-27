@@ -1295,26 +1295,6 @@
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
-    "webgpu": {
-        "content": "filters",
-        "group": "default",
-        "parent": "🛡️ Block WebGPU",
-        "off": true,
-        "title": "🛡️ Block WebGPU",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-webgpu.txt",
-        "supportURL": "https://badblock.celenity.dev/issues",
-        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
-    },
-    "webgpu-unbreak": {
-        "content": "filters",
-        "group": "default",
-        "parent": "🛡️ Block WebGPU",
-        "off": true,
-        "title": "🛡️ Block WebGPU - Unbreak",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-webgpu.txt",
-        "supportURL": "https://badblock.celenity.dev/issues",
-        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
-    },
     "webrtc": {
         "content": "filters",
         "group": "default",
