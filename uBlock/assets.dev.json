@@ -1037,7 +1037,7 @@
         "tags": "ads privacy",
         "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/ethical_whitelist.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
-        "instructionURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/base/whitelists/ethical.txt"
+        "instructionURL": "https://badblock.celenity.dev#ethical-whitelist"
     },
     "fake": {
         "content": "filters",
