@@ -2,7 +2,7 @@
     "assets.json": {
         "content": "internal",
         "updateAfter": 1,
-        "contentURL": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json"
+        "contentURL": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json"
     },
     "public_suffix_list.dat": {
         "content": "internal",
@@ -16,7 +16,7 @@
         "content": "internal",
         "updateAfter": 1,
         "contentURL": [
-            "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/badlists.txt"
+            "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/badlists.txt"
         ]
     },
     "ublock0-filters": {
@@ -917,7 +917,7 @@
         "group": "privacy",
         "title": "🖱️ BadBlock - Click Tracking",
         "tags": "privacy",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/click-tracking.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -927,7 +927,7 @@
         "off": true,
         "title": "⚡️ BadBlock Lite",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock_lite.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock_lite.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -937,7 +937,7 @@
         "off": true,
         "title": "🔇 BadBlock",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -946,7 +946,7 @@
         "group": "multipurpose",
         "title": "🔥 BadBlock+",
         "tags": "ads privacy security annoyances cookies",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/badblock_plus.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/badblock_plus.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
@@ -955,7 +955,7 @@
         "group": "malware",
         "off": true,
         "title": "💻 HaGeZi - Badware Hoster",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/hoster.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "beacon": {
@@ -963,8 +963,8 @@
         "group": "default",
         "parent": "Phoenix",
         "title": "Beacon API Stub",
-        "contentURL": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/beacon.txt",
-        "supportURL": "https://badblock.celenity.dev/issues"
+        "contentURL": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/beacon.txt",
+        "supportURL": "https://phoenix.celenity.dev"
     },
     "bpc-filters": {
         "content": "filters",
@@ -979,7 +979,7 @@
         "group": "annoyances",
         "off": true,
         "title": "⭐ celenity's personal filters",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/personal-filters.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/personal-filters.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "click2load": {
@@ -1011,7 +1011,7 @@
         "content": "filters",
         "group": "privacy",
         "title": "Divested Fingerprinting Blocklist",
-        "contentURL": "https://codeberg.org/divested/dnsbl/raw/branch/master/Fingerprinting.ubl",
+        "contentURL": "https://gitlab.com/divested/dnsbl/-/raw/master/Fingerprinting.ubl",
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
     },
     "drm": {
@@ -1019,14 +1019,14 @@
         "group": "annoyances",
         "off": true,
         "title": "🔒 DRM Blocklist",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/drm.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/drm.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "dyndns": {
         "content": "filters",
         "group": "malware",
         "title": "🔏 HaGeZi - Dynamic DNS",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/dyndns.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/dyndns.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "ethical": {
@@ -1035,7 +1035,7 @@
         "off": true,
         "title": "😇 BadBlock - Ethical Whitelist",
         "tags": "ads privacy",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/ethical_whitelist.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/ethical_whitelist.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/base/whitelists/ethical.txt"
     },
@@ -1044,7 +1044,7 @@
         "group": "malware",
         "off": true,
         "title": "HaGeZi - Fake",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/fake.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/fake.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "gambling": {
@@ -1052,7 +1052,7 @@
         "group": "annoyances",
         "off": true,
         "title": "🎰 HaGeZi - Gambling",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/gambling.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "fmhybasic": {
@@ -1094,7 +1094,7 @@
         "off": true,
         "title": "📗 HaGeZi - Multi LIGHT",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/light.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/light.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multi": {
@@ -1103,7 +1103,7 @@
         "off": true,
         "title": "📘 HaGeZi - Multi NORMAL",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/multi.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/multi.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multipro": {
@@ -1112,7 +1112,7 @@
         "off": true,
         "title": "📒 HaGeZi - Multi PRO",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multipromini": {
@@ -1121,7 +1121,7 @@
         "off": true,
         "title": "📒 HaGeZi - Multi PRO mini",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.mini.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiproplus": {
@@ -1130,7 +1130,7 @@
         "off": true,
         "title": "📙 HaGeZi - Multi PRO++",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.plus.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiproplusmini": {
@@ -1139,7 +1139,7 @@
         "off": true,
         "title": "📙 HaGeZi - Multi PRO++ mini",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/pro.plus.mini.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/pro.plus.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiultimate": {
@@ -1148,7 +1148,7 @@
         "off": true,
         "title": "📕 HaGeZi - Multi ULTIMATE",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/ultimate.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "multiultimatemini": {
@@ -1156,7 +1156,7 @@
         "group": "multipurpose",
         "title": "📕 HaGeZi - Multi ULTIMATE mini",
         "tags": "ads privacy security",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/ultimate.mini.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "nrds": {
@@ -1190,7 +1190,7 @@
         "off": true,
         "title": "🎉 HaGeZi - Pop-up Ads",
         "tags": "ads",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/popupads.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/popupads.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "sproutannoyances": {
@@ -1223,7 +1223,7 @@
         "parent": "🛡️ Block SVG",
         "off": true,
         "title": "🛡️ Block SVG",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-svg.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-svg.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1233,7 +1233,7 @@
         "parent": "🛡️ Block SVG",
         "off": true,
         "title": "🛡️ Block SVG - Unbreak",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-svg.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-svg.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1242,7 +1242,7 @@
         "group": "malware",
         "off": true,
         "title": "🔐 HaGeZi - Threat Intelligence Feeds",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "threatintelmed": {
@@ -1250,14 +1250,14 @@
         "group": "malware",
         "off": true,
         "title": "🔐 HaGeZi - Threat Intelligence Feeds - Medium",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.medium.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.medium.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "threatintelmini": {
         "content": "filters",
         "group": "malware",
         "title": "🔐 HaGeZi - Threat Intelligence Feeds - Mini",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/tif.mini.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "tlds": {
@@ -1265,14 +1265,14 @@
         "group": "malware",
         "off": true,
         "title": "🔮 HaGeZi - Most Abused TLDs",
-        "contentURL": "https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
+        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/spam-tlds-ublock.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "unsafe": {
         "content": "filters",
         "group": "malware",
         "title": "⚠️ BadBlock - Unsafe",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/abp/unsafe.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/unsafe.txt",
         "supportURL": "https://badblock.celenity.dev/issues"
     },
     "webgl": {
@@ -1281,7 +1281,7 @@
         "parent": "🛡️ Block WebGL",
         "off": true,
         "title": "🛡️ Block WebGL",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webgl.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-webgl.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1291,7 +1291,7 @@
         "parent": "🛡️ Block WebGL",
         "off": true,
         "title": "🛡️ Block WebGL - Unbreak",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webgl.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-webgl.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1301,7 +1301,7 @@
         "parent": "🛡️ Block WebGPU",
         "off": true,
         "title": "🛡️ Block WebGPU",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webgpu.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-webgpu.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1311,7 +1311,7 @@
         "parent": "🛡️ Block WebGPU",
         "off": true,
         "title": "🛡️ Block WebGPU - Unbreak",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webgpu.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-webgpu.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1321,7 +1321,7 @@
         "parent": "🛡️ Block WebRTC",
         "off": true,
         "title": "🛡️ Block WebRTC",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/block-webrtc.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-webrtc.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
@@ -1331,7 +1331,7 @@
         "parent": "🛡️ Block WebRTC",
         "off": true,
         "title": "🛡️ Block WebRTC - Unbreak",
-        "contentURL": "https://codeberg.org/celenity/BadBlock/raw/branch/pages/hardened/unbreak-webrtc.txt",
+        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-webrtc.txt",
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },

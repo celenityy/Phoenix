@@ -2,11 +2,11 @@
     "name": "DuckDuckGo (Lite)",
     "description": "Search DuckDuckGo (Lite)",
     "manifest_version": 3,
-    "version": "0.0.4",
+    "version": "0.0.5",
     "browser_specific_settings": {
         "gecko": {
             "id": "duckduckgo-lite@celenity.dev",
-            "update_url": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/extensions/updates.json"
+            "update_url": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/extensions/updates.json"
         }
     },
     "hidden": true,

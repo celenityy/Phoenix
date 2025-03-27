@@ -2,11 +2,11 @@
     "name": "Mullvad Leta (Brave)",
     "description": "Search Mullvad Leta (with Brave's index)",
     "manifest_version": 3,
-    "version": "0.0.1",
+    "version": "0.0.2",
     "browser_specific_settings": {
         "gecko": {
             "id": "brave-leta@celenity.dev",
-            "update_url": "https://codeberg.org/celenity/Phoenix/raw/branch/pages/extensions/updates.json"
+            "update_url": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/extensions/updates.json"
         }
     },
     "hidden": true,

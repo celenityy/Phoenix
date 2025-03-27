@@ -25,7 +25,7 @@
                     ]
                 },
                 "guid": "uBlock0@raymondhill.net",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/ublock-origin.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/ublock-origin.svg",
                 "name": "⭐ uBlock Origin - ⚖️ GPL-3.0-only",
                 "slug": "ublock-origin",
                 "type": "extension",
@@ -58,7 +58,7 @@
                     ]
                 },
                 "guid": "@testpilot-containers",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/multi-account-containers.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/multi-account-containers.svg",
                 "name": "⭐ Firefox Multi-Account Containers - ⚖️ MPL-2.0",
                 "slug": "multi-account-containers",
                 "type": "extension",
@@ -91,7 +91,7 @@
                     ]
                 },
                 "guid": "{446900e4-71c2-419f-a6a7-df9c091e268b}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/bitwarden-password-manager.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/bitwarden-password-manager.png",
                 "name": "⭐ Bitwarden Password Manager - ⚖️ GPL-3.0-only",
                 "slug": "bitwarden-password-manager",
                 "type": "extension",
@@ -117,12 +117,12 @@
                             "is_mozilla_signed_extension": true,
                             "platform": "all",
                             "status": "public",
-                            "url": "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&inline=false"
+                            "url": "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi"
                         }
                     ]
                 },
                 "guid": "magnolia@12.34",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/bypass-paywalls-clean.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/bypass-paywalls-clean.png",
                 "name": "Bypass Paywalls Clean - ⚖️ MIT",
                 "slug": "bypass-paywalls-clean",
                 "type": "extension",
@@ -155,7 +155,7 @@
                     ]
                 },
                 "guid": "deArrow@ajay.app",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/dearrow.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/dearrow.png",
                 "name": "DeArrow - ⚖️ LGPL-3.0-only",
                 "slug": "dearrow",
                 "type": "extension",
@@ -188,7 +188,7 @@
                     ]
                 },
                 "guid": "{9a41dee2-b924-4161-a971-7fb35c053a4a}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/enhanced-h264ify.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/enhanced-h264ify.png",
                 "name": "enhanced-h264ify - ⚖️ MIT",
                 "slug": "enhanced-h264ify",
                 "type": "extension",
@@ -221,7 +221,7 @@
                     ]
                 },
                 "guid": "crxviewer-firefox@robwu.nl",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/crxviewer.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/crxviewer.png",
                 "name": "Extension source viewer - ⚖️ MPL-2.0",
                 "slug": "crxviewer",
                 "type": "extension",
@@ -254,7 +254,7 @@
                     ]
                 },
                 "guid": "FirefoxColor@mozilla.com",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/firefox-color.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/firefox-color.svg",
                 "name": "⭐ Firefox Color - ⚖️ MPL-2.0",
                 "slug": "firefox-color",
                 "type": "extension",
@@ -287,7 +287,7 @@
                     ]
                 },
                 "guid": "keepassxc-browser@keepassxc.org",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/keepassxc-browser.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/keepassxc-browser.svg",
                 "name": "KeePassXC-Browser - ⚖️ GPL-3.0-only",
                 "slug": "keepassxc-browser",
                 "type": "extension",
@@ -326,7 +326,7 @@
                     ]
                 },
                 "guid": "7esoorv3@alefvanoon.anonaddy.me",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/libredirect.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/libredirect.png",
                 "name": "LibRedirect - ⚖️ GPL-3.0-only",
                 "slug": "libredirect",
                 "type": "extension",
@@ -359,7 +359,7 @@
                     ]
                 },
                 "guid": "{4c421bb7-c1de-4dc6-80c7-ce8625e34d24}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/extensionGeneric2.png",
                 "name": "Load Reddit Images Directly - ⚖️ MPL-2.0",
                 "slug": "load-reddit-images-directly",
                 "type": "extension",
@@ -390,7 +390,7 @@
                     ]
                 },
                 "guid": "{d19a89b9-76c1-4a61-bcd4-49e8de916403}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/mullvad-browser-extension.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/mullvad-browser-extension.svg",
                 "name": "Mullvad Browser Extension - ⚖️ GPL-3.0-or-later",
                 "slug": "mullvad-browser-extension",
                 "type": "extension",
@@ -421,7 +421,7 @@
                     ]
                 },
                 "guid": "queryamoid@kaply.com",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/extensionGeneric.svg",
                 "name": "⭐ Query AMO Addon ID",
                 "slug": "queryamoid",
                 "type": "extension",
@@ -454,7 +454,7 @@
                     ]
                 },
                 "guid": "{762f9885-5a13-4abd-9c77-433dcd38b8fd}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/return-youtube-dislikes.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/return-youtube-dislikes.png",
                 "name": "⭐ Return YouTube Dislike - ⚖️ GPL-3.0-only",
                 "slug": "return-youtube-dislikes",
                 "type": "extension",
@@ -487,7 +487,7 @@
                     ]
                 },
                 "guid": "{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/search_by_image.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/search_by_image.png",
                 "name": "⭐ Search by Image - ⚖️ GPL-3.0-only",
                 "slug": "search_by_image",
                 "type": "extension",
@@ -520,7 +520,7 @@
                     ]
                 },
                 "guid": "skipredirect@sblask",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/skip-redirect.svg",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/skip-redirect.svg",
                 "name": "Skip Redirect - ⚖️ MIT",
                 "slug": "skip-redirect",
                 "type": "extension",
@@ -553,7 +553,7 @@
                     ]
                 },
                 "guid": "{b11bea1f-a888-4332-8d8a-cec2be7d24b9}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/torproject-snowflake.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/torproject-snowflake.png",
                 "name": "Snowflake - ⚖️ BSD-2-Clause",
                 "slug": "torproject-snowflake",
                 "type": "extension",
@@ -586,7 +586,7 @@
                     ]
                 },
                 "guid": "sponsorBlocker@ajay.app",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/sponsorblock.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/sponsorblock.png",
                 "name": "⭐ SponsorBlock for YouTube - Skip Sponsorships - ⚖️ LGPL-3.0-only",
                 "slug": "sponsorblock",
                 "type": "extension",
@@ -619,7 +619,7 @@
                     ]
                 },
                 "guid": "extension@tabliss.io",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/tabliss.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/tabliss.png",
                 "name": "⭐ Tabliss - ⚖️ GPL-3.0-only",
                 "slug": "tabliss",
                 "type": "extension",
@@ -658,7 +658,7 @@
                     ]
                 },
                 "guid": "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/violentmonkey.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/violentmonkey.png",
                 "name": "Violentmonkey - ⚖️ MIT",
                 "slug": "violentmonkey",
                 "type": "extension",
@@ -691,7 +691,7 @@
                     ]
                 },
                 "guid": "{d07ccf11-c0cd-4938-a265-2a4d6ad01189}",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/web-archives.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/web-archives.png",
                 "name": "⭐ Web Archives - ⚖️ GPL-3.0-only",
                 "slug": "view-page-archive",
                 "type": "extension",
@@ -724,7 +724,7 @@
                     ]
                 },
                 "guid": "activist-balanced-colorway@mozilla.org",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/extensionGeneric2.png",
                 "name": "⭐ Activist – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "activist-balanced_",
                 "type": "statictheme",
@@ -757,7 +757,7 @@
                     ]
                 },
                 "guid": "foto-soft-colorway@mozilla.org",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/extensionGeneric2.png",
                 "name": "⭐ Foto – Soft - ⚖️ CC-BY-3.0",
                 "slug": "foto-soft",
                 "type": "statictheme",
@@ -790,7 +790,7 @@
                     ]
                 },
                 "guid": "visionary-balanced-colorway@mozilla.org",
-                "icon_url": "https://phoenix.celenity.dev/extensions/recommendations/icons/extensionGeneric2.png",
+                "icon_url": "https://gitlab.com/celenityy/Phoenix/-/raw/678207d4caf1d3a38f2e9554e14b0411936a3fd8/extensions/recommendations/icons/extensionGeneric2.png",
                 "name": "⭐ Visionary – Balanced - ⚖️ CC-BY-3.0",
                 "slug": "visionary-balanced",
                 "type": "statictheme",

@@ -549,7 +549,7 @@ pref("browser.phoenix.status.desktop", "009");
 /// Add our own extension recommendations
 // https://codeberg.org/celenity/Phoenix/wiki/Recommended-Extensions
 // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.getAddons.discovery.api_url", "https://phoenix.celenity.dev/extensions/recommendations.json");
+pref("extensions.getAddons.discovery.api_url", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/extensions/recommendations.json");
 pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
 
 /// Block our current search 'extensions' from accessing restricted/quarantined domains
@@ -662,7 +662,7 @@ pref("browser.startup.page", 1); // [DEFAULT]
 /// Set LibreWolf/forks to use our custom enhanced uBlock Origin config by default
 // We do not support LibreWolf at the moment, but this will be beneficial if that changes in the future
 // https://phoenix.celenity.dev/content-blocking
-pref("librewolf.uBO.assetsBootstrapLocation", "https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json");
+pref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json");
 
 pref("browser.phoenix.status.desktop", "013");
 
