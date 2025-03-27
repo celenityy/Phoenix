@@ -3,7 +3,7 @@
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
-! For context, we currently disable the Beacon API (beacon.enabled), due to privacy concerns (This API's explicit purpose is to be used for analytics/tracking...), and for extra attack surface reduction.
+! For context, we currently disable the Beacon API (beacon.enabled), due to privacy concerns (This API's explicit purpose is to be used for analytics/tracking...), and to provide additional attack surface reduction.
 ! https://developer.mozilla.org/docs/Web/API/Beacon_API
 ! https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 ! https://udn.realityripple.com/docs/Web/API/Navigator/sendBeacon
