@@ -75,20 +75,20 @@ var pref = function(pref, val, locked, sticky) {
 
 *Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case.*
 
-**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to [phoenix-android.js](https://phoenix.celenity.dev/prefs/phoenix-android.js). It can be found at the following link:
+**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to [phoenix-android.js](https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-android.js). It can be found at the following link:
 
 ```sh
-https://phoenix.celenity.dev/prefs/phoenix-android.js
+https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-android.js
 ```
 
 **13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix-android.js below:` line. **Now press enter.**
 
 **14:** If you'd also like to use Phoenix's `Extended` Hardening config, you'll first need to navigate to the `about:config` on your Android device & set `devtools.debugger.remote-enabled` to `true`.
 
-**15:** You should then reconnect to your mobile device from `about:debugging` on your computer. You can now **repeat** Steps `11` & `12`, but replace `https://phoenix.celenity.dev/prefs/phoenix-android.js` with `https://phoenix.celenity.dev/prefs/phoenix-extended-android.js`:
+**15:** You should then reconnect to your mobile device from `about:debugging` on your computer. You can now **repeat** Steps `11` & `12`, but replace `https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-android.js` with `https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-extended-android.js`:
 
 ```sh
-https://phoenix.celenity.dev/prefs/phoenix-extended-android.js
+https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-extended-android.js
 ```
 
 **16:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.

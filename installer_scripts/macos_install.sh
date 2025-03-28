@@ -29,7 +29,7 @@ initialize_phoenix() {
 }
 
 ## Scripts are here
-URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos"
+URL="https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos"
 
 ## Scripts file
 SCRIPT=("phoenix-initialize-system.sh"
@@ -47,7 +47,7 @@ read
 
 ## Install Phoenix
 echo_green_text "Adding celenity's Tap to Homebrew..."
-brew tap celenity/tap https://codeberg.org/celenity/tap || error_fn
+brew tap celenity/tap https://gitlab.com/celenityy/tap || error_fn
 echo
 
 echo_green_text "Updating Homebrew cache..."
@@ -59,7 +59,7 @@ brew install phoenix-osx || error_fn
 echo
 
 echo_green_text "Downloading phoenix-apply.sh..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
 echo
 
 echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
@@ -79,7 +79,7 @@ sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || erro
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
@@ -95,11 +95,11 @@ sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.pl
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.js..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.cfg..."
-wget -nv https://codeberg.org/celenity/Phoenix/raw/branch/pages/macos/phoenix-bootstrap.cfg || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo -e ""

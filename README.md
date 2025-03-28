@@ -170,7 +170,7 @@ sudo dnf install phoenix-flatpak
 Run the following installation script in your terminal of choice:
 
 ```sh
-bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/installer_scripts/macos_install.sh 2>/dev/null)"
+bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh 2>/dev/null)"
 ```
 
 </details>
@@ -188,7 +188,7 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
     # which is often the case. If you've named it something else,
     # you'll need to change the `nixpkgs` below.
     phoenix = {
-      url = "git+https://codeberg.org/celenity/Phoenix";
+      url = "git+https://gitlab.com/celenityy/Phoenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -292,7 +292,7 @@ sudo dnf makecache
 Run the following uninstall script in your terminal of choice:
 
 ```sh
-bash -c "$(wget -O- https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
+bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
 ```
 
 </details>
@@ -747,22 +747,22 @@ By default, Phoenix is installed & updated via your operating system's package m
 
 However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported operating system, you can manually install Phoenix with the following steps:
 
-**1:** Download `phoenix.cfg` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**1:** Download `phoenix.cfg` from [here](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/phoenix.cfg
+wget https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg
 ```
 
-**2:** Download `phoenix-desktop.js` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**2:** Download `phoenix-desktop.js` from [here](https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-desktop.js). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/prefs/phoenix-desktop.js
+wget https://gitlab.com/celenityy/Phoenix/-/raw/pages/prefs/phoenix-desktop.js
 ```
 
-**3:** Download `policies.json` from [here](https://codeberg.org/celenity/Phoenix/raw/branch/pages/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
+**3:** Download `policies.json` from [here](https://gitlab.com/celenityy/Phoenix/-/raw/pages/policies.json). You can right click and select `Save page as` from your browser, or you can run the following command in your terminal:
 
 ```sh
-wget https://codeberg.org/celenity/Phoenix/raw/branch/pages/policies.json
+wget https://gitlab.com/celenityy/Phoenix/-/raw/pages/policies.json
 ```
 
 **4:** Locate your Firefox installation directory. This will vary depending on your platform. An easy way to find it id by navigating to `about:support` & checking the directory next to `Application Binary`. For example, on Fedora Linux, I see `/usr/lib64/firefox/firefox` next to `Application Binary`. This means our installation directory is `/usr/lib64/firefox`.
@@ -860,12 +860,12 @@ ___
 
 With a manual installation of Phoenix, if you would like to use Phoenix's [Extended](#extended) config, or one of our [specialized configs](#specialized-configs), you'll need to follow these steps.
 
-**1:** Download the `.cfg` file of your choice from [here](https://codeberg.org/celenity/Phoenix/src/branch/pages/configs). For this example, we'll use `youtube.cfg`. **Simply replace mentions of `youtube.cfg` below with the configuration you would like to use.**
+**1:** Download the `.cfg` file of your choice from [here](https://gitlab.com/celenityy/Phoenix/-/tree/pages/configs). For this example, we'll use `youtube.cfg`. **Simply replace mentions of `youtube.cfg` below with the configuration you would like to use.**
 
 You can right click and select `Save page as` from your browser on the `.cfg` file, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/configs/youtube.cfg
+wget https://gitlab.com/celenityy/Phoenix/-/raw/pages/configs/youtube.cfg
 ```
 
 **2:** Store the `.cfg` file you just downloaded somewhere safe that you can remember. For this example, we'll keep it simple and say I chose to save `youtube.cfg` at `~/youtube.cfg`. **Replace mentions of `~/youtube.cfg` below with the actual location of your file.**
@@ -876,12 +876,12 @@ You can either drag and drop the file manually, or run the command below:
 cp youtube.cfg ~/youtube.cfg
 ```
 
-**3:** Download the `user.js` file located [here](https://phoenix.celenity.dev/user.js).
+**3:** Download the `user.js` file located [here](https://gitlab.com/celenityy/Phoenix/-/raw/pages/user.js).
 
 You can right click and select `Save page as` from your browser on the `user.js` file, or you can run the following command in your terminal:
 
 ```sh
-wget https://phoenix.celenity.dev/user.js
+wget https://gitlab.com/celenityy/Phoenix/-/raw/pages/user.js
 ```
 
 **4:** Edit the `user.js` file you just downloaded, and replace **file://`put_your_cfg_file_location_here`** with the location of your `.cfg` file from Step 2.

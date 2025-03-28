@@ -29,7 +29,7 @@ uninstall_phoenix() {
 }
 
 ## Scripts are here
-URL="https://codeberg.org/celenity/Phoenix/raw/branch/pages/uninstaller_scripts/macos"
+URL="https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos"
 
 ## Scripts file
 SCRIPT=("phoenix-uninstall-system.sh"
