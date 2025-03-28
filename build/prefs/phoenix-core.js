@@ -251,14 +251,14 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
 //// Block known cryptominers
-pref("privacy.trackingprotection.cryptomining.enabled", true);
+pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT - non-Thunderbird]
 
 //// Block known email trackers
 pref("privacy.trackingprotection.emailtracking.enabled", true);
-pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true);
+pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true); // [DEFAULT]
 
 //// Block known fingerprinters
-pref("privacy.trackingprotection.fingerprinting.enabled", true);
+pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT - non-Thunderbird]
 
 //// Block known social trackers
 pref("privacy.trackingprotection.socialtracking.enabled", true);
@@ -274,19 +274,19 @@ pref("browser.safebrowsing.features.socialtracking.update", true); // [DEFAULT, 
 pref("browser.safebrowsing.features.trackingAnnotation.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.safebrowsing.features.trackingProtection.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.safebrowsing.provider.mozilla.updateURL", "moz-sbrs:://antitracking"); // [DEFAULT - non-Thunderbird]
-pref("privacy.trackingprotection.annotate_channels", true);
+pref("privacy.trackingprotection.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.enabled", true);
-pref("privacy.trackingprotection.pbmode.enabled", true);
+pref("privacy.trackingprotection.pbmode.enabled", true); // [DEFAULT - non-Android]
 
 //// Block known trackers using the `strict` (Level 2) list
 /// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15192
 /// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804
-pref("privacy.annotate_channels.strict_list.enabled", true);
-pref("privacy.annotate_channels.strict_list.pbmode.enabled", true);
+pref("privacy.annotate_channels.strict_list.enabled", true); // [DEFAULT - Android]
+pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // [DEFAULT]
 
 //// Block known tracking cookies
-pref("network.cookie.cookieBehavior.trackerCookieBlocking", true);
-pref("privacy.socialtracking.block_cookies.enabled", true);
+pref("network.cookie.cookieBehavior.trackerCookieBlocking", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird]
+pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 
 //// Enable Bounce Tracking Protection
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
@@ -299,12 +299,13 @@ pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Android/Thunderbi
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
 pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
-pref("privacy.query_stripping.redirect", true);
+pref("privacy.query_stripping.redirect", true); // [DEFAULT]
 
 //// Enable SmartBlock & UA overrides/injections
-pref("extensions.webcompat.enable_shims", true); // [HIDDEN]
-pref("extensions.webcompat.perform_injections", true); // [HIDDEN]
-pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN]
+pref("extensions.webcompat.enable_shims", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
+pref("extensions.webcompat.perform_injections", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
+pref("extensions.webcompat.perform_ua_overrides", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
+pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Desktop, HIDDEN - Android/Thunderbird] - Enables Embeds/Placeholders to make certain resources click to load
 
 //// Enable State Partitioning
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
@@ -318,16 +319,16 @@ pref("privacy.partition.serviceWorkers", true); // [DEFAULT]
 //// Enable Suspected Fingerprinters Protection (FPP)
 /// https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
 pref("privacy.fingerprintingProtection", true);
-pref("privacy.fingerprintingProtection.pbmode", true);
+pref("privacy.fingerprintingProtection.pbmode", true); // [DEFAULT - non-Thunderbird]
 pref("privacy.reduceTimerPrecision", true); // [DEFAULT]
 
 //// Enable TCP/dFPI
 /// https://support.mozilla.org/kb/introducing-total-cookie-protection-standard-mode
 /// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2828
-pref("network.cookie.cookieBehavior", 5);
+pref("network.cookie.cookieBehavior", 5); // [DEFAULT - non-Thunderbird]
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
-pref("network.cookie.cookieBehavior.pbmode", 5);
+pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT - non-Thunderbird]
 
 //// Ignore less restricted referer policies (than the default)
 /// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
@@ -354,7 +355,7 @@ pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-A
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
 /// Round window sizes
-pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Thunderbird]
+pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Android/Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
 
 /// Prevent using system accent colors
@@ -1213,10 +1214,6 @@ pref("privacy.donottrackheader.enabled", true);
 pref("privacy.globalprivacycontrol.enabled", true);
 pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT - non-Thunderbird]
 pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thunderbird]
-
-/// Enable Smartblock Embeds/Placeholders
-// Makes certain resources click to load
-pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Nightly, HIDDEN - Android/Thunderbird]
 
 /// Exclude third party trackers from TCP/dFPI storage access heuristics
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
