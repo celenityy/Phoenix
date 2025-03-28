@@ -291,8 +291,9 @@ pref("privacy.socialtracking.block_cookies.enabled", true);
 //// Enable Bounce Tracking Protection
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 /// https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
-pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - non-Thunderbird]
-pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Thunderbird]
+pref("privacy.bounceTrackingProtection.enabled", true); // [DEFAULT] [HIDDEN - Desktop]
+pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // [HIDDEN - Desktop]
+pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Android/Thunderbird]
 
 //// Enable Query Parameter Stripping
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
@@ -306,13 +307,13 @@ pref("extensions.webcompat.perform_injections", true); // [HIDDEN]
 pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN]
 
 //// Enable State Partitioning
-pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
-pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
-pref("privacy.partition.bloburl_per_partition_key", true);
-pref("privacy.partition.network_state", true);
-pref("privacy.partition.network_state.ocsp_cache", true);
-pref("privacy.partition.network_state.ocsp_cache.pbmode", true);
-pref("privacy.partition.serviceWorkers", true);
+pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
+pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT]
+pref("privacy.partition.bloburl_per_partition_key", true); // [DEFAULT]
+pref("privacy.partition.network_state", true); // [DEFAULT]
+pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT]
+pref("privacy.partition.network_state.ocsp_cache.pbmode", true); // [DEFAULT]
+pref("privacy.partition.serviceWorkers", true); // [DEFAULT]
 
 //// Enable Suspected Fingerprinters Protection (FPP)
 /// https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
