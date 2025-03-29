@@ -887,30 +887,12 @@
         "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/discussions/163"
     },
-    "1hpro": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "1Hosts (Pro)",
-        "tags": "ads privacy security",
-        "contentURL": "https://badmojr.gitlab.io/1hosts/Pro/adblock.txt",
-        "supportURL": "https://github.com/badmojr/1Hosts/issues"
-    },
     "3pfonts": {
         "content": "filters",
         "group": "privacy",
         "title": "🔍 Block third party fonts",
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/block_third_party_fonts.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
-    },
-    "amp": {
-        "content": "filters",
-        "group": "annoyances",
-        "off": true,
-        "title": "AMP Hosts",
-        "contentURL": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt",
-        "supportURL": "https://github.com/lightswitch05/hosts/issues",
-        "instructionURL": "https://brave.com/privacy-updates/18-de-amp/"
     },
     "badblockclick": {
         "content": "filters",
@@ -950,14 +932,6 @@
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev"
     },
-    "badhost": {
-        "content": "filters",
-        "group": "malware",
-        "off": true,
-        "title": "💻 HaGeZi - Badware Hoster",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
     "beacon": {
         "content": "filters",
         "group": "default",
@@ -989,15 +963,6 @@
         "contentURL": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
         "supportURL": "https://github.com/yokoffing/filterlists/issues"
     },
-    "devdan": {
-        "content": "filters",
-        "group": "multipurpose",
-        "off": true,
-        "title": "Developer Dan's Ads & Tracking",
-        "tags": "ads privacy",
-        "contentURL": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
-        "supportURL": "https://github.com/lightswitch05/hosts/issues"
-    },
     "divested": {
         "content": "filters",
         "group": "multipurpose",
@@ -1006,21 +971,6 @@
         "tags": "ads privacy security",
         "contentURL": "https://divested.dev/hosts-domains-wildcards",
         "supportURL": "https://codeberg.org/divested/dnsbl/issues"
-    },
-    "divestedfp": {
-        "content": "filters",
-        "group": "privacy",
-        "title": "Divested Fingerprinting Blocklist",
-        "contentURL": "https://gitlab.com/divested/dnsbl/-/raw/master/Fingerprinting.ubl",
-        "supportURL": "https://codeberg.org/divested/dnsbl/issues"
-    },
-    "drm": {
-        "content": "filters",
-        "group": "annoyances",
-        "off": true,
-        "title": "🔒 DRM Blocklist",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/drm.txt",
-        "supportURL": "https://badblock.celenity.dev/issues"
     },
     "dyndns": {
         "content": "filters",
@@ -1039,14 +989,6 @@
         "supportURL": "https://badblock.celenity.dev/issues",
         "instructionURL": "https://badblock.celenity.dev#ethical-whitelist"
     },
-    "fake": {
-        "content": "filters",
-        "group": "malware",
-        "off": true,
-        "title": "HaGeZi - Fake",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/fake.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
     "gambling": {
         "content": "filters",
         "group": "annoyances",
@@ -1054,14 +996,6 @@
         "title": "🎰 HaGeZi - Gambling",
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
-    },
-    "fmhybasic": {
-        "content": "filters",
-        "group": "malware",
-        "off": true,
-        "title": "FMHY Unsafe sites filterlist - Basic",
-        "contentURL": "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt",
-        "supportURL": "https://github.com/fmhy/FMHYFilterlist/issues"
     },
     "fmhyplus": {
         "content": "filters",
@@ -1159,14 +1093,6 @@
         "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.mini.txt",
         "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
-    "nrds": {
-        "content": "filters",
-        "group": "malware",
-        "off": true,
-        "title": "🆕 Newly Registered Domains (14 Days)",
-        "contentURL": "https://raw.githubusercontent.com/xRuffKez/NRD/main/nrd-14day_adblock.txt",
-        "supportURL": "https://github.com/xRuffKez/NRD/issues"
-    },
     "nsfw": {
         "content": "filters",
         "group": "annoyances",
@@ -1183,15 +1109,6 @@
         "tags": "ads privacy security",
         "contentURL": "https://big.oisd.nl/",
         "supportURL": "https://oisd.nl/report"
-    },
-    "popup": {
-        "content": "filters",
-        "group": "ads",
-        "off": true,
-        "title": "🎉 HaGeZi - Pop-up Ads",
-        "tags": "ads",
-        "contentURL": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/popupads.txt",
-        "supportURL": "https://github.com/hagezi/dns-blocklists/issues"
     },
     "sproutannoyances": {
         "content": "filters",
@@ -1216,26 +1133,6 @@
         "tags": "ads privacy security",
         "contentURL": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
         "supportURL": "https://github.com/StevenBlack/hosts/issues"
-    },
-    "svg": {
-        "content": "filters",
-        "group": "default",
-        "parent": "🛡️ Block SVG",
-        "off": true,
-        "title": "🛡️ Block SVG",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-svg.txt",
-        "supportURL": "https://badblock.celenity.dev/issues",
-        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
-    },
-    "svg-unbreak": {
-        "content": "filters",
-        "group": "default",
-        "parent": "🛡️ Block SVG",
-        "off": true,
-        "title": "🛡️ Block SVG - Unbreak",
-        "contentURL": "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/unbreak-svg.txt",
-        "supportURL": "https://badblock.celenity.dev/issues",
-        "instructionURL": "https://codeberg.org/celenity/BadBlock/src/branch/pages/hardened"
     },
     "threatintel": {
         "content": "filters",
