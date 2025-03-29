@@ -884,7 +884,7 @@
         "content": "filters",
         "group": "privacy",
         "title": "➗ Actually Legitimate URL Shortener Tool",
-        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+        "contentURL": "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/discussions/163"
     },
     "3pfonts": {
@@ -1115,14 +1115,14 @@
         "group": "annoyances",
         "off": true,
         "title": "⚙️ Dandelion Sprout's Annoyances List",
-        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AnnoyancesList",
+        "contentURL": "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/AnnoyancesList",
         "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
     },
     "sproutmalware": {
         "content": "filters",
         "group": "malware",
         "title": "💊 Dandelion Sprout's Anti-Malware List",
-        "contentURL": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
+        "contentURL": "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt",
         "supportURL": "https://github.com/DandelionSprout/adfilt/issues"
     },
     "stevenblack": {
