@@ -1190,6 +1190,13 @@ pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
+/// Disable storage access heuristics
+// https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
+pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
+pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
+pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT - Android]
+pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
+
 /// Enable Cookie Banner Reduction
 // https://support.mozilla.org/kb/cookie-banner-reduction
 pref("cookiebanners.bannerClicking.enabled", true); // [DEFAULT]

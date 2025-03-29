@@ -61,13 +61,6 @@ pref("browser.phoenix.status.extended", "003");
 
 /*** 004 MISC. PRIVACY ***/
 
-/// Disable TCP/dFPI storage access heuristics
-// https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
-pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
-pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
-pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT - Android]
-pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
-
 /// Only send cross-origin referers if hosts match
 // https://wiki.mozilla.org/Security/Referrer
 pref("network.http.referer.XOriginPolicy", 2);

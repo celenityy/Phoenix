@@ -28,11 +28,6 @@ pref("browser.phoenix.unextend.002.applied", true);
 
 // 003 MISC. PRIVACY
 
-/// Enable dFPI/TCP storage heuristics
-
-pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", true);
-pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", true);
-
 /// Always send cross-origin referers
 
 pref("network.http.referer.XOriginPolicy", 0);
