@@ -576,7 +576,7 @@
         "tags": "ads croatian serbian bosnian",
         "lang": "bs hr sr",
         "contentURL": [
-            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/SerboCroatianList.txt",
+            "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/SerboCroatianList.txt",
             "https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/SerboCroatianList.txt",
             "https://cdn.statically.io/gl/DandelionSprout/adfilt/master/SerboCroatianList.txt"
         ],
@@ -732,7 +732,7 @@
         "tags": "ads norwegian danish icelandic",
         "lang": "nb nn no da is",
         "contentURL": [
-            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt",
+            "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/NorwegianList.txt",
             "https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/NorwegianList.txt",
             "https://cdn.statically.io/gl/DandelionSprout/adfilt/master/NorwegianList.txt"
         ],
@@ -1131,7 +1131,7 @@
         "off": true,
         "title": "Steven Black (Unified)",
         "tags": "ads privacy security",
-        "contentURL": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+        "contentURL": "https://gitlab.com/StevenBlack/hosts/-/raw/master/hosts",
         "supportURL": "https://github.com/StevenBlack/hosts/issues"
     },
     "threatintel": {
@@ -1227,13 +1227,5 @@
         "title": "YouTube Neuter - SponsorBlock Supplement",
         "contentURL": "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/sponsorblock.txt",
         "supportURL": "https://github.com/mchangrh/yt-neuter/issues"
-    },
-    "ytshorts": {
-        "content": "filters",
-        "group": "annoyances",
-        "off": true,
-        "title": "YouTube Anti-Shorts",
-        "contentURL": "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/yt-shorts.txt",
-        "supportURL": "https://github.com/brave/adblock-lists/issues"
     }
 }
