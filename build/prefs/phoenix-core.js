@@ -1092,7 +1092,7 @@ pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
 pref("browser.dom.window.dump.enabled", false); // [DEFAULT - non-Android, desktop `MOZILLA_OFFICIAL` builds]
 
 /// Prevent console API from writing to `stdout` when used by chrome content
-pref("devtools.console.stdout.chrome", false); // [DEFAULT - `MOZILLA_OFFICIAL` builds]
+pref("devtools.console.stdout.chrome", false); // [DEFAULT - non-Android, `MOZILLA_OFFICIAL` builds]
 
 /// Prevent logging URLs in Reader errors
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
