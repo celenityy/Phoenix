@@ -1087,6 +1087,13 @@ pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nig
 /// Enforce local debugging only
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
 
+/// Prevent adding global `dump` function to log strings to `stdout`
+// https://searchfox.org/mozilla-central/source/devtools/docs/contributor/getting-started/development-profiles.md
+pref("browser.dom.window.dump.enabled", false); // [DEFAULT - non-Android, desktop `MOZILLA_OFFICIAL` builds]
+
+/// Prevent console API from writing to `stdout` when used by chrome content
+pref("devtools.console.stdout.chrome", false); // [DEFAULT - `MOZILLA_OFFICIAL` builds]
+
 /// Prevent logging URLs in Reader errors
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 
