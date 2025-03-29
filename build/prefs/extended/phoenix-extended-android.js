@@ -27,5 +27,19 @@
 // Compared to standard, this just removes '-JSDateTimeUTC' - meaning timezone is spoofed to UTC-0
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate");
 
+pref("browser.phoenix.status.extended.android", "001");
+
+/*** 002 MISC. PRIVACY + SECURITY ***/
+
+/// Disable WebGL
+// PRIVACY: Fingerprinting concerns
+// SECURITY: Attack Surface Reduction
+// https://blog.browserscan.net/docs/webgl-fingerprinting
+// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
+// On desktop we're no longer setting/recommending this in favor of the built-in `Block WebGL` filterlist in uBlock Origin (and I'm sure we'll also override this on IronFox once we get our custom config working...), but on Android we can't control uBlock Origin/set policies, so let's make sure this is disabled.
+pref("webgl.disabled", true);
+
+pref("browser.phoenix.status.extended.android", "002");
+
 pref("browser.phoenix.status.extended.android", "successfully applied :D", locked);
 

@@ -18,9 +18,8 @@
 
 001: WEBRTC
 002: ATTACK SURFACE REDUCTION
-003: MISC. PRIVACY + SECURITY
-004: MISC. PRIVACY
-005: MISC.
+003: MISC. PRIVACY
+004: MISC.
 
 */
 
@@ -48,26 +47,15 @@ pref("javascript.options.wasm", false);
 
 pref("browser.phoenix.status.extended", "002");
 
-/*** 003 MISC. PRIVACY + SECURITY ***/
-
-/// Disable WebGL
-// PRIVACY: Fingerprinting concerns
-// SECURITY: Attack Surface Reduction
-// https://blog.browserscan.net/docs/webgl-fingerprinting
-// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
-pref("webgl.disabled", true);
-
-pref("browser.phoenix.status.extended", "003");
-
-/*** 004 MISC. PRIVACY ***/
+/*** 003 MISC. PRIVACY ***/
 
 /// Only send cross-origin referers if hosts match
 // https://wiki.mozilla.org/Security/Referrer
 pref("network.http.referer.XOriginPolicy", 2);
 
-pref("browser.phoenix.status.extended", "004");
+pref("browser.phoenix.status.extended", "003");
 
-/*** 005 MISC. ***/
+/*** 004 MISC. ***/
 
 /// Prevent sites from automatically refreshing
 pref("accessibility.blockautorefresh", true);
@@ -77,7 +65,7 @@ pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android
 // Default = 0
 pref("media.autoplay.blocking_policy", 2);
 
-pref("browser.phoenix.status.extended", "005");
+pref("browser.phoenix.status.extended", "004");
 
 pref("browser.phoenix.status.extended", "successfully applied :D", locked);
 
