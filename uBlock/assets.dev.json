@@ -202,7 +202,6 @@
             "assets/thirdparties/urlhaus-filter/urlhaus-filter-online.txt"
         ],
         "cdnURLs": [
-            "https://curbengh.github.io/malware-filter/urlhaus-filter-ag-online.txt",
             "https://malware-filter.gitlab.io/urlhaus-filter/urlhaus-filter-ag-online.txt",
             "https://malware-filter.pages.dev/urlhaus-filter-ag-online.txt"
         ],
@@ -214,7 +213,6 @@
         "title": "Phishing URL Blocklist",
         "contentURL": "https://malware-filter.gitlab.io/phishing-filter/phishing-filter.txt",
         "cdnURLs": [
-            "https://curbengh.github.io/phishing-filter/phishing-filter.txt",
             "https://malware-filter.gitlab.io/phishing-filter/phishing-filter.txt",
             "https://phishing-filter.pages.dev/phishing-filter.txt"
         ],
@@ -523,8 +521,7 @@
         "tags": "ads german deutschland luxembourgish lëtzebuerg romansh",
         "lang": "de dsb hsb lb rm",
         "contentURL": [
-            "https://easylist.to/easylistgermany/easylistgermany.txt",
-            "https://easylist-downloads.adblockplus.org/easylistgermany.txt"
+            "https://easylist.to/easylistgermany/easylistgermany.txt"
         ],
         "supportURL": "https://forums.lanik.us/viewforum.php?f=90"
     },
@@ -599,7 +596,7 @@
         "title": "🇮🇩id 🇲🇾my: ABPindo",
         "tags": "ads indonesian malay",
         "lang": "id ms",
-        "contentURL": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt",
+        "contentURL": "https://gitlab.com/ABPindo/indonesianadblockrules/-/raw/master/subscriptions/abpindo.txt",
         "supportURL": "https://github.com/ABPindo/indonesianadblockrules"
     },
     "IND-0": {
@@ -877,7 +874,7 @@
         "title": "🇻🇳vn: ABPVN List",
         "tags": "ads vietnamese việt",
         "lang": "vi",
-        "contentURL": "https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn_ublock.txt",
+        "contentURL": "https://gitlab.com/abpvn/abpvn/-/raw/master/filter/abpvn_ublock.txt",
         "supportURL": "https://abpvn.com/"
     },
     "LegitimateURLShortener": {
