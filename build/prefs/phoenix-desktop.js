@@ -838,6 +838,9 @@ pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI i
 /// Clean-up default UI
 pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"sidebar-button\",\"back-button\",\"forward-button\",\"vertical-spacer\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":21,\"newElementCount\":4}");
 
+/// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools
+pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [HIDDEN]
+
 /// Enable Backup UI settings (at `about:preferences#general`)
 pref("browser.backup.preferences.ui.enabled", true);
 
