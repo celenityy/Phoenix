@@ -10,6 +10,12 @@
 
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC");
 
+/// Enable WebGL
+// https://blog.browserscan.net/docs/webgl-fingerprinting
+// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
+
+pref("webgl.disabled", false);
+
 pref("browser.phoenix.unextend.001.applied", true);
 
 /// 002 WEBRTC
