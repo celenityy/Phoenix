@@ -41,7 +41,7 @@ pref("browser.phoenix.status.extended", "001");
 
 /*** 002 ATTACK SURFACE REDUCTION ***/
 
-/// Disable WebAssembly
+/// Disable WebAssembly (WASM)
 // https://spectrum.ieee.org/more-worries-over-the-security-of-web-assembly
 pref("javascript.options.wasm", false);
 
