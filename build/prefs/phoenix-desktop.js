@@ -236,6 +236,15 @@ pref("toolkit.contentRelevancy.enabled", false, locked); // [DEFAULT]
 pref("toolkit.contentRelevancy.ingestEnabled", false, locked); // [DEFAULT]
 pref("toolkit.contentRelevancy.log", false); // [DEFAULT]
 
+/// Disable mozAddonManager
+// mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains
+// This API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
+// Note that the following preferences break installion of extensions on Android (from `addons.mozilla.org`) & Thunderbird (from `addons.thunderbird.net`)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
+pref("extensions.webapi.enabled", false);
+pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+
 /// Disable the Mozilla Ad Routing Service (MARS) :/
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#221
 pref("browser.newtabpage.activity-stream.feeds.adsfeed", false, locked);
@@ -274,6 +283,15 @@ pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled", false, locked);
 pref("identity.mobilepromo.android", "", locked);
 pref("identity.mobilepromo.ios", "", locked);
 pref("identity.sendtabpromo.url", "", locked);
+
+/// Disable Mozilla.UITour
+// https://mozilla.github.io/bedrock/uitour/#ui-tour
+// https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/index.html
+pref("browser.uitour.enabled", false, locked);
+pref("browser.uitour.loglevel", "Off");
+pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
+pref("browser.uitour.surveyDuration", 0, locked);
+pref("browser.uitour.url", "", locked);
 
 /// Disable recommendations
 pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
@@ -330,16 +348,6 @@ pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
-
-/// Remove special privileges from Mozilla domains
-// https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/index.html
-pref("browser.uitour.enabled", false, locked);
-pref("browser.uitour.loglevel", "Off");
-pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
-pref("browser.uitour.surveyDuration", 0, locked);
-pref("browser.uitour.url", "", locked);
-pref("extensions.webapi.enabled", false); // Disables AddonManager - This breaks installing extensions on Android & Thunderbird :/
-pref("privacy.resistFingerprinting.block_mozAddonManager", true); // Disables AddonManager - This breaks installing extensions on Android & Thunderbird :/
 
 /// Remove tracking parameters from Mozilla URLs
 pref("app.releaseNotesURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");

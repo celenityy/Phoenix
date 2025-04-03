@@ -197,6 +197,14 @@ pref("toolkit.shopping.ohttpRelayURL", "");
 /// Disable Firefox Relay
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
+/// Disable mozAddonManager
+// mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains
+// This API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
+pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
+pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
+
 /// Disable "Privacy-Preserving Attribution"
 // https://support.mozilla.org/kb/privacy-preserving-attribution
 pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
@@ -224,8 +232,6 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false, locked); // [DEFAULT on Firefox Desktop]
 pref("browser.tabs.remote.separatedMozillaDomains", "", locked);
 pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
-pref("extensions.webapi.testing", false); // [DEFAULT] Disables AddonManager on Mozilla testing domains
-pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables AddonManager on Mozilla testing domains using insecure protocols
 pref("extensions.webextensions.restrictedDomains", "");
 pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
