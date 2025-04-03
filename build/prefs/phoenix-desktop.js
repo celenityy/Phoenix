@@ -338,7 +338,8 @@ pref("browser.uitour.loglevel", "Off");
 pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked);
 pref("browser.uitour.url", "", locked);
-pref("privacy.resistFingerprinting.block_mozAddonManager", true); // This breaks installing extensions on Android & Thunderbird :/
+pref("extensions.webapi.enabled", false); // Disables AddonManager - This breaks installing extensions on Android & Thunderbird :/
+pref("privacy.resistFingerprinting.block_mozAddonManager", true); // Disables AddonManager - This breaks installing extensions on Android & Thunderbird :/
 
 /// Remove tracking parameters from Mozilla URLs
 pref("app.releaseNotesURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
