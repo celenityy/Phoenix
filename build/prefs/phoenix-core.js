@@ -224,7 +224,8 @@ pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false, locked); // [DEFAULT on Firefox Desktop]
 pref("browser.tabs.remote.separatedMozillaDomains", "", locked);
 pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
-pref("extensions.webapi.testing", false, locked); // [DEFAULT] https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5445
+pref("extensions.webapi.testing", false); // [DEFAULT] Disables AddonManager on Mozilla testing domains
+pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables AddonManager on Mozilla testing domains using insecure protocols
 pref("extensions.webextensions.restrictedDomains", "");
 pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
@@ -460,10 +461,6 @@ pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 /// Always warn when submitting a form from HTTP to HTTPS, even on local IP addresses
 pref("security.insecure_field_warning.ignore_local_ip_address", false);
 pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
-
-/// Block access to AddonManager over insecure protocols
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#5452
-pref("extensions.webapi.testing.http", false); // [DEFAULT]
 
 /// Disable downgrades to insecure TLS 1.0/1.1
 pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
