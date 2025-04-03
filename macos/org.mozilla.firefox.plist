@@ -11,7 +11,7 @@
 				<key>adminSettings</key>
 				<dict>
 					<key>assetsBootstrapLocation</key>
-					<string>https://codeberg.org/celenity/Phoenix/raw/branch/pages/uBlock/assets.json</string>
+					<string>https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json</string>
 				</dict>
 			</dict>
 		</dict>
@@ -174,6 +174,7 @@
 				<string>https://ftp.mozilla.org/pub/firefox/*</string>
 				<string>https://ftp.mozilla.org/pub/labs/*</string>
 				<string>https://ftp.mozilla.org/pub/system-addons/*</string>
+				<string>https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi</string>
 				<string>https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&amp;inline=false</string>
 				<string>https://github.com/AdguardTeam/AdguardBrowserExtension/releases</string>
 				<string>https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*</string>
@@ -226,6 +227,7 @@
 				<string>https://github.com/violentmonkey/violentmonkey/releases</string>
 				<string>https://github.com/violentmonkey/violentmonkey/releases/*</string>
 				<string>https://github.com/violentmonkey/violentmonkey/releases*</string>
+				<string>https://gitlab.com/celenityy/Phoenix/*</string>
 				<string>https://www.eff.org/files/privacy-badger-latest.xpi</string>
 				<string>https://mullvad.net/ar/download/browser/extension</string>
 				<string>https://mullvad.net/da/download/browser/extension</string>
@@ -657,7 +659,7 @@
 		<key>brave-leta@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-brave/leta-brave-0.0.1.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-brave/leta-brave-0.0.2.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -705,7 +707,7 @@
 		<key>ddg@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo/duckduckgo-0.0.2.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo/duckduckgo-0.0.3.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -718,7 +720,7 @@
 		<key>duckduckgo-html@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.6.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.7.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -731,7 +733,7 @@
 		<key>duckduckgo-lite@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.4.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.5.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -884,7 +886,7 @@
 		<key>google-leta@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/leta-google/leta-google-0.0.1.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-google/leta-google-0.0.2.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1093,7 +1095,7 @@
 		<key>mojeek@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/mojeek/mojeek-0.0.4.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/mojeek/mojeek-0.0.5.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1113,7 +1115,7 @@
 		<key>no-search@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/no-search/no-search-0.0.4.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/no-search/no-search-0.0.5.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1343,7 +1345,7 @@
 		<key>startpage@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/startpage/startpage-0.0.4.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/startpage/startpage-0.0.5.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
@@ -1370,7 +1372,7 @@
 		<key>swisscows@celenity.dev</key>
 		<dict>
 			<key>install_url</key>
-			<string>https://codeberg.org/celenity/Phoenix/raw/commit/2af9b64a492b75e8d44186dc9275584a68113a09/extensions/xpi/search/swisscows/swisscows-0.0.3.xpi</string>
+			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/swisscows/swisscows-0.0.4.xpi</string>
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>private_browsing</key>
