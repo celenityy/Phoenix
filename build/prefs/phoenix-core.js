@@ -1281,9 +1281,15 @@ pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT, HIDDEN - Thunderb
 pref("media.devices.insecure.enabled", false); // [DEFAULT]
 pref("media.getusermedia.insecure.enabled", false); // [DEFAULT]
 
-/// Enable the 'credentialless' COEP (Cross-Origin-Embedder-Policy) Header
-pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT - non-Android stable]
-pref("dom.origin-trials.coep-credentialless.state", 1);
+/// Enable the Cross-Origin-Embedder Policy Header
+// https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy
+pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT - non-Android stable] 'credentialless' 
+pref("browser.tabs.remote.useCrossOriginEmbedderPolicy", true); // [DEFAULT]
+pref("dom.origin-trials.coep-credentialless.state", 1); // 'credentialless' 
+
+/// Enable the Cross-Origin-Opener Policy Header
+// https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy
+pref("browser.tabs.remote.useCrossOriginOpenerPolicy", true); // [DEFAULT]
 
 /// Enable Element.setHTML
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1805632
