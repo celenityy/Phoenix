@@ -127,6 +127,11 @@ pref("browser.phoenix.status.android", "005");
 
 /*** 006 EXTENSIONS ***/
 
+/// Enable installation of add-ons
+// Note that this does NOT apply to `Recommended` extensions (collecitons) found at `Settings` -> `Advanced` -> `Extensions`.
+// Setting here to expose via the `about:config`...
+pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
+
 /// Enable mozAddonManager
 // mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains
 // This API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
