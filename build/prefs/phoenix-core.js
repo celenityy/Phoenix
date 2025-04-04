@@ -911,6 +911,11 @@ pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#403
 pref("extensions.install_origins.enabled", true);
 
+/// Enable installation of add-ons
+// Includes extensions & themes
+// Setting here to expose via the `about:config`...
+pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
+
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
