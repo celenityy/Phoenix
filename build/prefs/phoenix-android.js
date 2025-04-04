@@ -138,7 +138,7 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [DEFAULT]
 
 /// Only allow installation of signed extensions by default
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
-pref("xpinstall.signatures.required", true); // [DEFAULT]
+pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
 pref("browser.phoenix.status.android", "006");
 

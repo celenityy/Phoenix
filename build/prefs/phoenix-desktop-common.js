@@ -158,10 +158,6 @@ pref("browser.phoenix.status.desktop.common", "006");
 // Enable panel for our own extension recommendations...
 pref("extensions.getAddons.showPane", true); // [DEFAULT]
 
-// Only allow installation of signed language packs & whitelisted extensions
-pref("extensions.langpacks.signatures.required", true, locked); // [DEFAULT]
-pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
-
 pref("browser.phoenix.status.desktop.common", "007");
 
 /*** 008 GEOLOCATION [NO-OSX] ***/

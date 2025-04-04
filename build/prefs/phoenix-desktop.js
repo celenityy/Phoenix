@@ -594,8 +594,8 @@ pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, lock
 
 /// Only allow installation of signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
-pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
-pref("xpinstall.signatures.required", true); // [DEFAULT]
+pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
+pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
 pref("browser.phoenix.status.desktop", "010");
 

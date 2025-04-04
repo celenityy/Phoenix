@@ -912,7 +912,7 @@ pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT
 pref("extensions.install_origins.enabled", true);
 
 /// Enable installation of add-ons
-// Includes extensions & themes
+// Includes extensions and themes
 // Setting here to expose via the `about:config`...
 pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
 
@@ -940,11 +940,10 @@ pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
 pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures extensions installed via directories are disabled by default...
 pref("extensions.enabledScopes", 5); // [HIDDEN]
 
-/// Only allow installation of signed extensions by default
-pref("xpinstall.whitelist.required", true); // [DEFAULT]
-
-/// Prevent bypasing 3rd party extension install prompts
-pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird]
+/// Never allow installing extensions without first prompting the user
+pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
+pref("xpinstall.whitelist.add", "", locked); // [DEFAULT - non-Android] [HIDDEN - non-Android]
+pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Warn you when websites try to install add-ons` setting at `about:preferences#privacy`
 
 /// Prevent certain Mozilla extensions from accessing restricted/quarantined domains...
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
