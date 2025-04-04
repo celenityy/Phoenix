@@ -956,6 +956,9 @@ pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, l
 // https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142
 pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
 
+/// Require secure origins to install add-ons
+pref("extensions.install.requireSecureOrigin", true); // [HIDDEN]
+
 pref("browser.phoenix.status.core", "016");
 
 /*** 017 AI ***/
