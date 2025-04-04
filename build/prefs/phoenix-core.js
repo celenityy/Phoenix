@@ -911,11 +911,6 @@ pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#403
 pref("extensions.install_origins.enabled", true);
 
-/// Enable installation of add-ons
-// Includes extensions and themes
-// Setting here to expose via the `about:config`...
-pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
-
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
@@ -1094,6 +1089,10 @@ pref("browser.phoenix.status.core", "020");
 /// Always prompt before connecting to Remote Debugging...
 pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nightly]
 
+/// Disable Remote Debugging + only allow enabling it per-session
+// https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
+pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thunderbird]
+
 /// Enforce local debugging only
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
 
@@ -1106,10 +1105,6 @@ pref("devtools.console.stdout.chrome", false); // [DEFAULT - non-Android, `MOZIL
 
 /// Prevent logging URLs in Reader errors
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
-
-/// Restrict Remote Debugging to only remain enabled per-session
-// https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
-pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thunderbird]
 
 pref("browser.phoenix.status.core", "021");
 
