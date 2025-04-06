@@ -52,8 +52,8 @@ pref("browser.phoenix.status.desktop.common", "001");
 /*** 002 MOZILLA CRAP™ ***/
 
 /// Disable Recommendations
-pref("extensions.getAddons.discovery.api_url", "data;"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is local/installed extensions...
+pref("extensions.getAddons.discovery.api_url", "data;", locked); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is always local/installed extensions...
 
 /// Remove special privileges from Mozilla domains
 pref("permissions.manager.defaultsUrl", "", locked);

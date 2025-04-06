@@ -211,11 +211,11 @@ pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
 pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
 
 /// Disable recommendations
-pref("extensions.getAddons.browseAddons", ""); // [HIDDEN - non-Android]
-pref("extensions.getAddons.showPane", false);
-pref("extensions.htmlaboutaddons.recommendations.enabled", false);
-pref("extensions.recommendations.themeRecommendationUrl", "");
-pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird]
+pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
+pref("extensions.getAddons.showPane", false, locked);
+pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
+pref("extensions.recommendations.themeRecommendationUrl", "", locked);
+pref("extensions.webservice.discoverURL", "", locked); // [HIDDEN - non-Thunderbird]
 
 /// Disable Remote Settings 'Preview' Buckets
 // Nice to expose via about:config
@@ -898,6 +898,16 @@ pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}"
 /// Allow Mullvad's extension (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
 
+/// Always allow installing "incompatible" add-ons
+// Especially useful on Android & Thunderbird...
+pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
+
+/// Always run extensions OOP (out of process...)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1613141
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1880856
+// https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
+pref("extensions.webextensions.remote", true); // [DEFAULT]
+
 /// Block extensions signed with weak signature algorithms
 pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAULT, HIDDEN]
 
@@ -1265,12 +1275,6 @@ pref("browser.phoenix.status.core", "023");
 // https://www.stigviewer.com/stig/mozilla_firefox/2023-06-05/finding/V-251547
 pref("security.default_personal_cert", "Ask Every Time", locked); // [DEFAULT]
 
-/// Always run extensions OOP (out of process...)
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1613141
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1880856
-// https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
-pref("extensions.webextensions.remote", true); // [DEFAULT]
-
 /// Always warn users before launching other apps
 pref("network.protocol-handler.warn-external.mailto", true);
 pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
@@ -1386,10 +1390,6 @@ pref("security.turn_off_all_security_so_that_viruses_can_take_over_this_computer
 pref("browser.phoenix.status.core", "024");
 
 /*** 025 MISC. ***/
-
-/// Always allow installing "incompatible" add-ons
-// Especially useful on Android & Thunderbird...
-pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
 
 /// Block pop-ups by default
 pref("dom.disable_open_during_load", true); // [DEFAULT - non-Thunderbird]

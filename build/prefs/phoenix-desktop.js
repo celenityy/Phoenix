@@ -562,12 +562,6 @@ pref("browser.phoenix.status.desktop", "009");
 
 /*** 010 EXTENSIONS ***/
 
-/// Add our own extension recommendations
-// https://codeberg.org/celenity/Phoenix/wiki/Recommended-Extensions
-// https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.getAddons.discovery.api_url", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/extensions/recommendations.json");
-pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
-
 /// Block our current search 'extensions' from accessing restricted/quarantined domains
 // https://support.mozilla.org/kb/quarantined-domains
 pref("extensions.quarantineIgnoredByUser.brave-leta@celenity.dev", false, locked); // Mullvad Leta (Brave)
