@@ -140,9 +140,6 @@ pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 // https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 pref("userContent.player.click_to_play", true); // [HIDDEN]
 
-/// Remove DRM toggle from `about:preferences#general`
-pref("browser.eme.ui.enabled", false);
-
 pref("browser.phoenix.status.desktop.common", "005");
 
 /*** 006 ATTACK SURFACE REDUCTION ***/

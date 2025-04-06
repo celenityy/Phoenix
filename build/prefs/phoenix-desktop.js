@@ -25,17 +25,18 @@
 006: IMPLICIT CONNECTIONS
 007: SEARCH & URL BAR
 008: DNS
-009: PASSWORDS & AUTHENTICATION
-010: EXTENSIONS
-011: AI
-012: GEOLOCATION
-013: MISC. PRIVACY
-014: MISC.
-015: PERFORMANCE
-016: SYNC
-017: Personal Touch 💜
-018: UPDATES
-019: SPECIALIZED/CUSTOM CONFIGS
+009: MEDIA
+010: PASSWORDS & AUTHENTICATION
+011: EXTENSIONS
+012: AI
+013: GEOLOCATION
+014: MISC. PRIVACY
+015: MISC.
+016: PERFORMANCE
+017: SYNC
+018: Personal Touch 💜
+019: UPDATES
+020: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -544,7 +545,14 @@ pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UI
 
 pref("browser.phoenix.status.desktop", "008");
 
-/*** 009 PASSWORDS & AUTHENTICATION ***/
+/*** 009 MEDIA ***/
+
+/// Remove DRM toggle from `about:preferences#general`
+pref("browser.eme.ui.enabled", false);
+
+pref("browser.phoenix.status.desktop", "009");
+
+/*** 010 PASSWORDS & AUTHENTICATION ***/
 
 /// Enable alerts for breached & vulnerable passwords (if the Password Manager is enabled) by default
 // Harmless, never sends passwords or sensitive data to Mozilla
@@ -558,9 +566,9 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=791594
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "009");
+pref("browser.phoenix.status.desktop", "010");
 
-/*** 010 EXTENSIONS ***/
+/*** 011 EXTENSIONS ***/
 
 /// Block our current search 'extensions' from accessing restricted/quarantined domains
 // https://support.mozilla.org/kb/quarantined-domains
@@ -603,9 +611,9 @@ pref("extensions.postDownloadThirdPartyPrompt", false, locked);
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
-pref("browser.phoenix.status.desktop", "010");
+pref("browser.phoenix.status.desktop", "011");
 
-/*** 011 AI ***/
+/*** 012 AI ***/
 
 // https://support.mozilla.org/kb/ai-chatbot
 
@@ -634,9 +642,9 @@ pref("browser.ml.chat.providers", "huggingchat"); // [HIDDEN]
 // Also currently not possible to add this as a persistent option.
 pref("browser.ml.chat.provider", "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat");
 
-pref("browser.phoenix.status.desktop", "011");
+pref("browser.phoenix.status.desktop", "012");
 
-/*** 012 GEOLOCATION ***/
+/*** 013 GEOLOCATION ***/
 
 /// Block websites from prompting to access geolocation by default
 pref("permissions.default.geo", 2);
@@ -650,9 +658,9 @@ pref("geo.provider.use_geoclue", true); // [DEFAULT] [NO-OSX]
 /// Update info URL to ours so that users receive accurate information
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 
-pref("browser.phoenix.status.desktop", "012");
+pref("browser.phoenix.status.desktop", "013");
 
-/*** 013 MISC. PRIVACY ***/
+/*** 014 MISC. PRIVACY ***/
 
 /// Enable container isolation of `about:home` content
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
@@ -686,9 +694,9 @@ pref("browser.startup.page", 1); // [DEFAULT]
 // https://phoenix.celenity.dev/content-blocking
 pref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json");
 
-pref("browser.phoenix.status.desktop", "013");
+pref("browser.phoenix.status.desktop", "014");
 
-/*** 014 MISC. ***/
+/*** 015 MISC. ***/
 
 /// Block websites from prompting to display notifications by default
 // I have yet to see a legitimate use-case for websites using push notifications...
@@ -717,9 +725,9 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);
 
-pref("browser.phoenix.status.desktop", "014");
+pref("browser.phoenix.status.desktop", "015");
 
-/*** 015 PERFORMANCE ***/
+/*** 016 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 
@@ -733,9 +741,9 @@ pref("browser.tabs.hoverPreview.showThumbnails", false);
 /// Enable VA-API by default [LINUX] [NO-OSX]
 pref("media.ffmpeg.vaapi.enabled", true); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop", "015");
+pref("browser.phoenix.status.desktop", "016");
 
-/*** 016 SYNC ***/
+/*** 017 SYNC ***/
 
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true);
 pref("services.sync.prefs.sync.browser.bookmarks.openInTabClosesMenu", true);
@@ -817,9 +825,9 @@ pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", tr
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
 pref("services.sync.prefs.sync.webgl.disabled", true);
 
-pref("browser.phoenix.status.desktop", "016");
+pref("browser.phoenix.status.desktop", "017");
 
-/*** 017 Personal Touch 💜 ***/
+/*** 018 Personal Touch 💜 ***/
 
 /// Things that are nice to have™
 // Not directly privacy & security related
@@ -871,9 +879,9 @@ pref("sidebar.visibility", "hide-sidebar"); // Hide by default
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-OSX]
 pref("browser.taskbarTabs.enabled", true); // [HIDDEN] [NO-OSX]
 
-pref("browser.phoenix.status.desktop", "017");
+pref("browser.phoenix.status.desktop", "018");
 
-/*** 018 UPDATES ***/
+/*** 019 UPDATES ***/
 
 // Browser Updates
 
@@ -883,16 +891,16 @@ pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 /// Enable a dialog/pop-up on major upgrades
 pref("browser.startup.upgradeDialog.enabled", true);
 
-pref("browser.phoenix.status.desktop", "018");
+pref("browser.phoenix.status.desktop", "019");
 
-/*** 019 SPECIALIZED/CUSTOM CONFIGS [NO-OSX] [NO-SPEC]***/
+/*** 020 SPECIALIZED/CUSTOM CONFIGS [NO-OSX] [NO-SPEC]***/
 
 /// Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
 pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
 pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.status.desktop", "019"); // [NO-OSX] [NO-SPEC]
+pref("browser.phoenix.status.desktop", "020"); // [NO-OSX] [NO-SPEC]
 
 pref("browser.phoenix.status.desktop", "successfully applied :D", locked);
 
