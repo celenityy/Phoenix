@@ -936,7 +936,6 @@ pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird]
 pref("extensions.enabledScopes", 5); // [HIDDEN]
 
 /// Never allow installing extensions without first prompting the user
-pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
 pref("xpinstall.whitelist.add", "", locked); // [DEFAULT - non-Android] [HIDDEN - non-Android]
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Warn you when websites try to install add-ons` setting at `about:preferences#privacy`
 

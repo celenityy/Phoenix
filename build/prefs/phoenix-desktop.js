@@ -600,6 +600,10 @@ pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, lock
 // Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it.
 pref("xpinstall.enabled", false, sticky); // [HIDDEN]
 
+/// Never allow installing extensions without first prompting the user
+// https://github.com/arkenfox/user.js/issues/1090
+pref("extensions.postDownloadThirdPartyPrompt", false, locked);
+
 /// Only allow installation of signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
