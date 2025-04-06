@@ -225,7 +225,6 @@ pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
 // Harmless - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as a potential performance improvement
 pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT on non-Nightly/ESR]
-pref("extensions.webcompat-reporter.newIssueEndpoint", "");
 
 /// Remove special privileges from Mozilla domains
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
