@@ -127,8 +127,9 @@ pref("browser.phoenix.status.android", "005");
 
 /*** 006 EXTENSIONS ***/
 
-/// Enable installation of add-ons
+/// Enable installation of add-ons by default
 // Note that this does NOT apply to `Recommended` extensions (collecitons) found at `Settings` -> `Advanced` -> `Extensions`.
+// Unfortunately doesn't have a prompt when disabled like Desktop :(
 // Setting here to expose via the `about:config`...
 pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
 
