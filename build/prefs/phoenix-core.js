@@ -1239,8 +1239,9 @@ pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thu
 pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
 
 /// Improve built-in query stripping to be on par with LibreWolf & Brave
+// I've also added `mkt_tok` & `ysclid`, which can be seen in Mozilla's Remote Settings here: https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/changeset?_expected=0
 // https://codeberg.org/librewolf/settings/src/branch/master/librewolf.cfg#L77
-pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid mkt_tok ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid ysclid");
 
 /// Isolate permissions per container (if containers are enabled)
 // https://support.mozilla.org/kb/how-use-firefox-containers
