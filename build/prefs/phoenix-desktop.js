@@ -592,6 +592,14 @@ pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); 
 pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
 pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
 
+/// Disable installation of add-ons + only allow enabling it per-session
+// Includes extensions & themes
+// This doesn't impact already installed add-ons & add-ons installed by policies
+// Firefox will prompt to re-enable this when necessary
+// Setting this pref to `sticky` causes it to reset per session, which is quite nice from a security perspective, as it allows users to enable this functionality only when it's necessary...
+// Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it.
+pref("xpinstall.enabled", false, sticky); // [HIDDEN]
+
 /// Only allow installation of signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
