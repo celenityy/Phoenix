@@ -53,7 +53,15 @@
 /// world ISOLATED
 (function(){})();
 
+/// trusted-set-cookie-reload.js
+/// world ISOLATED
+(function(){})();
+
 /// trusted-set-local-storage-item.js
+/// world ISOLATED
+(function(){})();
+
+/// trusted-set-session-storage-item.js
 /// world ISOLATED
 (function(){})();
 
