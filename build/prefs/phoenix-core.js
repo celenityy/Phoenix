@@ -809,7 +809,7 @@ pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false);
 /// If JIT (Ion/WarpMonkey) is disabled, also disable it for extensions
 // This is the default, but it's hidden - so setting it here lets us expose it...
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
-pref("javascript.options.jit_trustedprincipals", false); // [DEFAULT]
+pref("javascript.options.jit_trustedprincipals", false);
 
 pref("browser.phoenix.status.core", "014");
 
@@ -928,8 +928,13 @@ pref("extensions.blocklist.enabled", true); // [DEFAULT]
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
 
 /// Harden CSP policy
-// Currently disables WebAssembly (WASM) & upgrades insecure requests
-pref("extensions.webextensions.base-content-security-policy", "script-src 'self' https://* http://localhost:* http://127.0.0.1:* moz-extension: blob: filesystem: 'unsafe-eval' 'unsafe-inline'; upgrade-insecure-requests;");
+// Compared to Firefox's default, this:
+// Blocks inline scripts
+// Blocks scripts unless they're loaded from the same origin
+// Blocks unsafe eval() - including WebAssembly (WASM)
+// Upgrades network requests to HTTPS
+// Etc...
+pref("extensions.webextensions.base-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.base-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;"); // [DEFAULT]
