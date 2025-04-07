@@ -225,7 +225,10 @@
         "content": "filters",
         "group": "annoyances",
         "group2": "cookies",
+<<<<<<< HEAD
         "off": true,
+=======
+>>>>>>> bd083ca (Remove `uBlock filters - Cookie Notices` - broken without access to `Trusted` filters + unnecessary with other lists & Firefox's built-in Cookie Banner Reduction)
         "title": "AdGuard – Cookie Notices",
         "tags": "annoyances cookies",
         "contentURL": "https://filters.adtidy.org/extension/ublock/filters/18.txt",
