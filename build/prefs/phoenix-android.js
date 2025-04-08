@@ -36,10 +36,6 @@ pref("browser.phoenix.status.android", "001");
 
 /*** 002 FINGERPRINTING PROTECTION ***/
 
-/// Enable dynamic rounding of content dimensions
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
-pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN]
-
 /// Harden FPP (which we enable at `003` in `Phoenix-Core`) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Android#fingerprinting
 // This also improves security - Attack Surface Reduction, reduced timer precision
