@@ -848,8 +848,9 @@ pref("browser.phoenix.status.desktop", "018");
 
 // Browser Updates
 
-/// Display "What's New" Pages by default
-pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
+/// Disable "What's New" Pages by default
+// Way too annoying...
+pref("startup.homepage_override_nimbus_disable_wnp", true);
 
 /// Enable a dialog/pop-up on major upgrades
 pref("browser.startup.upgradeDialog.enabled", true);
