@@ -51,14 +51,6 @@ pref("browser.phoenix.status.desktop", "000");
 
 // A lot of defense in depth...
 
-/// Disable Coverage
-// https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
-// https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
-pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
-pref("toolkit.coverage.endpoint.base", "", locked);
-pref("toolkit.coverage.log-level", 70); // Limits logging to fatal only
-pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
-
 /// Disable Crash Reporting
 // These specifically are used for tab crashes (`about:tabcrashed`)...
 // https://github.com/mozilla-services/socorro

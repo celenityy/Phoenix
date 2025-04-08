@@ -46,6 +46,10 @@ pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAUL
 /// Disable Data Reporting & Telemetry
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
+pref("toolkit.telemetry.dap_helper", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_helper_owner", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_leader", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_leader_owner", "", locked); // [ESR]
 
 pref("browser.phoenix.status.desktop.common", "001");
 
@@ -272,6 +276,8 @@ pref("ui.hideCursorWhileTyping", 1); // [DEFAULT, HIDDEN]
 pref("ui.prefersReducedTransparency", 0); // [DEFAULT, HIDDEN]
 pref("ui.scrollToClick", 1); // [HIDDEN]
 pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
+
+pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
 pref("browser.phoenix.status.desktop.common", "013");
 

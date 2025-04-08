@@ -72,6 +72,10 @@ pref("browser.phoenix.status.core", "000");
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
 // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1487578
+pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
+pref("toolkit.coverage.endpoint.base", "", locked);
+pref("toolkit.coverage.log-level", 70); // Limits logging to fatal only
+pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 /// Disable Crash Reporting
@@ -105,7 +109,7 @@ pref("datareporting.healthreport.documentServerURI", "", locked); // [HIDDEN]
 pref("datareporting.healthreport.logging.consoleEnabled", false); // [HIDDEN]
 pref("datareporting.healthreport.service.enabled", false, locked); // [HIDDEN]
 pref("datareporting.healthreport.service.firstRun", false, locked); // [HIDDEN]
-pref("datareporting.healthreport.uploadEnabled", false, locked);
+pref("datareporting.healthreport.uploadEnabled", false, locked); // [DEFAULT - Android]
 pref("datareporting.policy.dataSubmissionEnabled", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyAccepted", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked);
@@ -130,10 +134,6 @@ pref("toolkit.telemetry.dap.leader.hpke", "", locked);
 pref("toolkit.telemetry.dap.leader.url", "", locked);
 pref("toolkit.telemetry.dap.logLevel", "Off");
 pref("toolkit.telemetry.dap_enabled", false, locked); // [DEFAULT]
-pref("toolkit.telemetry.dap_helper", "", locked);
-pref("toolkit.telemetry.dap_helper_owner", "", locked);
-pref("toolkit.telemetry.dap_leader", "", locked);
-pref("toolkit.telemetry.dap_leader_owner", "", locked);
 pref("toolkit.telemetry.dap_task1_enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_task1_taskid", "", locked); // [DEFAULT]
 pref("toolkit.telemetry.dap_visit_counting_enabled", false, locked); // [DEFAULT]
@@ -154,7 +154,7 @@ pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked);
 pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.testing.suppressPingsender", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.translations.logLevel", "Off");
-pref("toolkit.telemetry.unified", false, locked);
+pref("toolkit.telemetry.unified", false, locked); // [DEFAULT - Android]
 pref("toolkit.telemetry.updatePing.enabled", false, locked);
 pref("toolkit.telemetry.user_characteristics_ping.current_version", 0, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.last_version_sent", 0, locked); // [DEFAULT]
@@ -1489,7 +1489,6 @@ pref("full-screen-api.warning.delay", -1); // [Default = 500, -1 = Automatic]
 pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 pref("layout.word_select.eat_space_to_next_word", false); // [DEFAULT - non-Windows] Prevent including the space next to words when double-clicking/selecting text - https://codeberg.org/celenity/Phoenix/issues/84#issuecomment-3097957
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN] Disable annoying Web Speech API errors, especially relevant on Linux - https://searchfox.org/mozilla-central/source/browser/actors/SpeechDispatcherParent.sys.mjs#8
-pref("security.xfocsp.hideOpenInNewWindow", false);
 pref("services.settings.loglevel", "warn"); // [DEFAULT, HIDDEN] This pref allows controlling the log level of Remote Settings, set here to the default value so that it's exposed in the `about:config`
 pref("toolkit.backgroundtasks.loglevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config` https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/BackgroundTasksManager.sys.mjs
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux] Prevent alt key from toggling menu bar by default
