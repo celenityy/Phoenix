@@ -471,6 +471,11 @@ pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
 pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
 
+/// Disable Parental Controls
+// https://searchfox.org/mozilla-central/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
+// https://searchfox.org/mozilla-central/source/netwerk/protocol/http/nsHttpHandler.cpp#547
+pref("network.parental_controls_cached_state", false, locked); // [DEFAULT]
+
 /// Disable sending background HTTP requests to websites that do not respond quickly to check if they support HTTPS
 pref("dom.security.https_only_mode_send_http_background_request", false);
 
