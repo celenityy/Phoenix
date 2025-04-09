@@ -157,6 +157,7 @@ pref("toolkit.telemetry.server_owner", "", locked);
 pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked);
 pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [DEFAULT]
+pref("toolkit.telemetry.testing.overridePreRelease", false, locked); // [HIDDEN] [DEFAULT] Never record extended/prelease data on release channels - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.testing.suppressPingsender", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.translations.logLevel", "Off");
 pref("toolkit.telemetry.unified", false, locked); // [DEFAULT - Android]
