@@ -869,6 +869,11 @@ pref("network.automatic-ntlm-auth.allow-non-fqdn", false); // [DEFAULT]
 pref("network.automatic-ntlm-auth.allow-proxies", false);
 pref("network.automatic-ntlm-auth.trusted-uris", ""); // [DEFAULT]
 
+/// Disable NTLM/SPNEGO SSO in Private Browsing
+// https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html
+// https://mozilla.github.io/policy-templates/#authentication
+pref("network.auth.private-browsing-sso", false); // [DEFAULT] [DEFENSE IN DEPTH]
+
 /// Disable Password Manager by default - Insecure & unencrypted
 // You should instead use a proper solution (ex. Bitwarden)
 // https://www.wired.com/2016/08/browser-password-manager-probably-isnt-enough/
