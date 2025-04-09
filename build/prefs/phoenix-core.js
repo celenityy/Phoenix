@@ -850,11 +850,6 @@ pref("network.http.basic_http_auth.enabled", false);
 pref("signon.formlessCapture.enabled", false);
 pref("signon.privateBrowsingCapture.enabled", false);
 
-/// Disable SPNEGO
-// https://www.ibm.com/think/x-force/critical-remote-code-execution-vulnerability-spnego-extended-negotiation-security-mechanism
-pref("network.negotiate-auth.allow-non-fqdn", false); // [DEFAULT]
-pref("network.negotiate-auth.allow-proxies", false);
-
 /// Disable Microsoft SSO
 // https://www.microsoft.com/security/business/identity-access/microsoft-entra-single-sign-on
 // https://support.mozilla.org/kb/windows-sso
@@ -864,10 +859,15 @@ pref("network.http.windows-sso.container-enabled.0", false);
 pref("network.http.windows-sso.enabled", false); // [DEFAULT]
 pref("network.microsoft-sso-authority-list", ""); // DEFENSE IN DEPTH
 
-/// Disable Negotiate authentication by default 
-// This is modified by ex. RedHat/Fedora
-// https://people.redhat.com/mikeb/negotiate/
-pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT]
+/// Disable NTLM
+// https://www.silverfort.com/blog/understanding-the-security-risks-of-ntlm/
+// https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html
+// https://mozilla.github.io/policy-templates/#authentication
+pref("network.auth.force-generic-ntlm", false); // [DEFAULT]
+pref("network.auth.force-generic-ntlm-v1", false); // [DEFAULT]
+pref("network.automatic-ntlm-auth.allow-non-fqdn", false); // [DEFAULT]
+pref("network.automatic-ntlm-auth.allow-proxies", false);
+pref("network.automatic-ntlm-auth.trusted-uris", ""); // [DEFAULT]
 
 /// Disable Password Manager by default - Insecure & unencrypted
 // You should instead use a proper solution (ex. Bitwarden)
@@ -881,6 +881,16 @@ pref("signon.rememberSignons", false);
 /// Disable password truncation
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 pref("editor.truncate_user_pastes", false);
+
+/// Disable SPNEGO
+// https://www.ibm.com/think/x-force/critical-remote-code-execution-vulnerability-spnego-extended-negotiation-security-mechanism
+// https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html
+// https://people.redhat.com/mikeb/negotiate/
+// https://mozilla.github.io/policy-templates/#authentication
+pref("network.negotiate-auth.allow-non-fqdn", false); // [DEFAULT]
+pref("network.negotiate-auth.allow-proxies", false);
+pref("network.negotiate-auth.delegation-uris", ""); // [DEFAULT]
+pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT] Modified by ex. RedHat/Fedora
 
 /// Enable strong password generation (if the Password Manager is enabled) by default
 pref("signon.generation.enabled", true); // [DEFAULT]
