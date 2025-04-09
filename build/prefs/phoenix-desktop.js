@@ -109,8 +109,6 @@ pref("browser.phoenix.status.desktop", "001");
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 pref("browser.newtabpage.activity-stream.asrouter.debugLogLevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config` - https://searchfox.org/mozilla-central/source/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked);
@@ -145,16 +143,20 @@ pref("messaging-system.askForFeedback", false, locked);
 // https://support.mozilla.org/kb/recommendations-firefox
 pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
 pref("browser.discovery.sites", "");
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
 
 /// Disable `about:welcome`/onboarding
 // Privacy concerns - unsolicited connection
-// Also just annoying...
+// Also just annoying :/
+// https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false);
+pref("browser.rights.3.shown", true); // [HIDDEN]
 pref("browser.startup.homepage_override.mstone", "ignore");
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
-pref("browser.usedOnWindows10.introURL", ""); // [HIDDEN] https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
+pref("startup.homepage_override_nimbus_disable_wnp", true); // "What's New" Pages
 pref("startup.homepage_override_url", "");
 pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT
 pref("startup.homepage_welcome_url", "");
@@ -847,10 +849,6 @@ pref("browser.phoenix.status.desktop", "018");
 /*** 019 UPDATES ***/
 
 // Browser Updates
-
-/// Disable "What's New" Pages by default
-// Way too annoying...
-pref("startup.homepage_override_nimbus_disable_wnp", true);
 
 /// Enable a dialog/pop-up on major upgrades
 pref("browser.startup.upgradeDialog.enabled", true);
