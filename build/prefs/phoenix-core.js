@@ -151,6 +151,7 @@ pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
 pref("toolkit.telemetry.pioneerId", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.previousBuildID", "", locked);
 pref("toolkit.telemetry.reportingpolicy.firstRun", false, locked);
+pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.server", "data;", locked);
 pref("toolkit.telemetry.server_owner", "", locked);
 pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [DEFAULT]
