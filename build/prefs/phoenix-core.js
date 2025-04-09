@@ -107,10 +107,10 @@ pref("toolkit.crashreporter.include_context_heap", false, locked);
 // https://wiki.mozilla.org/QA/Telemetry
 // https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html 
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-// https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 pref("browser.places.interactions.enabled", false, locked); // Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT] [HIDDEN - Android/Thunderbird]
 pref("captchadetection.actor.enabled", false, locked); // Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
 pref("captchadetection.loglevel", "Off");
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
@@ -125,15 +125,16 @@ pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.or
 pref("network.trr.confirmation_telemetry_enabled", false, locked);
 pref("privacy.imageInputTelemetry.enableTestMode", false, locked); // [HIDDEN] "Event Telemetry" https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false, locked);
-pref("telemetry.fog.test.activity_limit", -1); // Disable activity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
-pref("telemetry.fog.test.inactivity_limit", -1); // Disable inactivity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
+pref("telemetry.fog.test.activity_limit", -1, locked); // Disable activity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
+pref("telemetry.fog.test.inactivity_limit", -1, locked); // Disable inactivity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
 pref("telemetry.fog.init_on_shutdown", false, locked); // Prevent Glean from initializing on shutdown https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#49
 pref("telemetry.fog.test.localhost_port", 70000, locked); // Force telemetry pings to be sent to localhost instead of Mozilla's servers, if they're somehow enabled... (port just has to be higher than 0, I chose 70000 as its invalid) - https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#15
+pref("telemetry.number_of_site_origin.min_interval", 999999999, locked);
 pref("toolkit.content-background-hang-monitor.disabled", true, locked); // BHR https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#16720
-pref("toolkit.telemetry.archive.enabled", false, locked);
-pref("toolkit.telemetry.bhrPing.enabled", false, locked);
-pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0", locked);
-pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde", locked);
+pref("toolkit.telemetry.archive.enabled", false, locked); // [HIDDEN - Android]
+pref("toolkit.telemetry.bhrPing.enabled", false, locked); // [HIDDEN - Android]
+pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0", locked); // [HIDDEN]
+pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde", locked); // [HIDDEN]
 pref("toolkit.telemetry.dap.helper.hpke", "", locked);
 pref("toolkit.telemetry.dap.helper.url", "", locked);
 pref("toolkit.telemetry.dap.leader.hpke", "", locked);
@@ -146,27 +147,28 @@ pref("toolkit.telemetry.dap_visit_counting_enabled", false, locked); // [DEFAULT
 pref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]", locked); // [DEFAULT]
 pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
 pref("toolkit.telemetry.enabled", false, locked);  // [DEFAULT - non-Nightly]
-pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked);
+pref("toolkit.telemetry.eventping.maximumFrequency", 999999999, locked); // [HIDDEN] Disable `event` pings
+pref("toolkit.telemetry.eventping.minimumFrequency", 999999999, locked); // [HIDDEN] Disable `event` pings
+pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
-pref("toolkit.telemetry.initDelay", 999999999, locked); // Prevent the Telemetry component from initializing
+pref("toolkit.telemetry.initDelay", 999999999, locked); // [HIDDEN] Prevent the Telemetry component from initializing
 pref("toolkit.telemetry.log.dump", false); // [HIDDEN] [DEFAULT] - To expose via the `about:config`
 pref("toolkit.telemetry.log.level", "Fatal"); // [HIDDEN] [Default: Warn]
-pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
-pref("toolkit.telemetry.pioneerId", "", locked); // [HIDDEN]
-pref("toolkit.telemetry.previousBuildID", "", locked);
-pref("toolkit.telemetry.reportingpolicy.firstRun", false, locked);
+pref("toolkit.telemetry.newProfilePing.enabled", false, locked); // [HIDDEN - Android]
+pref("toolkit.telemetry.previousBuildID", "", locked); // [HIDDEN]
+pref("toolkit.telemetry.reportingpolicy.firstRun", false, locked); // [HIDDEN]
 pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.server", "data;", locked);
 pref("toolkit.telemetry.server_owner", "", locked);
-pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [DEFAULT]
-pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked);
-pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [DEFAULT]
+pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - desktop Firefox]
+pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked); // [HIDDEN - Android]
+pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [HIDDEN - Android] [DEFAULT]
 pref("toolkit.telemetry.testing.overridePreRelease", false, locked); // [HIDDEN] [DEFAULT] Never record extended/prelease data on release channels - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.testing.overrideProductsCheck", false, locked); // [DEFAULT] Limit probes to only what is supported on the current product - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.testing.suppressPingsender", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.translations.logLevel", "Off");
 pref("toolkit.telemetry.unified", false, locked); // [DEFAULT - Android]
-pref("toolkit.telemetry.updatePing.enabled", false, locked);
+pref("toolkit.telemetry.updatePing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.user_characteristics_ping.current_version", 0, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.last_version_sent", 0, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.logLevel", "Off");

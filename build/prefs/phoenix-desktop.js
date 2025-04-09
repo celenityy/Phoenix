@@ -59,13 +59,13 @@ pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - De
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
 /// Disable Data Reporting & Telemetry
-pref("browser.aboutwelcome.log", "off"); // Disable logging
+pref("browser.aboutwelcome.log", "off"); // [HIDDEN] Disable logging
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.impressionId", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
-pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
+pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, HIDDEN]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);

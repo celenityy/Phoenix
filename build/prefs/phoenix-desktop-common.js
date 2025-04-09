@@ -39,12 +39,12 @@
 /// Disable Crash Reporting
 // https://github.com/mozilla-services/socorro
 // https://wiki.mozilla.org/Socorro
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [DEFAULT, HIDDEN - Thunderbird]
-pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAULT - non-Nightly, HIDDEN - Thunderbird]
+pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [HIDDEN - Thunderbird] [DEFAULT]
+pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [HIDDEN - Thunderbird] [DEFAULT - non-Nightly]
 
 /// Disable Data Reporting & Telemetry
-pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
-pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst
+pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [ESR] [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst
+pref("services.sync.log.logger.telemetry", "Fatal"); // [HIDDEN]
 pref("services.sync.telemetry.maxEventsCount", 0, locked); // [HIDDEN] Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
 pref("services.sync.telemetry.maxPayloadCount", 0, locked); // Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
 pref("services.sync.telemetry.submissionInterval", 999999999, locked); // Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
