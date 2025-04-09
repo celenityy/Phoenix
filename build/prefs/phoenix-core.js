@@ -95,6 +95,8 @@ pref("asanreporter.apiurl", "", locked);
 pref("asanreporter.clientid", "", locked);
 pref("asanreporter.loglevel", 70);
 pref("breakpad.reportURL", "", locked);
+pref("browser.crashReports.crashPull", false, locked); // [DEFAULT] Do not request crash reports for background processes from users https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/crash-reports-ondemand/changeset?_expected=0
+pref("browser.crashReports.requestedNeverShowAgain", true, locked); // Do not request crash reports for background processes from users https://searchfox.org/mozilla-central/source/toolkit/components/crashes/RemoteSettingsCrashPull.sys.mjs
 pref("toolkit.crashreporter.include_context_heap", false, locked);
 
 /// Disable Data Reporting & Telemetry
