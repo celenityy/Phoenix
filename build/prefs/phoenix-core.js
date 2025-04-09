@@ -123,7 +123,7 @@ pref("privacy.imageInputTelemetry.enableTestMode", false, locked); // [HIDDEN] "
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false, locked);
 pref("telemetry.fog.test.activity_limit", -1); // Disable activity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
 pref("telemetry.fog.test.inactivity_limit", -1); // Disable inactivity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
-pref("telemetry.fog.init_on_shutdown", false, locked); // Ensure Glean never initializes on shutdown https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#49
+pref("telemetry.fog.init_on_shutdown", false, locked); // Prevent Glean from initializing on shutdown https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#49
 pref("telemetry.fog.test.localhost_port", 70000, locked); // Force telemetry pings to be sent to localhost instead of Mozilla's servers, if they're somehow enabled... (port just has to be higher than 0, I chose 70000 as its invalid) - https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#15
 pref("toolkit.content-background-hang-monitor.disabled", true, locked); // BHR https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#16720
 pref("toolkit.telemetry.archive.enabled", false, locked);
@@ -144,7 +144,9 @@ pref("toolkit.telemetry.debugSlowSql", false); // [DEFAULT]
 pref("toolkit.telemetry.enabled", false, locked);  // [DEFAULT - non-Nightly]
 pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked);
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
-pref("toolkit.telemetry.log.level", "Error"); // [HIDDEN, DEFAULT] - To expose via about:config...
+pref("toolkit.telemetry.initDelay", 999999999, locked); // Prevent the Telemetry component from initializing
+pref("toolkit.telemetry.log.dump", false); // [HIDDEN] [DEFAULT] - To expose via the `about:config`
+pref("toolkit.telemetry.log.level", "Fatal"); // [HIDDEN] [Default: Warn]
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked);
 pref("toolkit.telemetry.pioneerId", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.previousBuildID", "", locked);
