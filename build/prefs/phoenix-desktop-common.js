@@ -91,7 +91,7 @@ pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows [NO-OSX]
-pref("toolkit.winRegisterApplicationRestart", false); // [NO-OSX]
+pref("toolkit.winRegisterApplicationRestart", false); // [HIDDEN - Thunderbird] [NO-OSX]
 
 /// Set default time range when manually clearing data to "everything"
 pref("privacy.sanitize.timeSpan", 0);
