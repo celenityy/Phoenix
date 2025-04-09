@@ -141,6 +141,13 @@ pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
 pref("messaging-system.askForFeedback", false, locked);
 
+/// Disable add-on/feature recommendations
+// https://support.mozilla.org/kb/recommendations-firefox
+pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
+pref("browser.discovery.sites", "");
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
+
 /// Disable `about:welcome`/onboarding
 // Privacy concerns - unsolicited connection
 // Also just annoying...
@@ -285,13 +292,6 @@ pref("browser.uitour.loglevel", "Off");
 pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked);
 pref("browser.uitour.url", "", locked);
-
-/// Disable recommendations
-pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
-pref("browser.discovery.enabled", false);
-pref("browser.discovery.sites", "");
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
 
 /// Disable "Top Sites"/Sponsored content/etc.
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml

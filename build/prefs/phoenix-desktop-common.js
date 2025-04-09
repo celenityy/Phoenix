@@ -23,15 +23,14 @@
 004: HTTP(S)
 005: MEDIA
 006: ATTACK SURFACE REDUCTION
-007: EXTENSIONS
-008: GEOLOCATION
-009: DEBUGGING
-010: MISC. PRIVACY
-011: MISC. SECURITY
-012: PERFORMANCE
-013: Personal Touch 💜
-014: UPDATES
-015: SPECIALIZED/CUSTOM CONFIGS
+007: GEOLOCATION
+008: DEBUGGING
+009: MISC. PRIVACY
+010: MISC. SECURITY
+011: PERFORMANCE
+012: Personal Touch 💜
+013: UPDATES
+014: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -54,10 +53,6 @@ pref("toolkit.telemetry.dap_leader_owner", "", locked); // [ESR]
 pref("browser.phoenix.status.desktop.common", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
-
-/// Disable Recommendations
-pref("extensions.getAddons.discovery.api_url", "data;", locked); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is always local/installed extensions...
 
 /// Remove special privileges from Mozilla domains
 pref("permissions.manager.defaultsUrl", "", locked);
@@ -154,28 +149,21 @@ pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
 pref("browser.phoenix.status.desktop.common", "006");
 
-/*** 007 EXTENSIONS ***/
-
-// Enable panel for our own extension recommendations...
-pref("extensions.getAddons.showPane", true); // [DEFAULT]
-
-pref("browser.phoenix.status.desktop.common", "007");
-
-/*** 008 GEOLOCATION [NO-OSX] ***/
+/*** 007 GEOLOCATION [NO-OSX] ***/
 
 // Disable Microsoft Location Services [WINDOWS] [NO-OSX]
 pref("geo.provider.ms-windows-location", false); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop.common", "008"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "007"); // [NO-OSX]
 
-/*** 009 DEBUGGING ***/
+/*** 008 DEBUGGING ***/
 
 /// Enforce local debugging only
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop.common", "009");
+pref("browser.phoenix.status.desktop.common", "008");
 
-/*** 010 MISC. PRIVACY ***/
+/*** 009 MISC. PRIVACY ***/
 
 /// Disable Firefox Sync by default
 // When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
@@ -202,9 +190,9 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] 
 /// Prevent sharing identifying info if a remote AutoConfig is being used
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "010");
+pref("browser.phoenix.status.desktop.common", "009");
 
-/*** 011 MISC. SECURITY ***/
+/*** 010 MISC. SECURITY ***/
 
 /// Disable GNOME Integration [LINUX] [NO-OSX]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [NO-OSX]
@@ -224,9 +212,9 @@ pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 pref("general.config.sandbox_enabled", true, locked);
 
-pref("browser.phoenix.status.desktop.common", "011");
+pref("browser.phoenix.status.desktop.common", "010");
 
-/*** 012 PERFORMANCE ***/
+/*** 011 PERFORMANCE ***/
 
 /// Disable certain UI animations
 // https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
@@ -238,9 +226,9 @@ pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 /// Taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 pref("network.http.max-connections", 1800); // [Default = 900]
 
-pref("browser.phoenix.status.desktop.common", "012");
+pref("browser.phoenix.status.desktop.common", "011");
 
-/*** 013 Personal Touch 💜 ***/
+/*** 012 Personal Touch 💜 ***/
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -279,25 +267,25 @@ pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
 pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
-pref("browser.phoenix.status.desktop.common", "013");
+pref("browser.phoenix.status.desktop.common", "012");
 
-/*** 014 UPDATES ***/
+/*** 013 UPDATES ***/
 
 /// Browser Updates
 pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
 
-pref("browser.phoenix.status.desktop.common", "014");
+pref("browser.phoenix.status.desktop.common", "013");
 
-/*** 015 SPECIALIZED/CUSTOM CONFIGS ***/
+/*** 014 SPECIALIZED/CUSTOM CONFIGS ***/
 
 /// Configure remote AutoConfig files (if active)
 pref("autoadmin.failover_to_cached", true);
 pref("autoadmin.offline_failover", true);
 pref("autoadmin.refresh_interval", 60);
 
-pref("browser.phoenix.status.desktop.common", "015");
+pref("browser.phoenix.status.desktop.common", "014");
 
 pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 

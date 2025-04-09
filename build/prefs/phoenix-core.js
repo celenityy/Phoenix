@@ -184,7 +184,20 @@ pref("browser.phoenix.status.core", "001");
 
 // These also provide Attack Surface Reduction
 
-/// Disable the DoH Rollout
+/// Disable add-on/feature recommendations
+// https://support.mozilla.org/kb/recommendations-firefox
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/content/aboutaddons.js
+pref("browser.discovery.enabled", false, locked); // [HIDDEN - non-Desktop Firefox]
+pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
+pref("extensions.getAddons.discovery.api_url", "data;", locked);
+pref("extensions.getAddons.showPane", false, locked);
+pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
+pref("extensions.recommendations.hideNotice", true, locked); // [HIDDEN] "Some of these recommendations are personalized..." banner
+pref("extensions.recommendations.themeRecommendationUrl", "", locked);
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is always local/installed extensions
+pref("extensions.webservice.discoverURL", "", locked); // [HIDDEN - non-Thunderbird]
+
+/// Disable DoH Rollout/heuristics
 pref("doh-rollout.disable-heuristics", true, locked); // [HIDDEN]
 pref("doh-rollout.enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.skipHeuristicsCheck", true, locked); // [HIDDEN]
@@ -209,13 +222,6 @@ pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonMan
 // https://support.mozilla.org/kb/privacy-preserving-attribution
 pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
 pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
-
-/// Disable recommendations
-pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
-pref("extensions.getAddons.showPane", false, locked);
-pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
-pref("extensions.recommendations.themeRecommendationUrl", "", locked);
-pref("extensions.webservice.discoverURL", "", locked); // [HIDDEN - non-Thunderbird]
 
 /// Disable Remote Settings 'Preview' Buckets
 // Nice to expose via about:config
