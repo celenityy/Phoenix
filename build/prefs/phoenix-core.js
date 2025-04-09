@@ -850,6 +850,11 @@ pref("network.http.basic_http_auth.enabled", false);
 pref("signon.formlessCapture.enabled", false);
 pref("signon.privateBrowsingCapture.enabled", false);
 
+/// Disable SPNEGO
+// https://www.ibm.com/think/x-force/critical-remote-code-execution-vulnerability-spnego-extended-negotiation-security-mechanism
+pref("network.negotiate-auth.allow-non-fqdn", false); // [DEFAULT]
+pref("network.negotiate-auth.allow-proxies", false);
+
 /// Disable Microsoft SSO
 // https://www.microsoft.com/security/business/identity-access/microsoft-entra-single-sign-on
 // https://support.mozilla.org/kb/windows-sso
