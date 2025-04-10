@@ -548,7 +548,9 @@ pref("security.tls.hello_downgrade_check", true); // [DEFAULT]
 
 /// Enforce using HTTPS as much as possible
 pref("dom.security.https_first", true);
-pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT, DEFENSE IN DEPTH]
+pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT] DEFENSE IN DEPTH
+pref("dom.security.https_first_for_local_addresses", true);
+pref("dom.security.https_first_for_unknown_suffixes", true);
 pref("dom.security.https_first_pbm", true); // [DEFAULT]
 pref("dom.security.https_first_schemeless", true);
 pref("dom.security.https_only_mode", true);
