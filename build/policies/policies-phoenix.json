@@ -67,15 +67,13 @@
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
                 "private_browsing": true,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": false
+                "temporarily_allow_weak_signatures": false
             },
             "@testpilot-containers": {
                 "default_area": "navbar",
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi",
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": false
+                "temporarily_allow_weak_signatures": false
             },
             "brave-leta@celenity.dev": {
                 "installation_mode": "normal_installed",
