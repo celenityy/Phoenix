@@ -1294,8 +1294,9 @@ pref("privacy.globalprivacycontrol.enabled", true);
 pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT - non-Thunderbird]
 pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thunderbird]
 
-/// Exclude third party trackers from storage access heuristics (if enabled)
+/// Exclude third party trackers from storage access heuristics/auto grants (if enabled)
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
+pref("dom.storage_access.auto_grants.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
 pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
 
 /// Improve built-in query stripping to be on par with LibreWolf & Brave
