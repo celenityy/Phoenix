@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.04.02.1", locked);
+pref("browser.phoenix.version", "2025.04.10.1", locked);
 
 /* INDEX 
 
@@ -975,12 +975,11 @@ pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
 
 /// Harden CSP policy
 // Compared to Firefox's default, this:
-// Blocks inline scripts
 // Blocks scripts unless they're loaded from the same origin
 // Blocks unsafe eval() - including WebAssembly (WASM)
 // Upgrades network requests to HTTPS
 // Etc...
-pref("extensions.webextensions.base-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
+pref("extensions.webextensions.base-content-security-policy", "script-src 'self' 'unsafe-inline'; upgrade-insecure-requests;"); // `unsafe-inline` is required for Web Compatibility interventions (`about:compat`)
 pref("extensions.webextensions.base-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;"); // [DEFAULT]
