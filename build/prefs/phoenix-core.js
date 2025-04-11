@@ -953,9 +953,6 @@ pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
 // https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
 pref("extensions.webextensions.remote", true); // [DEFAULT]
 
-/// Block extensions signed with weak signature algorithms
-pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAULT, HIDDEN]
-
 /// Disable automatic installation/enablement of third party extensions in Firefox's installation directory
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT - Android]
