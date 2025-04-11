@@ -162,122 +162,6 @@
 			</array>
 			<key>blocked_install_message</key>
 			<string>I am Iron Man.</string>
-			<key>install_sources</key>
-			<array>
-				<string>https://addons.mozilla.org/*</string>
-				<string>https://agrd.io/extension_firefox_beta</string>
-				<string>https://archive.mozilla.org/pub/firefox/*</string>
-				<string>https://archive.mozilla.org/pub/labs/*</string>
-				<string>https://archive.mozilla.org/pub/system-addons/*</string>
-				<string>https://cdn.mullvad.net/browser-extension/*</string>
-				<string>https://codeberg.org/celenity/Phoenix/*</string>
-				<string>https://ftp.mozilla.org/pub/firefox/*</string>
-				<string>https://ftp.mozilla.org/pub/labs/*</string>
-				<string>https://ftp.mozilla.org/pub/system-addons/*</string>
-				<string>https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi</string>
-				<string>https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi&amp;inline=false</string>
-				<string>https://github.com/AdguardTeam/AdguardBrowserExtension/releases</string>
-				<string>https://github.com/AdguardTeam/AdguardBrowserExtension/releases/*</string>
-				<string>https://github.com/AdguardTeam/AdguardBrowserExtension/releases*</string>
-				<string>https://github.com/ajayyy/SponsorBlock/releases</string>
-				<string>https://github.com/ajayyy/SponsorBlock/releases/*</string>
-				<string>https://github.com/ajayyy/SponsorBlock/releases*</string>
-				<string>https://github.com/anticensority/runet-censorship-bypass/releases</string>
-				<string>https://github.com/anticensority/runet-censorship-bypass/releases/*</string>
-				<string>https://github.com/anticensority/runet-censorship-bypass/releases*</string>
-				<string>https://github.com/darkreader/darkreader/releases</string>
-				<string>https://github.com/darkreader/darkreader/releases/*</string>
-				<string>https://github.com/darkreader/darkreader/releases*</string>
-				<string>https://github.com/FastForwardTeam/FastForward/releases</string>
-				<string>https://github.com/FastForwardTeam/FastForward/releases/*</string>
-				<string>https://github.com/FastForwardTeam/FastForward/releases*</string>
-				<string>https://github.com/fmhy/FMHY-SafeGuard/releases</string>
-				<string>https://github.com/fmhy/FMHY-SafeGuard/releases/*</string>
-				<string>https://github.com/fmhy/FMHY-SafeGuard/releases*</string>
-				<string>https://github.com/gorhill/uBlock/releases</string>
-				<string>https://github.com/gorhill/uBlock/releases/*</string>
-				<string>https://github.com/gorhill/uBlock/releases*</string>
-				<string>https://github.com/mozilla-extensions/aboutsync/releases</string>
-				<string>https://github.com/mozilla-extensions/aboutsync/releases/*</string>
-				<string>https://github.com/mozilla-extensions/aboutsync/releases*</string>
-				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases</string>
-				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases/*</string>
-				<string>https://github.com/mozilla-extensions/fingerprinting-protection-debugger/releases*</string>
-				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases</string>
-				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases/*</string>
-				<string>https://github.com/mozilla-extensions/nimbus-devtools/releases*</string>
-				<string>https://github.com/mozilla-extensions/normandy-devtools/releases</string>
-				<string>https://github.com/mozilla-extensions/normandy-devtools/releases/*</string>
-				<string>https://github.com/mozilla-extensions/normandy-devtools/releases*</string>
-				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases</string>
-				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases/*</string>
-				<string>https://github.com/mozilla-extensions/remote-settings-devtools/releases*</string>
-				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases</string>
-				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases/*</string>
-				<string>https://github.com/mozilla-extensions/searchengine-devtools/releases*</string>
-				<string>https://github.com/mkaply/queryamoid/releases</string>
-				<string>https://github.com/mkaply/queryamoid/releases/*</string>
-				<string>https://github.com/mkaply/queryamoid/releases*</string>
-				<string>https://github.com/mullvad/browser-extension/releases</string>
-				<string>https://github.com/mullvad/browser-extension/releases/*</string>
-				<string>https://github.com/mullvad/browser-extension/releases*</string>
-				<string>https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases</string>
-				<string>https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/*</string>
-				<string>https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases*</string>
-				<string>https://github.com/violentmonkey/violentmonkey/releases</string>
-				<string>https://github.com/violentmonkey/violentmonkey/releases/*</string>
-				<string>https://github.com/violentmonkey/violentmonkey/releases*</string>
-				<string>https://gitlab.com/celenityy/Phoenix/*</string>
-				<string>https://www.eff.org/files/privacy-badger-latest.xpi</string>
-				<string>https://mullvad.net/ar/download/browser/extension</string>
-				<string>https://mullvad.net/da/download/browser/extension</string>
-				<string>https://mullvad.net/de/download/browser/extension</string>
-				<string>https://mullvad.net/en/download/browser/extension</string>
-				<string>https://mullvad.net/es/download/browser/extension</string>
-				<string>https://mullvad.net/fa/download/browser/extension</string>
-				<string>https://mullvad.net/fi/download/browser/extension</string>
-				<string>https://mullvad.net/fr/download/browser/extension</string>
-				<string>https://mullvad.net/it/download/browser/extension</string>
-				<string>https://mullvad.net/ja/download/browser/extension</string>
-				<string>https://mullvad.net/ko/download/browser/extension</string>
-				<string>https://mullvad.net/nl/download/browser/extension</string>
-				<string>https://mullvad.net/no/download/browser/extension</string>
-				<string>https://mullvad.net/pl/download/browser/extension</string>
-				<string>https://mullvad.net/pt/download/browser/extension</string>
-				<string>https://mullvad.net/ru/download/browser/extension</string>
-				<string>https://mullvad.net/sv/download/browser/extension</string>
-				<string>https://mullvad.net/th/download/browser/extension</string>
-				<string>https://mullvad.net/tr/download/browser/extension</string>
-				<string>https://mullvad.net/zh-hans/download/browser/extension</string>
-				<string>https://mullvad.net/zh-hant/download/browser/extension</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/12558645/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/134775419/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/196117722/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/232824822/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/26682105/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/275181477/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/33263118/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/383372625/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/404295988/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/46041549/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/537167055/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/54078039/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/671874733/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/811220552/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/81214532/*</string>
-				<string>https://objects.githubusercontent.com/github-production-release-asset-2e65be/873923787/*</string>
-				<string>https://phoenix.celenity.dev/extensions/xpi/*</string>
-				<string>https://privacybadger.org/*</string>
-				<string>https://releases.mozilla.org/pub/firefox/*</string>
-				<string>https://releases.mozilla.org/pub/labs/*</string>
-				<string>https://releases.mozilla.org/pub/system-addons/*</string>
-				<string>https://static.adguard.com/extensions/adguardadblocker/beta/firefox.xpi</string>
-				<string>https://static.adtidy.org/extensions/adguardadblocker/beta/firefox.xpi</string>
-			</array>
-			<key>temporarily_allow_weak_signatures</key>
-			<false/>
-			<key>updates_disabled</key>
-			<false/>
 		</dict>
 		<key>1block@example.com</key>
 		<dict>
@@ -365,8 +249,6 @@
 			<key>installation_mode</key>
 			<string>normal_installed</string>
 			<key>temporarily_allow_weak_signatures</key>
-			<false/>
-			<key>updates_disabled</key>
 			<false/>
 		</dict>
 		<key>@twitter_x_container</key>
@@ -1408,8 +1290,6 @@
 			<true/>
 			<key>temporarily_allow_weak_signatures</key>
 			<false/>
-			<key>updates_disabled</key>
-			<false/>
 		</dict>
 		<key>vatera@search.mozilla.org</key>
 		<dict>
@@ -1513,6 +1393,13 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Fingerprint shelter, by Ol. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
+			<key>installation_mode</key>
+			<string>blocked</string>
+		</dict>
+		<key>{0a3ee209-ab68-4b84-a9ef-eb0ee686dd8d}</key>
+		<dict>
+			<key>blocked_install_message</key>
+			<string>'Roblox+' https://addons.mozilla.org/firefox/addon/roblox-plus-firefox/ - Fake/scam/impersonation, the actual extension unfortunately doesn't support Firefox https://roblox.plus/about</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>

@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "{0a3ee209-ab68-4b84-a9ef-eb0ee686dd8d}": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "'Roblox+' https://addons.mozilla.org/firefox/addon/roblox-plus-firefox/ - Fake/scam/impersonation, the actual extension unfortunately doesn't support Firefox https://roblox.plus/about"
+            },
             "extension@ciuvo.com": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "'Picky' https://addons.mozilla.org/firefox/addon/ciuvo/ - Tracks users, poor privacy practices..."

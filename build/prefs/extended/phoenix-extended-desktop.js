@@ -22,6 +22,10 @@
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
+/// Enable dynamic rounding of content dimensions
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366
+pref("privacy.resistFingerprinting.letterboxing", true);
+
 /// Further harden FPP...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
 // Compared to standard, this just removes '-JSDateTimeUTC' - meaning timezone is spoofed to UTC-0

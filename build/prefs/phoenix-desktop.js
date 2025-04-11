@@ -25,17 +25,18 @@
 006: IMPLICIT CONNECTIONS
 007: SEARCH & URL BAR
 008: DNS
-009: PASSWORDS & AUTHENTICATION
-010: EXTENSIONS
-011: AI
-012: GEOLOCATION
-013: MISC. PRIVACY
-014: MISC.
-015: PERFORMANCE
-016: SYNC
-017: Personal Touch 💜
-018: UPDATES
-019: SPECIALIZED/CUSTOM CONFIGS
+009: MEDIA
+010: PASSWORDS & AUTHENTICATION
+011: EXTENSIONS
+012: AI
+013: GEOLOCATION
+014: MISC. PRIVACY
+015: MISC.
+016: PERFORMANCE
+017: SYNC
+018: Personal Touch 💜
+019: UPDATES
+020: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -50,14 +51,6 @@ pref("browser.phoenix.status.desktop", "000");
 
 // A lot of defense in depth...
 
-/// Disable Coverage
-// https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
-// https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/pings/CoveragePing.sys.mjs
-pref("toolkit.coverage.enabled", false, locked); // [DEFAULT]
-pref("toolkit.coverage.endpoint.base", "", locked);
-pref("toolkit.coverage.log-level", 70); // Limits logging to fatal only
-pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
-
 /// Disable Crash Reporting
 // These specifically are used for tab crashes (`about:tabcrashed`)...
 // https://github.com/mozilla-services/socorro
@@ -66,13 +59,13 @@ pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - De
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
 /// Disable Data Reporting & Telemetry
-pref("browser.aboutwelcome.log", "off"); // Disable logging
+pref("browser.aboutwelcome.log", "off"); // [HIDDEN] Disable logging
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.impressionId", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
-pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT, at least on Nightly]
+pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, HIDDEN]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
@@ -83,25 +76,20 @@ pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://sear
 // https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html [NO-OSX]
 pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 
-/// Disable Shield Studies/Normandy/Nimbus
+/// Disable Experiments/Studies
+// (Shield/Normandy)
 // https://mozilla.github.io/normandy/
 // https://wiki.mozilla.org/Firefox/Shield/Shield_Studies
 // https://support.mozilla.org/kb/shield
 // https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_experiments-or-studies
 // https://wiki.mozilla.org/Advocacy/heartbeat
-// https://experimenter.info/
-// resource://nimbus/ExperimentAPI.sys.mjs
 pref("app.normandy.api_url", "", locked);
 pref("app.normandy.enabled", false, locked);
 pref("app.normandy.first_run", false, locked);
 pref("app.normandy.last_seen_buildid", "", locked);
 pref("app.normandy.logging.level", 70); // Limits logging to fatal only
 pref("app.normandy.user_id", "", locked);
-pref("app.shield.optoutstudies.enabled", false, locked);
 pref("messaging-system.log", "off"); // Disables logging
-pref("messaging-system.rsexperimentloader.enabled", false, locked);
-pref("messaging-system.rsexperimentloader.collection_id", "", locked);
-pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 
 /// Remove unnecessary links
 pref("app.normandy.shieldLearnMoreUrl", "");
@@ -116,8 +104,6 @@ pref("browser.phoenix.status.desktop", "001");
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 pref("browser.newtabpage.activity-stream.asrouter.debugLogLevel", "error"); // [DEFAULT, HIDDEN] To expose via the `about:config` - https://searchfox.org/mozilla-central/source/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked);
@@ -148,13 +134,24 @@ pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
 pref("messaging-system.askForFeedback", false, locked);
 
+/// Disable add-on/feature recommendations
+// https://support.mozilla.org/kb/recommendations-firefox
+pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
+pref("browser.discovery.sites", "");
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
+
 /// Disable `about:welcome`/onboarding
 // Privacy concerns - unsolicited connection
-// Also just annoying...
+// Also just annoying :/
+// https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false);
-pref("browser.startup.homepage_override.mstone", "ignore");
+pref("browser.rights.3.shown", true); // [HIDDEN]
+pref("browser.startup.homepage_override.mstone", "ignore", locked);
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
-pref("browser.usedOnWindows10.introURL", ""); // [HIDDEN] https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs
+pref("startup.homepage_override_nimbus_disable_wnp", true); // "What's New" Pages
 pref("startup.homepage_override_url", "");
 pref("startup.homepage_override_url_nimbus", ""); // [DEFAULT
 pref("startup.homepage_welcome_url", "");
@@ -179,9 +176,9 @@ pref("browser.urlbar.fakespot.featureGate", false); // [DEFAULT]
 pref("browser.urlbar.suggest.fakespot", false);
 
 /// Disable "Feature Tours"
-pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
-pref("browser.newtab.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // [HIDDEN]
-pref("browser.pdfjs.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+pref("browser.firefox-view.feature-tour", '{"screen":"","complete":true}');
+pref("browser.newtab.feature-tour", '{"screen":"","complete":true}'); // [HIDDEN]
+pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}');
 
 /// Disable fetching favicons for `about:home` from Mozila's remote Tippy Top service
 // https://superuser.com/questions/1358289/how-are-the-icons-for-top-sites-in-the-firefox-new-tab-rendered/1495054#1495054
@@ -259,10 +256,13 @@ pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locke
 /// Disable Mozilla promotions
 pref("browser.contentblocking.report.hide_vpn_banner", true, locked);
 pref("browser.contentblocking.report.lockwise.enabled", false);
+pref("browser.contentblocking.report.mobile-android.url", "", locked);
+pref("browser.contentblocking.report.mobile-ios.url", "", locked);
 pref("browser.contentblocking.report.monitor.enabled", false); // [DEFAULT]
 pref("browser.contentblocking.report.proxy.enabled", false); // [DEFAULT]
 pref("browser.contentblocking.report.proxy_extension.url", "", locked);
 pref("browser.contentblocking.report.show_mobile_app", false, locked);
+pref("browser.contentblocking.report.vpn.url", "", locked);
 pref("browser.contentblocking.report.vpn-android.url", "", locked);
 pref("browser.contentblocking.report.vpn-ios.url", "", locked);
 pref("browser.contentblocking.report.vpn-promo.url", "", locked);
@@ -293,13 +293,6 @@ pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked);
 pref("browser.uitour.url", "", locked);
 
-/// Disable recommendations
-pref("browser.dataFeatureRecommendations.enabled", false, locked); // [DEFAULT]
-pref("browser.discovery.enabled", false);
-pref("browser.discovery.sites", "");
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
-pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
-
 /// Disable "Top Sites"/Sponsored content/etc.
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 pref("browser.newtabpage.activity-stream.default.sites", "");
@@ -310,7 +303,7 @@ pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", 
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
 pref("browser.newtabpage.activity-stream.feeds.section.topstories", false, locked);
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}", locked);
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true}', locked);
 pref("browser.newtabpage.activity-stream.feeds.system.topstories", false, locked); // Controls the visibility of the `about:home` setting
 pref("browser.newtabpage.pinned", '[]'); // [HIDDEN]
 pref("browser.partnerlink.attributionURL", "", locked);
@@ -333,8 +326,6 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false);
 // Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as attack surface reduction & a potential performance improvement
 pref("ui.new-webcompat-reporter.enabled", false); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
-pref("ui.new-webcompat-reporter.reason-dropdown", 0); // Do not ask users for a reason... https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#3275
-pref("ui.new-webcompat-reporter.send-more-info-link", false); // [DEFAULT on non-Nightly]
 
 /// Prevent checking if Firefox is the default browser
 pref("browser.shell.checkDefaultBrowser", false);
@@ -355,7 +346,6 @@ pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/%LOCALE%/firefo
 pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
-pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
 
 pref("browser.phoenix.status.desktop", "002");
@@ -410,7 +400,7 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // Element (we2.ee) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (yatrix.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
-pref("privacy.fingerprintingProtection.granularOverrides", "[{\"firstPartyDomain\": \"arcticfoxes.net\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"aria.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"bitcoinist.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chatwave.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"chipotle.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"cinny.in\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"citybbq.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"discord.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"doordash.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"duesen.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"element.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"flieger.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"g24.at\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"gemeinsam.jetzt\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"gnulinux.club\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"hot-chilli.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"kosmikdog.eu\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"mtrx.nz\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"neat.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"nitro.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"nope.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"oblak.be\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"pcriot.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"pendora.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"proton.me\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"rollenspiel.chat\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"socialnetwork24.com\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"studichat.de\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"synod.im\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"the-apothecary.club\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"transfem.dev\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"unredacted.org\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"utwente.io\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"we2.ee\", \"overrides\": \"-JSDateTimeUTC\"}, {\"firstPartyDomain\": \"yatrix.org\", \"overrides\": \"-JSDateTimeUTC\"}]");
+pref("privacy.fingerprintingProtection.granularOverrides", '[{"firstPartyDomain":"arcticfoxes.net","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"aria.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"bitcoinist.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chatwave.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chipotle.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cinny.in","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"citybbq.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"discord.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"doordash.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"duesen.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"element.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"flieger.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"g24.at","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gemeinsam.jetzt","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gnulinux.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"hot-chilli.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"kosmikdog.eu","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"mtrx.nz","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"neat.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nitro.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nope.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"oblak.be","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pcriot.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pendora.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"proton.me","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"rollenspiel.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"socialnetwork24.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"studichat.de","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"synod.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"the-apothecary.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"transfem.dev","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"unredacted.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"utwente.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"we2.ee","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"yatrix.org","overrides":"-JSDateTimeUTC"}]');
 
 pref("browser.phoenix.status.desktop", "003");
 
@@ -540,11 +530,18 @@ pref("browser.phoenix.status.desktop", "007");
 /*** 008 DNS ***/
 
 /// Improve list of built-in DoH resolvers
-pref("doh-rollout.provider-list", '[{"UIName":"Quad9 - Real-time Malware Protection","uri":"https://dns.quad9.net/dns-query"}, {"UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","uri":"https://zero.dns0.eu"}, {"UIName":"DNS0 - Real-time Malware Protection","uri":"https://dns0.eu"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware Protection","uri":"https://base.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Ad/Tracking Protection","uri":"https://dns.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - No Filtering","uri":"https://dns.mullvad.net/dns-query"}, {"UIName":"Wikimedia - No Filtering","uri":"https://wikimedia-dns.org/dns-query"}, {"UIName":"AdGuard (Public) - No Filtering","uri":"https://unfiltered.adguard-dns.com/dns-query"}, {"UIName":"DNS0 - Kids","uri":"https://kids.dns0.eu"}, {"UIName":"Mullvad - Family","uri":"https://family.dns.mullvad.net/dns-query"}, {"UIName":"AdGuard (Public) - Family Protection","uri":"https://family.adguard-dns.com/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media Protection","uri":"https://extended.dns.mullvad.net/dns-query"}, {"UIName":"Mullvad - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","uri":"https://all.dns.mullvad.net/dns-query"}]'); // [HIDDEN]
+pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UIName":"Quad9 - Real-time Malware Protection","autoDefault":true},{"uri":"https://zero.dns0.eu","UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection","autoDefault":false},{"uri":"https://dns0.eu","UIName":"DNS0 - Real-time Malware Protection","autoDefault":false},{"uri":"https://base.dns.mullvad.net/dns-query","UIName":"Mullvad (Base) - Ad/Tracking/Limited Malware Protection","autoDefault":false},{"uri":"https://dns.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Ad/Tracking Protection","autoDefault":false},{"uri":"https://dns.mullvad.net/dns-query","UIName":"Mullvad - Unfiltered","autoDefault":false},{"uri":"https://wikimedia-dns.org/dns-query","UIName":"Wikimedia - Unfiltered","autoDefault":false},{"uri":"https://firefox.dns.nextdns.io/","UIName":"NextDNS (Public) - Unfiltered","autoDefault":false},{"uri":"https://unfiltered.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Unfiltered","autoDefault":false},{"uri":"https://kids.dns0.eu","UIName":"DNS0 - Kids","autoDefault":false},{"uri":"https://family.dns.mullvad.net/dns-query","UIName":"Mullvad (Family)","autoDefault":false},{"uri":"https://family.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Family Protection","autoDefault":false},{"uri":"https://extended.dns.mullvad.net/dns-query","UIName":"Mullvad (Extended) - Ad/Tracking/Limited Malware/Social Media Protection","autoDefault":false},{"uri":"https://all.dns.mullvad.net/dns-query","UIName":"Mullvad (All) - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection","autoDefault":false},{"uri":"https://security.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Malware Protection","autoDefault":false},{"uri":"https://mozilla.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Unfiltered (Stricter privacy policy)","autoDefault":false},{"uri":"https://family.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Adult Content/Malware Protection","autoDefault":false}]'); // [HIDDEN]
 
 pref("browser.phoenix.status.desktop", "008");
 
-/*** 009 PASSWORDS & AUTHENTICATION ***/
+/*** 009 MEDIA ***/
+
+/// Remove DRM toggle from `about:preferences#general`
+pref("browser.eme.ui.enabled", false);
+
+pref("browser.phoenix.status.desktop", "009");
+
+/*** 010 PASSWORDS & AUTHENTICATION ***/
 
 /// Enable alerts for breached & vulnerable passwords (if the Password Manager is enabled) by default
 // Harmless, never sends passwords or sensitive data to Mozilla
@@ -558,15 +555,12 @@ pref("signon.management.page.vulnerable-passwords.enabled", true); // [DEFAULT]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=791594
 pref("privacy.authPromptSpoofingProtection", true); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop", "009");
+pref("browser.phoenix.status.desktop", "010");
 
-/*** 010 EXTENSIONS ***/
+/*** 011 EXTENSIONS ***/
 
-/// Add our own extension recommendations
-// https://codeberg.org/celenity/Phoenix/wiki/Recommended-Extensions
-// https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.getAddons.discovery.api_url", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/extensions/recommendations.json");
-pref("extensions.recommendations.privacyPolicyUrl", "https://phoenix.celenity.dev/privacy#extension-recommendations");
+/// Block extensions signed with weak signature algorithms
+pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAULT, HIDDEN]
 
 /// Block our current search 'extensions' from accessing restricted/quarantined domains
 // https://support.mozilla.org/kb/quarantined-domains
@@ -592,14 +586,26 @@ pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); 
 pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
 pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
 
+/// Disable installation of add-ons + only allow enabling it per-session
+// Includes extensions & themes
+// This doesn't impact already installed add-ons & add-ons installed by policies
+// Firefox will prompt to re-enable this when necessary
+// Setting this pref to `sticky` causes it to reset per session, which is quite nice from a security perspective, as it allows users to enable this functionality only when it's necessary...
+// Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it.
+pref("xpinstall.enabled", false, sticky); // [HIDDEN]
+
+/// Never allow installing extensions without first prompting the user
+// https://github.com/arkenfox/user.js/issues/1090
+pref("extensions.postDownloadThirdPartyPrompt", false, locked);
+
 /// Only allow installation of signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
-pref("extensions.langpacks.signatures.required", true); // [DEFAULT]
-pref("xpinstall.signatures.required", true); // [DEFAULT]
+pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
+pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
-pref("browser.phoenix.status.desktop", "010");
+pref("browser.phoenix.status.desktop", "011");
 
-/*** 011 AI ***/
+/*** 012 AI ***/
 
 // https://support.mozilla.org/kb/ai-chatbot
 
@@ -628,9 +634,9 @@ pref("browser.ml.chat.providers", "huggingchat"); // [HIDDEN]
 // Also currently not possible to add this as a persistent option.
 pref("browser.ml.chat.provider", "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat");
 
-pref("browser.phoenix.status.desktop", "011");
+pref("browser.phoenix.status.desktop", "012");
 
-/*** 012 GEOLOCATION ***/
+/*** 013 GEOLOCATION ***/
 
 /// Block websites from prompting to access geolocation by default
 pref("permissions.default.geo", 2);
@@ -644,9 +650,9 @@ pref("geo.provider.use_geoclue", true); // [DEFAULT] [NO-OSX]
 /// Update info URL to ours so that users receive accurate information
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo");
 
-pref("browser.phoenix.status.desktop", "012");
+pref("browser.phoenix.status.desktop", "013");
 
-/*** 013 MISC. PRIVACY ***/
+/*** 014 MISC. PRIVACY ***/
 
 /// Enable container isolation of `about:home` content
 pref("browser.discovery.containers.enabled", true); // [DEFAULT]
@@ -680,9 +686,9 @@ pref("browser.startup.page", 1); // [DEFAULT]
 // https://phoenix.celenity.dev/content-blocking
 pref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json");
 
-pref("browser.phoenix.status.desktop", "013");
+pref("browser.phoenix.status.desktop", "014");
 
-/*** 014 MISC. ***/
+/*** 015 MISC. ***/
 
 /// Block websites from prompting to display notifications by default
 // I have yet to see a legitimate use-case for websites using push notifications...
@@ -711,9 +717,9 @@ pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);
 
-pref("browser.phoenix.status.desktop", "014");
+pref("browser.phoenix.status.desktop", "015");
 
-/*** 015 PERFORMANCE ***/
+/*** 016 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 
@@ -727,15 +733,14 @@ pref("browser.tabs.hoverPreview.showThumbnails", false);
 /// Enable VA-API by default [LINUX] [NO-OSX]
 pref("media.ffmpeg.vaapi.enabled", true); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop", "015");
+pref("browser.phoenix.status.desktop", "016");
 
-/*** 016 SYNC ***/
+/*** 017 SYNC ***/
 
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true);
 pref("services.sync.prefs.sync.browser.bookmarks.openInTabClosesMenu", true);
 pref("services.sync.prefs.sync.browser.compactmode.show", true);
 pref("services.sync.prefs.sync.browser.download.open_pdf_attachments_inline", true);
-pref("services.sync.prefs.sync.browser.mailto.dualPrompt", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true);
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
@@ -748,17 +753,12 @@ pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.newtabWallpape
 pref("services.sync.prefs.sync.browser.preferences.experimental", true);
 pref("services.sync.prefs.sync.browser.privatebrowsing.resetPBM.enabled", true);
 pref("services.sync.prefs.sync.browser.privateWindowSeparation.enabled", true);
-pref("services.sync.prefs.sync.browser.profiles.enabled", true);
 pref("services.sync.prefs.sync.browser.search.openintab", true);
-pref("services.sync.prefs.sync.browser.search.separatePrivateDefault.ui.enabled", true);
 pref("services.sync.prefs.sync.browser.search.separatePrivateDefault.urlbarResult.enabled", true);
 pref("services.sync.prefs.sync.browser.spin_cursor_while_busy", true);
 pref("services.sync.prefs.sync.browser.tabs.groups.enabled", true);
 pref("services.sync.prefs.sync.browser.tabs.loadBookmarksInTabs", true);
 pref("services.sync.prefs.sync.browser.toolbars.bookmarks.visibility", true);
-pref("services.sync.prefs.sync.browser.translations.alwaysTranslateLanguages", true);
-pref("services.sync.prefs.sync.browser.translations.enable", true);
-pref("services.sync.prefs.sync.browser.translations.neverTranslateLanguages", true);
 pref("services.sync.prefs.sync.browser.urlbar.openintab", true);
 pref("services.sync.prefs.sync.browser.urlbar.suggest.calculator", true);
 pref("services.sync.prefs.sync.browser.urlbar.suggest.clipboard", true);
@@ -766,54 +766,33 @@ pref("services.sync.prefs.sync.browser.urlbar.unitConversion.enabled", true);
 pref("services.sync.prefs.sync.browser.urlbar.update2.engineAliasRefresh", true);
 pref("services.sync.prefs.sync.browser.xul.error_pages.expert_bad_cert", true);
 pref("services.sync.prefs.sync.browser.xul.error_pages.show_safe_browsing_details_on_load", true);
-pref("services.sync.prefs.sync.cookiebanners.service.mode", true);
-pref("services.sync.prefs.sync.cookiebanners.service.mode.privateBrowsing", true);
-pref("services.sync.prefs.sync.cookiebanners.ui.desktop.enabled", true);
 pref("services.sync.prefs.sync.devtools.chrome.enabled", true);
 pref("services.sync.prefs.sync.devtools.command-button-measure.enabled", true);
 pref("services.sync.prefs.sync.devtools.command-button-rulers.enabled", true);
 pref("services.sync.prefs.sync.devtools.command-button-screenshot.enabled", true);
 pref("services.sync.prefs.sync.devtools.dom.enabled", true);
 pref("services.sync.prefs.sync.devtools.debugger.ui.editor-wrapping", true);
-pref("services.sync.prefs.sync.doh-rollout.provider-list", true);
 pref("services.sync.prefs.sync.dom.security.https_only_mode_error_page_user_suggestions", true);
 pref("services.sync.prefs.sync.dom.security.https_only_mode_send_http_background_request", true);
 pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
 pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
 pref("services.sync.prefs.sync.findbar.highlightAll", true);
-pref("services.sync.prefs.sync.javascript.options.wasm", true);
 pref("services.sync.prefs.sync.layout.forms.reveal-password-button.enabled", true);
 pref("services.sync.prefs.sync.media.autoplay.blocking_policy", true);
 pref("services.sync.prefs.sync.media.ffmpeg.vaapi.enabled", true);
 pref("services.sync.prefs.sync.middlemouse.paste", true);
-pref("services.sync.prefs.sync.network.http.referer.XOriginPolicy", true);
 pref("services.sync.prefs.sync.network.IDN_show_punycode", true);
-pref("services.sync.prefs.sync.network.trr.custom_uri", true);
-pref("services.sync.prefs.sync.network.trr.mode", true);
-pref("services.sync.prefs.sync.network.trr.uri", true);
 pref("services.sync.prefs.sync.pdfjs.sidebarViewOnLoad", true);
-pref("services.sync.prefs.sync.permissions.default.camera", true);
-pref("services.sync.prefs.sync.permissions.default.desktop-notification", true);
-pref("services.sync.prefs.sync.permissions.default.geo", true);
-pref("services.sync.prefs.sync.permissions.default.microphone", true);
-pref("services.sync.prefs.sync.permissions.default.xr", true);
-pref("services.sync.prefs.sync.privacy.resistFingerprinting.letterboxing", true);
-pref("services.sync.prefs.sync.privacy.spoof_english", true);
-pref("services.sync.prefs.sync.privacy.userContext.ui.enabled", true);
 pref("services.sync.prefs.sync.privacy.webrtc.globalMuteToggles", true);
-pref("services.sync.prefs.sync.security.OCSP.require", true);
-pref("services.sync.prefs.sync.security.ssl.require_safe_negotiation", true);
-pref("services.sync.prefs.sync.security.xfocsp.hideOpenInNewWindow", true);
+pref("services.sync.prefs.sync.security.xfocsp.hideOpenInNewWindow", true); // [ESR]
 pref("services.sync.prefs.sync.sidebar.main.tools", true);
 pref("services.sync.prefs.sync.sidebar.revamp", true);
-pref("services.sync.prefs.sync.signon.management.page.vulnerable-passwords.enabled", true);
 pref("services.sync.prefs.sync.startup.homepage_override_nimbus_disable_wnp", true);
 pref("services.sync.prefs.sync.view_source.wrap_long_lines", true);
-pref("services.sync.prefs.sync.webgl.disabled", true);
 
-pref("browser.phoenix.status.desktop", "016");
+pref("browser.phoenix.status.desktop", "017");
 
-/*** 017 Personal Touch 💜 ***/
+/*** 018 Personal Touch 💜 ***/
 
 /// Things that are nice to have™
 // Not directly privacy & security related
@@ -845,7 +824,7 @@ pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Book
 pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences`
 
 /// Clean-up default UI
-pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"sidebar-button\",\"back-button\",\"forward-button\",\"vertical-spacer\",\"stop-reload-button\",\"urlbar-container\",\"_testpilot-containers-browser-action\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"developer-button\",\"ublock0_raymondhill_net-browser-action\",\"downloads-button\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"developer-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":21,\"newElementCount\":4}");
+pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","reset-pbm-toolbar-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","tabbrowser-tabs","new-tab-button"],"vertical-tabs":[],"PersonalToolbar":["personal-bookmarks","personal-bookmarks"],"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","vertical-spacer","stop-reload-button","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","reset-pbm-toolbar-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"vertical-tabs":[]},"seen":["reset-pbm-toolbar-button","developer-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","developer-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","unified-extensions-area","TabsToolbar","unified-extensions-area","nav-bar","vertical-tabs"],"currentVersion":21,"newElementCount":7}');
 
 /// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools
 pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [HIDDEN]
@@ -855,7 +834,7 @@ pref("browser.backup.preferences.ui.enabled", true);
 
 /// Enable + customize the new Sidebar by default
 pref("browser.toolbarbuttons.introduced.sidebar-button", false); // Prevents Sidebar from automatically opening and closing on first launch - also needs `browser.uiCustomization.state`
-pref("sidebar.backupState", "{\"command\":\"\",\"launcherWidth\":0,\"launcherExpanded\":false,\"launcherVisible\":false}"); // Hide by default
+pref("sidebar.backupState", '{"command":"","launcherWidth":0,"launcherExpanded":false,"launcherVisible":false}'); // Hide by default
 pref("sidebar.main.tools", "bookmarks,syncedtabs,history"); // Removes AI Chat, adds Bookmarks
 pref("sidebar.revamp", true); // [DEFAULT - Nightly]
 pref("sidebar.visibility", "hide-sidebar"); // Hide by default
@@ -865,28 +844,25 @@ pref("sidebar.visibility", "hide-sidebar"); // Hide by default
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-OSX]
 pref("browser.taskbarTabs.enabled", true); // [HIDDEN] [NO-OSX]
 
-pref("browser.phoenix.status.desktop", "017");
+pref("browser.phoenix.status.desktop", "018");
 
-/*** 018 UPDATES ***/
+/*** 019 UPDATES ***/
 
 // Browser Updates
-
-/// Display "What's New" Pages by default
-pref("startup.homepage_override_nimbus_disable_wnp", false); // [DEFAULT]
 
 /// Enable a dialog/pop-up on major upgrades
 pref("browser.startup.upgradeDialog.enabled", true);
 
-pref("browser.phoenix.status.desktop", "018");
+pref("browser.phoenix.status.desktop", "019");
 
-/*** 019 SPECIALIZED/CUSTOM CONFIGS [NO-OSX] [NO-SPEC]***/
+/*** 020 SPECIALIZED/CUSTOM CONFIGS [NO-OSX] [NO-SPEC]***/
 
 /// Enable support for custom/specialized configs... [NO-OSX] [NO-SPEC]
 pref("general.config.filename", "phoenix.cfg"); // [NO-OSX] [NO-SPEC]
 pref("general.config.obscure_value", 0); // [NO-OSX] [NO-SPEC]
 pref("general.config.vendor", "phoenix"); // [NO-OSX] [NO-SPEC]
 
-pref("browser.phoenix.status.desktop", "019"); // [NO-OSX] [NO-SPEC]
+pref("browser.phoenix.status.desktop", "020"); // [NO-OSX] [NO-SPEC]
 
 pref("browser.phoenix.status.desktop", "successfully applied :D", locked);
 

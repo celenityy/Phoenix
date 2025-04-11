@@ -23,15 +23,14 @@
 004: HTTP(S)
 005: MEDIA
 006: ATTACK SURFACE REDUCTION
-007: EXTENSIONS
-008: GEOLOCATION
-009: DEBUGGING
-010: MISC. PRIVACY
-011: MISC. SECURITY
-012: PERFORMANCE
-013: Personal Touch 💜
-014: UPDATES
-015: SPECIALIZED/CUSTOM CONFIGS
+007: GEOLOCATION
+008: DEBUGGING
+009: MISC. PRIVACY
+010: MISC. SECURITY
+011: PERFORMANCE
+012: Personal Touch 💜
+013: UPDATES
+014: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -40,20 +39,26 @@
 /// Disable Crash Reporting
 // https://github.com/mozilla-services/socorro
 // https://wiki.mozilla.org/Socorro
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [DEFAULT, HIDDEN - Thunderbird]
-pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [DEFAULT - non-Nightly, HIDDEN - Thunderbird]
+pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [HIDDEN - Thunderbird] [DEFAULT]
+pref("browser.crashReports.unsubmittedCheck.enabled", false, locked); // [HIDDEN - Thunderbird] [DEFAULT - non-Nightly]
 
 /// Disable Data Reporting & Telemetry
-pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
-pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst https://searchfox.org/mozilla-central/source/browser/components/urlbar/tests/quicksuggest/browser/browser_quicksuggest_onboardingDialog.js
+pref("browser.urlbar.quicksuggest.onboardingDialogChoice", "reject_2", locked); // [ESR] [HIDDEN] https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst
+pref("services.sync.log.logger.telemetry", "Fatal"); // [HIDDEN]
+pref("services.sync.telemetry.maxEventsCount", 0, locked); // [HIDDEN] Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
+pref("services.sync.telemetry.maxPayloadCount", 0, locked); // Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
+pref("services.sync.telemetry.submissionInterval", 999999999, locked); // Disable `sync` ping https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/sync-ping.rst
+pref("toolkit.telemetry.dap_helper", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_helper_owner", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_leader", "", locked); // [ESR]
+pref("toolkit.telemetry.dap_leader_owner", "", locked); // [ESR]
+
+/// Disable Experiments/Studies
+pref("messaging-system.rsexperimentloader.enabled", false, locked); // [ESR]
 
 pref("browser.phoenix.status.desktop.common", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
-
-/// Disable Recommendations
-pref("extensions.getAddons.discovery.api_url", "data;"); // https://searchfox.org/mozilla-central/source/testing/profiles/common/user.js
-pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is local/installed extensions...
 
 /// Remove special privileges from Mozilla domains
 pref("permissions.manager.defaultsUrl", "", locked);
@@ -89,7 +94,7 @@ pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows [NO-OSX]
-pref("toolkit.winRegisterApplicationRestart", false); // [NO-OSX]
+pref("toolkit.winRegisterApplicationRestart", false); // [HIDDEN - Thunderbird] [NO-OSX]
 
 /// Set default time range when manually clearing data to "everything"
 pref("privacy.sanitize.timeSpan", 0);
@@ -140,9 +145,6 @@ pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 // https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 pref("userContent.player.click_to_play", true); // [HIDDEN]
 
-/// Remove DRM toggle from `about:preferences#general`
-pref("browser.eme.ui.enabled", false);
-
 pref("browser.phoenix.status.desktop.common", "005");
 
 /*** 006 ATTACK SURFACE REDUCTION ***/
@@ -153,32 +155,21 @@ pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
 pref("browser.phoenix.status.desktop.common", "006");
 
-/*** 007 EXTENSIONS ***/
-
-// Enable panel for our own extension recommendations...
-pref("extensions.getAddons.showPane", true); // [DEFAULT]
-
-// Only allow installation of signed language packs & whitelisted extensions
-pref("extensions.langpacks.signatures.required", true, locked); // [DEFAULT]
-pref("xpinstall.whitelist.required", true, locked); // [DEFAULT]
-
-pref("browser.phoenix.status.desktop.common", "007");
-
-/*** 008 GEOLOCATION [NO-OSX] ***/
+/*** 007 GEOLOCATION [NO-OSX] ***/
 
 // Disable Microsoft Location Services [WINDOWS] [NO-OSX]
 pref("geo.provider.ms-windows-location", false); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop.common", "008"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "007"); // [NO-OSX]
 
-/*** 009 DEBUGGING ***/
+/*** 008 DEBUGGING ***/
 
 /// Enforce local debugging only
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop.common", "009");
+pref("browser.phoenix.status.desktop.common", "008");
 
-/*** 010 MISC. PRIVACY ***/
+/*** 009 MISC. PRIVACY ***/
 
 /// Disable Firefox Sync by default
 // When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
@@ -205,9 +196,9 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] 
 /// Prevent sharing identifying info if a remote AutoConfig is being used
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "010");
+pref("browser.phoenix.status.desktop.common", "009");
 
-/*** 011 MISC. SECURITY ***/
+/*** 010 MISC. SECURITY ***/
 
 /// Disable GNOME Integration [LINUX] [NO-OSX]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [NO-OSX]
@@ -227,9 +218,9 @@ pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 pref("general.config.sandbox_enabled", true, locked);
 
-pref("browser.phoenix.status.desktop.common", "011");
+pref("browser.phoenix.status.desktop.common", "010");
 
-/*** 012 PERFORMANCE ***/
+/*** 011 PERFORMANCE ***/
 
 /// Disable certain UI animations
 // https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
@@ -241,9 +232,9 @@ pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 /// Taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 pref("network.http.max-connections", 1800); // [Default = 900]
 
-pref("browser.phoenix.status.desktop.common", "012");
+pref("browser.phoenix.status.desktop.common", "011");
 
-/*** 013 Personal Touch 💜 ***/
+/*** 012 Personal Touch 💜 ***/
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -280,25 +271,27 @@ pref("ui.prefersReducedTransparency", 0); // [DEFAULT, HIDDEN]
 pref("ui.scrollToClick", 1); // [HIDDEN]
 pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "013");
+pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
-/*** 014 UPDATES ***/
+pref("browser.phoenix.status.desktop.common", "012");
+
+/*** 013 UPDATES ***/
 
 /// Browser Updates
 pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
 
-pref("browser.phoenix.status.desktop.common", "014");
+pref("browser.phoenix.status.desktop.common", "013");
 
-/*** 015 SPECIALIZED/CUSTOM CONFIGS ***/
+/*** 014 SPECIALIZED/CUSTOM CONFIGS ***/
 
 /// Configure remote AutoConfig files (if active)
 pref("autoadmin.failover_to_cached", true);
 pref("autoadmin.offline_failover", true);
 pref("autoadmin.refresh_interval", 60);
 
-pref("browser.phoenix.status.desktop.common", "015");
+pref("browser.phoenix.status.desktop.common", "014");
 
 pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 
