@@ -76,25 +76,20 @@ pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://sear
 // https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html [NO-OSX]
 pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 
-/// Disable Shield Studies/Normandy/Nimbus
+/// Disable Experiments/Studies
+// (Shield/Normandy)
 // https://mozilla.github.io/normandy/
 // https://wiki.mozilla.org/Firefox/Shield/Shield_Studies
 // https://support.mozilla.org/kb/shield
 // https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_experiments-or-studies
 // https://wiki.mozilla.org/Advocacy/heartbeat
-// https://experimenter.info/
-// resource://nimbus/ExperimentAPI.sys.mjs
 pref("app.normandy.api_url", "", locked);
 pref("app.normandy.enabled", false, locked);
 pref("app.normandy.first_run", false, locked);
 pref("app.normandy.last_seen_buildid", "", locked);
 pref("app.normandy.logging.level", 70); // Limits logging to fatal only
 pref("app.normandy.user_id", "", locked);
-pref("app.shield.optoutstudies.enabled", false, locked);
 pref("messaging-system.log", "off"); // Disables logging
-pref("messaging-system.rsexperimentloader.enabled", false, locked);
-pref("messaging-system.rsexperimentloader.collection_id", "", locked);
-pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
 
 /// Remove unnecessary links
 pref("app.normandy.shieldLearnMoreUrl", "");

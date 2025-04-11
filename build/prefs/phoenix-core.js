@@ -176,6 +176,15 @@ pref("toolkit.telemetry.user_characteristics_ping.opt-out", true, locked);
 pref("toolkit.telemetry.user_characteristics_ping.send-once", false, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.uuid", "", locked); // [DEFAULT]
 
+/// Disable Experiments/Studies
+// (Shield/Nimbus)
+// https://experimenter.info/
+// resource://nimbus/ExperimentAPI.sys.mjs
+pref("app.normandy.run_interval_seconds", 0, locked); // [HIDDEN - Android/Thunderbird] Prevent fetching experiments - this is also used by Nimbus
+pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Thunderbird]
+pref("messaging-system.rsexperimentloader.collection_id", "", locked);
+pref("nimbus.appId", "", locked); // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js
+
 /// Disable Origin Trials
 // https://wiki.mozilla.org/Origin_Trials
 pref("dom.origin-trials.enabled", false, locked);

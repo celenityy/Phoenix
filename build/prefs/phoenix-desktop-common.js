@@ -53,6 +53,9 @@ pref("toolkit.telemetry.dap_helper_owner", "", locked); // [ESR]
 pref("toolkit.telemetry.dap_leader", "", locked); // [ESR]
 pref("toolkit.telemetry.dap_leader_owner", "", locked); // [ESR]
 
+/// Disable Experiments/Studies
+pref("messaging-system.rsexperimentloader.enabled", false, locked); // [ESR]
+
 pref("browser.phoenix.status.desktop.common", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
