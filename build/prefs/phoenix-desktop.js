@@ -261,10 +261,13 @@ pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locke
 /// Disable Mozilla promotions
 pref("browser.contentblocking.report.hide_vpn_banner", true, locked);
 pref("browser.contentblocking.report.lockwise.enabled", false);
+pref("browser.contentblocking.report.mobile-android.url", "", locked);
+pref("browser.contentblocking.report.mobile-ios.url", "", locked);
 pref("browser.contentblocking.report.monitor.enabled", false); // [DEFAULT]
 pref("browser.contentblocking.report.proxy.enabled", false); // [DEFAULT]
 pref("browser.contentblocking.report.proxy_extension.url", "", locked);
 pref("browser.contentblocking.report.show_mobile_app", false, locked);
+pref("browser.contentblocking.report.vpn.url", "", locked);
 pref("browser.contentblocking.report.vpn-android.url", "", locked);
 pref("browser.contentblocking.report.vpn-ios.url", "", locked);
 pref("browser.contentblocking.report.vpn-promo.url", "", locked);
@@ -348,7 +351,6 @@ pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/%LOCALE%/firefo
 pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
-pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
 
 pref("browser.phoenix.status.desktop", "002");
