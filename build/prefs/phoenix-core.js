@@ -1236,6 +1236,8 @@ pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] 
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
 pref("dom.reporting.crash.enabled", false); // [DEFAULT]
+pref("dom.reporting.delivering.maxFailures", 0); // [DEFENSE IN DEPTH]
+pref("dom.reporting.delivering.maxReports", 0); // [DEFENSE IN DEPTH]
 pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
