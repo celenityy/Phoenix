@@ -972,6 +972,12 @@ pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#403
 pref("extensions.install_origins.enabled", true);
 
+/// Enable AMRemoteSettings by default to expose via the `about:config`
+// Used for ex. updating the list of quarantined domains
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/docs/AMRemoteSettings-overview.rst
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
+pref("extensions.remoteSettings.disabled", false); // [DEFAULT] [HIDDEN]
+
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
