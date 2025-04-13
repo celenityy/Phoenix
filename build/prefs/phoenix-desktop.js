@@ -406,10 +406,6 @@ pref("browser.phoenix.status.desktop", "003");
 
 /*** 004 DISK AVOIDANCE ***/
 
-/// Disable collection/generation of background thumbnails
-// https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
-pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
-
 /// Disable favicons in shortcuts
 // Prevents .ico files from persisting, even after deletion
 pref("browser.shell.shortcutFavicons", false);
