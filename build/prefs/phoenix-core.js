@@ -1068,6 +1068,9 @@ pref("pdfjs.enableScripting", false);
 // Not even a standard...
 pref("pdfjs.enableXfa", false);
 
+/// Enable the ability to add signatures
+pref("pdfjs.enableSignatureEditor", true);
+
 /// Never allow documents to prevent copying text
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
 
