@@ -408,11 +408,15 @@ pref("browser.phoenix.status.core", "004");
 /// Allow permission manager to write to disk
 // This is already Firefox's default - but it's hidden, so this exposes it to the `about:config`
 // https://searchfox.org/mozilla-central/source/extensions/permissions/PermissionManager.cpp#758
-pref("permissions.memory_only", false); // [HIDDEN - DEFAULT]
+pref("permissions.memory_only", false); // [HIDDEN] [DEFAULT]
 
 /// Disable collection/generation of background thumbnails
 // https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
 pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
+
+/// Disable collection/generation of wireframes
+// https://searchfox.org/mozilla-central/source/browser/components/sessionstore/PageWireframes.sys.mjs
+pref("browser.history.collectWireframes", false); // [DEFAULT]
 
 /// Disable coloring visited links
 pref("layout.css.visited_links_enabled", false);
