@@ -410,6 +410,10 @@ pref("browser.phoenix.status.core", "004");
 // https://searchfox.org/mozilla-central/source/extensions/permissions/PermissionManager.cpp#758
 pref("permissions.memory_only", false); // [HIDDEN - DEFAULT]
 
+/// Disable collection/generation of background thumbnails
+// https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
+pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
+
 /// Disable coloring visited links
 pref("layout.css.visited_links_enabled", false);
 
