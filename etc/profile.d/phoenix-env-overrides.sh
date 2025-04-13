@@ -16,8 +16,11 @@
 # Also impacts other Mozilla software (like Thunderbird)
 
 # Disable Crash Reporting
-# https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html#user-specified-environment-variables
-export MOZ_CRASHREPORTER=0;
+## https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html#user-specified-environment-variables
+export MOZ_CRASHREPORTER=;
+export MOZ_CRASHREPORTER_DISABLE=1;
+export MOZ_CRASHREPORTER_NO_REPORT=1;
+export MOZ_CRASHREPORTER_URL="data;";
 
 # Enable Wayland
 ## Credit to Rasmus: https://askubuntu.com/users/13884/rasmus
