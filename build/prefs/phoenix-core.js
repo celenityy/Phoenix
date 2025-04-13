@@ -1088,6 +1088,10 @@ pref("pdfjs.enableSignatureEditor", true);
 /// Never allow documents to prevent copying text
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
 
+/// Open external links in new tabs/windows
+// https://github.com/mozilla/pdf.js/blob/master/extensions/chromium/preferences_schema.json
+pref("pdfjs.externalLinkTarget", 2);
+
 /// Open PDFs inline where possible
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Android]
 
