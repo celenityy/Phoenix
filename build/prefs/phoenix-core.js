@@ -727,6 +727,15 @@ pref("browser.phoenix.status.core", "010");
 
 /*** 011 PROXIES ***/
 
+/// Prevent Firefox from automatically using the system's proxy configuration by default
+// This is commonly abused by content filtering/monitoring/MITM software & malware (just like third-party/OS-level root certificates...)
+// There are of course legitimate use cases for proxies, but those require manual set-up anyways... let's ensure the user is always in control and making the conscious decision to use a proxy (if at all)
+// Also helps with performance as a bonus
+// https://bugzilla.mozilla.org/show_bug.cgi?id=500983
+// https://bugzilla.mozilla.org/show_bug.cgi?id=500983#c7
+// https://superuser.com/questions/169303/why-are-my-browsers-suddenly-configured-to-use-a-proxy
+pref("network.proxy.type", 0);
+
 // Prevent bypasses/leakage
 
 /// Disable automatic failover from the proxy (if configured) to direct connections when certain system requests fail
