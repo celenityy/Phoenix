@@ -845,9 +845,10 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 // https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
 // https://firefox-source-docs.mozilla.org/js/index.html#javascript-jits
 // https://codeberg.org/rusty-snake/firefox-config/src/branch/main/assets/user-overrides.js#L60
+// https://codeberg.org/celenity/Phoenix/issues/93
 pref("javascript.options.baselinejit", false); // Baseline Compiler
-pref("javascript.options.blinterp", false); // Baseline Interpreter 
 pref("javascript.options.ion", false); // WarpMonkey
+pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
 pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] Main process https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
