@@ -1115,11 +1115,6 @@ pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Androi
 /// Show sidebar by default when viewing PDFs
 pref("pdfjs.sidebarViewOnLoad", 2);
 
-/// Use the system's theme
-// https://github.com/mozilla/pdf.js/blob/master/extensions/chromium/preferences_schema.json
-// 1 = light mode, 2 = dark mode
-pref("pdfjs.viewerCssTheme", 0); // [DEFAULT] [HIDDEN]
-
 pref("browser.phoenix.status.core", "019");
 
 /*** 020 SAFE BROWSING ***/
