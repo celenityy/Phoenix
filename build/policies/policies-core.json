@@ -16,6 +16,7 @@
         },
         "EnterprisePoliciesEnabled": true,
         "Proxy": {
+            "Mode": "none",
             "UseProxyForDNS": true
         },
         "SearchEngines": {
