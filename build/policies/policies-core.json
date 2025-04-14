@@ -81,7 +81,6 @@
                 "Yandex",
                 "Яндекс"
             ]
-        },
-        "SSLVersionMin": "tls1.2"
+        }
     }
 }
