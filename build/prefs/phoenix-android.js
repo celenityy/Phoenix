@@ -19,11 +19,10 @@
 001: MOZILLA CRAP™
 002: FINGERPRINTING PROTECTION
 003: MEDIA
-004: ATTACK SURFACE REDUCTION
-005: PASSWORDS & AUTHENTICATION
-006: EXTENSIONS
-007: MISC. SECURITY
-008: PERFORMANCE
+004: PASSWORDS & AUTHENTICATION
+005: EXTENSIONS
+006: MISC. SECURITY
+007: PERFORMANCE
 
 */
 
@@ -103,15 +102,7 @@ pref("media.mediadrm-widevinecdm.visible", false);
 
 pref("browser.phoenix.status.android", "003");
 
-/*** 004 ATTACK SURFACE REDUCTION ***/
-
-/// Re-enable the JIT Baseline Interpreter, due to severe performance issues some users have been experiencing...
-// ex. https://gitlab.com/ironfox-oss/IronFox/-/issues/18
-pref("javascript.options.blinterp", true); // [DEFAULT]
-
-pref("browser.phoenix.status.android", "004");
-
-/*** 005 PASSWORDS & AUTHENTICATION ***/
+/*** 004 PASSWORDS & AUTHENTICATION ***/
 
 /// Re-enable formless capture in standard windows
 // See `015` at `Phoenix-Core` for details
@@ -119,9 +110,9 @@ pref("browser.phoenix.status.android", "004");
 // https://gitlab.com/ironfox-oss/IronFox/-/issues/11
 pref("signon.formlessCapture.enabled", true); // [DEFAULT]
 
-pref("browser.phoenix.status.android", "005");
+pref("browser.phoenix.status.android", "004");
 
-/*** 006 EXTENSIONS ***/
+/*** 005 EXTENSIONS ***/
 
 /// Block extensions signed with weak signature algorithms
 pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAULT, HIDDEN]
@@ -145,9 +136,9 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [DEFAULT]
 pref("extensions.langpacks.signatures.required", true); // [DEFAULT - non-Thunderbird]
 pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
-pref("browser.phoenix.status.android", "006");
+pref("browser.phoenix.status.android", "005");
 
-/*** 007 MISC. SECURITY ***/
+/*** 006 MISC. SECURITY ***/
 
 /// Always warn users before launching other apps
 pref("network.protocol-handler.warn-external.file", true);
@@ -155,14 +146,14 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.status.android", "007");
+pref("browser.phoenix.status.android", "006");
 
-/*** 008 PERFORMANCE ***/
+/*** 007 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("network.http.max-connections", 256); // [Default = 128]
 
-pref("browser.phoenix.status.android", "008");
+pref("browser.phoenix.status.android", "007");
 
 pref("browser.phoenix.status.android", "successfully applied :D", locked);
 
