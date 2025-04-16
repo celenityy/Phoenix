@@ -246,6 +246,7 @@ pref("devtools.command-button-rulers.enabled", true);
 pref("devtools.command-button-screenshot.enabled", true);
 pref("devtools.debugger.ui.editor-wrapping", true); // Enables long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
 pref("devtools.dom.enabled", true);
+pref("devtools.inspector.showUserAgentStyles", true); // Show default/browser styles in the Inspector by default
 pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
