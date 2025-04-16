@@ -255,6 +255,11 @@ pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
 // Also acts as a potential performance improvement
 pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT on non-Nightly/ESR]
 
+/// Opt out of add-on metadata updates
+// Note: This prevents themes from displaying previews in `about:addons`
+// https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
+pref("extensions.getAddons.cache.enabled", false);
+
 /// Remove special privileges from Mozilla domains
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
 pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false, locked); // [DEFAULT on Firefox Desktop]
