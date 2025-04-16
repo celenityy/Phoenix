@@ -1072,21 +1072,22 @@ pref("browser.phoenix.status.core", "017");
 /*** 018 GEOLOCATION ***/
 
 /// Disable logging Geolocation requests by default
-// This is already Firefox's default setting - but setting here exposes it in the about:config since it's hidden...
+// This is already Firefox's default setting - but setting it here exposes it in the about:config since it's hidden
 // https://searchfox.org/mozilla-central/source/dom/system/NetworkGeolocationProvider.sys.mjs#21
 pref("geo.provider.network.logging.enabled", false); // [DEFAULT - HIDDEN]
 
-/// Disable "Region Updates"
+/// Prevent Firefox from monitoring the user's region/general location for 'relevant local search engines and content'
+/// Note: Firefox will still use different regional search engines based on the browser/system locale (ex. tested with Wikipedia), but this prevents using geolocation
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
+// https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs
+pref("browser.region.local-geocoding", false); // [DEFAULT] [HIDDEN]
+pref("browser.region.network.scan", false); // [DEFAULT] [DEFENSE IN DEPTH] Disable Wi-Fi scanning for these requests
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
+pref("browser.search.region", "US"); // [HIDDEN]
 
-/// Disable Wi-Fi Scanning
-pref("browser.region.network.scan", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs#20
-pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
-
-/// Set BeaconDB as the network Geolocation provider
-// Default is Google...
+/// Set BeaconDB as the default network Geolocation provider
+// Default is Google :/
 pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
 pref("browser.phoenix.status.core", "018");
