@@ -210,7 +210,9 @@ pref("browser.phoenix.status.core", "001");
 /// Disable add-on/feature recommendations
 // https://support.mozilla.org/kb/recommendations-firefox
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/content/aboutaddons.js
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
 pref("browser.discovery.enabled", false, locked); // [HIDDEN - non-Desktop Firefox]
+pref("browser.translations.panelShown", true, locked); // [HIDDEN]
 pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
 pref("extensions.getAddons.discovery.api_url", "data;", locked);
 pref("extensions.getAddons.showPane", false, locked);
