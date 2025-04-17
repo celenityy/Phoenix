@@ -867,6 +867,10 @@ pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] M
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
+/// Disable JPEG-XL
+// https://github.com/mozilla/standards-positions/pull/1064
+pref("image.jxl.enabled", false); // [DEFAULT]
+
 /// Disable MathML
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml 
 pref("mathml.disabled", true);
