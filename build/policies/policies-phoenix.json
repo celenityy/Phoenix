@@ -163,6 +163,7 @@
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
             "MoreFromMozilla": false,
+            "SkipTermsOfUse": true,
             "UrlbarInterventions": false,
             "Locked": true
         }
