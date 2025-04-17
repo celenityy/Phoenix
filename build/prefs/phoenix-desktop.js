@@ -143,6 +143,7 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
+pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // https://searchfox.org/mozilla-central/source/browser/base/content/browser-sync.js
 
 /// Disable `about:welcome`/onboarding
 // Privacy concerns - unsolicited connection
