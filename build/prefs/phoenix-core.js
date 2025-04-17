@@ -276,6 +276,12 @@ pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.o
 pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
+/// Skip Mozilla's `Privacy Notice` & `Terms of Use`
+// https://github.com/mozilla/policy-templates/pull/1212
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
+pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 999, locked);
+pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "999999999", locked);
+
 pref("browser.phoenix.status.core", "002");
 
 /*** 003 TRACKING PROTECTION ***/
