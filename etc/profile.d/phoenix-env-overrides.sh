@@ -15,7 +15,7 @@
 # Environment variables for GNU/Linux distros that further harden Firefox for Phoenix
 # Also impacts other Mozilla software (like Thunderbird)
 
-# Disable Crash Reporting
+# Disable Mozilla's Crash Reporter
 ## https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html#user-specified-environment-variables
 export MOZ_CRASHREPORTER=;
 export MOZ_CRASHREPORTER_DISABLE=1;
