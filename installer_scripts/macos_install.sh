@@ -95,7 +95,7 @@ sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.pl
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist..."
-wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/dev/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist to 644..."
@@ -111,7 +111,7 @@ echo_green_text "Loading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plis
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist..."
-wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/dev/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist to 644..."
@@ -127,7 +127,7 @@ echo_green_text "Loading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.pl
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist..."
-wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/dev/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist || error_fn
+wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist to 644..."
