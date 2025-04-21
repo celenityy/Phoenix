@@ -97,14 +97,6 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "AdBlocker Lite, appears dead."
             },
-            "jid1-BoFifL9Vbdl2zQ@jetpack": {
-                "installation_mode": "blocked",
-                "blocked_install_message": "Decentraleyes. Very outdated, just use LocalCDN instead if needed."
-            },
-            "firefox@tampermonkey.net": {
-                "installation_mode": "blocked",
-                "blocked_install_message": "Tampermonkey. Closed source, just use Violentmonkey instead if needed."
-            },
             "jid1-KKzOGWgsW3Ao4Q@jetpack": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "I don't care about cookies, by Avast. Highly sketchy & known for selling data. Just use Firefox's built-in cookie banner blocking & uBlock Origin, or `I still don't care about cookies` if really needed instead."
