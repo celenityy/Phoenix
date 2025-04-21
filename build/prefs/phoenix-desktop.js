@@ -573,7 +573,6 @@ pref("extensions.quarantineIgnoredByUser.google-leta@celenity.dev", false, locke
 pref("extensions.quarantineIgnoredByUser.mojeek@celenity.dev", false, locked); // Mojeek
 pref("extensions.quarantineIgnoredByUser.no-search@celenity.dev", false, locked); // No Search
 pref("extensions.quarantineIgnoredByUser.startpage@celenity.dev", false, locked); // Startpage
-pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
 
 /// Block our deprecated search 'extensions' for defense in depth from accessing restricted/quarantined domains
 // https://support.mozilla.org/kb/quarantined-domains
@@ -586,6 +585,7 @@ pref("extensions.quarantineIgnoredByUser.leta-google@celenity.dev", false, locke
 pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); // MetaGer
 pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
 pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
+pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
 
 /// Disable installation of add-ons + only allow enabling it per-session
 // Includes extensions & themes

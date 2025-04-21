@@ -130,13 +130,6 @@
                 "private_browsing": false,
                 "temporarily_allow_weak_signatures": false,
                 "updates_disabled": true
-            },
-            "swisscows@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/swisscows/swisscows-0.0.4.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
             }
         },
         "FirefoxHome": {
