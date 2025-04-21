@@ -62,10 +62,6 @@ pref("browser.phoenix.status.extended", "003");
 pref("accessibility.blockautorefresh", true);
 pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
 
-/// Use stricter media autoplay blocking
-// Default = 0
-pref("media.autoplay.blocking_policy", 2);
-
 pref("browser.phoenix.status.extended", "004");
 
 pref("browser.phoenix.status.extended", "successfully applied :D", locked);
