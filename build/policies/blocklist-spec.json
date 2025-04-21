@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "brave-search-extension@brave.com": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "'Brave Search (official) - Private Search Engine' https://addons.mozilla.org/firefox/addon/bravesearch/ - Brave Search isn't recommended, but if you do want to use it, this extension is unnecessary. Just configure it from about:preferences#search or the Omnibox."
+            },
             "swisscows@celenity.dev": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Deprecated"
