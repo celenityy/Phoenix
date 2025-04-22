@@ -1,1 +1,1 @@
-user_pref("autoadmin.global_config_url", "file:///var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/configs/ui-fix/youtube.cfg");
+user_pref("autoadmin.global_config_url", "file:///app/etc/firefox/phoenix/configs/ui-fix/youtube.cfg");
