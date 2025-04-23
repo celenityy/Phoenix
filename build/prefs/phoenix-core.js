@@ -1399,7 +1399,8 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.external_protocol_requires_permission", true); // [DEFAULT - non-Thunderbird] Removed from Firefox, but we'll keep for ESR for the time being
 
 /// Apply CSP to internal browser.xhtml
-pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
+pref("security.browser_xhtml_csp.report-only", false);
 
 /// Disable Navigator Media Objects & getUserMedia Support in insecure contexts
 // https://developer.mozilla.org/docs/Web/API/Navigator/mediaDevices
