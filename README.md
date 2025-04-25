@@ -166,6 +166,7 @@ sudo dnf install phoenix-flatpak
 
 > [!IMPORTANT]
 > ⚠️ **Before proceeding, you must have [Homebrew](https://brew.sh/) installed.**
+> You will additionally need `wget`, which can be installed using `brew install wget`.
 
 Run the following installation script in your terminal of choice:
 
