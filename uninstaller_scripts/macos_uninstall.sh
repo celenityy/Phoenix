@@ -93,10 +93,6 @@ echo_green_text "Uninstalling phoenix-osx..."
 brew uninstall phoenix-osx || error_fn
 echo
 
-echo_green_text "Uninstalling legacy phoenix-osx-user if installed..."
-brew uninstall phoenix-osx-user || error_fn
-echo
-
 read -p  $'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n] \e[0m' RESULT
 echo
 
