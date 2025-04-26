@@ -736,6 +736,13 @@ pref("network.trr.bootstrapAddr", ""); // [DEFAULT, HIDDEN]
 // https://codeberg.org/divested/brace/pulls/5
 pref("network.dns.preferIPv6", true);
 
+/// Prevent bypassing DoH for /etc/HOSTS entries by default
+// Protects against HOSTS file hijacking
+// https://www.malwarebytes.com/blog/news/2016/09/hosts-file-hijacks
+// https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=SettingsModifier:Win32/HostsFileHijack
+// https://www.microcenter.com/tech_center/article/6472/how-to-clean-the-windows-hosts-file-if-malware-has-tampered-with-it
+pref("network.trr.exclude-etc-hosts", false);
+
 /// Prevent disabling DoH from registry checks
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("network.notify.checkForNRPT", false);
