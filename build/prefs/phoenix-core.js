@@ -415,6 +415,10 @@ pref("browser.display.use_system_colors", false); // [DEFAULT - non-Windows]
 /// Prompt to spoof locale to en-US
 pref("privacy.spoof_english", 0); // [DEFAULT]
 
+/// Provide example templates to make it easier for users to set custom FPP overrides if needed
+pref("privacy.fingerprintingProtection.granularOverrides.0.example", '[{"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedTheSameWayToo"}]');
+pref("privacy.fingerprintingProtection.overrides.0.example", "+ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally");
+
 pref("browser.phoenix.status.core", "004");
 
 /*** 005 DISK AVOIDANCE ***/
