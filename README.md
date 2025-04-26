@@ -170,7 +170,7 @@ sudo dnf install phoenix-flatpak
 Run the following installation script in your terminal of choice:
 
 ```sh
-/bin/zsh -c "$(curl --cert-status -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh)"
+/bin/zsh -c "$(curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh)"
 ```
 
 </details>
@@ -292,7 +292,7 @@ sudo dnf makecache
 Run the following uninstall script in your terminal of choice:
 
 ```sh
-/bin/zsh -c "$(curl --cert-status -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh)"
+/bin/zsh -c "$(curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh)"
 ```
 
 </details>
