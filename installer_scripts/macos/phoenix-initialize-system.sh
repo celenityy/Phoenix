@@ -22,7 +22,7 @@ cd /tmp
 
 ## Ensure Firefox isn't quarantined so we don't break it...
 # https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-sudo xattr -v -r -d com.apple.quarantine /Applications/Firefox.app
+sudo /usr/bin/xattr -v -r -d com.apple.quarantine /Applications/Firefox.app
 
 echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
 sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
@@ -47,7 +47,7 @@ echo
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
 echo_green_text "PLEASE SELECT "Later" WHEN IT ASKS YOU TO QUIT AND RE-OPEN YOUR TERMINAL..."
 /bin/sleep 5
-open /System/Applications/'System Settings'.app
+/usr/bin/open /System/Applications/'System Settings'.app
 /bin/sleep 5
 echo_green_text "Press enter to continue once you are finished."
 read
