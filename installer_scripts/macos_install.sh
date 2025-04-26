@@ -170,7 +170,7 @@ case ${LOCATION} in
 		echo
 
 		echo_green_text "Copying phoenix-apply-intel.sh to /Library/celenity/Phoenix/phoenix-apply-intel.sh..."
-		sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+		sudo /bin/cp phoenix-apply-intel.sh /Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
 		echo
 
 		echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
