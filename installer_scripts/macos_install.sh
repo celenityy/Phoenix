@@ -22,7 +22,7 @@ cd /tmp
 
 ## Download and run initialization script
 initialize_phoenix() {
-	curl --cert-status -O -sSL $1
+	curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL $1
 	echo
 	echo
 	/bin/zsh $2
@@ -60,7 +60,7 @@ brew install phoenix-osx || error_fn
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist..."
-curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
+curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist to 644..."
@@ -76,7 +76,7 @@ echo_green_text "Loading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plis
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist..."
-curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist || error_fn
+curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.plist to 644..."
@@ -92,7 +92,7 @@ echo_green_text "Loading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_NO_REPORT.pl
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist..."
-curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist || error_fn
+curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist || error_fn
 echo
 
 echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist to 644..."
@@ -108,11 +108,11 @@ echo_green_text "Loading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_URL.plist...
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.js..."
-curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
+curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
 echo_green_text "Downloading phoenix-bootstrap.cfg..."
-curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
+curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
 echo
 
 echo_green_text "Creating /Library/celenity/Phoenix directory..."
@@ -128,11 +128,11 @@ echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?
 echo_green_text "Your options are:";
 echo_red_text "1. Silicon";
 echo_green_text "2. Intel";
-read -p 'Please enter your selection: ' LOCATION
+read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
         echo_green_text "Downloading phoenix-apply.sh..."
-		curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
 		echo
 
 		echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
@@ -144,7 +144,7 @@ case ${LOCATION} in
 		echo
 		
 		echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
-		curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 		echo
 
 		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
@@ -162,7 +162,7 @@ case ${LOCATION} in
 
 	"intel" | "Intel" | "INTEL" | 2)
 		echo_green_text "Downloading phoenix-apply-intel.sh..."
-		curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
 		echo
 
 		echo_green_text "Changing permissions of phoenix-apply-intel.sh to 744..."
@@ -174,7 +174,7 @@ case ${LOCATION} in
 		echo
 
 		echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
-		curl --cert-status -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
 		echo
 
 		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.intel.plist to 644..."
@@ -196,7 +196,7 @@ echo_green_text "Where is your installation of Firefox located?";
 echo_green_text "Your options are:";
 echo_red_text "1. system - /Applications/Firefox.app";
 echo_green_text "2. user - ~/Applications/Firefox.app";
-read -p 'Please enter your selection: ' LOCATION
+read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
         TARGET_SCRIPT="${SCRIPT[0]}"

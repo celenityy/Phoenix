@@ -22,7 +22,7 @@ cd /tmp
 
 ## Download and run the uninstall script
 uninstall_phoenix() {
-	curl --cert-status -O -sSL $1
+	curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL $1
 	echo
 	echo
 	/bin/zsh $2
@@ -109,7 +109,7 @@ echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?
 echo_green_text "Your options are:";
 echo_red_text "1. Silicon";
 echo_green_text "2. Intel";
-read -p 'Please enter your selection: ' LOCATION
+read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
         echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
@@ -137,7 +137,7 @@ echo_green_text "Where is your installation of Firefox located?";
 echo_green_text "Your options are:";
 echo_red_text "1. system - /Applications/Firefox.app";
 echo_green_text "2. user - ~/Applications/Firefox.app";
-read -p 'Please enter your selection: ' LOCATION
+read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
         TARGET_SCRIPT="${SCRIPT[0]}"
