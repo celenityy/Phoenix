@@ -22,10 +22,10 @@ cd /tmp
 
 ## Download and run the uninstall script
 uninstall_phoenix() {
-	wget -nv $1
+	curl --cert-status -O -sSL $1
 	echo
 	echo
-	bash $2
+	/bin/zsh $2
 }
 
 ## Scripts are here
@@ -41,7 +41,7 @@ echo_red_text "Before proceeding: You MUST grant your Terminal the 'App Manageme
 echo_red_text "You are strongly recommended to revoke the 'App Management' permission once you are done."
 echo_green_text "If you are unable/unwilling to grant your Terminal this permission, you can remove the files manually as laid out here: https://phoenix.celenity.dev#manual-installation."
 /bin/sleep 5
-open /System/Applications/'System Settings'.app
+/usr/bin/open /System/Applications/'System Settings'.app
 /bin/sleep 5
 echo_red_text "Press enter to continue."
 read

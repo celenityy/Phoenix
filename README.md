@@ -166,12 +166,11 @@ sudo dnf install phoenix-flatpak
 
 > [!IMPORTANT]
 > ⚠️ **Before proceeding, you must have [Homebrew](https://brew.sh/) installed.**
-> You will additionally need `wget`, which can be installed using `brew install wget`.
 
 Run the following installation script in your terminal of choice:
 
 ```sh
-/bin/bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh 2>/dev/null)"
+/bin/zsh -c "$(curl --cert-status -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh)"
 ```
 
 </details>
@@ -293,7 +292,7 @@ sudo dnf makecache
 Run the following uninstall script in your terminal of choice:
 
 ```sh
-/bin/bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
+/bin/zsh -c "$(curl --cert-status -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh)"
 ```
 
 </details>
