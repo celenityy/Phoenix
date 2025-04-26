@@ -85,7 +85,7 @@ echo_green_text "Uninstalling phoenix-osx..."
 brew uninstall phoenix-osx || error_fn
 echo
 
-read -p  $'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n]' RESULT
+read "RESULT?$'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n] '"
 echo
 
 case ${RESULT} in
