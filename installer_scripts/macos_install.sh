@@ -59,42 +59,6 @@ echo_green_text "Installing phoenix-osx package..."
 brew install phoenix-osx || error_fn
 echo
 
-echo_green_text "Downloading phoenix-apply.sh..."
-wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
-echo
-
-echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
-sudo /bin/chmod -v 744 phoenix-apply.sh || error_fn
-echo
-
-echo_green_text "Creating /Library/celenity/Phoenix directory..."
-sudo /bin/mkdir -v -p /Library/celenity/Phoenix || error_fn
-echo
-
-echo_green_text "Changing permissions of Library/celenity/Phoenix to 744..."
-sudo /bin/chmod -v 744 /Library/celenity/Phoenix || error_fn
-echo
-
-echo_green_text "Copying phoenix-apply.sh to /Library/celenity/Phoenix/phoenix-apply.sh..."
-sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || error_fn
-echo
-
-echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
-wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-echo
-
-echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
-sudo /bin/chmod -v 644 dev.celenity.phoenix.apply.plist || error_fn
-echo
-
-echo_green_text "Copying dev.celenity.phoenix.apply.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist..."
-sudo /bin/cp dev.celenity.phoenix.apply.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-echo
-
-echo_green_text "Loading dev.celenity.phoenix.apply.plist..."
-sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-echo
-
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist..."
 wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
 echo
@@ -150,6 +114,82 @@ echo
 echo_green_text "Downloading phoenix-bootstrap.cfg..."
 wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
 echo
+
+echo_green_text "Creating /Library/celenity/Phoenix directory..."
+sudo /bin/mkdir -v -p /Library/celenity/Phoenix || error_fn
+echo
+
+echo_green_text "Changing permissions of Library/celenity/Phoenix to 744..."
+sudo /bin/chmod -v 744 /Library/celenity/Phoenix || error_fn
+echo
+
+echo -e ""
+echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?";
+echo_green_text "Your options are:";
+echo_red_text "1. Silicon";
+echo_green_text "2. Intel";
+read -p 'Please enter your selection: ' LOCATION
+case ${LOCATION} in
+	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
+        echo_green_text "Downloading phoenix-apply.sh..."
+		wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+		echo
+
+		echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
+		sudo /bin/chmod -v 744 phoenix-apply.sh || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-apply.sh to /Library/celenity/Phoenix/phoenix-apply.sh..."
+		sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+		echo
+		
+		echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
+		wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		echo
+
+		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
+		sudo /bin/chmod -v 644 dev.celenity.phoenix.apply.plist || error_fn
+		echo
+
+		echo_green_text "Copying dev.celenity.phoenix.apply.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist..."
+		sudo /bin/cp dev.celenity.phoenix.apply.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		echo
+
+		echo_green_text "Loading dev.celenity.phoenix.apply.plist..."
+		sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		echo
+		;;
+
+	"intel" | "Intel" | "INTEL" | 2)
+		echo_green_text "Downloading phoenix-apply-intel.sh..."
+		wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+		echo
+
+		echo_green_text "Changing permissions of phoenix-apply-intel.sh to 744..."
+		sudo /bin/chmod -v 744 phoenix-apply-intel.sh || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-apply-intel.sh to /Library/celenity/Phoenix/phoenix-apply-intel.sh..."
+		sudo /bin/cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+		echo
+
+		echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
+		wget -nv https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+
+		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.intel.plist to 644..."
+		sudo /bin/chmod -v 644 dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+
+		echo_green_text "Copying dev.celenity.phoenix.apply.intel.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist..."
+		sudo /bin/cp dev.celenity.phoenix.apply.intel.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+
+		echo_green_text "Loading dev.celenity.phoenix.apply.intel.plist..."
+		sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+		;;
+esac
 
 echo -e ""
 echo_green_text "Where is your installation of Firefox located?";

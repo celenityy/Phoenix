@@ -47,14 +47,6 @@ echo_red_text "Press enter to continue."
 read
 
 ## Uninstall Phoenix
-echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
-sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-echo
-
-echo_green_text "Removing dev.celenity.phoenix.apply.plist..."
-sudo /bin/rm -f /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-echo
-
 echo_green_text "Unloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist..."
 /bin/launchctl unload /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist || error_fn
 echo
@@ -93,7 +85,7 @@ echo_green_text "Uninstalling phoenix-osx..."
 brew uninstall phoenix-osx || error_fn
 echo
 
-read -p  $'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n] \e[0m' RESULT
+read -p  $'\e[32mWould you also like to remove celenity''s Homebrew Tap? [Y/n]' RESULT
 echo
 
 case ${RESULT} in
@@ -110,6 +102,34 @@ case ${RESULT} in
 		
 		"n" | "no" | "N" | "NO")
 			;;
+esac
+
+echo -e ""
+echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?";
+echo_green_text "Your options are:";
+echo_red_text "1. Silicon";
+echo_green_text "2. Intel";
+read -p 'Please enter your selection: ' LOCATION
+case ${LOCATION} in
+	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
+        echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
+		sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		echo
+
+		echo_green_text "Removing dev.celenity.phoenix.apply.plist..."
+		sudo /bin/rm -f /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+		echo
+		;;
+
+	"intel" | "Intel" | "INTEL" | 2)
+		echo_green_text "Unloading dev.celenity.phoenix.apply.intel.plist..."
+		sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+
+		echo_green_text "Removing dev.celenity.phoenix.apply.intel.plist..."
+		sudo /bin/rm -f /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		echo
+		;;
 esac
 
 echo -e ""
