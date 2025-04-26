@@ -419,6 +419,11 @@ pref("privacy.spoof_english", 0); // [DEFAULT]
 pref("privacy.fingerprintingProtection.granularOverrides.0.example", '[{"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedTheSameWayToo"}]');
 pref("privacy.fingerprintingProtection.overrides.0.example", "+ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally");
 
+/// So people don't freak out when they see RFP isn't enabled...
+pref("privacy.resistFingerprinting.0.note", "RFP is disabled on purpose.");
+pref("privacy.resistFingerprinting.1.note", "We use a hardened configuration of FPP instead.");
+pref("privacy.resistFingerprinting.2.note", "Using RFP is not recommended or supported.");
+
 pref("browser.phoenix.status.core", "004");
 
 /*** 005 DISK AVOIDANCE ***/
