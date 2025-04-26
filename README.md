@@ -171,7 +171,7 @@ sudo dnf install phoenix-flatpak
 Run the following installation script in your terminal of choice:
 
 ```sh
-bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh 2>/dev/null)"
+/bin/bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos_install.sh 2>/dev/null)"
 ```
 
 </details>
@@ -293,7 +293,7 @@ sudo dnf makecache
 Run the following uninstall script in your terminal of choice:
 
 ```sh
-bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
+/bin/bash -c "$(wget -O- https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos_uninstall.sh 2>/dev/null)"
 ```
 
 </details>
