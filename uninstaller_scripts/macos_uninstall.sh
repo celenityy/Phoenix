@@ -72,7 +72,6 @@ echo
 
 read "RESULT?Would you also like to remove celenity's Homebrew Tap? [Y/n] "
 echo
-
 case ${RESULT} in
 
 		"y" | "yes" | "YES" | "Y")
