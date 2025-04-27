@@ -20,21 +20,6 @@ error_fn() {
 ## Downloaded files save in /tmp
 cd /tmp
 
-## Download and run the uninstall script
-uninstall_phoenix() {
-	curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL $1
-	echo
-	echo
-	/bin/zsh $2
-}
-
-## Scripts are here
-URL="https://gitlab.com/celenityy/Phoenix/-/raw/pages/uninstaller_scripts/macos"
-
-## Scripts file
-SCRIPT=("phoenix-uninstall-system.sh"
-		"phoenix-uninstall-user.sh")
-
 echo_green_text "Welcome to the Phoenix Uninstaller for macOS!"
 echo_red_text "Sorry to see you go :("
 echo_red_text "Before proceeding: You MUST grant your Terminal the 'App Management' permission by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
@@ -140,13 +125,40 @@ echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
-        TARGET_SCRIPT="${SCRIPT[0]}"
+        echo_green_text "Removing phoenix-bootstrap.js..."
+		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+		echo
+
+		echo_green_text "Removing phoenix-bootstrap.cfg..."
+		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+		echo
 		;;
 
 	"user" | "User" | "USER" | 2)
-		TARGET_SCRIPT="${SCRIPT[1]}"
+		echo_green_text "Removing phoenix-bootstrap.js..."
+		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js" || error_fn
+		echo
+
+		echo_green_text "Removing phoenix-bootstrap.cfg..."
+		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg" || error_fn
+		echo
 		;;
 esac
 
-## Download and run chosen uninstall script
-uninstall_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"
+echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+echo_green_text "PLEASE SELECT 'Later' WHEN IT ASKS YOU TO QUIT AND RE-OPEN YOUR TERMINAL..."
+/bin/sleep 5
+/usr/bin/open /System/Applications/'System Settings'.app
+/bin/sleep 5
+echo_green_text "Press enter to continue once you are finished."
+read
+
+echo_green_text "Thanks for giving Phoenix a shot. Sorry to see you go :(."
+echo_green_text "Please leave feedback on how we can improve! https://phoenix.celenity.dev/issues"
+
+echo_red_text "Your system will now reboot to finalize your uninstallation."
+/bin/sleep 5
+echo_green_text "Press enter to continue."
+read
+
+sudo reboot
