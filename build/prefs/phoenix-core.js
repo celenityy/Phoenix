@@ -879,7 +879,7 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
-pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] Main process https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
+pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] The JIT backend https://searchfox.org/mozilla-central/source/js/src/jit/JitOptions.cpp
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
 
@@ -1104,7 +1104,8 @@ pref("browser.phoenix.status.core", "017");
 // https://searchfox.org/mozilla-central/source/dom/system/NetworkGeolocationProvider.sys.mjs#21
 pref("geo.provider.network.logging.enabled", false); // [DEFAULT - HIDDEN]
 
-/// Prevent Firefox from monitoring the user's region/general location for 'relevant local search engines and content'
+/// Disable Mozilla's GeoIP/Region Service
+// Prevents Firefox from monitoring the user's region/general location
 /// Note: Firefox will still use different regional search engines based on the browser/system locale (ex. tested with Wikipedia), but this prevents using geolocation
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
 // https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs
