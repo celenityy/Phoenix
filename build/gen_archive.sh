@@ -14,11 +14,11 @@ rm archives/phoenix.zip archives/phoenix-flatpak.zip archives/phoenix-osx.zip
 
 echo_green_text "Creating archives/phoenix.zip..."
 
-zip -r -FS archives/phoenix.zip * -x 'android/*' 'archives/*' 'assets/*' 'build/*' 'configs/macos/*' 'configs/phoenix.cfg' 'extensions/*' 'flake.*' 'installer_scripts/*' 'macos/*' 'prefs/phoenix-android.js' 'prefs/phoenix-extended*' 'uBlock/*' 'uninstaller_scripts/*' 'user.js' 'userjs/flatpak/*' 'userjs/macos/*' 'windows/*' '*.code-workspace' '.domains' '.DS_Store' '.git*' '_redirects'
+zip -r -FS archives/phoenix.zip * -x 'android/*' 'archives/*' 'assets/*' 'build/*' 'configs/macos/*' 'configs/phoenix.cfg' 'extensions/*' 'flake.*' 'installer_scripts/*' 'macos/*' 'prefs/phoenix-android.js' 'prefs/phoenix-extended*' 'uBlock/*' 'uninstaller_scripts/*' 'user.js' 'userjs/flatpak/*' 'userjs/macos/*' 'userjs/macos-intel/*' 'windows/*' '*.code-workspace' '.domains' '.DS_Store' '.git*' '_redirects'
 
 echo_green_text "Creating archives/phoenix-flatpak.zip..."
 
-zip -r -FS archives/phoenix-flatpak.zip * -x 'android/*' 'archives/*' 'assets/*' 'build/*' 'configs/macos/*' 'configs/phoenix.cfg' 'etc/*' 'extensions/*' 'flake.*' 'installer_scripts/*' 'macos/*' 'prefs/phoenix-android.js' 'prefs/phoenix-extended*' 'uBlock/*' 'uninstaller_scripts/*' 'user.js' 'userjs/linux/*' 'userjs/macos/*' 'windows/*' '*.code-workspace' '.domains' '.DS_Store' '.git*' '_redirects'
+zip -r -FS archives/phoenix-flatpak.zip * -x 'android/*' 'archives/*' 'assets/*' 'build/*' 'configs/macos/*' 'configs/phoenix.cfg' 'etc/*' 'extensions/*' 'flake.*' 'installer_scripts/*' 'macos/*' 'prefs/phoenix-android.js' 'prefs/phoenix-extended*' 'uBlock/*' 'uninstaller_scripts/*' 'user.js' 'userjs/linux/*' 'userjs/macos/*' 'userjs/macos-intel/*' 'windows/*' '*.code-workspace' '.domains' '.DS_Store' '.git*' '_redirects'
 
 echo_green_text "Creating archives/phoenix-osx.zip..."
 
