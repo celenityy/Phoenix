@@ -22,7 +22,7 @@ cd /tmp
 
 ## Ensure Firefox isn't quarantined so we don't break it...
 # https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-/usr/bin/xattr -v -r -d com.apple.quarantine ~/Applications/Firefox.app
+/usr/bin/xattr -v -r -d com.apple.quarantine "${HOME}/Applications/Firefox.app"
 
 echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
 /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
@@ -32,16 +32,16 @@ echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
 /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
 echo
 
-echo_green_text "Creating ~/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
-/bin/mkdir -v -p ~/Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+/bin/mkdir -v -p "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
 echo
 
-echo_green_text "Copying phoenix-bootstrap.js to ~/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
-/bin/cp phoenix-bootstrap.js ~/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+echo_green_text "Copying phoenix-bootstrap.js to ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
+/bin/cp phoenix-bootstrap.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js" || error_fn
 echo
 
-echo_green_text "Copying phoenix-bootstrap.cfg to ~/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg.."
-/bin/cp phoenix-bootstrap.cfg ~/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+echo_green_text "Copying phoenix-bootstrap.cfg to ${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg.."
+/bin/cp phoenix-bootstrap.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg" || error_fn
 echo
 
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"

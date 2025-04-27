@@ -78,7 +78,7 @@ echo
 echo_green_text "Removing org.mozilla.firefox.plist..."
 sudo /bin/rm -f /Library/Preferences/org.mozilla.firefox.plist || error_fn
 echo
-sudo /bin/rm -f ~/Library/Preferences/org.mozilla.firefox.plist || error_fn
+sudo /bin/rm -f "${HOME}/Library/Preferences/org.mozilla.firefox.plist" || error_fn
 echo
 
 echo_green_text "Uninstalling phoenix-osx..."
@@ -136,7 +136,7 @@ echo -e ""
 echo_green_text "Where is your installation of Firefox located?";
 echo_green_text "Your options are:";
 echo_red_text "1. system - /Applications/Firefox.app";
-echo_green_text "2. user - ~/Applications/Firefox.app";
+echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
@@ -148,5 +148,5 @@ case ${LOCATION} in
 		;;
 esac
 
-## Download and run choosen uninstall script
+## Download and run chosen uninstall script
 uninstall_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"
