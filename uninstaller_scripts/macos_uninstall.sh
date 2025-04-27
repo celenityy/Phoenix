@@ -109,8 +109,8 @@ echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?
 echo_green_text "Your options are:";
 echo_red_text "1. Silicon";
 echo_green_text "2. Intel";
-read "LOCATION?Please enter your selection: "
-case ${LOCATION} in
+read "DEVICETYPE?Please enter your selection: "
+case ${DEVICETYPE} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
         echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
 		sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
