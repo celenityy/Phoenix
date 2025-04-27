@@ -111,10 +111,6 @@ echo_green_text "Downloading phoenix-bootstrap.js..."
 curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
-echo_green_text "Downloading phoenix-bootstrap.cfg..."
-curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
-echo
-
 echo_green_text "Creating /Library/celenity/Phoenix directory..."
 sudo /bin/mkdir -v -p /Library/celenity/Phoenix || error_fn
 echo
@@ -158,6 +154,10 @@ case ${LOCATION} in
 		echo_green_text "Loading dev.celenity.phoenix.apply.plist..."
 		sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 		echo
+
+		echo_green_text "Downloading phoenix-bootstrap.cfg..."
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/phoenix-bootstrap.cfg || error_fn
+		echo
 		;;
 
 	"intel" | "Intel" | "INTEL" | 2)
@@ -188,6 +188,10 @@ case ${LOCATION} in
 		echo_green_text "Loading dev.celenity.phoenix.apply.intel.plist..."
 		sudo /bin/launchctl load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
 		echo
+
+		echo_green_text "Downloading phoenix-bootstrap.cfg..."
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/intel/phoenix-bootstrap.cfg || error_fn
+		echo
 		;;
 esac
 
@@ -195,7 +199,7 @@ echo -e ""
 echo_green_text "Where is your installation of Firefox located?";
 echo_green_text "Your options are:";
 echo_red_text "1. system - /Applications/Firefox.app";
-echo_green_text "2. user - ~/Applications/Firefox.app";
+echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
@@ -207,5 +211,5 @@ case ${LOCATION} in
 		;;
 esac
 
-## Download and run choosen initializion script
+## Download and run chosen initialization script
 initialize_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"

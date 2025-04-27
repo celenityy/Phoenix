@@ -18,11 +18,11 @@ error_fn() {
 }
 
 echo_green_text "Removing phoenix-bootstrap.js..."
-/bin/rm -f ~/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js" || error_fn
 echo
 
 echo_green_text "Removing phoenix-bootstrap.cfg..."
-/bin/rm -f ~/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg" || error_fn
 echo
 
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
