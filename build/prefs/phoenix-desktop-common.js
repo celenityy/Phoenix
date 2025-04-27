@@ -256,6 +256,10 @@ pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
 pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
 
+/// Disable the Accessibility Inspector/context menu item by default
+// https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
+pref("devtools.accessibility.enabled", false);
+
 /// Enable custom CSS by default
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
