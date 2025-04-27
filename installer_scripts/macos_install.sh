@@ -20,21 +20,6 @@ error_fn() {
 ## Downloaded files save in /tmp
 cd /tmp
 
-## Download and run initialization script
-initialize_phoenix() {
-	curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL $1
-	echo
-	echo
-	/bin/zsh $2
-}
-
-## Scripts are here
-URL="https://gitlab.com/celenityy/Phoenix/-/raw/pages/installer_scripts/macos"
-
-## Scripts file
-SCRIPT=("phoenix-initialize-system.sh"
-		"phoenix-initialize-user.sh")
-
 echo_green_text "Welcome to the Phoenix installer for macOS!"
 echo_red_text "Before proceeding: You MUST grant your Terminal the 'App Management' permission by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
 echo_green_text "PLEASE SELECT 'Quit & Re-open' WHEN PROMPTED, AND RE-RUN THIS SCRIPT..."
@@ -203,13 +188,71 @@ echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
-        TARGET_SCRIPT="${SCRIPT[0]}"
+		## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		sudo /usr/bin/xattr -v -r -d com.apple.quarantine /Applications/Firefox.app
+
+		echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
+		sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
+		echo
+
+		echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
+		sudo /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
+		echo
+
+		echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		sudo /bin/mkdir -v -p /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-bootstrap.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
+		sudo /bin/cp phoenix-bootstrap.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-bootstrap.cfg to /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg.."
+		sudo /bin/cp phoenix-bootstrap.cfg /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+		echo
 		;;
 
 	"user" | "User" | "USER" | 2)
-		TARGET_SCRIPT="${SCRIPT[1]}"
+		## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		/usr/bin/xattr -v -r -d com.apple.quarantine "${HOME}/Applications/Firefox.app"
+
+		echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
+		/bin/chmod -v 644 phoenix-bootstrap.js || error_fn
+		echo
+
+		echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
+		/bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
+		echo
+
+		echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		/bin/mkdir -v -p "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-bootstrap.js to ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js..."
+		/bin/cp phoenix-bootstrap.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js" || error_fn
+		echo
+
+		echo_green_text "Copying phoenix-bootstrap.cfg to ${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg.."
+		/bin/cp phoenix-bootstrap.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg" || error_fn
+		echo
 		;;
 esac
 
-## Download and run chosen initialization script
-initialize_phoenix "${URL}"/"${TARGET_SCRIPT}" "${TARGET_SCRIPT}"
+echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+echo_green_text "PLEASE SELECT 'Later' WHEN IT ASKS YOU TO QUIT AND RE-OPEN YOUR TERMINAL..."
+/bin/sleep 5
+/usr/bin/open /System/Applications/'System Settings'.app
+/bin/sleep 5
+echo_green_text "Press enter to continue once you are finished."
+read
+
+echo_green_text "All done. :) Congratulations, you've successfully installed Phoenix.\nWhat comes next is for you to decide. I would strongly recommend taking a look at our 'Extended' config for more comprehensive protection, at the cost of ocassional breakage.\nYou can learn more here: https://phoenix.celenity.dev/#extended.\n"
+
+echo_red_text "Your system will now reboot to finalize your installation."
+/bin/sleep 5
+echo_green_text "Press enter to continue."
+read
+
+sudo reboot
