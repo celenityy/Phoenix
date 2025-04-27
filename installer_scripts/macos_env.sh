@@ -78,4 +78,4 @@ echo_red_text "Your system will now reboot to apply your new environment variabl
 echo_green_text "Press enter to continue."
 read
 
-sudo reboot
+sudo /sbin/reboot

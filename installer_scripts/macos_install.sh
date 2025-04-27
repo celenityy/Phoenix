@@ -96,6 +96,10 @@ echo_green_text "Downloading phoenix-bootstrap.js..."
 curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix-bootstrap.js || error_fn
 echo
 
+echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
+sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
+echo
+
 echo_green_text "Creating /Library/celenity/Phoenix directory..."
 sudo /bin/mkdir -v -p /Library/celenity/Phoenix || error_fn
 echo
@@ -180,6 +184,10 @@ case ${DEVICETYPE} in
 		;;
 esac
 
+echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
+/bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
+echo
+
 echo -e ""
 echo_green_text "Where is your installation of Firefox located?";
 echo_green_text "Your options are:";
@@ -191,14 +199,6 @@ case ${LOCATION} in
 		## Ensure Firefox isn't quarantined so we don't break it...
 		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
 		sudo /usr/bin/xattr -v -r -d com.apple.quarantine /Applications/Firefox.app
-
-		echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
-		sudo /bin/chmod -v 644 phoenix-bootstrap.js || error_fn
-		echo
-
-		echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
-		sudo /bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
-		echo
 
 		echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
 		sudo /bin/mkdir -v -p /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
@@ -217,14 +217,6 @@ case ${LOCATION} in
 		## Ensure Firefox isn't quarantined so we don't break it...
 		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
 		/usr/bin/xattr -v -r -d com.apple.quarantine "${HOME}/Applications/Firefox.app"
-
-		echo_green_text "Changing permissions of phoenix-bootstrap.js to 644..."
-		/bin/chmod -v 644 phoenix-bootstrap.js || error_fn
-		echo
-
-		echo_green_text "Changing permissions of phoenix-bootstrap.cfg to 644..."
-		/bin/chmod -v 644 phoenix-bootstrap.cfg || error_fn
-		echo
 
 		echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
 		/bin/mkdir -v -p "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
@@ -255,4 +247,4 @@ echo_red_text "Your system will now reboot to finalize your installation."
 echo_green_text "Press enter to continue."
 read
 
-sudo reboot
+sudo /sbin/reboot
