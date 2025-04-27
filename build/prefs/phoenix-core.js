@@ -1255,7 +1255,6 @@ pref("browser.phoenix.status.core", "021");
 // We need to ensure we're still accomodating for impaired users, but I feel this is something that must be handled by the browser instead of external software
 // https://web.archive.org/web/20240608190300/support.mozilla.org/en-US/kb/accessibility-services
 pref("accessibility.force_disabled", 1);
-pref("devtools.accessibility.enabled", false); // [HIDDEN - Android] https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 
 /// Disable automatic updates for OpenSearch engines
 // PRIVACY: Unsolicited connections to search providers
