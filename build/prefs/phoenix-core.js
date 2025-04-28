@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.04.15.1", locked);
+pref("browser.phoenix.version", "2025.04.27.1", locked);
 
 /* INDEX 
 
