@@ -1,10 +1,15 @@
 ! Title: Phoenix - Quick fixes
-! Version: 27April2025v1
+! Version: 27April2025v2
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
 ! The goal of the list will be to fix/workaround issues caused by our uBlock Origin config/default filterlists until they're fixed by their respective authors upstream.
 ! Rules here should be TEMPORARY, and will be removed once the issue is corrected.
+
+!! https://github.com/uBlockOrigin/uAssets/issues/28113
+!!! Block Outsider Intrusion into LAN
+*$strict3p,ipaddress=lan,from=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost,badfilter
+*$strict3p,ipaddress=lan,from=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~app.plex.tv|~local|~localhost
 
 !! https://github.com/hagezi/dns-blocklists/issues/6050
 !!! HaGeZi - Multi ULTIMATE + HaGeZi - Multi ULTIMATE mini
