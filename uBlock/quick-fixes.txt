@@ -1,5 +1,5 @@
 ! Title: Phoenix - Quick fixes
-! Version: 27April2025v2
+! Version: 28April2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
@@ -10,10 +10,6 @@
 !!! Block Outsider Intrusion into LAN
 *$strict3p,ipaddress=lan,from=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~local|~localhost,badfilter
 *$strict3p,ipaddress=lan,from=~0.0.0.0|~127.0.0.1|~[::1]|~[::]|~app.plex.tv|~local|~localhost
-
-!! https://github.com/hagezi/dns-blocklists/issues/6050
-!!! HaGeZi - Multi ULTIMATE + HaGeZi - Multi ULTIMATE mini
-||yql.yahoo.com^$badfilter
 
 !! https://github.com/easylist/easylist/issues/21710
 !!! EasyList - Newsletter Notices
