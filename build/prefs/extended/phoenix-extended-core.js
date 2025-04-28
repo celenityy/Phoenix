@@ -56,13 +56,5 @@ pref("network.http.referer.XOriginPolicy", 2);
 
 pref("browser.phoenix.status.extended", "003");
 
-/*** 004 MISC. ***/
-
-/// Prevent sites from automatically refreshing
-pref("accessibility.blockautorefresh", true);
-pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
-
-pref("browser.phoenix.status.extended", "004");
-
 pref("browser.phoenix.status.extended", "successfully applied :D", locked);
 

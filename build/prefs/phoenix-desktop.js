@@ -721,6 +721,9 @@ pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 /// Notify on Pop-up blocking by default
 pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
+/// Prevent websites from automatically refreshing
+pref("accessibility.blockautorefresh", true);
+
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);
 
