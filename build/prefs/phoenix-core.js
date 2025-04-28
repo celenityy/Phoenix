@@ -1390,6 +1390,10 @@ pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _ope
 // https://support.mozilla.org/kb/how-use-firefox-containers
 pref("permissions.isolateBy.userContext", true);
 
+/// Isolate resources (ex. referrers & cookies) injected by extensions
+// (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
+pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
+
 /// Restrict tracking referers
 pref("network.http.referer.defaultPolicy.trackers", 1);
 pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
