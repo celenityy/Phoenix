@@ -84,6 +84,14 @@
       ]
     },
     "ExtensionSettings": {
+      "brave-search-extension@brave.com": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "'Brave Search (official) - Private Search Engine' https://addons.mozilla.org/firefox/addon/bravesearch/ - Brave Search isn't recommended, but if you do want to use it, this extension is unnecessary. Just configure it from about:preferences#search or the Omnibox."
+      },
+      "swisscows@celenity.dev": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Deprecated"
+      },
       "{0a3ee209-ab68-4b84-a9ef-eb0ee686dd8d}": {
         "installation_mode": "blocked",
         "blocked_install_message": "'Roblox+' https://addons.mozilla.org/firefox/addon/roblox-plus-firefox/ - Fake/scam/impersonation, the actual extension unfortunately doesn't support Firefox https://roblox.plus/about"
@@ -175,14 +183,6 @@
       "jid1-dwtFBkQjb3SIQp@jetpack": {
         "installation_mode": "blocked",
         "blocked_install_message": "AdBlocker Lite, appears dead."
-      },
-      "jid1-BoFifL9Vbdl2zQ@jetpack": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Decentraleyes. Very outdated, just use LocalCDN instead if needed."
-      },
-      "firefox@tampermonkey.net": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Tampermonkey. Closed source, just use Violentmonkey instead if needed."
       },
       "jid1-KKzOGWgsW3Ao4Q@jetpack": {
         "installation_mode": "blocked",
@@ -1033,13 +1033,6 @@
         "private_browsing": false,
         "temporarily_allow_weak_signatures": false,
         "updates_disabled": true
-      },
-      "swisscows@celenity.dev": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/swisscows/swisscows-0.0.4.xpi",
-        "private_browsing": false,
-        "temporarily_allow_weak_signatures": false,
-        "updates_disabled": true
       }
     },
     "Cookies": {
@@ -1144,6 +1137,7 @@
       "ExtensionRecommendations": false,
       "FeatureRecommendations": false,
       "MoreFromMozilla": false,
+      "SkipTermsOfUse": true,
       "UrlbarInterventions": false,
       "Locked": true
     }

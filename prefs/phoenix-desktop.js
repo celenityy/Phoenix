@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.04.15.1", locked);
+pref("browser.phoenix.version", "2025.04.27.1", locked);
 
 /* INDEX 
 
@@ -74,7 +74,7 @@ pref("browser.phoenix.status.core", "000");
 // Ex. We use DuckDuckGo as our default search engine, so we'll nclude their analytics domains
 // On IronFox, we link to our GitLab releases via the `What's New` alert, so we'll also cover their analytics domains, etc...
 // But generally we'll want to keep this limited in favor of ex. uBlock Origin & other mechanisms.
-pref("network.dns.localDomains", "250analytics.com,a.omappapi.com,ads.allizom.org,ads.mozilla.org,ads.nonprod.webservices.mozgcp.net,ads.prod.webservices.mozgcp.net,analytics.getpocket.com,analytics.google.com,analytics.withgoogle.com,anf1.fuzzing.mozilla.org,anonymco.com,asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com,braze.com,contile.services.mozilla.com,contile-images.services.mozilla.com,crash-reports.allizom.org,crash-reports.mozilla.com,crash-reports-xpsp2.mozilla.com,crash-stacks.mozilla.com,crash-stats.allizom.org,crash-stats.mozilla.com,crash-stats.mozilla.org,dap.services.mozilla.com,dap.nonprod.webservices.mozgcp.net,dap.prod.webservices.mozgcp.net,dap-09-3.api.divviup.org,discovery.addons.allizom.org,discovery.addons.mozilla.org,discovery.addons-dev.allizom.org,divviup.org,download-stats.mozilla.org,download-stats.r53-2.services.mozilla.com,experimenter.services.mozilla.com,experimenter.nonprod.webservices.mozgcp.net,experimenter.prod.webservices.mozgcp.net,fhr.data.mozilla.com,fhr.r53-2.services.mozilla.com,firefox-android-home-recommendations.getpocket.com,fuzzing.mozilla.org,google-analytics.com,google-analytics-cn.com,googleanalytics.com,googlesyndication.com,googlesyndication-cn.com,googletagmanager.com,googletagmanager-cn.com,googletagservices.com,googletagservices-cn.com,improving.duckduckgo.com,incoming.telemetry.mozilla.org,incoming.thunderbird.net,incoming-telemetry.thunderbird.net,merino.nonprod.cloudops.mozgcp.net,merino.prod.cloudops.mozgcp.net,merino.services.mozilla.com,metrics-content.duckduckgo.com,mozilla-ohttp.fastly-edge.com,new-sentry.gitlab.net,normandy.cdn.mozilla.net,normandy.nonprod.cloudops.mozgcp.net,normandy.prod.cloudops.mozgcp.net,normandy-cdn.services.mozilla.com,ohttp-gateway.prod.webservices.mozgcp.net,omappapi.com,pagead2.googlesyndication.com,pipeline-incoming-prod-elb-149169523.us-west-2.elb.amazonaws.com,prod.experimenter.prod.webservices.mozgcp.net,prod.ohttp-gateway.prod.webservices.mozgcp.net,sdk.iad-05.braze.com,sentry.gitlab.net,sentry.io,sentry.nonprod.cloudops.mozgcp.net,sentry.prod.cloudops.mozgcp.net,sitereview.zscaler.com,snippets.allizom.org,snippets.cdn.mozilla.net,snippets.mozilla.com,snippets-prod.frankfurt.moz.works,snippets-prod.moz.works,snippets-prod.oregon-b.moz.works,snippets-stage.moz.works,snippets-stage.oregon-b.moz.works,snowplow.trx.gitlab.net,snowplowalb-1011729428.us-east-1.elb.amazonaws.com,snowplowprd.trx.gitlab.net,snowplowprdnlb-1490493263.us-east-2.elb.amazonaws.com,socorro.nonprod.webservices.mozgcp.net,socorro.prod.webservices.mozgcp.net,socorro-collector.services.mozilla.com,socorro-webapp-allizom.stage.mozaws.net,socorro-webapp.services.mozilla.com,spocs.getpocket.com,spocs.getpocket.dev,spocs.mozilla.net,ssl.google-analytics.com,ssl-google-analytics.l.google.com,start.fedoraproject.org,start.thunderbird.net,start.ubuntu.com,start-stage.thunderbird.net,symbolication.services.mozilla.com,symbols.mozilla.org,tagmanager.google.com,talkback.mozilla.org,talkback-public.mozilla.org,talkback-reports.mozilla.org,telemetry-coverage.mozilla.org,telemetry-coverage.r53-2.services.mozilla.com,telemetry-incoming.r53-2.services.mozilla.com,telemetry-prod-1054754349.us-east-1.elb.amazonaws.com,updates.thunderbird.net,updates-stage.thunderbird.net,use-application-dns.net,vf.startpage.com,www.250analytics.com,www.anonymco.com,www.google-analytics.com,www.google-analytics-cn.com,www.googleanalytics.com,www.googlesyndication.com,www.googlesyndication-cn.com,www.googletagmanager.com,www.googletagmanager-cn.com,www.googletagservices.com,www.googletagservices-cn.com,www.sentry.io,www-google-analytics.l.google.com,www-googletagmanager.l.google.com");
+pref("network.dns.localDomains", "250analytics.com,a.omappapi.com,ads.allizom.org,ads.mozilla.org,ads.nonprod.webservices.mozgcp.net,ads.prod.webservices.mozgcp.net,analytics.getpocket.com,analytics.google.com,analytics.withgoogle.com,anf1.fuzzing.mozilla.org,anonymco.com,asan-nightly-frontend-elb-1348905149.us-east-2.elb.amazonaws.com,braze.com,contile.services.mozilla.com,contile-images.services.mozilla.com,classify-client.nonprod.webservices.mozgcp.net,classify-client.prod.webservices.mozgcp.net,crash-reports.allizom.org,crash-reports.mozilla.com,crash-reports-xpsp2.mozilla.com,crash-stacks.mozilla.com,crash-stats.allizom.org,crash-stats.mozilla.com,crash-stats.mozilla.org,dap.services.mozilla.com,dap.nonprod.webservices.mozgcp.net,dap.prod.webservices.mozgcp.net,dap-09-3.api.divviup.org,discovery.addons.allizom.org,discovery.addons.mozilla.org,discovery.addons-dev.allizom.org,divviup.org,download-stats.mozilla.org,download-stats.r53-2.services.mozilla.com,experimenter.services.mozilla.com,experimenter.nonprod.webservices.mozgcp.net,experimenter.prod.webservices.mozgcp.net,fhr.data.mozilla.com,fhr.r53-2.services.mozilla.com,firefox-android-home-recommendations.getpocket.com,fuzzing.mozilla.org,google-analytics.com,google-analytics-cn.com,googleanalytics.com,googlesyndication.com,googlesyndication-cn.com,googletagmanager.com,googletagmanager-cn.com,googletagservices.com,googletagservices-cn.com,improving.duckduckgo.com,incoming.telemetry.mozilla.org,incoming.thunderbird.net,incoming-telemetry.thunderbird.net,location.services.mozilla.com,locprod2-elb-us-west-2.prod.mozaws.net,merino.nonprod.cloudops.mozgcp.net,merino.prod.cloudops.mozgcp.net,merino.services.mozilla.com,metrics-content.duckduckgo.com,mozilla-ohttp.fastly-edge.com,new-sentry.gitlab.net,nonprod.classify-client.nonprod.webservices.mozgcp.net,normandy.cdn.mozilla.net,normandy.nonprod.cloudops.mozgcp.net,normandy.prod.cloudops.mozgcp.net,normandy-cdn.services.mozilla.com,ohttp-gateway.prod.webservices.mozgcp.net,omappapi.com,pagead2.googlesyndication.com,pipeline-incoming-prod-elb-149169523.us-west-2.elb.amazonaws.com,prod.classify-client.prod.webservices.mozgcp.net,prod.experimenter.prod.webservices.mozgcp.net,prod.ohttp-gateway.prod.webservices.mozgcp.net,sdk.iad-05.braze.com,sentry.gitlab.net,sentry.io,sentry.nonprod.cloudops.mozgcp.net,sentry.prod.cloudops.mozgcp.net,sitereview.zscaler.com,snippets.allizom.org,snippets.cdn.mozilla.net,snippets.mozilla.com,snippets-prod.frankfurt.moz.works,snippets-prod.moz.works,snippets-prod.oregon-b.moz.works,snippets-stage.moz.works,snippets-stage.oregon-b.moz.works,snowplow.trx.gitlab.net,snowplowalb-1011729428.us-east-1.elb.amazonaws.com,snowplowprd.trx.gitlab.net,snowplowprdnlb-1490493263.us-east-2.elb.amazonaws.com,socorro.nonprod.webservices.mozgcp.net,socorro.prod.webservices.mozgcp.net,socorro-collector.services.mozilla.com,socorro-webapp-allizom.stage.mozaws.net,socorro-webapp.services.mozilla.com,spocs.getpocket.com,spocs.getpocket.dev,spocs.mozilla.net,ssl.google-analytics.com,ssl-google-analytics.l.google.com,start.fedoraproject.org,start.thunderbird.net,start.ubuntu.com,start-stage.thunderbird.net,symbolication.services.mozilla.com,symbols.mozilla.org,tagmanager.google.com,talkback.mozilla.org,talkback-public.mozilla.org,talkback-reports.mozilla.org,telemetry-coverage.mozilla.org,telemetry-coverage.r53-2.services.mozilla.com,telemetry-incoming.r53-2.services.mozilla.com,telemetry-prod-1054754349.us-east-1.elb.amazonaws.com,updates.thunderbird.net,updates-stage.thunderbird.net,use-application-dns.net,vf.startpage.com,www.250analytics.com,www.anonymco.com,www.google-analytics.com,www.google-analytics-cn.com,www.googleanalytics.com,www.googlesyndication.com,www.googlesyndication-cn.com,www.googletagmanager.com,www.googletagmanager-cn.com,www.googletagservices.com,www.googletagservices-cn.com,www.sentry.io,www-google-analytics.l.google.com,www-googletagmanager.l.google.com");
 
 /// Disable Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
@@ -210,7 +210,9 @@ pref("browser.phoenix.status.core", "001");
 /// Disable add-on/feature recommendations
 // https://support.mozilla.org/kb/recommendations-firefox
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/content/aboutaddons.js
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
 pref("browser.discovery.enabled", false, locked); // [HIDDEN - non-Desktop Firefox]
+pref("browser.translations.panelShown", true, locked); // [HIDDEN]
 pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
 pref("extensions.getAddons.discovery.api_url", "data;", locked);
 pref("extensions.getAddons.showPane", false, locked);
@@ -255,6 +257,11 @@ pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
 // Also acts as a potential performance improvement
 pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT on non-Nightly/ESR]
 
+/// Opt out of add-on metadata updates
+// Note: This prevents themes from displaying previews in `about:addons`
+// https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
+pref("extensions.getAddons.cache.enabled", false);
+
 /// Remove special privileges from Mozilla domains
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
 pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false, locked); // [DEFAULT on Firefox Desktop]
@@ -270,6 +277,12 @@ pref("browser.backup.template.fallback-download.esr", "https://www.mozilla.org/f
 pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.org/firefox/channel/desktop/#nightly");
 pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
+
+/// Skip Mozilla's `Privacy Notice` & `Terms of Use`
+// https://github.com/mozilla/policy-templates/pull/1212
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
+pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 999, locked);
+pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "999999999", locked);
 
 pref("browser.phoenix.status.core", "002");
 
@@ -401,6 +414,15 @@ pref("browser.display.use_system_colors", false); // [DEFAULT - non-Windows]
 
 /// Prompt to spoof locale to en-US
 pref("privacy.spoof_english", 0); // [DEFAULT]
+
+/// Provide example templates to make it easier for users to set custom FPP overrides if needed
+pref("privacy.fingerprintingProtection.granularOverrides.0.example", '[{"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedTheSameWayToo"}]');
+pref("privacy.fingerprintingProtection.overrides.0.example", "+ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally");
+
+/// So people don't freak out when they see RFP isn't enabled...
+pref("privacy.resistFingerprinting.0.note", "RFP is disabled on purpose.");
+pref("privacy.resistFingerprinting.1.note", "We use a hardened configuration of FPP instead.");
+pref("privacy.resistFingerprinting.2.note", "Using RFP is not recommended or supported.");
 
 pref("browser.phoenix.status.core", "004");
 
@@ -714,6 +736,13 @@ pref("network.trr.bootstrapAddr", ""); // [DEFAULT, HIDDEN]
 // https://codeberg.org/divested/brace/pulls/5
 pref("network.dns.preferIPv6", true);
 
+/// Prevent bypassing DoH for /etc/HOSTS entries by default
+// Protects against HOSTS file hijacking
+// https://www.malwarebytes.com/blog/news/2016/09/hosts-file-hijacks
+// https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=SettingsModifier:Win32/HostsFileHijack
+// https://www.microcenter.com/tech_center/article/6472/how-to-clean-the-windows-hosts-file-if-malware-has-tampered-with-it
+pref("network.trr.exclude-etc-hosts", false);
+
 /// Prevent disabling DoH from registry checks
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("network.notify.checkForNRPT", false);
@@ -850,9 +879,13 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
-pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] Main process https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8761
+pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] The JIT backend https://searchfox.org/mozilla-central/source/js/src/jit/JitOptions.cpp
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
+
+/// Disable JPEG-XL
+// https://github.com/mozilla/standards-positions/pull/1064
+pref("image.jxl.enabled", false); // [DEFAULT]
 
 /// Disable MathML
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml 
@@ -1067,21 +1100,23 @@ pref("browser.phoenix.status.core", "017");
 /*** 018 GEOLOCATION ***/
 
 /// Disable logging Geolocation requests by default
-// This is already Firefox's default setting - but setting here exposes it in the about:config since it's hidden...
+// This is already Firefox's default setting - but setting it here exposes it in the about:config since it's hidden
 // https://searchfox.org/mozilla-central/source/dom/system/NetworkGeolocationProvider.sys.mjs#21
 pref("geo.provider.network.logging.enabled", false); // [DEFAULT - HIDDEN]
 
-/// Disable "Region Updates"
+/// Disable Mozilla's GeoIP/Region Service
+// Prevents Firefox from monitoring the user's region/general location
+/// Note: Firefox will still use different regional search engines based on the browser/system locale (ex. tested with Wikipedia), but this prevents using geolocation
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
+// https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs
+pref("browser.region.local-geocoding", false); // [DEFAULT] [HIDDEN]
+pref("browser.region.network.scan", false); // [DEFAULT] [DEFENSE IN DEPTH] Disable Wi-Fi scanning for these requests
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
+pref("browser.search.region", "US"); // [HIDDEN]
 
-/// Disable Wi-Fi Scanning
-pref("browser.region.network.scan", false); // [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs#20
-pref("geo.wifi.scan", false); // [HIDDEN] https://searchfox.org/mozilla-release/source/remote/shared/RecommendedPreferences.sys.mjs#299
-
-/// Set BeaconDB as the network Geolocation provider
-// Default is Google...
+/// Set BeaconDB as the default network Geolocation provider
+// Default is Google :/
 pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
 
 pref("browser.phoenix.status.core", "018");
@@ -1220,7 +1255,6 @@ pref("browser.phoenix.status.core", "021");
 // We need to ensure we're still accomodating for impaired users, but I feel this is something that must be handled by the browser instead of external software
 // https://web.archive.org/web/20240608190300/support.mozilla.org/en-US/kb/accessibility-services
 pref("accessibility.force_disabled", 1);
-pref("devtools.accessibility.enabled", false); // [HIDDEN - Android] https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 
 /// Disable automatic updates for OpenSearch engines
 // PRIVACY: Unsolicited connections to search providers
@@ -1356,6 +1390,10 @@ pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _ope
 // https://support.mozilla.org/kb/how-use-firefox-containers
 pref("permissions.isolateBy.userContext", true);
 
+/// Isolate resources (ex. referrers & cookies) injected by extensions
+// (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
+pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
+
 /// Restrict tracking referers
 pref("network.http.referer.defaultPolicy.trackers", 1);
 pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
@@ -1381,7 +1419,8 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.external_protocol_requires_permission", true); // [DEFAULT - non-Thunderbird] Removed from Firefox, but we'll keep for ESR for the time being
 
 /// Apply CSP to internal browser.xhtml
-pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
+pref("security.browser_xhtml_csp.report-only", false);
 
 /// Disable Navigator Media Objects & getUserMedia Support in insecure contexts
 // https://developer.mozilla.org/docs/Web/API/Navigator/mediaDevices
@@ -1521,6 +1560,9 @@ pref("dom.popup_allowed_events", "click dblclick");
 /// Prevent scripts from moving, resizing, and messing with windows
 pref("dom.disable_window_flip", true); // [DEFAULT - non-Android]
 pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
+
+/// Prevent websites from automatically refreshing
+pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
 
 pref("browser.phoenix.status.core", "025");
 
@@ -1865,8 +1907,10 @@ pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
 pref("devtools.command-button-measure.enabled", true);
 pref("devtools.command-button-rulers.enabled", true);
 pref("devtools.command-button-screenshot.enabled", true);
-pref("devtools.debugger.ui.editor-wrapping", true); // Enables long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
+pref("devtools.debugger.pause-on-debugger-statement", false); // Disable pausing on debugger statements by default
+pref("devtools.debugger.ui.editor-wrapping", true); // Enable long line wrapping in developer tools https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058
 pref("devtools.dom.enabled", true);
+pref("devtools.inspector.showUserAgentStyles", true); // Show default/browser styles in the Inspector by default
 pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
@@ -1875,6 +1919,10 @@ pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the
 // This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
 pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
+
+/// Disable the Accessibility Inspector/context menu item by default
+// https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
+pref("devtools.accessibility.enabled", false);
 
 /// Enable custom CSS by default
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -2061,6 +2109,7 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked);
+pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // https://searchfox.org/mozilla-central/source/browser/base/content/browser-sync.js
 
 /// Disable `about:welcome`/onboarding
 // Privacy concerns - unsolicited connection
@@ -2282,14 +2331,16 @@ pref("privacy.resistFingerprinting.letterboxing", false); // [DEFAULT, HIDDEN]
 // Easily build your own (global) override list: https://raw.githack.com/rindeal/Firefox-FPP-Override-List-Editor/master/FirefoxFPPOverrideListEditor.html
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC,-JSLocale");
 
-/// Unbreak websites with FPP (if the related target is enabled...)
+/// Set FPP granular overrides (if the related target is enabled...)
 // Currently covers:
+// Barnes & Noble (barnesandnoble.com) - Disables spoofing screen coordinates (-ScreenRect) for account sign-in
 // Chipotle (chipotle.com) - Disables timezone spoofing (-JSDateTimeUTC) for order confirmation/estimated arrival times
 // Cinny (cinny.in) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny (pendora.io) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny/Element (transfem.dev) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny/SchildiChat (the-apothecary.club) - Disables timezone spoofing (-JSDateTimeUTC)
 // City Barbeque (citybbq.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
+// Cloudflare (cloudflare.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
 // Discord (discord.com) - Disables timezone spoofing (-JSDateTimeUTC)
 // DoorDash (doordash.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
 // Element (arcticfoxes.net) - Disables timezone spoofing (-JSDateTimeUTC)
@@ -2319,7 +2370,14 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // Element (we2.ee) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (yatrix.org) - Disables timezone spoofing (-JSDateTimeUTC)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
-pref("privacy.fingerprintingProtection.granularOverrides", '[{"firstPartyDomain":"arcticfoxes.net","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"aria.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"bitcoinist.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chatwave.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chipotle.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cinny.in","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"citybbq.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"discord.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"doordash.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"duesen.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"element.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"flieger.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"g24.at","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gemeinsam.jetzt","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gnulinux.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"hot-chilli.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"kosmikdog.eu","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"mtrx.nz","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"neat.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nitro.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nope.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"oblak.be","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pcriot.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pendora.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"proton.me","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"rollenspiel.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"socialnetwork24.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"studichat.de","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"synod.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"the-apothecary.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"transfem.dev","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"unredacted.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"utwente.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"we2.ee","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"yatrix.org","overrides":"-JSDateTimeUTC"}]');
+// PSA Bypass Link (moviezapiya.fun) - Disables spoofing WebGL renderer info (-WebGLRenderInfo) - https://codeberg.org/celenity/Phoenix/issues/95
+// Riverside.FM Studio (riverside.fm) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Stack Social (stacksocial.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// TikTok (tiktok.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// TileMan.io (tileman.io) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked) to prevent it from bombarding users with prompts despite not actually needing the permission...
+// USPS (usps.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Yahoo! (yahoo.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+pref("privacy.fingerprintingProtection.granularOverrides", '[{"firstPartyDomain":"arcticfoxes.net","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"aria.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"barnesandnoble.com","overrides":"-ScreenRect"},{"firstPartyDomain":"bitcoinist.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chatwave.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chipotle.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cinny.in","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"citybbq.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cloudflare.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"discord.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"doordash.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"duesen.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"element.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"flieger.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"g24.at","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gemeinsam.jetzt","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gnulinux.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"hot-chilli.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"kosmikdog.eu","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"moviezapiya.fun","overrides":"-WebGLRenderInfo"},{"firstPartyDomain":"mtrx.nz","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"neat.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nitro.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nope.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"oblak.be","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pcriot.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pendora.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"proton.me","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"riverside.fm","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"rollenspiel.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"socialnetwork24.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"stacksocial.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"studichat.de","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"synod.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"the-apothecary.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"tiktok.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"tileman.io","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"transfem.dev","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"unredacted.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"usps.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"utwente.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"we2.ee","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"yahoo.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"yatrix.org","overrides":"-JSDateTimeUTC"}]');
 
 pref("browser.phoenix.status.desktop", "003");
 
@@ -2487,7 +2545,6 @@ pref("extensions.quarantineIgnoredByUser.google-leta@celenity.dev", false, locke
 pref("extensions.quarantineIgnoredByUser.mojeek@celenity.dev", false, locked); // Mojeek
 pref("extensions.quarantineIgnoredByUser.no-search@celenity.dev", false, locked); // No Search
 pref("extensions.quarantineIgnoredByUser.startpage@celenity.dev", false, locked); // Startpage
-pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
 
 /// Block our deprecated search 'extensions' for defense in depth from accessing restricted/quarantined domains
 // https://support.mozilla.org/kb/quarantined-domains
@@ -2500,6 +2557,7 @@ pref("extensions.quarantineIgnoredByUser.leta-google@celenity.dev", false, locke
 pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); // MetaGer
 pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // Qwant
 pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // Qwant Junior
+pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // Swisscows
 
 /// Disable installation of add-ons + only allow enabling it per-session
 // Includes extensions & themes
@@ -2628,6 +2686,9 @@ pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 
 /// Notify on Pop-up blocking by default
 pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
+
+/// Prevent websites from automatically refreshing
+pref("accessibility.blockautorefresh", true);
 
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);

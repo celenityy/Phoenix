@@ -551,6 +551,13 @@
 			<key>updates_disabled</key>
 			<true/>
 		</dict>
+		<key>brave-search-extension@brave.com</key>
+		<dict>
+			<key>blocked_install_message</key>
+			<string>'Brave Search (official) - Private Search Engine' https://addons.mozilla.org/firefox/addon/bravesearch/ - Brave Search isn't recommended, but if you do want to use it, this extension is unnecessary. Just configure it from about:preferences#search or the Omnibox.</string>
+			<key>installation_mode</key>
+			<string>blocked</string>
+		</dict>
 		<key>bravesearch@celenity.dev</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -744,13 +751,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>firefox@tampermonkey.net</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Tampermonkey. Closed source, just use Violentmonkey instead if needed.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>firefox@vid.io</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -831,13 +831,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Honey, by PayPal, horrible privacy policy.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>jid1-BoFifL9Vbdl2zQ@jetpack</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Decentraleyes. Very outdated, just use LocalCDN instead if needed.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1253,16 +1246,10 @@
 		</dict>
 		<key>swisscows@celenity.dev</key>
 		<dict>
-			<key>install_url</key>
-			<string>https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/swisscows/swisscows-0.0.4.xpi</string>
+			<key>blocked_install_message</key>
+			<string>Deprecated</string>
 			<key>installation_mode</key>
-			<string>normal_installed</string>
-			<key>private_browsing</key>
-			<false/>
-			<key>temporarily_allow_weak_signatures</key>
-			<false/>
-			<key>updates_disabled</key>
-			<true/>
+			<string>blocked</string>
 		</dict>
 		<key>swisscows@swisscows.ch</key>
 		<dict>
@@ -1953,6 +1940,8 @@
 		<true/>
 		<key>MoreFromMozilla</key>
 		<false/>
+		<key>SkipTermsOfUse</key>
+		<true/>
 		<key>UrlbarInterventions</key>
 		<false/>
 	</dict>
