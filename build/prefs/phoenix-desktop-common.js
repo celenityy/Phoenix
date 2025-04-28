@@ -252,11 +252,6 @@ pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log 
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
 
-/// Disable extra logging for policies by default
-// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
-// https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
-pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
-
 /// Disable the Accessibility Inspector/context menu item by default
 // https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 pref("devtools.accessibility.enabled", false);

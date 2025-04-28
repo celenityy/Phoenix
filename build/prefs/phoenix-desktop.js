@@ -839,6 +839,11 @@ pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-lis
 /// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools
 pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [HIDDEN]
 
+/// Disable extra logging for policies by default
+// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
+pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
+
 /// Enable Backup UI settings (at `about:preferences#general`)
 pref("browser.backup.preferences.ui.enabled", true);
 
