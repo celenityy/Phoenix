@@ -284,9 +284,12 @@ pref("browser.phoenix.status.desktop.common", "012");
 /*** 013 UPDATES ***/
 
 /// Browser Updates
-pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
+pref("app.update.background.interval", 3600); // Check for updates hourly when the browser is not running in the background (default is 7 hours)
+pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when an update is available
+pref("app.update.checkInstallTime.days", 0); // Ensure the binary is always old enough to check for updates
+pref("app.update.interval", 3600); // Check for updates hourly (default is 6 hours)
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
-pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
+pref("app.update.promptWaitTime", 0); // Immediately prompt users to update when an update is ready
 
 pref("browser.phoenix.status.desktop.common", "013");
 
