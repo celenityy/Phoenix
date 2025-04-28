@@ -1561,6 +1561,9 @@ pref("dom.popup_allowed_events", "click dblclick");
 pref("dom.disable_window_flip", true); // [DEFAULT - non-Android]
 pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 
+/// Prevent websites from automatically refreshing
+pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
+
 pref("browser.phoenix.status.core", "025");
 
 /*** 026 PERFORMANCE ***/
