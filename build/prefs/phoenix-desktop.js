@@ -86,6 +86,7 @@ pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 // https://wiki.mozilla.org/Advocacy/heartbeat
 pref("app.normandy.api_url", "", locked);
 pref("app.normandy.enabled", false, locked);
+pref("app.normandy.experiments.lazy_classify", true, locked); // [HIDDEN] [DEFENSE IN DEPTH] Prevent making client classification requests on every startup https://mozilla.github.io/normandy/dev/feature-experiments.html
 pref("app.normandy.first_run", false, locked);
 pref("app.normandy.last_seen_buildid", "", locked);
 pref("app.normandy.logging.level", 70); // Limits logging to fatal only
