@@ -526,6 +526,18 @@ pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 pref("security.insecure_field_warning.ignore_local_ip_address", false);
 pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 
+/// Disable the automatic import of OS client authentication certificates
+// (Ex. smart cards)
+// This prevents loading Mozilla's PKCS#11 module (which then loads these certificates from the OS store).
+// AFAICT this functionality is quite obscure, use is seemingly nonexistent outside of very specific environments (ex. enterprise/government).
+// Those who do actually use this functionality may also not want the browser to automatically import/expose these certificates, as they have many other uses.
+// These certificates can also still be imported in browser settings anyways, so those who do need to use this functionality still can that way.
+// So I no reason to leave this enabled by default - disabling it reduces attack surface and gives more control to users.
+// (For reference, Tor Browser also disables this)
+// https://blog.mozilla.org/security/2020/04/14/expanding-client-certificates-in-firefox-75/
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1637807
+pref("security.osclientcerts.autoload", false);
+
 /// Disable downgrades to insecure TLS 1.0/1.1
 pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
 pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
