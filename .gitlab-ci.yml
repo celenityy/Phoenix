@@ -1,5 +1,8 @@
 image: busybox
 
+default:
+  cache: []
+
 pages:
   stage: deploy
   script:
