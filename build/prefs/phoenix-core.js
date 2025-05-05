@@ -1695,14 +1695,19 @@ pref("browser.phoenix.status.core", "028");
 /*** 029 UPDATES ***/
 
 /// Automatically update extensions by default
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]
-pref("extensions.update.autoUpdateDefault", true); // [DEFAULT, HIDDEN - ANDROID]
+pref("extensions.update.autoUpdateDefault", true); // [DEFAULT] [HIDDEN - ANDROID]
 pref("extensions.update.enabled", true); // [DEFAULT]
-pref("media.gmp-manager.updateEnabled", true); // [DEFAULT, HIDDEN]
+pref("media.gmp-manager.updateEnabled", true); // [DEFAULT] [HIDDEN]
 
 /// Check for extension/theme updates hourly
 // Default is once every 24 hours
 pref("extensions.update.interval", 3600);
+
+/// Disable insecure extension updates
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
+pref("extensions.checkUpdateSecurity", true); // [DEFAULT] [HIDDEN]
 
 /// Notify users for extension updates by default
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs#253
