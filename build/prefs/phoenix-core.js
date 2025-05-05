@@ -1305,10 +1305,11 @@ pref("beacon.enabled", false);
 // https://github.com/chromium/content_analysis_sdk
 pref("browser.contentanalysis.default_result", 0, locked); // [DEFAULT]
 pref("browser.contentanalysis.enabled", false, locked); // [DEFAULT]
-pref("browser.contentanalysis.interception_point.clipboard.enabled", false, locked); // [HIDDEN - Thunderbird]
-pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false, locked); // [HIDDEN - Thunderbird]
-pref("browser.contentanalysis.interception_point.file_upload.enabled", false, locked); // [HIDDEN - Thunderbird]
-pref("browser.contentanalysis.interception_point.print.enabled", false, locked); // [HIDDEN - Thunderbird]
+pref("browser.contentanalysis.interception_point.clipboard.enabled", false, locked);
+pref("browser.contentanalysis.interception_point.drag_and_drop.enabled", false, locked);
+pref("browser.contentanalysis.interception_point.file_upload.enabled", false, locked);
+pref("browser.contentanalysis.interception_point.print.enabled", false, locked);
+pref("browser.contentanalysis.max_connections", 0, locked); // Sets maximum number of allowed connections to 0
 pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] - Always notify users when Content Analysis blocks access to something...
 
 /// Disable Reporting API
