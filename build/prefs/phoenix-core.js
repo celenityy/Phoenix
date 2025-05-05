@@ -1583,6 +1583,10 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 /// Prevent websites from automatically refreshing
 pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
 
+/// Show an error page/details instead of a blank page for HTTP responses with certain error codes (ex. 4xx, 5xx, & Content-Length: 0)
+// ex. https://ozuma.sakura.ne.jp/httpstatus/400
+pref("browser.http.blank_page_with_error_response.enabled", false); // [DEFAULT - non-Android]
+
 pref("browser.phoenix.status.core", "025");
 
 /*** 026 PERFORMANCE ***/
