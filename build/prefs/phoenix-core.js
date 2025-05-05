@@ -569,8 +569,10 @@ pref("dom.security.https_only_mode_send_http_background_request", false);
 // Since this is something programs actively try to override, I don't see a safe way to support this, so we'll lock it.
 // We still allow users to manually import certificates into Firefox... 
 // So we can ensure users are aware of certificates they add and are making this decision consciously.
-// security.osclientcerts.autoload can be left alone - https://groups.google.com/a/mozilla.org/g/enterprise/c/XiW-ZidMaII
 pref("security.enterprise_roots.enabled", false); // [DEFAULT - Android]
+
+//// Ensure HTTP/3 isn't disabled when/if third-party/OS-level root certificates are found
+pref("network.http.http3.disable_when_third_party_roots_found", false);
 
 /// Disable TLS 1.3 0-RTT
 // Not forward secret
