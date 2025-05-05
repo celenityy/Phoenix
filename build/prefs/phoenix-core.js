@@ -1596,6 +1596,9 @@ pref("browser.phoenix.status.core", "025");
 
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
+/// Enable JS GC Parallel Marking
+pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Android]
+
 pref("browser.cache.jsbc_compression_level", 3); // [Default = 0]
 pref("browser.sessionstore.interval", 60000);
 pref("browser.sessionhistory.max_total_viewers", 7); // [Default = -1 (Automatic)]
