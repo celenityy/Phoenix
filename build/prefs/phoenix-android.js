@@ -184,6 +184,7 @@ pref("browser.phoenix.status.android", "008");
 /*** 009 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
+pref("dom.ipc.processCount", 2); // [DEFAULT]
 pref("network.http.max-connections", 256); // [Default = 128]
 
 pref("browser.phoenix.status.android", "009");
