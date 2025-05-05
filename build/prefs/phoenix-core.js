@@ -1645,6 +1645,13 @@ pref("browser.phoenix.status.core", "027");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
+/// Enable support for web applications manifests
+// Ex. required for PWAs (& PWA inspection on desktop)
+// https://developer.mozilla.org/docs/Web/Progressive_web_apps/Manifest
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1603673
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1647858
+pref("dom.manifest.enabled", true); // [DEFAULT]
+
 /// Enable zoom on all websites, even if they try to block it...
 // This is the `Zoom on all websites` setting on Android
 pref("browser.ui.zoom.force-user-scalable", true);
