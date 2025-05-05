@@ -358,7 +358,7 @@ pref("privacy.query_stripping.redirect", true); // [DEFAULT]
 pref("extensions.webcompat.enable_shims", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
 pref("extensions.webcompat.perform_injections", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
 pref("extensions.webcompat.perform_ua_overrides", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
-pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Desktop, HIDDEN - Android/Thunderbird] - Enables Embeds/Placeholders to make certain resources click to load
+pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird] - Enables Embeds/Placeholders to make certain resources click to load
 
 //// Enable State Partitioning
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
