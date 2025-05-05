@@ -1426,6 +1426,11 @@ pref("permissions.isolateBy.userContext", true);
 // (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
 pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 
+/// Prevent third parties from setting unless it already has cookies as a first party (Like Safari)
+// https://webkit.org/tracking-prevention/#the-default-cookie-policy
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1587182
+pref("privacy.dynamic_firstparty.limitForeign", true);
+
 /// Restrict tracking referers
 pref("network.http.referer.defaultPolicy.trackers", 1);
 pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
