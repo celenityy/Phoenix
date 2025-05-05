@@ -1596,6 +1596,10 @@ pref("browser.phoenix.status.core", "025");
 
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
+/// Enable the "fetchpriority" attribute
+// https://web.dev/articles/fetch-priority
+pref("network.fetchpriority.enabled", true); // [DEFAULT - non-ESR]
+
 /// Enable JS GC Parallel Marking
 pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Android]
 
