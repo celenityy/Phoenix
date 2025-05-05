@@ -1311,6 +1311,7 @@ pref("browser.contentanalysis.interception_point.file_upload.enabled", false, lo
 pref("browser.contentanalysis.interception_point.print.enabled", false, locked);
 pref("browser.contentanalysis.max_connections", 0, locked); // Sets maximum number of allowed connections to 0
 pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] - Always notify users when Content Analysis blocks access to something...
+pref("browser.contentanalysis.silent_notifications", false, locked); // [DEFAULT] If Content Analysis is enabled, ensure notifications aren't silenced so that users are fully aware
 
 /// Disable Reporting API
 // PRIVACY: Fingerprinting concerns, Used for analytics by design
