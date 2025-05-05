@@ -116,10 +116,6 @@ pref("browser.phoenix.status.desktop.common", "003");
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-/// Enforce Strict Certificate Pinning
-// https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
-pref("security.cert_pinning.enforcement_level", 2, locked);
-
 pref("browser.phoenix.status.desktop.common", "004");
 
 /*** 005 MEDIA ***/
