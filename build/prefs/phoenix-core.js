@@ -1628,6 +1628,7 @@ pref("network.http.max-persistent-connections-per-server", 10); // [Default = 6]
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // [Default = 3]
 pref("network.http.pacing.requests.enabled", false); // Disable pacing requests - https://codeberg.org/celenity/Phoenix/issues/84
 pref("network.ssl_tokens_cache_capacity", 10240); // [Default = 2048] Increase TLS token caching - https://codeberg.org/celenity/Phoenix/issues/84
+pref("webgl.msaa-samples", 4); // [DEFAULT]
 
 pref("browser.phoenix.status.core", "026");
 
