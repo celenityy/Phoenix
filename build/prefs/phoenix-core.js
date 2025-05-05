@@ -785,6 +785,9 @@ pref("network.proxy.type", 0);
 
 // Prevent bypasses/leakage
 
+/// Always start proxy extensions (if installed) as soon as possible, instead of waiting for the first browser window to open
+pref("extensions.webextensions.early_background_wakeup_on_request", true); // [DEFAULT - Android] [HIDDEN - non-Android]
+
 /// Disable automatic failover from the proxy (if configured) to direct connections when certain system requests fail
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1720221
 pref("network.proxy.failover_direct", false);
