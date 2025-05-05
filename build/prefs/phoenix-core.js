@@ -390,6 +390,9 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT] - for top navigations in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
 
+//// Lower the network priority of known trackers (if not blocked for whatever reason...)
+pref("privacy.trackingprotection.lower_network_priority", true);
+
 pref("browser.phoenix.status.core", "003");
 
 /*** 004 FINGERPRINTING PROTECTION ***/
