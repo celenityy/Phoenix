@@ -555,8 +555,7 @@ pref("security.osclientcerts.autoload", false);
 pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
 pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
 
-/// Disable insecure ciphers
-// Like Chromium & Tor Browser
+/// Disable insecure ciphers (Like Chromium & Tor Browser)
 // https://gitlab.torproject.org/tpo/applications/mullvad-browser/-/issues/361#note_3089049
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1600437
 pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
@@ -662,10 +661,10 @@ pref("browser.phoenix.status.core", "007");
 
 /*** 008 IMPLICIT CONNECTIONS ***/
 
-/// Disable Early Hints
+/// Disable Early Hints (Like Cromite)
+// https://github.com/uazo/cromite/blob/master/build/patches/Client-hints-overrides.patch
 // https://developer.mozilla.org/docs/Web/HTTP/Status/103
 // https://github.com/bashi/early-hints-explainer/blob/main/explainer.md
-// Ex. like Cromite https://github.com/uazo/cromite/blob/master/build/patches/Client-hints-overrides.patch
 pref("network.early-hints.enabled", false);
 pref("network.early-hints.over-http-v1-1.enabled", false);
 pref("network.early-hints.preconnect.enabled", false);
@@ -1539,8 +1538,7 @@ pref("javascript.options.content_process_write_protect_code", true); // [DEFAULT
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#1035
 pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - Nightly Desktop]
 
-/// Protect against CSRF Attacks
-// Like Chromium
+/// Protect against CSRF Attacks (Like Chromium)
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ
 // https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // https://web.dev/articles/samesite-cookies-explained
