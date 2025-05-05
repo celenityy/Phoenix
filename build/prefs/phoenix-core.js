@@ -427,6 +427,11 @@ pref("privacy.spoof_english", 0); // [DEFAULT]
 pref("privacy.fingerprintingProtection.granularOverrides.0.example", '[{"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedTheSameWayToo"}]');
 pref("privacy.fingerprintingProtection.overrides.0.example", "+ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally");
 
+/// Reset the fingerprinting randomization key daily (in addition to per-session/when the browser restarts)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1816064
+pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true);
+pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", true);
+
 /// So people don't freak out when they see RFP isn't enabled...
 pref("privacy.resistFingerprinting.0.note", "RFP is disabled on purpose.");
 pref("privacy.resistFingerprinting.1.note", "We use a hardened configuration of FPP instead.");
