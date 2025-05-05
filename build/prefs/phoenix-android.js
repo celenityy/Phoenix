@@ -23,8 +23,9 @@
 004: MEDIA
 005: PASSWORDS & AUTHENTICATION
 006: EXTENSIONS
-007: MISC. SECURITY
-008: PERFORMANCE
+007: DEBUGGING
+008: MISC. SECURITY
+009: PERFORMANCE
 
 */
 
@@ -158,7 +159,19 @@ pref("xpinstall.signatures.required", true); // [DEFAULT - non-Thunderbird]
 
 pref("browser.phoenix.status.android", "006");
 
-/*** 007 MISC. SECURITY ***/
+/*** 007 DEBUGGING ***/
+
+/// Disable sending console output to logcat by default
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1415318
+pref("consoleservice.logcat", false);
+pref("geckoview.console.enabled", false);
+
+/// Limit GeckoView's log level to "Warn" by default
+pref("geckoview.logging", "Warn"); // [DEFAULT - non-Debug]
+
+pref("browser.phoenix.status.android", "007");
+
+/*** 008 MISC. SECURITY ***/
 
 /// Always warn users before launching other apps
 pref("network.protocol-handler.warn-external.file", true);
@@ -166,14 +179,14 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.status.android", "007");
+pref("browser.phoenix.status.android", "008");
 
-/*** 008 PERFORMANCE ***/
+/*** 009 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("network.http.max-connections", 256); // [Default = 128]
 
-pref("browser.phoenix.status.android", "008");
+pref("browser.phoenix.status.android", "009");
 
 pref("browser.phoenix.status.android", "successfully applied :D", locked);
 
