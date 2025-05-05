@@ -1072,6 +1072,7 @@ pref("extensions.blocklist.enabled", true); // [DEFAULT]
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
+pref("extensions.quarantinedDomains.uiDisabled", false); // [DEFAULT] [HIDDEN]
 
 /// Harden CSP policy
 // Compared to Firefox's default, this:
