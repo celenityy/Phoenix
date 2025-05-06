@@ -1375,6 +1375,10 @@ pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
+/// Disable referers when leaving .onion domains
+// NOTE: Please use TOR BROWSER for accessing .onion domains...
+pref("network.http.referer.hideOnionSource", true); // [DEFAULT]
+
 /// Disable storage access heuristics
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
 pref("dom.storage_access.auto_grants", false); // Automatic storage access grants
