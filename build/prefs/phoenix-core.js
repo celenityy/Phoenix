@@ -1591,6 +1591,10 @@ pref("network.connectivity-service.enabled", false);
 pref("network.connectivity-service.IPv4.url", "");
 pref("network.connectivity-service.IPv6.url", "");
 
+/// Disable network connectivity status monitoring
+// (Ex. used for automatically switching between offline & online mode)
+pref("network.manage-offline-status", false);
+
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("media.webvtt.testing.events", false); // [DEFAULT]
