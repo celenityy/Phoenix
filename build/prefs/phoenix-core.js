@@ -1477,8 +1477,9 @@ pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false);
 
 /// Do not block additional ports by default
-// This is just to expose the preference via the `about:config`
+// This is just to expose the preferences via the `about:config`
 pref("network.security.ports.banned", ""); // [DEFAULT] [HIDDEN]
+pref("network.security.ports.banned.override", ""); // [DEFAULT] [HIDDEN]
 
 /// Disable Navigator Media Objects & getUserMedia Support in insecure contexts
 // https://developer.mozilla.org/docs/Web/API/Navigator/mediaDevices
