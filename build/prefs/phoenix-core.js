@@ -621,6 +621,7 @@ pref("security.cert_pinning.enforcement_level", 2);
 pref("security.tls.hello_downgrade_check", true); // [DEFAULT]
 
 /// Enforce using HTTPS as much as possible
+pref("dom.securecontext.allowlist", ""); // [DEFAULT] [HIDDEN]
 pref("dom.security.https_first", true);
 pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT] DEFENSE IN DEPTH
 pref("dom.security.https_first_for_local_addresses", true);
