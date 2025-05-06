@@ -108,7 +108,6 @@ pref("toolkit.crashreporter.include_context_heap", false, locked);
 // https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html 
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
-pref("browser.places.interactions.enabled", false, locked); // Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT] [HIDDEN - Android/Thunderbird]
 pref("captchadetection.actor.enabled", false, locked); // Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
