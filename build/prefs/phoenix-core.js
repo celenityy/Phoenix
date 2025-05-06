@@ -1429,10 +1429,11 @@ pref("permissions.isolateBy.userContext", true);
 pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 
 /// Limit maximum cookie lifetime to 6 months/180 days (Like Brave)
+// Firefox's default is currently 400 days (34560000)
 // https://github.com/brave/brave-browser/issues/3443
 // https://github.com/fmarier/brave-core/commit/4d222df50a8dfaaabb31e9f2c5070c4db5ba8fd5
 // For testing: https://setcookie.net/
-pref("network.cookie.maxageCap", 15552000); // Firefox's default is currently 400 days (34560000)
+pref("network.cookie.maxageCap", 15552000);
 
 /// Prevent third parties from setting cookies unless the third party already has cookies as a first party (Like Safari)
 // https://webkit.org/tracking-prevention/#the-default-cookie-policy
