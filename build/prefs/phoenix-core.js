@@ -361,6 +361,7 @@ pref("extensions.webcompat.perform_ua_overrides", true); // [DEFAULT - non-Thund
 pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird] - Enables Embeds/Placeholders to make certain resources click to load
 
 //// Enable State Partitioning
+pref("network.fetch.cache_partition_cross_origin", true); // [DEFAULT] Cross origin fetch/XHR requests
 pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT]
 pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT]
 pref("privacy.partition.bloburl_per_partition_key", true); // [DEFAULT]
