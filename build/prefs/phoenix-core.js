@@ -608,6 +608,7 @@ pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - Nig
 // https://github.com/arkenfox/user.js/issues/740
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
 pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT - non-Android/Thunderbird] [HIDDEN - Android/Thunderbird]
+pref("security.certerrors.mitm.priming.endpoint", "https://mitmdetection.services.mozilla.com/"); // [DEFAULT - non-Android/Thunderbird] [HIDDEN - Android/Thunderbird]
 
 /// Enable OCSP revocation checks + stapling
 // (https://wikipedia.org/wiki/Online_Certificate_Status_Protocol
