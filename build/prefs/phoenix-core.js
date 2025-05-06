@@ -1678,6 +1678,10 @@ pref("browser.phoenix.status.core", "027");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
+/// Enable IPv6
+// Important, nice to have
+pref("network.dns.disableIPv6", false); // [DEFAULT]
+
 /// Enable support for web applications manifests
 // Ex. required for PWAs (& PWA inspection on desktop)
 // https://developer.mozilla.org/docs/Web/Progressive_web_apps/Manifest
