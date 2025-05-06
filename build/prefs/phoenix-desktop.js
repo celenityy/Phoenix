@@ -290,10 +290,12 @@ pref("identity.sendtabpromo.url", "", locked);
 /// Disable Mozilla.UITour
 // https://mozilla.github.io/bedrock/uitour/#ui-tour
 // https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/index.html
+// https://searchfox.org/mozilla-central/source/browser/components/uitour/UITourUtils.sys.mjs
 pref("browser.uitour.enabled", false, locked);
 pref("browser.uitour.loglevel", "Off");
 pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked);
+pref("browser.uitour.testingOrigins", "", locked); // [DEFAULT] [HIDDEN]
 pref("browser.uitour.url", "", locked);
 
 /// Disable "Top Sites"/Sponsored content/etc.
