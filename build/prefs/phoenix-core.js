@@ -527,6 +527,10 @@ pref("browser.phoenix.status.core", "006");
 
 /*** 007 HTTP(S) ***/
 
+/// Allow users to bypass invalid certificate errors by default
+// (To expose the preference via the `about:config`)
+pref("security.certerror.hideAddException", false); // [DEFAULT] [HIDDEN]
+
 /// Always preload intermediates
 // https://wiki.mozilla.org/Security/CryptoEngineering/Intermediate_Preloading
 pref("security.remote_settings.intermediates.enabled", true); // [DEFAULT]
