@@ -1476,6 +1476,10 @@ pref("security.external_protocol_requires_permission", true); // [DEFAULT - non-
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false);
 
+/// Do not block additional ports by default
+// This is just to expose the preference via the `about:config`
+pref("network.security.ports.banned", ""); // [DEFAULT] [HIDDEN]
+
 /// Disable Navigator Media Objects & getUserMedia Support in insecure contexts
 // https://developer.mozilla.org/docs/Web/API/Navigator/mediaDevices
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
