@@ -1593,7 +1593,9 @@ pref("network.connectivity-service.IPv6.url", "");
 
 /// Disable network connectivity status monitoring
 // (Ex. used for automatically switching between offline & online mode)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=620472
 pref("network.manage-offline-status", false);
+pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
 
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
