@@ -1375,6 +1375,11 @@ pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12829
 pref("network.http.network_error_logging.enabled", false); // [DEFAULT, HIDDEN - Thunderbird]
 
+/// Disable online speech recognition
+// https://searchfox.org/mozilla-central/source/dom/media/webspeech/recognition/OnlineSpeechRecognitionService.cpp
+// https://searchfox.org/mozilla-central/source/dom/media/webspeech/recognition/SpeechRecognition.cpp
+pref("media.webspeech.service.endpoint", "data;"); // [HIDDEN]
+
 /// Disable referers when leaving .onion domains
 // NOTE: Please use TOR BROWSER for accessing .onion domains...
 pref("network.http.referer.hideOnionSource", true); // [DEFAULT]
