@@ -581,6 +581,7 @@ pref("dom.security.https_only_mode_send_http_background_request", false);
 // Since this is something programs actively try to override, I don't see a safe way to support this, so we'll lock it.
 // We still allow users to manually import certificates into Firefox... 
 // So we can ensure users are aware of certificates they add and are making this decision consciously.
+pref("security.certerrors.mitm.auto_enable_enterprise_roots", false); // [DEFAULT - Android/Thunderbird] [HIDDEN - Android/Thunderbird]
 pref("security.enterprise_roots.enabled", false); // [DEFAULT - Android]
 
 //// Ensure HTTP/3 isn't disabled when/if third-party/OS-level root certificates are found
@@ -603,6 +604,11 @@ pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [D
 pref("security.pki.crlite_mode", 2); // [DEFAULT on Nightly]
 pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - Nightly Desktop]
 
+/// Enable MITM Detection
+// https://github.com/arkenfox/user.js/issues/740
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
+pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT - non-Android/Thunderbird] [HIDDEN - Android/Thunderbird]
+
 /// Enable OCSP revocation checks + stapling
 // (https://wikipedia.org/wiki/Online_Certificate_Status_Protocol
 // https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
@@ -612,7 +618,7 @@ pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
-pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT, HIDDEN - Thunderbird]
+pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT] [HIDDEN - Thunderbird]
 pref("network.http.http3.enable_kyber", true);
 pref("security.tls.enable_kyber", true);
 
@@ -647,6 +653,9 @@ pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 // Significant security improvement
 // https://github.com/arkenfox/user.js/issues/1576
 pref("security.OCSP.require", true);
+
+/// Only allow certificate error exceptions per-session
+pref("security.certerrors.permanentOverride", false); // [HIDDEN - Android/Thunderbird]
 
 /// Only load secure websockets from HTTPS pages
 pref("network.websocket.allowInsecureFromHTTPS", false); // [DEFAULT]
@@ -1618,6 +1627,9 @@ pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
 /// Disable WebVTT Testing Events
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("media.webvtt.testing.events", false); // [DEFAULT]
+
+/// Enable Firefox's newer 'Felt privacy' design for Certificate Errors
+pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderbird]
 
 /// Force pop-up windows to open in new tabs instead
 pref("browser.link.open_newwindow", 3); // [DEFAULT]

@@ -457,19 +457,11 @@ pref("browser.phoenix.status.desktop", "004");
 
 /*** 005 HTTP(S) ***/
 
-/// Enable MITM Detection
-// https://github.com/arkenfox/user.js/issues/740
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
-pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
-
 /// Enforce HTTPS-Only Mode
 // We're not locking this for Android/Thundebird since it's unfortunately not possible to add exceptions there...
 // https://gitlab.com/ironfox-oss/IronFox/-/issues/48
 pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode_pbm", true, locked);
-
-/// Restrict certificate error exceptions to only last for the current session
-pref("security.certerrors.permanentOverride", false);
 
 pref("browser.phoenix.status.desktop", "005");
 
@@ -708,9 +700,8 @@ pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 /// Disable weather on `about:home` by default
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
-/// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
+/// Enable Firefox's newer 'Felt privacy' design for Private Browsing
 pref("browser.privatebrowsing.felt-privacy-v1", true);
-pref("security.certerrors.felt-privacy-v1", true);
 
 /// Hide the Firefox logo on `about:home` by default
 pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
