@@ -1720,6 +1720,11 @@ pref("dom.manifest.enabled", true); // [DEFAULT]
 // This is the `Zoom on all websites` setting on Android
 pref("browser.ui.zoom.force-user-scalable", true);
 
+/// Set default URL to load when navigating to `moz://a`
+// Default is https://www.mozilla.org/about/manifesto/
+// https://searchfox.org/mozilla-central/source/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs
+pref("toolkit.mozprotocol.url", "about:mozilla"); // [HIDDEN]
+
 pref("browser.tabs.inTitlebar", 1); // Hide Title Bar by default
 pref("browser.translations.automaticallyPopup", true); // [DEFAULT]
 pref("browser.translations.enable", true); // [DEFAULT - non-Thunderbird]
