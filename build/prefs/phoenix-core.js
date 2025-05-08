@@ -1235,6 +1235,9 @@ pref("browser.safebrowsing.provider.google.advisoryName", "Google Safe Browsing 
 pref("browser.safebrowsing.provider.google.gethashURL", "");
 pref("browser.safebrowsing.provider.google.updateURL", "");
 
+/// Enable an additional plug-in blocklist from Mozilla
+pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest256"); // [DEFAULT - Nightly]
+
 /// Enable Safe Browsing by default
 // This won't do anything if you don't have an API key from Google, though doesn't hurt...
 // Harmless from a privacy perspective due to the below changes, also effective at preventing real-time malicious domains and downloads.
