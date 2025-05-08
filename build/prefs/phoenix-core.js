@@ -553,7 +553,7 @@ pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 // (For reference, Tor Browser also disables this)
 // https://blog.mozilla.org/security/2020/04/14/expanding-client-certificates-in-firefox-75/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1637807
-pref("security.osclientcerts.autoload", false);
+pref("security.osclientcerts.autoload", false); // [DEFAULT - Thunderbird]
 
 /// Disable downgrades to insecure TLS 1.0/1.1
 pref("security.tls.insecure_fallback_hosts", ""); // [DEFAULT]
