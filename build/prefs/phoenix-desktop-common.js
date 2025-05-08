@@ -71,8 +71,7 @@ pref("browser.phoenix.status.desktop.common", "002");
 
 /*** 003 DISK AVOIDANCE ***/
 
-/// Sanitization
-// Checks the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
+/// Check the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...` by default
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.clearHistory.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.clearHistory.formdata", true); // [HIDDEN - Thunderbird]
@@ -95,6 +94,11 @@ pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
 
 //// and passwords...
 pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
+
+/// Clear browsing history, download history, and sessions on exit by default
+pref("privacy.clearOnShutdown.downloads", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Thunderbird]
 
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows [NO-OSX]
 pref("toolkit.winRegisterApplicationRestart", false); // [HIDDEN - Thunderbird] [NO-OSX]

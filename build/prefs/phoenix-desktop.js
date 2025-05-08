@@ -428,6 +428,12 @@ pref("browser.phoenix.status.desktop", "003");
 
 /*** 004 DISK AVOIDANCE ***/
 
+/// Clear browsing history, download history, and sessions on exit by default
+pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.downloads", true); // [HIDDEN]
+pref("privacy.clearOnShutdown_v2.formdata", true);
+pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true);
+
 /// Disable favicons in shortcuts
 // Prevents .ico files from persisting, even after deletion
 pref("browser.shell.shortcutFavicons", false);

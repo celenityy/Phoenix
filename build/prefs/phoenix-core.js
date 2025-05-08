@@ -458,6 +458,12 @@ pref("browser.phoenix.status.core", "004");
 // https://searchfox.org/mozilla-central/source/extensions/permissions/PermissionManager.cpp#758
 pref("permissions.memory_only", false); // [HIDDEN] [DEFAULT]
 
+/// Clear cache on exit by default
+// We also disable disk cache entirely below...
+pref("privacy.clearOnShutdown.cache", true);
+pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT - Desktop Firefox]
+pref("privacy.sanitize.sanitizeOnShutdown", true);
+
 /// Disable collection/generation of background thumbnails
 // https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
 pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN]
@@ -502,19 +508,6 @@ pref("browser.helperApps.deleteTempFileOnExit", true); // [DEFAULT - Thunderbird
 /// Remove files from session list & history when deleted in Firefox 
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js
 pref("browser.download.clearHistoryOnDelete", 2); // [HIDDEN - Android/Thunderbird]
-
-/// Sanitization
-// Clear browsing history, cache, download history, and sessions on exit by default
-pref("privacy.clearOnShutdown.cache", true);
-pref("privacy.clearOnShutdown.downloads", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT]
-pref("privacy.clearOnShutdown_v2.downloads", true); // [HIDDEN]
-pref("privacy.clearOnShutdown_v2.formdata", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [HIDDEN - Android/Thunderbird]
-pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 pref("browser.phoenix.status.core", "005");
 
