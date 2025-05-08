@@ -211,6 +211,14 @@ pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT] [NO-OSX]
 // https://medium.com/@boutnaru/the-windows-security-journey-cig-code-integrity-guard-7e410c8d2304 [NO-OSX]
 pref("security.sandbox.cig.prespawn.enabled", true); // [DEFAULT - Nightly] [NO-OSX]
 
+/// Enable Shadow Stacks [WINDOWS] [NO-OSX]
+// https://wikipedia.org/wiki/Shadow_stack [NO-OSX]
+pref("security.sandbox.content.shadow-stack.enabled", true); // [NO-OSX]
+pref("security.sandbox.gmp.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.gpu.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.rdd.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.socket.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+
 /// Prevent hiding extensions
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 
