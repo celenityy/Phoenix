@@ -214,6 +214,9 @@ pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 pref("general.config.sandbox_enabled", true, locked);
 
+/// Warn on unprivileged namespaces [LINUX] [NO-OSX]
+pref("security.sandbox.warn_unprivileged_namespaces", true); // [DEFAULT] [LINUX] [NO-OSX]
+
 pref("browser.phoenix.status.desktop.common", "010");
 
 /*** 011 PERFORMANCE ***/
