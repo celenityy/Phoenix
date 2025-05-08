@@ -92,7 +92,7 @@ pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 // https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html
 // https://github.com/choller/firefox-asan-reporter
 pref("asanreporter.apiurl", "", locked);
-pref("asanreporter.clientid", "", locked);
+pref("asanreporter.clientid", "unknown", locked);
 pref("asanreporter.loglevel", 70);
 pref("breakpad.reportURL", "", locked);
 pref("browser.crashReports.crashPull", false, locked); // [DEFAULT] Do not request crash reports for background processes from users https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/crash-reports-ondemand/changeset?_expected=0
@@ -109,10 +109,10 @@ pref("toolkit.crashreporter.include_context_heap", false, locked);
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT] [HIDDEN - Android/Thunderbird]
 pref("captchadetection.actor.enabled", false, locked); // Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
 pref("captchadetection.loglevel", "Off");
 pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
+pref("datareporting.dau.cachedUsageProfileGroupID", "b0bacafe-b0ba-cafe-b0ba-cafeb0bacafe", locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/app/ClientID.sys.mjs#44
 pref("datareporting.healthreport.uploadEnabled", false, locked); // [DEFAULT - Android]
 pref("datareporting.policy.dataSubmissionEnabled", false, locked);
 pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked);

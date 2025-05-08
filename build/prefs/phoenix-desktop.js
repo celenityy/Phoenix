@@ -75,6 +75,7 @@ pref("browser.places.interactions.log", false); // [DEFAULT] [HIDDEN] Disable lo
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, HIDDEN]
+pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
 pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
