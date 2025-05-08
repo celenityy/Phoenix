@@ -1711,6 +1711,9 @@ pref("browser.phoenix.status.core", "027");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
+/// Allow Picture-in-Picture on all websites, even if they try to prevent it...
+pref("media.videocontrols.picture-in-picture.respect-disablePictureInPicture", false);
+
 /// Enable IPv6
 // Important, nice to have
 pref("network.dns.disableIPv6", false); // [DEFAULT]
