@@ -719,6 +719,11 @@ pref("permissions.default.desktop-notification", 2);
 // https://mozilla.github.io/policy-templates/#disableprofilerefresh 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
+/// Disable network connectivity status monitoring [NO-OSX]
+// (Ex. used for automatically switching between offline & online mode) [NO-OSX]
+// AFAICT this pref is no longer (maybe has never been?) present in Firefox, but Red Hat/Fedora sets it anyways for whatever reason... so we can still set it to `false` for consistency [NO-OSX]
+pref("offline.autoDetect", false); // [HIDDEN] [NO-OSX]
+
 /// Disable weather on `about:home` by default
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
