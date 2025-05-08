@@ -353,13 +353,13 @@ pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-/// Remove tracking parameters from Mozilla URLs
-pref("app.releaseNotesURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale
+pref("app.releaseNotesURL", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
+pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
+pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
+pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search?q=%TERMS%");
 
 pref("browser.phoenix.status.desktop", "002");
 

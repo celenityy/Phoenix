@@ -278,12 +278,15 @@ pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
 pref("extensions.webextensions.restrictedDomains", "");
 pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
-/// Remove tracking parameters from Mozilla URLs
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale
+pref("app.support.baseURL", "https://support.mozilla.org/kb/");
 pref("browser.backup.template.fallback-download.aurora", "https://www.mozilla.org/firefox/channel/desktop/#developer");
 pref("browser.backup.template.fallback-download.beta", "https://www.mozilla.org/firefox/channel/desktop/#beta");
 pref("browser.backup.template.fallback-download.esr", "https://www.mozilla.org/firefox/enterprise/#download");
 pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.org/firefox/channel/desktop/#nightly");
 pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
+pref("extensions.abuseReport.amoFormURL", "https://addons.mozilla.org/feedback/addon/%addonID%/");
+pref("extensions.blocklist.addonItemURL", "https://addons.mozilla.org/blocked-addon/%addonID%/%addonVersion%/");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
 
 /// Skip Mozilla's `Privacy Notice` & `Terms of Use`

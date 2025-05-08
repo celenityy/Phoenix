@@ -31,8 +31,8 @@
 
 /*** 001 MOZILLA CRAP™ ***/
 
-/// Remove tracking parameters from Mozilla URLs
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/android/search?q=%TERMS%");
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale
+pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/android/search?q=%TERMS%");
 
 pref("browser.phoenix.status.android", "001");
 
