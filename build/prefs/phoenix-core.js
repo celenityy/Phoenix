@@ -197,6 +197,12 @@ pref("security.xfocsp.errorReporting.enabled", false, locked);
 /// Prevent automatically uploading profiler data (from `about:logging`) to Mozilla
 pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Android]
 
+/// Remove partner attribution
+// These are *only* used for telemetry, and could potentially be used for fingerprinting
+pref("app.distributor", "null", locked);
+pref("app.distributor.channel", "null", locked);
+pref("mozilla.partner.id", "null", locked);
+
 /// Remove unnecessary links
 pref("datareporting.healthreport.infoURL", ""); // [HIDDEN - Android]
 pref("extensions.recommendations.privacyPolicyUrl", "");
