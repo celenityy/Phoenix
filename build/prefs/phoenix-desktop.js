@@ -332,7 +332,6 @@ pref("browser.urlbar.sponsoredTopSites", false, locked);
 // This causes Firefox to connect to `https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/...` on every browser launch after the user navigates to `about:home` :/
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#1422
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs#22
-
 pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false);
 
 /// Disable the Web Compatibility Reporter
