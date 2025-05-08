@@ -1474,6 +1474,8 @@ pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1964249
 pref("security.csp.reporting.limit.count", 1); // [DEFAULT: 100]
 pref("security.csp.reporting.limit.timespan", 999999999); // [DEFAULT: 2]
+pref("security.csp.reporting.script-sample.max-length", 0); // [DEFAULT: 40]
+pref("security.csp.truncate_blocked_uri_for_frame_navigations", true); // [DEFAULT] Ensure we truncate  blocked-uris
 
 /// Limit maximum cookie lifetime to 6 months/180 days (Like Brave)
 // Firefox's default is currently 400 days (34560000)
