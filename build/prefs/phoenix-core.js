@@ -1128,6 +1128,11 @@ pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // 
 pref("extensions.quarantineIgnoredByUser.ddg@search.mozilla.org", false, locked); // DuckDuckGo - search engine...
 pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine...
 
+/// Prevent extensions from using the Gecko Profiler
+// Includes certain Mozilla extensions by default
+// https://firefox-source-docs.mozilla.org/tools/profiler/index.html
+pref("extensions.geckoProfiler.acceptedExtensionIds", ""); // [DEFAULT - Android] [HIDDEN - Android]
+
 /// Prevent unprivileged extensions from accessing experimental APIs by default
 // https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142
 pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
