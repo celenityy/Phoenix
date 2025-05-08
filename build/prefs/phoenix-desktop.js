@@ -173,6 +173,7 @@ pref("browser.shopping.experience2023.autoOpen.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
 pref("browser.shopping.experience2023.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.integratedSidebar", false); // [DEFAULT]
+pref("browser.shopping.experience2023.newPositionCard.hasSeen", true);
 pref("browser.shopping.experience2023.optedIn", 2);
 pref("browser.shopping.experience2023.shoppingSidebar", false);
 pref("browser.shopping.experience2023.survey.enabled", false);
