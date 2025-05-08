@@ -531,6 +531,7 @@ pref("browser.urlbar.placeholderName", "");
 pref("browser.urlbar.placeholderName.private", "");
 
 /// Show the URL instead of search terms
+pref("browser.urlbar.restyleSearches", false); // [DEFAULT] [HIDDEN]
 pref("browser.urlbar.showSearchTerms.enabled", false);
 pref("browser.urlbar.showSearchTerms.featureGate", false);
 
