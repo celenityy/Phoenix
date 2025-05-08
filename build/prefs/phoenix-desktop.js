@@ -742,6 +742,9 @@ pref("browser.link.open_newwindow.override.external", 3);
 /// Prevent websites from automatically refreshing
 pref("accessibility.blockautorefresh", true);
 
+/// Show advanced details on pages blocked by Safe Browsing by default
+pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true);
+
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);
 
