@@ -207,6 +207,10 @@ pref("security.sandbox.content.win32k-disable", true); // [DEFAULT] [NO-OSX]
 pref("security.sandbox.gmp.win32k-disable", true); // [NO-OSX]
 pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT] [NO-OSX]
 
+/// Enable Code Integrity Guard (CIG) for pre-spawn [WINDOWS] [NO-OSX]
+// https://medium.com/@boutnaru/the-windows-security-journey-cig-code-integrity-guard-7e410c8d2304 [NO-OSX]
+pref("security.sandbox.cig.prespawn.enabled", true); // [DEFAULT - Nightly] [NO-OSX]
+
 /// Prevent hiding extensions
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 
