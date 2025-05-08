@@ -742,6 +742,10 @@ pref("sidebar.animation.enabled", false);
 pref("browser.tabs.hoverPreview.enabled", false);
 pref("browser.tabs.hoverPreview.showThumbnails", false);
 
+/// Enable advanced performance settings at `about:preferences#general`
+// Despite what the name suggests, Firefox will remain at the default/recommended performance settings - all this does is expose the UI settings...
+pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+
 /// Enable VA-API by default [LINUX] [NO-OSX]
 pref("media.ffmpeg.vaapi.enabled", true); // [NO-OSX]
 
@@ -833,7 +837,7 @@ pref("browser.tabs.groups.enabled", true); // [DEFAULT - Nightly] Enable Tab Gro
 pref("browser.tabs.loadBookmarksInTabs", true);
 pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
 pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
-pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences`
+pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences#general`
 
 /// Clean-up default UI
 pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","reset-pbm-toolbar-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","tabbrowser-tabs","new-tab-button"],"vertical-tabs":[],"PersonalToolbar":["personal-bookmarks","personal-bookmarks"],"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","vertical-spacer","stop-reload-button","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","reset-pbm-toolbar-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"vertical-tabs":[]},"seen":["reset-pbm-toolbar-button","developer-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","developer-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","unified-extensions-area","TabsToolbar","unified-extensions-area","nav-bar","vertical-tabs"],"currentVersion":21,"newElementCount":7}');
