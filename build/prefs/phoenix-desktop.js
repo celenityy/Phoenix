@@ -713,6 +713,9 @@ pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 /// Notify on Pop-up blocking by default
 pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
+/// Open links from external programs in new tabs by default
+pref("browser.link.open_newwindow.override.external", 3);
+
 /// Prevent websites from automatically refreshing
 pref("accessibility.blockautorefresh", true);
 
