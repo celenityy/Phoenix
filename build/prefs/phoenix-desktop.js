@@ -338,7 +338,9 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false);
 /// Disable the Web Compatibility Reporter
 // Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as attack surface reduction & a potential performance improvement
-pref("ui.new-webcompat-reporter.enabled", false); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
+pref("ui.new-webcompat-reporter.enabled", false);
+pref("ui.new-webcompat-reporter.new-report-endpoint", "https://phoenix.celenity.dev/issues"); // [HIDDEN] Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
 
 /// Prevent checking if Firefox is the default browser
 pref("browser.shell.checkDefaultBrowser", false);
