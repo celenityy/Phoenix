@@ -1,10 +1,14 @@
 ! Title: Phoenix - Quick fixes
-! Version: 04May2025v1
+! Version: 08May2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
 ! The goal of the list will be to fix/workaround issues caused by our uBlock Origin config/default filterlists until they're fixed by their respective authors upstream.
 ! Rules here should be TEMPORARY, and will be removed once the issue is corrected.
+
+!! https://github.com/DandelionSprout/adfilt/issues/1131
+!!! Dandelion Sprout's Anti-Malware List
+*$ipaddress=205.234.175.175,badfilter
 
 !! https://github.com/easylist/easylist/issues/21710
 !!! EasyList - Newsletter Notices
