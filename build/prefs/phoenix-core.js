@@ -1055,6 +1055,12 @@ pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}"
 /// Allow Mullvad's extension (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
 
+/// Allow uBlock Origin (if installed) to work on restricted/quarantined domains by default
+// This isn't necessary ATM (since uBlock Origin is 'recommended' by Mozilla - so it can already access quarantined domains), but we can still set this anyways for redundancy/to ensure we're always covered if anything changes in the future
+// This is especially important for Thunderbird though - since uBlock Origin isn't 'recommended' there like it is on Firefox...
+// https://support.mozilla.org/kb/quarantined-domains
+pref("extensions.quarantineIgnoredByUser.uBlock0@raymondhill.net", true); // [HIDDEN]
+
 /// Always allow installing "incompatible" add-ons
 // Especially useful on Android & Thunderbird...
 pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
