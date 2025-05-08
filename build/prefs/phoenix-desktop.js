@@ -509,6 +509,11 @@ pref("browser.urlbar.update2.engineAliasRefresh", true); // [HIDDEN]
 /// Exclude JavaScript URLS from results
 pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
 
+/// Highlight domains and other styling
+// Protects against phishing
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/preferences.rst
+pref("browser.urlbar.formatting.enabled", true); // [DEFAULT] [HIDDEN]
+
 // Nice to have
 pref("browser.urlbar.scotchBonnet.enableOverride", true); // [DEFAULT - Nightly] Adds Unified Search button to easily switch search engines in URL Bar - https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/ + other tweaks
 pref("browser.urlbar.shortcuts.actions", false); // [HIDDEN]
