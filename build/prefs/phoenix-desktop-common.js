@@ -259,6 +259,10 @@ pref("browser.phoenix.status.desktop.common", "011");
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
+/// Enable the ability to download and switch locales
+pref("intl.multilingual.downloadEnabled", true); // [DEFAULT - non-Developer/Nightly]
+pref("intl.multilingual.enabled", true); // [DEFAULT - non-Developer/Nightly]
+
 /// Developer tools...
 pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
 pref("devtools.command-button-measure.enabled", true);
