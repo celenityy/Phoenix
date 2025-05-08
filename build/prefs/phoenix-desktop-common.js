@@ -263,6 +263,10 @@ pref("browser.phoenix.status.desktop.common", "011");
 pref("intl.multilingual.downloadEnabled", true); // [DEFAULT - non-Developer/Nightly]
 pref("intl.multilingual.enabled", true); // [DEFAULT - non-Developer/Nightly]
 
+/// Enable the ability to switch locales without requiring a restart
+pref("intl.multilingual.liveReload", true); // [DEFAULT - Firefox release/beta]
+pref("intl.multilingual.liveReloadBidirectional", true);
+
 /// Developer tools...
 pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
 pref("devtools.command-button-measure.enabled", true);
