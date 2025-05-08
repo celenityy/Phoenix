@@ -1666,6 +1666,7 @@ pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunde
 pref("dom.popup_allowed_events", "click dblclick");
 
 /// Prevent scripts from moving, resizing, and messing with windows
+pref("dom.allow_scripts_to_close_windows", false); // [DEFAULT]
 pref("dom.disable_window_flip", true); // [DEFAULT - non-Android]
 pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 
