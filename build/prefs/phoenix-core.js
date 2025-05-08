@@ -194,6 +194,9 @@ pref("dom.origin-trials.enabled", false, locked);
 pref("security.xfocsp.errorReporting.automatic", false, locked); // [DEFAULT]
 pref("security.xfocsp.errorReporting.enabled", false, locked);
 
+/// Prevent automatically uploading profiler data (from `about:logging`) to Mozilla
+pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Android]
+
 /// Remove unnecessary links
 pref("datareporting.healthreport.infoURL", ""); // [HIDDEN - Android]
 pref("extensions.recommendations.privacyPolicyUrl", "");
