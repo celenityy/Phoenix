@@ -15,6 +15,10 @@
 
 // This file contains preferences specific to Phoenix (Extended) on Desktop.
 
+/// Add custom branding under `Firefox Updates` at `about:preferences#general`
+// This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros)
+pref("distribution.about", "Phoenix: Extended for Mozilla Firefox - 2025.04.27.1 💜", locked);
+
 /* INDEX 
 
 001: FINGERPRINTING PROTECTION
