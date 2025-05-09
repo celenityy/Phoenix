@@ -337,6 +337,7 @@ pref("browser.newtabpage.activity-stream.feeds.system.topstories", false, locked
 pref("browser.newtabpage.pinned", '[]'); // [HIDDEN]
 pref("browser.partnerlink.attributionURL", "", locked);
 pref("browser.partnerlink.campaign.topsites", "", locked);
+pref("browser.search.param.search_rich_suggestions", "", locked); // https://searchfox.org/comm-central/source/mozilla/toolkit/components/search/AppProvidedSearchEngine.sys.mjs
 pref("browser.topsites.component.enabled", false, locked); // [DEFAULT]
 pref("browser.topsites.contile.enabled", false, locked);
 pref("browser.topsites.contile.endpoint", "", locked);
