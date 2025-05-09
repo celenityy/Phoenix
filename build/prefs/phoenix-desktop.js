@@ -285,6 +285,10 @@ pref("browser.contentblocking.report.vpn.url", "", locked);
 pref("browser.contentblocking.report.vpn-android.url", "", locked);
 pref("browser.contentblocking.report.vpn-ios.url", "", locked);
 pref("browser.contentblocking.report.vpn-promo.url", "", locked);
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.enabled", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-a", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-b", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-c", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
 pref("browser.preferences.moreFromMozilla", false, locked);
