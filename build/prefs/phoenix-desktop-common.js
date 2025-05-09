@@ -56,12 +56,12 @@ pref("toolkit.telemetry.dap_leader_owner", "", locked); // [ESR]
 /// Disable Experiments/Studies
 pref("messaging-system.rsexperimentloader.enabled", false, locked); // [ESR]
 
-/// Remove unnecessary links
-pref("app.feedback.baseURL", "");
-
 pref("browser.phoenix.status.desktop.common", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
+
+/// Clear unnecessary/undesired Mozilla URLs
+pref("app.feedback.baseURL", "");
 
 /// Remove special privileges from Mozilla domains
 pref("permissions.manager.defaultsUrl", "", locked);
@@ -264,6 +264,7 @@ pref("browser.phoenix.status.desktop.common", "011");
 // Not directly privacy & security related
 
 /// Enable the ability to download and switch locales
+pref("app.update.langpack.enabled", true); // [DEFAULT]
 pref("intl.multilingual.downloadEnabled", true); // [DEFAULT - non-Developer/Nightly]
 pref("intl.multilingual.enabled", true); // [DEFAULT - non-Developer/Nightly]
 
