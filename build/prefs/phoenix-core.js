@@ -492,9 +492,6 @@ pref("browser.cache.disk_cache_ssl", false);
 /// Disable logging blocked domains to `about:protections`
 pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
 
-/// Prevent adding downloads to "recent documents"...
-pref("browser.download.manager.addToRecentDocs", false);
-
 /// Prevent clearing passwords & site settings by default
 pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
@@ -518,15 +515,18 @@ pref("browser.phoenix.status.core", "005");
 
 /*** 006 DOWNLOADS ***/
 
-// Block insecure downloads
+/// Block insecure downloads
 pref("dom.block_download_insecure", true); // [DEFAULT]
 
 /// Disable extra download logging by default
 // This lets us expose it in the about:config for Android/Thunderbird
 pref("browser.download.loglevel", "Error"); // [DEFAULT, HIDDEN - Android/Thunderbird]
 
-// Notify when downloading files
-pref("browser.download.alwaysOpenPanel", true); // [DEFAULT - Desktop, HIDDEN - Android/Thunderbird]
+/// Notify when downloading files
+pref("browser.download.alwaysOpenPanel", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird]
+
+/// Prevent adding downloads to "recent documents"...
+pref("browser.download.manager.addToRecentDocs", false);
 
 /// Prompt before downloading files
 pref("browser.download.always_ask_before_handling_new_types", true);
