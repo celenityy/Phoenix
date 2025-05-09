@@ -173,7 +173,6 @@ pref("startup.homepage_welcome_url", "");
 pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT]
 
 /// Disable Fakespot
-pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
 pref("browser.shopping.experience2023.active", false);
 pref("browser.shopping.experience2023.ads.enabled", false, locked); // [DEFAULT]
@@ -211,6 +210,7 @@ pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", ""); // [HI
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
+pref("browser.newtabpage.activity-stream.discoverystrean.merino-provider.ohttp.enabled", false); // [DEFAULT] [NIGHTLY]
 pref("browser.urlbar.addons.featureGate", false);
 pref("browser.urlbar.groupLabels.enabled", false);
 pref("browser.urlbar.mdn.featureGate", false);
