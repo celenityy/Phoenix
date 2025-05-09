@@ -124,6 +124,8 @@ pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds
 pref("browser.newtabpage.activity-stream.discoverystream.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "", locked);
 pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "", locked); // [NIGHTLY]
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "", locked); // [NIGHTLY]
 pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked);
