@@ -199,21 +199,21 @@ pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Andr
 
 /// Remove partner attribution
 // These are *only* used for telemetry, and could potentially be used for fingerprinting
-pref("app.distributor", "null", locked);
-pref("app.distributor.channel", "null", locked);
-pref("mozilla.partner.id", "null", locked);
-
-/// Remove unnecessary links
-pref("datareporting.healthreport.infoURL", ""); // [HIDDEN - Android]
-pref("extensions.recommendations.privacyPolicyUrl", "");
-pref("toolkit.crashreporter.infoURL", "");
-pref("toolkit.datacollection.infoURL", "");
+pref("app.distributor", "null", locked); // [DEFAULT] [HIDDEN]
+pref("app.distributor.channel", "null", locked); // [DEFAULT] [HIDDEN]
+pref("mozilla.partner.id", "null", locked); // [DEFAULT] [HIDDEN]
 
 pref("browser.phoenix.status.core", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
 
-// These also provide Attack Surface Reduction
+// Some of these also provide Attack Surface Reduction
+
+/// Clear unnecessary/undesired Mozilla URLs
+pref("datareporting.healthreport.infoURL", ""); // [HIDDEN - Android]
+pref("extensions.recommendations.privacyPolicyUrl", "");
+pref("toolkit.crashreporter.infoURL", "");
+pref("toolkit.datacollection.infoURL", "");
 
 /// Disable add-on/feature recommendations
 // https://support.mozilla.org/kb/recommendations-firefox
@@ -278,7 +278,7 @@ pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
 pref("extensions.webextensions.restrictedDomains", "");
 pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
-/// Remove tracking parameters from Mozilla URLs + prevent exposing locale
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale & unnecessary information
 pref("app.support.baseURL", "https://support.mozilla.org/kb/");
 pref("browser.backup.template.fallback-download.aurora", "https://www.mozilla.org/firefox/channel/desktop/#developer");
 pref("browser.backup.template.fallback-download.beta", "https://www.mozilla.org/firefox/channel/desktop/#beta");
@@ -287,7 +287,10 @@ pref("browser.backup.template.fallback-download.nightly", "https://www.mozilla.o
 pref("browser.backup.template.fallback-download.release", "https://www.mozilla.org/firefox/download/thanks/?s=direct");
 pref("extensions.abuseReport.amoFormURL", "https://addons.mozilla.org/feedback/addon/%addonID%/");
 pref("extensions.blocklist.addonItemURL", "https://addons.mozilla.org/blocked-addon/%addonID%/%addonVersion%/");
+pref("signon.firefoxRelay.learn_more_url", "https://support.mozilla.org/kb/relay-integration#w_frequently-asked-questions");
 pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profile/");
+pref("signon.firefoxRelay.privacy_policy_url", "https://www.mozilla.org/privacy/subscription-services/");
+pref("signon.firefoxRelay.terms_of_service_url", "https://www.mozilla.org/about/legal/terms/subscription-services/");
 
 /// Skip Mozilla's `Privacy Notice` & `Terms of Use`
 // https://github.com/mozilla/policy-templates/pull/1212
@@ -1658,6 +1661,11 @@ pref("media.webvtt.testing.events", false); // [DEFAULT]
 /// Enable Firefox's newer 'Felt privacy' design for Certificate Errors
 pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderbird]
 
+/// Enable the Remote Settings Firefox Relay Allowlist Collection by default to expose via the `about:config`
+// https://searchfox.org/mozilla-central/source/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
+pref("signon.firefoxRelay.allowListRemoteSettingsCollection", "fxrelay-allowlist"); // [DEFAULT] [HIDDEN]
+
 /// Force pop-up windows to open in new tabs instead
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
 pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunderbird]
@@ -1781,6 +1789,7 @@ pref("browser.phoenix.status.core", "028");
 /// Automatically update extensions by default
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]
+pref("extensions.systemAddon.update.url", "https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml"); // [DEFAULT - non-Thunderbird] [HIDDEN - Thunderbird]
 pref("extensions.update.autoUpdateDefault", true); // [DEFAULT] [HIDDEN - ANDROID]
 pref("extensions.update.enabled", true); // [DEFAULT]
 pref("media.gmp-manager.updateEnabled", true); // [DEFAULT] [HIDDEN]

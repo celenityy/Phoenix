@@ -100,9 +100,6 @@ pref("app.normandy.logging.level", 70); // Limits logging to fatal only
 pref("app.normandy.user_id", "", locked);
 pref("messaging-system.log", "off"); // Disables logging
 
-/// Remove unnecessary links
-pref("app.normandy.shieldLearnMoreUrl", "");
-
 pref("browser.phoenix.status.desktop", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
@@ -142,6 +139,10 @@ pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
 pref("messaging-system.askForFeedback", false, locked);
+
+/// Clear unnecessary/undesired Mozilla URLs
+pref("app.normandy.shieldLearnMoreUrl", "");
+pref("browser.newtabpage.activity-stream.support.url", "");
 
 /// Disable add-on/feature recommendations
 // https://support.mozilla.org/kb/recommendations-firefox
@@ -354,13 +355,31 @@ pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-/// Remove tracking parameters from Mozilla URLs + prevent exposing locale
-pref("app.releaseNotesURL", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/firefox/%VERSION%/releasenotes");
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale & unnecessary information
+// For info on the extension update (`extensions.update.`) URL parameters, see https://devdoc.net/web/developer.mozilla.org/en-US/docs/Install_Manifests.html & https://mozilla-balrog.readthedocs.io/en/latest/database.html
+pref("app.releaseNotesURL", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.update.url.details", "https://www.mozilla.org/firefox/notes", locked);
+pref("app.update.url.manual", "https://www.mozilla.org/firefox/new", locked);
+pref("browser.contentblocking.report.cookie.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_cross-site-tracking-cookies");
+pref("browser.contentblocking.report.cryptominer.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_cryptominers");
+pref("browser.contentblocking.report.fingerprinter.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_fingerprinters");
+pref("browser.contentblocking.report.lockwise.how_it_works.url", "https://support.mozilla.org/kb/password-manager-remember-delete-edit-logins");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
+pref("browser.contentblocking.report.social.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_social-media-trackers");
+pref("browser.contentblocking.report.tracker.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_tracking-content");
+pref("browser.dictionaries.download.url", "https://addons.mozilla.org/language-tools/");
+pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/firefox/search-engines/");
+pref("browser.xr.warning.infoURL", "https://support.mozilla.org/kb/webxr-permission-info-page");
+pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/api/v4/addons/search/?guid=%IDS%");
+pref("extensions.getAddons.link.url", "https://addons.mozilla.org/");
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search?q=%TERMS%");
+pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&updateType=%UPDATE_TYPE%"); // Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), 'current' app/browser version (currentAppVersion), and compatibility mode (compatMode)
+pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&updateType=%UPDATE_TYPE%"); // Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), 'current' app/browser version (currentAppVersion), and compatibility mode (compatMode)
+pref("lightweightThemes.getMoreURL", "https://addons.mozilla.org/themes/");
+pref("pdfjs.altTextLearnMoreUrl", "https://support.mozilla.org/kb/pdf-alt-text");
 
 pref("browser.phoenix.status.desktop", "002");
 
