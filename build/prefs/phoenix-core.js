@@ -157,6 +157,7 @@ pref("toolkit.telemetry.initDelay", 999999999, locked); // [HIDDEN] Prevent the 
 pref("toolkit.telemetry.log.dump", false); // [HIDDEN] [DEFAULT] - To expose via the `about:config`
 pref("toolkit.telemetry.log.level", "Fatal"); // [HIDDEN] [Default: Warn]
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked); // [HIDDEN - Android]
+pref("toolkit.telemetry.overrideUpdateChannel", "release", locked); // [HIDDEN] [DEFENSE IN DEPTH] Always report channel as `release`, regardless of actual value https://docs.telemetry.mozilla.org/concepts/channels/channel_normalization
 pref("toolkit.telemetry.previousBuildID", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.reportingpolicy.firstRun", false, locked); // [HIDDEN]
 pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
