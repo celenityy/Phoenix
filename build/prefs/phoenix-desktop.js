@@ -181,6 +181,7 @@ pref("browser.shopping.experience2023.ads.exposure", false, locked); // [HIDDEN]
 pref("browser.shopping.experience2023.ads.userEnabled", false, locked);
 pref("browser.shopping.experience2023.autoOpen.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
+pref("browser.shopping.experience2023.control", false); // [HIDDEN]
 pref("browser.shopping.experience2023.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.integratedSidebar", false); // [DEFAULT]
 pref("browser.shopping.experience2023.newPositionCard.hasSeen", true);
