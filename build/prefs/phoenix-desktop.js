@@ -217,7 +217,7 @@ pref("browser.urlbar.mdn.featureGate", false);
 pref("browser.urlbar.merino.endpointURL", "");
 pref("browser.urlbar.merino.providers", "");
 pref("browser.urlbar.quicksuggest.contextualOptIn", false);
-pref("browser.urlbar.quicksuggest.enabled", false, locked); // Firefox only seems to set this for new profiles unless it's locked...
+pref("browser.urlbar.quicksuggest.enabled", false, locked); // Firefox only seems to set this for new profiles if it's locked...
 pref("browser.urlbar.quicksuggest.hideSettingsUI", true);
 pref("browser.urlbar.quicksuggest.scenario", "offline");
 pref("browser.urlbar.quicksuggest.shouldShowOnboardingDialog", false);
@@ -225,7 +225,7 @@ pref("browser.urlbar.quicksuggest.showedOnboardingDialog", true);
 pref("browser.urlbar.quicksuggest.sponsoredPriority", false, locked);
 pref("browser.urlbar.suggest.addons", false);
 pref("browser.urlbar.suggest.mdn", false);
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, locked); // Firefox only seems to set this for new profiles unless it's locked...
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, locked); // Firefox only seems to set this for new profiles if it's locked...
 pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked);
 pref("browser.urlbar.suggest.trending", false);
 pref("browser.urlbar.suggest.weather", false);
