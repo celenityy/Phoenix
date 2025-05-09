@@ -70,12 +70,13 @@ pref("browser.newtabpage.activity-stream.impressionId", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
 pref("browser.places.interactions.enabled", false, locked); // Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.places.interactions.log", false); // [DEFAULT] [HIDDEN] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
-pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT [HIDDEN]
+pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT] [HIDDEN]
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
@@ -267,6 +268,7 @@ pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.spocs.enabled", fals
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
 
