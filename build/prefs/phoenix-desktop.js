@@ -126,6 +126,9 @@ pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.di
 pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.user.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint", "", locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", "", locked); // [DEFAULT]
