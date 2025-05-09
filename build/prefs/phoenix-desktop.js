@@ -233,6 +233,7 @@ pref("browser.urlbar.yelp.featureGate", false);
 /// Disable Pocket
 pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.sections.cards.enabled", false); // "Revised Pocket Story Card UI" https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 pref("browser.urlbar.pocket.featureGate", false);
