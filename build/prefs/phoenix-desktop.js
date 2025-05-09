@@ -266,6 +266,7 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 /// Disable the Mozilla Ad Routing Service (MARS) :/
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#221
 pref("browser.newtabpage.activity-stream.feeds.adsfeed", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.reportAds.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.spocs.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked); // [DEFAULT]
