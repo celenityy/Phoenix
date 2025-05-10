@@ -1272,11 +1272,15 @@ pref("browser.safebrowsing.features.blockedURIs.update", true); // [DEFAULT, HID
 pref("browser.safebrowsing.features.downloads.update", true); // [DEFAULT, HIDDEN]
 pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT, HIDDEN - non-Android]
 pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT, HIDDEN - non-Android] 
+pref("browser.safebrowsing.id", "navclient-auto-ffox"); // [DEFAULT - Official] Ensure we use Mozilla's ID
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.update.enabled", true); // [DEFAULT, HIDDEN]
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto"); // [DEFAULT - non-Android]
 pref("urlclassifier.downloadBlockTable", "goog-badbinurl-proto"); // [DEFAULT - non-Android]
+
+/// Ensure users can override Safe Browsing warnings by default
+pref("browser.safebrowsing.allowOverride", true); // [DEFAULT]
 
 /// Prevent sending metadata of downloaded files to Google
 // https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox
