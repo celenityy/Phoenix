@@ -203,9 +203,9 @@ pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Andr
 
 /// Remove partner attribution
 // These are *only* used for telemetry, and could potentially be used for fingerprinting
-pref("app.distributor", "null", locked); // [DEFAULT] [HIDDEN]
-pref("app.distributor.channel", "null", locked); // [DEFAULT] [HIDDEN]
-pref("mozilla.partner.id", "null", locked); // [DEFAULT] [HIDDEN]
+pref("app.distributor", "", locked); // [DEFAULT] [HIDDEN]
+pref("app.distributor.channel", "", locked); // [DEFAULT] [HIDDEN]
+pref("mozilla.partner.id", "", locked); // [DEFAULT] [HIDDEN]
 
 pref("browser.phoenix.status.core", "001");
 
