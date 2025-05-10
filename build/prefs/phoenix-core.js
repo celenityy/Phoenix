@@ -239,10 +239,24 @@ pref("extensions.recommendations.themeRecommendationUrl", "", locked);
 pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is always local/installed extensions
 pref("extensions.webservice.discoverURL", "", locked); // [HIDDEN - non-Thunderbird]
 
-/// Disable DoH Rollout/heuristics
+/// Disable DoH Rollout/heuristics/steering
+// This helps ensure Firefox doesn't override our/the user's DoH settings...
+// https://searchfox.org/mozilla-central/source/toolkit/components/doh/DoHConfig.sys.mjs
+// https://searchfox.org/mozilla-central/source/toolkit/components/doh/DoHController.sys.mjs
+// https://searchfox.org/mozilla-central/source/toolkit/components/doh/DoHHeuristics.sys.mjs
+// https://searchfox.org/mozilla-central/source/netwerk/docs/dns/dns-over-https-trr.md
+pref("doh-rollout._testing", true, locked); // [HIDDEN]
 pref("doh-rollout.disable-heuristics", true, locked); // [HIDDEN]
+pref("doh-rollout.doneFirstRun", true, locked); // [HIDDEN]
+pref("doh-rollout.doorhanger-decision", "UIDisabled", locked); // [HIDDEN]
 pref("doh-rollout.enabled", false, locked); // [HIDDEN]
+pref("doh-rollout.mode", 5, locked); // [HIDDEN]
+pref("doh-rollout.provider-steering.enabled", false, locked); // [HIDDEN]
+pref("doh-rollout.provider-steering.provider-list", "", locked); // [HIDDEN]
+pref("doh-rollout.self-enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.skipHeuristicsCheck", true, locked); // [HIDDEN]
+pref("doh-rollout.trr-selection.enabled", false, locked); // [HIDDEN]
+pref("doh-rollout.trr-selection.provider-list", "", locked); // [HIDDEN]
 pref("doh-rollout.uri", "", locked); // [HIDDEN]
 
 /// Disable Fakespot
@@ -1218,6 +1232,7 @@ pref("browser.region.network.scan", false); // [DEFAULT] [DEFENSE IN DEPTH] Disa
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
 pref("browser.search.region", "US"); // [HIDDEN]
+pref("doh-rollout.home-region", "US"); // [HIDDEN]
 
 /// Set BeaconDB as the default network Geolocation provider
 // Default is Google :/
