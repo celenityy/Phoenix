@@ -1083,6 +1083,14 @@ pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
 // https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
 pref("extensions.webextensions.remote", true); // [DEFAULT]
 
+/// Disable add-on 'sideloading'
+// Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
+// https://archive.is/DYjAM
+// https://github.com/arkenfox/user.js/blob/master/user.js#L612
+pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures extensions installed via directories are disabled by default...
+pref("extensions.enabledScopes", 5); // [HIDDEN]
+pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
+
 /// Disable automatic installation/enablement of third party extensions in Firefox's installation directory
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT - Android]
@@ -1121,13 +1129,6 @@ pref("extensions.webextensions.default-content-security-policy.v3", "script-src 
 /// Only allow installation and updates of extensions using Firefox's built-in certificates by default
 pref("extensions.install.requireBuiltInCerts", true); // [HIDDEN]
 pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
-
-/// Only allow installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
-// https://archive.is/DYjAM
-// https://github.com/arkenfox/user.js/blob/master/user.js#L612
-pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures extensions installed via directories are disabled by default...
-pref("extensions.enabledScopes", 5); // [HIDDEN]
-pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
 
 /// Never allow installing extensions without first prompting the user
 pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
