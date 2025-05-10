@@ -19,18 +19,19 @@
 
 001: DATA COLLECTION
 002: MOZILLA CRAP™
-003: DISK AVOIDANCE
-004: HTTP(S)
-005: MEDIA
-006: ATTACK SURFACE REDUCTION
-007: GEOLOCATION
-008: DEBUGGING
-009: MISC. PRIVACY
-010: MISC. SECURITY
-011: PERFORMANCE
-012: Personal Touch 💜
-013: UPDATES
-014: SPECIALIZED/CUSTOM CONFIGS
+003: FINGERPRINTING PROTECTION
+004: DISK AVOIDANCE
+005: HTTP(S)
+006: MEDIA
+007: ATTACK SURFACE REDUCTION
+008: GEOLOCATION
+009: DEBUGGING
+010: MISC. PRIVACY
+011: MISC. SECURITY
+012: PERFORMANCE
+013: Personal Touch 💜
+014: UPDATES
+015: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -69,7 +70,20 @@ pref("services.sync.addons.trustedSourceHostnames", "");
 
 pref("browser.phoenix.status.desktop.common", "002");
 
-/*** 003 DISK AVOIDANCE ***/
+/*** 003 FINGERPRINTING PROTECTION ***/
+
+/// Harden FPP (for ESR users...)
+// https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
+pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // [ESR] (This is the equivalent of the `-CanvasExtractionBeforeUserInputIsBlocked` target)
+pref("privacy.resistFingerprinting.randomDataOnCanvasExtract", true); // [ESR] (This is the equivalent of the `+CanvasRandomization` target)
+
+/// Set target video resolution to 1080p
+// Default on ESR is still 480p...
+pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT - non-ESR]
+
+pref("browser.phoenix.status.desktop.common", "003");
+
+/*** 004 DISK AVOIDANCE ***/
 
 /// Check the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...` by default
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
@@ -106,9 +120,9 @@ pref("toolkit.winRegisterApplicationRestart", false); // [HIDDEN - Thunderbird] 
 /// Set default time range when manually clearing data to "everything"
 pref("privacy.sanitize.timeSpan", 0);
 
-pref("browser.phoenix.status.desktop.common", "003");
+pref("browser.phoenix.status.desktop.common", "004");
 
-/*** 004 HTTP(S) ***/
+/*** 005 HTTP(S) ***/
 
 /// Disable third-party/OS-level root certificates
 // I've been torn on how to handle this, but IMO the safest way forward is disabling this functionality in Firefox.
@@ -123,9 +137,9 @@ pref("browser.phoenix.status.desktop.common", "003");
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-pref("browser.phoenix.status.desktop.common", "004");
+pref("browser.phoenix.status.desktop.common", "005");
 
-/*** 005 MEDIA ***/
+/*** 006 MEDIA ***/
 
 /// Sandbox GMP on GNU/Linux [NO-OSX]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml [NO-OSX]
@@ -148,31 +162,31 @@ pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
 // https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 pref("userContent.player.click_to_play", true); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "005");
+pref("browser.phoenix.status.desktop.common", "006");
 
-/*** 006 ATTACK SURFACE REDUCTION ***/
+/*** 007 ATTACK SURFACE REDUCTION ***/
 
 /// Disable WebXR
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.status.desktop.common", "006");
+pref("browser.phoenix.status.desktop.common", "007");
 
-/*** 007 GEOLOCATION [NO-OSX] ***/
+/*** 008 GEOLOCATION [NO-OSX] ***/
 
 // Disable Microsoft Location Services [WINDOWS] [NO-OSX]
 pref("geo.provider.ms-windows-location", false); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop.common", "007"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "008"); // [NO-OSX]
 
-/*** 008 DEBUGGING ***/
+/*** 009 DEBUGGING ***/
 
 /// Enforce local debugging only
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop.common", "008");
+pref("browser.phoenix.status.desktop.common", "009");
 
-/*** 009 MISC. PRIVACY ***/
+/*** 010 MISC. PRIVACY ***/
 
 /// Disable Firefox Sync by default
 // When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
@@ -199,9 +213,9 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] 
 /// Prevent sharing identifying info if a remote AutoConfig is being used
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "009");
+pref("browser.phoenix.status.desktop.common", "010");
 
-/*** 010 MISC. SECURITY ***/
+/*** 011 MISC. SECURITY ***/
 
 /// Disable GNOME Integration [LINUX] [NO-OSX]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [NO-OSX]
@@ -242,9 +256,9 @@ pref("general.config.sandbox_enabled", true, locked);
 /// Warn on unprivileged namespaces [LINUX] [NO-OSX]
 pref("security.sandbox.warn_unprivileged_namespaces", true); // [DEFAULT] [LINUX] [NO-OSX]
 
-pref("browser.phoenix.status.desktop.common", "010");
+pref("browser.phoenix.status.desktop.common", "011");
 
-/*** 011 PERFORMANCE ***/
+/*** 012 PERFORMANCE ***/
 
 /// Disable certain UI animations
 // https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
@@ -256,9 +270,9 @@ pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 /// Taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 pref("network.http.max-connections", 1800); // [Default = 900]
 
-pref("browser.phoenix.status.desktop.common", "011");
+pref("browser.phoenix.status.desktop.common", "012");
 
-/*** 012 Personal Touch 💜 ***/
+/*** 013 Personal Touch 💜 ***/
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -307,9 +321,9 @@ pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
 pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
-pref("browser.phoenix.status.desktop.common", "012");
+pref("browser.phoenix.status.desktop.common", "013");
 
-/*** 013 UPDATES ***/
+/*** 014 UPDATES ***/
 
 /// Browser Updates
 pref("app.update.background.interval", 3600); // Check for updates hourly when the browser is not running in the background (default is 7 hours)
@@ -319,16 +333,16 @@ pref("app.update.interval", 3600); // Check for updates hourly (default is 6 hou
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 0); // Immediately prompt users to update when an update is ready
 
-pref("browser.phoenix.status.desktop.common", "013");
+pref("browser.phoenix.status.desktop.common", "014");
 
-/*** 014 SPECIALIZED/CUSTOM CONFIGS ***/
+/*** 015 SPECIALIZED/CUSTOM CONFIGS ***/
 
 /// Configure remote AutoConfig files (if active)
 pref("autoadmin.failover_to_cached", true);
 pref("autoadmin.offline_failover", true);
 pref("autoadmin.refresh_interval", 60);
 
-pref("browser.phoenix.status.desktop.common", "014");
+pref("browser.phoenix.status.desktop.common", "015");
 
 pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 
