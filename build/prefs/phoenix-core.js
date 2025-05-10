@@ -670,6 +670,10 @@ pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 
+/// Ensure we use the HSTS preload list
+// https://searchfox.org/mozilla-central/source/remote/cdp/domains/parent/Security.sys.mjs
+pref("network.stricttransportsecurity.preloadlist", true); // [DEFAULT]
+
 /// Hard-fail OCSP revocation checks by default
 // Significant security improvement
 // https://github.com/arkenfox/user.js/issues/1576
