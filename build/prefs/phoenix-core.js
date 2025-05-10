@@ -1372,6 +1372,16 @@ pref("accessibility.force_disabled", 1);
 // https://developer.mozilla.org/docs/Web/XML/Guides/OpenSearch#supporting_automatic_updates_for_opensearch_plugins
 pref("browser.search.update", false); // [DEFAULT - Android]
 
+/// Disable Battery API (Navigator.getBattery)
+// PRIVACY: Fingerprinting concerns, just plain creepy...
+// SECURITY: Attack Surface Reduction
+// NOTE: This only impacts chrome/certain privileged code; this is thankfully never exposed to websites
+// I'm still not convinced that there's a legitimate use/need for this functionality though...
+// https://developer.mozilla.org/docs/Web/API/Battery_Status_API
+// https://developer.mozilla.org/docs/Web/API/Navigator/getBattery
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1313580
+pref("dom.battery.enabled", false);
+
 /// Disable Beacon API (Navigator.sendBeacon)
 // PRIVACY: Used for analytics/tracking by design, see explanation below
 // SECURITY: Attack Surface Reduction
