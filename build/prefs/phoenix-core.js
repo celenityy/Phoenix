@@ -259,6 +259,14 @@ pref("doh-rollout.trr-selection.enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.trr-selection.provider-list", "", locked); // [HIDDEN]
 pref("doh-rollout.uri", "", locked); // [HIDDEN]
 
+/// Disable 'Essential Domains Fallback'
+// My concern here is the fact that this is fetched from Remote Settings - this could potentially be used to bypass our internal domain blocklist above + the firewall of users if they themselves choose to block specific domains for whatever reason
+// I don't have a problem with this being a local dump though, as I can understand the usefulness of this (and being local would mitigate my concerns here) - but I'm not comfortable with the remote part
+// This is currently unused anyways...
+// https://searchfox.org/mozilla-central/source/netwerk/base/EssentialDomainsRemoteSettings.sys.mjs
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/moz-essential-domain-fallbacks/changeset?_expected=0
+pref("network.essential_domains_fallback", false); // [DEFAULT]
+
 /// Disable Fakespot
 pref("toolkit.shopping.ohttpConfigURL", "");
 pref("toolkit.shopping.ohttpRelayURL", "");
