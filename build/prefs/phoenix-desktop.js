@@ -74,6 +74,7 @@ pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - De
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
 /// Disable Data Reporting & Telemetry
+// https://searchfox.org/mozilla-release/source/browser/components/newtab/pings.yaml
 pref("browser.aboutwelcome.log", "off"); // [HIDDEN] Disable logging
 pref("browser.contextual-services.contextId", "{foo-123-foo}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
 pref("browser.engagement.search_counts.pbm", false, locked); // [DEFAULT] [HIDDEN] Disable recording search telemetry (in private windows) https://searchfox.org/mozilla-central/source/browser/components/search/BrowserSearchTelemetry.sys.mjs
@@ -84,6 +85,7 @@ pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, 
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
+pref("browser.newtabpage.ping.enabled", false, locked); // [HIDDEN]
 pref("browser.places.interactions.enabled", false, locked); // Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.places.interactions.log", false); // [DEFAULT] [HIDDEN] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]

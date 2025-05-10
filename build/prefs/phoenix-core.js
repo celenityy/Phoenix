@@ -110,7 +110,9 @@ pref("toolkit.crashreporter.include_context_heap", false, locked);
 // https://mozilla.github.io/policy-templates/#firefoxsuggest
 // https://searchfox.org/mozilla-central/source/testing/geckodriver/src/prefs.rs
 // https://wiki.mozilla.org/QA/Telemetry
-// https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html 
+// https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
+// https://searchfox.org/mozilla-release/source/toolkit/components/glean/xpcom/FOG.cpp
+// https://searchfox.org/mozilla-release/source/toolkit/components/telemetry/app/TelemetryUtils.sys.mjs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 // https://searchfox.org/mozilla-central/source/testing/profiles/perf/user.js
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
@@ -142,6 +144,7 @@ pref("toolkit.telemetry.archive.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.bhrPing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0", locked); // [HIDDEN]
 pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde", locked); // [HIDDEN]
+pref("toolkit.telemetry.collectInterval", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.dap.helper.hpke", "", locked);
 pref("toolkit.telemetry.dap.helper.url", "", locked);
 pref("toolkit.telemetry.dap.leader.hpke", "", locked);
@@ -158,13 +161,19 @@ pref("toolkit.telemetry.eventping.maximumFrequency", 999999999, locked); // [HID
 pref("toolkit.telemetry.eventping.minimumFrequency", 999999999, locked); // [HIDDEN] Disable `event` pings
 pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
+pref("toolkit.telemetry.eventping.maximumFrequency", 999999999, locked); // [HIDDEN]
+pref("toolkit.telemetry.eventping.minimumFrequency", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.initDelay", 999999999, locked); // [HIDDEN] Prevent the Telemetry component from initializing
 pref("toolkit.telemetry.log.dump", false); // [HIDDEN] [DEFAULT] - To expose via the `about:config`
 pref("toolkit.telemetry.log.level", "Fatal"); // [HIDDEN] [Default: Warn]
+pref("toolkit.telemetry.minSubsessionLength", 999999999, locked); // [HIDDEN]
+pref("toolkit.telemetry.newProfilePing.delay", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.newProfilePing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.overrideUpdateChannel", "release", locked); // [HIDDEN] [DEFENSE IN DEPTH] Always report channel as `release`, regardless of actual value https://docs.telemetry.mozilla.org/concepts/channels/channel_normalization
 pref("toolkit.telemetry.previousBuildID", "", locked); // [HIDDEN]
 pref("toolkit.telemetry.reportingpolicy.firstRun", false, locked); // [HIDDEN]
+pref("toolkit.telemetry.scheduler.idleTickInterval", 999999999, locked); // [HIDDEN]
+pref("toolkit.telemetry.scheduler.tickInterval", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.server", "data;", locked);
 pref("toolkit.telemetry.server_owner", "", locked);
@@ -177,6 +186,7 @@ pref("toolkit.telemetry.testing.overrideProductsCheck", false, locked); // [DEFA
 pref("toolkit.telemetry.testing.suppressPingsender", true, locked); // [HIDDEN]
 pref("toolkit.telemetry.translations.logLevel", "Off");
 pref("toolkit.telemetry.unified", false, locked); // [DEFAULT - Android]
+pref("toolkit.telemetry.untrustedModulesPing.frequency", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.updatePing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.user_characteristics_ping.current_version", 0, locked); // [DEFAULT]
 pref("toolkit.telemetry.user_characteristics_ping.last_version_sent", 0, locked); // [DEFAULT]
