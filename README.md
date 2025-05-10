@@ -908,29 +908,28 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 	- Designed Phoenix's icon, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
 
 - **[GW72](https://codeberg.org/GW72)**
-	- Invaluable feedback & support of the project.
+	- Invaluable feedback and support of the project.
 
 - **[Arkenfox](https://github.com/arkenfox/user.js)**
 	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
 	- ⚖️ [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
-	- Discovered various prefs - Also learned lots from their excellent research & documentation
+	- Without Arkenfox, I'm not sure where this project would be... it's incredible, and the documentation/research/work they've done is invaluable.
 
 - **[Betterfox](https://github.com/yokoffing/Betterfox)**
 	- 🪪 [yokoffing](https://github.com/yokoffing)
 	- ⚖️ [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
     - 💸 [Donate](https://github.com/sponsors/yokoffing)
-    - Various performance-related prefs
+    - Certain preferences (Mostly performance-related)
 
 - **[Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)**
 	- 🪪 [Narsil](https://codeberg.org/Narsil)
 	- ⚖️ [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
-	- Certain prefs & some inspiration
+	- Certain preferences + inspiration
 
 - **[Brace](https://codeberg.org/divested/brace)**
 	- 🪪 [Divested Computing Group](https://divested.dev/)
 	- ⚖️ [GPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
-	- 💸 [Donate](https://divested.dev/pages/donate)
-	- Where I first learned of the idea to leverage policies & package them... + inspiration
+	- Certain preferences + inspiration
 
 - **[LibreWolf](https://librewolf.net/)**
 	- 🪪 [bgstack15](https://codeberg.org/bgstack15) + [fxbrit](https://codeberg.org/fxbrit) + [Malte Jürgens](https://codeberg.org/maltejur) + [ohfp](https://codeberg.org/ohfp) + [James McClain](https://codeberg.org/TheGreatMcPain) + [threadpanic](https://codeberg.org/threadpanic) + [Guillaume](https://codeberg.org/ltguillaume)
@@ -941,12 +940,6 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 	- 🪪 [rusty-snake](https://codeberg.org/rusty-snake)
 	- ⚖️ [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
 	- Inspiration + certain preferences
-
-- **[mobile-config-firefox](https://gitlab.com/postmarketOS/mobile-config-firefox)**
-	- 🪪 [postmarketOS](https://postmarketos.org/)
-	- ⚖️ [MPL-2.0](https://gitlab.com/postmarketOS/mobile-config-firefox/-/blob/master/LICENSE)
-	- 💸 [Donate](https://opencollective.com/postmarketOS)
-	- Inspiration
 
 - **[uBlock Origin](https://github.com/gorhill/uBlock)**
 	- 🪪 [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
