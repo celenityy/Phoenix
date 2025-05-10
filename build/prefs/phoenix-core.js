@@ -849,6 +849,12 @@ pref("network.gio.supported-protocols", ""); // [HIDDEN]
 // https://bugzilla.mozilla.org/1413868
 pref("network.file.disable_unc_paths", true); // [HIDDEN]
 
+/// Disable Wi-Fi Tickler
+// Ex. disabled by the Proxy Bypass Protection build argument
+// https://searchfox.org/mozilla-central/source/netwerk/base/Tickler.h
+// https://searchfox.org/mozilla-central/source/netwerk/base/Tickler.cpp
+pref("network.tickle-wifi.enabled", false); // [DEFAULT - non-Android]
+
 /// Prevent bypassing the proxy (if configured) for system connections that include the `bypassProxy` flag
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1732792
 pref("network.proxy.allow_bypass", false);
