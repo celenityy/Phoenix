@@ -905,6 +905,12 @@ pref("media.gmp-widevinecdm.visible", false);
 pref("media.gmp-widevinecdm-l1.enabled", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 pref("media.gmp-widevinecdm-l1.visible", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 
+/// Disable Gecko Media Plugins (GMP)
+// This is currently only used for DRM & OpenH264 (both of which we disable)
+// In general, I feel that these are unnecessary and best left to the operating system to support. They do also pose privacy & security concerns, so I don't see a reason to keep these enabled.
+// https://wiki.mozilla.org/GeckoMediaPlugins
+pref("media.gmp-provider.enabled", false);
+
 /// Disable GMP local sources
 // https://searchfox.org/mozilla-central/source/toolkit/modules/GMPUtils.sys.mjs
 pref("media.gmp-manager.allowLocalSources", false);
