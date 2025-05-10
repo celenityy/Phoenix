@@ -25,8 +25,9 @@
 006: PASSWORDS & AUTHENTICATION
 007: EXTENSIONS
 008: DEBUGGING
-009: MISC. SECURITY
-010: PERFORMANCE
+009: MISC. PRIVACY
+010: MISC. SECURITY
+011: PERFORMANCE
 
 */
 
@@ -197,7 +198,19 @@ pref("geckoview.logging", "Warn"); // [DEFAULT - non-Debug]
 
 pref("browser.phoenix.status.android", "009");
 
-/*** 010 MISC. SECURITY ***/
+/*** 010 MISC. PRIVACY ***/
+
+/// Disable TLS session identifiers
+// Fingerprinting/tracking concerns
+// I'm not worried about this for desktop since these are session-only, but I feel like the situation is very different for Android. Users likely leave the app open (and by extension: keep their browsing session active) for days at a time, much longer than on Desktop.
+// So this does concern me and I think it's worth setting here.
+// For reference, this is also disabled by ex. Cromite
+// https://arxiv.org/abs/1810.07304
+pref("security.ssl.disable_session_identifiers", true);
+
+pref("browser.phoenix.status.android", "010");
+
+/*** 011 MISC. SECURITY ***/
 
 /// Always warn users before launching other apps
 pref("network.protocol-handler.warn-external.file", true);
@@ -205,15 +218,15 @@ pref("network.protocol-handler.warn-external.sms", true);
 pref("network.protocol-handler.warn-external.tel", true);
 pref("network.protocol-handler.warn-external.vnd.youtube", true);
 
-pref("browser.phoenix.status.android", "010");
+pref("browser.phoenix.status.android", "011");
 
-/*** 011 PERFORMANCE ***/
+/*** 012 PERFORMANCE ***/
 
 pref("browser.sessionstore.max_tabs_undo", 7);
 pref("dom.ipc.processCount", 2); // [DEFAULT]
 pref("network.http.max-connections", 256); // [Default = 128]
 
-pref("browser.phoenix.status.android", "011");
+pref("browser.phoenix.status.android", "012");
 
 pref("browser.phoenix.status.android", "successfully applied :D", locked);
 
