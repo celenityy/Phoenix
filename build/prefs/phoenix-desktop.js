@@ -65,8 +65,10 @@ pref("browser.tabs.crashReporting.sendReport", false, locked);
 
 /// Disable Data Reporting & Telemetry
 pref("browser.aboutwelcome.log", "off"); // [HIDDEN] Disable logging
+pref("browser.contextual-services.contextId", "{foo-123-foo}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
+pref("browser.engagement.search_counts.pbm", false, locked); // [DEFAULT] [HIDDEN] Disable recording search telemetry (in private windows) https://searchfox.org/mozilla-central/source/browser/components/search/BrowserSearchTelemetry.sys.mjs
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
-pref("browser.newtabpage.activity-stream.impressionId", "", locked);
+pref("browser.newtabpage.activity-stream.impressionId", "{some-fake-impression-ID}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
@@ -167,6 +169,7 @@ pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // ht
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false);
 pref("browser.rights.3.shown", true); // [HIDDEN]
+pref("browser.startup.homepage_override.buildID", "20181001000000", locked);
 pref("browser.startup.homepage_override.mstone", "ignore", locked);
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
 pref("startup.homepage_override_nimbus_disable_wnp", true); // "What's New" Pages
@@ -482,6 +485,8 @@ pref("browser.laterrun.enabled", false); // [DEFAULT]
 
 /// Disable logging blocked domains to `about:protections`
 pref("browser.contentblocking.cfr-milestone.enabled", false);
+pref("browser.contentblocking.cfr-milestone.milestone-shown-time", "999999999"); // [HIDDEN]
+pref("browser.contentblocking.cfr-milestone.update-interval", 0); // [HIDDEN]
 
 /// Enable a fire button in Private Browsing Windows to reset the session
 pref("browser.privatebrowsing.resetPBM.enabled", true); // [DEFAULT - Nightly]
