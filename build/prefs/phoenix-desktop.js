@@ -56,6 +56,16 @@ pref("browser.phoenix.status.desktop", "000");
 
 // A lot of defense in depth...
 
+/// Disable Browser Usage Telemetry metrics
+// https://searchfox.org/mozilla-central/source/browser/docs/BrowserUsageTelemetry.rst
+// https://searchfox.org/mozilla-central/source/browser/modules/BrowserUsageTelemetry.sys.mjs
+pref("browser.engagement.downloads-button.has-used", true, locked);
+pref("browser.engagement.fxa-toolbar-menu-button.has-used", true, locked);
+pref("browser.engagement.home-button.has-used", true, locked);
+pref("browser.engagement.library-button.has-used", true, locked);
+pref("browser.engagement.sidebar-button.has-used", true, locked);
+pref("browser.engagement.total_uri_count.pbm", false, locked); // [DEFAULT] [HIDDEN]
+
 /// Disable Crash Reporting
 // These specifically are used for tab crashes (`about:tabcrashed`)...
 // https://github.com/mozilla-services/socorro
