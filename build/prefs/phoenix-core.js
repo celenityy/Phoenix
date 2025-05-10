@@ -661,9 +661,10 @@ pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
-pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT] [HIDDEN - Thunderbird]
-pref("network.http.http3.enable_kyber", true);
-pref("security.tls.enable_kyber", true);
+pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
+pref("network.http.http3.enable_kyber", true); // [DEFAULT - non-Android]
+pref("security.tls.client_hello.send_p256_keyshare", true); // [DEFAULT]
+pref("security.tls.enable_kyber", true); // [DEFAULT - non-Android]
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
