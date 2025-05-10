@@ -1356,6 +1356,16 @@ pref("browser.search.update", false); // [DEFAULT - Android]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1454252
 pref("beacon.enabled", false);
 
+/// Disable Clipboard API
+// PRIVACY: Fingerprinting concerns, prevents monitoring users' clipboards without their consent
+// SECURITY: Prevents leaking sensitive information (ex. passwords), Attack Surface Reduction
+// NOTE: This only impacts extensions; this is thankfully never exposed to websites
+// I'm still not convinced extensions need or should have access to this data though (While there are currently other ways for extensions to access clipboard data, those are deprecated and will presumably not be around for much longer)
+// https://developer.mozilla.org/docs/Web/API/Clipboard
+pref("dom.events.asyncClipboard.clipboardItem", false);
+pref("dom.events.asyncClipboard.readText", false);
+pref("dom.events.testing.asyncClipboard", false, locked); // [DEFAULT]
+
 /// Disable Content Analysis SDK
 // PRIVACY: Used for monitoring users by design
 // SECURITY: Can be easily abused by bad actors, Attack Surface Reduction
@@ -1373,7 +1383,7 @@ pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] 
 pref("browser.contentanalysis.silent_notifications", false, locked); // [DEFAULT] If Content Analysis is enabled, ensure notifications aren't silenced so that users are fully aware
 
 /// Disable Reporting API
-// PRIVACY: Fingerprinting concerns, Used for analytics by design
+// PRIVACY: Fingerprinting concerns, used for analytics by design
 // SECURITY: Attack Surface Reduction
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
