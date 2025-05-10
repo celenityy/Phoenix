@@ -915,6 +915,10 @@ pref("media.gmp-provider.enabled", false);
 // https://searchfox.org/mozilla-central/source/toolkit/modules/GMPUtils.sys.mjs
 pref("media.gmp-manager.allowLocalSources", false);
 
+/// Disable GMP logging by default (to expose via the `about:config`)
+pref("media.gmp.log.dump", false); // [DEFAULT] [HIDDEN]
+pref("media.gmp.log.level", 70); // [HIDDEN] Limits logging to fatal only
+
 /// Disable OpenH264 (in favor of hardware decoding)
 // Mozilla is currently shipping OpenH264 2.3.2, which is around ~2 years out of date... https://github.com/cisco/openh264/releases/tag/v2.3.1
 // Currently susceptible to a high severity CVE: https://www.cve.org/CVERecord?id=CVE-2025-27091
