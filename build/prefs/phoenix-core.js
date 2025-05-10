@@ -620,6 +620,10 @@ pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [D
 pref("security.pki.crlite_mode", 2); // [DEFAULT on Nightly]
 pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - Nightly Desktop]
 
+/// Enable Delegated Credentials
+// https://wikipedia.org/wiki/Delegated_credential
+pref("security.tls.enable_delegated_credentials", true); // [DEFAULT]
+
 /// Enable MITM Detection
 // https://github.com/arkenfox/user.js/issues/740
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
