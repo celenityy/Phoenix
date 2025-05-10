@@ -905,6 +905,10 @@ pref("media.gmp-widevinecdm.visible", false);
 pref("media.gmp-widevinecdm-l1.enabled", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 pref("media.gmp-widevinecdm-l1.visible", false); // [DEFAULT (Except for Nightly) - HIDDEN]
 
+/// Disable GMP local sources
+// https://searchfox.org/mozilla-central/source/toolkit/modules/GMPUtils.sys.mjs
+pref("media.gmp-manager.allowLocalSources", false);
+
 /// Disable OpenH264 (in favor of hardware decoding)
 // Mozilla is currently shipping OpenH264 2.3.2, which is around ~2 years out of date... https://github.com/cisco/openh264/releases/tag/v2.3.1
 // Currently susceptible to a high severity CVE: https://www.cve.org/CVERecord?id=CVE-2025-27091
