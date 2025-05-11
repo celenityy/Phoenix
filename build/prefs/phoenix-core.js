@@ -1814,6 +1814,19 @@ pref("browser.phoenix.status.core", "025");
 
 // A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
+/// Enable Advanced Vector Extensions (AVX)
+// https://wikipedia.org/wiki/Advanced_Vector_Extensions
+// https://www.supportyourtech.com/articles/how-to-enable-avx-support-in-windows-11-a-step-by-step-guide/
+pref("javascript.options.wasm_simd_avx", true);
+
+/// Enable Branch Hinting
+// https://github.com/WebAssembly/branch-hinting/blob/main/proposals/branch-hinting/Overview.md
+pref("javascript.options.wasm_branch_hinting", true); // [DEFAULT - Nightly]
+
+/// Enable SIMD
+// https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/
+pref("javascript.options.wasm_relaxed_simd", true); // [DEFAULT - Nightly]
+
 /// Enable the "fetchpriority" attribute
 // https://web.dev/articles/fetch-priority
 pref("network.fetchpriority.enabled", true); // [DEFAULT - non-ESR]
