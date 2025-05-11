@@ -1783,6 +1783,9 @@ pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderb
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
 pref("signon.firefoxRelay.allowListRemoteSettingsCollection", "fxrelay-allowlist"); // [DEFAULT] [HIDDEN]
 
+/// Enable more detailed property error messages
+pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Dev]
+
 /// Force pop-up windows to open in new tabs instead
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
 pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunderbird]
