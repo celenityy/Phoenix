@@ -61,6 +61,10 @@ pref("general.warnOnAboutConfig", false);
 /// Ensure that about:config is always enabled
 pref("general.aboutConfig.enable", true, locked); // [DEFAULT on Desktop]
 
+/// Ensure our policies aren't overriden...
+// https://searchfox.org/mozilla-central/source/toolkit/components/enterprisepolicies/EnterprisePoliciesParent.sys.mjs
+pref("toolkit.policies.perUserDir", false, locked); // [DEFAULT] [HIDDEN]
+
 pref("browser.phoenix.status.core", "000");
 
 /*** 001 DATA COLLECTION ***/

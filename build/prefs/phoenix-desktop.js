@@ -50,6 +50,9 @@ pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.04.27.1 💜", lo
 /// Disable annoying warnings when attempting to access the about:config
 pref("browser.aboutConfig.showWarning", false);
 
+/// Ensure our policies aren't overriden... [NO-OSX]
+pref("browser.policies.perUserDir", false, locked); // RedHat/Fedora-specific [NO-OSX]
+
 pref("browser.phoenix.status.desktop", "000");
 
 /*** 001 DATA COLLECTION ***/
