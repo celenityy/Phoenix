@@ -1007,6 +1007,9 @@ pref("sidebar.visibility", "hide-sidebar"); // Hide by default
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-OSX]
 pref("browser.taskbarTabs.enabled", true); // [HIDDEN] [NO-OSX]
 
+/// Show content scripts injected by extensions when debugging
+pref("devtools.debugger.show-content-scripts", true);
+
 pref("browser.phoenix.status.desktop", "018");
 
 /*** 019 UPDATES ***/
