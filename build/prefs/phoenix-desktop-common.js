@@ -291,7 +291,10 @@ pref("devtools.debugger.ui.editor-wrapping", true); // Enable long line wrapping
 pref("devtools.dom.enabled", true);
 pref("devtools.inspector.showUserAgentStyles", true); // Show default/browser styles in the Inspector by default
 pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.browserconsole.enableNetworkMonitoring", true); // Enable network monitoring by default
+pref("devtools.webconsole.input.editorOnboarding", false); // Disable editor onboarding
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.webconsole.sidebarToggle", true); // Enable the sidebar toggle
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
 
 /// Disable the Accessibility Inspector/context menu item by default
