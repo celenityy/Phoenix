@@ -478,6 +478,9 @@ pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fingerprinting-protection-overrides/changeset?_expected=0
 pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
 
+/// Enable canvas randomization for the browser chrome
+pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", false); // [DEFAULT]
+
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
