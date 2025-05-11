@@ -457,6 +457,14 @@ pref("browser.phoenix.status.core", "003");
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
 pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 
+/// Disable Mozilla's remote fingerprinting protection overrides
+// Unnecessary/undesired for our use case...
+// Currently this is only used to disable canvas randomization for Google domains (to fix a certain display issue in Google Maps)
+// This unfortunately impacts all Google domains (can't just be limited to Maps), and due to the importance of the this fingerprinting protection (especially for Android), as well as Google's questionable privacy practices... I feel that this is best left up to the user.
+// I'd rather leave this on though, so I hope we can re-assess and re-enable this in the future.
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fingerprinting-protection-overrides/changeset?_expected=0
+pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
+
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
