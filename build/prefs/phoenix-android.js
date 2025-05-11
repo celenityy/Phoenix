@@ -205,6 +205,12 @@ pref("media.eme.enabled.4.note", "See media.mediadrm-widevinecdm.visible");
 pref("media.gmp-widevinecdm.0.note", "See media.mediadrm-widevinecdm.visible");
 pref("media.gmp-widevinecdm-l1.0.note", "See media.mediadrm-widevinecdm.visible");
 
+/// Disable HLS
+// This uses an additional external library (ExoPlayer), and poses privacy & security concerns
+// This is already the default for all platforms except Android
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/29859
+pref("media.hls.enabled", false);
+
 /// Disable Widevine MediaDrm/MediaKeySystem
 // https://developer.android.com/reference/android/media/MediaDrm
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
