@@ -676,6 +676,11 @@ pref("browser.phoenix.status.desktop", "008");
 
 /*** 009 MEDIA ***/
 
+/// Add DRM notes
+pref("media.eme.enabled.3.note", "You will also need to enable GMP and a CDM.");
+pref("media.eme.enabled.4.note", "See media.gmp-provider.enabled, media.gmp-widevinecdm.enabled & media.media.gmp-widevinecdm.visible");
+pref("media.eme.enabled.5.note.WINDOWS", "WINDOWS USERS: Also see media.eme.playready.enabled, media.gmp-widevinecdm-l1.enabled, & media.gmp-widevinecdm-l1.visible"); // [NO-OSX]
+
 /// Remove DRM toggle from `about:preferences#general`
 pref("browser.eme.ui.enabled", false);
 

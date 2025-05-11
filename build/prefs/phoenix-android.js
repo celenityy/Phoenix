@@ -199,10 +199,28 @@ pref("browser.phoenix.status.android", "004");
 
 /*** 005 MEDIA ***/
 
+/// Add DRM notes
+pref("media.eme.enabled.3.note", "You will also need to enable the CDM.");
+pref("media.eme.enabled.4.note", "See media.mediadrm-widevinecdm.visible");
+pref("media.gmp-widevinecdm.0.note", "See media.mediadrm-widevinecdm.visible");
+pref("media.gmp-widevinecdm-l1.0.note", "See media.mediadrm-widevinecdm.visible");
+
 /// Disable Widevine MediaDrm/MediaKeySystem
 // https://developer.android.com/reference/android/media/MediaDrm
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
 pref("media.mediadrm-widevinecdm.visible", false);
+
+/// Ensure we don't download the Widevine CDM from GMP...
+// Users should toggle `media.mediadrm-widevinecdm.visible` instead of these, so let's lock them to avoid confusion and prevent unexpected behavior/issues/users unnecessarily compromising privacy and security...
+pref("media.gmp-widevinecdm.enabled", false, locked); // [HIDDEN]
+pref("media.gmp-widevinecdm.visible", false, locked); // [HIDDEN]
+pref("media.gmp-widevinecdm-l1.enabled", false, locked); // [DEFAULT - non-Nightly] [HIDDEN]
+pref("media.gmp-widevinecdm-l1.visible", false, locked); // [DEFAULT - non-Nightly] [HIDDEN]
+
+/// Require permission for websites to use EME
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1620102
+// https://searchfox.org/mozilla-central/source/dom/media/eme/MediaKeySystemAccessPermissionRequest.h
+pref("media.eme.require-app-approval", true); // [DEFAULT]
 
 pref("browser.phoenix.status.android", "005");
 
