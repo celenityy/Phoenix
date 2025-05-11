@@ -281,6 +281,7 @@ pref("intl.multilingual.liveReload", true); // [DEFAULT - Firefox release/beta]
 pref("intl.multilingual.liveReloadBidirectional", true);
 
 /// Developer tools...
+pref("devtools.browsertoolbox.scope", "everything"); // [DEFAULT - Thunderbird] Set Browser/Error Console scope to "Multiprocess" instead of "Parent process only" by default
 pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
 pref("devtools.command-button-measure.enabled", true);
 pref("devtools.command-button-rulers.enabled", true);
