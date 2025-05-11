@@ -1710,6 +1710,10 @@ pref("security.allow_parent_unrestricted_js_loads", false); // [DEFAULT - non-An
 pref("security.allow_unsafe_parent_loads", false); // [DEFAULT]
 pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT]
 
+/// Ensure we block old/obsolete libavcodec libraries
+// https://searchfox.org/mozilla-central/source/testing/profiles/unittest-required/user.js
+pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
+
 /// Never expose shell access
 // https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
 pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT]
