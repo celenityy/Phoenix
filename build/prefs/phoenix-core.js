@@ -297,6 +297,15 @@ pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonMan
 pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
 pref("dom.private-attribution.submission.enabled", false, locked); // [DEFAULT]
 
+/// Disable Remote Permissions
+// This currently only allows overriding behavior for HTTPS-First (and only makes an exception for a testing domain...)
+// We enforce HTTPS-Only Mode anyways, so this isn't relevant to us - and regardless, I don't think there should be remote/default overrides for a feature like this (or permissions in general...), best left up to the user.
+// https://searchfox.org/mozilla-central/source/extensions/permissions/docs/remote.rst
+// https://searchfox.org/mozilla-central/source/extensions/permissions/RemotePermissionService.sys.mjs
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/remote-permissions/changeset?_expected=0
+// https://support.mozilla.org/kb/https-first
+pref("permissions.manager.remote.enabled", false);
+
 /// Disable Remote Settings 'Preview' Buckets
 // Nice to expose via about:config
 pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
