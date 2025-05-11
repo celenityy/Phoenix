@@ -1882,6 +1882,9 @@ pref("browser.phoenix.status.core", "027");
 /// Allow Picture-in-Picture on all websites, even if they try to prevent it...
 pref("media.videocontrols.picture-in-picture.respect-disablePictureInPicture", false);
 
+/// Enable developer options for `about:profiling`
+pref("devtools.performance.aboutprofiling.has-developer-options", true);
+
 /// Enable IPv6
 // Important, nice to have
 pref("network.dns.disableIPv6", false); // [DEFAULT]
