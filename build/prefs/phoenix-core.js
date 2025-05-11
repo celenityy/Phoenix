@@ -1396,6 +1396,9 @@ pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nig
 // https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
 pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thunderbird]
 
+/// Disable the Remote Debugging Web Socket
+pref("devtools.debugger.remote-websocket", false, locked); // [DEFAULT]
+
 /// Enforce local debugging only
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
 
