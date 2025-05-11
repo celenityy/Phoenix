@@ -19,18 +19,20 @@
 
 001: DATA COLLECTION
 002: MOZILLA CRAP™
-003: DISK AVOIDANCE
-004: HTTP(S)
-005: MEDIA
-006: ATTACK SURFACE REDUCTION
-007: GEOLOCATION
-008: DEBUGGING
-009: MISC. PRIVACY
-010: MISC. SECURITY
-011: PERFORMANCE
-012: Personal Touch 💜
-013: UPDATES
-014: SPECIALIZED/CUSTOM CONFIGS
+003: FINGERPRINTING PROTECTION
+004: DISK AVOIDANCE
+005: HTTP(S)
+006: MEDIA
+007: ATTACK SURFACE REDUCTION
+008: GEOLOCATION
+009: DEBUGGING
+010: MISC. PRIVACY
+011: MISC. SECURITY
+012: MISC.
+013: PERFORMANCE
+014: Personal Touch 💜
+015: UPDATES
+016: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -60,16 +62,31 @@ pref("browser.phoenix.status.desktop.common", "001");
 
 /*** 002 MOZILLA CRAP™ ***/
 
+/// Clear unnecessary/undesired Mozilla URLs
+pref("app.feedback.baseURL", "");
+
 /// Remove special privileges from Mozilla domains
 pref("permissions.manager.defaultsUrl", "", locked);
 pref("services.sync.addons.trustedSourceHostnames", "");
 
 pref("browser.phoenix.status.desktop.common", "002");
 
-/*** 003 DISK AVOIDANCE ***/
+/*** 003 FINGERPRINTING PROTECTION ***/
 
-/// Sanitization
-// Checks the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...`
+/// Harden FPP (for ESR users...)
+// https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
+pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // [ESR] (This is the equivalent of the `-CanvasExtractionBeforeUserInputIsBlocked` target)
+pref("privacy.resistFingerprinting.randomDataOnCanvasExtract", true); // [ESR] (This is the equivalent of the `+CanvasRandomization` target)
+
+/// Set target video resolution to 1080p
+// Default on ESR is still 480p...
+pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT - non-ESR]
+
+pref("browser.phoenix.status.desktop.common", "003");
+
+/*** 004 DISK AVOIDANCE ***/
+
+/// Check the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...` by default
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.clearHistory.cache", true); // [DEFAULT, HIDDEN - Thunderbird]
 pref("privacy.clearHistory.formdata", true); // [HIDDEN - Thunderbird]
@@ -93,15 +110,20 @@ pref("privacy.cpd.offlineApps", false); // [DEFAULT, HIDDEN - Thunderbird]
 //// and passwords...
 pref("privacy.cpd.passwords", false); // [DEFAULT, HIDDEN - Thunderbird]
 
+/// Clear browsing history, download history, and sessions on exit by default
+pref("privacy.clearOnShutdown.downloads", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearOnShutdown.history", true); // [HIDDEN - Thunderbird]
+pref("privacy.clearOnShutdown.sessions", true); // [HIDDEN - Thunderbird]
+
 /// Prevent automatically starting Firefox & restoring session after reboot on Windows [NO-OSX]
 pref("toolkit.winRegisterApplicationRestart", false); // [HIDDEN - Thunderbird] [NO-OSX]
 
 /// Set default time range when manually clearing data to "everything"
 pref("privacy.sanitize.timeSpan", 0);
 
-pref("browser.phoenix.status.desktop.common", "003");
+pref("browser.phoenix.status.desktop.common", "004");
 
-/*** 004 HTTP(S) ***/
+/*** 005 HTTP(S) ***/
 
 /// Disable third-party/OS-level root certificates
 // I've been torn on how to handle this, but IMO the safest way forward is disabling this functionality in Firefox.
@@ -116,13 +138,9 @@ pref("browser.phoenix.status.desktop.common", "003");
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false, locked);
 pref("security.enterprise_roots.enabled", false, locked);
 
-/// Enforce Strict Certificate Pinning
-// https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
-pref("security.cert_pinning.enforcement_level", 2, locked);
+pref("browser.phoenix.status.desktop.common", "005");
 
-pref("browser.phoenix.status.desktop.common", "004");
-
-/*** 005 MEDIA ***/
+/*** 006 MEDIA ***/
 
 /// Sandbox GMP on GNU/Linux [NO-OSX]
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml [NO-OSX]
@@ -134,42 +152,36 @@ pref("media.eme.playready.enabled", false); // [NO-OSX]
 /// Disable Windows Media Foundation Clearkey DRM [NO-OSX]
 pref("media.eme.wmf.clearkey.enabled", false); // [DEFAULT] [NO-OSX]
 
-/// Disable Windows Media Foundation Media Engine [NO-OSX]
-// By default, it's enabled for protected content (DRM) [NO-OSX]
-// Enabling it for standard content appears to cause video playback issues (ex. on YouTube) [NO-OSX]
-// https://learn.microsoft.com/windows/win32/medfound/about-the-media-foundation-sdk [NO-OSX]
-pref("media.wmf.media-engine.enabled", 0); // [NO-OSX]
-
 /// Enable click to play UI for certain CSS skins by default...
 // https://github.com/black7375/Firefox-UI-Fix/blob/master/css/leptonContent.css#L223
 // https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6
 pref("userContent.player.click_to_play", true); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "005");
+pref("browser.phoenix.status.desktop.common", "006");
 
-/*** 006 ATTACK SURFACE REDUCTION ***/
+/*** 007 ATTACK SURFACE REDUCTION ***/
 
 /// Disable WebXR
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 pref("permissions.default.xr", 2); // [HIDDEN on Thunderbird]
 
-pref("browser.phoenix.status.desktop.common", "006");
+pref("browser.phoenix.status.desktop.common", "007");
 
-/*** 007 GEOLOCATION [NO-OSX] ***/
+/*** 008 GEOLOCATION [NO-OSX] ***/
 
 // Disable Microsoft Location Services [WINDOWS] [NO-OSX]
 pref("geo.provider.ms-windows-location", false); // [NO-OSX]
 
-pref("browser.phoenix.status.desktop.common", "007"); // [NO-OSX]
+pref("browser.phoenix.status.desktop.common", "008"); // [NO-OSX]
 
-/*** 008 DEBUGGING ***/
+/*** 009 DEBUGGING ***/
 
 /// Enforce local debugging only
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
-pref("browser.phoenix.status.desktop.common", "008");
+pref("browser.phoenix.status.desktop.common", "009");
 
-/*** 009 MISC. PRIVACY ***/
+/*** 010 MISC. PRIVACY ***/
 
 /// Disable Firefox Sync by default
 // When signing in to Firefox Sync, this controls the items (checkboxes) that are set to sync (under about:preferences#sync).
@@ -196,9 +208,9 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [DEFAULT] 
 /// Prevent sharing identifying info if a remote AutoConfig is being used
 pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN]
 
-pref("browser.phoenix.status.desktop.common", "009");
+pref("browser.phoenix.status.desktop.common", "010");
 
-/*** 010 MISC. SECURITY ***/
+/*** 011 MISC. SECURITY ***/
 
 /// Disable GNOME Integration [LINUX] [NO-OSX]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [NO-OSX]
@@ -208,8 +220,26 @@ pref("browser.gnome-search-provider.enabled", false); // [HIDDEN] [NO-OSX]
 // https://security.googleblog.com/2016/10/disclosing-vulnerabilities-to-protect.html [NO-OSX]
 // https://docs.google.com/document/d/1gJDlk-9xkh6_8M_awrczWCaUuyr0Zd2TKjNBCiPO_G4/edit [NO-OSX]
 pref("security.sandbox.content.win32k-disable", true); // [DEFAULT] [NO-OSX]
-pref("security.sandbox.gmp.win32k-disable", true); // [NO-OSX]
+pref("security.sandbox.gmp.win32k-disable", true); // [DEFAULT] [NO-OSX]
 pref("security.sandbox.socket.win32k-disable", true); // [DEFAULT] [NO-OSX]
+
+/// Enable Arbitrary Code Guard (ACG) [WINDOWS] [NO-OSX]
+// https://medium.com/@boutnaru/the-windows-security-journey-acg-arbitrary-code-guard-74b08a8bd1e5 [NO-OSX]
+pref("security.sandbox.gmp.acg.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.rdd.acg.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.utility-wmf.acg.enabled", true); // [DEFAULT] [NO-OSX]
+
+/// Enable Code Integrity Guard (CIG) for pre-spawn [WINDOWS] [NO-OSX]
+// https://medium.com/@boutnaru/the-windows-security-journey-cig-code-integrity-guard-7e410c8d2304 [NO-OSX]
+pref("security.sandbox.cig.prespawn.enabled", true); // [DEFAULT - Nightly] [NO-OSX]
+
+/// Enable Shadow Stacks [WINDOWS] [NO-OSX]
+// https://wikipedia.org/wiki/Shadow_stack [NO-OSX]
+pref("security.sandbox.content.shadow-stack.enabled", true); // [NO-OSX]
+pref("security.sandbox.gmp.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.gpu.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.rdd.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
+pref("security.sandbox.socket.shadow-stack.enabled", true); // [DEFAULT] [NO-OSX]
 
 /// Prevent hiding extensions
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
@@ -218,9 +248,21 @@ pref("devtools.aboutdebugging.showHiddenAddons", true, locked);
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 pref("general.config.sandbox_enabled", true, locked);
 
-pref("browser.phoenix.status.desktop.common", "010");
+/// Warn on unprivileged namespaces [LINUX] [NO-OSX]
+pref("security.sandbox.warn_unprivileged_namespaces", true); // [DEFAULT] [LINUX] [NO-OSX]
 
-/*** 011 PERFORMANCE ***/
+pref("browser.phoenix.status.desktop.common", "011");
+
+/*** 012 MISC. ***/
+
+/// Disable network connectivity status monitoring [NO-OSX]
+// (Ex. used for automatically switching between offline & online mode)  [NO-OSX]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=620472 [NO-OSX]
+pref("toolkit.networkmanager.disable", true); // RedHat/Fedora-specific [NO-OSX]
+
+pref("browser.phoenix.status.desktop.common", "012");
+
+/*** 013 PERFORMANCE ***/
 
 /// Disable certain UI animations
 // https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
@@ -232,14 +274,24 @@ pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 /// Taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 pref("network.http.max-connections", 1800); // [Default = 900]
 
-pref("browser.phoenix.status.desktop.common", "011");
+pref("browser.phoenix.status.desktop.common", "013");
 
-/*** 012 Personal Touch 💜 ***/
+/*** 014 Personal Touch 💜 ***/
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
 
+/// Enable the ability to download and switch locales
+pref("app.update.langpack.enabled", true); // [DEFAULT]
+pref("intl.multilingual.downloadEnabled", true); // [DEFAULT - non-Developer/Nightly]
+pref("intl.multilingual.enabled", true); // [DEFAULT - non-Developer/Nightly]
+
+/// Enable the ability to switch locales without requiring a restart
+pref("intl.multilingual.liveReload", true); // [DEFAULT - Firefox release/beta]
+pref("intl.multilingual.liveReloadBidirectional", true);
+
 /// Developer tools...
+pref("devtools.browsertoolbox.scope", "everything"); // [DEFAULT - Thunderbird] Set Browser/Error Console scope to "Multiprocess" instead of "Parent process only" by default
 pref("devtools.command-button-experimental-prefs.enabled", true); // [HIDDEN]
 pref("devtools.command-button-measure.enabled", true);
 pref("devtools.command-button-rulers.enabled", true);
@@ -249,13 +301,11 @@ pref("devtools.debugger.ui.editor-wrapping", true); // Enable long line wrapping
 pref("devtools.dom.enabled", true);
 pref("devtools.inspector.showUserAgentStyles", true); // Show default/browser styles in the Inspector by default
 pref("devtools.netmonitor.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.browserconsole.enableNetworkMonitoring", true); // Enable network monitoring by default
+pref("devtools.webconsole.input.editorOnboarding", false); // Disable editor onboarding
 pref("devtools.webconsole.persistlog", true); // Do not automatically clear log messages after page reloads/navigation
+pref("devtools.webconsole.sidebarToggle", true); // Enable the sidebar toggle
 pref("devtools.webconsole.timestampMessages", true); // Enable timestamps in the web console by default
-
-/// Disable extra logging for policies by default
-// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
-// https://searchfox.org/mozilla-central/source/browser/components/BrowserGlue.sys.mjs#967
-pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
 
 /// Disable the Accessibility Inspector/context menu item by default
 // https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
@@ -279,25 +329,28 @@ pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
 pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
-pref("browser.phoenix.status.desktop.common", "012");
+pref("browser.phoenix.status.desktop.common", "014");
 
-/*** 013 UPDATES ***/
+/*** 015 UPDATES ***/
 
 /// Browser Updates
-pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when update is available
+pref("app.update.background.interval", 3600); // Check for updates hourly when the browser is not running in the background (default is 7 hours)
+pref("app.update.badgeWaitTime", 0); // Immediately show badge on hamburger menu when an update is available
+pref("app.update.checkInstallTime.days", 0); // Ensure the binary is always old enough to check for updates
+pref("app.update.interval", 3600); // Check for updates hourly (default is 6 hours)
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
-pref("app.update.promptWaitTime", 3600); // Decrease time between update prompts, default is very generous...
+pref("app.update.promptWaitTime", 0); // Immediately prompt users to update when an update is ready
 
-pref("browser.phoenix.status.desktop.common", "013");
+pref("browser.phoenix.status.desktop.common", "015");
 
-/*** 014 SPECIALIZED/CUSTOM CONFIGS ***/
+/*** 016 SPECIALIZED/CUSTOM CONFIGS ***/
 
 /// Configure remote AutoConfig files (if active)
 pref("autoadmin.failover_to_cached", true);
 pref("autoadmin.offline_failover", true);
 pref("autoadmin.refresh_interval", 60);
 
-pref("browser.phoenix.status.desktop.common", "014");
+pref("browser.phoenix.status.desktop.common", "016");
 
 pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 

@@ -34,6 +34,7 @@
                     "Enabled": false
                 }
             },
+            "MaxConnectionsCount": 0,
             "ShowBlockedResult": true
         },
         "DisableDefaultBrowserAgent": true,

@@ -15,6 +15,10 @@
 
 // This file contains preferences specific to Phoenix on desktop.
 
+/// Add custom branding under `Firefox Updates` at `about:preferences#general`
+// This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros)
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.05.11.1 💜", locked);
+
 /* INDEX 
 
 000: ABOUT:CONFIG
@@ -46,11 +50,24 @@
 /// Disable annoying warnings when attempting to access the about:config
 pref("browser.aboutConfig.showWarning", false);
 
+/// Ensure our policies aren't overriden... [NO-OSX]
+pref("browser.policies.perUserDir", false, locked); // RedHat/Fedora-specific [NO-OSX]
+
 pref("browser.phoenix.status.desktop", "000");
 
 /*** 001 DATA COLLECTION ***/
 
 // A lot of defense in depth...
+
+/// Disable Browser Usage Telemetry metrics
+// https://searchfox.org/mozilla-central/source/browser/docs/BrowserUsageTelemetry.rst
+// https://searchfox.org/mozilla-central/source/browser/modules/BrowserUsageTelemetry.sys.mjs
+pref("browser.engagement.downloads-button.has-used", true, locked);
+pref("browser.engagement.fxa-toolbar-menu-button.has-used", true, locked);
+pref("browser.engagement.home-button.has-used", true, locked);
+pref("browser.engagement.library-button.has-used", true, locked);
+pref("browser.engagement.sidebar-button.has-used", true, locked);
+pref("browser.engagement.total_uri_count.pbm", false, locked); // [DEFAULT] [HIDDEN]
 
 /// Disable Crash Reporting
 // These specifically are used for tab crashes (`about:tabcrashed`)...
@@ -60,15 +77,24 @@ pref("browser.tabs.crashReporting.includeURL", false, locked); // [DEFAULT] - De
 pref("browser.tabs.crashReporting.sendReport", false, locked);
 
 /// Disable Data Reporting & Telemetry
+// https://searchfox.org/mozilla-release/source/browser/components/newtab/pings.yaml
 pref("browser.aboutwelcome.log", "off"); // [HIDDEN] Disable logging
+pref("browser.contextual-services.contextId", "{foo-123-foo}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
+pref("browser.engagement.search_counts.pbm", false, locked); // [DEFAULT] [HIDDEN] Disable recording search telemetry (in private windows) https://searchfox.org/mozilla-central/source/browser/components/search/BrowserSearchTelemetry.sys.mjs
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
-pref("browser.newtabpage.activity-stream.impressionId", "", locked);
+pref("browser.newtabpage.activity-stream.impressionId", "{some-fake-impression-ID}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
+pref("browser.newtabpage.ping.enabled", false, locked); // [HIDDEN]
+pref("browser.places.interactions.enabled", false, locked); // Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
+pref("browser.places.interactions.log", false); // [DEFAULT] [HIDDEN] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.privacySegmentation.preferences.show", false, locked); // [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked);
-pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT, HIDDEN]
+pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [DEFAULT] [HIDDEN]
+pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [DEFAULT]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked);
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked);
 pref("nimbus.telemetry.targetingContextEnabled", false, locked); // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js#2001
@@ -86,14 +112,12 @@ pref("default-browser-agent.enabled", false, locked); // [NO-OSX]
 // https://wiki.mozilla.org/Advocacy/heartbeat
 pref("app.normandy.api_url", "", locked);
 pref("app.normandy.enabled", false, locked);
+pref("app.normandy.experiments.lazy_classify", true, locked); // [HIDDEN] [DEFENSE IN DEPTH] Prevent making client classification requests on every startup https://mozilla.github.io/normandy/dev/feature-experiments.html
 pref("app.normandy.first_run", false, locked);
 pref("app.normandy.last_seen_buildid", "", locked);
 pref("app.normandy.logging.level", 70); // Limits logging to fatal only
 pref("app.normandy.user_id", "", locked);
 pref("messaging-system.log", "off"); // Disables logging
-
-/// Remove unnecessary links
-pref("app.normandy.shieldLearnMoreUrl", "");
 
 pref("browser.phoenix.status.desktop", "001");
 
@@ -117,10 +141,15 @@ pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds
 pref("browser.newtabpage.activity-stream.discoverystream.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "", locked);
 pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "", locked);
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "", locked); // [NIGHTLY]
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "", locked); // [NIGHTLY]
 pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.enabled", false, locked); // [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.user.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked);
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint", "", locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", "", locked); // [DEFAULT]
@@ -134,6 +163,10 @@ pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked);
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked);
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked);
 pref("messaging-system.askForFeedback", false, locked);
+
+/// Clear unnecessary/undesired Mozilla URLs
+pref("app.normandy.shieldLearnMoreUrl", "");
+pref("browser.newtabpage.activity-stream.support.url", "");
 
 /// Disable add-on/feature recommendations
 // https://support.mozilla.org/kb/recommendations-firefox
@@ -151,6 +184,7 @@ pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // ht
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false);
 pref("browser.rights.3.shown", true); // [HIDDEN]
+pref("browser.startup.homepage_override.buildID", "20181001000000", locked);
 pref("browser.startup.homepage_override.mstone", "ignore", locked);
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
 pref("startup.homepage_override_nimbus_disable_wnp", true); // "What's New" Pages
@@ -160,7 +194,6 @@ pref("startup.homepage_welcome_url", "");
 pref("startup.homepage_welcome_url.additional", ""); // [DEFAULT]
 
 /// Disable Fakespot
-pref("browser.newtabpage.activity-stream.contextualContent.fakespot.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false);
 pref("browser.shopping.experience2023.active", false);
 pref("browser.shopping.experience2023.ads.enabled", false, locked); // [DEFAULT]
@@ -168,8 +201,10 @@ pref("browser.shopping.experience2023.ads.exposure", false, locked); // [HIDDEN]
 pref("browser.shopping.experience2023.ads.userEnabled", false, locked);
 pref("browser.shopping.experience2023.autoOpen.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
+pref("browser.shopping.experience2023.control", false); // [HIDDEN]
 pref("browser.shopping.experience2023.enabled", false); // [DEFAULT]
 pref("browser.shopping.experience2023.integratedSidebar", false); // [DEFAULT]
+pref("browser.shopping.experience2023.newPositionCard.hasSeen", true);
 pref("browser.shopping.experience2023.optedIn", 2);
 pref("browser.shopping.experience2023.shoppingSidebar", false);
 pref("browser.shopping.experience2023.survey.enabled", false);
@@ -197,13 +232,14 @@ pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", ""); // [HI
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "");
+pref("browser.newtabpage.activity-stream.discoverystrean.merino-provider.ohttp.enabled", false); // [DEFAULT] [NIGHTLY]
 pref("browser.urlbar.addons.featureGate", false);
 pref("browser.urlbar.groupLabels.enabled", false);
 pref("browser.urlbar.mdn.featureGate", false);
 pref("browser.urlbar.merino.endpointURL", "");
 pref("browser.urlbar.merino.providers", "");
 pref("browser.urlbar.quicksuggest.contextualOptIn", false);
-pref("browser.urlbar.quicksuggest.enabled", false, locked); // Firefox only seems to set this for new profiles unless it's locked...
+pref("browser.urlbar.quicksuggest.enabled", false, locked); // Firefox only seems to set this for new profiles if it's locked...
 pref("browser.urlbar.quicksuggest.hideSettingsUI", true);
 pref("browser.urlbar.quicksuggest.scenario", "offline");
 pref("browser.urlbar.quicksuggest.shouldShowOnboardingDialog", false);
@@ -211,7 +247,7 @@ pref("browser.urlbar.quicksuggest.showedOnboardingDialog", true);
 pref("browser.urlbar.quicksuggest.sponsoredPriority", false, locked);
 pref("browser.urlbar.suggest.addons", false);
 pref("browser.urlbar.suggest.mdn", false);
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, locked); // Firefox only seems to set this for new profiles unless it's locked...
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, locked); // Firefox only seems to set this for new profiles if it's locked...
 pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked);
 pref("browser.urlbar.suggest.trending", false);
 pref("browser.urlbar.suggest.weather", false);
@@ -223,6 +259,7 @@ pref("browser.urlbar.yelp.featureGate", false);
 /// Disable Pocket
 pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.sections.cards.enabled", false); // "Revised Pocket Story Card UI" https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml
 pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false);
 pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 pref("browser.urlbar.pocket.featureGate", false);
@@ -247,11 +284,13 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 /// Disable the Mozilla Ad Routing Service (MARS) :/
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#221
 pref("browser.newtabpage.activity-stream.feeds.adsfeed", false, locked);
+pref("browser.newtabpage.activity-stream.discoverystream.reportAds.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.spocs.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked); // [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked);
+pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked);
 pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked);
 
@@ -268,6 +307,10 @@ pref("browser.contentblocking.report.vpn.url", "", locked);
 pref("browser.contentblocking.report.vpn-android.url", "", locked);
 pref("browser.contentblocking.report.vpn-ios.url", "", locked);
 pref("browser.contentblocking.report.vpn-promo.url", "", locked);
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.enabled", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-a", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-b", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-c", false, locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true);
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false);
 pref("browser.preferences.moreFromMozilla", false, locked);
@@ -289,10 +332,12 @@ pref("identity.sendtabpromo.url", "", locked);
 /// Disable Mozilla.UITour
 // https://mozilla.github.io/bedrock/uitour/#ui-tour
 // https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/index.html
+// https://searchfox.org/mozilla-central/source/browser/components/uitour/UITourUtils.sys.mjs
 pref("browser.uitour.enabled", false, locked);
 pref("browser.uitour.loglevel", "Off");
 pref("browser.uitour.requireSecure", true, locked); // [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked);
+pref("browser.uitour.testingOrigins", "", locked); // [DEFAULT] [HIDDEN]
 pref("browser.uitour.url", "", locked);
 
 /// Disable "Top Sites"/Sponsored content/etc.
@@ -310,6 +355,7 @@ pref("browser.newtabpage.activity-stream.feeds.system.topstories", false, locked
 pref("browser.newtabpage.pinned", '[]'); // [HIDDEN]
 pref("browser.partnerlink.attributionURL", "", locked);
 pref("browser.partnerlink.campaign.topsites", "", locked);
+pref("browser.search.param.search_rich_suggestions", "", locked); // https://searchfox.org/comm-central/source/mozilla/toolkit/components/search/AppProvidedSearchEngine.sys.mjs
 pref("browser.topsites.component.enabled", false, locked); // [DEFAULT]
 pref("browser.topsites.contile.enabled", false, locked);
 pref("browser.topsites.contile.endpoint", "", locked);
@@ -321,13 +367,14 @@ pref("browser.urlbar.sponsoredTopSites", false, locked);
 // This causes Firefox to connect to `https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/...` on every browser launch after the user navigates to `about:home` :/
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#1422
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs#22
-
 pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false);
 
 /// Disable the Web Compatibility Reporter
 // Harmless from a privacy perspective - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as attack surface reduction & a potential performance improvement
-pref("ui.new-webcompat-reporter.enabled", false); // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
+pref("ui.new-webcompat-reporter.enabled", false);
+pref("ui.new-webcompat-reporter.new-report-endpoint", "https://phoenix.celenity.dev/issues"); // [HIDDEN] Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
 
 /// Prevent checking if Firefox is the default browser
 pref("browser.shell.checkDefaultBrowser", false);
@@ -342,13 +389,31 @@ pref("browser.mailto.dualPrompt", false); // [DEFAULT]
 pref("browser.shell.checkDefaultPDF", false); // [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [HIDDEN]
 
-/// Remove tracking parameters from Mozilla URLs
-pref("app.releaseNotesURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
-pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes");
+/// Remove tracking parameters from Mozilla URLs + prevent exposing locale & unnecessary information
+// For info on the extension update (`extensions.update.`) URL parameters, see https://devdoc.net/web/developer.mozilla.org/en-US/docs/Install_Manifests.html & https://mozilla-balrog.readthedocs.io/en/latest/database.html
+pref("app.releaseNotesURL", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked);
+pref("app.update.url.details", "https://www.mozilla.org/firefox/notes", locked);
+pref("app.update.url.manual", "https://www.mozilla.org/firefox/new", locked);
+pref("browser.contentblocking.report.cookie.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_cross-site-tracking-cookies");
+pref("browser.contentblocking.report.cryptominer.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_cryptominers");
+pref("browser.contentblocking.report.fingerprinter.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_fingerprinters");
+pref("browser.contentblocking.report.lockwise.how_it_works.url", "https://support.mozilla.org/kb/password-manager-remember-delete-edit-logins");
 pref("browser.contentblocking.report.monitor.sign_in_url", "https://monitor.firefox.com/oauth/init");
 pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/");
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
+pref("browser.contentblocking.report.social.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_social-media-trackers");
+pref("browser.contentblocking.report.tracker.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_tracking-content");
+pref("browser.dictionaries.download.url", "https://addons.mozilla.org/language-tools/");
+pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/firefox/search-engines/");
+pref("browser.xr.warning.infoURL", "https://support.mozilla.org/kb/webxr-permission-info-page");
+pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/api/v4/addons/search/?guid=%IDS%");
+pref("extensions.getAddons.link.url", "https://addons.mozilla.org/");
+pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search?q=%TERMS%");
+pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&updateType=%UPDATE_TYPE%"); // Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), 'current' app/browser version (currentAppVersion), and compatibility mode (compatMode)
+pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&updateType=%UPDATE_TYPE%"); // Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), 'current' app/browser version (currentAppVersion), and compatibility mode (compatMode)
+pref("lightweightThemes.getMoreURL", "https://addons.mozilla.org/themes/");
+pref("pdfjs.altTextLearnMoreUrl", "https://support.mozilla.org/kb/pdf-alt-text");
 
 pref("browser.phoenix.status.desktop", "002");
 
@@ -367,15 +432,45 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 
 /// Set FPP granular overrides (if the related target is enabled...)
 // Currently covers:
+// Amazon (amazon.ae) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.ca) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.cn) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.co.jp) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.co.uk) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.co.za) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com.au) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com.be) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com.br) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com.tr) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.com.mx) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.de) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.eg) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.es) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.fr) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.ie) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.in) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.it) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.nl) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.pl) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.sa) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.se) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon (amazon.sg) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Amazon Log-in (loginwithamazon.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate)
+// Apple (apple.com) - (ex. for Apple ID Sign-in/Apple Pay) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate)
+// Apple (cdn-apple.com) - (ex. for Apple ID Sign-in/Apple Pay) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate)
+// Apple News (apple.news) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate) + in first-party contexts: Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked)
 // Barnes & Noble (barnesandnoble.com) - Disables spoofing screen coordinates (-ScreenRect) for account sign-in
+// Bluesky (bsky.app) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
 // Chipotle (chipotle.com) - Disables timezone spoofing (-JSDateTimeUTC) for order confirmation/estimated arrival times
 // Cinny (cinny.in) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny (pendora.io) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny/Element (transfem.dev) - Disables timezone spoofing (-JSDateTimeUTC)
 // Cinny/SchildiChat (the-apothecary.club) - Disables timezone spoofing (-JSDateTimeUTC)
 // City Barbeque (citybbq.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
-// Cloudflare (cloudflare.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Cloudflare (cloudflare.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission..., + enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access- and additionally, in third party contexts: spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme) & spoofs frame rate (+FrameRate)
 // Discord (discord.com) - Disables timezone spoofing (-JSDateTimeUTC)
+// Discord (discord.gg) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate) + in first-party contexts: Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked) + in third-party contexts: Spoofs locale (+JSLocale)
 // DoorDash (doordash.com) - Disables timezone spoofing (-JSDateTimeUTC) for estimated delivery times
 // Element (arcticfoxes.net) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (aria.im) - Disables timezone spoofing (-JSDateTimeUTC)
@@ -403,19 +498,57 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // Element (utwente.io) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (we2.ee) - Disables timezone spoofing (-JSDateTimeUTC)
 // Element (yatrix.org) - Disables timezone spoofing (-JSDateTimeUTC)
+// Epic Games (epicgames.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Favicon.io (favicon.io) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access
+// Google (goo.gl) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), spoofs frame rate (+FrameRate), and spoofs locale (+JSLocale) + in first-party contexts: Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked)
+// Google reCAPTCHA (recaptcha.net) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs Frame Rate (+FrameRate)
+// Google reCAPTCHA (recaptcha.net.cn) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs Frame Rate (+FrameRate)
+// Google reCAPTCHA (recaptcha-cn.net) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs Frame Rate (+FrameRate)
+// Gravatar (gravatar.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), spoofs Frame Rate (+FrameRate), and spoofs locale (+JSLocale)
+// iCloud (icloud.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// iCloud (icloud.com.cn) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Instagram (cdninstagram.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Instagram (instagram.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// LinkedIn (licdn.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// LinkedIn (linkedin.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Megacloud (megacloud.blog) - Allows prompting for permission to extract canvas data in third party contexts (-CanvasExtractionFromThirdPartiesIsBlocked) - Fixes video playback on various websites (ex. anicrush.to, aniwatchtv.to, & hianimez.to) - https://codeberg.org/celenity/Phoenix/issues/96
+// Megacloud (megacloud.store) - Allows prompting for permission to extract canvas data in third party contexts (-CanvasExtractionFromThirdPartiesIsBlocked) - Fixes video playback on various websites (ex. arc018.to) - https://codeberg.org/celenity/Phoenix/issues/96
+// Pinterest (pinimg.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate)
+// Pinterest (pinterest.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs frame rate (+FrameRate)
+// Pogo (pogo.com) - Allows `pogospike.com` to prompt for permission to extract canvas data (-CanvasExtractionFromThirdPartiesIsBlocked) - Fixes display issues (ex. https://www.pogo.com/games/word-whomp/play)
 // Proton Mail (proton.me) - Disables timezone spoofing (-JSDateTimeUTC)
-// PSA Bypass Link (moviezapiya.fun) - Disables spoofing WebGL renderer info (-WebGLRenderInfo) - https://codeberg.org/celenity/Phoenix/issues/95
+// PSA Bypass Link (moviezapiya.fun) - Disables spoofing WebGL renderer info (-WebGLRenderInfo) - https://codeberg.org/celenity/Phoenix/issues/95, + enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access
+// Reddit (redd.it) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Reddit (reddit.com) - Blocks (randomized) canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), as it doesn't need access and attempts to prompt users for it on desktop... - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Reddit (redditmedia.com) - Blocks (randomized) canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), as it doesn't need access and attempts to prompt users for it on desktop... - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Reddit (redditstatic.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
 // Riverside.FM Studio (riverside.fm) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
 // Stack Social (stacksocial.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
-// TikTok (tiktok.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
-// TileMan.io (tileman.io) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked) to prevent it from bombarding users with prompts despite not actually needing the permission...
+// TikTok (tiktok.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission... - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// TileMan.io (tileman.io) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked) to prevent it from bombarding users with prompts despite not actually needing the permission..., as it doesn't need access and attempts to prompt users for it on desktop...
 // USPS (usps.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
+// Vimeo (vimeo.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// Vimeo (vimeocdn.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// X/Twitter (t.co) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), spoofs frame rate (+FrameRate), and spoofs locale (+JSLocale) + in first-party contexts: Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked)
+// X/Twitter (twimg.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs locale (+JSLocale)
+// X/Twitter (twitter.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// X/Twitter (x.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
 // Yahoo! (yahoo.com) - Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked), to prevent it from prompting users despite not needing the permission...
-pref("privacy.fingerprintingProtection.granularOverrides", '[{"firstPartyDomain":"arcticfoxes.net","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"aria.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"barnesandnoble.com","overrides":"-ScreenRect"},{"firstPartyDomain":"bitcoinist.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chatwave.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chipotle.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cinny.in","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"citybbq.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cloudflare.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"discord.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"doordash.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"duesen.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"element.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"flieger.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"g24.at","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gemeinsam.jetzt","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gnulinux.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"hot-chilli.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"kosmikdog.eu","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"moviezapiya.fun","overrides":"-WebGLRenderInfo"},{"firstPartyDomain":"mtrx.nz","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"neat.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nitro.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nope.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"oblak.be","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pcriot.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pendora.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"proton.me","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"riverside.fm","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"rollenspiel.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"socialnetwork24.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"stacksocial.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"studichat.de","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"synod.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"the-apothecary.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"tiktok.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"tileman.io","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"transfem.dev","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"unredacted.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"usps.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"utwente.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"we2.ee","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"yahoo.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"yatrix.org","overrides":"-JSDateTimeUTC"}]');
+// YouTube (googlevideo.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), and spoofs locale (+JSLocale)
+// YouTube (youtu.be) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme), spoofs frame rate (+FrameRate), and spoofs locale (+JSLocale) + in first-party contexts: Blocks canvas data extraction before user input (+CanvasExtractionBeforeUserInputIsBlocked)
+// YouTube (youtube.com) - In third party contexts: Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+// YouTube (youtube-nocookie.com) - Enables timezone spoofing (+JSDateTimeUTC) as it doesn't need access, and spoofs CSS `prefers-color-scheme` (+CSSPrefersColorScheme)
+pref("privacy.fingerprintingProtection.granularOverrides", '[{"firstPartyDomain":"amazon.ae","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.ca","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.cn","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.co.jp","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.co.uk","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.co.za","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com.au","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com.be","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com.br","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com.mx","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.com.tr","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.de","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.eg","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.es","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.fr","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.ie","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.in","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.it","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.nl","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.pl","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.sa","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.se","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"amazon.sg","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"apple.news","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"arcticfoxes.net","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"aria.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"barnesandnoble.com","overrides":"-ScreenRect"},{"firstPartyDomain":"bitcoinist.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chatwave.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"chipotle.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cinny.in","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"citybbq.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"cloudflare.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+JSDateTimeUTC"},{"firstPartyDomain":"discord.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"discord.gg","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"doordash.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"duesen.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"element.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"epicgames.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"favicon.io","overrides":"+JSDateTimeUTC"},{"firstPartyDomain":"flieger.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"g24.at","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"goo.gl","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"gemeinsam.jetzt","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"gnulinux.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"hot-chilli.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"icloud.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"icloud.com.cn","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"kosmikdog.eu","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"moviezapiya.fun","overrides":"-WebGLRenderInfo"},{"firstPartyDomain":"mtrx.nz","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"neat.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nitro.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"nope.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"oblak.be","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pcriot.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pendora.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"pogo.com","thirdPartyDomain":"pogospike.com","overrides":"-CanvasExtractionFromThirdPartiesIsBlocked"},{"firstPartyDomain":"proton.me","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"reddit.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"redditmedia.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"riverside.fm","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"rollenspiel.chat","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"socialnetwork24.com","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"stacksocial.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"studichat.de","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"synod.im","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"t.co","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"the-apothecary.club","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"tiktok.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"tileman.io","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+JSDateTimeUTC"},{"firstPartyDomain":"transfem.dev","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"unredacted.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"usps.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"utwente.io","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"we2.ee","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"yahoo.com","overrides":"+CanvasExtractionBeforeUserInputIsBlocked"},{"firstPartyDomain":"yatrix.org","overrides":"-JSDateTimeUTC"},{"firstPartyDomain":"youtu.be","overrides":"+CanvasExtractionBeforeUserInputIsBlocked,+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"youtube-nocookie.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"apple.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"apple.news","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"bsky.app","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"cdn-apple.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"cdninstagram.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"cloudflare.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"discord.gg","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"favicon.io","overrides":"+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"goo.gl","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"googlevideo.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"gravatar.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"instagram.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"licdn.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"linkedin.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"loginwithamazon.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"megacloud.blog","overrides":"-CanvasExtractionFromThirdPartiesIsBlocked"},{"firstPartyDomain":"*","thirdPartyDomain":"megacloud.store","overrides":"-CanvasExtractionFromThirdPartiesIsBlocked"},{"firstPartyDomain":"*","thirdPartyDomain":"moviezapiya.fun","overrides":"+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"pinimg.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"pinterest.com","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"recaptcha.net","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"recaptcha.net.cn","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"recaptcha-cn.net","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"redd.it","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"reddit.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"redditmedia.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"redditstatic.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"t.co","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"tiktok.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"tileman.io","overrides":"+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"twitter.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"twimg.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"vimeo.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"vimeocdn.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"x.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"youtu.be","overrides":"+CSSPrefersColorScheme,+FrameRate,+JSDateTimeUTC,+JSLocale"},{"firstPartyDomain":"*","thirdPartyDomain":"youtube.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"},{"firstPartyDomain":"*","thirdPartyDomain":"youtube-nocookie.com","overrides":"+CSSPrefersColorScheme,+JSDateTimeUTC"}]');
 
 pref("browser.phoenix.status.desktop", "003");
 
 /*** 004 DISK AVOIDANCE ***/
+
+/// Clear browsing history, download history, and sessions on exit by default
+pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT]
+pref("privacy.clearOnShutdown_v2.downloads", true); // [HIDDEN]
+pref("privacy.clearOnShutdown_v2.formdata", true);
+pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true);
 
 /// Disable favicons in shortcuts
 // Prevents .ico files from persisting, even after deletion
@@ -428,6 +561,8 @@ pref("browser.laterrun.enabled", false); // [DEFAULT]
 
 /// Disable logging blocked domains to `about:protections`
 pref("browser.contentblocking.cfr-milestone.enabled", false);
+pref("browser.contentblocking.cfr-milestone.milestone-shown-time", "999999999"); // [HIDDEN]
+pref("browser.contentblocking.cfr-milestone.update-interval", 0); // [HIDDEN]
 
 /// Enable a fire button in Private Browsing Windows to reset the session
 pref("browser.privatebrowsing.resetPBM.enabled", true); // [DEFAULT - Nightly]
@@ -456,19 +591,11 @@ pref("browser.phoenix.status.desktop", "004");
 
 /*** 005 HTTP(S) ***/
 
-/// Enable MITM Detection
-// https://github.com/arkenfox/user.js/issues/740
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
-pref("security.certerrors.mitm.priming.enabled", true); // [DEFAULT]
-
 /// Enforce HTTPS-Only Mode
 // We're not locking this for Android/Thundebird since it's unfortunately not possible to add exceptions there...
 // https://gitlab.com/ironfox-oss/IronFox/-/issues/48
 pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode_pbm", true, locked);
-
-/// Restrict certificate error exceptions to only last for the current session
-pref("security.certerrors.permanentOverride", false);
 
 pref("browser.phoenix.status.desktop", "005");
 
@@ -512,6 +639,11 @@ pref("browser.urlbar.update2.engineAliasRefresh", true); // [HIDDEN]
 /// Exclude JavaScript URLS from results
 pref("browser.urlbar.filter.javascript", true); // [DEFAULT]
 
+/// Highlight domains and other styling
+// Protects against phishing
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/preferences.rst
+pref("browser.urlbar.formatting.enabled", true); // [DEFAULT] [HIDDEN]
+
 // Nice to have
 pref("browser.urlbar.scotchBonnet.enableOverride", true); // [DEFAULT - Nightly] Adds Unified Search button to easily switch search engines in URL Bar - https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/ + other tweaks
 pref("browser.urlbar.shortcuts.actions", false); // [HIDDEN]
@@ -529,6 +661,7 @@ pref("browser.urlbar.placeholderName", "");
 pref("browser.urlbar.placeholderName.private", "");
 
 /// Show the URL instead of search terms
+pref("browser.urlbar.restyleSearches", false); // [DEFAULT] [HIDDEN]
 pref("browser.urlbar.showSearchTerms.enabled", false);
 pref("browser.urlbar.showSearchTerms.featureGate", false);
 
@@ -542,6 +675,11 @@ pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UI
 pref("browser.phoenix.status.desktop", "008");
 
 /*** 009 MEDIA ***/
+
+/// Add DRM notes
+pref("media.eme.enabled.3.note", "You will also need to enable GMP and a CDM.");
+pref("media.eme.enabled.4.note", "See media.gmp-provider.enabled, media.gmp-widevinecdm.enabled & media.media.gmp-widevinecdm.visible");
+pref("media.eme.enabled.5.note.WINDOWS", "WINDOWS USERS: Also see media.eme.playready.enabled, media.gmp-widevinecdm-l1.enabled, & media.gmp-widevinecdm-l1.visible"); // [NO-OSX]
 
 /// Remove DRM toggle from `about:preferences#general`
 pref("browser.eme.ui.enabled", false);
@@ -600,10 +738,6 @@ pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked)
 // Setting this pref to `sticky` causes it to reset per session, which is quite nice from a security perspective, as it allows users to enable this functionality only when it's necessary...
 // Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it.
 pref("xpinstall.enabled", false, sticky); // [HIDDEN]
-
-/// Never allow installing extensions without first prompting the user
-// https://github.com/arkenfox/user.js/issues/1090
-pref("extensions.postDownloadThirdPartyPrompt", false, locked);
 
 /// Only allow installation of signed extensions by default
 // Extensions are still limited to the sources we allow in policies...
@@ -708,12 +842,16 @@ pref("permissions.default.desktop-notification", 2);
 // https://mozilla.github.io/policy-templates/#disableprofilerefresh 
 pref("browser.disableResetPrompt", true, locked); // [HIDDEN]
 
+/// Disable network connectivity status monitoring [NO-OSX]
+// (Ex. used for automatically switching between offline & online mode) [NO-OSX]
+// AFAICT this pref is no longer (maybe has never been?) present in Firefox, but Red Hat/Fedora sets it anyways for whatever reason... so we can still set it to `false` for consistency [NO-OSX]
+pref("offline.autoDetect", false); // [HIDDEN] [NO-OSX]
+
 /// Disable weather on `about:home` by default
 pref("browser.newtabpage.activity-stream.showWeather", false);
 
-/// Enable Firefox's newer 'Felt privacy' design for Private Browsing & Certificate Errors
+/// Enable Firefox's newer 'Felt privacy' design for Private Browsing
 pref("browser.privatebrowsing.felt-privacy-v1", true);
-pref("security.certerrors.felt-privacy-v1", true);
 
 /// Hide the Firefox logo on `about:home` by default
 pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
@@ -721,8 +859,14 @@ pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 /// Notify on Pop-up blocking by default
 pref("privacy.popups.showBrowserMessage", true); // [DEFAULT]
 
+/// Open links from external programs in new tabs by default
+pref("browser.link.open_newwindow.override.external", 3);
+
 /// Prevent websites from automatically refreshing
 pref("accessibility.blockautorefresh", true);
+
+/// Show advanced details on pages blocked by Safe Browsing by default
+pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true);
 
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...)
 pref("permissions.media.show_always_ask.enabled", true);
@@ -739,6 +883,10 @@ pref("sidebar.animation.enabled", false);
 /// Disable tab hover previews by default
 pref("browser.tabs.hoverPreview.enabled", false);
 pref("browser.tabs.hoverPreview.showThumbnails", false);
+
+/// Enable advanced performance settings at `about:preferences#general`
+// Despite what the name suggests, Firefox will remain at the default/recommended performance settings - all this does is expose the UI settings...
+pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 
 /// Enable VA-API by default [LINUX] [NO-OSX]
 pref("media.ffmpeg.vaapi.enabled", true); // [NO-OSX]
@@ -831,13 +979,18 @@ pref("browser.tabs.groups.enabled", true); // [DEFAULT - Nightly] Enable Tab Gro
 pref("browser.tabs.loadBookmarksInTabs", true);
 pref("browser.tabs.unloadTabInContextMenu", true); // Adds an 'Unload Tab' option to context menu when right clicking tabs
 pref("browser.toolbars.bookmarks.visibility", "always"); // Always show the Bookmarks toolbar by default https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites
-pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences`
+pref("browser.translations.newSettingsUI.enable", true); // Enable improved UI in `about:preferences#general`
 
 /// Clean-up default UI
 pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","reset-pbm-toolbar-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","tabbrowser-tabs","new-tab-button"],"vertical-tabs":[],"PersonalToolbar":["personal-bookmarks","personal-bookmarks"],"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","vertical-spacer","stop-reload-button","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","reset-pbm-toolbar-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"vertical-tabs":[]},"seen":["reset-pbm-toolbar-button","developer-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","developer-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","unified-extensions-area","TabsToolbar","unified-extensions-area","nav-bar","vertical-tabs"],"currentVersion":21,"newElementCount":7}');
 
 /// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools
 pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [HIDDEN]
+
+/// Disable extra logging for policies by default
+// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config
+// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
+pref("browser.policies.loglevel", "error"); // [DEFAULT, HIDDEN]
 
 /// Enable Backup UI settings (at `about:preferences#general`)
 pref("browser.backup.preferences.ui.enabled", true);
@@ -853,6 +1006,9 @@ pref("sidebar.visibility", "hide-sidebar"); // Hide by default
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1915736 [NO-OSX]
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-OSX]
 pref("browser.taskbarTabs.enabled", true); // [HIDDEN] [NO-OSX]
+
+/// Show content scripts injected by extensions when debugging
+pref("devtools.debugger.show-content-scripts", true);
 
 pref("browser.phoenix.status.desktop", "018");
 

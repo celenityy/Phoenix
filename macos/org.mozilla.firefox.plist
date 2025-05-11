@@ -71,6 +71,8 @@
 				<false/>
 			</dict>
 		</dict>
+		<key>MaxConnectionsCount</key>
+		<integer>0</integer>
 		<key>ShowBlockedResult</key>
 		<true/>
 	</dict>
