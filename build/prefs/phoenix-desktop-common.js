@@ -28,10 +28,11 @@
 009: DEBUGGING
 010: MISC. PRIVACY
 011: MISC. SECURITY
-012: PERFORMANCE
-013: Personal Touch 💜
-014: UPDATES
-015: SPECIALIZED/CUSTOM CONFIGS
+012: MISC.
+013: PERFORMANCE
+014: Personal Touch 💜
+015: UPDATES
+016: SPECIALIZED/CUSTOM CONFIGS
 
 */
 
@@ -252,7 +253,16 @@ pref("security.sandbox.warn_unprivileged_namespaces", true); // [DEFAULT] [LINUX
 
 pref("browser.phoenix.status.desktop.common", "011");
 
-/*** 012 PERFORMANCE ***/
+/*** 012 MISC. ***/
+
+/// Disable network connectivity status monitoring [NO-OSX]
+// (Ex. used for automatically switching between offline & online mode)  [NO-OSX]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=620472 [NO-OSX]
+pref("toolkit.networkmanager.disable", true); // RedHat/Fedora-specific [NO-OSX]
+
+pref("browser.phoenix.status.desktop.common", "012");
+
+/*** 013 PERFORMANCE ***/
 
 /// Disable certain UI animations
 // https://searchfox.org/mozilla-central/source/widget/nsXPLookAndFeel.cpp
@@ -264,9 +274,9 @@ pref("ui.swipeAnimationEnabled", 0); // [HIDDEN]
 /// Taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 pref("network.http.max-connections", 1800); // [Default = 900]
 
-pref("browser.phoenix.status.desktop.common", "012");
+pref("browser.phoenix.status.desktop.common", "013");
 
-/*** 013 Personal Touch 💜 ***/
+/*** 014 Personal Touch 💜 ***/
 
 /// Things that are  nice to have™
 // Not directly privacy & security related
@@ -319,9 +329,9 @@ pref("ui.useAccessibilityTheme", 0); // [DEFAULT, HIDDEN]
 
 pref("security.xfocsp.hideOpenInNewWindow", false); // [ESR]
 
-pref("browser.phoenix.status.desktop.common", "013");
+pref("browser.phoenix.status.desktop.common", "014");
 
-/*** 014 UPDATES ***/
+/*** 015 UPDATES ***/
 
 /// Browser Updates
 pref("app.update.background.interval", 3600); // Check for updates hourly when the browser is not running in the background (default is 7 hours)
@@ -331,16 +341,16 @@ pref("app.update.interval", 3600); // Check for updates hourly (default is 6 hou
 pref("app.update.notifyDuringDownload", true); // Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 0); // Immediately prompt users to update when an update is ready
 
-pref("browser.phoenix.status.desktop.common", "014");
+pref("browser.phoenix.status.desktop.common", "015");
 
-/*** 015 SPECIALIZED/CUSTOM CONFIGS ***/
+/*** 016 SPECIALIZED/CUSTOM CONFIGS ***/
 
 /// Configure remote AutoConfig files (if active)
 pref("autoadmin.failover_to_cached", true);
 pref("autoadmin.offline_failover", true);
 pref("autoadmin.refresh_interval", 60);
 
-pref("browser.phoenix.status.desktop.common", "015");
+pref("browser.phoenix.status.desktop.common", "016");
 
 pref("browser.phoenix.status.desktop.common", "successfully applied :D", locked);
 
