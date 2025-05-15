@@ -1,5 +1,5 @@
 ! Title: Phoenix - Quick fixes
-! Version: 14May2025v1
+! Version: 15May2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
@@ -9,10 +9,6 @@
 !! https://github.com/easylist/easylist/issues/21811
 !!! EasyList
 getconnected.southwestwifi.com#@##adModal
-
-!! https://github.com/uBlockOrigin/uAssets/issues/28345
-!!! Block Outsider Intrusion into LAN
-@@||media.southwestwifi.com^$domain=getconnected.southwestwifi.com
 
 !! https://github.com/easylist/easylist/issues/21710
 !!! EasyList - Newsletter Notices
