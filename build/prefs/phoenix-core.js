@@ -1517,6 +1517,13 @@ pref("browser.phoenix.status.core", "022");
 
 /*** 023 MISC. PRIVACY ***/
 
+/// Disable CSP Reporting
+// Fingerprinting concerns, Used for analytics by design
+// Also reduces unsolicited network activity and bandwidth consumption
+// Glad we managed to convince Mozilla to add this :)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1964249
+pref("security.csp.reporting.enabled", false); // [NIGHTLY]
+
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/
 pref("browser.send_pings", false); // [DEFAULT]
@@ -1594,8 +1601,7 @@ pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 
 /// Limit CSP reporting
 // We block CSP reports with uBlock Origin by default (and disable them entirely on IronFox)
-// But we unfortunately can't disable them on standard Firefox (though I hope we can in the future... see Bugzilla issue linked below)
-// So this limits them to the minimum allowed
+// Mozilla thankfully listened and added support for disabling CSP reports; but the pref (security.csp.reporting.enabled) is currently only available on Nightly, so we'll keep these for the time being, but eventually remove
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1964249
 pref("security.csp.reporting.limit.count", 1); // [DEFAULT: 100]
 pref("security.csp.reporting.limit.timespan", 999999999); // [DEFAULT: 2]
