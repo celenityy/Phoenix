@@ -1517,7 +1517,7 @@ pref("browser.phoenix.status.core", "022");
 
 /*** 023 MISC. PRIVACY ***/
 
-/// Disable CSP Reporting
+/// Disable CSP reporting
 // Fingerprinting concerns, Used for analytics by design
 // Also reduces unsolicited network activity and bandwidth consumption
 // Glad we managed to convince Mozilla to add this :)
