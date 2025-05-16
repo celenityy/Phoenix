@@ -1,10 +1,14 @@
 ! Title: Phoenix - Quick fixes
-! Version: 15May2025v1
+! Version: 15May2025v2
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
 ! The goal of the list will be to fix/workaround issues caused by our uBlock Origin config/default filterlists until they're fixed by their respective authors upstream.
 ! Rules here should be TEMPORARY, and will be removed once the issue is corrected.
+
+!! https://github.com/uBlockOrigin/uAssets/issues/28360
+!!! Block Outsider Intrusion into LAN
+@@||aainflight.com^$domain=aa.entertainment.viasat.com
 
 !! https://github.com/easylist/easylist/issues/21811
 !!! EasyList
