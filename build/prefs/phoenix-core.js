@@ -1131,6 +1131,9 @@ pref("network.negotiate-auth.allow-proxies", false);
 pref("network.negotiate-auth.delegation-uris", ""); // [DEFAULT]
 pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT] Modified by ex. RedHat/Fedora
 
+/// Enable anti-spoof confirmation prompts
+pref("network.auth.confirmAuth.enabled", true);
+
 /// Enable strong password generation (if the Password Manager is enabled) by default
 pref("signon.generation.enabled", true); // [DEFAULT]
 
