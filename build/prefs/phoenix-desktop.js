@@ -184,7 +184,7 @@ pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // ht
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false);
 pref("browser.rights.3.shown", true); // [HIDDEN]
-pref("browser.startup.homepage_override.buildID", "20181001000000", locked);
+pref("browser.startup.homepage_override.buildID", "20100101", locked); // Ex. matches what Tor Browser uses
 pref("browser.startup.homepage_override.mstone", "ignore", locked);
 pref("browser.suppress_first_window_animation", true); // [DEFAULT]
 pref("startup.homepage_override_nimbus_disable_wnp", true); // "What's New" Pages
