@@ -57,6 +57,10 @@ pref("browser.phoenix.status.android", "002");
 
 /*** 003 FINGERPRINTING PROTECTION ***/
 
+/// Ensure we use the standard Noto Color Emoji font by default (instead of ex. Samsung's if available)
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43023
+pref("font.name-list.emoji", "Noto Color Emoji");
+
 /// Harden FPP (which we enable at `003` in `Phoenix-Core`) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Android#fingerprinting
 // This also improves security - Attack Surface Reduction, reduced timer precision
