@@ -496,6 +496,11 @@ pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-A
 // Matches with RFP & prevents exposing system theme
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
+/// Prevent enumeration of media devices
+// Exceptions can be set via the `media.devices.enumerate.legacy.allowlist` pref
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1528042
+pref("media.devices.enumerate.legacy.enabled", false); // [DEFAULT]
+
 /// Prevent using system accent colors
 pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thunderbird Windows]
 
