@@ -478,6 +478,12 @@ pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fingerprinting-protection-overrides/changeset?_expected=0
 pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
 
+/// Disable VP9 Benchmark
+// This means that VP9 will always be enabled regardless of performance benchmarks (unless on a plaform where this isn't supported)
+// This likely also results in a performance improvement, so that's nice
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/22548
+pref("media.benchmark.vp9.threshold", 0);
+
 /// Enable canvas randomization for the browser chrome
 pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", false); // [DEFAULT]
 
