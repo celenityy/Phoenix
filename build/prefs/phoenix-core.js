@@ -640,6 +640,9 @@ pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
 /// Disable insecure ciphers (Like Chromium & Tor Browser)
 // https://gitlab.torproject.org/tpo/applications/mullvad-browser/-/issues/361#note_3089049
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1600437
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1036765
+pref("security.ssl3.dhe_rsa_aes_128_sha", false); // [DEFAULT]
+pref("security.ssl3.dhe_rsa_aes_256_sha", false); // [DEFAULT]
 pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
 pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 
