@@ -180,7 +180,7 @@ pref("browser.phoenix.status.desktop.common", "008"); // [NO-OSX]
 pref("devtools.inspector.remote", false, locked); // [DEFAULT]
 
 /// Unbreak debugging if `localhost` can't be looked up via DNS
-// Ex. Tor Browser
+// (Ex. Tor Browser)
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16523
 pref("devtools.debugger.chrome-debugging-host", "127.0.0.1");
 
