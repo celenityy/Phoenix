@@ -571,6 +571,11 @@ pref("browser.cache.disk_cache_ssl", false);
 /// Disable logging blocked domains to `about:protections`
 pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
 
+/// Disable WebRTC history
+// History will still gather when `about:webrtc` is open
+// Also likely improves performance...
+pref("media.aboutwebrtc.hist.enabled", false); // [DEFAULT - non-Nightly]
+
 /// Prevent clearing passwords & site settings by default
 pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
 pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT, HIDDEN - Android/Thunderbird]
