@@ -1532,6 +1532,7 @@ pref("dom.reporting.header.enabled", false); // [DEFAULT]
 // https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
 pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
+pref("dom.webgpu.workers.enabled", false); // For DOM workers [DEFAULT - non-Nightly]
 
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
