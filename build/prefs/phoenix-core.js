@@ -490,6 +490,11 @@ pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-A
 // Matches with RFP & prevents exposing system theme
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
+/// Set a fixed temporary storage limit
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41065
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1781277
+pref("dom.quotaManager.temporaryStorage.fixedLimit", 52428800); // Ex. matches what Tor Browser uses & what Firefox uses by default in most cases
+
 /// Round window sizes
 pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Android/Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
