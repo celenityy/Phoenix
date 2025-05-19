@@ -744,6 +744,9 @@ pref("network.stricttransportsecurity.preloadlist", true); // [DEFAULT]
 // https://github.com/arkenfox/user.js/issues/1576
 pref("security.OCSP.require", true);
 
+/// If HTTPS-Only Mode is disabled in favor of HTTPS-First, prevent automatically exempting domains (to ensure we always try HTTPS first...)
+pref("dom.security.https_first_add_exception_on_failure", false);
+
 /// Only allow certificate error exceptions per-session
 pref("security.certerrors.permanentOverride", false); // [HIDDEN - Android/Thunderbird]
 
