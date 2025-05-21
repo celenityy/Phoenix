@@ -266,9 +266,8 @@ pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [DEFAUL
 pref("xpinstall.enabled", true); // [DEFAULT, HIDDEN]
 
 /// Enable mozAddonManager
-// mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains
-// This API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
-// But it's required for the installation of extensions from `addons.mozilla.org`, so let's ensure it's enabled by default to prevent issues
+// mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains, and this API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
+// But it's required for the installation of extensions from `addons.mozilla.org` on Android, so let's ensure it's enabled by default to prevent issues
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
 pref("extensions.webapi.enabled", true);
