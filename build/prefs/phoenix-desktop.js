@@ -606,6 +606,9 @@ pref("browser.phoenix.status.desktop", "004");
 pref("dom.security.https_only_mode", true, locked);
 pref("dom.security.https_only_mode_pbm", true, locked);
 
+/// If HTTPS-Only Mode is disabled in favor of HTTPS-First, prevent automatically exempting domains (to ensure we always try HTTPS first...)
+pref("dom.security.https_first_add_exception_on_failiure", false); // [ESR]
+
 pref("browser.phoenix.status.desktop", "005");
 
 /*** 006 IMPLICIT CONNECTIONS ***/
