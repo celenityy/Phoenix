@@ -274,7 +274,7 @@ pref("toolkit.contentRelevancy.log", false); // [DEFAULT]
 
 /// Disable mozAddonManager
 // mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains, and this API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
-// Note that the following preferences break installion of extensions on Android (from `addons.mozilla.org`) & Thunderbird (from `addons.thunderbird.net`)
+// Note that the following preferences break installation of extensions (from `addons.mozilla.org`) on Android & Thunderbird (from `addons.thunderbird.net`)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
 pref("extensions.webapi.enabled", false);
