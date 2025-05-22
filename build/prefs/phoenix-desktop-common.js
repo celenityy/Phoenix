@@ -73,6 +73,11 @@ pref("browser.phoenix.status.desktop.common", "002");
 
 /*** 003 FINGERPRINTING PROTECTION ***/
 
+/// Disable V-Sync [LINUX] [NO-OSX]
+// Fingerprinting concerns, and also likely improves performance [NO-OSX]
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43236 [NO-OSX]
+pref("widget.wayland.vsync.enabled", false); // [NO-OSX]
+
 /// Harden FPP (for ESR users...)
 // https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
 pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // [ESR] (This is the equivalent of the `-CanvasExtractionBeforeUserInputIsBlocked` target)
