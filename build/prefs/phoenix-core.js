@@ -506,6 +506,7 @@ pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thund
 
 /// Prevent using system colors
 pref("browser.display.use_system_colors", false); // [DEFAULT - non-Windows]
+pref("ui.use_standins_for_native_colors", true); // This does the same thing as the 'UseStandinsForNativeColors' RFP/FPP target (so it shouldn't interfere with FPP/RFP) - but I also want to set this here to ensure users are protected if they disable FPP for whatever reason, or if they disable ETP/Strict for a specific site/add an exception - https://searchfox.org/mozilla-central/source/layout/style/PreferenceSheet.cpp#69
 
 /// Prompt to spoof locale to en-US
 pref("privacy.spoof_english", 0); // [DEFAULT]
@@ -522,6 +523,11 @@ pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", t
 /// Round window sizes
 pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Android/Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
+
+/// Sanitize WebGL renderer info
+// Redundant with FPP/RFP's 'WebGLRenderInfo' target, but we can still set anyways to ensure we're covered
+// https://searchfox.org/mozilla-central/source/dom/canvas/SanitizeRenderer.cpp
+pref("webgl.sanitize-unmasked-renderer", true); // [DEFAULT] [DEFENSE IN DEPTH]
 
 /// Set a fixed temporary storage limit
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41065
