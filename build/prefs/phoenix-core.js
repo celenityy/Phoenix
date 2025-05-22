@@ -1734,6 +1734,12 @@ pref("security.sandbox.gpu.level", 1); // [DEFAULT - Windows]
 pref("browser.opaqueResponseBlocking", true); // [DEFAULT - non-Android]
 pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 
+/// Enable Origin-keyed agent clustering by default (Like Chromium)
+// https://chromeenterprise.google/policies/#OriginAgentClusterDefaultEnabled
+// https://developer.chrome.com/blog/immutable-document-domain/
+pref("dom.origin_agent_cluster.default", true);
+pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
+
 /// Enable the Sanitizer API
 // https://github.com/WICG/sanitizer-api
 pref("dom.security.sanitizer.enabled", true);
