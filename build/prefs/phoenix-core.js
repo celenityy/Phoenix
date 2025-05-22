@@ -1545,6 +1545,16 @@ pref("dom.reporting.header.enabled", false); // [DEFAULT]
 pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
 pref("dom.webgpu.workers.enabled", false); // For DOM workers [DEFAULT - non-Nightly]
 
+/// Disable WebMIDI
+// PRIVACY: Fingerprinting concerns
+// SECURITY: Attack Surface Reduction
+// See "Privacy Considerations" & "Security Considerations": https://webaudio.github.io/web-midi-api
+// Toggling 'dom.webmidi.enabled' itself could be fingerprintable, but setting these instead just causes the permission to be automatically denied at a random interval
+// https://searchfox.org/mozilla-central/source/dom/midi/MIDIPermissionRequest.cpp#119
+// Test: https://permission.site/
+pref("dom.sitepermsaddon-provider.enabled", false);
+pref("dom.webmidi.gated", true, locked); // [DEFAULT]
+
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
 // SECURITY: Protects the authenticity and integrity of messages
