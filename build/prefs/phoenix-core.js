@@ -1734,7 +1734,9 @@ pref("dom.security.setHTML.enabled", true);
 
 /// Enable GPU Sandboxing
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
-pref("security.sandbox.gpu.level", 1); // [DEFAULT - Windows]
+// https://searchfox.org/mozilla-central/source/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#1181
+// https://searchfox.org/mozilla-central/source/security/sandbox/chromium/sandbox/win/src/security_level.h#38
+pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default - Windows), 2 = USER_LIMITED (Stricter)]
 
 /// Enable Opaque Response Blocking
 // https://github.com/annevk/orb
