@@ -1753,6 +1753,10 @@ pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
 // https://github.com/WICG/sanitizer-api
 pref("dom.security.sanitizer.enabled", true);
 
+/// Enable socket process sandboxing
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1608558
+pref("security.sandbox.socket.process.level", 1); // [DEFAULT - Linux, non-Thunderbird]
+
 /// Enable Spectre mitigations for isolated content
 // Also enabled by ex. Tor Browser
 pref("javascript.options.spectre.disable_for_isolated_content", false);
