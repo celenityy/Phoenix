@@ -59,7 +59,7 @@ pref("browser.phoenix.version", "2025.05.11.1", locked);
 pref("general.warnOnAboutConfig", false);
 
 /// Ensure that about:config is always enabled
-pref("general.aboutConfig.enable", true, locked); // [DEFAULT on Desktop]
+pref("general.aboutConfig.enable", true, locked); // [DEFAULT - Desktop]
 
 /// Ensure our policies aren't overriden...
 // https://searchfox.org/mozilla-central/source/toolkit/components/enterprisepolicies/EnterprisePoliciesParent.sys.mjs
