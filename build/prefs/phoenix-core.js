@@ -1408,11 +1408,16 @@ pref("browser.safebrowsing.allowOverride", true); // [DEFAULT]
 // https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 pref("browser.safebrowsing.downloads.remote.enabled", false);
 
-/// Prevent sharing data with Google
+/// Prevent sharing data with Google & Mozilla
+// https://searchfox.org/mozilla-central/source/netwerk/url-classifier/nsChannelClassifier.cpp#364
+// https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/nsUrlClassifierDBService.cpp#1964
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
-pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT, HIDDEN - non-Android]
+pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN - non-Android]
+pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
+pref("browser.safebrowsing.provider.mozilla.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
+pref("browser.safebrowsing.provider.mozilla.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
 
 /// Proxy Safe Browsing
 // These are using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
