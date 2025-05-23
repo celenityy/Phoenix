@@ -1980,6 +1980,12 @@ pref("dom.manifest.enabled", true); // [DEFAULT]
 // This is the `Zoom on all websites` setting on Android
 pref("browser.ui.zoom.force-user-scalable", true);
 
+/// Ensure users can always control Nimbus recipes
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#344
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#513
+pref("nimbus.debug", true); // [HIDDEN - non-Firefox Desktop]
+pref("nimbus.validation.enabled", false); // [HIDDEN - non-Firefox Desktop]
+
 /// Set default URL to load when navigating to `moz://a`
 // Default is https://www.mozilla.org/about/manifesto/
 // https://searchfox.org/mozilla-central/source/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs
