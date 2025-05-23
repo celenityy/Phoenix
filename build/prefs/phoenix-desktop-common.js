@@ -288,7 +288,7 @@ pref("browser.phoenix.status.desktop.common", "013");
 
 /*** 014 Personal Touch 💜 ***/
 
-/// Things that are  nice to have™
+/// Things that are nice to have™
 // Not directly privacy & security related
 
 /// Enable the ability to download and switch locales
