@@ -1749,6 +1749,16 @@ pref("browser.opaqueResponseBlocking.javascriptValidator", true); // [DEFAULT]
 pref("dom.origin_agent_cluster.default", true);
 pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
 
+/// Enforce Per-site Process Isolation + isolate all websites
+// https://wiki.mozilla.org/Project_Fission
+pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird]
+pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT - Android] Use one isolated content process per origin https://searchfox.org/mozilla-central/source/dom/docs/ipc/process_model.rst
+pref("fission.autostart", true); // [DEFAULT - non-Android]
+pref("fission.autostart.session", true); // [DEFAULT - non-Android]
+pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
+pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/mozilla-central/source/dom/ipc/ProcessIsolation.cpp
+pref("gfx.webrender.all", true);
+
 /// Enable the Sanitizer API
 // https://github.com/WICG/sanitizer-api
 pref("dom.security.sanitizer.enabled", true);
@@ -1760,16 +1770,6 @@ pref("security.sandbox.socket.process.level", 1); // [DEFAULT - Linux, non-Thund
 /// Enable Spectre mitigations for isolated content
 // Also enabled by ex. Tor Browser
 pref("javascript.options.spectre.disable_for_isolated_content", false);
-
-/// Enforce Site Isolation + isolate all websites
-// https://wiki.mozilla.org/Project_Fission
-pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird]
-pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT - Android] Use one isolated content process per origin https://searchfox.org/mozilla-central/source/dom/docs/ipc/process_model.rst
-pref("fission.autostart", true); // [DEFAULT - non-Android]
-pref("fission.autostart.session", true); // [DEFAULT - non-Android]
-pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
-pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/mozilla-central/source/dom/ipc/ProcessIsolation.cpp
-pref("gfx.webrender.all", true);
 
 /// Enforce strict file:// Origin Policy
 // https://stuffandnonsense.co.uk/blog/firefoxs_file_uri_origin_policy_and_web_fonts
