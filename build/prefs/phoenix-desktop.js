@@ -223,7 +223,6 @@ pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}');
 // https://superuser.com/questions/1358289/how-are-the-icons-for-top-sites-in-the-firefox-new-tab-rendered/1495054#1495054
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1151
 pref("browser.newtabpage.activity-stream.feeds.favicon", false);
-pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", ""); // [HIDDEN]
 
 /// Disable Firefox Suggest
 // We also configure "FirefoxSuggest" & "UrlbarInterventions" in policies
