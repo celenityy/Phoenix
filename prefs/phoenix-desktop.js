@@ -2403,6 +2403,8 @@ pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.impressionId", "{some-fake-impression-ID}", locked); // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
 pref("browser.newtabpage.activity-stream.telemetry", false, locked);
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.inferredInterests.enabled", false, locked); // [DEFAULT] [NIGHTLY] Ensure we never submit "inferred" New Tab interests with new tab pings
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.redactNewtabPing.enabled", true, locked); // [NIGHTLY] Redact information from new tab pings https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/TelemetryFeed.sys.mjs#354
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked);
 pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [DEFAULT] [NIGHTLY]
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked);
