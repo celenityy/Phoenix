@@ -1215,17 +1215,16 @@ pref("extensions.strictCompatibility", false); // [DEFAULT - non-Thunderbird]
 // https://groups.google.com/g/tb-planning/c/p4MUTMNYBVo
 pref("extensions.webextensions.remote", true); // [DEFAULT]
 
-/// Disable add-on 'sideloading'
+/// Disable add-on sideloading
 // Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
 // https://archive.is/DYjAM
-// https://github.com/arkenfox/user.js/blob/master/user.js#L612
-pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures extensions installed via directories are disabled by default...
-pref("extensions.enabledScopes", 5); // [HIDDEN]
-pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
-
-/// Disable automatic installation/enablement of third party extensions in Firefox's installation directory
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
-pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android, DEFAULT - Android]
+// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/AddonSettings.sys.mjs#125
+pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures sideloaded extensions are always disabled by default...
+pref("extensions.enabledScopes", 5); // [HIDDEN]
+pref("extensions.installDistroAddons", false); // [DEFAULT - Android] [HIDDEN - non-Android]
+pref("extensions.sideloadScopes", 0); // [HIDDEN]
+pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
 
 /// Enable Add-on Distribution Control (Install Origins)
 // Prevents extensions being installed from websites that they don't specify in their manifest
