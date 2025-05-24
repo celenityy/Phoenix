@@ -1241,6 +1241,10 @@ pref("extensions.remoteSettings.disabled", false); // [DEFAULT] [HIDDEN]
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
+/// Enable Manifest V3
+// https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/
+pref("extensions.manifestV3.enabled", true); // [DEFAULT]
+
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
