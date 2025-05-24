@@ -1266,6 +1266,10 @@ pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Wa
 pref("extensions.install.requireBuiltInCerts", true); // [HIDDEN]
 pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
 
+/// Prevent automatically granting MV3 extensions optional host permissions by default
+// These permissions can still be enabled manually at `about:addons`, from the 'Permissions' tab at the extension's settings page
+pref("extensions.originControls.grantByDefault", false);
+
 /// Prevent certain Mozilla extensions from accessing restricted/quarantined domains...
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
 pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry...
