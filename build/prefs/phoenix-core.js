@@ -1257,14 +1257,14 @@ pref("extensions.webextensions.base-content-security-policy.v3", "script-src 'se
 pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;"); // [DEFAULT]
 
-/// Only allow installation and updates of extensions using Firefox's built-in certificates by default
-pref("extensions.install.requireBuiltInCerts", true); // [HIDDEN]
-pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
-
 /// Never allow installing extensions without first prompting the user
 pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
 pref("xpinstall.whitelist.add", "", locked); // [DEFAULT - non-Android] [HIDDEN - non-Android]
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Warn you when websites try to install add-ons` setting at `about:preferences#privacy`
+
+/// Only allow installation and updates of extensions using Firefox's built-in certificates by default
+pref("extensions.install.requireBuiltInCerts", true); // [HIDDEN]
+pref("extensions.update.requireBuiltInCerts", true); // [HIDDEN]
 
 /// Prevent certain Mozilla extensions from accessing restricted/quarantined domains...
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
