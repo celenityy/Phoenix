@@ -320,7 +320,7 @@ pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
 // Harmless - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as a potential performance improvement
 pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT on non-Nightly/ESR]
-pref("extensions.webcompat-reporter.newIssueEndpoint", "https://phoenix.celenity.dev/issues"); // [HIDDEN] Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
+pref("extensions.webcompat-reporter.newIssueEndpoint", "https://phoenix.celenity.dev/issues"); // Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
 
 /// Opt out of add-on metadata updates
 // Note: This prevents themes from displaying previews in `about:addons`
