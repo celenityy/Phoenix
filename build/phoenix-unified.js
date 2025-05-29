@@ -3121,6 +3121,9 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.customColor.enabled", 
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Ensure the escape key exits fullscreen by default... [OSX-ONLY]
+pref("browser.fullscreen.exit_on_escape", true); // [OSX-ONLY] [DEFAULT]
+
 /// Ensure users can always control Nimbus recipes
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#344
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#513
