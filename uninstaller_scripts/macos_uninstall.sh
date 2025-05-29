@@ -67,7 +67,7 @@ sudo /bin/rm -f "${HOME}/Library/Preferences/org.mozilla.firefox.plist" || error
 echo
 
 echo_green_text "Uninstalling phoenix-osx..."
-brew uninstall phoenix-osx || error_fn
+#brew uninstall phoenix-osx || error_fn
 echo
 
 read "RESULT?Would you also like to remove celenity's Homebrew Tap? [Y/n] "

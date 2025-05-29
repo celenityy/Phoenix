@@ -41,7 +41,7 @@ brew update || error_fn
 echo
 
 echo_green_text "Installing phoenix-osx package..."
-brew install phoenix-osx || error_fn
+#brew install phoenix-osx || error_fn
 echo
 
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER_DISABLE.plist..."
