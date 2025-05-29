@@ -835,6 +835,13 @@ pref("browser.phoenix.status", "003");
 
 /*** 004 FINGERPRINTING PROTECTION ***/
 
+/// Disable the ability to switch locales without requiring a restart [NO-ANDROID]
+// Currently appears to be buggy and inconsistent - and thus could be potentially fingerprintable, so I think it's best to leave off to be safe [NO-ANDROID]
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42349#note_3057563 [NO-ANDROID]
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42771#note_3057587 [NO-ANDROID]
+pref("intl.multilingual.liveReload", false); // [NO-ANDROID] [DEFAULT - non-Firefox release/beta]
+pref("intl.multilingual.liveReloadBidirectional", false); // [NO-ANDROID] [DEFAULT]
+
 /// Disable failIfMajorPerformanceCaveat in WebGL contexts
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
 pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
