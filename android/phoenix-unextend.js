@@ -1,54 +1,57 @@
 //
 // Unextend Phoenix...
 
+//
+// Copyright (C) 2024-2025 celenity
+//
+// This file is part of Phoenix.
+//
+// Phoenix is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+//
+// Phoenix is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with Phoenix. If not, see https://www.gnu.org/licenses/.
+//
+
 // By default, IronFox uses Phoenix's 'Extended' Hardening config. This will cause breakage, and may not be desirable for everyone.
 // So this exists to easily revert IronFox to use Phoenix's standard 'base'/recommended config instead.
 
-// 001 ADVANCED FINGERPRINTING PROTECTION
+/* INDEX 
+
+001: FINGERPRINTING PROTECTION
+002: WEBRTC
+003: MISC. PRIVACY
+
+*/
+
+/*** 001 FINGERPRINTING PROTECTION ***/
 
 /// Set FPP to only cover our default targets
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC,-JSLocale");
 
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC");
+pref("browser.phoenix.status.unextended", "001");
 
-/// Enable WebGL
-// https://blog.browserscan.net/docs/webgl-fingerprinting
-// https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern
+/*** 002 WEBRTC ***/
 
-pref("webgl.disabled", false);
+/// Do not always exclude local IP addresses, even in trusted scenarios
+pref("media.peerconnection.ice.no_host", false); // [DEFAULT]
 
-pref("browser.phoenix.unextend.001.applied", true);
+/// Do not force a single candidate for ICE generation
+pref("media.peerconnection.ice.default_address_only", false); // [DEFAULT]
 
-/// 002 WEBRTC
+/// Do not only use TURN servers/relays
+// P2P
+// https://gitlab.torproject.org/tpo/applications/mullvad-browser/-/issues/40#note_2884663
+pref("media.peerconnection.ice.relay_only", false); // [DEFAULT]
 
-pref("media.peerconnection.ice.default_address_only", false);
-pref("media.peerconnection.ice.no_host", false);
-pref("media.peerconnection.ice.relay_only", false);
+pref("browser.phoenix.status.unextended", "002");
 
-pref("browser.phoenix.unextend.002.applied", true);
+/*** 003 MISC. PRIVACY ***/
 
-// 003 MISC. PRIVACY
+/// Always send cross-origin referers, regardless of if hosts match
+// https://wiki.mozilla.org/Security/Referrer
+pref("network.http.referer.XOriginPolicy", 0); // [DEFAULT]
 
-/// Always send cross-origin referers
+pref("browser.phoenix.status.unextended", "003");
 
-pref("network.http.referer.XOriginPolicy", 0);
-
-pref("browser.phoenix.unextend.003.applied", true);
-
-// 004 ATTACK SURFACE REDUCTION
-
-/// Enable WebAssembly
-// https://spectrum.ieee.org/more-worries-over-the-security-of-web-assembly
-
-pref("javascript.options.wasm", true);
-
-pref("browser.phoenix.unextend.004.applied", true);
-
-// 005 MISC.
-
-/// Standard Autoplay Blocking
-
-pref("media.autoplay.blocking_policy", 0); // [Default = 0]
-
-pref("browser.phoenix.unextend.005.applied", true);
-
-pref("browser.phoenix.unextend.applied", true);
+pref("browser.phoenix.status.unextended", "successfully applied :D");

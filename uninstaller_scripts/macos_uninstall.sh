@@ -124,22 +124,22 @@ echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
 	"system" | "System" | "SYSTEM" | 1)
-        echo_green_text "Removing phoenix-bootstrap.js..."
-		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js || error_fn
+        echo_green_text "Removing phoenix.js..."
+		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
 		echo
 
-		echo_green_text "Removing phoenix-bootstrap.cfg..."
-		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg || error_fn
+		echo_green_text "Removing phoenix.cfg..."
+		sudo /bin/rm -f /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
 		echo
 		;;
 
 	"user" | "User" | "USER" | 2)
-		echo_green_text "Removing phoenix-bootstrap.js..."
-		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix-bootstrap.js" || error_fn
+		echo_green_text "Removing phoenix.js..."
+		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
 		echo
 
-		echo_green_text "Removing phoenix-bootstrap.cfg..."
-		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix-bootstrap.cfg" || error_fn
+		echo_green_text "Removing phoenix.cfg..."
+		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
 		echo
 		;;
 esac

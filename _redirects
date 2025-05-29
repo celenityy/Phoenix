@@ -15,3 +15,7 @@
 /android https://codeberg.org/celenity/Phoenix/src/branch/pages/android/README.md 301
 /recommended-extensions https://codeberg.org/celenity/Phoenix/wiki/Recommended-Extensions 301
 /search https://codeberg.org/celenity/Phoenix/wiki/Search 301
+/wiki/*  https://codeberg.org/celenity/Phoenix/wiki/:splat  200
+/configs/phoenix.cfg /windows/phoenix.cfg 301
+/policies.json /windows/policies.json 301
+/archives/phoenix.zip /archives/phoenix-linux.zip 301

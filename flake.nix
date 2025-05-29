@@ -45,11 +45,11 @@
                   }
                 ];
                 environment.etc."firefox/defaults/pref/phoenix-desktop.js".source =
-                  "${pkgs.phoenix}/prefs/phoenix-desktop.js";
-                environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
-                environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
+                  "${pkgs.phoenix}/linux/defaults/pref/phoenix-desktop.js";
+                environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/linux/userjs";
+                environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/linux/configs";
                 programs.firefox.policies =
-                  (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/policies.json")).policies;
+                  (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/linux/policies/policies.json")).policies;
                 nixpkgs.overlays = [
                   self.overlays.default
                   (
