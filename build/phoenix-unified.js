@@ -2936,7 +2936,10 @@ pref("widget.windows.window_occlusion_tracking.enabled", true); // [WINDOWS-ONLY
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1540573
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/media/ChannelMediaDecoder.cpp#473
 pref("media.cache_readahead_limit", 7200); // (Default = 60)
+pref("media.cache_readahead_limit.cellular", 7200); // (Default = 30)
 pref("media.cache_resume_threshold", 3600); // (Default = 30)
+pref("media.cache_resume_threshold.cellular", 3600); // (Default = 10)
+pref("media.throttle-cellular-regardless-of-download-rate", false); // [HIDDEN - non-Android] [DEFAULT - non-Android]
 
 /// Increase the chunk size for calls to image decoders
 // (Default = 16384)
@@ -2946,6 +2949,11 @@ pref("image.mem.decode_bytes_at_a_time", 32768);
 pref("network.dnsCacheExpiration", 3600); // (Default = 60)
 pref("network.dnsCacheExpirationGracePeriod", 240); // (Default = 60)
 pref("network.dnsCacheEntries", 1000); // (Default = 800)
+
+/// Increase the file-backed media cache size for cellular connections
+// (Default = 32768)
+// This is set to match the value of "media.cache_size"
+pref("media.cache_size.cellular", 512000);
 
 /// Increase the memory-backed media cache size
 // (Default = 8192)
