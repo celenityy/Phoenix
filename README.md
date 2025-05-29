@@ -113,6 +113,14 @@ yay -S phoenix-flatpak
 
  Before installing Phoenix, you'll first need to add [celenity's OBS repo](https://build.opensuse.org/project/show/home:celenity):
 
+> [!NOTE]
+> You may get a Warning like the following when you update The Apt Cache.
+> ```
+> Warning: https://download.opensuse.org/repositories/home:/celenity/Debian_12/InRelease: Policy will reject signature within a year, see --audit for details
+> ```
+> This is because The Apt policy doesn't support V3 GPG key after `2026-02-01` and currently OBS uses V3 GPG key. But for now there is no problem.
+
+
  ```sh
  echo 'deb https://download.opensuse.org/repositories/home:/celenity/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
  wget -O- https://download.opensuse.org/repositories/home:celenity/Debian_12/Release.key 2>/dev/null | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
