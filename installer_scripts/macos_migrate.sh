@@ -130,3 +130,13 @@ case ${DEVICETYPE} in
 		esac
 		;;
 esac
+
+echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"
+echo_green_text "PLEASE SELECT 'Later' WHEN IT ASKS YOU TO QUIT AND RE-OPEN YOUR TERMINAL..."
+/bin/sleep 5
+/usr/bin/open /System/Applications/'System Settings'.app
+/bin/sleep 5
+echo_green_text "Press enter to continue once you are finished."
+read
+
+echo_green_text "All done. :) Thank you for taking the time to migrate Phoenix.\nYour patience and support is invaluable.\n"
