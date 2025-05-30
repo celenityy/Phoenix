@@ -55,8 +55,8 @@ pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID] [NO-MAI
 /// Further harden FPP...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
 // Compared to standard, this just removes '-JSDateTimeUTC' - meaning timezone is spoofed to UTC-0
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSLocale"); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSLocale,-CanvasImageExtractionPrompt"); // [ANDROID-ONLY]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate"); // [NO-ANDROID] [NO-MAIL]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-CanvasImageExtractionPrompt"); // [ANDROID-ONLY]
 pref("browser.phoenix.status.extended", "001");
 
 /*** 002 WEBRTC ***/

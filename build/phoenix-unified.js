@@ -890,8 +890,8 @@ pref("privacy.resistFingerprinting.letterboxing", false); // [NO-ANDROID] [NO-MA
 // This also improves security - Attack Surface Reduction, reduced timer precision
 // List of targets: https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
 // Easily build your own (global) override list: https://raw.githack.com/rindeal/Firefox-FPP-Override-List-Editor/master/FirefoxFPPOverrideListEditor.html
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC,-JSLocale"); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC,-JSLocale"); // [ANDROID-ONLY]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [NO-ANDROID] [NO-MAIL]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [ANDROID-ONLY]
 pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // [NO-ANDROID] [ESR] (This is the equivalent of the `-CanvasExtractionBeforeUserInputIsBlocked` target)
 pref("privacy.resistFingerprinting.randomDataOnCanvasExtract", true); // [NO-ANDROID] [ESR] (This is the equivalent of the `+CanvasRandomization` target)
 
