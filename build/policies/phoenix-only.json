@@ -75,62 +75,6 @@
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi",
                 "temporarily_allow_weak_signatures": false
-            },
-            "brave-leta@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-brave/leta-brave-0.0.2.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "ddg@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo/duckduckgo-0.0.3.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "duckduckgo-html@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-html/duckduckgo-html-0.0.7.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "duckduckgo-lite@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/duckduckgo-lite/duckduckgo-lite-0.0.5.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "google-leta@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/leta-google/leta-google-0.0.2.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "mojeek@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/mojeek/mojeek-0.0.5.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "no-search@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/no-search/no-search-0.0.5.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
-            },
-            "startpage@celenity.dev": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://gitlab.com/celenityy/Phoenix/-/raw/d5d4851f3198677bce4ec81bc92ec1e1ea7480ae/extensions/xpi/search/startpage/startpage-0.0.5.xpi",
-                "private_browsing": false,
-                "temporarily_allow_weak_signatures": false,
-                "updates_disabled": true
             }
         },
         "FirefoxHome": {

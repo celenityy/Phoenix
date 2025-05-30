@@ -1845,30 +1845,6 @@ pref("extensions.webextensions.remote", true); // [DEFAULT]
 /// Block extensions signed with weak signature algorithms [NO-MAIL]
 pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [NO-MAIL] [HIDDEN] [DEFAULT]
 
-/// Block our current search 'extensions' from accessing restricted/quarantined domains [NO-ANDROID] [NO-MAIL]
-// https://support.mozilla.org/kb/quarantined-domains [NO-ANDROID] [NO-MAIL]
-pref("extensions.quarantineIgnoredByUser.brave-leta@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Mullvad Leta (Brave)
-pref("extensions.quarantineIgnoredByUser.ddg@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] DuckDuckGo
-pref("extensions.quarantineIgnoredByUser.duckduckgo-html@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] DuckDuckGo HTML
-pref("extensions.quarantineIgnoredByUser.duckduckgo-lite@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] DuckDuckGo Lite
-pref("extensions.quarantineIgnoredByUser.google-leta@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Mullvad Leta (Google)
-pref("extensions.quarantineIgnoredByUser.mojeek@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Mojeek
-pref("extensions.quarantineIgnoredByUser.no-search@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] No Search
-pref("extensions.quarantineIgnoredByUser.startpage@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Startpage
-
-/// Block our deprecated search 'extensions' for defense in depth from accessing restricted/quarantined domains [NO-ANDROID] [NO-MAIL]
-// https://support.mozilla.org/kb/quarantined-domains [NO-ANDROID] [NO-MAIL]
-pref("extensions.quarantineIgnoredByUser.bravesearch@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Brave Search
-pref("extensions.quarantineIgnoredByUser.ecosia@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Ecosia
-pref("extensions.quarantineIgnoredByUser.kagi@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Kagi
-pref("extensions.quarantineIgnoredByUser.kagi-html@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Kagi HTML
-pref("extensions.quarantineIgnoredByUser.leta-brave@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Mullvad Leta (Brave)
-pref("extensions.quarantineIgnoredByUser.leta-google@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Mullvad Leta (Google)
-pref("extensions.quarantineIgnoredByUser.metager@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] MetaGer
-pref("extensions.quarantineIgnoredByUser.qwant@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Qwant
-pref("extensions.quarantineIgnoredByUser.qwant-junior@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Qwant Junior
-pref("extensions.quarantineIgnoredByUser.swisscows@celenity.dev", false, locked); // [NO-ANDROID] [NO-MAIL] Swisscows
-
 /// Disable add-on sideloading
 // Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
 // https://archive.is/DYjAM
