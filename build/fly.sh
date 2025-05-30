@@ -34,7 +34,7 @@ export PHOENIX_EXTENDED_OSX_PREFS="unused/macos/phoenix-extended.js"
 export PHOENIX_EXTENDED_WINDOWS_PREFS="unused/windows/phoenix-extended.js"
 
 export PHOENIX_EXTENDED_LINUX_CFG="linux/configs/hardened.cfg"
-export PHOENIX_EXTENDED_OSX_CFG="macos/configs/macos/hardened.cfg"
+export PHOENIX_EXTENDED_OSX_CFG="macos/configs/hardened.cfg"
 export PHOENIX_EXTENDED_WINDOWS_CFG="windows/configs/hardened.cfg"
 
 export PHOENIX_SPECIALIZED_UNIFIED_CFG="build/specialized-configs/specialized-unified.cfg"
@@ -56,27 +56,27 @@ export PHOENIX_SPECIALIZED_TWITTER_CFG="unused/configs/twitter.cfg"
 export PHOENIX_SPECIALIZED_YOUTUBE_CFG="unused/configs/youtube.cfg"
 
 export PHOENIX_SPECIALIZED_APPLE_MAPS_LINUX_CFG="linux/configs/apple-maps.cfg"
-export PHOENIX_SPECIALIZED_APPLE_MAPS_OSX_CFG="macos/configs/macos/apple-maps.cfg"
+export PHOENIX_SPECIALIZED_APPLE_MAPS_OSX_CFG="macos/configs/apple-maps.cfg"
 export PHOENIX_SPECIALIZED_APPLE_MAPS_WINDOWS_CFG="windows/configs/apple-maps.cfg"
 
 export PHOENIX_SPECIALIZED_DISCORD_LINUX_CFG="linux/configs/discord.cfg"
-export PHOENIX_SPECIALIZED_DISCORD_OSX_CFG="macos/configs/macos/discord.cfg"
+export PHOENIX_SPECIALIZED_DISCORD_OSX_CFG="macos/configs/discord.cfg"
 export PHOENIX_SPECIALIZED_DISCORD_WINDOWS_CFG="windows/configs/discord.cfg"
 
 export PHOENIX_SPECIALIZED_ELEMENT_LINUX_CFG="linux/configs/element.cfg"
-export PHOENIX_SPECIALIZED_ELEMENT_OSX_CFG="macos/configs/macos/element.cfg"
+export PHOENIX_SPECIALIZED_ELEMENT_OSX_CFG="macos/configs/element.cfg"
 export PHOENIX_SPECIALIZED_ELEMENT_WINDOWS_CFG="windows/configs/element.cfg"
 
 export PHOENIX_SPECIALIZED_GOOGLE_MAPS_LINUX_CFG="linux/configs/google-maps.cfg"
-export PHOENIX_SPECIALIZED_GOOGLE_MAPS_OSX_CFG="macos/configs/macos/google-maps.cfg"
+export PHOENIX_SPECIALIZED_GOOGLE_MAPS_OSX_CFG="macos/configs/google-maps.cfg"
 export PHOENIX_SPECIALIZED_GOOGLE_MAPS_WINDOWS_CFG="windows/configs/google-maps.cfg"
 
 export PHOENIX_SPECIALIZED_TWITTER_LINUX_CFG="linux/configs/twitter.cfg"
-export PHOENIX_SPECIALIZED_TWITTER_OSX_CFG="macos/configs/macos/twitter.cfg"
+export PHOENIX_SPECIALIZED_TWITTER_OSX_CFG="macos/configs/twitter.cfg"
 export PHOENIX_SPECIALIZED_TWITTER_WINDOWS_CFG="windows/configs/twitter.cfg"
 
 export PHOENIX_SPECIALIZED_YOUTUBE_LINUX_CFG="linux/configs/youtube.cfg"
-export PHOENIX_SPECIALIZED_YOUTUBE_OSX_CFG="macos/configs/macos/youtube.cfg"
+export PHOENIX_SPECIALIZED_YOUTUBE_OSX_CFG="macos/configs/youtube.cfg"
 export PHOENIX_SPECIALIZED_YOUTUBE_WINDOWS_CFG="windows/configs/youtube.cfg"
 
 export PHOENIX_UI_FIX_UNIFIED_CFG="build/specialized-configs/ui-fix-unified.cfg"
@@ -86,31 +86,31 @@ export PHOENIX_UI_FIX_OSX_CFG="macos/configs/ui-fix.cfg"
 export PHOENIX_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix.cfg"
 
 export PHOENIX_EXTENDED_UI_FIX_LINUX_CFG="linux/configs/ui-fix/hardened.cfg"
-export PHOENIX_EXTENDED_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/hardened.cfg"
+export PHOENIX_EXTENDED_UI_FIX_OSX_CFG="macos/configs/ui-fix/hardened.cfg"
 export PHOENIX_EXTENDED_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/hardened.cfg"
 
 export PHOENIX_SPECIALIZED_APPLE_MAPS_UI_FIX_LINUX_CFG="linux/configs/ui-fix/apple-maps.cfg"
-export PHOENIX_SPECIALIZED_APPLE_MAPS_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/apple-maps.cfg"
+export PHOENIX_SPECIALIZED_APPLE_MAPS_UI_FIX_OSX_CFG="macos/configs/ui-fix/apple-maps.cfg"
 export PHOENIX_SPECIALIZED_APPLE_MAPS_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/apple-maps.cfg"
 
 export PHOENIX_SPECIALIZED_DISCORD_UI_FIX_LINUX_CFG="linux/configs/ui-fix/discord.cfg"
-export PHOENIX_SPECIALIZED_DISCORD_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/discord.cfg"
+export PHOENIX_SPECIALIZED_DISCORD_UI_FIX_OSX_CFG="macos/configs/ui-fix/discord.cfg"
 export PHOENIX_SPECIALIZED_DISCORD_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/discord.cfg"
 
 export PHOENIX_SPECIALIZED_ELEMENT_UI_FIX_LINUX_CFG="linux/configs/ui-fix/element.cfg"
-export PHOENIX_SPECIALIZED_ELEMENT_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/element.cfg"
+export PHOENIX_SPECIALIZED_ELEMENT_UI_FIX_OSX_CFG="macos/configs/ui-fix/element.cfg"
 export PHOENIX_SPECIALIZED_ELEMENT_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/element.cfg"
 
 export PHOENIX_SPECIALIZED_GOOGLE_MAPS_UI_FIX_LINUX_CFG="linux/configs/ui-fix/google-maps.cfg"
-export PHOENIX_SPECIALIZED_GOOGLE_MAPS_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/google-maps.cfg"
+export PHOENIX_SPECIALIZED_GOOGLE_MAPS_UI_FIX_OSX_CFG="macos/configs/ui-fix/google-maps.cfg"
 export PHOENIX_SPECIALIZED_GOOGLE_MAPS_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/google-maps.cfg"
 
 export PHOENIX_SPECIALIZED_TWITTER_UI_FIX_LINUX_CFG="linux/configs/ui-fix/twitter.cfg"
-export PHOENIX_SPECIALIZED_TWITTER_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/twitter.cfg"
+export PHOENIX_SPECIALIZED_TWITTER_UI_FIX_OSX_CFG="macos/configs/ui-fix/twitter.cfg"
 export PHOENIX_SPECIALIZED_TWITTER_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/twitter.cfg"
 
 export PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_LINUX_CFG="linux/configs/ui-fix/youtube.cfg"
-export PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_OSX_CFG="macos/configs/macos/ui-fix/youtube.cfg"
+export PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_OSX_CFG="macos/configs/ui-fix/youtube.cfg"
 export PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_WINDOWS_CFG="windows/configs/ui-fix/youtube.cfg"
 
 export PHOENIX_UNIFIED_POLICIES="build/policies/phoenix-unified.json"

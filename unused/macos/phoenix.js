@@ -821,6 +821,13 @@ pref("browser.phoenix.status", "003");
 
 /*** 004 FINGERPRINTING PROTECTION ***/
 
+/// Disable the ability to switch locales without requiring a restart [NO-ANDROID]
+// Currently appears to be buggy and inconsistent - and thus could be potentially fingerprintable, so I think it's best to leave off to be safe [NO-ANDROID]
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42349#note_3057563 [NO-ANDROID]
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42771#note_3057587 [NO-ANDROID]
+pref("intl.multilingual.liveReload", false); // [NO-ANDROID] [DEFAULT - non-Firefox release/beta]
+pref("intl.multilingual.liveReloadBidirectional", false); // [NO-ANDROID] [DEFAULT]
+
 /// Disable failIfMajorPerformanceCaveat in WebGL contexts
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/18603
 pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
@@ -2818,7 +2825,10 @@ pref("gfx.webrender.compositor", true); // [DEFAULT - macOS/Windows]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1540573
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/media/ChannelMediaDecoder.cpp#473
 pref("media.cache_readahead_limit", 7200); // (Default = 60)
+pref("media.cache_readahead_limit.cellular", 7200); // (Default = 30)
 pref("media.cache_resume_threshold", 3600); // (Default = 30)
+pref("media.cache_resume_threshold.cellular", 3600); // (Default = 10)
+pref("media.throttle-cellular-regardless-of-download-rate", false); // [HIDDEN - non-Android] [DEFAULT - non-Android]
 
 /// Increase the chunk size for calls to image decoders
 // (Default = 16384)
@@ -2828,6 +2838,11 @@ pref("image.mem.decode_bytes_at_a_time", 32768);
 pref("network.dnsCacheExpiration", 3600); // (Default = 60)
 pref("network.dnsCacheExpirationGracePeriod", 240); // (Default = 60)
 pref("network.dnsCacheEntries", 1000); // (Default = 800)
+
+/// Increase the file-backed media cache size for cellular connections
+// (Default = 32768)
+// This is set to match the value of "media.cache_size"
+pref("media.cache_size.cellular", 512000);
 
 /// Increase the memory-backed media cache size
 // (Default = 8192)
@@ -2994,6 +3009,9 @@ pref("browser.newtabpage.activity-stream.feeds.wallpaperfeed", true); // [NO-AND
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customColor.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
+/// Ensure the escape key exits fullscreen by default... [OSX-ONLY]
+pref("browser.fullscreen.exit_on_escape", true); // [OSX-ONLY] [DEFAULT]
 
 /// Ensure users can always control Nimbus recipes
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#344
