@@ -152,6 +152,10 @@ case ${DEVICETYPE} in
 				sudo /bin/mkdir -v -p /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 				echo
 
+				echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
+				sudo /bin/chmod -R -v 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+				echo
+
 				echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
 				sudo /bin/ln -s /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
 				echo
@@ -224,6 +228,10 @@ case ${DEVICETYPE} in
 
 				echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
 				sudo /bin/mkdir -v -p /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+				echo
+
+				echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
+				sudo /bin/chmod -R -v 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 				echo
 
 				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
