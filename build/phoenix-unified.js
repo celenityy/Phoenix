@@ -2966,6 +2966,10 @@ pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // (Def
 // (Default = 2048)
 pref("network.ssl_tokens_cache_capacity", 10240);
 
+/// Use higher performance pinch-zoom
+// https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#7820
+pref("gfx.webrender.low-quality-pinch-zoom", true); // [DEFAULT - Android Nightly]
+
 pref("browser.phoenix.status", "026");
 
 /*** 027 Personal Touch 💜 ***/
