@@ -878,7 +878,7 @@ pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", fal
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#8720
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
-pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-Android/Windows/Thunderbird]
+pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-Windows]
 
 /// Enable light mode by default
 // Matches with RFP & prevents exposing system theme
@@ -3068,6 +3068,10 @@ pref("browser.translations.automaticallyPopup", true); // [NO-MAIL] [DEFAULT]
 pref("browser.translations.enable", true); // [NO-MAIL] [DEFAULT - non-Thunderbird]
 pref("browser.translations.select.enable", true); // [NO-MAIL] [DEFAULT - non-Android/Thunderbird]
 pref("browser.translations.newSettingsUI.enable", true); // [NO-ANDROID] [NO-MAIL] Enables the new UI at `about:preferences#general`
+
+/// Enable HDR (if supported) [LINUX-ONLY]
+// https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#7903 [LINUX-ONLY]
+pref("gfx.wayland.hdr", true); // [LINUX-ONLY]
 
 /// Enable IPv6
 // Important, nice to have
