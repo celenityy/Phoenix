@@ -907,6 +907,16 @@ pref("privacy.resistFingerprinting.randomDataOnCanvasExtract", true); // [NO-AND
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1528042
 pref("media.devices.enumerate.legacy.enabled", false); // [DEFAULT]
 
+/// Prevent exposing WebGL Renderer Info
+// So this is typically covered by RFP/FPP's 'WebGLRenderInfo' target, but some websites (ex. moviezapiya.fun) break when that target is set, due to the target disabling the debug renderer info (while spoofing the renderer query info to "Mozilla" for the vendor and renderer)
+// So for cases like that, when the `WebGLRenderInfo` target is disabled, this will ensure the real vendor/renderer info is still not exposed (RFP/FPP's target here should still take precedent)
+// Looks like this is fixed for 140, so we won't need these for long... - https://bugzilla.mozilla.org/show_bug.cgi?id=1966860
+// https://searchfox.org/mozilla-central/source/dom/canvas/SanitizeRenderer.cpp
+pref("webgl.enable-renderer-query", false); // Spoofs "Vendor" and "Renderer" to "Mozilla" (Like the `WebGLRenderInfo` target does)
+pref("webgl.sanitize-unmasked-renderer", true); // [DEFAULT] [DEFENSE IN DEPTH]
+pref("webgl.override-unmasked-renderer", "Mozilla"); // Attempts to spoof "Unmasked Renderer" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query), but Firefox seems to override to "Generic Renderer" anyways
+pref("webgl.override-unmasked-vendor", "Mozilla"); // Spoofs "Unmasked Vendor" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
+
 /// Prevent using system accent colors
 pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thunderbird Windows]
 
@@ -932,11 +942,6 @@ pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", t
 /// Round window sizes
 pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Android/Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
-
-/// Sanitize WebGL renderer info
-// Redundant with FPP/RFP's 'WebGLRenderInfo' target, but we can still set anyways to ensure we're covered
-// https://searchfox.org/mozilla-central/source/dom/canvas/SanitizeRenderer.cpp
-pref("webgl.sanitize-unmasked-renderer", true); // [DEFAULT] [DEFENSE IN DEPTH]
 
 /// Set a fixed temporary storage limit
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41065
