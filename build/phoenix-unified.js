@@ -3069,10 +3069,6 @@ pref("browser.translations.enable", true); // [NO-MAIL] [DEFAULT - non-Thunderbi
 pref("browser.translations.select.enable", true); // [NO-MAIL] [DEFAULT - non-Android/Thunderbird]
 pref("browser.translations.newSettingsUI.enable", true); // [NO-ANDROID] [NO-MAIL] Enables the new UI at `about:preferences#general`
 
-/// Enable HDR (if supported) [LINUX-ONLY]
-// https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#7903 [LINUX-ONLY]
-pref("gfx.wayland.hdr", true); // [LINUX-ONLY]
-
 /// Enable IPv6
 // Important, nice to have
 pref("network.dns.disableIPv6", false); // [DEFAULT]
