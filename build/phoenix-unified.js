@@ -835,10 +835,11 @@ pref("browser.phoenix.status", "003");
 /*** 004 FINGERPRINTING PROTECTION ***/
 
 /// Always load fonts bundled with Firefox
-// The default is -1 - which loads bundled fonts, EXCEPT on "low-memory" Android devices
-// Hence, this could add extra entropy/add an extra fingerprinting vector for users on "low-memory" android devices
+// The default is -1 - which loads bundled fonts, EXCEPT on "low-memory" devices
+// Hence, this could add extra entropy/add an extra fingerprinting vector for users on "low-memory" devices
 // In general, this will ensure all users have the same standard behavior here
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1686274
+// https://searchfox.org/mozilla-central/rev/20fc11f1/gfx/thebes/gfxFT2FontList.cpp#1615
 pref("gfx.bundled-fonts.activate", 1);
 
 /// Disable the ability to switch locales without requiring a restart [NO-ANDROID]
