@@ -702,7 +702,6 @@ pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/firefox/sear
 pref("browser.xr.warning.infoURL", "https://support.mozilla.org/kb/webxr-permission-info-page"); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.abuseReport.amoFormURL", "https://addons.mozilla.org/feedback/addon/%addonID%/");
 pref("extensions.blocklist.addonItemURL", "https://addons.mozilla.org/blocked-addon/%addonID%/%addonVersion%/");
-pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/api/v4/addons/search/?guid=%IDS%"); // [NO-MAIL]
 pref("extensions.getAddons.link.url", "https://addons.mozilla.org/"); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search?q=%TERMS%"); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/android/search?q=%TERMS%"); // [ANDROID-ONLY]
