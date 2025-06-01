@@ -2045,6 +2045,8 @@ pref("geo.provider.use_geoclue", true); // [LINUX-ONLY] [NO-MAIL] [DEFAULT]
 // https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp
 // https://searchfox.org/mozilla-central/source/dom/geolocation/MLSFallback.h
 pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
+pref("geo.provider.testing", false); // [HIDDEN] [DEFAULT] When set to `true`, this forces the use of the network Geolocation provider (BeaconDB for us), regardless of anything else - https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/geolocation/Geolocation.cpp#779
+pref("geo.provider.use_mls", true); // [NO-MAIL] [HIDDEN] [DEFAULT] Ensure the network Geolocation provider (BeaconDB for us) is enabled
 
 /// Update info URL to ours so that users receive accurate information [NO-ANDROID] [NO-MAIL]
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo"); // [NO-ANDROID] [NO-MAIL]
