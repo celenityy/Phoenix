@@ -1010,16 +1010,19 @@ pref("privacy.clearOnShutdown.cache", true);
 pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT - Desktop Firefox]
 pref("privacy.sanitize.sanitizeOnShutdown", true);
 
-/// Decrease the number of pages allowed in back/forward cache
-// Also improves performance
-// (Default = -1 (Automatic) - which is 8 unless you're using a device with under 1GB of RAM)
-// https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-pref("browser.sessionhistory.max_total_viewers", 7);
-
 /// Decrease the number of tabs saved in Session Store [NO-MAIL]
 // Also improves performance [NO-MAIL]
 // (Default = 10 for Android, 25 elsewhere) [NO-MAIL]
 pref("browser.sessionstore.max_tabs_undo", 7); // [NO-MAIL]
+
+/// Disable back/forward cache (bfcache)
+// This helps ensure that sensitive data/user state is discarded as soon as possible
+// https://web.dev/articles/bfcache
+// https://github.com/uazo/cromite/blob/master/docs/FEATURES.md
+// https://github.com/uazo/cromite/issues/1649
+// https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
+pref("browser.sessionhistory.max_total_viewers", 0); // (Default = -1 (Automatic) - which is 8 unless you're using a device with under 1GB of RAM)
+pref("fission.bfcacheInParent", false);
 
 /// Disable collection/generation of background thumbnails
 // https://searchfox.org/mozilla-central/source/toolkit/components/thumbnails/PageThumbs.sys.mjs#629
