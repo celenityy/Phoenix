@@ -1112,10 +1112,19 @@
         "contentURL": "https://big.oisd.nl/",
         "supportURL": "https://oisd.nl/report"
     },
+    "phoenix-filters": {
+        "content": "filters",
+        "group": "default",
+        "parent": "Phoenix filters",
+        "title": "Phoenix filters",
+        "contentURL": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/filters.txt",
+        "supportURL": "https://phoenix.celenity.dev/issues"
+    },
     "quick-fixes": {
         "content": "filters",
         "group": "default",
-        "title": "Phoenix - Quick fixes",
+        "parent": "Phoenix filters",
+        "title": "Phoenix filters - Quick fixes",
         "contentURL": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/quick-fixes.txt",
         "supportURL": "https://phoenix.celenity.dev/issues"
     },

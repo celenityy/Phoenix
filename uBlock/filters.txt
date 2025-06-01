@@ -1,0 +1,33 @@
+! Title: Phoenix filters
+! Version: 01June2025v1
+! Expires: 12 hours
+! Homepage: https://phoenix.celenity.dev
+
+!! This list includes filters designed specifically to work with Phoenix and derivatives (such as IronFox).
+
+!! Smartblock Embed Placeholders
+!!! https://support.mozilla.org/kb/smartblock-enhanced-tracking-protection#w_enabling-embedded-content
+!!! https://searchfox.org/mozilla-central/rev/dce6d549/browser/base/content/browser-siteProtections.js#1384
+@@||smartblock.firefox.etp^
+
+!#if !env_mobile
+
+!!! Instagram
+!!!! https://searchfox.org/mozilla-central/rev/dce6d549/browser/extensions/webcompat/data/shims.js#1007
+!!!! (ex. https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359)
+@@||www.instagram.com/embed.js
+
+!!! TikTok
+!!!! https://searchfox.org/mozilla-central/rev/dce6d549/browser/extensions/webcompat/data/shims.js#1035
+!!!! (ex. https://www.vulture.com/article/snl-adds-four-new-cast-members-for-season-48.html)
+@@||www.tiktok.com/embed.js
+
+!!! Twitter
+!!!! https://searchfox.org/mozilla-central/rev/dce6d549/browser/extensions/webcompat/data/shims.js#1087
+!!!! (ex. https://www.buzzfeed.com/mjs538/donald-trumps-phone-lock-screen-spotted-again)
+||platform.twitter.com^$badfilter
+||platform.twitter.com^$important,badfilter
+||syndication.twimg.com^$badfilter
+@@||platform.twitter.com/widgets.js
+
+!#endif
