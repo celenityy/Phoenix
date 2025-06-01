@@ -3166,8 +3166,8 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [N
 pref("browser.fullscreen.exit_on_escape", true); // [OSX-ONLY] [DEFAULT]
 
 /// Ensure users can always control Nimbus recipes
-// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#344
-// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#513
+// https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#344
+// https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#513
 pref("nimbus.debug", true); // [HIDDEN - non-Firefox Desktop]
 pref("nimbus.validation.enabled", false); // [HIDDEN - non-Firefox Desktop]
 
