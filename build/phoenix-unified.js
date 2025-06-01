@@ -1966,6 +1966,11 @@ pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // 
 pref("extensions.quarantineIgnoredByUser.ddg@search.mozilla.org", false, locked); // DuckDuckGo - search engine...
 pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine...
 
+/// Prevent extensions from opening pop-ups to remote websites
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1760608
+// https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/extensions/ExtensionActions.sys.mjs#275
+pref("extensions.manifestV2.actionsPopupURLRestricted", true); // [DEFAULT - Android]
+
 /// Prevent extensions from using the Gecko Profiler
 // Includes certain Mozilla extensions by default
 // https://firefox-source-docs.mozilla.org/tools/profiler/index.html
@@ -3261,11 +3266,6 @@ pref("extensions.checkUpdateSecurity", true); // [HIDDEN] [DEFAULT]
 /// Notify users for extension updates by default
 // https://searchfox.org/mozilla-central/source/remote/shared/RecommendedPreferences.sys.mjs#253
 pref("extensions.update.notifyUser", true); // [HIDDEN]
-
-/// Prevent extensions from opening pop-ups to remote websites
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1760608
-// https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/extensions/ExtensionActions.sys.mjs#275
-pref("extensions.manifestV2.actionsPopupURLRestricted", true); // [DEFAULT - Android]
 
 /// Sync with Remote Settings hourly, rather than the default of only once a day
 // This is used for delivering lots of security-critical databases (Ex. CRLite/revocation checks, malicious add-on blocklists, etc...)
