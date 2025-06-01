@@ -1987,6 +1987,9 @@ pref("browser.phoenix.status", "016");
 
 // https://support.mozilla.org/kb/ai-chatbot
 
+/// Allow managing models from `about:addons`
+pref("extensions.htmlaboutaddons.local_model_management", true); // [NIGHTLY] [DEFAULT]
+
 /// Allow typing a custom prompt based on your selection (if pop-up when highlighting text is enabled) [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.chat.shortcuts.custom", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
