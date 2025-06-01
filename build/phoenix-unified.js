@@ -952,6 +952,11 @@ pref("dom.quotaManager.temporaryStorage.fixedLimit", 52428800); // Ex. matches w
 // Default on ESR is still 480p...
 pref("privacy.resistFingerprinting.target_video_res", 1080); // [DEFAULT - non-ESR]
 
+/// Set zoom levels on a per-site basis
+// Changing the zoom level globally can be fingerprintable
+// Note: We also set the "SiteSpecificZoom" FPP/RFP target
+pref("browser.zoom.siteSpecific", true); // [DEFAULT - non-Android]
+
 /// So people don't freak out when they see RFP isn't enabled...
 pref("privacy.resistFingerprinting.0.note", "RFP is disabled on purpose.");
 pref("privacy.resistFingerprinting.1.note", "We use a hardened configuration of FPP instead.");
