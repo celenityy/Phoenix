@@ -1918,6 +1918,10 @@ pref("extensions.manifestV3.enabled", true); // [DEFAULT]
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
 pref("extensions.quarantinedDomains.uiDisabled", false); // [DEFAULT] [HIDDEN]
 
+/// Ensure Web Compatibility interventions use the MV3 API instead of the older MV2 one
+// https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/all.js#4090
+pref("extensions.webcompat.useScriptingAPI", true); // [DEFAULT]
+
 /// Harden CSP policy
 // Compared to Firefox's default, this:
 // Blocks scripts unless they're loaded from the same origin
