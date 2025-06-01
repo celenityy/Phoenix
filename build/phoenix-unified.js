@@ -2395,10 +2395,11 @@ pref("cookiebanners.ui.desktop.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("dom.storage_access.auto_grants.exclude_third_party_trackers", true); // [DEFAULT - Nightly] Automatic storage access grants
 pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
 
-/// Improve built-in query stripping to be on par with LibreWolf & Brave
-// I've also added `mkt_tok` & `ysclid`, which can be seen in Mozilla's Remote Settings here: https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/changeset?_expected=0
-// https://codeberg.org/librewolf/settings/src/branch/master/librewolf.cfg#L77
-pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid mkt_tok ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid ysclid");
+/// Improve built-in query stripping to be on par with LibreWolf and Brave
+// See Mozilla's defaults here: https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/changeset?_expected=0
+// https://codeberg.org/librewolf/settings/src/commit/e93018221243f0af7cdbbf737b6af17d70cde8aa/librewolf.cfg#L103
+// https://github.com/brave/brave-core/blob/master/components/query_filter/utils.cc
+pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _bhlid _branch_match_id _branch_referrer _gl _hsenc _kx _openstat at_recipient_id at_recipient_list bbeml bsft_clkid bsft_uid dclid et_rid fb_action_ids fb_comment_id fbclid gbraid gclid guce_referrer guce_referrer_sig hsCtaTracking igshid irclickid mc_eid mkt_tok ml_subscriber ml_subscriber_hash msclkid mtm_cid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id pk_cid rb_clickid s_cid sc_customer sc_eh sc_uid srsltid ss_email_id twclid unicorn_click_id vero_conv vero_id vgo_ee wbraid wickedid yclid ymclid ysclid");
 
 /// Isolate content from Firefox Home with containers [NO-ANDROID] [NO-MAIL]
 pref("browser.discovery.containers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
