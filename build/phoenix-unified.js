@@ -2020,8 +2020,8 @@ pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT]
 
 /// Disable Microsoft Location Services [WINDOWS-ONLY]
 // https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp [WINDOWS-ONLY]
-pref("geo.provider.ms-windows-location", false); // [WINDOWS-ONLY]
 pref("geo.prompt.open_system_prefs", false); // [WINDOWS-Only] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6406
+pref("geo.provider.ms-windows-location", false); // [WINDOWS-ONLY]
 
 /// Disable Mozilla's GeoIP/Region Service
 // Prevents Firefox from monitoring the user's region/general location
