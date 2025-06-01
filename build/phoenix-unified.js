@@ -2041,6 +2041,11 @@ pref("geo.provider.use_corelocation", true); // [OSX-ONLY] [NO-MAIL] [DEFAULT]
 /// Enable Geoclue for GNU/Linux distros by default [LINUX-ONLY] [NO-MAIL]
 pref("geo.provider.use_geoclue", true); // [LINUX-ONLY] [NO-MAIL] [DEFAULT]
 
+/// Prevent unconditionally providing high location accuracy [LINUX-ONLY]
+// By default, Firefox provides all websites with high location accuracy, even if they don't request it... [LINUX-ONLY]
+// https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6389 [LINUX-ONLY]
+pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX-ONLY]
+
 /// Set BeaconDB as the default network Geolocation provider
 // Default is Google :/
 // https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp
