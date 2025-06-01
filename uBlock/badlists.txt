@@ -194,10 +194,3 @@ https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/whitelist-u
 
 # Far too broad, allows legitimate ads/tracking, and generally we don't want users co-erced to enable lists like this...
 https://www.mileageplanshopping.com/adBlockWhitelist.php
-
-# Online Malicious URL Blocklist
-## Currently appears to be extremely broken, ex. completely breaks GitHub...
-## This is temporary, and we'll remove the block once they fix this issue - I'm just not interested in dealing with reports from this...
-assets/thirdparties/urlhaus-filter/urlhaus-filter-online.txt
-https://malware-filter.gitlab.io/urlhaus-filter/urlhaus-filter-ag-online.txt
-https://malware-filter.pages.dev/urlhaus-filter-ag-online.txt
