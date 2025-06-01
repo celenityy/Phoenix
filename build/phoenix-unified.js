@@ -1832,6 +1832,12 @@ pref("browser.phoenix.status", "015");
 
 /*** 016 EXTENSIONS ***/
 
+/// Allow enabling/disabling extensions per-container (if containers are enabled)
+// This could allow for some extremely useful use-cases...
+// Ex. With the Multi-Account Containers extension, you could use this to only allow certain extensions to access certain websites, regardless of the extension's permissions
+pref("extensions.userContextIsolation.defaults.restricted", "[]"); // [HIDDEN] [DEFAULT]
+pref("extensions.userContextIsolation.enabled", true); // [HIDDEN]
+
 /// Allow LocalCDN (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
 
@@ -1924,6 +1930,12 @@ pref("extensions.quarantinedDomains.uiDisabled", false); // [DEFAULT] [HIDDEN]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1875475
 pref("extensions.userScripts.mv3.enabled", true); // [DEFAULT]
 pref("extensions.webextensions.userScripts.enabled", true); // [DEFAULT]
+
+/// Ensure Firefox Multi-Account Containers can access all containers by default (if installed)
+pref("extensions.userContextIsolation.@testpilot-container.restricted", "[]"); // [HIDDEN]
+
+/// Ensure uBlock Origin can access all containers by default (if installed)
+pref("extensions.userContextIsolation.uBlock0@raymondhill.net.restricted", "[]"); // [HIDDEN]
 
 /// Ensure Web Compatibility interventions use the MV3 API instead of the older MV2 one
 // https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/all.js#4090
