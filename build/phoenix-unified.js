@@ -1918,6 +1918,13 @@ pref("extensions.manifestV3.enabled", true); // [DEFAULT]
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
 pref("extensions.quarantinedDomains.uiDisabled", false); // [DEFAULT] [HIDDEN]
 
+/// Enable userScripts
+// userScripts ran this way run in separate isolated sandboxes
+// https://wiki.mozilla.org/WebExtensions/UserScripts
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1875475
+pref("extensions.userScripts.mv3.enabled", true); // [DEFAULT]
+pref("extensions.webextensions.userScripts.enabled", true); // [DEFAULT]
+
 /// Ensure Web Compatibility interventions use the MV3 API instead of the older MV2 one
 // https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/all.js#4090
 pref("extensions.webcompat.useScriptingAPI", true); // [DEFAULT]
