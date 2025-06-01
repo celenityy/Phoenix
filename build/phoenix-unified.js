@@ -861,11 +861,6 @@ pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT]
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fingerprinting-protection-overrides/changeset?_expected=0
 pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
 
-/// Disable V-Sync [LINUX-ONLY]
-// Fingerprinting concerns, and also likely improves performance [LINUX-ONLY]
-// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43236 [LINUX-ONLY]
-pref("widget.wayland.vsync.enabled", false); // [LINUX-ONLY]
-
 /// Disable VP9 Benchmark
 // This means that VP9 will always be enabled regardless of performance benchmarks (unless on a plaform where this isn't supported)
 // This likely also results in a performance improvement, so that's nice
