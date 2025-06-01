@@ -3184,6 +3184,9 @@ pref("browser.tabs.inTitlebar", 1);
 /// Highlight all Findbar (Ctrl + F) results by default
 pref("findbar.highlightAll", true);
 
+/// Improve the reliability of extension storage sync [NO-ANDROID] [NO-MAIL]
+pref("services.sync.extension-storage.skipPercentageChance", 0); // [NO-ANDROID] [NO-MAIL]
+
 /// Prevent the alt key from toggling menu bar by default
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux]
 
