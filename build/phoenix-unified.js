@@ -912,6 +912,13 @@ pref("webgl.sanitize-unmasked-renderer", true); // [DEFAULT] [DEFENSE IN DEPTH]
 pref("webgl.override-unmasked-renderer", "Mozilla"); // Attempts to spoof "Unmasked Renderer" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query), but Firefox seems to override to "Generic Renderer" anyways
 pref("webgl.override-unmasked-vendor", "Mozilla"); // Spoofs "Unmasked Vendor" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
 
+/// Prevent pre-allocating/re-using content processes
+// These can cause certain values/settings to persist, even after a user changes them - which could result in leakage/fingerprinting concerns
+// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#preallocated-content
+pref("dom.ipc.disableContentProcessReuse", true);
+pref("dom.ipc.processPrelaunch.enabled", false); // [DEFAULT - Android]
+pref("dom.ipc.processPrelaunch.fission.number", 0);
+
 /// Prevent using system accent colors
 pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thunderbird Windows]
 
