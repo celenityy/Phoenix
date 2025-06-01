@@ -2525,6 +2525,13 @@ pref("security.sandbox.utility-wmf.acg.enabled", true); // [WINDOWS-ONLY] [DEFAU
 // https://medium.com/@boutnaru/the-windows-security-journey-cig-code-integrity-guard-7e410c8d2304 [WINDOWS-ONLY]
 pref("security.sandbox.cig.prespawn.enabled", true); // [WINDOWS-ONLY] [DEFAULT - Nightly]
 
+/// Enable content process sandboxing [NO-ANDROID]
+// These are especially useful for ex. Thunderbird, which seems to disable sandboxing by default... [NO-ANDROID]
+// Sandbox is obviously critical from a security perspective as well, so doesn't hurt IMO to explicitly enable here [NO-ANDROID]
+pref("security.sandbox.content.level", 6); // [LINUX-ONLY] [DEFAULT] https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1531
+pref("security.sandbox.content.level", 3); // [OSX-ONLY] [DEFAULT] https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1485
+pref("security.sandbox.content.level", 20); // [WINDOWS-ONLY] (Default = 8: https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1473 - This strengthens it: https://searchfox.org/mozilla-central/rev/20fc11f1/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#860)
+
 /// Enable the Cross-Origin-Embedder Policy Header
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy
 pref("browser.tabs.remote.coep.credentialless", true); // [DEFAULT - non-Android stable] 'credentialless' 
