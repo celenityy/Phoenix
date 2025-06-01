@@ -1902,6 +1902,10 @@ pref("extensions.install_origins.enabled", true);
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
 pref("extensions.remoteSettings.disabled", false); // [HIDDEN] [DEFAULT]
 
+/// Enable optional permission prompts
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1392176
+pref("extensions.webextOptionalPermissionPrompts", true); // [DEFAULT]
+
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
