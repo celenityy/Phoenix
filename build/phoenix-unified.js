@@ -1971,6 +1971,11 @@ pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, l
 // https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/extensions/ExtensionActions.sys.mjs#275
 pref("extensions.manifestV2.actionsPopupURLRestricted", true); // [DEFAULT - Android]
 
+/// Prevent extensions from opening pop-ups without user interaction
+// https://searchfox.org/mozilla-central/rev/20fc11f1/browser/components/extensions/parent/ext-browserAction.js#1030
+// https://searchfox.org/mozilla-central/rev/20fc11f1/mobile/shared/components/extensions/ext-browserAction.js#168
+pref("extensions.openPopupWithoutUserGesture.enabled", false); // [DEFAULT - non-Nightly]
+
 /// Prevent extensions from using the Gecko Profiler
 // Includes certain Mozilla extensions by default
 // https://firefox-source-docs.mozilla.org/tools/profiler/index.html
