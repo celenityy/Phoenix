@@ -2809,6 +2809,10 @@ pref("devtools.debugger.show-content-scripts", true); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#3057
 pref("devtools.webconsole.timestampMessages", true); // [NO-ANDROID]
 
+/// Disable WebDriver BiDi experimental commands and events
+// https://wiki.mozilla.org/WebDriver/RemoteProtocol/WebDriver_BiDi
+pref("remote.experimental.enabled", false, locked); // [DEFAULT - non-Nightly]
+
 /// Enable DevTools buttons by default [NO-ANDROID]
 pref("devtools.command-button-errorcount.enabled", true); // [NO-ANDROID] [DEFAULT] Error Count - https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/framework/toolbox.js#2198
 pref("devtools.command-button-frames.enabled", true); // [NO-ANDROID] [DEFAULT] Frame Target - https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/framework/toolbox.js#2178
