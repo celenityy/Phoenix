@@ -1798,7 +1798,7 @@ pref("network.auth.private-browsing-sso", false); // [DEFAULT] [DEFENSE IN DEPTH
 // https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 pref("extensions.formautofill.addresses.enabled", false);
 pref("extensions.formautofill.creditCards.enabled", false);
-pref("signon.rememberSignons", false);
+pref("signon.rememberSignons", false); // [NO-MAIL]
 
 /// Disable password truncation
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
@@ -1830,8 +1830,8 @@ pref("signon.generation.enabled", true); // [DEFAULT]
 /// Prevent cross-origin sub-resources from opening HTTP authentication dialogs to protect against phishing
 // (Meaning dialogs for embedded items are only presented when originating from the same site)
 // https://support.mozilla.org/questions/1245144
-pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [DEFAULT - non-Thunderbird]
-pref("network.auth.subresource-http-auth-allow", 1);
+pref("network.auth.non-web-content-triggered-resources-http-auth-allow", false); // [NO-MAIL] [DEFAULT - non-Thunderbird]
+pref("network.auth.subresource-http-auth-allow", 1); // [NO-MAIL]
 pref("network.auth.subresource-img-cross-origin-http-auth-allow", false); // [DEFAULT - non-Thunderbird]
 
 /// Protect against password spoofing for cross-domain auth requests [NO-ANDROID] [NO-MAIL]
@@ -3377,9 +3377,9 @@ pref("autoadmin.offline_failover", true); // [NO-ANDROID]
 pref("autoadmin.refresh_interval", 60); // [NO-ANDROID]
 
 /// Enable support for custom/specialized configs... [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
-pref("general.config.filename", "phoenix.cfg"); // [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
+pref("general.config.filename", "phoenix.cfg"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO-WINDOWS]
 pref("general.config.obscure_value", 0); // [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
-pref("general.config.vendor", "phoenix"); // [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
+pref("general.config.vendor", "phoenix"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO-WINDOWS]
 
 pref("browser.phoenix.status", "030"); // [NO-ANDROID]
 
