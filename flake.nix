@@ -110,18 +110,18 @@
                   if stdenvNoCC.isDarwin then
                     ''
                       cp macos/* $out/
-                      cp -r configs/macos $out/configs
-                      cp -r userjs/macos $out/userjs
+                      cp -r macos/configs $out/configs
+                      cp -r macos/userjs/macos $out/userjs
                     ''
                   else
                     ''
-                      cp -r policies.json phoenix.cfg prefs configs $out/
-                      cp -r userjs/linux $out/userjs
+                      cp -r linux/policies/policies.json linux/phoenix.cfg linux/defaults/pref linux/configs $out/
+                      cp -r linux/userjs/linux $out/userjs
                     ''
                 }
-                install -Dm644 COPYING $out/share/doc/phoenix/COPYING
-                install -Dm644 README.md $out/share/doc/phoenix/README.md
-                install -Dm644 userjs/README $out/share/doc/phoenix/userjs/README
+                install -Dm644 linux/COPYING $out/share/doc/phoenix/COPYING
+                install -Dm644 linux/README.md $out/share/doc/phoenix/README.md
+                install -Dm644 linux/userjs/README $out/share/doc/phoenix/userjs/README
 
                 runHook postInstall
               '';
