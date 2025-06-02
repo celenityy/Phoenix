@@ -379,11 +379,11 @@ echo "Created $PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_WINDOWS_CFG"
 
 mkdir -p /tmp/phoenix
 
-jq -s '.[0] * .[1]' "$PHOENIX_UNIFIED_POLICIES" "$PHOENIX_ONLY_POLICIES" > /tmp/phoenix/temp1.json
+jq -s '.[0] * .[1]' "$PHOENIX_UNIFIED_POLICIES" "$PHOENIX_BLOCKLIST_POLICIES" > /tmp/phoenix/temp1.json
 
-jq -s '.[0] * .[1]' /tmp/phoenix/temp1.json "$PHOENIX_BLOCKLIST_POLICIES" > /tmp/phoenix/temp2.json
+jq -s '.[0] * .[1]' /tmp/phoenix/temp1.json "$PHOENIX_COOKIES_POLICIES" > /tmp/phoenix/temp2.json
 
-jq -s '.[0] * .[1]' /tmp/phoenix/temp2.json "$PHOENIX_COOKIES_POLICIES" > "$PHOENIX_POLICIES"
+jq -s '.[0] * .[1]' /tmp/phoenix/temp2.json "$PHOENIX_ONLY_POLICIES" > "$PHOENIX_POLICIES"
 
 jq -s '.[0] * .[1]' "$PHOENIX_POLICIES" "$PHOENIX_UNIFIED_LINUX_POLICIES" > /tmp/phoenix/temp3.json
 

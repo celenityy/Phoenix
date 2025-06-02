@@ -97,7 +97,7 @@
                 runHook preBuild
 
                 patchShebangs ./build/*.sh
-                sed -i '/general.config.filename/d' build/prefs/phoenix-desktop.js
+                sed -i '/general.config.filename/d' build/phoenix-unified.js
                 ./build/build.sh
 
                 runHook postBuild
