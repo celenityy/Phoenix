@@ -867,6 +867,10 @@ pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/22548
 pref("media.benchmark.vp9.threshold", 0);
 
+/// Do not use the theme's toolbar color scheme for in-content pages by default
+// https://searchfox.org/mozilla-central/source/toolkit/modules/LightweightThemeConsumer.sys.mjs
+pref("browser.theme.unified-color-scheme", false); // [HIDDEN - non-Thunderbird] [DEFAULT - non-Thunderbird]
+
 /// Enable canvas randomization for the browser chrome
 pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", false); // [DEFAULT]
 
