@@ -1,0 +1,109 @@
+{
+    "policies": {
+        "3rdparty": {
+            "Extensions": {
+                "uBlock0@raymondhill.net": {
+                    "adminSettings": {
+                        "assetsBootstrapLocation": "https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json"
+                    }
+                }
+            }
+        },
+        "Bookmarks": [
+            {
+                "Title": "about:netscape",
+                "URL": "http://home.mcom.com",
+                "Placement": "menu",
+                "Folder": "🥚"
+            }
+        ],
+        "ContentAnalysis": {
+            "DefaultResult": 0,
+            "Enabled": false,
+            "InterceptionPoints": {
+                "Clipboard": {
+                    "Enabled": false
+                },
+                "DragAndDrop": {
+                    "Enabled": false
+                },
+                "FileUpload": {
+                    "Enabled": false
+                },
+                "Print": {
+                    "Enabled": false
+                }
+            },
+            "MaxConnectionsCount": 0,
+            "ShowBlockedResult": true
+        },
+        "DisableDefaultBrowserAgent": true,
+        "DisableFeedbackCommands": true,
+        "DisableFirefoxStudies": true,
+        "DisablePrivateBrowsing": false,
+        "DisableProfileImport": true,
+        "DisableProfileRefresh": true,
+        "DisplayBookmarksToolbar": "always",
+        "EnableTrackingProtection": {
+            "Cryptomining": true,
+            "EmailTracking": true,
+            "Fingerprinting": true,
+            "Value": true
+        },
+        "EncryptedMediaExtensions": {
+            "Enabled": false
+        },
+        "ExtensionSettings": {
+            "*": {
+                "blocked_install_message": "I am Iron Man.",
+                "allowed_types": [
+                    "extension",
+                    "theme",
+                    "dictionary",
+                    "locale"
+                ]
+            },
+            "uBlock0@raymondhill.net": {
+                "default_area": "navbar",
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
+                "private_browsing": true,
+                "temporarily_allow_weak_signatures": false
+            },
+            "@testpilot-containers": {
+                "default_area": "navbar",
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi",
+                "temporarily_allow_weak_signatures": false
+            }
+        },
+        "FirefoxHome": {
+            "Pocket": false,
+            "Snippets": false,
+            "SponsoredTopSites": false,
+            "SponsoredPocket": false,
+            "Locked": true
+        },
+        "FirefoxSuggest": {
+            "ImproveSuggest": false,
+            "SponsoredSuggestions": false,
+            "WebSuggestions": false,
+            "Locked": true
+        },
+        "HttpsOnlyMode": "force_enabled",
+        "NoDefaultBookmarks": true,
+        "PrivateBrowsingModeAvailability": 0,
+        "SupportMenu": {
+            "Title": "Phoenix Issue Tracker",
+            "URL": "https://phoenix.celenity.dev/issues"
+        },
+        "UserMessaging": {
+            "ExtensionRecommendations": false,
+            "FeatureRecommendations": false,
+            "MoreFromMozilla": false,
+            "SkipTermsOfUse": true,
+            "UrlbarInterventions": false,
+            "Locked": true
+        }
+    }
+}
