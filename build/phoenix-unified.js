@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.06.02.1", locked);
+pref("browser.phoenix.version", "2025.06.02.2", locked);
 
 /* INDEX 
 
@@ -73,7 +73,7 @@ Unspecified = This preference should be set EVERYWHERE
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID] [NO-MAIL]
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.06.02.1 💜", locked); // [NO-ANDROID] [NO-MAIL]
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.06.02.2 💜", locked); // [NO-ANDROID] [NO-MAIL]
 
 /*** 000 ABOUT:CONFIG ***/
 
@@ -2587,10 +2587,10 @@ pref("security.sandbox.cig.prespawn.enabled", true); // [WINDOWS-ONLY] [DEFAULT 
 
 /// Enable content process sandboxing [NO-ANDROID]
 // These are especially useful for ex. Thunderbird, which seems to disable sandboxing by default... [NO-ANDROID]
-// Sandbox is obviously critical from a security perspective as well, so doesn't hurt IMO to explicitly enable here [NO-ANDROID]
+// Sandboxing is obviously critical from a security perspective as well, so doesn't hurt IMO to explicitly enable here [NO-ANDROID]
 pref("security.sandbox.content.level", 6); // [LINUX-ONLY] [DEFAULT] https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1531
 pref("security.sandbox.content.level", 3); // [OSX-ONLY] [DEFAULT] https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1485
-pref("security.sandbox.content.level", 20); // [WINDOWS-ONLY] (Default = 8: https://searchfox.org/mozilla-central/rev/20fc11f1/browser/app/profile/firefox.js#1473 - This strengthens it: https://searchfox.org/mozilla-central/rev/20fc11f1/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#860)
+pref("security.sandbox.content.level", 8); // [WINDOWS-ONLY] [DEFAULT] https://searchfox.org/mozilla-central/rev/20fc11f1/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#860)
 
 /// Enable the Cross-Origin-Embedder Policy Header
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy
