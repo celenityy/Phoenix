@@ -724,6 +724,21 @@ pref("browser.phoenix.status", "002");
 
 /*** 003 TRACKING PROTECTION ***/
 
+/// Allow users to add URLs to ETP via the `about:config`
+// Typically hidden, but can be useful useful, so we can expose this via the `about:config` to make it easier for users to find/add entries
+// https://developer.mozilla.org/docs/Web/Privacy/Guides/Storage_Access_Policy#adding_custom_domains_to_the_tracking_protection_list
+pref("urlclassifier.trackingAnnotationTable.testEntries", ""); // [HIDDEN] [DEFAULT]
+
+/// Allow users to exclude URLs from ETP via the `about:config`
+// These are typically hidden, but very useful (especially for testing/working around breakage), so we can expose this via the `about:config` to make it easier for users to find/add exclusions
+pref("privacy.rejectForeign.allowList", ""); // [DEFAULT]
+pref("urlclassifier.features.consentmanager.annotate.skipURLs", ""); // [HIDDEN] [DEFAULT]
+pref("urlclassifier.features.cryptomining.skipURLs", ""); // [HIDDEN] [DEFAULT]
+pref("urlclassifier.features.emailtracking.skipURLs", ""); // [HIDDEN] [DEFAULT]
+pref("urlclassifier.features.fingerprinting.skipURLs", ""); // [HIDDEN] [DEFAULT]
+pref("urlclassifier.features.socialtracking.skipURLs", ""); // [HIDDEN] [DEFAULT]
+pref("urlclassifier.trackingSkipURLs", ""); // [HIDDEN] [DEFAULT]
+
 /// Enable ETP Strict
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop?as=u#w_strict-enhanced-tracking-protection
 pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
@@ -753,15 +768,15 @@ pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT - n
 pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 //// Block known trackers
-pref("browser.safebrowsing.features.cryptomining.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.cryptomining.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.emailtracking.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.fingerprinting.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.fingerprinting.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.socialtracking.annotate.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.socialtracking.update", true); // [DEFAULT, HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.trackingAnnotation.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.trackingProtection.update", true); // [DEFAULT, HIDDEN - non-Android] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.cryptomining.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.cryptomining.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.emailtracking.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.fingerprinting.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.fingerprinting.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.socialtracking.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.socialtracking.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.trackingAnnotation.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
+pref("browser.safebrowsing.features.trackingProtection.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("browser.safebrowsing.provider.mozilla.updateURL", "moz-sbrs:://antitracking"); // [DEFAULT - non-Thunderbird]
 pref("privacy.trackingprotection.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.enabled", true);
@@ -780,7 +795,7 @@ pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 //// Enable Bounce Tracking Protection
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 /// https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
-pref("privacy.bounceTrackingProtection.enabled", true); // [DEFAULT] [HIDDEN - Desktop]
+pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - Desktop] [DEFAULT] 
 pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // [HIDDEN - Desktop]
 pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Android/Thunderbird]
 
@@ -791,10 +806,10 @@ pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true); // [DEFAULT]
 
 //// Enable SmartBlock & UA overrides/injections
-pref("extensions.webcompat.enable_shims", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
-pref("extensions.webcompat.perform_injections", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
-pref("extensions.webcompat.perform_ua_overrides", true); // [DEFAULT - non-Thunderbird] [HIDDEN]
-pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird] - Enables Embeds/Placeholders to make certain resources click to load
+pref("extensions.webcompat.enable_shims", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
+pref("extensions.webcompat.perform_injections", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
+pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
+pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] - Enables Embeds/Placeholders to make certain resources click to load
 
 //// Enable State Partitioning
 pref("network.fetch.cache_partition_cross_origin", true); // [DEFAULT] Cross origin fetch/XHR requests
@@ -827,7 +842,7 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT] - for top navigations in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
 
-//// Lower the network priority of known trackers (if not blocked for whatever reason...)
+/// Lower the network priority of known trackers (if not blocked for whatever reason...)
 pref("privacy.trackingprotection.lower_network_priority", true);
 
 pref("browser.phoenix.status", "003");
