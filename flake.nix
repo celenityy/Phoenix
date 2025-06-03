@@ -45,11 +45,11 @@
                   }
                 ];
                 environment.etc."firefox/defaults/pref/phoenix-desktop.js".source =
-                  "${pkgs.phoenix}/linux/defaults/pref/phoenix-desktop.js";
-                environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/linux/userjs";
-                environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/linux/configs";
+                  "${pkgs.phoenix}/pref/phoenix-desktop.js";
+                environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
+                environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
                 programs.firefox.policies =
-                  (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/linux/policies/policies.json")).policies;
+                  (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/policies.json")).policies;
                 nixpkgs.overlays = [
                   self.overlays.default
                   (
@@ -127,40 +127,6 @@
               '';
             }
           ) { };
-
-          wrapFirefox =
-            browser: args:
-            (prev.wrapFirefox browser args).overrideAttrs (old: {
-              nativeBuildInputs =
-                (old.nativeBuildInputs or [ ])
-                ++ (with prev; [
-                  zip
-                  unzip
-                  gnused
-                ]);
-              buildCommand =
-                ''
-                  export buildRoot="$(pwd)"
-                ''
-                + old.buildCommand
-                # Allows Search Engine Policies on non-ESR builds,
-                # copied from https://hedgedoc.grimmauld.de/s/rVnTq0-Rs#
-                + ''
-                  if [ -f $out/lib/firefox/browser/omni.ja ]; then
-                    pushd $buildRoot
-                    unzip $out/lib/firefox/browser/omni.ja -d patched_omni || ret=$?
-                    if [[ $ret && $ret -ne 2 ]]; then
-                      echo "unzip exited with unexpected error"
-                      exit $ret
-                    fi
-                    rm $out/lib/firefox/browser/omni.ja
-                    cd patched_omni
-                    sed -i 's/"enterprise_only"\s*:\s*true,//' modules/policies/schema.sys.mjs
-                    zip -0DXqr $out/lib/firefox/browser/omni.ja * # potentially qr9XD
-                    popd
-                  fi
-                '';
-            });
 
           withPhoenix =
             firefoxPackage:
