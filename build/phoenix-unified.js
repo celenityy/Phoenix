@@ -2656,7 +2656,6 @@ pref("dom.security.sanitizer.enabled", true);
 
 /// Enable Shadow Stacks [WINDOWS-ONLY]
 // https://wikipedia.org/wiki/Shadow_stack [WINDOWS-ONLY]
-pref("security.sandbox.content.shadow-stack.enabled", true); // [WINDOWS-ONLY]
 pref("security.sandbox.gmp.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.gpu.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.rdd.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
