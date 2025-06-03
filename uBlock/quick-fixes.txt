@@ -1,16 +1,10 @@
 ! Title: Phoenix filters - Quick fixes
-! Version: 01June2025v2
+! Version: 03June2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
 ! The goal of the list will be to fix/workaround issues caused by our uBlock Origin config/default filterlists until they're fixed by their respective authors upstream.
 ! Rules here should be TEMPORARY, and will be removed once the issue is corrected.
-
-!! https://github.com/hagezi/dns-blocklists/pull/6390
-!!! itisatracker.com: HaGeZi - Multi PRO++ and above
-!!! trackertest.org: HaGeZi - Multi PRO and above
-||itisatracker.com^$badfilter
-||trackertest.org^$badfilter
 
 !! https://github.com/easylist/easylist/issues/21811
 !!! EasyList
