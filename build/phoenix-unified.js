@@ -750,6 +750,7 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
 //// Block known consent managers (CMPs)
+pref("browser.safebrowsing.features.consentmanager.annotate.update", true); // [HIDDEN] [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.enabled", false); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.pbmode.enabled", false);
