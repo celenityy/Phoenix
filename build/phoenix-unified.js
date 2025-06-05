@@ -2308,6 +2308,15 @@ pref("browser.contentanalysis.max_connections", 0, locked); // Sets maximum numb
 pref("browser.contentanalysis.show_blocked_result", true, locked); // [DEFAULT] - Always notify users when Content Analysis blocks access to something...
 pref("browser.contentanalysis.silent_notifications", false, locked); // [DEFAULT] If Content Analysis is enabled, ensure notifications aren't silenced so that users are fully aware
 
+/// Disable Federated Credential Management (FedCM) API
+// PRIVACY: Provides support for "identity federation services"/third party sign-in - which can be used for tracking by design
+// SECURITY: Attack Surface Reduction
+// https://developer.mozilla.org/docs/Web/API/FedCM_API
+// https://w3c-fedid.github.io/FedCM/
+pref("dom.security.credentialmanagement.identity.enabled", false); // [DEFAULT - non-Nightly]
+pref("dom.security.credentialmanagement.identity.heavyweight.enabled", false); // [DEFAULT - non-Nightly]
+pref("dom.security.credentialmanagement.identity.lightweight.enabled", false); // [DEFAULT]
+
 /// Disable Microsoft's Cloud Clipboard/Clipboard History [WINDOWS-ONLY]
 // https://docs.microsoft.com/windows/win32/dataxchg/clipboard-formats#cloud-clipboard-and-clipboard-history-formats [WINDOWS-ONLY]
 // https://searchfox.org/mozilla-central/source/widget/windows/nsClipboard.cpp#325 [WINDOWS-ONLY]
