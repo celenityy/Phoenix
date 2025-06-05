@@ -2369,6 +2369,12 @@ pref("browser.phoenix.status", "021");
 
 /*** 022 MISC. PRIVACY ***/
 
+/// Block ports currently known to be abused by Android apps for tracking/fingerprinting
+// Currently blocked by default on Android - but assuming they don't cause issues, I'd also like to keep these blocked for other platforms (for defense in depth and in case this method of tracking is also being used elsewhere...)
+// https://localmess.github.io/
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1970141
+pref("network.security.ports.banned", "29009, 29010, 30102, 30103, 12387, 12388, 12580, 12581, 12582, 12583, 12584, 12585, 12586, 12587, 12588, 12589, 12590, 12591"); // [DEFAULT - Android]
+
 /// Disable CSP reporting
 // Fingerprinting concerns, Used for analytics by design
 // Also reduces unsolicited network activity and bandwidth consumption
@@ -2605,9 +2611,8 @@ pref("security.sandbox.content.win32k-disable", true); // [WINDOWS-ONLY] [DEFAUL
 pref("security.sandbox.gmp.win32k-disable", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.socket.win32k-disable", true); // [WINDOWS-ONLY] [DEFAULT]
 
-/// Do not block additional ports by default
-// This is just to expose the preferences via the `about:config`
-pref("network.security.ports.banned", ""); // [DEFAULT] [HIDDEN]
+/// Do not allow additional ports by default
+// This is just to expose the preference via the `about:config`
 pref("network.security.ports.banned.override", ""); // [DEFAULT] [HIDDEN]
 
 /// Enable Arbitrary Code Guard (ACG) [WINDOWS-ONLY]
