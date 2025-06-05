@@ -2521,6 +2521,7 @@ pref("browser.link.force_default_user_context_id_for_external_opens", true); // 
 
 /// Prevent notifying websites if users switch focus/active windows by default
 // Unfortunately doesn't work with tabs...
+// https://bugzilla.mozilla.org/show_bug.cgi?id=704583
 // For testing: https://www.proginosko.com/test/WindowFocusEvents.html
 pref("focusmanager.testmode", true);
 
