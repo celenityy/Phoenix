@@ -3124,6 +3124,10 @@ pref("media.videocontrols.picture-in-picture.respect-disablePictureInPicture", f
 // (This is the `Zoom on all websites` UI setting for Android)
 pref("browser.ui.zoom.force-user-scalable", true);
 
+/// Allow zooming out beyond the initial scale of websites by default
+// https://searchfox.org/mozilla-central/rev/3b58bde3/gfx/layers/apz/src/AsyncPanZoomController.cpp#157
+pref("apz.allow_zooming_out", true);
+
 /// Allow the use of custom CSS by default [NO-ANDROID]
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // [NO-ANDROID]
 
