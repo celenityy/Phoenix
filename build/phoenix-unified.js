@@ -434,6 +434,15 @@ pref("doh-rollout.trr-selection.provider-list", "", locked); // [HIDDEN]
 pref("doh-rollout.uri", "", locked); // [HIDDEN]
 pref("network.android_doh.autoselect_enabled", false, locked); // [DEFAULT] https://searchfox.org/mozilla-central/rev/f1e32fa7/modules/libpref/init/StaticPrefList.yaml#14585
 
+/// Disable DoH performance measurements
+// https://searchfox.org/mozilla-central/rev/3b58bde3/browser/components/BrowserGlue.sys.mjs#1196
+// https://searchfox.org/mozilla-central/source/toolkit/components/doh/TRRPerformance.sys.mjs
+pref("doh-rollout.trrRace.canonicalDomain", ""); // [HIDDEN] [Default = firefox-dns-perf-test.net]
+pref("doh-rollout.trrRace.complete", true); // [HIDDEN]
+pref("doh-rollout.trrRace.enabled", false); // [HIDDEN]
+pref("doh-rollout.trrRace.popularDomains", ""); // [HIDDEN]
+pref("doh-rollout.trrRace.randomSubdomainCount", 0); // [HIDDEN]
+
 /// Disable 'Essential Domains Fallback'
 // My concern here is the fact that this is fetched from Remote Settings - this could potentially be used to bypass our internal domain blocklist above + the firewall of users if they themselves choose to block specific domains for whatever reason
 // I don't have a problem with this being a local dump though, as I can understand the usefulness of this (and being local would mitigate my concerns here) - but I'm not comfortable with the remote part
