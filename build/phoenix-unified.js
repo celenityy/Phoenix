@@ -1847,6 +1847,9 @@ pref("network.auth.confirmAuth.enabled", true);
 /// Enable strong password generation (if the Password Manager is enabled) by default
 pref("signon.generation.enabled", true); // [DEFAULT]
 
+/// If the PaymentRequest API is enabled, ensure we always require user interaction...
+pref("dom.payments.request.user_interaction_required", true); // [DEFAULT]
+
 /// Prevent cross-origin sub-resources from opening HTTP authentication dialogs to protect against phishing
 // (Meaning dialogs for embedded items are only presented when originating from the same site)
 // https://support.mozilla.org/questions/1245144
