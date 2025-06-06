@@ -186,62 +186,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>87677a2c52b84ad3a151a4a72f5bd3c4@jetpack</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Grammarly. Keylogger, also very sketchy... if you insist on this type of invasive spell-checking, just use LanguageTool instead, though even that I would be cautious of.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-facebook</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Facebook Container, by Mozilla. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Facebook, you can do so at about:preferences#general or through the Multi-Account Containers extension instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-facebook-newalexandria</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Facebook Container - Expanded, by New Alexandria. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Facebook, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-google</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Google Container, by containers-everywhere. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-google-minus-youtube</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Google Container Minus YouTube, by yoasif. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-google-minus-youtube-and-searchpages</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Google Container Minus YouTube &amp; Search Pages, by Bernd Bestel. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-google-with-integrations</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Google Container - with Integrations, by New Alexandria. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Google, you can do so at about:preferences#general or through the Multi-Account Containers extension instead. Also appears dead anyways.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>@contain-twitter</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Twitter Container, by Vishwa. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Twitter, you can do so at about:preferences#general or through the Multi-Account Containers extension instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>@testpilot-containers</key>
 		<dict>
 			<key>default_area</key>
@@ -252,13 +196,6 @@
 			<string>normal_installed</string>
 			<key>temporarily_allow_weak_signatures</key>
 			<false/>
-		</dict>
-		<key>@twitter_x_container</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Twitter/X Container, by Zachary E. Unnecessary since cookies are now isolated by default, and if you still wish to create a container for Twitter, you can do so at about:preferences#general or through the Multi-Account Containers extension instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
 		</dict>
 		<key>@yahoo_wider_mail_extension</key>
 		<dict>
@@ -278,13 +215,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Brave search, by Dusan Uveric. Extension is unnecessary, just add Brave Search in either about:preferences#search or from the Omnibox.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>CanvasBlocker@kkapsner.de</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>CanvasBlocker, unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -445,7 +375,7 @@
 		<key>adblockultimate@adblockultimate.net</key>
 		<dict>
 			<key>blocked_install_message</key>
-			<string>AdBlocker Ultimate, by AdAvoid. Highly sketchy. https://x.com/gorhill/status/1165747661691064322. Just use uBlock Origin.</string>
+			<string>AdBlocker Ultimate, by AdAvoid. Very sketchy. https://x.com/gorhill/status/1165747661691064322. Just use uBlock Origin.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -680,59 +610,10 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>extension@ciuvo.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>'Picky' https://addons.mozilla.org/firefox/addon/ciuvo/ - Tracks users, poor privacy practices...</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox-addon@expressvpn.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>ExpressVPN, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>firefox-translations-addon@mozilla.org</key>
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Firefox Translations, by Mozilla. Dead. Also unnecessary since the Translations feature is now built in.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox-webext@zenmate.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>ZenMate Free VPN, by ZenMate (Kape). Highly sketchy, please just use a trustworthy VPN like Mullvad or ProtonVPN instead</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox@ghostery.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Ghostery Privacy Ad Blocker. Highly sketchy, has previously sold user data, Just use uBlock Origin.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox@hg.newsguardtech.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>HealthGuard, by NewsGuard. Sketchy &amp; poor privacy policy.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox@newsguardtech.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>NewsGuard, sketchy &amp; poor privacy policy.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>firefox@vid.io</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>vidIQ Vision for YouTube, by vidIQ. Sketchy.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -771,24 +652,10 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>https-by-default@robwu.nl</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>HTTPS by default, by Rob W. Useless with HTTPS-Only Mode (which we enforce).</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>https-everywhere@eff.org</key>
 		<dict>
 			<key>blocked_install_message</key>
 			<string>HTTPS Everywhere. Deprecated, also useless with HTTPS-Only Mode (which we enforce) anyways.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>idsafe@norton.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Norton Password Manager, by Norton. Must I say more? Would almost rather getting a virus than installing this crap...</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -802,7 +669,7 @@
 		<key>jid1-93CWPmRbVPjRQA@jetpack</key>
 		<dict>
 			<key>blocked_install_message</key>
-			<string>Honey, by PayPal, horrible privacy policy.</string>
+			<string>Honey, by PayPal, terrible privacy, and also a scam...</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -827,24 +694,10 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>jid1-dwtFBkQjb3SIQp@jetpack</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>AdBlocker Lite, appears dead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>jid1-n8wH2cBfc2QaUj@jetpack</key>
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Flash Block (Plus), by AdblockLite. Dead technology, but for some reason this is still being updated?</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>jsr@javascriptrestrictor</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>JShelter, by Libor Polčák. Unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -932,13 +785,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>mipfingerprint@mip.co.za</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>MIP Fingerprint, by MIP Holdings. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>mojeek@celenity.dev</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -957,27 +803,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Deprecated</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>nordpass@nordpass.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>NordPass, by NordVPN. Highly sketchy. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>nordpassStandalone@nordsecurity.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>NordPass, by NordVPN. Highly sketchy. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>nordvpnproxy@nordvpn.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>NordVPN, highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1184,13 +1009,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>support@lastpass.com</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>LastPass Password Manager, by LastPass. Sketchy &amp; has had serious breaches. Please just use a trustworthy password manager like Bitwarden or Proton Pass instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>support@netzilo.com</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1330,13 +1148,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{07bccf58-b5f1-425c-b7ad-2301e1a42704}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Fingerprint shelter, by Ol. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{0a3ee209-ab68-4b84-a9ef-eb0ee686dd8d}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1354,7 +1165,7 @@
 		<key>{17c75373-e1fc-43a5-a05b-7f17e306359e}</key>
 		<dict>
 			<key>blocked_install_message</key>
-			<string>Stay secure with CyberGhost VPN Free Proxy, by Running __Elephants. CyberGhost is Highly sketchy, by Kape. This extension also appears fake &amp; unmaintained. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
+			<string>Stay secure with CyberGhost VPN Free Proxy, by Running __Elephants. This extension appears fake and unmaintained (and CyberGhost itself is also very sketchy anyways...</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1372,13 +1183,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{248e6a49-f636-4c81-9899-a456eb6291a8}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Ground News Bias Checker, by Ground News. Very sketchy, poor privacy policy. Avoid.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{25f17283-8325-42fb-812e-193c8de90b04}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1390,13 +1194,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>YouTube Search Engine, by A. Taha Baki. Extension is unnecessary, just add YouTube in either about:preferences#search or from the Omnibox.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{2cf5dbed-78fe-4bd5-9524-38fdf837be98}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>WebGL Fingerprint Defender, by ilGur. Unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1414,13 +1211,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{2ed00a98-3452-4535-a99d-0bb13056d09f}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Browser Plugs Spoof FP Random, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce).</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{2f182d41-fd03-4a6d-938d-081419586c37}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1432,13 +1222,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Glider Proctoring, by GLIDER.ai. Used for remote monitoring/test 'Proctoring'</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{3e4d2037-d300-4e95-859d-3cba866f46d3}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Private Internet Access, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1456,20 +1239,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{44df5123-f715-9146-bfaa-c6e8d4461d44}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Fakespot, by Mozilla. Poor privacy policy.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{46cc18f3-9054-4edd-9441-102a1021b5d0}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Fingerprint Spoof, by ns. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{4d5b7a5e-5232-9e45-97f4-f8e1ca2626e5}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1484,24 +1253,10 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{585280b0-ee78-428a-92c5-3fb3c0b85460}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>CyberGhost VPN Free Proxy, by Kape. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{635abd67-4fe9-1b23-4f01-e679fa7484c1}</key>
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Yahoo Toolbar and New Tab, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{6476684c-e1dc-4505-8bb6-5f0f9663f78e}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>BP Block Font Fingerprint, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1519,20 +1274,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{6ff498ff-a3b6-4891-a614-12a825d4efcf}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Trace, by AbsoluteDouble. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
-			<key>intallation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{710a25a7-051f-4059-8952-abbaa9aa6121}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>FakeBux for Roblox, by LuckyDev. Just use Inspect Element.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{7313aced-ab7c-40fb-bf3a-115e91ba6c2a}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1540,24 +1281,10 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{732216ec-0dab-43bb-ac85-4b5e1977599d}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Surfshark VPN Extension, by NordVPN. Highly sketchy. Please just use a trustworthy VPN like Mullvad or ProtonVPN instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{74fc443d-ab0b-42b2-95d0-890f2d8092cb}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>HTTP to HTTPS, by Balvin. Useless with HTTPS-Only Mode (which we enforce).</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{76f42345-d120-4c8e-bdd4-63cf95b780fb}</key>
 		<dict>
 			<key>blocked_install_message</key>
-			<string>CyberGhost Cookie Cleaner, by Kape. Highly sketchy... and also completely useless with our tweaks. Avoid.</string>
+			<string>CyberGhost Cookie Cleaner, by Kape. Extremely sketchy... Avoid.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1565,13 +1292,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>MSN Homepage, New Tab and Bing Search Engine, by Microsoft. Please don't use Bing... but if you insist, extension is unnecessary, just set it in about:preferences#search.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{87edebac-93fe-4780-8945-598a961b793f}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Fingerprint Shield, by Francesco De Stefano. Unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1593,20 +1313,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Google Analytics Opt-Out, by Vishwas. Unnecessary with content blocking.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{94cadb67-daa0-4761-b6b5-171e5d61da2e}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>SingleFile Auto-Save, by gildas. Very concerning from a privacy perspective.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{96ef5869-e3ba-4d21-b86e-21b163096400}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Font Fingerprint Defender, by ilGur. Unnecessary with RFP or ETP (Which we enforce).</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
@@ -1659,20 +1365,6 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
-		<key>{b2531c6a-ce38-4b46-961e-62a6e89a1b17}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>No Fingerprint, by Sam0230. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{b3e677f4-1150-4387-8629-da738260a48e}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Smart HTTPS, by ilGur. Appears dead, and useless with HTTPS-Only Mode (which we enforce) anyways.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
 		<key>{b69c9b46-2236-45c2-9abd-143972558677}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1719,20 +1411,6 @@
 		<dict>
 			<key>blocked_install_message</key>
 			<string>Adblock Plus, by Eyeo. Highly sketchy, avoid &amp; just use uBlock Origin instead.</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{e969f389-ecf2-4ba5-b6b3-95157461366c}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Blend In and Spoof Everything, by BrowserPlugs. Unnecessary with RFP or ETP (Which we enforce).</string>
-			<key>installation_mode</key>
-			<string>blocked</string>
-		</dict>
-		<key>{e98b4b87-bc39-439f-a175-b15fbe4a06c0}</key>
-		<dict>
-			<key>blocked_install_message</key>
-			<string>Canvas Blocker - Fingerprint Protect, by Joue. Unnecessary with RFP or ETP (Which we enforce). Also appears dead.</string>
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>

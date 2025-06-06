@@ -1040,7 +1040,7 @@ sudo chmod 655 /etc/firefox/policies
 **9:** Finally, those on Windows should copy `policies.json` to the `distribution` folder that you just created. You can run the following command:
 
 ```sh
-cp policies.json /usr/lib64/firefox/distribution/policies.json
+cp policies.json C:\'Program Files'\'Mozilla Firefox'\distribution\policies.json
 ```
 
 macOS users should **instead** copy `org.mozilla.firefox.plist` to `/Library/Preferences`, and **reboot** their device once finished:
