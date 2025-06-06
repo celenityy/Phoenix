@@ -3126,6 +3126,9 @@ pref("security.xfocsp.hideOpenInNewWindow", false); // [NO-ANDROID] [ESR]
 /// Allow Picture-in-Picture on all websites, even if they try to block it...
 pref("media.videocontrols.picture-in-picture.respect-disablePictureInPicture", false);
 
+/// Allow zoom by default...
+pref("apz.allow_zooming", true); // [DEFAULT]
+
 /// Allow zoom on all websites, even if they try to block it...
 // (This is the `Zoom on all websites` UI setting for Android)
 pref("browser.ui.zoom.force-user-scalable", true);
