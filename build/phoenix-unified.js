@@ -2525,12 +2525,6 @@ pref("network.cookie.maxageCap", 15552000);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1874599#c8 [NO-ANDROID] [NO-MAIL]
 pref("browser.link.force_default_user_context_id_for_external_opens", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Prevent notifying websites if users switch focus/active windows by default
-// Unfortunately doesn't work with tabs...
-// https://bugzilla.mozilla.org/show_bug.cgi?id=704583
-// For testing: https://www.proginosko.com/test/WindowFocusEvents.html
-pref("focusmanager.testmode", true);
-
 /// Prevent sharing identifying information if a remote AutoConfig is being used
 // https://searchfox.org/mozilla-central/source/extensions/pref/autoconfig/src/nsAutoConfig.cpp#220
 pref("autoadmin.append_emailaddr", false, locked); // [DEFAULT] [HIDDEN]
