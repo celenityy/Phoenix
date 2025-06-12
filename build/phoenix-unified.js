@@ -1551,6 +1551,11 @@ pref("extensions.webextensions.early_background_wakeup_on_request", true); // [H
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1720221
 pref("network.proxy.failover_direct", false);
 
+/// Disable file:///net
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1412081
+pref("network.file.path_blacklist", "/net"); // [NO-ANDROID] [HIDDEN]
+pref("network.file.path_blacklist", ""); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
+
 /// Disable GIO
 // https://bugzilla.mozilla.org/1433507
 pref("network.gio.supported-protocols", ""); // [HIDDEN]
@@ -1558,11 +1563,6 @@ pref("network.gio.supported-protocols", ""); // [HIDDEN]
 /// Disable Uniform Naming Convention (UNC) file paths
 // https://bugzilla.mozilla.org/1413868
 pref("network.file.disable_unc_paths", true); // [HIDDEN]
-
-/// Disable file:///net
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1412081
-pref("network.file.path_blacklist", "/net"); // [NO-ANDROID] [HIDDEN]
-pref("network.file.path_blacklist", ""); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
 
 /// Disable Wi-Fi Tickler
 // Ex. disabled by the Proxy Bypass Protection build argument
