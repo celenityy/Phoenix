@@ -1561,7 +1561,8 @@ pref("network.file.disable_unc_paths", true); // [HIDDEN]
 
 /// Disable file:///net
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1412081
-pref("network.file.path_blacklist", "/net"); // [HIDDEN]
+pref("network.file.path_blacklist", "/net"); // [NO-ANDROID] [HIDDEN]
+pref("network.file.path_blacklist", ""); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
 
 /// Disable Wi-Fi Tickler
 // Ex. disabled by the Proxy Bypass Protection build argument
