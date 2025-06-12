@@ -3305,8 +3305,7 @@ pref("services.settings.loglevel", "warn"); // [DEFAULT] [HIDDEN]
 /// Set default URL to load when navigating to `moz://a`
 // Default is https://www.mozilla.org/about/manifesto/
 // https://searchfox.org/mozilla-central/source/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs
-pref("toolkit.mozprotocol.url", "about:mozilla"); // [NO-ANDROID] [HIDDEN]
-pref("toolkit.mozprotocol.url", "chrome://geckoview/content/config.xhtml"); // [ANDROID-ONLY] [HIDDEN]
+pref("toolkit.mozprotocol.url", "about:mozilla"); // [HIDDEN]
 
 /// Prevent automatically closing the Bookmarks menu after selecting a bookmark [NO-ANDROID] [NO-MAIL]
 pref("browser.bookmarks.openInTabClosesMenu", false); // [NO-ANDROID] [NO-MAIL]
