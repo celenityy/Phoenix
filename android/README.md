@@ -69,7 +69,7 @@ var pref = function(pref, val, locked, sticky) {
   }
 }
 
-// Paste the contents of phoenix-android.js below:
+// Paste the contents of phoenix.js below:
 
 ```
 
