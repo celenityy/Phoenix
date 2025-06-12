@@ -15,7 +15,7 @@
 
 ### Want to join the Phoenix Community?
 
-We'd love to see you over on [Matrix](https://matrix.to/#/#phoenix:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/AMZ2GRxxjr)!
+We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/TsADPVDerv)!
 
 ___
 
