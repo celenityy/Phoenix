@@ -88,7 +88,7 @@ https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix.js
 **15:** You should then reconnect to your mobile device from `about:debugging` on your computer. You can now **repeat** Steps `11` and `12`, but replace `https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix.js` with `https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix-extended.js`:
 
 ```sh
-ttps://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix-extended.js
+https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix-extended.js
 ```
 
 **16:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
