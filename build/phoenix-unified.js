@@ -2067,6 +2067,10 @@ pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAUL
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Do not use AI to "suggest tabs and a name for tab groups" by default
+pref("browser.tabs.groups.smart.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.tabs.groups.smart.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
+
 /// Remove privacy-invasive AI Chatbot providers [NO-ANDROID] [NO-MAIL]
 // (Anthropic Claude, ChatGPT, Google Gemini, and Le Chat Mistral) [NO-ANDROID] [NO-MAIL]
 // HuggingChat's privacy policy is OK, though it does leave room for improvement - but best option out of the built-in [NO-ANDROID] [NO-MAIL]
@@ -3111,8 +3115,12 @@ pref("app.update.langpack.enabled", true); // [NO-ANDROID] [DEFAULT]
 pref("intl.multilingual.downloadEnabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
 pref("intl.multilingual.enabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
 
+/// Allow enabling the use of AI to "suggest tabs and a name for tab groups" from `about:preferences#general`
+// (This only controls the UI setting, `browser.tabs.groups.smart.userEnabled` is what actually controls whether this functionality is enabled or not)
+pref("browser.tabs.groups.smart.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
+
 /// Allow enabling the weather on Firefox Home by default [NO-ANDROID] [NO-MAIL]
-// (This only controls the UI setting, `browser.newtabpage.activity-stream.showWeather` is what actually controls whether the weather is actually displayed or not) [NO-ANDROID] [NO-MAIL]
+// (This only controls the UI setting, `browser.newtabpage.activity-stream.showWeather` is what actually controls whether the weather is displayed or not) [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.system.showWeather", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Allow opening iframes in new tabs/windows [NO-ANDROID]
