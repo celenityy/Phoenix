@@ -2370,6 +2370,11 @@ pref("dom.webmidi.gated", true, locked); // [DEFAULT]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1876002
 pref("dom.origin-trials.mls.state", 1);
 
+/// Enable Private Network Access Restrictions
+// https://wicg.github.io/private-network-access/
+pref("network.lna.blocking", true); // [NIGHTLY]
+pref("network.lna.enabled", true); // [DEFAULT] [NIGHTLY]
+
 pref("browser.phoenix.status", "021");
 
 /*** 022 MISC. PRIVACY ***/
