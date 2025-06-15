@@ -2798,7 +2798,7 @@ pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
 pref("offline.autoDetect", false); // [LINUX-ONLY] RedHat/Fedora-specific
 pref("toolkit.networkmanager.disable", true); // [LINUX-ONLY] RedHat/Fedora-specific
 
-/// Disable requests to 0.0.0.0
+/// Disable network requests to 0.0.0.0
 // Appears to be related to a (potentially severe?) privacy/security issue, but bug is confidential so I'm unable to find actual details...
 // This is also being set by Tor Browser
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1889130
