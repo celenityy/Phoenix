@@ -1482,6 +1482,11 @@ pref("network.trr.disable-ECS", true); // [DEFAULT]
 pref("network.trr.retry_on_recoverable_errors", true); // [DEFAULT]
 pref("network.trr.strict_native_fallback", true); // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst#438
 
+/// Enable DNS Rebinding Protection
+// (Some like ex. LibreWolf set this to `true`...)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1672528
+pref("network.trr.allow-rfc1918", false); // [DEFAULT]
+
 /// Enable DoH without fallback & Set to Quad9 by default
 pref("network.trr.default_provider_uri", "https://dns.quad9.net/dns-query");
 pref("network.trr.mode", 3);
