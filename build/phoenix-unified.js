@@ -2377,6 +2377,7 @@ pref("dom.origin-trials.mls.state", 1);
 
 /// Enable Private Network Access Restrictions
 // https://wicg.github.io/private-network-access/
+// https://searchfox.org/mozilla-central/rev/a87741c4/netwerk/protocol/http/nsHttpTransaction.cpp#3655
 pref("network.lna.blocking", true); // [NIGHTLY]
 pref("network.lna.enabled", true); // [DEFAULT] [NIGHTLY]
 
