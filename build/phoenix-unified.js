@@ -2823,6 +2823,10 @@ pref("browser.newtabpage.activity-stream.showWeather", false); // [NO-ANDROID] [
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
 pref("media.webvtt.testing.events", false); // [DEFAULT]
 
+/// Do not filter adult content from `about:home` by default
+// https://searchfox.org/mozilla-central/source/browser/modules/FilterAdult.sys.mjs
+pref("browser.newtabpage.activity-stream.filterAdult", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Enable Firefox's newer 'Felt privacy' design for Certificate Errors
 pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderbird]
 
