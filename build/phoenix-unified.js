@@ -1430,6 +1430,11 @@ pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL]
 /// Enable the UI to add custom search engines at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
+/// Ensure the default search engine is set to DuckDuckGo [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.trendingSearch.defaultSearchEngine", "duckduckgo"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [NIGHTLY] For the "Trending search results" widget on Firefox Home (`about:home`) https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/TrendingSearchFeed.sys.mjs
+pref("browser.urlbar.placeholderName", "DuckDuckGo"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.placeholderName.private", "DuckDuckGo"); // [NO-ANDROID] [NO-MAIL]
+
 /// Exclude JavaScript URLS from results [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.filter.javascript", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
@@ -1452,10 +1457,6 @@ pref("browser.urlbar.unitConversion.enabled", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Prompt to use Private Browsing [NO-ANDROID] [NO-MAIL]
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-
-/// Remove default Search Engine Placeholders [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.placeholderName", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.placeholderName.private", ""); // [NO-ANDROID] [NO-MAIL]
 
 /// Show full URLs instead of search terms [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.restyleSearches", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
