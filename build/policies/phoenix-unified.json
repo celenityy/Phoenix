@@ -73,6 +73,7 @@
                 }
             ],
             "Default": "DuckDuckGo",
+            "DefaultPrivate": "DuckDuckGo",
             "PreventInstalls": false,
             "Remove": [
                 "1&1 Suche",
