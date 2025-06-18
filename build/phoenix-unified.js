@@ -494,7 +494,7 @@ pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFENSE IN DEPTH] If Merino is enabled, use OHTTP for superior privacy https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1415 https://searchfox.org/mozilla-central/rev/d52edf7e/browser/extensions/newtab/lib/DiscoveryStreamFeed.sys.mjs#1869
 pref("browser.urlbar.addons.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.groupLabels.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.mdn.featureGate", false); // [NO-ANDROID] [NO-MAIL]
@@ -541,7 +541,7 @@ pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.spocs.enabled", fals
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.tiles.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFENSE IN DEPTH] If Ads are somnehow enabled, use OHTTP for superior privacy https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1428 https://searchfox.org/mozilla-central/rev/d52edf7e/browser/extensions/newtab/lib/AdsFeed.sys.mjs#358
 pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 
