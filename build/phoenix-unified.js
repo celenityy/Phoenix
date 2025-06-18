@@ -643,12 +643,6 @@ pref("browser.topsites.contile.sov.enabled", false, locked); // [NO-ANDROID] [NO
 pref("browser.topsites.useRemoteSetting", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.sponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable the "updated wallpaper experience" (V2) [NO-ANDROID] [NO-MAIL]
-// This causes Firefox to connect to `https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/...` on every browser launch after the user navigates to `about:home` :/ [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#1422 [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs#22 [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false); // [NO-ANDROID] [NO-MAIL]
-
 /// Disable the Web Compatibility Reporter
 // Harmless - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as a potential performance improvement
@@ -675,6 +669,13 @@ pref("browser.mailto.dualPrompt", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 // https://searchfox.org/mozilla-central/source/browser/app/profile/firefox.js [NO-ANDROID] [NO-MAIL]
 pref("browser.shell.checkDefaultPDF", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
+/// Prevent fetching Firefox Home (`about:home`) wallpapers [NO-ANDROID] [NO-MAIL]
+// This causes Firefox to connect to ex. `https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/...` on every browser launch after the user navigates to `about:home` :/ [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#1422 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/WallpaperFeed.sys.mjs#22 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Remove special privileges from Mozilla domains
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
@@ -3279,7 +3280,6 @@ pref("browser.menu.showViewImageInfo", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT
 pref("browser.newtabpage.activity-stream.feeds.wallpaperfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customColor.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Ensure the escape key exits fullscreen by default... [OSX-ONLY]
 pref("browser.fullscreen.exit_on_escape", true); // [OSX-ONLY] [DEFAULT]
