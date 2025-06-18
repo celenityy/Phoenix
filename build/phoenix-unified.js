@@ -362,7 +362,9 @@ pref("browser.newtabpage.activity-stream.feeds.newtabmessaging", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Sponsored content controls/checkboxes https://searchfox.org/mozilla-release/rev/dbf9dfc9/browser/extensions/newtab/lib/AboutPreferences.sys.mjs#102
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.system.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Sponsored content controls/checkboxes https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1138
 pref("messaging-system.askForFeedback", false, locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Clear unnecessary/undesired Mozilla URLs
