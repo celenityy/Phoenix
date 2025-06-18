@@ -485,6 +485,11 @@ pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDR
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1151 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.favicon", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable Firefox Messaging System targeting information background updates [NO-ANDROID]
+// https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/mozapps/update/BackgroundUpdate.sys.mjs#827 [NO-ANDROID]
+// https://firefox-source-docs.mozilla.org/browser/components/asrouter/docs/index.html [NO-ANDROID]
+pref("app.update.background.messaging.targeting.snapshot.intervalSec", -1); // [NO-ANDROID] [HIDDEN - Thunderbird]
+
 /// Disable Firefox Relay by default
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
