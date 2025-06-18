@@ -644,6 +644,12 @@ pref("browser.topsites.contile.sov.enabled", false, locked); // [NO-ANDROID] [NO
 pref("browser.topsites.useRemoteSetting", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.sponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable "Trending search results" on Firefox Home (`about:home`) [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1453 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/TrendingSearchFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.system.trendingSearch.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [NIGHTLY] [DEFAULT]
+pref("browser.newtabpage.activity-stream.trendingSearch.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [NIGHTLY] [DEFAULT]
+
 /// Disable the Web Compatibility Reporter
 // Harmless - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as a potential performance improvement
