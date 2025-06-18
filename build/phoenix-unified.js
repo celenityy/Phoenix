@@ -358,6 +358,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled"
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.feeds.newtabmessaging", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/NewTabMessaging.sys.mjs
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.snippets", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
