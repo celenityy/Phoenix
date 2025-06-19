@@ -2206,14 +2206,14 @@ pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "https://saf
 //// Similar behavior also appears to happen when you report a URL to Safe Browsing
 pref("browser.safebrowsing.reportPhishURL", "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=");
 
-/// Disable the legacy Safe Browsing API (v2.2...)
+/// Disable the legacy (v2.2) Safe Browsing API
 // https://code.google.com/archive/p/google-safe-browsing/wikis/Protocolv2Spec.wiki
 // Has been nonfunctional since October 2018
 // https://security.googleblog.com/2018/01/announcing-turndown-of-deprecated.html
 // Let's make sure it's not used for defense in depth (and attack surface reduction...)
 pref("browser.safebrowsing.provider.google.advisoryName", "Google Safe Browsing (Legacy)"); // Label it so it's clearly distinguishable if it is ever enabled for whatever reason...
-pref("browser.safebrowsing.provider.google.gethashURL", "");
-pref("browser.safebrowsing.provider.google.updateURL", "");
+pref("browser.safebrowsing.provider.google.lists", "disabled");
+pref("browser.safebrowsing.provider.google.lists.default", "goog-badbinurl-shavar,goog-downloadwhite-digest256,goog-phish-shavar,googpub-phish-shavar,goog-malware-shavar,goog-unwanted-shavar"); // [HIDDEN] This pref does nothing, just makes it easier for users to re-enable this Safe Browsing provider if desired by copying and pasting the value of this pref as the value for `browser.safebrowsing.provider.google.lists`
 
 /// Enable an additional plug-in blocklist from Mozilla
 pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest256"); // [DEFAULT - Nightly]
