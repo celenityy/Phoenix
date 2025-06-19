@@ -788,7 +788,6 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
 
 //// Block known consent managers (CMPs)
-pref("browser.safebrowsing.features.consentmanager.annotate.update", true); // [HIDDEN] [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.enabled", false); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.pbmode.enabled", false);
@@ -807,16 +806,6 @@ pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT - n
 pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 //// Block known trackers
-pref("browser.safebrowsing.features.cryptomining.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.cryptomining.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.emailtracking.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.fingerprinting.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.fingerprinting.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.socialtracking.annotate.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.socialtracking.update", true); // [HIDDEN] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.trackingAnnotation.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.features.trackingProtection.update", true); // [HIDDEN - non-Android] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
-pref("browser.safebrowsing.provider.mozilla.updateURL", "moz-sbrs:://antitracking"); // [DEFAULT - non-Thunderbird]
 pref("privacy.trackingprotection.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.enabled", true);
 pref("privacy.trackingprotection.pbmode.enabled", true); // [DEFAULT - non-Android]
@@ -2237,10 +2226,6 @@ pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest2
 pref("browser.safebrowsing.blockedURIs.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.downloads.enabled", true); // [DEFAULT - non-Android]
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
-pref("browser.safebrowsing.features.blockedURIs.update", true); // [DEFAULT, HIDDEN]
-pref("browser.safebrowsing.features.downloads.update", true); // [DEFAULT, HIDDEN]
-pref("browser.safebrowsing.features.malware.update", true); // [DEFAULT, HIDDEN - non-Android]
-pref("browser.safebrowsing.features.phishing.update", true); // [DEFAULT, HIDDEN - non-Android] 
 pref("browser.safebrowsing.id", "navclient-auto-ffox"); // [DEFAULT - Official] Ensure we use Mozilla's ID
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
