@@ -485,6 +485,20 @@ pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDR
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1151 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.favicon", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable fetching Firefox Relay's "allowlist" (list of sites known to support Relay)
+// Should reduce network activity, and also allows users of Relay to use it anywhere if desired
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1926974
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
+// https://searchfox.org/mozilla-central/source/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs
+pref("signon.firefoxRelay.allowListRemoteSettingsCollection", ""); // [HIDDEN]
+
+/// Disable fetching Password Manager rules remotely by default
+// (Used for identifying password forms on websites)
+// Last update was January 2023... also included locally as a dump anyways (resource://app/defaults/settings/main/password-recipes.json), so I don't see a reason to fetch these remotely
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1134852
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/password-recipes/changeset?_expected=0
+pref("signon.recipes.remoteRecipes.enabled", false);
+
 /// Disable Firefox Messaging System targeting information background updates [NO-ANDROID]
 // https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/mozapps/update/BackgroundUpdate.sys.mjs#827 [NO-ANDROID]
 // https://firefox-source-docs.mozilla.org/browser/components/asrouter/docs/index.html [NO-ANDROID]
