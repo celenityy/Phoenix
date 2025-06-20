@@ -1636,39 +1636,49 @@ pref("browser.phoenix.status", "012");
 /*** 013 MEDIA ***/
 
 /// Add DRM notes
-pref("media.eme.enabled.3.note", "You will also need to enable GMP and a CDM."); // [NO-ANDROID] [NO-MAIL]
-pref("media.eme.enabled.3.note", "You will also need to enable the CDM."); // [ANDROID-ONLY]
-pref("media.eme.enabled.4.note", "See media.gmp-provider.enabled, media.gmp-widevinecdm.enabled, & media.media.gmp-widevinecdm.visible"); // [NO-ANDROID] [NO-MAIL]
+pref("media.eme.enabled.3.note", "Disable media.eme.require-app-approval if you haven't already"); // [NO-ANDROID] [NO-MAIL]
+pref("media.eme.enabled.3.note", "You will also need to enable a CDM."); // [ANDROID-ONLY]
+pref("media.eme.enabled.4.note", "You will also need to enable GMP and a CDM."); // [NO-ANDROID] [NO-MAIL]
 pref("media.eme.enabled.4.note", "See media.mediadrm-widevinecdm.visible"); // [ANDROID-ONLY]
-pref("media.eme.enabled.5.note", "WINDOWS USERS: Also see media.eme.playready.enabled, media.gmp-widevinecdm-l1.enabled, & media.gmp-widevinecdm-l1.visible"); // [WINDOWS-ONLY] [NO-MAIL]
-pref("media.gmp-widevinecdm.0.note", "See media.mediadrm-widevinecdm.visible"); // [ANDROID-ONLY]
-pref("media.gmp-widevinecdm-l1.0.note", "See media.mediadrm-widevinecdm.visible"); // [ANDROID-ONLY]
+pref("media.eme.enabled.5.note", "See media.gmp-manager.updateEnabled & media.gmp-widevinecdm.enabled"); // [NO-ANDROID] [NO-MAIL]
+pref("media.eme.enabled.6.note", "WINDOWS USERS: ALSO see media.eme.playready.enabled & media.gmp-widevinecdm-l1.enabled"); // [WINDOWS-ONLY] [NO-MAIL]
 
 /// Block media autoplay by default
 // https://support.mozilla.org/kb/block-autoplay
 pref("media.autoplay.default", 5);
 
-/// Disable DRM
-// Garbage technology with freedom, privacy, & security concerns
+/// Disable Encrypted Media Extensions (EME) (DRM)
+// Garbage technology with privacy, security, and freedom concerns
+// https://www.w3.org/TR/encrypted-media/
 // https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
-pref("media.clearkey.persistent-license.enabled", false); // [DEFAULT]
-pref("media.clearkey.test-key-systems.enabled", false); // [DEFAULT]
+// https://celenity.dev/posts/thoughts/drm/
+// (For testing: https://bitmovin.com/demos/drm)
+// NOTE: EME also requires Content Decryption Modules (CDMs) to function
+// By default, when EME is enabled, Firefox automatically enables/installs Google Widevine on all platforms, in addition to Microsoft PlayReady on Windows
+// Unlike Firefox, when EME is enabled, we don't automatically enable any CDMs (see prefs below) - instead, we allow the user to decide which CDM they prefer to use with EME, instead of making that choice for them - allowing the user to remain in control
+// NOTE: The standard "media.eme.enabled" pref only disables PROPRIETARY CDMs - Firefox on Desktop also enables an additional CDM (Clear Key), which is ALWAYS active, even when the EME pref is disabled... (For reference, Clear Key has previously had security vulnerabilities: https://www.mozilla.org/en-US/security/advisories/mfsa2016-77/ (Tor Browser disables Clear Key FWIW) - and while Clear Key is open source, it still implements basic content protection (such as preventing users from downloading videos... https://bugzilla.mozilla.org/show_bug.cgi?id=1136707#c18))
+// BUT: To work around this, we leverage the `media.eme.require-app-approval` pref. This pref was originally intended for Android to block EME unless the user grants permission. However, when this pref is set on Desktop, since there's no way for users to grant permission to use EME like on Android, it ends up blocking EME entirely - INCLUDING Clear Key
+// (For testing Clear Key: https://cpearce.github.io/mse-eme/ + https://reference.dashif.org/dash.js/latest/samples/drm/clearkey.html)
+// So essentially:
+// On Desktop: want to use EME, but ONLY with an open source CDM (Clear Key)? Set `media.eme.require-app-approval` to `false` and don't touch anything else. Otherwise, set `media.eme.enabled` to `true` AND `media.eme.require-app-approval` to `false`, and enable your preferred CDM(s) below
+// On Android: want to use EME at all? Set `media.eme.enabled` to `true` (Do NOT touch `media.eme.require-app-approval`), and enable your preferred CDM below (Currently Android only supports Widevine)
+pref("browser.eme.ui.enabled", false); // [NO-ANDROID] [NO-MAIL] UI settings/toggle
 pref("media.eme.enabled", false);
-pref("media.eme.enabled.0.note", "DRM/EME is not recommended or supported.");
+pref("media.eme.enabled.0.note", "DRM/EME is NOT supported or recommended.");
 pref("media.eme.enabled.1.note", "Enabling it WILL compromise your privacy/security.");
 pref("media.eme.enabled.2.note", "Proceed at your own caution.");
-pref("media.eme.playready.enabled", false); // [WINDOWS-ONLY] Microsoft PlayReady
-pref("media.eme.require-app-approval", true); // [ANDROID-ONLY] [DEFAULT] Ensure EME always requires permission (if enabled) - https://bugzilla.mozilla.org/show_bug.cgi?id=1620102 https://searchfox.org/mozilla-central/source/dom/media/eme/MediaKeySystemAccessPermissionRequest.h
-pref("media.eme.wmf.clearkey.enabled", false); // [WINDOWS-ONLY] Windows Media Foundation Clearkey [DEFAULT]
-pref("media.gmp-widevinecdm.enabled", false); // [NO-ANDROID] [HIDDEN - non-Firefox Desktop] Widevine
-pref("media.gmp-widevinecdm.enabled", false, locked); // [ANDROID-ONLY] media.mediadrm-widevinecdm.visible should be used instead - this is very broken, let's lock to avoid issues...
-pref("media.gmp-widevinecdm.visible", false); // [NO-ANDROID] [HIDDEN - non-Firefox Desktop] Widevine
-pref("media.gmp-widevinecdm.visible", false, locked); // [ANDROID-ONLY] media.mediadrm-widevinecdm.visible should be used instead - this is very broken, let's lock to avoid issues...
-pref("media.gmp-widevinecdm-l1.enabled", false); // [NO-ANDROID] [DEFAULT - non-Nightly] [HIDDEN - non-Firefox Desktop] Widevine
-pref("media.gmp-widevinecdm-l1.enabled", false, locked); // [ANDROID-ONLY] media.mediadrm-widevinecdm.visible should be used instead - this is very broken, let's lock to avoid issues...
-pref("media.gmp-widevinecdm-l1.visible", false); // [NO-ANDROID] [DEFAULT - non-Nightly] [HIDDEN - non-Firefox Desktop] Widevine
-pref("media.gmp-widevinecdm-l1.visible", false, locked); // [ANDROID-ONLY] media.mediadrm-widevinecdm.visible should be used instead - this is very broken, let's lock to avoid issues...
-pref("media.mediadrm-widevinecdm.visible", false); // [ANDROID-ONLY] Widevine MediaDrm/MediaKeySystem - https://developer.android.com/reference/android/media/MediaDrm https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
+pref("media.eme.require-app-approval", true); // [DEFAULT - Android] https://bugzilla.mozilla.org/show_bug.cgi?id=1620102 https://searchfox.org/mozilla-central/source/dom/media/eme/MediaKeySystemAccessPermissionRequest.h
+
+//// Disable the Google Widevine CDM by default (if EME is enabled)
+/// https://developers.google.com/widevine/drm/overview
+/// NOTE: Widevine on Desktop requires Gecko Media Plugins (GMP) - which we also disable by default, see below
+pref("media.gmp-widevinecdm.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("media.gmp-widevinecdm-l1.enabled", false); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT - non-Nightly]
+pref("media.mediadrm-widevinecdm.visible", false); // [ANDROID-ONLY] Android's MediaDrm API - https://developer.android.com/reference/android/media/MediaDrm https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
+
+//// Disable the Microsoft PlayReady CDM by default (if EME is enabled) [WINDOWS-ONLY]
+/// https://learn.microsoft.com/playready/overview/overview [WINDOWS-ONLY]
+pref("media.eme.playready.enabled", false); // [WINDOWS-ONLY]
 
 /// Disable Gecko Media Plugins (GMP)
 // This is currently only used for DRM and OpenH264 (both of which we disable)
@@ -1713,9 +1723,6 @@ pref("userContent.player.click_to_play", true); // [NO-ANDROID] [HIDDEN]
 
 /// If GMP is enabled (via `media.gmp-manager.updateEnabled`), ensure that installed plug-ins are visible/exposed in `about:addons`
 pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
-
-/// Hide the DRM toggle from `about:preferences#general` [NO-ANDROID] [NO-MAIL]
-pref("browser.eme.ui.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Sandbox GMP [LINUX-ONLY]
 // https://searchfox.org/mozilla-central/source/dom/media/gmp/GMPServiceParent.cpp#1023 [LINUX-ONLY]
