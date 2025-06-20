@@ -1684,6 +1684,7 @@ pref("media.eme.playready.enabled", false); // [WINDOWS-ONLY]
 // This is currently only used for DRM and OpenH264 (both of which we disable)
 // So this helps reduce attack surface (and unwanted network activity...)
 // https://wiki.mozilla.org/GeckoMediaPlugins
+// https://blog.pearce.org.nz/2019/06/firefoxs-gecko-media-plugin-eme.html
 // NOTE: We previously set `media.gmp-provider.enabled` to `false`, but it turns out that pref is essentially useless... all it does is hide installed plug-ins from `about:addons` (and prevents manually triggered add-on updates from checking for GMP updates); it doesn't actually disable GMP or plug-ins installed by it, it doesn't prevent the installation or update of GMP plug-ins, etc...
 // The `media.gmp-manager.updateEnabled` pref is a better fit, as it (combined with the `media.gmp-manager.allowLocalSources` pref) effectively block all GMP downloads/updates
 // https://github.com/arkenfox/user.js/issues/709
