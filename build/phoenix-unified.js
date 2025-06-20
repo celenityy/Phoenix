@@ -1711,6 +1711,9 @@ pref("media.webrtc.hw.h264.enabled", true); // [DEFAULT - Android] Enables H264 
 // https://github.com/black7375/Firefox-UI-Fix/wiki/Options#defaults-6 [NO-ANDROID]
 pref("userContent.player.click_to_play", true); // [NO-ANDROID] [HIDDEN]
 
+/// If GMP is enabled (via `media.gmp-manager.updateEnabled`), ensure that installed plug-ins are visible/exposed in `about:addons`
+pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
+
 /// Hide the DRM toggle from `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 pref("browser.eme.ui.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
