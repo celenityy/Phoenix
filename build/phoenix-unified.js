@@ -719,7 +719,6 @@ pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT 
 pref("app.releaseNotesURL", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked); // [NO-ANDROID] [NO-MAIL]
 pref("app.releaseNotesURL.aboutDialog", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked); // [NO-ANDROID] [NO-MAIL]
 pref("app.releaseNotesURL.prompt", "https://www.mozilla.org/firefox/%VERSION%/releasenotes", locked); // [NO-ANDROID] [NO-MAIL]
-pref("app.support.baseURL", "https://support.mozilla.org/kb/");
 pref("app.update.url.details", "https://www.mozilla.org/firefox/notes", locked); // [NO-ANDROID] [NO-MAIL]
 pref("app.update.url.manual", "https://www.mozilla.org/firefox/new", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.backup.template.fallback-download.aurora", "https://www.mozilla.org/firefox/channel/desktop/#developer");
@@ -1656,7 +1655,7 @@ pref("media.autoplay.default", 5);
 // NOTE: EME also requires Content Decryption Modules (CDMs) to function
 // By default, when EME is enabled, Firefox automatically enables/installs Google Widevine on all platforms, in addition to Microsoft PlayReady on Windows
 // Unlike Firefox, when EME is enabled, we don't automatically enable any CDMs (see prefs below) - instead, we allow the user to decide which CDM they prefer to use with EME, instead of making that choice for them - allowing the user to remain in control
-// NOTE: The standard "media.eme.enabled" pref only disables PROPRIETARY CDMs - Firefox on Desktop also enables an additional CDM (Clear Key), which is ALWAYS active, even when the EME pref is disabled... (For reference, Clear Key has previously had security vulnerabilities: https://www.mozilla.org/en-US/security/advisories/mfsa2016-77/ (Tor Browser disables Clear Key FWIW) - and while Clear Key is open source, it still implements basic content protection (such as preventing users from downloading videos... https://bugzilla.mozilla.org/show_bug.cgi?id=1136707#c18))
+// NOTE: The standard "media.eme.enabled" pref only disables PROPRIETARY CDMs - Firefox on Desktop also enables an additional CDM (Clear Key), which is ALWAYS active, even when the EME pref is disabled... (For reference, Clear Key has previously had security vulnerabilities: https://www.mozilla.org/security/advisories/mfsa2016-77/ (Tor Browser disables Clear Key FWIW) - and while Clear Key is open source, it still implements basic content protection (such as preventing users from downloading videos... https://bugzilla.mozilla.org/show_bug.cgi?id=1136707#c18))
 // BUT: To work around this, we leverage the `media.eme.require-app-approval` pref. This pref was originally intended for Android to block EME unless the user grants permission. However, when this pref is set on Desktop, since there's no way for users to grant permission to use EME like on Android, it ends up blocking EME entirely - INCLUDING Clear Key
 // (For testing Clear Key: https://cpearce.github.io/mse-eme/ + https://reference.dashif.org/dash.js/latest/samples/drm/clearkey.html)
 // So essentially:
