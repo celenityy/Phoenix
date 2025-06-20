@@ -823,9 +823,9 @@ pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 //// Enable Bounce Tracking Protection
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 /// https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
-pref("privacy.bounceTrackingProtection.enabled", true); // [HIDDEN - Desktop] [DEFAULT] 
-pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // [HIDDEN - Desktop]
-pref("privacy.bounceTrackingProtection.mode", 1); // [HIDDEN - Android/Thunderbird]
+pref("privacy.bounceTrackingProtection.enabled", true); // [NO-ANDROID] [ESR]
+pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // [NO-ANDROID] [ESR]
+pref("privacy.bounceTrackingProtection.mode", 1); // [DEFAULT - Nightly]
 
 //// Enable Query Parameter Stripping
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
