@@ -1875,6 +1875,7 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT] Modified by ex. Re
 
 /// Enable alerts for breached and vulnerable passwords (if the Password Manager is enabled) by default [NO-ANDROID] [NO-MAIL]
 // Harmless, never sends passwords or sensitive data to Mozilla [NO-ANDROID] [NO-MAIL]
+// https://support.mozilla.org/kb/firefox-password-manager-alerts-breached-websites [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/security/2018/06/25/scanning-breached-accounts-k-anonymity/ [NO-ANDROID] [NO-MAIL]
 pref("signon.management.page.breach-alerts.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
