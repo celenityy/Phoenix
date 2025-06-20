@@ -1702,7 +1702,7 @@ pref("media.hls.enabled", false); // [ANDROID-ONLY]
 // https://searchfox.org/mozilla-central/source/toolkit/content/gmp-sources/openh264.json
 pref("media.ffmpeg.allow-openh264", false); // [DEFAULT - non-Nightly]
 pref("media.gmp-gmpopenh264.enabled", false);
-pref("media.gmp-gmpopenh264.provider.enabled", false); // [HIDDEN]
+pref("media.gmp-gmpopenh264.provider.enabled", false); // [LINUX-ONLY] RedHat/Fedora-specific
 pref("media.gmp-gmpopenh264.visible", false);
 pref("media.webrtc.hw.h264.enabled", true); // [DEFAULT - Android] Enables H264 hardware decoding https://bugzilla.mozilla.org/show_bug.cgi?id=1717679
 
