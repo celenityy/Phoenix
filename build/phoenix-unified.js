@@ -852,7 +852,7 @@ pref("privacy.partition.serviceWorkers", true); // [DEFAULT]
 //// Enable Suspected Fingerprinters Protection (FPP)
 /// https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters
 pref("privacy.fingerprintingProtection", true);
-pref("privacy.fingerprintingProtection.pbmode", true); // [DEFAULT - non-Thunderbird]
+pref("privacy.fingerprintingProtection.pbmode", true); // [DEFAULT]
 pref("privacy.reduceTimerPrecision", true); // [DEFAULT]
 
 //// Enable TCP/dFPI
@@ -2386,8 +2386,6 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [WINDOWS-O
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
 pref("dom.reporting.crash.enabled", false); // [DEFAULT]
-pref("dom.reporting.delivering.maxFailures", 0); // [DEFENSE IN DEPTH]
-pref("dom.reporting.delivering.maxReports", 0); // [DEFENSE IN DEPTH]
 pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
@@ -2458,7 +2456,6 @@ pref("services.sync.engine.tabs", false); // [NO-ANDROID]
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/
 pref("browser.send_pings", false); // [DEFAULT]
-pref("browser.send_pings.max_per_link", 0); // [DEFENSE IN DEPTH]
 pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 
 /// Disable Network Error Logging
