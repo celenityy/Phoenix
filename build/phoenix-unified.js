@@ -1671,12 +1671,16 @@ pref("media.gmp-widevinecdm-l1.visible", false, locked); // [ANDROID-ONLY] media
 pref("media.mediadrm-widevinecdm.visible", false); // [ANDROID-ONLY] Widevine MediaDrm/MediaKeySystem - https://developer.android.com/reference/android/media/MediaDrm https://bugzilla.mozilla.org/show_bug.cgi?id=1306219
 
 /// Disable Gecko Media Plugins (GMP)
-// This is currently only used for DRM & OpenH264 (both of which we disable)
-// In general, I feel that these are unnecessary and best left to the operating system to support. They do also pose privacy & security concerns, so I don't see a reason to keep these enabled.
+// This is currently only used for DRM and OpenH264 (both of which we disable)
+// So this helps reduce attack surface (and unwanted network activity...)
 // https://wiki.mozilla.org/GeckoMediaPlugins
-pref("media.gmp-provider.enabled", false);
+// NOTE: We previously set `media.gmp-provider.enabled` to `false`, but it turns out that pref is essentially useless... all it does is hide installed plug-ins from `about:addons` (and prevents manually triggered add-on updates from checking for GMP updates); it doesn't actually disable GMP or plug-ins installed by it, it doesn't prevent the installation or update of GMP plug-ins, etc...
+// The `media.gmp-manager.updateEnabled` pref is a better fit, as it (combined with the `media.gmp-manager.allowLocalSources` pref) effectively block all GMP downloads/updates
+pref("media.gmp-manager.updateEnabled", false);
 
 /// Disable GMP local sources
+// When combined with `media.gmp-manager.updateEnabled`, this blocks all GMP downloads/updates
+// When GMP is enabled (`media.gmp-manager.updateEnabled` set to `true`), this is still useful - as it ensures the GMP plug-ins that Firefox installs are always the latest versions available (instead of being outdated/potentially vulnerable), directly from Mozilla
 // https://searchfox.org/mozilla-central/source/toolkit/modules/GMPUtils.sys.mjs
 pref("media.gmp-manager.allowLocalSources", false);
 
