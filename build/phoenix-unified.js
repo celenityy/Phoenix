@@ -1487,9 +1487,9 @@ pref("browser.phoenix.status", "009");
 
 /*** 010 DNS ***/
 
-/// Always warn before falling back from DoH to system DNS
-pref("network.trr.display_fallback_warning", true);
-pref("network.trr_ui.show_fallback_warning_option", true);
+/// Always warn before falling back from DoH to system DNS [NO-ANDROID] [ESR]
+pref("network.trr.display_fallback_warning", true); // [NO-ANDROID] [ESR]
+pref("network.trr_ui.show_fallback_warning_option", true); // [NO-ANDROID] [ESR]
 
 /// Customize list of built-in DoH resolvers [NO-ANDROID] [NO-MAIL]
 pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UIName":"Quad9 - Real-time Malware Protection - 🇨🇭","autoDefault":true},{"uri":"https://zero.dns0.eu","UIName":"DNS0 (ZERO) - Hardened Real-time Malware Protection - 🇫🇷","autoDefault":false},{"uri":"https://dns0.eu","UIName":"DNS0 - Real-time Malware Protection - 🇫🇷","autoDefault":false},{"uri":"https://base.dns.mullvad.net/dns-query","UIName":"Mullvad (Base) - Ad/Tracking/Limited Malware Protection - 🇸🇪","autoDefault":false},{"uri":"https://dns.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Ad/Tracking Protection - 🇨🇾","autoDefault":false},{"uri":"https://dns.mullvad.net/dns-query","UIName":"Mullvad - Unfiltered - 🇸🇪","autoDefault":false},{"uri":"https://wikimedia-dns.org/dns-query","UIName":"Wikimedia - Unfiltered - 🇺🇸","autoDefault":false},{"uri":"https://firefox.dns.nextdns.io/","UIName":"NextDNS (Public) - Unfiltered - 🇺🇸","autoDefault":false},{"uri":"https://unfiltered.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Unfiltered - 🇨🇾","autoDefault":false},{"uri":"https://kids.dns0.eu","UIName":"DNS0 - Kids - 🇫🇷","autoDefault":false},{"uri":"https://family.dns.mullvad.net/dns-query","UIName":"Mullvad (Family) - 🇸🇪","autoDefault":false},{"uri":"https://family.adguard-dns.com/dns-query","UIName":"AdGuard (Public) - Family Protection - 🇨🇾","autoDefault":false},{"uri":"https://extended.dns.mullvad.net/dns-query","UIName":"Mullvad (Extended) - Ad/Tracking/Limited Malware/Social Media Protection - 🇸🇪","autoDefault":false},{"uri":"https://all.dns.mullvad.net/dns-query","UIName":"Mullvad (All) - Ad/Tracking/Limited Malware/Social Media/Adult/Gambling Protection - 🇸🇪","autoDefault":false},{"uri":"https://security.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Malware Protection - 🇺🇸","autoDefault":false},{"uri":"https://mozilla.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Unfiltered (Stricter privacy policy) - 🇺🇸","autoDefault":false},{"uri":"https://family.cloudflare-dns.com/dns-query","UIName":"Cloudflare - Adult Content/Malware Protection - 🇺🇸","autoDefault":false}]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
@@ -1507,6 +1507,16 @@ pref("network.trr.disable-ECS", true); // [DEFAULT]
 pref("network.trr.retry_on_recoverable_errors", true); // [DEFAULT]
 pref("network.trr.strict_native_fallback", true); // https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/docs/data/environment.rst#438
 
+/// Disable nsNotifyAddrListener
+// (Ex. used for disabling DoH if certain conditions are met)
+// https://searchfox.org/mozilla-central/source/netwerk/system/win32/nsNotifyAddrListener.cpp
+pref("network.notify.changed", false);
+pref("network.notify.checkForNRPT", false);
+pref("network.notify.checkForProxies", false);
+pref("network.notify.initial_call", false);
+pref("network.notify.IPv6", false); // [DEFAULT - Windows]
+pref("network.notify.resolvers", false);
+
 /// Enable DNS Rebinding Protection
 // (Some like ex. LibreWolf set this to `true`...)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1672528
@@ -1522,7 +1532,7 @@ pref("network.dns.echconfig.enabled", true); // [DEFAULT]
 pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
 /// Enable native DNS HTTPS Lookups
-pref("network.dns.native_https_query", true); // [DEFAULT]
+pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
 
 /// Expose the DoH bootstrap pref, but don't configure by default
 // This is the DNS server Firefox uses to resolve the address of your DoH server
@@ -1542,11 +1552,6 @@ pref("network.dns.preferIPv6", true);
 // https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=SettingsModifier:Win32/HostsFileHijack
 // https://www.microcenter.com/tech_center/article/6472/how-to-clean-the-windows-hosts-file-if-malware-has-tampered-with-it
 pref("network.trr.exclude-etc-hosts", false);
-
-/// Prevent disabling DoH from registry checks
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
-pref("network.notify.checkForNRPT", false);
-pref("network.notify.checkForProxies", false);
 
 /// Prevent sending headers for DoH requests
 pref("network.trr.send_accept-language_headers", false); // [DEFAULT]
