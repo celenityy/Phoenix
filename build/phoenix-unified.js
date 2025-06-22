@@ -2224,6 +2224,9 @@ pref("pdfjs.enableGuessAltText", true); // [DEFAULT]
 pref("pdfjs.enableNewAltTextWhenAddingImage", true); // [DEFAULT] Enables the Alt Text Editor after adding an image
 pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
+/// Ensure users can select and interact with text
+pref("pdfjs.textLayerMode", 1); // [DEFAULT]
+
 /// Never allow documents to prevent copying text
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
 
