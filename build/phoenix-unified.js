@@ -2224,6 +2224,13 @@ pref("pdfjs.enableGuessAltText", true); // [DEFAULT]
 pref("pdfjs.enableNewAltTextWhenAddingImage", true); // [DEFAULT] Enables the Alt Text Editor after adding an image
 pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
+/// Enforce using the internal font renderer
+// This disable the CSS Font Loading API
+// https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib.html
+// https://searchfox.org/mozilla-central/rev/338a8ecb/toolkit/components/pdfjs/content/build/pdf.mjs#10201
+// https://developer.mozilla.org/docs/Web/API/CSS_Font_Loading_API
+pref("pdfjs.disableFontFace", true);
+
 /// Ensure users can select and interact with text
 pref("pdfjs.textLayerMode", 1); // [DEFAULT]
 
