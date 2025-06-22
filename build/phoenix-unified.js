@@ -2092,26 +2092,23 @@ pref("browser.phoenix.status", "016");
 
 /*** 017 AI ***/
 
-// https://support.mozilla.org/kb/ai-chatbot
-
 /// Allow managing models from `about:addons`
 // https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/ModelHubProvider.sys.mjs#20
 pref("extensions.htmlaboutaddons.local_model_management", true); // [NIGHTLY] [DEFAULT]
 
-/// Allow typing a custom prompt based on your selection (if pop-up when highlighting text is enabled) [NO-ANDROID] [NO-MAIL]
+/// Allow typing a custom AI chat prompt based on your selection (if pop-up when highlighting text is enabled) [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.chat.shortcuts.custom", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Disable AI functionality by default
-pref("browser.ml.chat.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] AI Chatbot
-pref("browser.ml.chat.shortcuts", false); // [NO-ANDROID] [NO-MAIL] Pop-up when highlighting text
-pref("browser.ml.enable", false); // [DEFAULT - non-Nightly] "Experimental Machine Learning Inference Engine"
+/// Disable AI Chat by default [NO-ANDROID] [NO-MAIL]
+// https://support.mozilla.org/kb/ai-chatbot [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.chat.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable AI/ML "Autofill Experiment"
+/// Disable AI/ML Autofill
 // https://searchfox.org/mozilla-central/source/toolkit/components/formautofill/MLAutofill.sys.mjs
-pref("extensions.formautofill.ml.experiment.enabled", false); // [HIDDEN - Thunderbird]
+pref("extensions.formautofill.ml.experiment.enabled", false); // [HIDDEN - non-Nightly] [DEFAULT - non-Nightly]
 
-/// Disable Link Preview [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/components/genai/tests/browser/browser_link_preview.js [NO-ANDROID] [NO-MAIL]
+/// Disable Link Preview by default [NO-ANDROID] [NO-MAIL]
+// https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable Perplexity URL bar promotion [NO-ANDROID] [NO-MAIL]
@@ -3213,6 +3210,12 @@ pref("browser.tabs.groups.smart.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFA
 /// Allow enabling the weather on Firefox Home by default [NO-ANDROID] [NO-MAIL]
 // (This only controls the UI setting, `browser.newtabpage.activity-stream.showWeather` is what actually controls whether the weather is displayed or not) [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.system.showWeather", true); // [NO-ANDROID] [NO-MAIL]
+
+/// Allow local machine learning by default
+// This is done locally, and supports legitimate functionality
+// We don't actually enable/install any AI models/functionality by default
+pref("browser.ml.enable", true); // [DEFAULT]
+pref("extensions.ml.enabled", true); // [DEFAULT]
 
 /// Allow opening iframes in new tabs/windows [NO-ANDROID]
 pref("security.xfocsp.hideOpenInNewWindow", false); // [NO-ANDROID] [ESR]
