@@ -517,9 +517,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment"
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFENSE IN DEPTH] If Merino is enabled, use OHTTP for superior privacy https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1415 https://searchfox.org/mozilla-central/rev/d52edf7e/browser/extensions/newtab/lib/DiscoveryStreamFeed.sys.mjs#1869
-pref("browser.urlbar.addons.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.groupLabels.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.mdn.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.merino.endpointURL", "https://merino.services.mozilla.com/api/v1/suggest"); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Required for Weather
 pref("browser.urlbar.merino.providers", "accuweather"); // [NO-ANDROID] [NO-MAIL] Only allow fetching Weather (if enabled)
 pref("browser.urlbar.quicksuggest.contextualOptIn", false); // [NO-ANDROID] [NO-MAIL]
@@ -535,9 +533,9 @@ pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, locked); // [NO-
 pref("browser.urlbar.suggest.quicksuggest.sponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.trending", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.weather", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.wikipedia", false); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
 pref("browser.urlbar.suggest.yelp", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trending.featureGate", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.weather.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.yelp.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable "Interest-based Content Relevance Ranking and Personalization"
