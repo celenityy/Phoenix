@@ -2234,15 +2234,26 @@ pref("pdfjs.disableFontFace", true);
 /// Ensure users can select and interact with text
 pref("pdfjs.textLayerMode", 1); // [DEFAULT]
 
+/// Force PDFs to be downloaded/viewed locally, and prompt before opening the PDF Viewer
+// So by default, if Firefox encounters a PDF file, it'll just automatically open it in most cases, and will load them from remote origins
+// But thanks to the "Handlers" policy on Desktop (https://mozilla.github.io/policy-templates/#handlers), we force Firefox to prompt users before opening the file - and additionally, with the `browser.download.start_downloads_in_tmp_dir` & `browser.helperApps.deleteTempFileOnExit` prefs, when the users chooses to "Open" the PDF, it downloads the PDF to a temporary directory and loads it locally (from a `file://` URL), instead of from remote origins like the normal behavior
+// This is also beneficial because it also allows users to effectively disable PDF.js (via the `browser.helperApps.showOpenOptionForPdfJS` pref), without being fingerprintable (like is the case with the standard `pdfjs.disabled` pref)
+// The pref below are to further ensure we don't automatically open PDFs, and that we don't try to fetch anything remotely
+// As a bonus, these likely also improve performance in many cases...
+// https://deepwiki.com/mozilla/pdfjs-dist/6.2-advanced-configuration#network-options
+// https://deepwiki.com/mozilla/pdfjs-dist/6.2-advanced-configuration#performance-optimization-configurations
+// (For testing: https://emk.name/test/bug1790641.html)
+pref("browser.download.force_save_internally_handled_attachments", true); // [ANDROID-ONLY] https://bugzilla.mozilla.org/show_bug.cgi?id=1811830 Ensures user is prompted and that PDFs are downloaded locally, though doesn't apply for opening PDFs - we don't need this on Desktop due to our use of the "Handlers" policy (as described above) - hopefully can find a better solution here for Android
+pref("browser.download.open_pdf_attachments_inline", false); // [DEFAULT - non-Android] https://bugzilla.mozilla.org/show_bug.cgi?id=1772569
+pref("pdfjs.disableRange", true);
+pref("pdfjs.disableStream", true);
+
 /// Never allow documents to prevent copying text
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
 
 /// Open external links in new tabs/windows
 // https://github.com/mozilla/pdf.js/blob/master/extensions/chromium/preferences_schema.json
 pref("pdfjs.externalLinkTarget", 2);
-
-/// Open PDFs inline where possible
-pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Android]
 
 /// Prevent attempting to load/convert unknown binary files
 // https://developer.mozilla.org/docs/Web/HTTP/Guides/MIME_types#applicationoctet-stream

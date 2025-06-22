@@ -14,6 +14,20 @@
             "Locked": false,
             "ProviderURL": "https://dns.quad9.net/dns-query"
         },
+        "Handlers": {
+            "extensions": {
+                "pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            },
+            "mimeTypes": {
+                "application/pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            }
+        },
         "Proxy": {
             "Mode": "none",
             "UseProxyForDNS": true
