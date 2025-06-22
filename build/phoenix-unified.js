@@ -2470,6 +2470,14 @@ pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
 
+/// Disable Web Share API
+// This API allows websites to share data directly to system applications...
+// PRIVACY: Could result in leakage/unexpected behavior
+// SECURITY: "The data passed to {{Navigator/share()}} might be used to exploit buffer overflow or other remote code execution vulnerabilities in the [=share target=] that receive shares. There is no general way to guard against this, but implementors will want to be aware that it is a possibility (particularly when sharing files).", Attack Surface Reduction
+// https://developer.mozilla.org/docs/Web/API/Web_Share_API
+pref("dom.webshare.enabled", false); // [DEFAULT - non-Android/non-Nightly Windows]
+pref("dom.webshare.requireinteraction", true); // [DEFAULT] If enabled, ensure we always require interaction...
+
 /// Disable WebGPU
 // PRIVACY: Fingerprinting concerns
 // SECURITY: Attack Surface Reduction
@@ -2486,7 +2494,7 @@ pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
 // https://searchfox.org/mozilla-central/source/dom/midi/MIDIPermissionRequest.cpp#119
 // Test: https://permission.site/
 pref("dom.sitepermsaddon-provider.enabled", false);
-pref("dom.webmidi.gated", true, locked); // [DEFAULT]
+pref("dom.webmidi.gated", true); // [DEFAULT]
 
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
