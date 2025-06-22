@@ -2477,7 +2477,6 @@ pref("dom.reporting.header.enabled", false); // [DEFAULT]
 // https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
 pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
-pref("dom.webgpu.workers.enabled", false); // For DOM workers [DEFAULT - non-Nightly]
 
 /// Disable WebMIDI
 // PRIVACY: Fingerprinting concerns
@@ -2535,7 +2534,9 @@ pref("services.sync.engine.tabs", false); // [NO-ANDROID]
 
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/
+// https://searchfox.org/mozilla-central/source/docshell/base/nsPingListener.cpp
 pref("browser.send_pings", false); // [DEFAULT]
+pref("browser.send_pings.max_per_link", 1); // [DEFAULT] Ensure max number of pings are limited to 1 if Hyperlink Auditing is enabled
 pref("browser.send_pings.require_same_host", true); // [DEFENSE IN DEPTH]
 
 /// Disable Network Error Logging
@@ -2648,7 +2649,7 @@ pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 pref("security.csp.reporting.limit.count", 1); // [DEFAULT: 100]
 pref("security.csp.reporting.limit.timespan", 999999999); // [DEFAULT: 2]
 pref("security.csp.reporting.script-sample.max-length", 0); // [DEFAULT: 40]
-pref("security.csp.truncate_blocked_uri_for_frame_navigations", true); // [DEFAULT] Ensure we truncate  blocked-uris
+pref("security.csp.truncate_blocked_uri_for_frame_navigations", true); // [DEFAULT] Ensure we truncate blocked-uris
 
 /// Limit maximum cookie lifetime to 6 months/180 days (Like Brave)
 // Firefox's default is currently 400 days (34560000)
