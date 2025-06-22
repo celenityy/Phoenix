@@ -2119,6 +2119,10 @@ pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO
 pref("browser.tabs.groups.smart.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.tabs.groups.smart.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
 
+/// If Link Preview is enabled, do not censor results
+// https://searchfox.org/mozilla-central/rev/338a8ecb/browser/components/genai/LinkPreviewModel.sys.mjs#469
+pref("browser.ml.linkPreview.blockListEnabled", false); // [NO-ANDROID] [NO-MAIL]
+
 /// Remove privacy-invasive AI Chatbot providers [NO-ANDROID] [NO-MAIL]
 // (Anthropic Claude, ChatGPT, Google Gemini, and Le Chat Mistral) [NO-ANDROID] [NO-MAIL]
 // HuggingChat's privacy policy is OK, though it does leave room for improvement - but best option out of the built-in [NO-ANDROID] [NO-MAIL]
