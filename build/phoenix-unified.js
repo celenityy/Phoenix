@@ -2237,6 +2237,10 @@ pref("pdfjs.externalLinkTarget", 2);
 /// Open PDFs inline where possible
 pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Android]
 
+/// Prevent attempting to load/convert unknown binary files
+// https://developer.mozilla.org/docs/Web/HTTP/Guides/MIME_types#applicationoctet-stream
+pref("pdfjs.handleOctetStream", false);
+
 /// Show sidebar by default when viewing PDFs
 pref("pdfjs.sidebarViewOnLoad", 2);
 
