@@ -2194,6 +2194,11 @@ pref("browser.phoenix.status", "018");
 // https://support.mozilla.org/kb/pdf-alt-text#w_add-alt-text-automatically
 pref("pdfjs.enableAltTextModelDownload", false);
 
+/// Disable automatic hyperlinks
+// By default, PDF.js automatically creates hyperlinks for URLs - and clicking on or attempting to select a Hyperlink immediately navigates the user to the link, without warning or prior indication
+// So this prevents that - but users can still easily select and navigate to links if desired
+pref("pdfjs.enableAutoLinking", false);
+
 /// Disable JavaScript
 pref("pdfjs.enableScripting", false);
 
