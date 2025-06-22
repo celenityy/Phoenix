@@ -1434,20 +1434,15 @@ pref("browser.search.suggest.enabled.private", false); // [DEFAULT]
 pref("browser.urlbar.showSearchSuggestionsFirst", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.searches", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable suggestions for "Recent Searches" [NO-ANDROID] [NO-MAIL]
-// We disable search and form history anyways [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.recentsearches.featureGate", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.suggest.recentsearches", false); // [NO-ANDROID] [NO-MAIL]
-
 /// Disable URL trimming [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable the UI to add custom search engines at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Ensure the default search engine is set to DuckDuckGo [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.trendingSearch.defaultSearchEngine", "duckduckgo"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [NIGHTLY] For the "Trending search results" widget on Firefox Home (`about:home`) https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/TrendingSearchFeed.sys.mjs
+pref("browser.newtabpage.activity-stream.trendingSearch.defaultSearchEngine", "DuckDuckGo"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [NIGHTLY] For the "Trending search results" widget on Firefox Home (`about:home`) https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/TrendingSearchFeed.sys.mjs
 pref("browser.urlbar.placeholderName", "DuckDuckGo"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.placeholderName.private", "DuckDuckGo"); // [NO-ANDROID] [NO-MAIL]
 
@@ -1460,16 +1455,20 @@ pref("browser.urlbar.filter.javascript", true); // [NO-ANDROID] [NO-MAIL] [DEFAU
 pref("browser.urlbar.formatting.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 
 /// Nice to have [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.clipboard.featureGate", true); // [NO-ANDROID] [NO-MAIL] Allow enabling the Clipboard suggestion (though we still disable it by default)
+pref("browser.urlbar.recentsearches.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Allow enabling Recent Search suggestions (though we still disable it by default)
 pref("browser.urlbar.scotchBonnet.enableOverride", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly] Adds Unified Search button to easily switch search engines in URL Bar - https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/ + other tweaks
 pref("browser.urlbar.shortcuts.actions", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.urlbar.suggest.bookmark", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.suggest.calculator", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.calculator", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.clipboard", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.engines", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.history", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.openpage", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.quickactions", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.unitConversion.enabled", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.recentsearches", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.trending.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Allow enabling trending search suggestions (though we still disable it by default) https://support.mozilla.org/kb/use-google-trending-search-firefox-address-bar
+pref("browser.urlbar.unitConversion.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Prompt to use Private Browsing [NO-ANDROID] [NO-MAIL]
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
@@ -1477,7 +1476,7 @@ pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO
 /// Show full URLs instead of search terms [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.restyleSearches", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.urlbar.showSearchTerms.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.showSearchTerms.featureGate", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.showSearchTerms.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Use same search engine in both normal & private browsing windows by default
 // Otherwise, Firefox's default private search engine will set itself as Google, regardless of our default... :/
