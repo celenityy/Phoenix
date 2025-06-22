@@ -2189,6 +2189,11 @@ pref("browser.phoenix.status", "018");
 
 /*** 019 PDF.js ***/
 
+/// Disable Automatic Alt Text by default
+// This prevents downloading the AI model unless the user opts in (by enabling the toggle to "Create alt text automatically" from "Image alt text settings" when viewing a PDF)
+// https://support.mozilla.org/kb/pdf-alt-text#w_add-alt-text-automatically
+pref("pdfjs.enableAltTextModelDownload", false);
+
 /// Disable JavaScript
 pref("pdfjs.enableScripting", false);
 
@@ -2204,6 +2209,15 @@ pref("pdfjs.enableXfa", false);
 
 /// Enable the ability to add signatures
 pref("pdfjs.enableSignatureEditor", true);
+
+/// Enable Alt Text
+// This does NOT enable "Automatic Alt Text", we disable that separately above
+// https://support.mozilla.org/kb/pdf-alt-text
+pref("pdfjs.enableAltText", true);
+pref("pdfjs.enableAltTextForEnglish", true);
+pref("pdfjs.enableGuessAltText", true); // [DEFAULT]
+pref("pdfjs.enableNewAltTextWhenAddingImage", true); // [DEFAULT] Enables the Alt Text Editor after adding an image
+pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
 /// Never allow documents to prevent copying text
 pref("pdfjs.enablePermissions", false); // [DEFAULT]
