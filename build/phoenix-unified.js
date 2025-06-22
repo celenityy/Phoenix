@@ -2240,6 +2240,13 @@ pref("browser.download.open_pdf_attachments_inline", true); // [DEFAULT - Androi
 /// Show sidebar by default when viewing PDFs
 pref("pdfjs.sidebarViewOnLoad", 2);
 
+/// Update URL when changing pages
+// ex. Typically, if I load "https://example.invalid/example.pdf", and navigate to Page 27, the URL stays the same as "https://example.invalid/example.pdf"
+// When this is set to "true", if I loaded "https://example.invalid/example.pdf", and navigated to Page 27, the URL would instead update to "https://example.invalid/example.pdf#page=27"
+// So this is an incredibly useful feature that allows easy bookmarking/sharing of PDFs, keeping track of what you've read, etc.
+// (We also still nuke browsing history by default on exit)
+pref("pdfjs.historyUpdateUrl", true);
+
 pref("browser.phoenix.status", "019");
 
 /*** 020 SAFE BROWSING ***/
