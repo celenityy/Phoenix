@@ -2193,12 +2193,13 @@ pref("browser.phoenix.status", "018");
 pref("pdfjs.enableScripting", false);
 
 /// Disable XFA
+// Not even a standard...
 // https://learn.microsoft.com/deployedge/microsoft-edge-policies#viewxfapdfiniemodeallowedorigins
 // https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html
 // https://www.sentinelone.com/blog/malicious-pdfs-revealing-techniques-behind-attacks/
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=xfa
 // https://wikipedia.org/wiki/XFA
-// Not even a standard...
+// https://deepwiki.com/mozilla/pdfjs-dist/6.2-advanced-configuration#security-considerations
 pref("pdfjs.enableXfa", false);
 
 /// Enable the ability to add signatures
