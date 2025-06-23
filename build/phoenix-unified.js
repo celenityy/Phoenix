@@ -3638,7 +3638,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "merino.services.mozilla.com"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":false,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190 (Hides the toggle at `about:preferences#home`)
 
 /// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
@@ -3689,6 +3689,11 @@ pref("browser.urlbar.addons.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-M
 pref("browser.urlbar.fakespot.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/FakespotSuggestions.sys.mjs#309
 pref("browser.urlbar.weather.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/WeatherSuggestions.sys.mjs#482
 pref("browser.urlbar.yelp.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/YelpSuggestions.sys.mjs#345
+
+/// Disable Firefox Suggest by default [NO-ANDROID] [NO-MAIL]
+/// I'd rather not set this, but unfortunately, when it's on, it causes Firefox to connect to `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-amp/changeset?_expected=*` and `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-other/changeset?_expected=*` on every launch, EVEN IF no suggestions are enabled :/ [NO-ANDROID] [NO-MAIL]
+// This also gives us a cleaner UI anyways, and I doubt this is something most of ours want anyways - but they can always enable this from the `about:config` if desired [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable onboarding dialog [NO-ANDROID] [NO-MAIL] [ESR]
 // https://searchfox.org/mozilla-esr128/rev/89383753/toolkit/components/nimbus/FeatureManifest.yaml#361 [NO-ANDROID] [NO-MAIL]
@@ -3753,12 +3758,6 @@ pref("browser.urlbar.yelp.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 /// Ensure that we're using the newer Rust backend [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#317 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.rustEnabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-
-/// Expose the Firefox Suggest UI [NO-ANDROID] [NO-MAIL]
-// We still disable all web suggestions by default, this just exposes the UI to allow users to enable suggestions if desired [NO-ANDROID] [NO-MAIL]
-// I don't see a point in hiding this functionality, privacy implications are the same as regular search suggestions [NO-ANDROID] [NO-MAIL]
-// In fact, I think privacy of Suggest is actually superior to standard search suggestions in some cases - Ex. if you're using Google and enable search suggestions from them, you'd be better off instead enabling suggestions from Mozilla, due to Mozilla's superior privacy policy and data handling [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.quicksuggest.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// If Merino is enabled, only allow fetching content from AccuWeather, AMO, MDN, and Wikipedia (if the corresponding prefs are enabled) [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/MerinoClient.sys.mjs#123 [NO-ANDROID] [NO-MAIL]
