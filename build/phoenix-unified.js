@@ -2378,6 +2378,13 @@ pref("dom.security.credentialmanagement.identity.enabled", false); // [DEFAULT -
 pref("dom.security.credentialmanagement.identity.heavyweight.enabled", false); // [DEFAULT - non-Nightly]
 pref("dom.security.credentialmanagement.identity.lightweight.enabled", false); // [DEFAULT]
 
+/// Disable File System Access API
+// PRIVACY: Currently not supported in Private Browsing mode, so disabling this helps prevent sites from detecting if a user is in Private Browsing: https://bugzilla.mozilla.org/show_bug.cgi?id=1366318#c13
+// SECURITY: Attack Surface Reduction
+// This API also has other general privacy and security concerns, but Mozilla has acknowledged those and seems to only be implementing a subset of the functionality: https://developer.mozilla.org/docs/Web/API/File_System_API#browser_compatibility - so I'm definitely open to reconsidering this in the future if its use becomes widespread and/or the behavior is made consistent in Private Browsing
+// https://developer.mozilla.org/docs/Web/API/File_System_API
+pref("dom.fs.enabled", false);
+
 /// Disable Microsoft's Cloud Clipboard/Clipboard History [WINDOWS-ONLY]
 // https://docs.microsoft.com/windows/win32/dataxchg/clipboard-formats#cloud-clipboard-and-clipboard-history-formats [WINDOWS-ONLY]
 // https://searchfox.org/mozilla-central/source/widget/windows/nsClipboard.cpp#325 [WINDOWS-ONLY]
