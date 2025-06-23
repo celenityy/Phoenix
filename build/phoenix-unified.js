@@ -207,8 +207,6 @@ pref("toolkit.telemetry.eventping.maximumFrequency", 999999999, locked); // [HID
 pref("toolkit.telemetry.eventping.minimumFrequency", 999999999, locked); // [HIDDEN] Disable `event` pings
 pref("toolkit.telemetry.firstShutdownPing.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.healthping.enabled", false, locked); // [HIDDEN]
-pref("toolkit.telemetry.eventping.maximumFrequency", 999999999, locked); // [HIDDEN]
-pref("toolkit.telemetry.eventping.minimumFrequency", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.initDelay", 999999999, locked); // [HIDDEN] Prevent the Telemetry component from initializing
 pref("toolkit.telemetry.log.dump", false); // [HIDDEN] [DEFAULT] - To expose via the `about:config`
 pref("toolkit.telemetry.log.level", "Fatal"); // [HIDDEN] [Default: Warn]
@@ -269,7 +267,7 @@ pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Th
 pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.rsexperimentloader.collection_id", "", locked);
 pref("messaging-system.rsexperimentloader.enabled", false, locked); // [NO-ANDROID] [ESR]
-pref("nimbus.appId", "", locked);
+pref("nimbus.appId", "", locked); // [HIDDEN]
 
 /// Disable OHTTP Telemetry [ANDROID-ONLY]
 // https://searchfox.org/mozilla-central/source/widget/android/OhttpHelper.cpp [ANDROID-ONLY]
@@ -316,8 +314,8 @@ pref("toolkit.datacollection.infoURL", ""); // [NO-ANDROID]
 pref("browser.aboutwelcome.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.log", "off"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable logging
 pref("browser.rights.3.shown", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-pref("browser.startup.homepage_override.buildID", "20100101", locked); // [NO-ANDROID] [NO-MAIL] Ex. matches what Tor Browser uses
-pref("browser.startup.homepage_override.mstone", "ignore", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.startup.homepage_override.buildID", "20100101", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ex. matches what Tor Browser uses
+pref("browser.startup.homepage_override.mstone", "ignore", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.startup.upgradeDialog.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/components/asrouter/docs/first-run.md#69
 pref("browser.suppress_first_window_animation", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("startup.homepage_override_nimbus_disable_wnp", true); // [NO-ANDROID] [NO-MAIL] "What's New" Pages
@@ -338,14 +336,14 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", lo
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.translations.panelShown", true, locked); // [HIDDEN]
-pref("extensions.getAddons.browseAddons", "", locked); // [HIDDEN - non-Android]
-pref("extensions.getAddons.discovery.api_url", "data;", locked);
-pref("extensions.getAddons.showPane", false, locked);
-pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
+pref("extensions.getAddons.browseAddons", ""); // [HIDDEN - non-Android]
+pref("extensions.getAddons.discovery.api_url", "data;");
+pref("extensions.getAddons.showPane", false); // [HIDDEN]
+pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 pref("extensions.recommendations.hideNotice", true, locked); // [HIDDEN] "Some of these recommendations are personalized..." banner
-pref("extensions.recommendations.themeRecommendationUrl", "", locked);
-pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] Ensure default view of `about:addons` is always local/installed extensions
-pref("extensions.webservice.discoverURL", "", locked); // [HIDDEN - non-Thunderbird]
+pref("extensions.recommendations.themeRecommendationUrl", "");
+pref("extensions.ui.lastCategory", "addons://list/extension"); // [HIDDEN] [DEFAULT = `addons://discover/`] Ensure default view of `about:addons` is always local/installed extensions
+pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird]
 
 /// Disable DoH Rollout/heuristics/steering
 // This helps ensure Firefox doesn't override our/the user's DoH settings...
@@ -387,20 +385,20 @@ pref("doh-rollout.trrRace.randomSubdomainCount", 0); // [HIDDEN]
 pref("network.essential_domains_fallback", false); // [DEFAULT]
 
 /// Disable Fakespot
-pref("browser.shopping.experience2023.active", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.ads.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.shopping.experience2023.ads.exposure", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-pref("browser.shopping.experience2023.ads.userEnabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.autoOpen.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.shopping.experience2023.autoOpen.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.control", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-pref("browser.shopping.experience2023.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.shopping.experience2023.integratedSidebar", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.shopping.experience2023.newPositionCard.hasSeen", true); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.optedIn", 2); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.shoppingSidebar", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.survey.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shopping.experience2023.survey.hasSeen", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.shopping.experience2023.active", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.ads.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.shopping.experience2023.ads.exposure", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [ESR]
+pref("browser.shopping.experience2023.ads.userEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.autoOpen.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.shopping.experience2023.autoOpen.userEnabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.control", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [ESR]
+pref("browser.shopping.experience2023.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.shopping.experience2023.integratedSidebar", false); // [NO-ANDROID] [NO-MAIL]  [ESR][DEFAULT]
+pref("browser.shopping.experience2023.newPositionCard.hasSeen", true); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.optedIn", 2); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.shoppingSidebar", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.survey.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.shopping.experience2023.survey.hasSeen", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("toolkit.shopping.ohttpConfigURL", "");
 pref("toolkit.shopping.ohttpRelayURL", "");
 
@@ -437,14 +435,6 @@ pref("toolkit.contentRelevancy.enabled", false, locked); // [HIDDEN - Android/Th
 pref("toolkit.contentRelevancy.ingestEnabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 pref("toolkit.contentRelevancy.log", false); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 
-/// Disable mozAddonManager
-// mozAddonManager prevents extensions from working on `addons.mozilla.org`/the specified domains
-// This API also exposes a list of the user's installed add-ons to `addons.mozilla.org`/the specified domains...
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
-pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
-pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
-
 /// Disable Mozilla promotions [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.hide_vpn_banner", true, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.lockwise.enabled", false); // [NO-ANDROID] [NO-MAIL]
@@ -472,7 +462,7 @@ pref("cookiebanners.ui.desktop.showCallout", false); // [NO-ANDROID] [NO-MAIL] [
 // https://searchfox.org/mozilla-central/source/browser/components/uitour/UITourUtils.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.loglevel", "Off"); // [NO-ANDROID] [NO-MAIL]
-pref("browser.uitour.requireSecure", true, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.uitour.requireSecure", true, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN]
 pref("browser.uitour.surveyDuration", 0, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN]
 pref("browser.uitour.url", "", locked); // [NO-ANDROID] [NO-MAIL]
@@ -496,7 +486,7 @@ pref("permissions.manager.remote.enabled", false);
 
 /// Disable Remote Settings 'Preview' Buckets
 // Nice to expose via about:config
-pref("services.settings.preview_enabled", false); // [HIDDEN, DEFAULT]
+pref("services.settings.preview_enabled", false); // [HIDDEN] [DEFAULT]
 
 /// Disable search attribution [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/comm-central/source/mozilla/toolkit/components/search/AppProvidedSearchEngine.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -521,7 +511,7 @@ pref("extensions.getAddons.cache.enabled", false);
 
 /// Prevent checking if Firefox is the default browser [NO-ANDROID] [NO-MAIL]
 pref("browser.shell.checkDefaultBrowser", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Prevent checking if Firefox is the default `mailto:` handler [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1864216 [NO-ANDROID] [NO-MAIL]
@@ -920,6 +910,10 @@ pref("browser.history.collectWireframes", false); // [DEFAULT]
 /// Disable coloring visited links
 pref("layout.css.visited_links_enabled", false);
 
+/// Disable disk cache
+pref("browser.cache.disk.enable", false);
+pref("browser.cache.disk_cache_ssl", false);
+
 /// Disable favicons in shortcuts [NO-ANDROID]
 // Prevents .ico files from persisting, even after deletion [NO-ANDROID]
 pref("browser.shell.shortcutFavicons", false); // [NO-ANDROID] [HIDDEN - Thunderbird]
@@ -933,18 +927,12 @@ pref("browser.laterrun.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.contentblocking.cfr-milestone.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.cfr-milestone.milestone-shown-time", "999999999"); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.contentblocking.cfr-milestone.update-interval", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
 
 /// Disable Search & Form History
 // Can be leaked to sites...
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 pref("browser.formfill.enable", false);
-
-/// Disable disk caching
-pref("browser.cache.disk.enable", false);
-pref("browser.cache.disk_cache_ssl", false);
-
-/// Disable logging blocked domains to `about:protections`
-pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
 
 /// Disable WebRTC history
 // History will still gather when `about:webrtc` is open
@@ -1258,6 +1246,12 @@ pref("network.IDN_show_punycode", true);
 /// Disable autofill/autocompletion of URLs by default [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.autoFill", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable the button to switch search engines when `browser.urlbar.scotchBonnet.enableOverride` is `false` by default [NO-ANDROID] [NO-MAIL]
+// Currently broken [NO-ANDROID] [NO-MAIL]
+// https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/ [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/themes/shared/identity-block/identity-block.css#33 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.searchModeSwitcher.featureGate", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+
 /// Disable clipboard suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderClipboard.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.clipboard.featureGate", true); // [NO-ANDROID] [NO-MAIL]
@@ -1267,11 +1261,18 @@ pref("browser.urlbar.suggest.clipboard", false); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderInputHistory.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.history", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable quick actions by default [NO-ANDROID] [NO-MAIL]
+/// Disable quick actions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
+// (Ex. When searching "settings", this causes a "Manage settings" result to appear) [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/quick-actions-firefox-search-bar [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/ActionsProviderQuickActions.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quickactions.showPrefs", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] UI
+pref("browser.urlbar.secondaryActions.featureGate", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.urlbar.shortcuts.actions", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `@actions` shortcut
 pref("browser.urlbar.suggest.quickactions", false); // [NO-ANDROID] [NO-MAIL] suggestions
+
+/// Disable the quick actions onboarding [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/nimbus/FeatureManifest.yaml#204 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quickactions.timesToShowOnboardingLabel", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /// Disable recent search suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderRecentSearches.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -1283,6 +1284,10 @@ pref("browser.urlbar.suggest.recentsearches", false); // [NO-ANDROID] [NO-MAIL]
 // Way too obnoxious... [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.engines", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable search engine suggestion (Tab to search) onboarding results [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/874c5067/browser/components/urlbar/UrlbarPrefs.sys.mjs#512 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.tabToSearch.onboard.interactionsLeft", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Disable search suggestions by default
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderSearchSuggestions.sys.mjs
 // `browser.search.suggest.enabled` and `browser.search.suggest.enabled.private` appear to have no impact on Android & Thunderbird, but they're still defined there by default.. so we can set them anyways
@@ -1290,6 +1295,12 @@ pref("browser.search.suggest.enabled", false); // [DEFAULT - Android]
 pref("browser.search.suggest.enabled.private", false); // [DEFAULT]
 pref("browser.urlbar.showSearchSuggestionsFirst", false); // [NO-ANDROID] [NO-MAIL] UI
 pref("browser.urlbar.suggest.searches", false); // [NO-ANDROID] [NO-MAIL]
+
+/// Disable search tips [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderSearchTips.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.searchTips.test.ignoreShowLimits", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Ensure we don't bypass checks that prevent tips from being shown https://searchfox.org/mozilla-central/rev/874c5067/browser/components/urlbar/UrlbarPrefs.sys.mjs#519
+pref("browser.urlbar.tipShownCount.searchTip_onboard", 999, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Onboarding search tip https://searchfox.org/mozilla-central/rev/874c5067/browser/components/urlbar/UrlbarPrefs.sys.mjs#516
+pref("browser.urlbar.tipShownCount.searchTip_redirect", 999, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Redirect search tip https://searchfox.org/mozilla-central/rev/874c5067/browser/components/urlbar/UrlbarPrefs.sys.mjs#519
 
 /// Disable trending searches by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/use-google-trending-search-firefox-address-bar [NO-ANDROID] [NO-MAIL]
@@ -1299,6 +1310,9 @@ pref("browser.urlbar.trending.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DE
 /// Disable URL trimming [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
+/// Display the search bar at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
+pref("browser.search.widget.inNavBar", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /// Enable bookmark suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderBookmarkKeywords.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -1313,9 +1327,21 @@ pref("browser.urlbar.suggest.calculator", true); // [NO-ANDROID] [NO-MAIL] [DEFA
 // https://windowsreport.com/firefox-tests-dedicated-address-bar-button-for-easier-search-engine-switching/ [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.scotchBonnet.enableOverride", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Enable local keyword shortcuts by default [NO-ANDROID] [NO-MAIL]
+// (ex. `@bookmarks` for searching bookmarks) [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderRestrictKeywords.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarView.sys.mjs#2778 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#372 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.searchRestrictKeywords.featureGate", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+
 /// Enable open tab suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderOpenTabs.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.openpage", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
+/// Enable rich suggestions by default [NO-ANDROID] [NO-MAIL]
+// (Ex. this displays images and additional info alongside suggestions from Google) [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#355 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.richSuggestions.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable the Rust-based Search Engine Selector
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1914143
@@ -1325,6 +1351,15 @@ pref("browser.search.rustSelector.featureGate", true); // [DEFAULT]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/search/nsISearchService.idl#541 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/search/SearchService.sys.mjs#1396 [NO-ANDROID] [NO-MAIL]
 pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
+/// Enable shortcut suggestions by default [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderTopSites.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.topsites", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
+/// Enable suggestions to add/use search engines on OpenSearch-compatible sites by default [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/874c5067/browser/components/urlbar/UrlbarPrefs.sys.mjs#79 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/ActionsProviderContextualSearch.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.contextualSearch.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable unit conversion by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderUnitConversion.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -1340,10 +1375,23 @@ pref("browser.urlbar.filter.javascript", true); // [NO-ANDROID] [NO-MAIL] [DEFAU
 /// Expose the UI to add custom search engines at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Expose the UI to switch search engines for individual searches [NO-ANDROID] [NO-MAIL]
+// "This time, search with..." [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarSearchOneOffs.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#360 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.scotchBonnet.disableOneOffs", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Highlight domains and other styling [NO-ANDROID] [NO-MAIL]
 // Protects against phishing [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/preferences.rst [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.formatting.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+
+/// If URL trimming is enabled, untrim on user interaction [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.untrimOnUserInteraction.featureGate", true); // [NO-ANDROID] [NO-MAIL]
+
+/// Notify users if their default search engine has been removed
+// https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/search/SearchService.sys.mjs#1806
+pref("browser.search.removeEngineInfobar.enabled", true); // [DEFAULT]
 
 /// Show full URLs instead of search terms [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.restyleSearches", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
@@ -1570,7 +1618,7 @@ pref("media.eme.playready.enabled", false); // [WINDOWS-ONLY]
 // NOTE: We previously set `media.gmp-provider.enabled` to `false`, but it turns out that pref is essentially useless... all it does is hide installed plug-ins from `about:addons` (and prevents manually triggered add-on updates from checking for GMP updates); it doesn't actually disable GMP or plug-ins installed by it, it doesn't prevent the installation or update of GMP plug-ins, etc...
 // The `media.gmp-manager.updateEnabled` pref is a better fit, as it (combined with the `media.gmp-manager.allowLocalSources` pref) effectively block all GMP downloads/updates
 // https://github.com/arkenfox/user.js/issues/709
-pref("media.gmp-manager.updateEnabled", false);
+pref("media.gmp-manager.updateEnabled", false); // [HIDDEN]
 
 /// Disable GMP local sources
 // When combined with `media.gmp-manager.updateEnabled`, this blocks all GMP downloads/updates
@@ -1594,7 +1642,7 @@ pref("media.hls.enabled", false); // [ANDROID-ONLY]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=CVE-2025-27091
 // Downloads are also still distributed over standard, unencrypted HTTP...
 // https://searchfox.org/mozilla-central/source/toolkit/content/gmp-sources/openh264.json
-pref("media.ffmpeg.allow-openh264", false); // [DEFAULT - non-Nightly]
+pref("media.ffmpeg.allow-openh264", false); // [DEFAULT - Nightly]
 pref("media.gmp-gmpopenh264.enabled", false);
 pref("media.gmp-gmpopenh264.provider.enabled", false); // [LINUX-ONLY] RedHat/Fedora-specific
 pref("media.gmp-gmpopenh264.visible", false); // Don't display in UI/`about:addons`
@@ -1850,6 +1898,8 @@ pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 // https://github.com/thunderbird/addons-server/issues/332
 pref("extensions.webapi.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.webapi.enabled", true); // [ANDROID-ONLY] [THUNDERBIRD] [DEFAULT]
+pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
+pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
 pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [NO-ANDROID] [NO-MAIL]
 pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [ANDROID-ONLY] [THUNDERBIRD] [DEFAULT]
 
@@ -1977,7 +2027,7 @@ pref("browser.ml.chat.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable AI/ML Autofill
 // https://searchfox.org/mozilla-central/source/toolkit/components/formautofill/MLAutofill.sys.mjs
-pref("extensions.formautofill.ml.experiment.enabled", false); // [HIDDEN - non-Nightly] [DEFAULT - non-Nightly]
+pref("extensions.formautofill.ml.experiment.enabled", false);
 
 /// Disable Link Preview by default [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
@@ -1987,12 +2037,13 @@ pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAUL
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Do not use AI to "suggest tabs and a name for tab groups" by default
+/// Do not use AI to "suggest tabs and a name for tab groups" by default, but allow users to enable it if desired [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.groups.smart.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
 pref("browser.tabs.groups.smart.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.tabs.groups.smart.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
 
-/// If Link Preview is enabled, do not censor results
-// https://searchfox.org/mozilla-central/rev/338a8ecb/browser/components/genai/LinkPreviewModel.sys.mjs#469
+/// If Link Preview is enabled, do not censor results [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/338a8ecb/browser/components/genai/LinkPreviewModel.sys.mjs#469 [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.linkPreview.blockListEnabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Remove privacy-invasive AI Chatbot providers [NO-ANDROID] [NO-MAIL]
@@ -2806,13 +2857,8 @@ pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderb
 /// Enable Firefox's newer 'Felt privacy' design for Private Browsing [NO-ANDROID] [NO-MAIL]
 pref("browser.privatebrowsing.felt-privacy-v1", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Enable the Remote Settings Firefox Relay Allowlist Collection by default to expose via the `about:config`
-// https://searchfox.org/mozilla-central/source/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs
-// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
-pref("signon.firefoxRelay.allowListRemoteSettingsCollection", "fxrelay-allowlist"); // [DEFAULT] [HIDDEN]
-
 /// Enable more detailed property error messages
-pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Dev]
+pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Developer]
 
 /// Force pop-up windows to open in new tabs instead
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
@@ -3107,10 +3153,6 @@ pref("app.update.langpack.enabled", true); // [NO-ANDROID] [DEFAULT]
 pref("intl.multilingual.downloadEnabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
 pref("intl.multilingual.enabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
 
-/// Allow enabling the use of AI to "suggest tabs and a name for tab groups" from `about:preferences#general`
-// (This only controls the UI setting, `browser.tabs.groups.smart.userEnabled` is what actually controls whether this functionality is enabled or not)
-pref("browser.tabs.groups.smart.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
-
 /// Allow local machine learning by default
 // This is done locally, and supports legitimate functionality
 // We don't actually enable/install any AI models/functionality by default
@@ -3164,9 +3206,6 @@ pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 
 /// Display the option to enable `Compact` mode at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
 pref("browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
-
-/// Display the search bar at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
-pref("browser.search.widget.inNavBar", true); // [HIDDEN] [NO-ANDROID] [NO-MAIL]
 
 /// Display a spinning animation while websites are loading [NO-ANDROID] [NO-MAIL]
 pref("browser.spin_cursor_while_busy", true); // [NO-ANDROID] [NO-MAIL]
@@ -3269,8 +3308,8 @@ pref("findbar.highlightAll", true);
 /// Prevent the alt key from toggling menu bar by default
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux]
 
-/// Prevent displaying Private Browsing windows as separate icons on Windows' Taskbar by default [NO-ANDROID] [NO-MAIL]
-pref("browser.privateWindowSeparation.enabled", false); // [NO-ANDROID] [NO-MAIL] [WINDOWS-ONLY]
+/// Prevent displaying Private Browsing windows as separate icons on the Windows Taskbar by default [NO-ANDROID] [NO-MAIL]
+pref("browser.privateWindowSeparation.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Prevent including the space next to words when double-clicking/selecting text
 // https://codeberg.org/celenity/Phoenix/issues/84#issuecomment-3097957
@@ -3311,7 +3350,6 @@ pref("extensions.systemAddon.update.enabled", true); // [DEFAULT]
 pref("extensions.systemAddon.update.url", "https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml"); // [HIDDEN - Thunderbird] [DEFAULT - non-Thunderbird]
 pref("extensions.update.autoUpdateDefault", true); // [HIDDEN - ANDROID] [DEFAULT]
 pref("extensions.update.enabled", true); // [DEFAULT]
-pref("media.gmp-manager.updateEnabled", true); // [HIDDEN] [DEFAULT]
 
 /// Check for browser updates hourly [NO-ANDROID]
 pref("app.update.background.interval", 3600); // [NO-ANDROID] (Default: 25200 (7 hours))
@@ -3337,14 +3375,6 @@ pref("services.settings.poll_interval", 3600);
 pref("browser.phoenix.status", "028");
 
 /*** 029 FIREFOX HOME ***/ // [NO-ANDROID] [NO-MAIL]
-
-/// Clear default links [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.default.sites", ""); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#181
-pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#831
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.pinned", '[]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/7d68baf8/toolkit/modules/NewTabUtils.sys.mjs#147
 
 /// Disable AccuWeather by default, but allow users to enable it if desired [NO-ANDROID] [NO-MAIL]
 // NOTE: This depends on Merino: `browser.urlbar.merino.endpointURL`, and the AccuWeather provider must be allowed: `browser.urlbar.merino.providers`) [NO-ANDROID] [NO-MAIL]
@@ -3499,6 +3529,12 @@ pref("browser.newtabpage.activity-stream.newtabShortcuts.refresh", true); // [NO
 /// Enable publisher favicons (if stories are enabled) by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.publisherFavicon.enabled", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Enable shortcuts by default [NO-ANDROID] [NO-MAIL] [DEFAULT]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderTopSites.sys.mjs [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.feeds.places", true);// [NO-ANDROID] [NO-MAIL] [DEFAULT] Required to click shortcuts...
+pref("browser.newtabpage.activity-stream.feeds.system.topsites", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.feeds.topsites", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Enable wallpapers, but disable fetching them remotely by default [NO-ANDROID] [NO-MAIL]
 // By default, Firefox to connect to ex. `https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/...` on every browser launch after the user navigates to `about:home` :/ [NO-ANDROID] [NO-MAIL]
 // This is a work-around that enables *partial* support for custom wallpapers, but without hitting the network [NO-ANDROID] [NO-MAIL]
@@ -3514,7 +3550,7 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.upload
 pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.uuid", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "solid-color-picker-#f4dbe9"); // [NO-ANDROID] [NO-MAIL]
 
 /// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -3567,10 +3603,10 @@ pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled"
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1967 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/InferredPersonalizationFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.locale-config", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.region-config", "", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.region-config", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.user.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.inferredpersonalizationfeed", false, locked); // [NO-ANDROID] [NO-MAIL]
@@ -3601,6 +3637,14 @@ pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"h
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Remove default shortcuts [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.default.sites", ""); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#181
+pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#831
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", ""); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.pinned", '[]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/7d68baf8/toolkit/modules/NewTabUtils.sys.mjs#147
+
 pref("browser.phoenix.status", "029"); // [NO-ANDROID] [NO-MAIL]
 
 /*** 030 FIREFOX SUGGEST ***/ // [NO-ANDROID] [NO-MAIL]
@@ -3621,10 +3665,23 @@ pref("browser.urlbar.suggest.addons", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.amp.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.amp", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable "Exposure" telemetry [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/nimbus/FeatureManifest.yaml#281 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/nimbus/FeatureManifest.yaml#326 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.exposureResults", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.urlbar.keywordExposureResults", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.urlbar.showExposureResults", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Disable Fakespot suggestions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/FakespotSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.fakespot.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.fakespot", false); // [NO-ANDROID] [NO-MAIL]
+
+/// Disable fetching minimum keyword lengths from Nimbus and/or Remote Settings [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.addons.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#729
+pref("browser.urlbar.fakespot.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/FakespotSuggestions.sys.mjs#309
+pref("browser.urlbar.weather.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/WeatherSuggestions.sys.mjs#482
+pref("browser.urlbar.yelp.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/YelpSuggestions.sys.mjs#345
 
 /// Disable onboarding dialog [NO-ANDROID] [NO-MAIL] [ESR]
 // https://searchfox.org/mozilla-esr128/rev/89383753/toolkit/components/nimbus/FeatureManifest.yaml#361 [NO-ANDROID] [NO-MAIL]
@@ -3681,16 +3738,20 @@ pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID]
 pref("browser.urlbar.suggest.wikipedia", false); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
 pref("browser.urlbar.wikipedia.featureGate", true); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
 
+/// Disable Yelp suggestions [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/YelpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.yelp", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.yelp.featureGate", false); // [NO-ANDROID] [NO-MAIL]
+
+/// Ensure that we're using the newer Rust backend [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#317 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.rustEnabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Expose the Firefox Suggest UI [NO-ANDROID] [NO-MAIL]
 // We still disable all web suggestions by default, this just exposes the UI to allow users to enable suggestions if desired [NO-ANDROID] [NO-MAIL]
 // I don't see a point in hiding this functionality, privacy implications are the same as regular search suggestions [NO-ANDROID] [NO-MAIL]
 // In fact, I think privacy of Suggest is actually superior to standard search suggestions in some cases - Ex. if you're using Google and enable search suggestions from them, you'd be better off instead enabling suggestions from Mozilla, due to Mozilla's superior privacy policy and data handling [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-
-/// Disable Yelp suggestions [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/YelpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.suggest.yelp", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.yelp.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 
 /// If Merino is enabled, only allow fetching content from AccuWeather, AMO, MDN, and Wikipedia (if the corresponding prefs are enabled) [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/MerinoClient.sys.mjs#123 [NO-ANDROID] [NO-MAIL]
