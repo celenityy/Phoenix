@@ -1426,6 +1426,7 @@ pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UI
 /// Disable DoH Connectivity Checks
 pref("network.connectivity-service.DNS_HTTPS.domain", "");
 pref("network.trr.confirmationNS", "skip");
+pref("network.trr.skip-check-for-blocked-host", true); // https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14535
 
 /// Disable EDNS Client Subnet (ECS) to prevent leaking general location data to authoritative DNS servers...
 // https://wikipedia.org/wiki/EDNS_Client_Subnet
