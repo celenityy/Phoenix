@@ -1,4 +1,5 @@
 {
     "policies": {
+        "DisplayMenuBar": "default-on"
     }
 }
