@@ -577,7 +577,7 @@ pref("signon.firefoxRelay.terms_of_service_url", "https://www.mozilla.org/about/
 // https://github.com/mozilla/policy-templates/pull/1212
 // https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
 pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 999, locked);
-pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "999999999", locked);
+pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "32503679999000", locked);
 
 pref("browser.phoenix.status", "002");
 
