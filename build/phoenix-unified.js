@@ -425,6 +425,12 @@ pref("signon.firefoxRelay.allowListRemoteSettingsCollection", ""); // [HIDDEN]
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/password-recipes/changeset?_expected=0
 pref("signon.recipes.remoteRecipes.enabled", false);
 
+/// Disable Firefox Bridge [NO-ANDROID] [NO-MAIL]
+// Uses native messaging to share browsing data with other browsers (Chromium) [NO-ANDROID] [NO-MAIL]
+// Interesting concept, but due to the obvious potential privacy and security concerns, I feel that this is something that should be left to the user to enable [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#864 [NO-ANDROID] [NO-MAIL]
+pref("browser.firefoxbridge.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Disable Firefox Messaging System targeting information background updates [NO-ANDROID]
 // https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/mozapps/update/BackgroundUpdate.sys.mjs#827 [NO-ANDROID]
 // https://firefox-source-docs.mozilla.org/browser/components/asrouter/docs/index.html [NO-ANDROID]
