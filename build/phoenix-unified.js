@@ -2854,6 +2854,7 @@ pref("network.connectivity-service.DNSv6.domain", "");
 pref("network.connectivity-service.enabled", false);
 pref("network.connectivity-service.IPv4.url", "");
 pref("network.connectivity-service.IPv6.url", "");
+pref("network.trr.wait-for-portal", false); // [DEFAULT] Do not wait for captive portal to enable DoH https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14427
 
 /// Disable Firefox's "Reset/Refresh Profile" prompt [NO-ANDROID] [NO-MAIL]
 // This could cause Phoenix users serious issues, especially those with custom configs/user.js files... [NO-ANDROID] [NO-MAIL]
