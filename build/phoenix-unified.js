@@ -2995,6 +2995,12 @@ pref("devtools.webconsole.sidebarToggle", true); // [NO-ANDROID] [DEFAULT - Nigh
 pref("devtools.debugger.force-local", true, locked); // [DEFAULT]
 pref("devtools.inspector.remote", false, locked); // [NO-ANDROID] [DEFAULT]
 
+/// Enforce system access checks for WebDriver
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/remote/marionette/driver.sys.mjs#65
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/remote/doc/Prefs.md#61
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1955007
+pref("remote.system-access-check.enabled", true, locked); // [HIDDEN] [DEFAULT]
+
 /// Highlight syntax when viewing the source of webpages (via `view-source:`)
 pref("view_source.syntax_highlight", true); // [DEFAULT - non-Thunderbird]
 
