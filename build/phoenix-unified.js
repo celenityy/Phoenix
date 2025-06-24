@@ -313,6 +313,7 @@ pref("toolkit.datacollection.infoURL", ""); // [NO-ANDROID]
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.log", "off"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable logging
+pref("browser.preonboarding.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable the preonboarding modal https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#802
 pref("browser.rights.3.shown", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.startup.homepage_override.buildID", "20100101", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ex. matches what Tor Browser uses
 pref("browser.startup.homepage_override.mstone", "ignore", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
