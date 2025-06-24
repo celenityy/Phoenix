@@ -24,7 +24,9 @@
                 "https://youtu.be/",
                 "http://youtube-nocookie.com/",
                 "https://youtube-nocookie.com/"
-            ]
+            ],
+            "Locked": false,
+            "RejectTracker": true
         }
     }
 }

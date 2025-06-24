@@ -105,6 +105,10 @@
 			<string>http://youtube-nocookie.com/</string>
 			<string>https://youtube-nocookie.com/</string>
 		</array>
+		<key>Locked</key>
+		<false/>
+		<key>RejectTracker</key>
+		<true/>
 	</dict>
 	<key>DNSOverHTTPS</key>
 	<dict>
@@ -135,18 +139,24 @@
 	<string>always</string>
 	<key>EnableTrackingProtection</key>
 	<dict>
+		<key>Category</key>
+		<string>strict</string>
 		<key>Cryptomining</key>
 		<true/>
 		<key>EmailTracking</key>
 		<true/>
 		<key>Fingerprinting</key>
 		<true/>
+		<key>Locked</key>
+		<false/>
 		<key>Value</key>
 		<true/>
 	</dict>
 	<key>EncryptedMediaExtensions</key>
 	<dict>
 		<key>Enabled</key>
+		<false/>
+		<key>Locked</key>
 		<false/>
 	</dict>
 	<key>EnterprisePoliciesEnabled</key>
@@ -1452,8 +1462,10 @@
 	</dict>
 	<key>FirefoxHome</key>
 	<dict>
+		<key>Highlights</key>
+		<false/>
 		<key>Locked</key>
-		<true/>
+		<false/>
 		<key>Pocket</key>
 		<false/>
 		<key>Snippets</key>
@@ -1468,11 +1480,34 @@
 		<key>ImproveSuggest</key>
 		<false/>
 		<key>Locked</key>
-		<true/>
+		<false/>
 		<key>SponsoredSuggestions</key>
 		<false/>
 		<key>WebSuggestions</key>
 		<false/>
+	</dict>
+	<key>Handlers</key>
+	<dict>
+		<key>extensions</key>
+		<dict>
+			<key>pdf</key>
+			<dict>
+				<key>action</key>
+				<string>handleInternally</string>
+				<key>ask</key>
+				<true/>
+			</dict>
+		</dict>
+		<key>mimeTypes</key>
+		<dict>
+			<key>application/pdf</key>
+			<dict>
+				<key>action</key>
+				<string>handleInternally</string>
+				<key>ask</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>HttpsOnlyMode</key>
 	<string>force_enabled</string>
@@ -1482,6 +1517,8 @@
 	<integer>0</integer>
 	<key>Proxy</key>
 	<dict>
+		<key>Locked</key>
+		<false/>
 		<key>Mode</key>
 		<string>none</string>
 		<key>UseProxyForDNS</key>
@@ -1492,6 +1529,8 @@
 		<key>Add</key>
 		<array>
 			<dict>
+				<key>Alias</key>
+				<string>@duckduckgohtml, @ddghtml</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo (HTML)</string>
 				<key>IconURL</key>
@@ -1506,6 +1545,8 @@
 				<string>https://html.duckduckgo.com/html/?q={searchTerms}</string>
 			</dict>
 			<dict>
+				<key>Alias</key>
+				<string>@duckduckgolite, @ddglite</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo (Lite)</string>
 				<key>IconURL</key>
@@ -1520,6 +1561,8 @@
 				<string>https://lite.duckduckgo.com/lite/?q={searchTerms}</string>
 			</dict>
 			<dict>
+				<key>Alias</key>
+				<string>@mojeek</string>
 				<key>Description</key>
 				<string>Search Mojeek</string>
 				<key>IconURL</key>
@@ -1532,6 +1575,8 @@
 				<string>https://www.mojeek.com/search?q={searchTerms}</string>
 			</dict>
 			<dict>
+				<key>Alias</key>
+				<string>@letabrave, @letab</string>
 				<key>Description</key>
 				<string>Search Mullvad Leta (with Brave's index)</string>
 				<key>IconURL</key>
@@ -1544,6 +1589,8 @@
 				<string>https://leta.mullvad.net/?q={searchTerms}&amp;engine=brave</string>
 			</dict>
 			<dict>
+				<key>Alias</key>
+				<string>@letagoogle, @letag</string>
 				<key>Description</key>
 				<string>Search Mullvad Leta (with Google's index)</string>
 				<key>IconURL</key>
@@ -1566,6 +1613,8 @@
 				<string>https://nosearch.invalid/{searchTerms}</string>
 			</dict>
 			<dict>
+				<key>Alias</key>
+				<string>@startpage, @sp</string>
 				<key>Description</key>
 				<string>Search Startpage</string>
 				<key>IconURL</key>
@@ -1581,6 +1630,8 @@
 			</dict>
 		</array>
 		<key>Default</key>
+		<string>DuckDuckGo</string>
+		<key>DefaultPrivate</key>
 		<string>DuckDuckGo</string>
 		<key>PreventInstalls</key>
 		<false/>
@@ -1646,6 +1697,8 @@
 			<string>Яндекс</string>
 		</array>
 	</dict>
+	<key>SkipTermsOfUse</key>
+	<true/>
 	<key>SupportMenu</key>
 	<dict>
 		<key>Title</key>
@@ -1663,8 +1716,6 @@
 		<true/>
 		<key>MoreFromMozilla</key>
 		<false/>
-		<key>SkipTermsOfUse</key>
-		<true/>
 		<key>UrlbarInterventions</key>
 		<false/>
 	</dict>

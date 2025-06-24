@@ -45,13 +45,16 @@
         "DisableProfileRefresh": true,
         "DisplayBookmarksToolbar": "always",
         "EnableTrackingProtection": {
+            "Category": "strict",
             "Cryptomining": true,
             "EmailTracking": true,
             "Fingerprinting": true,
+            "Locked": false,
             "Value": true
         },
         "EncryptedMediaExtensions": {
-            "Enabled": false
+            "Enabled": false,
+            "Locked": false
         },
         "ExtensionSettings": {
             "*": {
@@ -78,21 +81,23 @@
             }
         },
         "FirefoxHome": {
+            "Highlights": false,
             "Pocket": false,
             "Snippets": false,
             "SponsoredTopSites": false,
             "SponsoredPocket": false,
-            "Locked": true
+            "Locked": false
         },
         "FirefoxSuggest": {
             "ImproveSuggest": false,
             "SponsoredSuggestions": false,
             "WebSuggestions": false,
-            "Locked": true
+            "Locked": false
         },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
         "PrivateBrowsingModeAvailability": 0,
+        "SkipTermsOfUse": true,
         "SupportMenu": {
             "Title": "Phoenix Issue Tracker",
             "URL": "https://phoenix.celenity.dev/issues"
@@ -100,10 +105,9 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
+            "Locked": true,
             "MoreFromMozilla": false,
-            "SkipTermsOfUse": true,
-            "UrlbarInterventions": false,
-            "Locked": true
+            "UrlbarInterventions": false
         }
     }
 }

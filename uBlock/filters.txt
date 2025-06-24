@@ -1,9 +1,20 @@
 ! Title: Phoenix filters
-! Version: 01June2025v1
+! Version: 22June2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
 !! This list includes filters designed specifically to work with Phoenix and derivatives (such as IronFox).
+
+!#if !env_mobile
+
+!! Warn users before navigating to AccuWeather
+!!! We allow users to enable the Weather to display on `about:home` and URL bar, because it's a useful feature and nice to have (though we don't enable it by default)
+!!! The weather data is sourced from AccuWeather, but downloaded from Mozilla (which is great from a privacy perspective)
+!!! The problem is though that selecting the widget or the URL bar suggestion takes you directly to AccuWeather's website - which is problematic, as AccuWeather's website contains ads/tracking/etc... and I definitely don't want to promote or endorse a site with those practices
+!!! So if a user clicks the widget or URL bar suggestion, this will warn them first before connecting to AccuWeather - allowing them to safely take advantage of this useful feature
+||www.accuweather.com^$document,domain=~WARNING--this-website-contains-lots-of-ads-and-tracking--please-proceed-with-caution
+
+!#endif
 
 !! Smartblock Embed Placeholders
 !!! https://support.mozilla.org/kb/smartblock-enhanced-tracking-protection#w_enabling-embedded-content
