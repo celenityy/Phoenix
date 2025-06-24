@@ -291,9 +291,9 @@ pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Andr
 
 /// Remove partner attribution
 // These are *only* used for telemetry, and could potentially be used for fingerprinting
-pref("app.distributor", "", locked); // [DEFAULT] [HIDDEN]
-pref("app.distributor.channel", "", locked); // [DEFAULT] [HIDDEN]
-pref("mozilla.partner.id", "", locked); // [DEFAULT] [HIDDEN]
+pref("app.distributor", "", locked); // [HIDDEN] [DEFAULT]
+pref("app.distributor.channel", "", locked); // [HIDDEN] [DEFAULT]
+pref("mozilla.partner.id", "", locked); // [HIDDEN] [DEFAULT]
 
 pref("browser.phoenix.status", "001");
 
@@ -466,9 +466,9 @@ pref("cookiebanners.ui.desktop.showCallout", false); // [NO-ANDROID] [NO-MAIL] [
 // https://searchfox.org/mozilla-central/source/browser/components/uitour/UITourUtils.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.loglevel", "Off"); // [NO-ANDROID] [NO-MAIL]
-pref("browser.uitour.requireSecure", true, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN]
+pref("browser.uitour.requireSecure", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.uitour.surveyDuration", 0, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN]
+pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.uitour.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Pocket [NO-ANDROID] [NO-MAIL]
@@ -1021,7 +1021,7 @@ pref("browser.phoenix.status", "006");
 
 /// Allow users to bypass invalid certificate errors by default
 // (To expose the preference via the `about:config`)
-pref("security.certerror.hideAddException", false); // [DEFAULT] [HIDDEN]
+pref("security.certerror.hideAddException", false); // [HIDDEN] [DEFAULT]
 
 /// Always preload intermediates
 // https://wiki.mozilla.org/Security/CryptoEngineering/Intermediate_Preloading
@@ -1631,7 +1631,7 @@ pref("media.gmp-manager.updateEnabled", false); // [HIDDEN]
 pref("media.gmp-manager.allowLocalSources", false);
 
 /// Disable GMP logging by default (to expose via the `about:config`)
-pref("media.gmp.log.dump", false); // [DEFAULT] [HIDDEN]
+pref("media.gmp.log.dump", false); // [HIDDEN] [DEFAULT]
 pref("media.gmp.log.level", 70); // [HIDDEN] Limits logging to fatal only
 
 /// Disable HLS [ANDROID-ONLY]
@@ -1933,7 +1933,7 @@ pref("extensions.manifestV3.enabled", true); // [DEFAULT]
 /// Enable restricted/quarantined domains by default
 // https://support.mozilla.org/kb/quarantined-domains
 pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT]
-pref("extensions.quarantinedDomains.uiDisabled", false); // [DEFAULT] [HIDDEN]
+pref("extensions.quarantinedDomains.uiDisabled", false); // [HIDDEN] [DEFAULT]
 
 /// Enable userScripts
 // userScripts ran this way run in separate isolated sandboxes
@@ -2253,20 +2253,20 @@ pref("browser.safebrowsing.downloads.remote.enabled", false);
 // https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/nsUrlClassifierDBService.cpp#1964
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
 // (Known providers taken from here: https://searchfox.org/mozilla-central/rev/beba5cde/toolkit/components/url-classifier/nsUrlClassifierUtils.cpp#380)
-pref("browser.safebrowsing.provider.baidu.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.baidu.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
+pref("browser.safebrowsing.provider.baidu.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.baidu.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN - non-Android]
-pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
+pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
-pref("browser.safebrowsing.provider.mozcn.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.mozcn.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.mozilla.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.mozilla.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.test.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.yandex.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.yandex.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
+pref("browser.safebrowsing.provider.mozcn.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.mozcn.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.mozilla.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.mozilla.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.test.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.yandex.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.yandex.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 
 /// Proxy Safe Browsing
 // This sets up a new Safe Browsing "provider", using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
@@ -2275,8 +2275,8 @@ pref("browser.safebrowsing.provider.google4.lists", "disabled"); // Ensure Googl
 pref("browser.safebrowsing.provider.google4.lists.default", "goog-badbinurl-proto,goog-downloadwhite-proto,goog-phish-proto,googpub-phish-proto,goog-malware-proto,goog-unwanted-proto,goog-harmful-proto"); // [HIDDEN] This pref does nothing, just makes it easier for users to re-enable this Safe Browsing provider if desired by copying and pasting the value of this pref as the value for `browser.safebrowsing.provider.google.lists`
 pref("browser.safebrowsing.provider.ironfox.advisoryName", "Google Safe Browsing (Proxied by IronFox)"); // [HIDDEN]
 pref("browser.safebrowsing.provider.ironfox.advisoryURL", "https://developers.google.com/safe-browsing/v4/advisory"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.dataSharingURL", "", locked); // [DEFAULT] [HIDDEN]
+pref("browser.safebrowsing.provider.ironfox.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.ironfox.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.ironfox.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [HIDDEN]
 pref("browser.safebrowsing.provider.ironfox.lists", "goog-badbinurl-proto,goog-downloadwhite-proto,goog-phish-proto,googpub-phish-proto,goog-malware-proto,goog-unwanted-proto,goog-harmful-proto"); // [HIDDEN]
 pref("browser.safebrowsing.provider.ironfox.nextupdatetime", "1"); // [HIDDEN]
@@ -2593,7 +2593,7 @@ pref("browser.link.force_default_user_context_id_for_external_opens", true); // 
 
 /// Prevent sharing identifying information if a remote AutoConfig is being used
 // https://searchfox.org/mozilla-central/source/extensions/pref/autoconfig/src/nsAutoConfig.cpp#220
-pref("autoadmin.append_emailaddr", false, locked); // [DEFAULT] [HIDDEN]
+pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN] [DEFAULT]
 
 /// Prevent third parties from setting cookies unless the third party already has cookies as a first party (Like Safari)
 // https://webkit.org/tracking-prevention/#the-default-cookie-policy
@@ -2665,7 +2665,7 @@ pref("security.sandbox.socket.win32k-disable", true); // [WINDOWS-ONLY] [DEFAULT
 
 /// Do not allow additional ports by default
 // This is just to expose the preference via the `about:config`
-pref("network.security.ports.banned.override", ""); // [DEFAULT] [HIDDEN]
+pref("network.security.ports.banned.override", ""); // [HIDDEN] [DEFAULT]
 
 /// Enable Arbitrary Code Guard (ACG) [WINDOWS-ONLY]
 // https://medium.com/@boutnaru/the-windows-security-journey-acg-arbitrary-code-guard-74b08a8bd1e5 [WINDOWS-ONLY]
@@ -2703,7 +2703,7 @@ pref("dom.security.setHTML.enabled", true);
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // https://searchfox.org/mozilla-central/source/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#1181
 // https://searchfox.org/mozilla-central/source/security/sandbox/chromium/sandbox/win/src/security_level.h#38
-pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default - Windows), 2 = USER_LIMITED (Stricter)]
+pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default: Windows), 2 = USER_LIMITED (Stricter)]
 
 /// Enable Opaque Response Blocking
 // https://github.com/annevk/orb
@@ -3329,11 +3329,11 @@ pref("layout.word_select.eat_space_to_next_word", false); // [DEFAULT - non-Wind
 /// Set the default log level for Background Tasks
 // This is the default value - this just exposes the pref via the `about:config`
 // https://searchfox.org/mozilla-central/source/toolkit/components/backgroundtasks/BackgroundTasksManager.sys.mjs
-pref("toolkit.backgroundtasks.loglevel", "error"); // [DEFAULT] [HIDDEN]
+pref("toolkit.backgroundtasks.loglevel", "error"); // [HIDDEN] [DEFAULT]
 
 /// Set the default log level for Remote Settings
 // This is the default value - this just exposes the pref via the `about:config`
-pref("services.settings.loglevel", "warn"); // [DEFAULT] [HIDDEN]
+pref("services.settings.loglevel", "warn"); // [HIDDEN] [DEFAULT]
 
 /// Set default URL to load when navigating to `moz://a`
 // Default is https://www.mozilla.org/about/manifesto/
@@ -3518,7 +3518,7 @@ pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.ping.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.places.interactions.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
-pref("browser.places.interactions.log", false); // [DEFAULT] [HIDDEN] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
+pref("browser.places.interactions.log", false); // [HIDDEN] [DEFAULT] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.privacySegmentation.preferences.show", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
