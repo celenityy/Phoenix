@@ -2907,6 +2907,10 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 pref("accessibility.blockautorefresh", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
 
+/// Reject invalid cookies
+// https://searchfox.org/mozilla-central/rev/edcefd70/modules/libpref/init/all.js#1789
+pref("extensions.cookie.rejectWhenInvalid", true); // [NIGHTLY]
+
 /// Show advanced details on pages blocked by Safe Browsing by default [NO-ANDROID] [NO-MAIL]
 pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [NO-ANDROID] [NO-MAIL]
 
