@@ -3024,6 +3024,10 @@ pref("devtools.console.stdout.chrome", false); // [DEFAULT - non-Android, `MOZIL
 /// Prevent logging URLs in Reader errors
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 
+/// Prevent WebDriver from overriding preferences by default
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/remote/doc/Prefs.md#41
+pref("remote.prefs.recommended", false);
+
 /// Set Browser/Error Console scope to "Multiprocess" instead of "Parent process only" by default [NO-ANDROID]
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/webconsole/webconsole-ui.js#47 [NO-ANDROID]
 pref("devtools.browsertoolbox.scope", "everything"); // [NO-ANDROID] [DEFAULT - Thunderbird] 
