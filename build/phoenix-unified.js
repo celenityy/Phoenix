@@ -1443,6 +1443,7 @@ pref("network.trr.strict_native_fallback", true); // https://searchfox.org/mozil
 pref("network.notify.changed", false);
 pref("network.notify.checkForNRPT", false);
 pref("network.notify.checkForProxies", false);
+pref("network.notify.dnsSuffixList", false);
 pref("network.notify.initial_call", false);
 pref("network.notify.IPv6", false); // [DEFAULT - Windows]
 pref("network.notify.resolvers", false);
