@@ -464,6 +464,7 @@ pref("browser.promo.cookiebanners.enabled", false, locked); // [NO-ANDROID] [NO-
 pref("browser.promo.focus.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.promo.pin.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.protections_panel.infoMessage.seen", true); // [NO-ANDROID] [NO-MAIL] Disables ETP Banner
+pref("browser.send_to_device_locales", ""); // [NO-ANDROID] [NO-MAIL] Disables "Send to Device" email promotions https://searchfox.org/mozilla-central/rev/edcefd70/browser/app/profile/firefox.js#2408 https://searchfox.org/mozilla-central/rev/edcefd70/toolkit/modules/BrowserUtils.sys.mjs#789 https://searchfox.org/mozilla-central/rev/edcefd70/browser/components/preferences/moreFromMozilla.js#263
 pref("browser.vpn_promo.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("cookiebanners.ui.desktop.showCallout", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
