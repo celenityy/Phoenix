@@ -1597,12 +1597,12 @@ pref("browser.phoenix.status", "012");
 pref("media.eme.enabled.0.NOTE", "DRM/EME is NOT supported or recommended.");
 pref("media.eme.enabled.1.NOTE", "Enabling it WILL compromise your privacy/security.");
 pref("media.eme.enabled.2.NOTE", "Proceed at your own caution.");
-pref("media.eme.enabled.3.NOTE", "Disable media.eme.require-app-approval if you haven't already"); // [NO-ANDROID] [NO-MAIL]
+pref("media.eme.enabled.3.NOTE", "Disable media.eme.require-app-approval if you haven't already."); // [NO-ANDROID] [NO-MAIL]
 pref("media.eme.enabled.3.NOTE", "You will also need to enable a CDM."); // [ANDROID-ONLY]
 pref("media.eme.enabled.4.NOTE", "You will also need to enable GMP and a CDM."); // [NO-ANDROID] [NO-MAIL]
-pref("media.eme.enabled.4.NOTE", "See media.mediadrm-widevinecdm.visible"); // [ANDROID-ONLY]
-pref("media.eme.enabled.5.NOTE", "See media.gmp-manager.updateEnabled & media.gmp-widevinecdm.enabled"); // [NO-ANDROID] [NO-MAIL]
-pref("media.eme.enabled.6.NOTE", "WINDOWS USERS: ALSO see media.eme.playready.enabled & media.gmp-widevinecdm-l1.enabled"); // [WINDOWS-ONLY] [NO-MAIL]
+pref("media.eme.enabled.4.NOTE", "See media.mediadrm-widevinecdm.visible."); // [ANDROID-ONLY]
+pref("media.eme.enabled.5.NOTE", "See media.gmp-manager.updateEnabled & media.gmp-widevinecdm.enabled."); // [NO-ANDROID] [NO-MAIL]
+pref("media.eme.enabled.6.NOTE", "WINDOWS USERS: ALSO see media.eme.playready.enabled & media.gmp-widevinecdm-l1.enabled."); // [WINDOWS-ONLY] [NO-MAIL]
 
 /// Block media autoplay by default
 // https://support.mozilla.org/kb/block-autoplay
