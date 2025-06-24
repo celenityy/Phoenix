@@ -2931,6 +2931,11 @@ pref("devtools.chrome.enabled", true); // [DEFAULT - Thunderbird]
 /// Allow inspecting the DOM by default [NO-ANDROID]
 pref("devtools.dom.enabled", true); // [NO-ANDROID]
 
+/// Allow inspecting/debugging local tabs from `about:debugging` by default [NO-ANDROID] [NO-ANDROID]
+// Useful, especially for Thunderbird, as it gives us a URL bar... [NO-ANDROID]
+// On Thunderbird, you can use it by navigating to `Tools` -> `Developer Tools` -> `Debug Add-ons` (`about:debugging`), and choosing `Inspect` next to any tab... [NO-ANDROID]
+pref("devtools.aboutdebugging.local-tab-debugging", true); // [NO-ANDROID] [DEFAULT - non-MOZILLA_OFFICIAL builds]
+
 /// Always prompt before connecting to Remote Debugging...
 pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nightly]
 
