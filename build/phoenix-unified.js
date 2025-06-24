@@ -647,6 +647,7 @@ pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 pref("privacy.bounceTrackingProtection.enabled", true); // [NO-ANDROID] [ESR]
 pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // [NO-ANDROID] [ESR]
 pref("privacy.bounceTrackingProtection.mode", 1); // [DEFAULT - Nightly]
+pref("privacy.bounceTrackingProtection.requireStatefulBounces", false); // [DEFAULT - Nightly] Protect against all bounce trackers, instead of just those who access cookies/storage https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#4436
 
 //// Enable Query Parameter Stripping
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
