@@ -2271,20 +2271,14 @@ pref("browser.safebrowsing.downloads.remote.enabled", false);
 // https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/nsUrlClassifierDBService.cpp#1964
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
 // (Known providers taken from here: https://searchfox.org/mozilla-central/rev/beba5cde/toolkit/components/url-classifier/nsUrlClassifierUtils.cpp#380)
-pref("browser.safebrowsing.provider.baidu.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.baidu.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN - non-Android]
 pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
-pref("browser.safebrowsing.provider.mozcn.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.mozcn.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.mozilla.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.mozilla.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.test.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.yandex.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.yandex.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 
 /// Proxy Safe Browsing
 // This sets up a new Safe Browsing "provider", using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
