@@ -1377,6 +1377,11 @@ pref("browser.urlbar.placeholderName.private", "DuckDuckGo"); // [NO-ANDROID] [N
 /// Exclude JavaScript URLS from results [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.filter.javascript", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Expose the pref to enable debug badges in the `about:config`, but do not enable by default [NO-ANDROID] [NO-MAIL]
+// (Ex. labels adaptive history results with "A" and semantic history results with "S") [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/browser/themes/shared/urlbarView.css#358 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.showDebuggingIcons", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+
 /// Expose the UI to add custom search engines at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
