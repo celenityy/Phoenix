@@ -2945,6 +2945,9 @@ pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [NO-A
 /// Disable editor onboarding [NO-ANDROID]
 pref("devtools.webconsole.input.editorOnboarding", false); // [NO-ANDROID]
 
+/// Disable network monitoring by default [NO-ANDROID]
+pref("devtools.browserconsole.enableNetworkMonitoring", false); // [NO-ANDROID] [DEFAULT]
+
 /// Disable pausing on debugger statements by default [NO-ANDROID]
 pref("devtools.debugger.pause-on-debugger-statement", false); // [NO-ANDROID]
 
@@ -2983,9 +2986,6 @@ pref("devtools.command-button-screenshot.enabled", true); // [NO-ANDROID] Screen
 
 /// Enable experimental DevTools preferences by default [NO-ANDROID]
 pref("devtools.command-button-experimental-prefs.enabled", true); // [NO-ANDROID] [HIDDEN - non-MOZILLA_OFFICIAL builds] [DEFAULT - non-MOZILLA_OFFICIAL builds]
-
-/// Enable network monitoring by default [NO-ANDROID]
-pref("devtools.browserconsole.enableNetworkMonitoring", true); // [NO-ANDROID]
 
 /// Enable the Web Console sidebar toggle [NO-ANDROID]
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/webconsole/webconsole-ui.js#46 [NO-ANDROID]
