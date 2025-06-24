@@ -628,6 +628,10 @@ pref("privacy.trackingprotection.emailtracking.enabled", true);
 pref("privacy.trackingprotection.emailtracking.pbmode.enabled", true); // [DEFAULT]
 
 //// Block known fingerprinters
+// Including ones classified as "anti-fraud": https://bugzilla.mozilla.org/show_bug.cgi?id=1962092
+pref("privacy.trackingprotection.antifraud.annotate_channels", true); // [DEFAULT] [NIGHTLY]
+pref("privacy.trackingprotection.antifraud.skip.enabled", false); // [DEFAULT] [NIGHTLY]
+pref("privacy.trackingprotection.antifraud.skip.pbmode.enabled", false); // [NIGHTLY]
 pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT - non-Thunderbird]
 
 //// Block known social trackers
