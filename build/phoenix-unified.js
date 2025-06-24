@@ -3729,8 +3729,9 @@ pref("browser.urlbar.yelp.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAI
 
 /// Disable Firefox Suggest by default [NO-ANDROID] [NO-MAIL]
 /// I'd rather not set this, but unfortunately, when it's on, it causes Firefox to connect to `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-amp/changeset?_expected=*` and `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-other/changeset?_expected=*` on every launch, EVEN IF no suggestions are enabled :/ [NO-ANDROID] [NO-MAIL]
-// This also gives us a cleaner UI anyways, and I doubt this is something most of ours want anyways - but they can always enable this from the `about:config` if desired [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.quicksuggest.enabled", false); // [NO-ANDROID] [NO-MAIL]
+// This also gives us a cleaner UI anyways, and I doubt this is something most of our users want anyways [NO-ANDROID] [NO-MAIL]
+// (Locked because it unfortunately doesn't appear to set properly otherwise :/) [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable onboarding dialog [NO-ANDROID] [NO-MAIL] [ESR]
 // https://searchfox.org/mozilla-esr128/rev/89383753/toolkit/components/nimbus/FeatureManifest.yaml#361 [NO-ANDROID] [NO-MAIL]
