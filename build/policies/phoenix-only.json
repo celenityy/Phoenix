@@ -49,10 +49,12 @@
             "Cryptomining": true,
             "EmailTracking": true,
             "Fingerprinting": true,
+            "Locked": false,
             "Value": true
         },
         "EncryptedMediaExtensions": {
-            "Enabled": false
+            "Enabled": false,
+            "Locked": false
         },
         "ExtensionSettings": {
             "*": {
@@ -102,10 +104,10 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
+            "Locked": true,
             "MoreFromMozilla": false,
             "SkipTermsOfUse": true,
-            "UrlbarInterventions": false,
-            "Locked": true
+            "UrlbarInterventions": false
         }
     }
 }

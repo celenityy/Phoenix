@@ -29,6 +29,7 @@
             }
         },
         "Proxy": {
+            "Locked": false,
             "Mode": "none",
             "UseProxyForDNS": true
         },
