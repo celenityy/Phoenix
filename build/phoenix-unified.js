@@ -2817,6 +2817,10 @@ pref("network.sniff.use_extension", true); // [NIGHTLY] Sniff content types base
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
 
+/// Sandbox AudioIPC (cubeb)
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#10941
+pref("media.cubeb.sandbox", true); // [DEFAULT]
+
 /// Use a separate content process for `file://` URLs
 pref("browser.tabs.remote.separateFileUriProcess", true); // [DEFAULT - non-Android]
 
