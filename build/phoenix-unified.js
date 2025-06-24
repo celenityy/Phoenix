@@ -1465,6 +1465,10 @@ pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 /// Enable native DNS HTTPS Lookups
 pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
 
+/// Ensure we clear cache upon changing DoH prefs
+// https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14481
+pref("network.trr.clear-cache-on-pref-change", true); // [DEFAULT]
+
 /// Expose the DoH bootstrap pref, but don't configure by default
 // This is the DNS server Firefox uses to resolve the address of your DoH server
 // By default, Firefox just uses the system DNS
