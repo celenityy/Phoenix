@@ -1908,28 +1908,30 @@ pref("extensions.sideloadScopes", 0); // [HIDDEN]
 pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
 
 /// Disable installation of add-ons + only allow enabling it per-session [DESKTOP]
-// Includes extensions & themes
+// Includes extensions and themes
 // Does NOT apply to Android's `Recommended` extensions (collections) found at `Settings` -> `Advanced` -> `Extensions`
-// This doesn't impact already installed add-ons & add-ons installed by policies
-// Firefox (on Desktop) will prompt to re-enable this when necessary
-// Unfortunately Android and Thunderbird don't have a prompt like this :( - so we won't disable this by default there - but we'll still set the pref to `true` to expose it via the `about:config` 
-// Setting this pref to `sticky` causes it to reset per session, which is quite nice from a security perspective, as it allows users to enable this functionality only when it's necessary...
-// Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it
-pref("xpinstall.enabled", true); // [HIDDEN] [DEFAULT]
-pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+// This doesn't impact already installed add-ons and add-ons installed by policies
+// Firefox (on Desktop) and Thunderbird will prompt to re-enable this when necessary
+// Unfortunately Android doesn't have a prompt like this :( - so we won't disable this by default there - but we'll still set the pref to `true` to expose it via the `about:config` 
+// We're also setting this as a user pref, which is quite nice from a security perspective - as it allows users to enable this functionality only when it's necessary...
+// Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox/Thunderbird, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it
+pref("xpinstall.enabled", true); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
+pref("xpinstall.enabled", false); // [NO-ANDROID] [HIDDEN] So the default is `false`
+pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [HIDDEN] So it's converted to a user pref and applied per-session
 
 /// Disable mozAddonManager
-// mozAddonManager prevents extensions from working on `addons.mozilla.org` (`addons.thunderbird.net` for Thunderbird), and this API also exposes a list of the user's installed add-ons to `addons.mozilla.org` (`addons.thunderbird.net` for Thunderbird)...
-// Note that disabling the following preferences unfortunately break installation of extensions from `addons.mozilla.org` on Android, and from `addons.thunderbird.net` on Thunderbird
+// mozAddonManager has various privacy (fingerprinting) and security (added attack surface) concerns.
+// It also bypasses the permission prompt to install add-ons, and prevents add-ons (like uBlock Origin) from working on `addons.mozilla.org` (`addons.thunderbird.net` for Thunderbird).
+// Note that disabling mozAddonManager unfortunately breaks installation of extensions from `addons.mozilla.org` on Android. It also typically breaks installation of extensions from `addons.thunderbird.net` on Thunderbird as well, but we have a clever work-around for Dove.
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
 // https://github.com/thunderbird/addons-server/issues/332
-pref("extensions.webapi.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("extensions.webapi.enabled", true); // [ANDROID-ONLY] [THUNDERBIRD] [DEFAULT]
+pref("extensions.webapi.enabled", false); // [NO-ANDROID]
+pref("extensions.webapi.enabled", true); // [ANDROID-ONLY] [DEFAULT]
 pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
 pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
-pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [ANDROID-ONLY] [THUNDERBIRD] [DEFAULT]
+pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [NO-ANDROID]
+pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [ANDROID-ONLY] [DEFAULT]
 
 /// Enable Add-on Distribution Control (Install Origins)
 // Prevents extensions being installed from websites that they don't specify in their manifest
