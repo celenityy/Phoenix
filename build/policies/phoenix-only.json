@@ -94,6 +94,20 @@
             "WebSuggestions": false,
             "Locked": false
         },
+        "Handlers": {
+            "extensions": {
+                "pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            },
+            "mimeTypes": {
+                "application/pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            }
+        },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
         "PrivateBrowsingModeAvailability": 0,
