@@ -349,6 +349,10 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in Yandex Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/yandex/manifest.json"
             },
+            "zoznam-sk@search.mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's extension for the built-in Zoznam Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/comm-central/source/mail/components/search/extensions/zoznam-sk/manifest.json"
+            },
             "{76f42345-d120-4c8e-bdd4-63cf95b780fb}": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "CyberGhost Cookie Cleaner, by Kape. Extremely sketchy... Avoid."
