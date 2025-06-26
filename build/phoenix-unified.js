@@ -1871,6 +1871,12 @@ pref("browser.phoenix.status", "015");
 pref("extensions.userContextIsolation.defaults.restricted", "[]"); // [HIDDEN] [DEFAULT]
 pref("extensions.userContextIsolation.enabled", true); // [HIDDEN]
 
+/// Allow installing extensions from the AMO without mozAddonManager by default [ANDROID-ONLY]
+// This is typically no-op for Firefox on Android (as Firefox on Android doesn't typically build the amContentHandler component at all), but we at least have a work-around for IronFox (and setting this doesn't do harm otherwise) [ANDROID-ONLY]
+// To reverse this if you'd like to block the AMO from being able to install add-ons, you can create the `xpinstall.blacklist.add` pref, and set it to `https://addons.mozilla.org`, then restart your browser [ANDROID-ONLY]
+// This pref also works on Desktop, but it's not necessary there and actually probably does more harm than good, as unlike Android, Desktop prompts users when websites attempt to install add-ons - so the users can decide themselves if they want to allow the AMO (or any other site) to install add-ons [ANDROID-ONLY]
+pref("xpinstall.whitelist.add", "https://addons.mozilla.org"); // [ANDROID-ONLY] [DEFAULT]
+
 /// Allow LocalCDN (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
 
@@ -1991,7 +1997,6 @@ pref("extensions.webextensions.default-content-security-policy.v3", "script-src 
 
 /// Never allow installing extensions without first prompting the user
 pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
-pref("xpinstall.whitelist.add", "", locked); // [DEFAULT - non-Android] [HIDDEN - non-Android]
 pref("xpinstall.whitelist.directRequest", false); // [HIDDEN] For direct URL requests https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#4463
 pref("xpinstall.whitelist.fileRequest", false); // [DEFAULT - Android] [HIDDEN - non-Android] For `file://` requests https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#4475
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Warn you when websites try to install add-ons` setting at `about:preferences#privacy`
