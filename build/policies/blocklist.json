@@ -225,6 +225,10 @@
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in Daum Search Engine. Should be avoided, but regardless, can still be added manually. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/daum-kr/manifest.json"
             },
+            "ddg@search.mozilla.org": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "Mozilla's extension for the built-in DuckDuckGo Search Engine. We replace this with our own (via policies) to remove Mozilla's referral URL parameter."
+            },
             "ebay@search.mozilla.org": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "Mozilla's extension for the built-in eBay Search Engine. eBay should be avoided due to its horrible privacy practices, but regardless, eBay still appears to be selectable as a search engine with this removed. https://searchfox.org/mozilla-release/source/browser/components/search/extensions/ebay/manifest.json"
