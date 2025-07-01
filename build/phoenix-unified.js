@@ -2076,6 +2076,9 @@ pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, l
 pref("extensions.quarantineIgnoredByUser.worldwide@radio", false); // Worldwide Radio
 pref("extensions.quarantineIgnoredByUser.zoompage-we@DW-dev", false); // Zoom Page WE
 
+/// Prevent certain undesired websites from prompting to install add-ons by default
+pref("xpinstall.blacklist.add.GNU", "gnuzilla.gnu.org"); // Mozzarella - Hosts very outdated versions of extensions...
+
 /// Prevent extensions from opening pop-ups to remote websites
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1760608
 // https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/components/extensions/ExtensionActions.sys.mjs#275
