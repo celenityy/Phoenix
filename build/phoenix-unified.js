@@ -2651,15 +2651,6 @@ pref("permissions.isolateBy.userContext", true);
 // (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
 pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
 
-/// Limit CSP reporting
-// We block CSP reports with uBlock Origin by default (and disable them entirely on IronFox)
-// Mozilla thankfully listened and added support for disabling CSP reports; but the pref (security.csp.reporting.enabled) is currently only available on Nightly, so we'll keep these for the time being, but eventually remove
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1964249
-pref("security.csp.reporting.limit.count", 1); // [DEFAULT: 100]
-pref("security.csp.reporting.limit.timespan", 999999999); // [DEFAULT: 2]
-pref("security.csp.reporting.script-sample.max-length", 0); // [DEFAULT: 40]
-pref("security.csp.truncate_blocked_uri_for_frame_navigations", true); // [DEFAULT] Ensure we truncate blocked-uris
-
 /// Limit maximum cookie lifetime to 6 months/180 days (Like Brave)
 // Firefox's default is currently 400 days (34560000)
 // https://github.com/brave/brave-browser/issues/3443
