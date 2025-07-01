@@ -1836,12 +1836,6 @@ pref("browser.phoenix.status", "015");
 pref("extensions.userContextIsolation.defaults.restricted", "[]"); // [HIDDEN] [DEFAULT]
 pref("extensions.userContextIsolation.enabled", true); // [HIDDEN]
 
-/// Allow installing extensions from the AMO without mozAddonManager by default [ANDROID-ONLY]
-// This is typically no-op for Firefox on Android (as Firefox on Android doesn't typically build the amContentHandler component at all), but we at least have a work-around for IronFox (and setting this doesn't do harm otherwise) [ANDROID-ONLY]
-// To reverse this if you'd like to block the AMO from being able to install add-ons, you can create the `xpinstall.blacklist.add` pref, and set it to `https://addons.mozilla.org`, then restart your browser [ANDROID-ONLY]
-// This pref also works on Desktop, but it's not necessary there and actually probably does more harm than good, as unlike Android, Desktop prompts users when websites attempt to install add-ons - so the users can decide themselves if they want to allow the AMO (or any other site) to install add-ons [ANDROID-ONLY]
-pref("xpinstall.whitelist.add", "https://addons.mozilla.org"); // [ANDROID-ONLY] [DEFAULT]
-
 /// Allow LocalCDN (if installed) to work on restricted/quarantined domains by default
 pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
 
@@ -1867,6 +1861,22 @@ pref("extensions.webextensions.remote", true); // [DEFAULT]
 /// Block extensions signed with weak signature algorithms [NO-MAIL]
 pref("xpinstall.signatures.weakSignaturesTemporarilyAllowed", false); // [NO-MAIL] [HIDDEN] [DEFAULT]
 
+/// Clear default list of sites allowed to install add-ons
+pref("xpinstall.whitelist.add", "", locked); // [HIDDEN - non-Android] [DEFAULT - non-Android]
+
+/// Configure default list of sites allowed to install add-ons [ANDROID-ONLY]
+// Unfortunately, Firefox on Android is unable to prompt users for permission when websites attempt to install add-ons - which is why this is necessary [ANDROID-ONLY]
+// This functionality typically isn't supported at all on Android, but we have a work-around for ex. IronFox with our patch to allow installing add-ons without mozAddonManager (and this doesn't do harm when set elsewhere anyways) [ANDROID-ONLY]
+// This list should be kept to a minimum; users should really stick to AMO if possible for installing extensions [ANDROID-ONLY]
+// But I think it's reasonable to allow users to install certain trustworthy add-ons directly from the developer if preferred - it might even be the only way for users to install add-ons in some cases (ex. censorship) [ANDROID-ONLY]
+// These are set as separate preferences to make it easier for users to customize the list of allowed sources - ex. maybe I want to only allow installing add-ons from AMO (`addons.mozilla.org`), I could just clear the values of the prefs EXCEPT for `xpinstall.whitelist.add.AMO` [ANDROID-ONLY]
+// Users can add their own sites here by creating their own preferences with a similar format and values like below, and can of course always just download and install the `.xpi` file anyways [ANDROID-ONLY]
+pref("xpinstall.whitelist.add.AdGuard", "https://agrd.io,https://static.adguard.com,https://static.adtidy.org"); // [ANDROID-ONLY] AdGuard
+pref("xpinstall.whitelist.add.AMO", "https://addons.mozilla.org"); // [ANDROID-ONLY] AMO
+pref("xpinstall.whitelist.add.EFF", "https://eff.org,https://privacybadger.org"); // [ANDROID-ONLY] Privacy Badger
+pref("xpinstall.whitelist.add.Mullvad", "https://mullvad.net"); // [ANDROID-ONLY] Mullvad
+pref("xpinstall.whitelist.add.NoScript", "https://noscript.net,https://secure.informaction.com"); // [ANDROID-ONLY] NoScript
+
 /// Disable add-on sideloading
 // Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
 // https://archive.is/DYjAM
@@ -1888,7 +1898,7 @@ pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN 
 // Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox/Thunderbird, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it
 pref("xpinstall.enabled", true); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
 pref("xpinstall.enabled", false); // [NO-ANDROID] [HIDDEN] So the default is `false`
-pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [HIDDEN] So it's converted to a user pref and applied per-session
+pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [HIDDEN] So it's converted to a user pref with our build script and applied per-session
 
 /// Disable mozAddonManager
 // mozAddonManager has various privacy (fingerprinting) and security (added attack surface) concerns.
