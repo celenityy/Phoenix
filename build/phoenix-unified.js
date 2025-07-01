@@ -2004,11 +2004,60 @@ pref("xpinstall.signatures.required", true); // [NO-MAIL] [DEFAULT - non-Thunder
 // These permissions can still be enabled manually at `about:addons`, from the 'Permissions' tab at the extension's settings page
 pref("extensions.originControls.grantByDefault", false);
 
-/// Prevent certain Mozilla extensions from accessing restricted/quarantined domains...
-pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry...
-pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry...
-pref("extensions.quarantineIgnoredByUser.ddg@search.mozilla.org", false, locked); // DuckDuckGo - search engine...
-pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine...
+/// Prevent certain undesired extensions from running on restricted/quarantined domains
+// By default, Mozilla allows all add-ons they "recommend" to run on restricted/quarantined domains: https://support.mozilla.org/kb/add-on-badges#w_recommended-extensions
+// This prevents some of those add-ons from running on our list of sensitive domains
+pref("extensions.quarantineIgnoredByUser.{00000f2a-7cde-4f20-83ed-434fcb420d71}", false); // Imagus
+pref("extensions.quarantineIgnoredByUser.{154cddeb-4c8b-4627-a478-c7e5b427ffdf}", false); // PopUpOFF - Popup and overlay blocker
+pref("extensions.quarantineIgnoredByUser.{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}", false); // Search by Image
+pref("extensions.quarantineIgnoredByUser.{32af1358-428a-446d-873e-5f8eb5f2a72e}", false); // Download All Images
+pref("extensions.quarantineIgnoredByUser.{3c078156-979c-498b-8990-85f7987dd929}", false); // Sidebery
+pref("extensions.quarantineIgnoredByUser.{4a313247-8330-4a81-948e-b79936516f78}", false); // Image Search Options
+pref("extensions.quarantineIgnoredByUser.{506e023c-7f2b-40a3-8066-bc5deb40aebe}", false); // Gesturefy
+pref("extensions.quarantineIgnoredByUser.{531906d3-e22f-4a6c-a102-8057b88a1a63}", false); // SingleFile
+pref("extensions.quarantineIgnoredByUser.{5384767E-00D9-40E9-B72F-9CC39D655D6F}", false); // EPUBReader
+pref("extensions.quarantineIgnoredByUser.{54e2eb33-18eb-46ad-a4e4-1329c29f6e17}", false); // Block Site
+pref("extensions.quarantineIgnoredByUser.{79b2e4de-8fb4-4ccc-b9f6-362ac2fb74b2}", false); // Measure-it
+pref("extensions.quarantineIgnoredByUser.{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}", false); // Stylus
+pref("extensions.quarantineIgnoredByUser.{7b1bf0b6-a1b9-42b0-b75d-252036438bdc}", false); // YouTube High Definition
+pref("extensions.quarantineIgnoredByUser.{c2c003ee-bd69-42a2-b0e9-6f34222cb046}", false); // Auto Tab Discard
+pref("extensions.quarantineIgnoredByUser.{c5867acc-54c9-4074-9574-04d8818d53e8}", false); // Livemarks
+pref("extensions.quarantineIgnoredByUser.{d07ccf11-c0cd-4938-a265-2a4d6ad01189}", false); // Web Archives
+pref("extensions.quarantineIgnoredByUser.{DDC359D1-844A-42a7-9AA1-88A850A938A8}", false); // DownThemAll!
+pref("extensions.quarantineIgnoredByUser.{de22fd49-c9ab-4359-b722-b3febdc3a0b0}", false); // Popup Blocker (strict)
+pref("extensions.quarantineIgnoredByUser.{e839c3f9-298e-4cd0-99e0-464431cb7c34}", false); // Foxy Gestures
+pref("extensions.quarantineIgnoredByUser.{e90f5de4-8510-4515-9f67-3b6654e1e8c2}", false); // Dictionary Anywhere
+pref("extensions.quarantineIgnoredByUser.addon@darkreader.org", false); // Dark Reader
+pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry
+pref("extensions.quarantineIgnoredByUser.ATBC@EasonWong", false); // Adaptive Tab Bar Color
+pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry
+pref("extensions.quarantineIgnoredByUser.copyplaintext@eros.man", false); // Copy PlainText
+pref("extensions.quarantineIgnoredByUser.customscrollbars@computerwhiz", false); // Custom Scrollbars
+pref("extensions.quarantineIgnoredByUser.dont-track-me-google@robwu.nl", false); // Don't track me Google
+pref("extensions.quarantineIgnoredByUser.ddg@search.mozilla.org", false, locked); // DuckDuckGo - search engine
+pref("extensions.quarantineIgnoredByUser.deArrow@ajay.app", false); // DeArrow
+pref("extensions.quarantineIgnoredByUser.firefox@ghostery.com", false); // Ghostery
+pref("extensions.quarantineIgnoredByUser.foxytab@eros.man", false); // Ghostery
+pref("extensions.quarantineIgnoredByUser.jid0-dsq67mf5kjjhiiju2dfb6kk8dfw@jetpack", false); // FoxyTab
+pref("extensions.quarantineIgnoredByUser.jid1-KdTtiCj6wxVAFA@jetpack", false); // Swift Selection Search
+pref("extensions.quarantineIgnoredByUser.jid1-q4sG8pYhq8KGHs@jetpack", false); // AdBlocker for YouTube™
+pref("extensions.quarantineIgnoredByUser.jid1-QoFqdK4qzUfGWQ@jetpack", false); // Dark Background and Light Text
+pref("extensions.quarantineIgnoredByUser.juraj.masiar@gmail.com_ScrollAnywhere", false); // ScrollAnywhere
+pref("extensions.quarantineIgnoredByUser.languagetool-webextension@languagetool.org", false); // LanguageTool
+pref("extensions.quarantineIgnoredByUser.leechblockng@proginosko.com", false); // LeechBlock NG
+pref("extensions.quarantineIgnoredByUser.linkgopher@oooninja.com", false); // Link Gopher
+pref("extensions.quarantineIgnoredByUser.printedit-we@DW-dev", false); // Print Edit WE
+pref("extensions.quarantineIgnoredByUser.s3download@statusbar", false); // Download Manager (S3)
+pref("extensions.quarantineIgnoredByUser.simple-tab-groups@drive4ik", false); // Simple Tab Groups
+pref("extensions.quarantineIgnoredByUser.snaplinks@snaplinks.mozdev.org", false); // Snap Links
+pref("extensions.quarantineIgnoredByUser.soundfixer@unrelenting.technology", false); // SoundFixer
+pref("extensions.quarantineIgnoredByUser.sponsorBlocker@ajay.app", false); // SponsorBlock
+pref("extensions.quarantineIgnoredByUser.stefanvandamme@stefanvd.net", false); // Turn Off the Lights
+pref("extensions.quarantineIgnoredByUser.tabby@whatsyouridea.com", false); // Tabby - Window and Tab Manager
+pref("extensions.quarantineIgnoredByUser.tranquility@ushnisha.com", false); // Tranquility Reader
+pref("extensions.quarantineIgnoredByUser.treestyletab@piro.sakura.ne.jp", false); // Tree Style Tabs
+pref("extensions.quarantineIgnoredByUser.wikipedia@search.mozilla.org", false, locked); // Wikipedia (en) - search engine
+pref("extensions.quarantineIgnoredByUser.zoompage-we@DW-dev", false); // Zoom Page WE
 
 /// Prevent extensions from opening pop-ups to remote websites
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1760608
