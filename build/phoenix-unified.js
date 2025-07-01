@@ -1888,6 +1888,12 @@ pref("extensions.installDistroAddons", false); // [DEFAULT - Android] [HIDDEN - 
 pref("extensions.sideloadScopes", 0); // [HIDDEN]
 pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
 
+/// Disable the AMO Abuse Report API (`navigator.mozAddonManager.reportAbuse`)
+// This depends on mozAddonManager anyways, which we disable below
+// Users can still report add-ons from within Firefox using the standard form (`extensions.addonAbuseReport.url`), this just prevents using the API from the browser itself directly
+// https://mozilla.github.io/addons-server/topics/api/abuse.html
+pref("extensions.addonAbuseReport.url", "");
+
 /// Disable installation of add-ons + only allow enabling it per-session [DESKTOP]
 // Includes extensions and themes
 // Does NOT apply to Android's `Recommended` extensions (collections) found at `Settings` -> `Advanced` -> `Extensions`
