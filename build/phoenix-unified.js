@@ -1836,17 +1836,24 @@ pref("browser.phoenix.status", "015");
 pref("extensions.userContextIsolation.defaults.restricted", "[]"); // [HIDDEN] [DEFAULT]
 pref("extensions.userContextIsolation.enabled", true); // [HIDDEN]
 
-/// Allow LocalCDN (if installed) to work on restricted/quarantined domains by default
-pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true);
-
-/// Allow Mullvad's extension (if installed) to work on restricted/quarantined domains by default
-pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true);
-
-/// Allow uBlock Origin (if installed) to work on restricted/quarantined domains by default
-// This isn't necessary ATM (since uBlock Origin is 'recommended' by Mozilla - so it can already access quarantined domains), but we can still set this anyways for redundancy/to ensure we're always covered if anything changes in the future
-// This is especially important for Thunderbird though - since uBlock Origin isn't 'recommended' there like it is on Firefox...
-// https://support.mozilla.org/kb/quarantined-domains
-pref("extensions.quarantineIgnoredByUser.uBlock0@raymondhill.net", true); // [HIDDEN]
+/// Allow certain trustworthy extensions to run on restricted/quarantined domains by default
+pref("extensions.quarantineIgnoredByUser.{446900e4-71c2-419f-a6a7-df9c091e268b}", true); // Bitwarden
+pref("extensions.quarantineIgnoredByUser.{73a6fe31-595d-460b-a920-fcc0f8843232}", true); // NoScript
+pref("extensions.quarantineIgnoredByUser.{b86e4813-687a-43e6-ab65-0bde4ab75758}", true); // LocalCDN
+pref("extensions.quarantineIgnoredByUser.{d19a89b9-76c1-4a61-bcd4-49e8de916403}", true); // Mullvad
+pref("extensions.quarantineIgnoredByUser.78272b6fa58f4a1abaac99321d503a20@proton.me", true); // Proton Pass
+pref("extensions.quarantineIgnoredByUser.adguard-vpn@adguard.com", true); // AdGuard VPN
+pref("extensions.quarantineIgnoredByUser.adguardadblocker@adguard.com", true); // AdGuard
+pref("extensions.quarantineIgnoredByUser.crxviewer-firefox@robwu.nl", true); // Extension source viewer - important since we add AMO (`addons.mozilla.org`) to our restricted/quarantined domain list
+pref("extensions.quarantineIgnoredByUser.idcac-pub@guus.ninja", true); // I still don't care about cookies
+pref("extensions.quarantineIgnoredByUser.jid1-BoFifL9Vbdl2zQ@jetpack", true); // Decentraleyes
+pref("extensions.quarantineIgnoredByUser.jid1-KtlZuoiikVfFew@jetpack", true); // GNU LibreJS
+pref("extensions.quarantineIgnoredByUser.jid1-MnnxcxisBPnSXQ@jetpack", true); // Privacy Badger
+pref("extensions.quarantineIgnoredByUser.keepassxc-browser@keepassxc.org", true); // KeePassXC-Browser
+pref("extensions.quarantineIgnoredByUser.skipredirect@sblask", true); // Skip Redirect
+pref("extensions.quarantineIgnoredByUser.uBlock0@raymondhill.net", true); // uBlock Origin
+pref("extensions.quarantineIgnoredByUser.vpn@proton.ch", true); // Proton VPN
+pref("extensions.quarantineIgnoredByUser.@testpilot-containers", true); // Firefox Multi-Account Containers
 
 /// Always allow installing "incompatible" add-ons
 // Especially useful on Android & Thunderbird...
@@ -1925,11 +1932,6 @@ pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [ANDROID-O
 // https://groups.google.com/g/firefox-dev/c/U7GpHE4R-ZY
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#403
 pref("extensions.install_origins.enabled", true);
-
-/// Enable AMRemoteSettings by default to expose via the `about:config`
-// Used for ex. updating the list of quarantined domains
-// https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/AddonManager.sys.mjs
- // [HIDDEN] [DEFAULT]
 
 /// Enable optional permission prompts
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1392176
