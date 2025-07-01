@@ -14,6 +14,11 @@
             "Locked": false,
             "ProviderURL": "https://dns.quad9.net/dns-query"
         },
+        "Preferences": {
+            "extensions.quarantinedDomains.list": {
+                "Status": "clear"
+            }
+        },
         "Proxy": {
             "Locked": false,
             "Mode": "none",
