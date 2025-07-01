@@ -1857,6 +1857,7 @@ pref("extensions.quarantineIgnoredByUser.jid1-MnnxcxisBPnSXQ@jetpack", true); //
 pref("extensions.quarantineIgnoredByUser.keepassxc-browser@keepassxc.org", true); // KeePassXC-Browser
 pref("extensions.quarantineIgnoredByUser.skipredirect@sblask", true); // Skip Redirect
 pref("extensions.quarantineIgnoredByUser.uBlock0@raymondhill.net", true); // uBlock Origin
+pref("extensions.quarantineIgnoredByUser.uBOLiteRedux@raymondhill.net", true); // uBlock Origin Lite
 pref("extensions.quarantineIgnoredByUser.vpn@proton.ch", true); // Proton VPN
 pref("extensions.quarantineIgnoredByUser.@testpilot-containers", true); // Firefox Multi-Account Containers
 
