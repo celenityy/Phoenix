@@ -188,7 +188,12 @@ echo "Created $PHOENIX_OSX_BOOTSTRAP"
 grep -vE 'ANDROID-ONLY|LINUX-ONLY|NO-OSX|WINDOWS-ONLY' "$PHOENIX_UNIFIED_PREFS" > "$PHOENIX_OSX_PREFS"
 echo "Created $PHOENIX_OSX_PREFS"
 
-python3 build/convert.py "$PHOENIX_OSX_PREFS" "$PHOENIX_OSX_CFG"
+mkdir -vp /tmp/phoenix
+
+python3 build/convert.py "$PHOENIX_OSX_PREFS" /tmp/phoenix/phoenix-osx-tmp.cfg
+
+# Add "user" prefs
+cat /tmp/phoenix/phoenix-osx-tmp.cfg "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_OSX_CFG"
 
 # Remove lines containing [ANDROID-ONLY], [LINUX-ONLY], [NO-OSX], and [WINDOWS-ONLY]
 grep -vE 'ANDROID-ONLY|LINUX-ONLY|NO-OSX|WINDOWS-ONLY' "$PHOENIX_EXTENDED_UNIFIED_PREFS" > "$PHOENIX_EXTENDED_OSX_PREFS"
@@ -212,7 +217,10 @@ echo "Created $PHOENIX_WINDOWS_BOOTSTRAP"
 grep -vE 'ANDROID-ONLY|LINUX-ONLY|NO-WINDOWS|OSX-ONLY' "$PHOENIX_UNIFIED_PREFS" > "$PHOENIX_WINDOWS_PREFS"
 echo "Created $PHOENIX_WINDOWS_PREFS"
 
-python3 build/convert.py "$PHOENIX_WINDOWS_PREFS" "$PHOENIX_WINDOWS_CFG"
+python3 build/convert.py "$PHOENIX_WINDOWS_PREFS" /tmp/phoenix/phoenix-windows-tmp.cfg
+
+# Add "user" prefs
+cat /tmp/phoenix/phoenix-windows-tmp.cfg "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_WINDOWS_CFG"
 
 # Remove lines containing [ANDROID-ONLY], [LINUX-ONLY], [NO-WINDOWS], and [OSX-ONLY]
 grep -vE 'ANDROID-ONLY|LINUX-ONLY|NO-WINDOWS|OSX-ONLY' "$PHOENIX_EXTENDED_UNIFIED_PREFS" > "$PHOENIX_EXTENDED_WINDOWS_PREFS"
@@ -376,8 +384,6 @@ cat "$PHOENIX_SPECIALIZED_YOUTUBE_WINDOWS_CFG" "$PHOENIX_UI_FIX_WINDOWS_CFG" > "
 echo "Created $PHOENIX_SPECIALIZED_YOUTUBE_UI_FIX_WINDOWS_CFG"
 
 # POLICIES
-
-mkdir -p /tmp/phoenix
 
 jq -s '.[0] * .[1]' "$PHOENIX_UNIFIED_POLICIES" "$PHOENIX_BLOCKLIST_POLICIES" > /tmp/phoenix/temp1.json
 

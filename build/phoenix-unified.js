@@ -264,7 +264,7 @@ pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Th
 pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.rsexperimentloader.collection_id", ""); // [DEFAULT: `nimbus-desktop-experiments`] Required for Firefox Labs on Desktop
 pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for Firefox Labs on Desktop
-pref("nimbus.profileId", "", sticky); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79
+pref("nimbus.profileId", ""); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes them
 pref("nimbus.profilesdatastoreservice.enabled", false, locked); // [HIDDEN] Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // [HIDDEN] Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
 
@@ -1907,7 +1907,8 @@ pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN 
 // https://mozilla.github.io/addons-server/topics/api/abuse.html
 pref("extensions.addonAbuseReport.url", "");
 
-/// Disable installation of add-ons + only allow enabling it per-session [DESKTOP]
+/// Disable installation of add-ons by default [DESKTOP]
+// We also reset this per-session by setting it as a user pref in `phoenix-user-pref.cfg` [DESKTOP]
 // Includes extensions and themes
 // Does NOT apply to Android's `Recommended` extensions (collections) found at `Settings` -> `Advanced` -> `Extensions`
 // This doesn't impact already installed add-ons and add-ons installed by policies
@@ -1917,7 +1918,6 @@ pref("extensions.addonAbuseReport.url", "");
 // Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox/Thunderbird, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it
 pref("xpinstall.enabled", true); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
 pref("xpinstall.enabled", false); // [NO-ANDROID] [HIDDEN] So the default is `false`
-pref("xpinstall.enabled", false, sticky); // [NO-ANDROID] [HIDDEN] So it's converted to a user pref with our build script and applied per-session
 
 /// Disable mozAddonManager
 // mozAddonManager has various privacy (fingerprinting) and security (added attack surface) concerns.
@@ -3003,9 +3003,10 @@ pref("devtools.browserconsole.enableNetworkMonitoring", false); // [NO-ANDROID] 
 /// Disable pausing on debugger statements by default [NO-ANDROID]
 pref("devtools.debugger.pause-on-debugger-statement", false); // [NO-ANDROID]
 
-/// Disable Remote Debugging + only allow enabling it per-session
+/// Disable Remote Debugging by default
+// We also reset this per-session by setting it as a user pref in `phoenix-user-pref.cfg`
 // https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
-pref("devtools.debugger.remote-enabled", false, sticky); // [DEFAULT - non-Thunderbird]
+pref("devtools.debugger.remote-enabled", false); // [DEFAULT - non-Thunderbird]
 
 /// Disable the Remote Debugging Web Socket
 pref("devtools.debugger.remote-websocket", false, locked); // [DEFAULT]
@@ -3789,10 +3790,11 @@ pref("browser.urlbar.fakespot.featureGate", false); // [NO-ANDROID] [NO-MAIL] [D
 pref("browser.urlbar.suggest.fakespot", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable fetching minimum keyword lengths from Nimbus and/or Remote Settings [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.addons.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#729
-pref("browser.urlbar.fakespot.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/FakespotSuggestions.sys.mjs#309
-pref("browser.urlbar.weather.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/WeatherSuggestions.sys.mjs#482
-pref("browser.urlbar.yelp.minKeywordLength", 4, sticky); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/YelpSuggestions.sys.mjs#345
+// We also set these as user prefs in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes them [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.addons.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#729
+pref("browser.urlbar.fakespot.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/FakespotSuggestions.sys.mjs#309
+pref("browser.urlbar.weather.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/WeatherSuggestions.sys.mjs#482
+pref("browser.urlbar.yelp.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/YelpSuggestions.sys.mjs#345
 
 /// Disable Firefox Suggest by default [NO-ANDROID] [NO-MAIL]
 /// I'd rather not set this, but unfortunately, when it's on, it causes Firefox to connect to `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-amp/changeset?_expected=*` and `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-other/changeset?_expected=*` on every launch, EVEN IF no suggestions are enabled :/ [NO-ANDROID] [NO-MAIL]
