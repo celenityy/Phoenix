@@ -1,5 +1,7 @@
 // User.js file for development and testing
 
+/// Please do NOT use this for your primary profile. Some of these changes WILL compromise your privacy and/or security.
+
 /// Add `about:config`, `about:policies`, `about:support`, `about:addons`, `about:debugging`, and `about:processes` to `about:home`
 user_pref("browser.newtabpage.pinned", '[{"url":"about:config","label":"about:config"},{"url":"about:policies","label":"about:policies"},{"url":"about:support","label":"about:support"},{"url":"about:addons","label":"about:addons"},{"url":"about:debugging","label":"about:debugging"},{"url":"about:processes","label":"about:processes"}]');
 
@@ -53,6 +55,9 @@ user_pref("devtools.browserconsole.enableNetworkMonitoring", true);
 
 /// Enable PDF.js debugging
 user_pref("pdfjs.pdfBugEnabled", true);
+
+/// Enable Remote Debugging (for Browser Toolbox)
+user_pref("devtools.debugger.remote-enabled", true);
 
 /// Sanitize data on exit
 user_pref("privacy.clearOnShutdown.cookies", true);
