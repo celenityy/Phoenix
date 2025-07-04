@@ -27,7 +27,7 @@ user_pref("browser.region.log", true);
 user_pref("browser.safebrowsing.debug", true);
 user_pref("browser.search.log", true);
 user_pref("browser.uitour.loglevel", "Debug");
-user_pref("browser.urlbar.loglevel", "Debug");
+//user_pref("browser.urlbar.loglevel", "Debug");
 user_pref("captchadetection.loglevel", "Debug");
 user_pref("cookiebanners.listService.logLevel", "Debug");
 user_pref("devtools.console.stdout.chrome", true);
