@@ -2,8 +2,8 @@
 
 /// Please do NOT use this for your primary profile. Some of these changes WILL compromise your privacy and/or security.
 
-/// Add `about:config`, `about:policies`, `about:support`, `about:addons`, `about:debugging`, and `about:processes` to `about:home`
-user_pref("browser.newtabpage.pinned", '[{"url":"about:config","label":"about:config"},{"url":"about:policies","label":"about:policies"},{"url":"about:support","label":"about:support"},{"url":"about:addons","label":"about:addons"},{"url":"about:debugging","label":"about:debugging"},{"url":"about:processes","label":"about:processes"}]');
+/// Add `about:config`, `about:policies`, `about:support`, `about:addons`, `about:url-classifier`, `about:debugging`, and `about:processes` to `about:home`
+user_pref("browser.newtabpage.pinned", '[{"url":"about:config","label":"about:config"},{"url":"about:policies","label":"about:policies"},{"url":"about:support","label":"about:support"},{"url":"about:addons","label":"about:addons"},{"url":"about:url-classifier","label":"about:url-classifier"},{"url":"about:debugging","label":"about:debugging"},{"url":"about:processes","label":"about:processes"}]');
 
 /// Disable DNS cache
 user_pref("network.dnsCacheEntries", 0);
