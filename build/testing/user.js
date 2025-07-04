@@ -1,7 +1,5 @@
 // User.js file for development and testing
 
-/*** NOTE TO SELF: REPLACE [XXXXXX] AT "Configure DoH" ***/
-
 /// Add `about:config`, `about:policies`, `about:support`, `about:addons`, `about:debugging`, and `about:processes` to `about:home`
 user_pref("browser.newtabpage.pinned", '[{"url":"about:config","label":"about:config"},{"url":"about:policies","label":"about:policies"},{"url":"about:support","label":"about:support"},{"url":"about:addons","label":"about:addons"},{"url":"about:debugging","label":"about:debugging"},{"url":"about:processes","label":"about:processes"}]');
 
