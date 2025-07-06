@@ -581,6 +581,9 @@ pref("urlclassifier.features.fingerprinting.skipURLs", ""); // [HIDDEN] [DEFAULT
 pref("urlclassifier.features.socialtracking.skipURLs", ""); // [HIDDEN] [DEFAULT]
 pref("urlclassifier.trackingSkipURLs", ""); // [HIDDEN] [DEFAULT]
 
+/// Disable exceptions for minor issues by default
+pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // [NIGHTLY]
+
 /// Enable ETP Strict
 // https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop?as=u#w_strict-enhanced-tracking-protection
 pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
@@ -676,6 +679,9 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT] - for cross-site requests in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT] - for top navigations in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
+
+/// Enable exceptions required to avoid major breakage by default
+pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT] [NIGHTLY]
 
 /// Lower the network priority of known trackers (if not blocked for whatever reason...)
 pref("privacy.trackingprotection.lower_network_priority", true);
