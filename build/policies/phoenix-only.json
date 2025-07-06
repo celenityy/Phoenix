@@ -117,8 +117,11 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
+            "FirefoxLabs": true,
             "MoreFromMozilla": false,
-            "UrlbarInterventions": false
+            "SkipOnboarding": true,
+            "UrlbarInterventions": false,
+            "WhatsNew": false
         }
     }
 }
