@@ -86,6 +86,8 @@
             "Snippets": false,
             "SponsoredTopSites": false,
             "SponsoredPocket": false,
+            "SponsoredStories": false,
+            "Stories": false,
             "Locked": false
         },
         "FirefoxSuggest": {
