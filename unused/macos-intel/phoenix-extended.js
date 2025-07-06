@@ -29,68 +29,68 @@
 
 Unspecified = This preference should be set EVERYWHERE
 
+[INTEL-OSX-ONLY] = This preference should ONLY be set for macOS on Intel
 [OSX-ONLY] = This preference should ONLY be set for macOS
-[SILICON-OSX-ONLY] = This preference should ONLY be set for macOS on Apple Silicon
 
 [NO-ANDROID] = This preference should be set everywhere, EXCEPT for Android
 [NO-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux
 [NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Useful for ex. Dove)
-[NO-INTEL-OSX] = This preference should be set everywhere, EXCEPT for macOS on Intel
+[NO-SILICON-OSX] = This preference should be set everywhere, EXCEPT for macOS on Apple Silicon
 [NO-WINDOWS] = This preference should be set everywhere, EXCEPT for Windows
 
 */
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-lockPref("distribution.about", "Phoenix: Extended for Mozilla Firefox - 2025.06.24.1 💜"); // [NO-ANDROID]
+pref("distribution.about", "Phoenix: Extended for Mozilla Firefox - 2025.06.24.1 💜", locked); // [NO-ANDROID]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
 /// Enable dynamic rounding of content dimensions [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID] [NO-MAIL]
-defaultPref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID] [NO-MAIL]
+pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Further harden FPP...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
 // Compared to standard, this just removes '-JSDateTimeUTC' - meaning timezone is spoofed to UTC-0
-defaultPref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate"); // [NO-ANDROID] [NO-MAIL]
-defaultPref("browser.phoenix.status.extended", "001");
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.phoenix.status.extended", "001");
 
 /*** 002 WEBRTC ***/
 // This will likely break WebRTC...
 
 /// Always exclude local IP addresses, even in trusted scenarios
-defaultPref("media.peerconnection.ice.no_host", true);
+pref("media.peerconnection.ice.no_host", true);
 
 /// Force a single candidate for ICE generation
-defaultPref("media.peerconnection.ice.default_address_only", true);
+pref("media.peerconnection.ice.default_address_only", true);
 
 /// Only use TURN servers/relays
 // No P2P
 // https://gitlab.torproject.org/tpo/applications/mullvad-browser/-/issues/40#note_2884663
-defaultPref("media.peerconnection.ice.relay_only", true);
+pref("media.peerconnection.ice.relay_only", true);
 
-defaultPref("browser.phoenix.status.extended", "002");
+pref("browser.phoenix.status.extended", "002");
 
 /*** 003 ATTACK SURFACE REDUCTION ***/
 
 /// Disable WebAssembly (WASM)
 // https://spectrum.ieee.org/more-worries-over-the-security-of-web-assembly
-defaultPref("javascript.options.wasm", false);
+pref("javascript.options.wasm", false);
 
-defaultPref("browser.phoenix.status.extended", "003");
+pref("browser.phoenix.status.extended", "003");
 
 /*** 004 MISC. PRIVACY + SECURITY ***/
 
 
-defaultPref("browser.phoenix.status.extended", "004");
+pref("browser.phoenix.status.extended", "004");
 
 /*** 005 MISC. PRIVACY ***/
 
 /// Only send cross-origin referers if hosts match
 // https://wiki.mozilla.org/Security/Referrer
-defaultPref("network.http.referer.XOriginPolicy", 2);
+pref("network.http.referer.XOriginPolicy", 2);
 
-defaultPref("browser.phoenix.status.extended", "005");
+pref("browser.phoenix.status.extended", "005");
 
-lockPref("browser.phoenix.status.extended", "successfully applied :D");
+pref("browser.phoenix.status.extended", "successfully applied :D", locked);

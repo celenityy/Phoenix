@@ -61,13 +61,13 @@ pref("browser.phoenix.version", "2025.06.24.1", locked);
 
 Unspecified = This preference should be set EVERYWHERE
 
+[INTEL-OSX-ONLY] = This preference should ONLY be set for macOS on Intel
 [OSX-ONLY] = This preference should ONLY be set for macOS
-[SILICON-OSX-ONLY] = This preference should ONLY be set for macOS on Apple Silicon
 
 [NO-ANDROID] = This preference should be set everywhere, EXCEPT for Android
 [NO-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux
 [NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Useful for ex. Dove)
-[NO-INTEL-OSX] = This preference should be set everywhere, EXCEPT for macOS on Intel
+[NO-SILICON-OSX] = This preference should be set everywhere, EXCEPT for macOS on Apple Silicon
 [NO-WINDOWS] = This preference should be set everywhere, EXCEPT for Windows
 
 */
