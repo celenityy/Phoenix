@@ -2951,6 +2951,13 @@ pref("privacy.popups.showBrowserMessage", true); // [NO-ANDROID] [NO-MAIL] [DEFA
 /// Open links from external programs in new tabs by default [NO-ANDROID] [NO-MAIL]
 pref("browser.link.open_newwindow.override.external", 3); // [NO-ANDROID] [NO-MAIL]
 
+/// Prevent Safe Mode from automatically starting by default
+// This causes ex. all extensions (such as uBlock Origin) to be disabled
+// Users can still manually start Safe Mode from the command line if needed
+// https://searchfox.org/mozilla-central/rev/a1f4cb9f/browser/app/profile/firefox.js#2068
+// https://searchfox.org/mozilla-central/rev/a1f4cb9f/toolkit/components/startup/nsAppStartup.cpp#62
+pref("toolkit.startup.max_resumed_crashes", -1); // [HIDDEN - non-Firefox Desktop]
+
 /// Prevent scripts from moving, resizing, and messing with windows
 pref("dom.allow_scripts_to_close_windows", false); // [DEFAULT]
 pref("dom.disable_window_flip", true); // [DEFAULT - non-Android]
