@@ -40,10 +40,6 @@ echo_green_text "Updating Homebrew cache..."
 brew update || error_fn
 echo
 
-echo_green_text "Installing phoenix-osx package..."
-brew install phoenix-osx || error_fn
-echo
-
 echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_CRASHREPORTER.plist..."
 curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_CRASHREPORTER.plist || error_fn
 echo
@@ -156,7 +152,11 @@ echo_green_text "2. Intel";
 read "DEVICETYPE?Please enter your selection: "
 case ${DEVICETYPE} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
-        echo_green_text "Downloading phoenix-apply.sh..."
+		echo_green_text "Installing phoenix-osx package..."
+		brew install phoenix-osx || error_fn
+		echo
+
+		echo_green_text "Downloading phoenix-apply.sh..."
 		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply.sh || error_fn
 		echo
 
@@ -234,8 +234,12 @@ case ${DEVICETYPE} in
 		;;
 
 	"intel" | "Intel" | "INTEL" | 2)
+		echo_green_text "Installing phoenix-osx-intel package..."
+		brew install phoenix-osx-intel || error_fn
+		echo
+
 		echo_green_text "Downloading phoenix-apply-intel.sh..."
-		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos-intel/Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
 		echo
 
 		echo_green_text "Changing permissions of phoenix-apply-intel.sh to 744..."
@@ -247,7 +251,7 @@ case ${DEVICETYPE} in
 		echo
 
 		echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
-		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+		curl --cert-status --doh-cert-status --no-insecure --no-proxy-insecure --no-sessionid --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --proto -all,https --proto-default https --proto-redir -all,https --show-error -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos-intel/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
 		echo
 
 		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.intel.plist to 644..."
@@ -282,12 +286,12 @@ case ${DEVICETYPE} in
 				sudo /bin/chmod -R -v 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 				echo
 
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
-				sudo /bin/ln -s /usr/local/opt/phoenix-osx/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
+				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
+				sudo /bin/ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
 				echo
 
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx/macos/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
-				sudo /bin/ln -s /usr/local/opt/phoenix-osx/macos/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
+				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
+				sudo /bin/ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
 				echo
 				;;
 
@@ -300,12 +304,12 @@ case ${DEVICETYPE} in
 				/bin/mkdir -v -p "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
 				echo
 
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
-				/bin/ln -s /usr/local/opt/phoenix-osx/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
+				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
+				/bin/ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
 				echo
 
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx/macos/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
-				/bin/ln -s /usr/local/opt/phoenix-osx/macos/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
+				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
+				/bin/ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
 				echo
 				;;
 		esac

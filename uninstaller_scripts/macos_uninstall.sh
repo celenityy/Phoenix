@@ -66,28 +66,6 @@ echo
 sudo /bin/rm -f "${HOME}/Library/Preferences/org.mozilla.firefox.plist" || error_fn
 echo
 
-echo_green_text "Uninstalling phoenix-osx..."
-brew uninstall phoenix-osx || error_fn
-echo
-
-read "RESULT?Would you also like to remove celenity's Homebrew Tap? [Y/n] "
-echo
-case ${RESULT} in
-
-		"y" | "yes" | "YES" | "Y")
-			echo_green_text "Removing celenity's Tap..."
-			brew untap celenity/tap || error_fn
-			echo
-
-			echo_green_text "Updating Homebrew cache..."
-			brew update && brew upgrade --force --verbose || error_fn
-			echo
-			;;
-		
-		"n" | "no" | "N" | "NO")
-			;;
-esac
-
 echo -e ""
 echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?";
 echo_green_text "Your options are:";
@@ -96,7 +74,11 @@ echo_green_text "2. Intel";
 read "DEVICETYPE?Please enter your selection: "
 case ${DEVICETYPE} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
-        echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
+        echo_green_text "Uninstalling phoenix-osx..."
+        brew uninstall phoenix-osx || error_fn
+        echo
+
+		echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
 		sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 		echo
 
@@ -106,6 +88,10 @@ case ${DEVICETYPE} in
 		;;
 
 	"intel" | "Intel" | "INTEL" | 2)
+        echo_green_text "Uninstalling phoenix-osx-intel..."
+        brew uninstall phoenix-osx-intel || error_fn
+        echo
+
 		echo_green_text "Unloading dev.celenity.phoenix.apply.intel.plist..."
 		sudo /bin/launchctl unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
 		echo
@@ -142,6 +128,24 @@ case ${LOCATION} in
 		/bin/rm -f "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
 		echo
 		;;
+esac
+
+read "RESULT?Would you also like to remove celenity's Homebrew Tap? [Y/n] "
+echo
+case ${RESULT} in
+
+		"y" | "yes" | "YES" | "Y")
+			echo_green_text "Removing celenity's Tap..."
+			brew untap celenity/tap || error_fn
+			echo
+
+			echo_green_text "Updating Homebrew cache..."
+			brew update && brew upgrade --force --verbose || error_fn
+			echo
+			;;
+		
+		"n" | "no" | "N" | "NO")
+			;;
 esac
 
 echo_red_text "You must now revoke the 'App Management' permission from your Terminal by navigating to 'System Settings' -> 'Privacy & Security' -> 'App Management'"

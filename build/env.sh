@@ -15,5 +15,8 @@ export phoenix_linux_dir="$phoenix_dir/linux"
 # Where the `macos` directory is located
 export phoenix_osx_dir="$phoenix_dir/macos"
 
+# Where the `macos-intel` directory is located
+export phoenix_osx_intel_dir="$phoenix_dir/macos-intel"
+
 # Where the `windows` directory is located
 export phoenix_windows_dir="$phoenix_dir/windows"

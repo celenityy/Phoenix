@@ -31,13 +31,17 @@ Unspecified = This preference should be set EVERYWHERE
 
 [ANDROID-ONLY] = This preference should ONLY be set for Android
 [LINUX-ONLY] = This preference should ONLY be set for GNU/Linux
+[INTEL-OSX-ONLY] = This preference should ONLY be set for macOS on Intel
 [OSX-ONLY] = This preference should ONLY be set for macOS
+[SILICON-OSX-ONLY] = This preference should ONLY be set for macOS on Apple Silicon
 [WINDOWS-ONLY] = This preference should ONLY be set for Windows
 
 [NO-ANDROID] = This preference should be set everywhere, EXCEPT for Android
 [NO-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux
-[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Used for ex. Dove)
+[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Useful for ex. Dove)
 [NO-OSX] = This preference should be set everywhere, EXCEPT for macOS
+[NO-INTEL-OSX] = This preference should be set everywhere, EXCEPT for macOS on Intel
+[NO-SILICON-OSX] = This preference should be set everywhere, EXCEPT for macOS on Apple Silicon
 [NO-WINDOWS] = This preference should be set everywhere, EXCEPT for Windows
 
 */

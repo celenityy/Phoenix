@@ -28,6 +28,12 @@ echo_green_text "Creating archives/phoenix-osx.zip..."
 
 zip -r -FS "$phoenix_dir/archives/phoenix-osx.zip" * -x 'Library/*'
 
+cd "$phoenix_osx_intel_dir"
+
+echo_green_text "Creating archives/phoenix-osx-intel.zip..."
+
+zip -r -FS "$phoenix_dir/archives/phoenix-osx-intel.zip" * -x 'Library/*'
+
 cd "$phoenix_windows_dir"
 
 echo_green_text "Creating archives/phoenix-windows.zip..."
