@@ -3507,6 +3507,10 @@ pref("browser.newtabpage.activity-stream.asrouter.useRemoteL10n", false); // [NO
 // https://searchfox.org/mozilla-central/source/browser/components/topsites/TopSites.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.topsites.useRemoteSetting", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable hiding URLs with certain parameters from Top Sites by default [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/a1f4cb9f/browser/app/profile/firefox.js#2017 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.hideTopSitesWithSearchParam", ""); // [NO-ANDROID] [NO-MAIL] [Default: mfadid=adm]
+
 /// Disable Firefox Sync first run/promotion and metrics [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/PrefsFeed.sys.mjs#143 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.fxaccounts.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
