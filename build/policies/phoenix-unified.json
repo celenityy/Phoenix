@@ -11,11 +11,9 @@
         "DNSOverHTTPS": {
             "Enabled": true,
             "Fallback": false,
-            "Locked": false,
             "ProviderURL": "https://dns.quad9.net/dns-query"
         },
         "Proxy": {
-            "Locked": false,
             "Mode": "none",
             "UseProxyForDNS": true
         },
