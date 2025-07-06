@@ -2129,9 +2129,11 @@ pref("browser.ml.chat.enabled", false); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/toolkit/components/formautofill/MLAutofill.sys.mjs
 pref("extensions.formautofill.ml.experiment.enabled", false);
 
-/// Disable Link Preview by default [NO-ANDROID] [NO-MAIL]
+/// Disable Link Preview [NO-ANDROID] [NO-MAIL]
+// Currently no-op - requires `dom.postMessage.sharedArrayBuffer.withCOOP_COEP` set to `true`: https://codeberg.org/celenity/Phoenix/issues/151 [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] UI
+pref("browser.ml.linkPreview.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable Perplexity URL bar promotion [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
