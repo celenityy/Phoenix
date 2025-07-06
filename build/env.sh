@@ -12,6 +12,9 @@ export phoenix_android_dir="$phoenix_dir/android"
 # Where the `linux` directory is located
 export phoenix_linux_dir="$phoenix_dir/linux"
 
+# Where the `linux-flatpak` directory is located
+export phoenix_linux_flatpak_dir="$phoenix_dir/linux-flatpak"
+
 # Where the `macos` directory is located
 export phoenix_osx_dir="$phoenix_dir/macos"
 
