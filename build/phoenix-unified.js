@@ -759,7 +759,7 @@ pref("font.name-list.emoji", "Noto Color Emoji"); // [ANDROID-ONLY]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID] [NO-MAIL]
 pref("privacy.resistFingerprinting.letterboxing", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 
-/// Harden FPP (which we enable at `003` in `Phoenix-Core`) to match RFP with a few exceptions...
+/// Harden FPP (which we enable at `003` above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Android#fingerprinting [ANDROID-ONLY]
 // This also improves security - Attack Surface Reduction, reduced timer precision
 // List of targets: https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc
@@ -773,13 +773,12 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 pref("media.devices.enumerate.legacy.enabled", false); // [DEFAULT]
 
 /// Prevent exposing WebGL Renderer Info
-// So this is typically covered by RFP/FPP's 'WebGLRenderInfo' target, but some websites (ex. moviezapiya.fun) break when that target is set, due to the target disabling the debug renderer info (while spoofing the renderer query info to "Mozilla" for the vendor and renderer)
-// So for cases like that, when the `WebGLRenderInfo` target is disabled, this will ensure the real vendor/renderer info is still not exposed (RFP/FPP's target here should still take precedent)
-// Looks like this is fixed for 140, so we won't need these for long... - https://bugzilla.mozilla.org/show_bug.cgi?id=1966860
+// This is equivalent to the RFP/FPP 'WebGLRenderInfo' target
+// Useful to ensure users are protected if they disable FPP for whatever reason, or if they just disable ETP/Strict for a specific site/add an exception
 // https://searchfox.org/mozilla-central/source/dom/canvas/SanitizeRenderer.cpp
 pref("webgl.enable-renderer-query", false); // Spoofs "Vendor" and "Renderer" to "Mozilla" (Like the `WebGLRenderInfo` target does)
-pref("webgl.sanitize-unmasked-renderer", true); // [DEFAULT] [DEFENSE IN DEPTH]
-pref("webgl.override-unmasked-renderer", "Mozilla"); // Attempts to spoof "Unmasked Renderer" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query), but Firefox seems to override to "Generic Renderer" anyways
+pref("webgl.sanitize-unmasked-renderer", false); // Prevents the "Unmasked Renderer" under Debug Info from being set to "Generic Renderer"; we instead set it to "Mozilla" below to match FPP/RFP
+pref("webgl.override-unmasked-renderer", "Mozilla"); // Spoofs "Unmasked Renderer" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
 pref("webgl.override-unmasked-vendor", "Mozilla"); // Spoofs "Unmasked Vendor" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
 
 /// Prevent pre-allocating content processes
