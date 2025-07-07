@@ -779,7 +779,7 @@ pref("media.devices.enumerate.legacy.enabled", false); // [DEFAULT]
 pref("webgl.enable-renderer-query", false); // Spoofs "Vendor" and "Renderer" to "Mozilla" (Like the `WebGLRenderInfo` target does)
 pref("webgl.override-unmasked-renderer", "Mozilla"); // Spoofs "Unmasked Renderer" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
 pref("webgl.override-unmasked-vendor", "Mozilla"); // Spoofs "Unmasked Vendor" Debug info to "Mozilla" (like FPP/RFP does for the WebGL renderer query)
-pref("webgl.sanitize-unmasked-renderer", false); // Prevents the "Unmasked Renderer" under Debug Info from being set to "Generic Renderer"; we instead set it to "Mozilla" below to match FPP/RFP
+pref("webgl.sanitize-unmasked-renderer", false); // Prevents the "Unmasked Renderer" under Debug Info from being set to "Generic Renderer"; we instead set it to "Mozilla" to match FPP/RFP
 
 /// Prevent pre-allocating content processes
 // These can cause certain values/settings to persist, even after a user changes them - which could result in leakage/fingerprinting concerns
