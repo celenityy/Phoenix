@@ -548,7 +548,6 @@ pref("browser.contentblocking.report.social.url", "https://support.mozilla.org/k
 pref("browser.contentblocking.report.tracker.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_tracking-content"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.dictionaries.download.url", "https://addons.mozilla.org/language-tools/"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.support.url", "https://support.mozilla.org/kb/new-tab"); // [NO-ANDROID] [NO-MAIL]
-pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/firefox/search-engines/"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.xr.warning.infoURL", "https://support.mozilla.org/kb/webxr-permission-info-page"); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.abuseReport.amoFormURL", "https://addons.mozilla.org/feedback/addon/%addonID%/");
 pref("extensions.blocklist.addonItemURL", "https://addons.mozilla.org/blocked-addon/%addonID%/%addonVersion%/");
@@ -2106,6 +2105,11 @@ pref("extensions.openPopupWithoutUserGesture.enabled", false); // [DEFAULT - non
 // Includes certain Mozilla extensions by default
 // https://firefox-source-docs.mozilla.org/tools/profiler/index.html
 pref("extensions.geckoProfiler.acceptedExtensionIds", ""); // [DEFAULT - Android] [HIDDEN - Android]
+
+/// Prevent recommending search extensions [NO-ANDROID] [NO-MAIL]
+// This is the "Find more search engines" link at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
+// If users want to add more search engines, they should add them manually using the `Add` button - or directly from the URL bar on the desired search engine. Let's not encourage them to install add-ons that are both unnecessary, and will directly compromise their privacy and security in most cases. [NO-ANDROID] [NO-MAIL]
+pref("browser.search.searchEnginesURL", ""); // [NO-ANDROID] [NO-MAIL]
 
 /// Prevent unprivileged extensions from accessing experimental APIs by default
 // https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142
