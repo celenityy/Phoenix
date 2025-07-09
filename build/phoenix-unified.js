@@ -3647,6 +3647,7 @@ pref("browser.places.interactions.log", false); // [HIDDEN] [DEFAULT] Disable lo
 pref("browser.privacySegmentation.preferences.show", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+pref("browser.search.serpMetricsRecordedCounter", 0, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Ensure we never try to submit SERP categorization event metrics https://searchfox.org/mozilla-central/rev/584b3448/browser/app/profile/firefox.js#827
 
 /// Disable trending searches by default [NO-ANDROID] [NO-MAIL]
 // Currently appears to be no-op, so we can also ensure the UI is hidden [NO-ANDROID] [NO-MAIL]
