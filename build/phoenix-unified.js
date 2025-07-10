@@ -3779,7 +3779,7 @@ pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", tru
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.pinned", '[]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/7d68baf8/toolkit/modules/NewTabUtils.sys.mjs#147
+pref("browser.newtabpage.pinned", '[{"url":"","label":"! Placeholder"}]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/7d68baf8/toolkit/modules/NewTabUtils.sys.mjs#147 - Set as a placeholder to allow easily adding custom shortcuts/pins
 
 pref("browser.phoenix.status", "029"); // [NO-ANDROID] [NO-MAIL]
 
