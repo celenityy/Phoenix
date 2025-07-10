@@ -49,7 +49,7 @@ pref("browser.phoenix.version", "2025.06.24.1", locked);
 026: PERFORMANCE
 027: Personal Touch 💜
 028: UPDATES
-029: FIREFOX HOME (DESKTOP ONLY)
+029: FIREFOX HOME
 030: FIREFOX SUGGEST (DESKTOP ONLY)
 031: SYNC (DESKTOP ONLY)
 032: LIBREWOLF (DESKTOP ONLY)
@@ -3488,7 +3488,7 @@ pref("services.settings.poll_interval", 3600);
 
 pref("browser.phoenix.status", "028");
 
-/*** 029 FIREFOX HOME ***/ // [NO-ANDROID] [NO-MAIL]
+/*** 029 FIREFOX HOME ***/
 
 /// Disable AccuWeather by default, but allow users to enable it if desired [NO-ANDROID] [NO-MAIL]
 // NOTE: This depends on Merino: `browser.urlbar.merino.endpointURL`, and the AccuWeather provider must be allowed: `browser.urlbar.merino.providers`) [NO-ANDROID] [NO-MAIL]
@@ -3769,6 +3769,22 @@ pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190 (Hides the toggle at `about:preferences#home`)
 
+/// Prevent adding random recently visited sites to shortcuts/pins by default
+// https://searchfox.org/mozilla-central/rev/73bd66f4/toolkit/components/places/nsNavHistory.cpp#62
+pref("places.frecency.bookmarkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 75]
+pref("places.frecency.defaultVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.downloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.embedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.framedLinkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.linkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 100]
+pref("places.frecency.permRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 50]
+pref("places.frecency.redirectSourceVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 25]
+pref("places.frecency.reloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.tempRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 40]
+pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 2000]
+pref("places.frecency.unvisitedBookmarkBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 140]
+pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 200]
+
 /// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL]
@@ -3781,7 +3797,7 @@ pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.ha
 pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", ""); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.pinned", '[{"url":"","label":"! Placeholder"}]'); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/7d68baf8/toolkit/modules/NewTabUtils.sys.mjs#147 - Set as a placeholder to allow easily adding custom shortcuts/pins
 
-pref("browser.phoenix.status", "029"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.phoenix.status", "029");
 
 /*** 030 FIREFOX SUGGEST ***/ // [NO-ANDROID] [NO-MAIL]
 
