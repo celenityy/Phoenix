@@ -31,9 +31,13 @@ Unspecified = This preference should be set EVERYWHERE
 
 [ANDROID-ONLY] = This preference should ONLY be set for Android
 
+[NO-FLATPAK-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux (Flatpak)
 [NO-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux
-[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Used for ex. Dove)
+[NO-NON-FLATPAK-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux (non-Flatpak)
+[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Useful for ex. Dove)
 [NO-OSX] = This preference should be set everywhere, EXCEPT for macOS
+[NO-INTEL-OSX] = This preference should be set everywhere, EXCEPT for macOS on Intel
+[NO-SILICON-OSX] = This preference should be set everywhere, EXCEPT for macOS on Apple Silicon
 [NO-WINDOWS] = This preference should be set everywhere, EXCEPT for Windows
 
 */

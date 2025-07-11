@@ -116,8 +116,6 @@
 		<true/>
 		<key>Fallback</key>
 		<false/>
-		<key>Locked</key>
-		<false/>
 		<key>ProviderURL</key>
 		<string>https://dns.quad9.net/dns-query</string>
 	</dict>
@@ -147,16 +145,12 @@
 		<true/>
 		<key>Fingerprinting</key>
 		<true/>
-		<key>Locked</key>
-		<false/>
 		<key>Value</key>
 		<true/>
 	</dict>
 	<key>EncryptedMediaExtensions</key>
 	<dict>
 		<key>Enabled</key>
-		<false/>
-		<key>Locked</key>
 		<false/>
 	</dict>
 	<key>EnterprisePoliciesEnabled</key>
@@ -1478,22 +1472,22 @@
 	<dict>
 		<key>Highlights</key>
 		<false/>
-		<key>Locked</key>
-		<false/>
 		<key>Pocket</key>
 		<false/>
 		<key>Snippets</key>
 		<false/>
 		<key>SponsoredPocket</key>
 		<false/>
+		<key>SponsoredStories</key>
+		<false/>
 		<key>SponsoredTopSites</key>
+		<false/>
+		<key>Stories</key>
 		<false/>
 	</dict>
 	<key>FirefoxSuggest</key>
 	<dict>
 		<key>ImproveSuggest</key>
-		<false/>
-		<key>Locked</key>
 		<false/>
 		<key>SponsoredSuggestions</key>
 		<false/>
@@ -1531,8 +1525,6 @@
 	<integer>0</integer>
 	<key>Proxy</key>
 	<dict>
-		<key>Locked</key>
-		<false/>
 		<key>Mode</key>
 		<string>none</string>
 		<key>UseProxyForDNS</key>
@@ -1761,11 +1753,15 @@
 		<false/>
 		<key>FeatureRecommendations</key>
 		<false/>
-		<key>Locked</key>
+		<key>FirefoxLabs</key>
 		<true/>
 		<key>MoreFromMozilla</key>
 		<false/>
+		<key>SkipOnboarding</key>
+		<true/>
 		<key>UrlbarInterventions</key>
+		<false/>
+		<key>WhatsNew</key>
 		<false/>
 	</dict>
 </dict>
