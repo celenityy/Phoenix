@@ -766,6 +766,11 @@ pref("privacy.resistFingerprinting.letterboxing", false); // [NO-ANDROID] [NO-MA
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [NO-ANDROID] [NO-MAIL]
 pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [ANDROID-ONLY]
 
+/// If FPP/RFP is disabled, limit font visibility to base system fonts + fonts from optional language packs
+// We could set this to 1 to only allow base system fonts - but this is already covered by FPP/RFP. So if one disables RFP/FPP or adds an override, I think it's reasonable to allow fonts from language packs - as that may be the reason they've disabled it. I see no reason to ever expose user-installed fonts though.
+// https://searchfox.org/mozilla-central/rev/11f8005d/modules/libpref/init/StaticPrefList.yaml#9946
+pref("layout.css.font-visibility", 2);
+
 /// Prevent enumeration of media devices
 // Exceptions can be set via the `media.devices.enumerate.legacy.allowlist` pref
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1528042
