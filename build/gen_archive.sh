@@ -16,17 +16,25 @@ cd "$phoenix_linux_dir"
 
 echo_green_text "Creating archives/phoenix-linux.zip..."
 
-zip -r -FS "$phoenix_dir/archives/phoenix-linux.zip" * -x 'userjs/flatpak/*'
+zip -r -FS "$phoenix_dir/archives/phoenix-linux.zip" *
+
+cd "$phoenix_linux_flatpak_dir"
 
 echo_green_text "Creating archives/phoenix-flatpak.zip..."
 
-zip -r -FS "$phoenix_dir/archives/phoenix-flatpak.zip" * -x 'userjs/linux/*'
+zip -r -FS "$phoenix_dir/archives/phoenix-flatpak.zip" *
 
 cd "$phoenix_osx_dir"
 
 echo_green_text "Creating archives/phoenix-osx.zip..."
 
 zip -r -FS "$phoenix_dir/archives/phoenix-osx.zip" * -x 'Library/*'
+
+cd "$phoenix_osx_intel_dir"
+
+echo_green_text "Creating archives/phoenix-osx-intel.zip..."
+
+zip -r -FS "$phoenix_dir/archives/phoenix-osx-intel.zip" * -x 'Library/*'
 
 cd "$phoenix_windows_dir"
 

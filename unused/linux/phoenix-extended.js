@@ -32,15 +32,18 @@ Unspecified = This preference should be set EVERYWHERE
 [LINUX-ONLY] = This preference should ONLY be set for GNU/Linux
 
 [NO-ANDROID] = This preference should be set everywhere, EXCEPT for Android
-[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Used for ex. Dove)
+[NO-FLATPAK-LINUX] = This preference should be set everywhere, EXCEPT for GNU/Linux (Flatpak)
+[NO-MAIL] = This preference should be set everywhere, EXCEPT for Thunderbird (Useful for ex. Dove)
 [NO-OSX] = This preference should be set everywhere, EXCEPT for macOS
+[NO-INTEL-OSX] = This preference should be set everywhere, EXCEPT for macOS on Intel
+[NO-SILICON-OSX] = This preference should be set everywhere, EXCEPT for macOS on Apple Silicon
 [NO-WINDOWS] = This preference should be set everywhere, EXCEPT for Windows
 
 */
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix: Extended for Mozilla Firefox - 2025.06.24.1 💜", locked); // [NO-ANDROID]
+pref("distribution.about", "Phoenix: Extended for Mozilla Firefox - 2025.07.11.1 💜", locked); // [NO-ANDROID]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 

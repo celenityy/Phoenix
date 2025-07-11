@@ -49,12 +49,10 @@
             "Cryptomining": true,
             "EmailTracking": true,
             "Fingerprinting": true,
-            "Locked": false,
             "Value": true
         },
         "EncryptedMediaExtensions": {
-            "Enabled": false,
-            "Locked": false
+            "Enabled": false
         },
         "ExtensionSettings": {
             "*": {
@@ -86,13 +84,27 @@
             "Snippets": false,
             "SponsoredTopSites": false,
             "SponsoredPocket": false,
-            "Locked": false
+            "SponsoredStories": false,
+            "Stories": false
         },
         "FirefoxSuggest": {
             "ImproveSuggest": false,
             "SponsoredSuggestions": false,
-            "WebSuggestions": false,
-            "Locked": false
+            "WebSuggestions": false
+        },
+        "Handlers": {
+            "extensions": {
+                "pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            },
+            "mimeTypes": {
+                "application/pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            }
         },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
@@ -105,9 +117,11 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
-            "Locked": true,
+            "FirefoxLabs": true,
             "MoreFromMozilla": false,
-            "UrlbarInterventions": false
+            "SkipOnboarding": true,
+            "UrlbarInterventions": false,
+            "WhatsNew": false
         }
     }
 }
