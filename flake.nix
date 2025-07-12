@@ -111,12 +111,12 @@
                     ''
                       cp macos/* $out/
                       cp -r macos/configs $out/configs
-                      cp -r macos/userjs/macos $out/userjs
+                      cp -r macos/userjs $out/userjs
                     ''
                   else
                     ''
                       cp -r linux/policies/policies.json linux/phoenix.cfg linux/defaults/pref linux/configs $out/
-                      cp -r linux/userjs/linux $out/userjs
+                      cp -r linux/userjs $out/userjs
                     ''
                 }
                 install -Dm644 linux/COPYING $out/share/doc/phoenix/COPYING
