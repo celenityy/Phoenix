@@ -2549,6 +2549,14 @@ pref("network.lna.block_trackers", true); // [DEFAULT] [NIGHTLY] https://searchf
 pref("network.lna.blocking", true); // [NIGHTLY]
 pref("network.lna.enabled", true); // [DEFAULT] [NIGHTLY]
 
+/// Prevent exposing XPCOM Components.interfaces to websites
+// PRIVACY: Fingerprinting concerns
+// SECURITY: Attack Surface Reduction
+// (For reference, this is also set by ex. Tor Browser)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=429070
+// https://devdoc.net/web/developer.mozilla.org/en-US/docs/Components.interfaces.html
+pref("dom.use_components_shim", false); // [DEFAULT - Nightly]
+
 pref("browser.phoenix.status", "021");
 
 /*** 022 MISC. PRIVACY ***/
