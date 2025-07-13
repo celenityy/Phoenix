@@ -3318,11 +3318,9 @@ pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 // https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs [NO-ANDROID] [NO-MAIL] 
 pref("browser.policies.loglevel", "error"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 
-/// Disable fullscreen delay + warning
+/// Disable fullscreen delay
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
-pref("full-screen-api.warning.delay", -1); // [Default = 500, -1 = Automatic]
-pref("full-screen-api.warning.timeout", 0); // [Default = 3000]
 
 /// Display the option to enable `Compact` mode at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
 pref("browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
