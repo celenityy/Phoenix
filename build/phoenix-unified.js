@@ -1943,7 +1943,7 @@ pref("xpinstall.enabled", false); // [NO-ANDROID] [HIDDEN] So the default is `fa
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1384330
 // https://github.com/thunderbird/addons-server/issues/332
-pref("extensions.webapi.enabled", false); // [NO-ANDROID]
+pref("extensions.webapi.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.webapi.enabled", true); // [ANDROID-ONLY] [DEFAULT]
 pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
 pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
