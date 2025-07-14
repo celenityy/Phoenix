@@ -523,7 +523,7 @@ pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false, lo
 pref("browser.tabs.remote.separatedMozillaDomains", "", locked);
 pref("dom.ipc.processCount.privilegedmozilla", 0, locked);
 pref("extensions.webextensions.restrictedDomains", "");
-pref("permissions.manager.defaultsUrl", "", locked); // [HIDDEN - Android] [DEFAULT - Android]
+pref("permissions.manager.defaultsUrl", ""); // [HIDDEN - Android] [DEFAULT - Android]
 pref("svg.context-properties.content.allowed-domains", "", locked); // [DEFAULT - Android/Thunderbird]
 
 /// Remove tracking parameters from Mozilla URLs + prevent exposing locale & unnecessary information
