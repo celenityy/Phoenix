@@ -3655,7 +3655,7 @@ pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.ping.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.places.interactions.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] Disable interaction measurements https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
-pref("browser.places.interactions.log", false); // [HIDDEN] [DEFAULT] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
+pref("browser.places.interactions.log", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Disable logging https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs
 pref("browser.privacySegmentation.preferences.show", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
@@ -3761,10 +3761,10 @@ pref("browser.newtabpage.activity-stream.feeds.inferredpersonalizationfeed", fal
 
 /// If stories are enabled, disable impression tracking [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.impressionId", "{some-fake-impression-ID}", locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
-pref("browser.newtabpage.activity-stream.discoverystream.rec.impressions", "{}", locked); // [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/ActivityStream.sys.mjs#978
-pref("browser.newtabpage.activity-stream.discoverystream.spoc.impressions", "{}", locked); // [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/ActivityStream.sys.mjs#962
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.rec.impressions", "{}", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/TopStoriesFeed.sys.mjs#33
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.spoc.impressions", "{}", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/TopStoriesFeed.sys.mjs#27
+pref("browser.newtabpage.activity-stream.discoverystream.rec.impressions", "{}", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/ActivityStream.sys.mjs#978
+pref("browser.newtabpage.activity-stream.discoverystream.spoc.impressions", "{}", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/ActivityStream.sys.mjs#962
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.rec.impressions", "{}", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/TopStoriesFeed.sys.mjs#33
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.spoc.impressions", "{}", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/extensions/newtab/lib/TopStoriesFeed.sys.mjs#27
 
 /// If stories are enabled, enable the new sections UI by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.cards.enabled", true); // [NO-ANDROID] [NO-MAIL]
@@ -3872,7 +3872,7 @@ pref("browser.partnerlink.campaign.topsites", "", locked); // [NO-ANDROID] [NO-M
 
 /// Disable row labels by default [NO-ANDROID] [NO-MAIL]
 // Provides a cleaner UI, and removes Firefox Suggest branding from results [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarView.sys.mjs#2353
+// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarView.sys.mjs#2353 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.groupLabels.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable sponsored suggestions [NO-ANDROID] [NO-MAIL]
@@ -3889,7 +3889,7 @@ pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [N
 pref("browser.urlbar.quicksuggest.settingsUi", 2); // [NO-ANDROID] [NO-MAIL] Hides the "Improve the Firefox Suggest experience" toggle at `about:preferences#search`
 
 /// Disable web suggestions [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/rev/10ecded0/browser/app/profile/firefox.js#489
+// https://searchfox.org/mozilla-central/rev/10ecded0/browser/app/profile/firefox.js#489 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.scenario", "offline"); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/QuickSuggest.sys.mjs#950
 pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
 
