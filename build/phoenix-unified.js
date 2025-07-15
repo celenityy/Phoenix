@@ -2205,6 +2205,13 @@ pref("browser.region.update.enabled", false);
 pref("browser.search.region", "US"); // [HIDDEN]
 pref("doh-rollout.home-region", "US"); // [HIDDEN]
 
+/// Do not force the use of the Network Geolocation provider by default
+// When either of these preferences are set to `true`, Firefox will ALWAYS use the Network Geolocation provider (BeaconDB in our case), instead of OS geolocation providers
+// We're just setting these here to expose via the `about:config`
+// https://searchfox.org/mozilla-central/rev/985f76ec/dom/geolocation/Geolocation.cpp#775
+pref("geo.provider.testing", false); // [HIDDEN] [DEFAULT]
+pref("geo.provider.use_mls", false); // [HIDDEN] [DEFAULT]
+
 /// Enable Apple Location Services for macOS by default [OSX-ONLY] [NO-MAIL]
 pref("geo.provider.use_corelocation", true); // [OSX-ONLY] [NO-MAIL] [DEFAULT]
 
@@ -2218,11 +2225,9 @@ pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX-ONLY]
 
 /// Set BeaconDB as the default network Geolocation provider
 // Default is Google :/
-// https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp
-// https://searchfox.org/mozilla-central/source/dom/geolocation/MLSFallback.h
+// https://searchfox.org/mozilla-central/rev/985f76ec/dom/system/NetworkGeolocationProvider.sys.mjs#341
+// https://searchfox.org/mozilla-central/rev/985f76ec/modules/libpref/init/all.js#3085
 pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
-pref("geo.provider.testing", false); // [HIDDEN] [DEFAULT] When set to `true`, this forces the use of the network Geolocation provider (BeaconDB for us), regardless of anything else - https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/geolocation/Geolocation.cpp#779
-pref("geo.provider.use_mls", true); // [NO-MAIL] [HIDDEN] [DEFAULT] Ensure the network Geolocation provider (BeaconDB for us) is enabled
 
 /// Update info URL to ours so that users receive accurate information [NO-ANDROID] [NO-MAIL]
 pref("browser.geolocation.warning.infoURL", "https://phoenix.celenity.dev/geo"); // [NO-ANDROID] [NO-MAIL]
