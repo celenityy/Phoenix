@@ -2309,12 +2309,13 @@ pref("pdfjs.handleOctetStream", false);
 /// Show sidebar by default when viewing PDFs
 pref("pdfjs.sidebarViewOnLoad", 2);
 
-/// Update URL when changing pages
-// ex. Typically, if I load "https://example.invalid/example.pdf", and navigate to Page 27, the URL stays the same as "https://example.invalid/example.pdf"
-// When this is set to "true", if I loaded "https://example.invalid/example.pdf", and navigated to Page 27, the URL would instead update to "https://example.invalid/example.pdf#page=27"
-// So this is an incredibly useful feature that allows easy bookmarking/sharing of PDFs, keeping track of what you've read, etc.
-// (We also still nuke browsing history by default on exit)
-pref("pdfjs.historyUpdateUrl", true);
+/// Update URL when changing pages [NO-ANDROID]
+// ex. Typically, if I load "https://example.invalid/example.pdf", and navigate to Page 27, the URL stays the same as "https://example.invalid/example.pdf" [NO-ANDROID]
+// When this is set to "true", if I loaded "https://example.invalid/example.pdf", and navigated to Page 27, the URL would instead update to "https://example.invalid/example.pdf#page=27" [NO-ANDROID]
+// So this is an incredibly useful feature that allows easy bookmarking/sharing of PDFs, keeping track of what you've read, etc. [NO-ANDROID]
+// (We also still nuke browsing history by default on exit) [NO-ANDROID]
+// This currently doesn't seem to work properly on Android [NO-ANDROID]
+pref("pdfjs.historyUpdateUrl", true); // [NO-ANDROID]
 
 pref("browser.phoenix.status", "019");
 
