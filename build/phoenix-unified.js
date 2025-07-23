@@ -2190,7 +2190,7 @@ pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT]
 
 /// Disable Microsoft Location Services [WINDOWS-ONLY]
 // https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp [WINDOWS-ONLY]
-pref("geo.prompt.open_system_prefs", false); // [WINDOWS-Only] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6406
+pref("geo.prompt.open_system_prefs", false); // [WINDOWS-ONLY] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6406
 pref("geo.provider.ms-windows-location", false); // [WINDOWS-ONLY]
 
 /// Disable Mozilla's GeoIP/Region Service
@@ -2550,9 +2550,8 @@ pref("dom.origin-trials.mls.state", 1);
 /// Enable Private Network Access Restrictions
 // https://wicg.github.io/private-network-access/
 // https://searchfox.org/mozilla-central/rev/a87741c4/netwerk/protocol/http/nsHttpTransaction.cpp#3655
-pref("network.lna.block_trackers", true); // [DEFAULT] [NIGHTLY] https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14149
-pref("network.lna.blocking", true); // [NIGHTLY]
-pref("network.lna.enabled", true); // [DEFAULT] [NIGHTLY]
+pref("network.lna.block_trackers", true); // [DEFAULT - Nightly] https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14149
+pref("network.lna.enabled", true); // [DEFAULT]
 
 /// Prevent exposing XPCOM Components.interfaces to websites
 // PRIVACY: Fingerprinting concerns
