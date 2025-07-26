@@ -563,11 +563,15 @@ pref("signon.firefoxRelay.manage_url", "https://relay.firefox.com/accounts/profi
 pref("signon.firefoxRelay.privacy_policy_url", "https://www.mozilla.org/privacy/subscription-services/");
 pref("signon.firefoxRelay.terms_of_service_url", "https://www.mozilla.org/about/legal/terms/subscription-services/");
 
-/// Skip Mozilla's `Privacy Notice` & `Terms of Use`
+/// Skip Mozilla's `Privacy Notice` and `Terms of Use`
 // https://github.com/mozilla/policy-templates/pull/1212
 // https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs
+// https://searchfox.org/mozilla-central/rev/b53d18c1/toolkit/components/telemetry/docs/internals/preferences.rst#208
 pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 999, locked);
 pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "32503679999000", locked);
+pref("termsofuse.acceptedDate", "32503679999000", locked); // [HIDDEN - Android/Thunderbird] [NIGHTLY]
+pref("termsofuse.acceptedVersion", 999, locked); // [HIDDEN - Android/Thunderbird] [NIGHTLY]
+pref("termsofuse.bypassNotification", true, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - builds without MOZILLA_OFFICIAL] [NIGHTLY]
 
 pref("browser.phoenix.status", "002");
 
