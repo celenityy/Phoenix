@@ -1592,7 +1592,10 @@ pref("media.eme.enabled.6.NOTE", "WINDOWS USERS: ALSO see media.eme.playready.en
 
 /// Block media autoplay by default
 // https://support.mozilla.org/kb/block-autoplay
+// `media.geckoview.autoplay.request.testing` is used when `media.geckoview.autoplay.request` is set to `true` (ex. on GeckoView/Fenix) - when `media.geckoview.autoplay.request` is false, `media.autoplay.default` appears to be used instead
+// https://searchfox.org/mozilla-central/rev/b53d18c1/modules/libpref/init/StaticPrefList.yaml#12641
 pref("media.autoplay.default", 5);
+pref("media.geckoview.autoplay.request.testing", 2); // [DEFAULT: 0 - Follows the Autoplay site permission]
 
 /// Disable Encrypted Media Extensions (EME) (DRM)
 // Garbage technology with privacy, security, and freedom concerns
