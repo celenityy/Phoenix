@@ -1137,7 +1137,7 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 
 - **[Brace](https://codeberg.org/divested/brace)**
 	- 🪪 [Divested Computing Group](https://divested.dev/)
-	- ⚖️ [GPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
+	- ⚖️ [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
 	- Certain preferences + inspiration
 
 - **[LibreWolf](https://librewolf.net/)**
