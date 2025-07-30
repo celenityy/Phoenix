@@ -2358,6 +2358,14 @@ pref("browser.safebrowsing.provider.google.lists.default", "goog-badbinurl-shava
 /// Enable an additional plug-in blocklist from Mozilla
 pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest256"); // [DEFAULT - Nightly]
 
+/// Enable the Potentially Harmful Application list (when Safe Browsing is enabled)
+// This contains threats that are specific to Mobile/Android (of the `POTENTIALLY_HARMFUL_APPLICATION` type)
+// Firefox on non-Android devices will just silently ignore/disregard this list
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1980046
+// https://searchfox.org/mozilla-central/rev/8720f2b5/toolkit/components/url-classifier/nsUrlClassifierUtils.cpp#176
+// https://developers.google.com/safe-browsing/reference/Local.Database
+pref("urlclassifier.malwareTable", "goog-malware-proto,goog-unwanted-proto,moztest-harmful-simple,moztest-malware-simple,moztest-unwanted-simple,goog-harmful-proto");
+
 /// Enable Safe Browsing by default
 // This won't do anything if you don't have an API key from Google, though doesn't hurt...
 // Harmless from a privacy perspective due to the below changes, also effective at preventing real-time malicious domains and downloads.
