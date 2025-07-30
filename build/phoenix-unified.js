@@ -90,7 +90,7 @@ pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.07.11.1 💜", lo
 
 /// Disable annoying warnings when attempting to access the `about:config`
 pref("browser.aboutConfig.showWarning", false); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT - Thunderbird]
-pref("general.warnOnAboutConfig", false);
+pref("general.warnOnAboutConfig", false); // [NO-ANDROID] [ESR]
 
 /// Ensure that the `about:config` is always enabled
 pref("general.aboutConfig.enable", true, locked); // [DEFAULT - non-Android]
@@ -491,7 +491,7 @@ pref("browser.search.param.search_rich_suggestions", "", locked); // [NO-ANDROID
 // Harmless - We just don't want to waste Mozilla's time due to our custom set-up...
 // Also acts as a potential performance improvement
 // https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3604
-pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT - non-Release/ESR]
+pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT - Release/ESR]
 pref("extensions.webcompat-reporter.newIssueEndpoint", "https://phoenix.celenity.dev/issues"); // Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
 pref("ui.new-webcompat-reporter.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("ui.new-webcompat-reporter.new-report-endpoint", "https://phoenix.celenity.dev/issues"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
