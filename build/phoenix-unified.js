@@ -2200,7 +2200,7 @@ pref("geo.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN]
 pref("geo.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN]
 pref("permissions.default.geo", 2); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable logging Geolocation requests by default
+/// Disable logging network geolocation requests by default
 // This is already Firefox's default setting - but setting it here exposes it in the `about:config` since it's hidden
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/system/NetworkGeolocationProvider.sys.mjs#21
 pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT] 
@@ -2222,8 +2222,8 @@ pref("browser.region.update.enabled", false);
 pref("browser.search.region", "US"); // [HIDDEN]
 pref("doh-rollout.home-region", "US"); // [HIDDEN]
 
-/// Do not force the use of the Network Geolocation provider by default
-// When either of these preferences are set to `true`, Firefox will ALWAYS use the Network Geolocation provider (BeaconDB in our case), instead of OS geolocation providers
+/// Do not force the use of the network geolocation provider by default
+// When either of these preferences are set to `true`, Firefox will ALWAYS use the network geolocation provider (BeaconDB in our case), instead of OS geolocation providers
 // We're just setting these here to expose via the `about:config`
 // https://searchfox.org/mozilla-central/rev/985f76ec/dom/geolocation/Geolocation.cpp#775
 pref("geo.provider.testing", false); // [HIDDEN] [DEFAULT]
@@ -2235,12 +2235,17 @@ pref("geo.provider.use_corelocation", true); // [OSX-ONLY] [NO-MAIL] [DEFAULT]
 /// Enable Geoclue for GNU/Linux distros by default [LINUX-ONLY] [NO-MAIL]
 pref("geo.provider.use_geoclue", true); // [LINUX-ONLY] [NO-MAIL] [DEFAULT]
 
+/// Enable network request cache for the network geolocation provider by default
+// This is already Firefox's default setting - but setting it here exposes it in the `about:config` since it's hidden
+// https://searchfox.org/mozilla-central/rev/f2da6827/dom/system/NetworkGeolocationProvider.sys.mjs#80
+pref("geo.provider.network.debug.requestCache.enabled", true); // [HIDDEN] [DEFAULT]
+
 /// Prevent unconditionally providing high location accuracy [LINUX-ONLY]
 // By default, Firefox provides all websites with high location accuracy, even if they don't request it... [LINUX-ONLY]
 // https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6389 [LINUX-ONLY]
 pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX-ONLY]
 
-/// Set BeaconDB as the default network Geolocation provider
+/// Set BeaconDB as the default network geolocation provider
 // Default is Google :/
 // https://searchfox.org/mozilla-central/rev/985f76ec/dom/system/NetworkGeolocationProvider.sys.mjs#341
 // https://searchfox.org/mozilla-central/rev/985f76ec/modules/libpref/init/all.js#3085
