@@ -183,6 +183,7 @@ pref("network.trr.confirmation_telemetry_enabled", false, locked);
 pref("nimbus.telemetry.targetingContextEnabled", false, locked); // [HIDDEN - ANDROID/THUNDERBIRD] [DEFAULT - Artifact builds] Targeting context telemetry - https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#2040
 pref("privacy.imageInputTelemetry.enableTestMode", false, locked); // [HIDDEN] "Event Telemetry" https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15549
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false, locked);
+pref("telemetry.fog.artifact_build", false, locked); // [DEFAULT - non-Artifact builds] Disable JOG to prevent runtime registration of metrics https://firefox-source-docs.mozilla.org/toolkit/components/glean/dev/jog.html https://firefox-source-docs.mozilla.org/toolkit/components/glean/dev/preferences.html#internal-preferences
 pref("telemetry.fog.test.activity_limit", -1, locked); // Disable activity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
 pref("telemetry.fog.test.inactivity_limit", -1, locked); // Disable inactivity-based ping submission - ex. https://mozilla.github.io/glean/book/user/pings/baseline.html#scheduling
 pref("telemetry.fog.init_on_shutdown", false, locked); // Prevent Glean from initializing on shutdown https://searchfox.org/mozilla-central/source/toolkit/components/glean/docs/dev/preferences.md#49
