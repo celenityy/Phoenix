@@ -2192,7 +2192,12 @@ pref("browser.phoenix.status", "017");
 
 /*** 018 GEOLOCATION ***/
 
-/// Block websites from prompting to access geolocation by default [NO-ANDROID] [NO-MAIL]
+/// Block websites from prompting to access geolocation by default [NO-MAIL]
+// `geo.prompt.testing.allow` is used when `geo.prompt.testing` is set to `true` - when `geo.prompt.testing` is set to false, the site permissions are followed like normal instead [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/f2da6827/dom/base/nsContentPermissionHelper.h#144 [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/f2da6827/dom/base/nsContentPermissionHelper.cpp#493 [NO-MAIL]
+pref("geo.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN]
+pref("geo.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN]
 pref("permissions.default.geo", 2); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable logging Geolocation requests by default
@@ -2938,9 +2943,14 @@ pref("browser.phoenix.status", "023");
 /// Block pop-ups by default
 pref("dom.disable_open_during_load", true); // [DEFAULT - non-Thunderbird]
 
-/// Block websites from prompting to display notifications by default [NO-ANDROID] [NO-MAIL]
-// I have yet to see a legitimate use-case for websites using push notifications... [NO-ANDROID] [NO-MAIL]
-// but I see them constantly abused for malicious purposes & spam :/ [NO-ANDROID] [NO-MAIL]
+/// Block websites from prompting to display notifications by default [NO-MAIL]
+// I have yet to see a legitimate use-case for websites using push notifications... [NO-MAIL]
+// but I see them constantly abused for malicious purposes & spam :/ [NO-MAIL]
+// `notification.prompt.testing.allow` is used when `notification.prompt.testing` is set to `true` - when `notification.prompt.testing` is set to false, the site permissions are followed like normal instead [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/f2da6827/dom/base/nsContentPermissionHelper.h#144 [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/f2da6827/dom/base/nsContentPermissionHelper.cpp#493 [NO-MAIL]
+pref("notification.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN]
+pref("notification.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN]
 pref("permissions.default.desktop-notification", 2); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Captive Portal Detection & Connectivity Checks
