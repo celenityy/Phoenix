@@ -3407,6 +3407,7 @@ pref("browser.translations.automaticallyPopup", true); // [NO-MAIL] [DEFAULT]
 pref("browser.translations.enable", true); // [NO-MAIL] [DEFAULT - non-Thunderbird]
 pref("browser.translations.select.enable", true); // [NO-MAIL] [DEFAULT - non-Android/Thunderbird]
 pref("browser.translations.newSettingsUI.enable", true); // [NO-ANDROID] [NO-MAIL] Enables the new UI at `about:preferences#general`
+pref("extensions.translations.disabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Enables `Exceptions` UI at `about:preferences#general`
 
 /// Enable IPv6
 // Important, nice to have
