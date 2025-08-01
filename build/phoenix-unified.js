@@ -1706,14 +1706,15 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 /// Disable JavaScript Just-in-time Compilation (JIT)
 // https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
 // https://firefox-source-docs.mozilla.org/js/index.html#javascript-jits
-// https://codeberg.org/rusty-snake/firefox-config/src/branch/main/assets/user-overrides.js#L60
+// https://codeberg.org/rusty-snake/firefox-config/src/commit/c8c157b28aad9a52d3bca63b3152b4d11fd62093/assets/user-overrides.js#L46
 // https://codeberg.org/celenity/Phoenix/issues/93
+// NOTE: Unfortunately, for WebAssembly (WASM) to function, either WASM-Baseline (javascript.options.wasm_baselinejit) OR WASM-Ion (javascript.options.wasm_optimizingjit) MUST be enabled. I've chosen to disable WASM-Ion here, as I think that's the safer bet, due to it having a larger attack surface than WASM-Baseline.
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
 pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS?] The JIT backend https://searchfox.org/mozilla-central/source/js/src/jit/JitOptions.cpp
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
-pref("javascript.options.wasm_baselinejit", false); // WASM Baseline Compiler
+pref("javascript.options.wasm_optimizingjit", false); // WASM-Ion (BaldrMonkey)
 
 /// Disable JPEG-XL
 // https://github.com/mozilla/standards-positions/pull/1064
