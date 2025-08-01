@@ -2771,6 +2771,10 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false);
 
+/// Decrease the lifetime of privileged processes for `about:` pages
+// https://searchfox.org/mozilla-central/source/modules/libpref/init/all.js#1913
+pref("dom.ipc.keepProcessesAlive.privilegedabout", 0);
+
 /// Disable GNOME Integration [LINUX-ONLY]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [LINUX-ONLY]
 pref("browser.gnome-search-provider.enabled", false); // [LINUX-ONLY] [HIDDEN]
@@ -2844,7 +2848,6 @@ pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
 /// Enforce Per-site Process Isolation + isolate all websites
 // https://wiki.mozilla.org/Project_Fission
 pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird]
-pref("dom.ipc.processCount.webIsolated", 1); // [DEFAULT - Android] Use one isolated content process per origin https://searchfox.org/mozilla-central/source/dom/docs/ipc/process_model.rst
 pref("fission.autostart", true); // [DEFAULT - non-Android]
 pref("fission.autostart.session", true); // [DEFAULT - non-Android]
 pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
@@ -2896,6 +2899,10 @@ pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT]
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // This is default on Standard Firefox releases, but not on ex. Thunderbird & other builds
 pref("dom.security.skip_about_page_has_csp_assert", false); // [DEFAULT - non-Thunderbird]
+
+/// Prefer to create new content processes, instead of re-using existing ones
+// https://searchfox.org/mozilla-central/rev/6e2b186c/modules/libpref/init/StaticPrefList.yaml#2018
+pref("browser.tabs.remote.subframesPreferUsed", false);
 
 /// Prevent marking JIT code pages as both writable and executable, only one or the other...
 // Might cause issues in certain specific set-ups
