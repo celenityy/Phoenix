@@ -5,6 +5,17 @@
 
 source "$phoenix_dir/build/env.sh"
 
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    mkdir -vp "$phoenix_linux_dir"
+else
+    mkdir -vp "$phoenix_android_dir"
+	mkdir -vp "$phoenix_linux_dir"
+    mkdir -vp "$phoenix_linux_flatpak_dir"
+    mkdir -vp "$phoenix_osx_dir"
+    mkdir -vp "$phoenix_osx_intel_dir"
+    mkdir -vp "$phoenix_windows_dir"
+fi
+
 export PHOENIX_LICENSE="COPYING"
 export PHOENIX_README="README.md"
 
