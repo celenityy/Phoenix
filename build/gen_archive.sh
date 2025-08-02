@@ -10,36 +10,56 @@ echo_green_text() {
 	echo -e "\033[32m$1\033[0m"
 }
 
-rm -rf archives/*
+source "$phoenix_dir/build/env.sh"
+
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    rm -f archives/phoenix-linux.zip
+else
+	rm -rf archives/*
+fi
 
 cd "$phoenix_linux_dir"
-
 echo_green_text "Creating archives/phoenix-linux.zip..."
-
 zip -r -FS "$phoenix_dir/archives/phoenix-linux.zip" *
 
-cd "$phoenix_linux_flatpak_dir"
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    echo "\$PHOENIX_LINUX_ONLY is set! Skipping Flatpak..."
+fi
 
-echo_green_text "Creating archives/phoenix-flatpak.zip..."
+if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+    cd "$phoenix_linux_flatpak_dir"
+	echo_green_text "Creating archives/phoenix-flatpak.zip..."
+	zip -r -FS "$phoenix_dir/archives/phoenix-flatpak.zip" *
+fi
 
-zip -r -FS "$phoenix_dir/archives/phoenix-flatpak.zip" *
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    echo "\$PHOENIX_LINUX_ONLY is set! Skipping macOS..."
+fi
 
-cd "$phoenix_osx_dir"
+if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+    cd "$phoenix_osx_dir"
+	echo_green_text "Creating archives/phoenix-osx.zip..."
+	zip -r -FS "$phoenix_dir/archives/phoenix-osx.zip" * -x 'Library/*'
+fi
 
-echo_green_text "Creating archives/phoenix-osx.zip..."
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    echo "\$PHOENIX_LINUX_ONLY is set! Skipping macOS Intel..."
+fi
 
-zip -r -FS "$phoenix_dir/archives/phoenix-osx.zip" * -x 'Library/*'
+if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+    cd "$phoenix_osx_intel_dir"
+	echo_green_text "Creating archives/phoenix-osx-intel.zip..."
+	zip -r -FS "$phoenix_dir/archives/phoenix-osx-intel.zip" * -x 'Library/*'
+fi
 
-cd "$phoenix_osx_intel_dir"
+if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    echo "\$PHOENIX_LINUX_ONLY is set! Skipping Windows..."
+fi
 
-echo_green_text "Creating archives/phoenix-osx-intel.zip..."
-
-zip -r -FS "$phoenix_dir/archives/phoenix-osx-intel.zip" * -x 'Library/*'
-
-cd "$phoenix_windows_dir"
-
-echo_green_text "Creating archives/phoenix-windows.zip..."
-
-zip -r -FS "$phoenix_dir/archives/phoenix-windows.zip" *
+if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+    cd "$phoenix_windows_dir"
+	echo_green_text "Creating archives/phoenix-windows.zip..."
+	zip -r -FS "$phoenix_dir/archives/phoenix-windows.zip" *
+fi
 
 cd "$phoenix_dir"

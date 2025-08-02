@@ -23,3 +23,8 @@ export phoenix_osx_intel_dir="$phoenix_dir/macos-intel"
 
 # Where the `windows` directory is located
 export phoenix_windows_dir="$phoenix_dir/windows"
+
+# If variables are defined with a custom `env_local.sh`, let's use those
+if [[ -f "$phoenix_dir/build/env_local.sh" ]]; then
+    source "$phoenix_dir/build/env_local.sh"
+fi
