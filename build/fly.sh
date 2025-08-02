@@ -217,6 +217,29 @@ cp "$PHOENIX_LICENSE" "$phoenix_linux_dir"/
 # Copy README
 cp "$PHOENIX_README" "$phoenix_linux_dir"/
 
+# Copy environment variables
+mkdir -vp "$phoenix_linux_dir/etc/profile.d"
+cp "$phoenix_dir/build/linux/etc/profile.d/phoenix-env-overrides.sh" "$phoenix_linux_dir/etc/profile.d/phoenix-env-overrides.sh"
+
+# Copy specialized config user.js files
+mkdir -vp "$phoenix_linux_dir/userjs/apple-maps"
+mkdir -vp "$phoenix_linux_dir/userjs/discord"
+mkdir -vp "$phoenix_linux_dir/userjs/element"
+mkdir -vp "$phoenix_linux_dir/userjs/extended"
+mkdir -vp "$phoenix_linux_dir/userjs/google-maps"
+mkdir -vp "$phoenix_linux_dir/userjs/twitter"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/apple-maps"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/discord"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/element"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/extended"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/google-maps"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/twitter"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix/youtube"
+mkdir -vp "$phoenix_linux_dir/userjs/ui-fix-base"
+mkdir -vp "$phoenix_linux_dir/userjs/youtube"
+
+cp -vrf "$phoenix_dir/build/linux/userjs" "$phoenix_linux_dir/"
+
 # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [NO-LINUX], [NO-NON-FLATPAK-LINUX], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
 grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_LINUX_USER_PREF_CFG"
 echo "Created $PHOENIX_LINUX_USER_PREF_CFG"
