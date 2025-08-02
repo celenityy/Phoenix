@@ -16,6 +16,9 @@ else
     mkdir -vp "$phoenix_windows_dir"
 fi
 
+mkdir -vp "$phoenix_dir/archives"
+mkdir -vp /tmp/phoenix
+
 export PHOENIX_LICENSE="COPYING"
 export PHOENIX_README="README.md"
 
@@ -198,8 +201,6 @@ export PHOENIX_OSX_INTEL_POLICIES_JSON="unused/macos-intel/policies.json"
 export PHOENIX_OSX_INTEL_POLICIES_PLIST="macos-intel/org.mozilla.firefox.plist"
 export PHOENIX_OSX_POLICIES_JSON="unused/macos/policies.json"
 export PHOENIX_OSX_POLICIES_PLIST="macos/macos/org.mozilla.firefox.plist"
-
-mkdir -vp /tmp/phoenix
 
 # ANDROID
 
