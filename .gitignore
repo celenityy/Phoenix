@@ -3,7 +3,3 @@
 result-*
 result
 build/env_local.sh
-
-# These are copied from build/linux by the build script
-linux/etc
-linux/userjs
