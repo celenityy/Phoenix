@@ -2,3 +2,4 @@
 # nix build
 result-*
 result
+build/env_local.sh
