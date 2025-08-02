@@ -2771,9 +2771,17 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false);
 
+/// Decrease the lifetime of extension processes
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1847608
+pref("dom.ipc.keepProcessesAlive.extension", 0); // [HIDDEN - non-Android] [DEFAULT - non-Android]
+
 /// Decrease the lifetime of privileged processes for `about:` pages
-// https://searchfox.org/mozilla-central/source/modules/libpref/init/all.js#1913
+// https://searchfox.org/mozilla-central/rev/b8b93b11/modules/libpref/init/all.js#1913
 pref("dom.ipc.keepProcessesAlive.privilegedabout", 0);
+
+/// Decrease the lifetime of web content processes
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1447393
+pref("dom.ipc.keepProcessesAlive.web", 0); // [HIDDEN - non-Android] [DEFAULT - non-Android]
 
 /// Disable GNOME Integration [LINUX-ONLY]
 // https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp [LINUX-ONLY]
