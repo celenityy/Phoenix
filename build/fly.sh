@@ -224,10 +224,10 @@ fi
 # GNU/LINUX
 
 # Copy license
-cp "$PHOENIX_LICENSE" "$phoenix_linux_dir"/
+cp "$phoenix_dir/build/linux/COPYING" "$phoenix_linux_dir"/
 
 # Copy README
-cp "$PHOENIX_README" "$phoenix_linux_dir"/
+cp "$phoenix_dir/build/linux/README.md" "$phoenix_linux_dir"/
 
 # Copy environment variables
 mkdir -vp "$phoenix_linux_dir/etc/profile.d"
