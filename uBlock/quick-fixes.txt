@@ -1,5 +1,5 @@
 ! Title: Phoenix filters - Quick fixes
-! Version: 11June2025v1
+! Version: 03August2025v1
 ! Expires: 12 hours
 ! Homepage: https://phoenix.celenity.dev
 
@@ -13,3 +13,6 @@ getconnected.southwestwifi.com#@##adModal
 !! https://github.com/easylist/easylist/issues/21710
 !!! EasyList - Newsletter Notices
 redmagic.gg#@##subscribe_popup
+
+!!! EasyList - Cookie Notices
+weather.com#@#+js(set-cookie, __adblocker, false, '', reload, 1)
