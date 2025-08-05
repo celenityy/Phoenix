@@ -2138,6 +2138,13 @@ pref("extensions.experiments.enabled", false); // [DEFAULT - non-Thunderbird]
 /// Prevent hiding extensions [NO-ANDROID]
 pref("devtools.aboutdebugging.showHiddenAddons", true, locked); // [NO-ANDROID]
 
+/// Require resources loaded by MV2 extensions to be specified under web_accessible_resources in the extension's manifest
+// (This is the default for MV3)
+// https://developer.chrome.com/docs/extensions/reference/manifest/web-accessible-resources
+// https://searchfox.org/mozilla-central/rev/2a8a30f4/modules/libpref/init/StaticPrefList.yaml#5883
+// https://searchfox.org/mozilla-central/rev/2a8a30f4/caps/nsScriptSecurityManager.cpp#725
+pref("extensions.content_web_accessible.enabled", true);
+
 /// Require secure origins to install add-ons
 pref("extensions.install.requireSecureOrigin", true); // [HIDDEN]
 
