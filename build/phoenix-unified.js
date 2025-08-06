@@ -2076,6 +2076,7 @@ pref("extensions.quarantineIgnoredByUser.{de22fd49-c9ab-4359-b722-b3febdc3a0b0}"
 pref("extensions.quarantineIgnoredByUser.{e839c3f9-298e-4cd0-99e0-464431cb7c34}", false); // Foxy Gestures
 pref("extensions.quarantineIgnoredByUser.{e90f5de4-8510-4515-9f67-3b6654e1e8c2}", false); // Dictionary Anywhere
 pref("extensions.quarantineIgnoredByUser.addon@darkreader.org", false); // Dark Reader
+pref("extensions.quarantineIgnoredByUser.adb@mozilla.org", false, locked); // Firefox DevTools ADB Extension
 pref("extensions.quarantineIgnoredByUser.ads@mozac.org", false, locked); // Mozilla Android Components - Ads Telemetry
 pref("extensions.quarantineIgnoredByUser.ATBC@EasonWong", false); // Adaptive Tab Bar Color
 pref("extensions.quarantineIgnoredByUser.cookies@mozac.org", false, locked); // Mozilla Android Components - Search Telemetry
