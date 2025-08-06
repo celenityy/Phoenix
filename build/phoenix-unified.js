@@ -2914,6 +2914,13 @@ pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT
 // https://searchfox.org/mozilla-central/source/testing/profiles/unittest-required/user.js
 pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
 
+/// Increase the number of processes [ANDROID-ONLY]
+// This improves the effectiveness of fission/site isolation, and based on testing, we've also heard from users that this improves performance [ANDROID-ONLY]
+// For reference, this matches what Firefox on Desktop is using [ANDROID-ONLY]
+pref("dom.ipc.processCount", 8); // [ANDROID-ONLY]
+pref("dom.ipc.processCount.webCOOP+COEP", 32); // [ANDROID-ONLY] (This value is derived from the value of the `MOZ_ANDROID_CONTENT_SERVICE_COUNT` build variable minus the value of `dom.ipc.processCount`)
+pref("dom.ipc.processCount.webIsolated", 4); // [ANDROID-ONLY]
+
 /// Never expose shell access
 // https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
 pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT]
