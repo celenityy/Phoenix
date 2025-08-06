@@ -2918,7 +2918,7 @@ pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
 // This improves the effectiveness of fission/site isolation, and based on testing, we've also heard from users that this improves performance [ANDROID-ONLY]
 // For reference, this matches what Firefox on Desktop is using [ANDROID-ONLY]
 pref("dom.ipc.processCount", 8); // [ANDROID-ONLY]
-pref("dom.ipc.processCount.webCOOP+COEP", 32); // [ANDROID-ONLY] (This value is derived from the value of the `MOZ_ANDROID_CONTENT_SERVICE_COUNT` build variable minus the value of `dom.ipc.processCount`)
+pref("dom.ipc.processCount.webCOOP+COEP", 32); // [ANDROID-ONLY] (This value is derived from the value of the `MOZ_ANDROID_CONTENT_SERVICE_COUNT` build variable minus the value of `dom.ipc.processCount`: https://searchfox.org/mozilla-release/rev/4da0c35a/mobile/android/app/geckoview-prefs.js#186)
 pref("dom.ipc.processCount.webIsolated", 4); // [ANDROID-ONLY]
 
 /// Never expose shell access
