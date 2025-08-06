@@ -2851,6 +2851,11 @@ pref("dom.security.setHTML.enabled", true);
 // https://searchfox.org/mozilla-central/source/security/sandbox/chromium/sandbox/win/src/security_level.h#38
 pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default: Windows), 2 = USER_LIMITED (Stricter)]
 
+/// Enable the Integrity-Policy header
+// https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Integrity-Policy
+pref("security.integrity_policy.enabled", true); // [DEFAULT - Nightly]
+pref("security.integrity_policy.stylesheet.enabled", true); // [NIGHTLY]
+
 /// Enable Opaque Response Blocking
 // https://github.com/annevk/orb
 pref("browser.opaqueResponseBlocking", true); // [DEFAULT - non-Android]
