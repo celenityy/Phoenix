@@ -19,3 +19,6 @@
 /configs/phoenix.cfg /windows/phoenix.cfg 301
 /policies.json /windows/policies.json 301
 /archives/phoenix.zip /archives/phoenix-linux.zip 301
+/COPYING /COPYING.txt 301
+/LICENSE /COPYING.txt 301
+/LICENSE.txt /COPYING.txt 301
