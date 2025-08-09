@@ -53,6 +53,8 @@ ___
 - [💡Specialized Configs](#specialized-configs)
 - [📛Manual Installation](#manual-installation)
 	- [🤔Using Extended or a Specialized Config Manually](#using-extended-or-a-specialized-config-manually)
+- [⚖️Licensing](#licensing)
+- [🏛️Notices](#notices)
 - [💜Attribution](#attribution)
 
 </details>
@@ -1109,6 +1111,20 @@ user_pref("autoadmin.global_config_url", "file:///home/user/youtube.cfg");
 cp ~/Downloads/user.js /home/user/.mozilla/firefox/153acxao.default-release/user.js
 ```
 
+# ⚖️Licensing
+
+Phoenix is licensed under the [GNU General Public License v3.0 or later](https://spdx.org/licenses/GPL-3.0-or-later.html) *(`GPL-3.0-or-later`)* where applicable.
+
+# 🏛️Notices
+
+Mozilla Firefox is a trademark of the Mozilla Foundation.
+
+This is not an officially supported Mozilla product. Phoenix is in no way affiliated with Mozilla.
+
+Phoenix is not sponsored or endorsed by Mozilla.
+
+Firefox source code is available at [https://github.com/mozilla-firefox/firefox](https://github.com/mozilla-firefox/firefox).
+
 # 💜Attribution
 
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
@@ -1132,12 +1148,12 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 
 - **[Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)**
 	- 🪪 [Narsil](https://codeberg.org/Narsil)
-	- ⚖️ [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
+	- ⚖️ [GPL-3.0-or-later](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
 	- Certain preferences + inspiration
 
 - **[Brace](https://codeberg.org/divested/brace)**
 	- 🪪 [Divested Computing Group](https://divested.dev/)
-	- ⚖️ [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
+	- ⚖️ [AGPL-3.0-or-later](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
 	- Certain preferences + inspiration
 
 - **[LibreWolf](https://librewolf.net/)**
@@ -1147,12 +1163,12 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 
 - **[firefox-config](https://codeberg.org/rusty-snake/firefox-config)**
 	- 🪪 [rusty-snake](https://codeberg.org/rusty-snake)
-	- ⚖️ [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
+	- ⚖️ [CC0-1.0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
 	- Inspiration + certain preferences
 
 - **[uBlock Origin](https://github.com/gorhill/uBlock)**
 	- 🪪 [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
-	- ⚖️ [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
+	- ⚖️ [GPL-3.0-or-later](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
 	- Pre-installed extension - provides content blocking
 
 - **[Quad9](https://quad9.net/)**

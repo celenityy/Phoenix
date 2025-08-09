@@ -27,7 +27,7 @@ fi
 mkdir -vp "$phoenix_dir/archives"
 mkdir -vp /tmp/phoenix
 
-export PHOENIX_LICENSE="COPYING"
+export PHOENIX_LICENSE="COPYING.txt"
 export PHOENIX_README="README.md"
 
 export PHOENIX_UNIFIED_PREFS="build/phoenix-unified.js"
@@ -232,7 +232,7 @@ fi
 # GNU/LINUX
 
 # Copy license
-cp "$phoenix_dir/build/linux/COPYING" "$phoenix_linux_dir"/
+cp "$phoenix_dir/build/linux/COPYING.txt" "$phoenix_linux_dir"/
 
 # Copy README
 cp "$phoenix_dir/build/linux/README.md" "$phoenix_linux_dir"/
