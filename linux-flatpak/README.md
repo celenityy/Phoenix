@@ -1154,6 +1154,7 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 - **[Brace](https://codeberg.org/divested/brace)**
 	- 🪪 [Divested Computing Group](https://divested.dev/)
 	- ⚖️ [AGPL-3.0-or-later](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
+	- 💸 [Donate](https://divested.dev/pages/donate)
 	- Certain preferences + inspiration
 
 - **[LibreWolf](https://librewolf.net/)**
@@ -1178,7 +1179,7 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 
 And of course...
 
-- **[Firefox](https://mozilla.org/firefox)**
+- **[Firefox](https://www.firefox.com/)**
 	- 🪪 [Mozilla](https://www.mozilla.org/)
 	- ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
-	- 💸 [Donate](https://foundation.mozilla.org/donate/)
+	- 💸 [Donate](https://www.mozillafoundation.org/donate/)
