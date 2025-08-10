@@ -3700,6 +3700,11 @@ pref("browser.newtabpage.activity-stream.discoverystream.spoc-positions", "", lo
 pref("browser.newtabpage.activity-stream.showSponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable the promotion card [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/rev/bfad596f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#620 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.promoCard.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY] [DEFAULT] 
+pref("browser.newtabpage.activity-stream.discoverystream.promoCard.visible", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY] 
+
 /// Disable recent activity by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // [NO-ANDROID] [NO-MAIL] Bookmarks
@@ -3835,6 +3840,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.sections.personalizatio
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.locale-config", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.region-config", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.user.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.shortcuts.personalization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.inferredpersonalizationfeed", false, locked); // [NO-ANDROID] [NO-MAIL]
 
