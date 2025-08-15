@@ -2778,7 +2778,7 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 
 /// Apply CSP to internal browser.xhtml
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
-pref("security.browser_xhtml_csp.report-only", false);
+pref("security.browser_xhtml_csp.report-only", false); // [NO-ANDROID] [ESR]
 
 /// Decrease the lifetime of extension processes
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1847608
