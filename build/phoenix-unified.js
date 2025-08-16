@@ -694,6 +694,7 @@ pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", tru
 
 /// Enable exceptions required to avoid major breakage by default
 pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT] [NIGHTLY]
+pref("privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs", true, locked); // [NIGHTLY] Skip migration so that privacy.trackingprotection.allow_list.baseline.enabled isn't overriden to false https://searchfox.org/mozilla-central/rev/59cf9b74/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#236
 
 /// Lower the network priority of known trackers (if not blocked for whatever reason...)
 pref("privacy.trackingprotection.lower_network_priority", true);
