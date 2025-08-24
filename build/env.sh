@@ -28,3 +28,10 @@ export phoenix_windows_dir="$phoenix_dir/windows"
 if [[ -f "$phoenix_dir/build/env_local.sh" ]]; then
     source "$phoenix_dir/build/env_local.sh"
 fi
+
+# Use GNU Sed on macOS instead of the built-in sed, due to differences in syntax
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SED=gsed
+else
+    SED=sed
+fi
