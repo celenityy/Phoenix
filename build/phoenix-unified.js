@@ -3917,7 +3917,7 @@ pref("browser.urlbar.weather.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.addons.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.addons", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable AMP suggestions [NO-ANDROID] [NO-MAIL]
+/// Disable adMarketplace (AMP) suggestions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/AmpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.amp.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.amp", false); // [NO-ANDROID] [NO-MAIL]
