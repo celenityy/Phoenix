@@ -277,6 +277,11 @@ pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/mozilla-
 pref("nimbus.profilesdatastoreservice.enabled", false, locked); // [HIDDEN] Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // [HIDDEN] Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
 
+/// Disable Glean redesign/navigation category at `about:glean`
+// This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
+// https://searchfox.org/firefox-main/rev/cd6acbe9/toolkit/content/aboutGlean.js#215
+pref("about.glean.redesign.enabled", false, locked); // [HIDDEN - non-Desktop Firefox] [DEFAULT]
+
 /// Disable OHTTP Telemetry [ANDROID-ONLY]
 // https://searchfox.org/mozilla-central/source/widget/android/OhttpHelper.cpp [ANDROID-ONLY]
 pref("network.ohttp.configURL", "", locked); // [ANDROID-ONLY] [NIGHTLY]
