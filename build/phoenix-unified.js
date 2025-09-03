@@ -930,7 +930,6 @@ pref("layout.css.visited_links_enabled", false);
 
 /// Disable disk cache
 pref("browser.cache.disk.enable", false);
-pref("browser.cache.disk_cache_ssl", false);
 
 /// Disable favicons in shortcuts [NO-ANDROID]
 // Prevents .ico files from persisting, even after deletion [NO-ANDROID]
