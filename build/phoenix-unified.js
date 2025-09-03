@@ -3912,15 +3912,15 @@ pref("browser.phoenix.status", "029");
 pref("browser.urlbar.suggest.weather", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.weather.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable AMO suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/AddonSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.addons.featureGate", true); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.suggest.addons", false); // [NO-ANDROID] [NO-MAIL]
-
 /// Disable adMarketplace (AMP) suggestions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/AmpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.amp.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.amp", false); // [NO-ANDROID] [NO-MAIL]
+
+/// Disable AMO suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/AddonSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.addons.featureGate", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.addons", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable "Exposure" telemetry [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/toolkit/components/nimbus/FeatureManifest.yaml#281 [NO-ANDROID] [NO-MAIL]
