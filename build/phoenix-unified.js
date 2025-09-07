@@ -2188,6 +2188,10 @@ pref("extensions.formautofill.ml.experiment.enabled", false);
 pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] UI
 pref("browser.ml.linkPreview.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Disable Page Assist [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/genai/PageAssist.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.pageAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Disable Perplexity URL bar promotion [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
