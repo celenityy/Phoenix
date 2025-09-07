@@ -941,6 +941,7 @@ pref("layout.css.visited_links_enabled", false);
 
 /// Disable disk cache
 pref("browser.cache.disk.enable", false);
+pref("browser.cache.disk_cache_ssl", true); // [DEFAULT] Controls disk cache for secure (HTTPS) resources, depends on `browser.cache.disk.enable` (which is why we're keeping this on by default)
 
 /// Disable favicons in shortcuts [NO-ANDROID]
 // Prevents .ico files from persisting, even after deletion [NO-ANDROID]
@@ -1104,7 +1105,7 @@ pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS
 // https://developer.mozilla.org/docs/Web/Security/Certificate_Transparency#browser_requirements
 // https://github.com/arkenfox/user.js/issues/1576
 pref("security.OCSP.enabled", 0);
-pref("security.OCSP.require", false);
+pref("security.OCSP.require", false); // [DEFAULT]
 
 /// Disable Parental Controls
 // https://searchfox.org/mozilla-central/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
