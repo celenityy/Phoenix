@@ -273,7 +273,7 @@ pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Th
 pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.rsexperimentloader.collection_id", ""); // [DEFAULT: `nimbus-desktop-experiments`] Required for Firefox Labs on Desktop
 pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for Firefox Labs on Desktop
-pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes them
+pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes it
 pref("nimbus.profilesdatastoreservice.enabled", false, locked); // Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
 
