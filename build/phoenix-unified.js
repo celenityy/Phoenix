@@ -3842,6 +3842,10 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.e
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// If sponsored content is somehow enabled, ensure that privacy protections are enabled [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.sponsor-protection.debug", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+pref("browser.newtabpage.sponsor-protection.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// If stories are enabled, allow customization and following/unfollowing interests/topics [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#606 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.customizeMenuPanel.enabled", true); // [NO-ANDROID] [NO-MAIL]
