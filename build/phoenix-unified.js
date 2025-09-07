@@ -2602,6 +2602,7 @@ pref("dom.origin-trials.mls.state", 1);
 // https://searchfox.org/mozilla-central/rev/a87741c4/netwerk/protocol/http/nsHttpTransaction.cpp#3655
 pref("network.lna.block_trackers", true); // [DEFAULT - Nightly] https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14149
 pref("network.lna.enabled", true); // [DEFAULT]
+pref("permissions.default.local-network", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access the local network by default; we won't set on Android for now since there's not a UI there to control this yet...
 
 /// Prevent exposing XPCOM Components.interfaces to websites
 // PRIVACY: Fingerprinting concerns
