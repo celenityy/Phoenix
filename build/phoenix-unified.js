@@ -274,8 +274,8 @@ pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.rsexperimentloader.collection_id", ""); // [DEFAULT: `nimbus-desktop-experiments`] Required for Firefox Labs on Desktop
 pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for Firefox Labs on Desktop
 pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes them
-pref("nimbus.profilesdatastoreservice.enabled", false, locked); // [HIDDEN] Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
-pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // [HIDDEN] Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
+pref("nimbus.profilesdatastoreservice.enabled", false, locked); // Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
+pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
 
 /// Disable Glean redesign/navigation category at `about:glean`
 // This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
@@ -320,7 +320,7 @@ pref("toolkit.datacollection.infoURL", ""); // [NO-ANDROID]
 // https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.log", "off"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable logging
-pref("browser.preonboarding.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable the preonboarding modal https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#802
+pref("browser.preonboarding.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Disable the preonboarding modal https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#802
 pref("browser.rights.3.shown", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.startup.homepage_override.buildID", "20100101", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ex. matches what Tor Browser uses
 pref("browser.startup.homepage_override.mstone", "ignore", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
