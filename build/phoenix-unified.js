@@ -2196,8 +2196,8 @@ pref("browser.ml.pageAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Do not use AI to "suggest tabs and a name for tab groups" by default, but allow users to enable it if desired [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.groups.smart.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
+/// Do not use AI to "suggest tabs and a name for tab groups" by default [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.groups.smart.enabled", false); // [NO-ANDROID] [NO-MAIL] UI
 pref("browser.tabs.groups.smart.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.tabs.groups.smart.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
 
