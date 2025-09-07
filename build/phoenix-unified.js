@@ -1085,6 +1085,27 @@ pref("security.ssl3.dhe_rsa_aes_256_sha", false); // [DEFAULT]
 pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
 pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 
+/// Disable OCSP revocation checks
+
+// So, my current understanding:
+// According to Mozilla blog: "With CRLite, Firefox periodically downloads a compact encoding of the set of all revoked certificates that appear in Certificate Transparency logs. Firefox stores this encoding locally, updates it every 12 hours, and queries it privately every time a new TLS connection is created."
+// and: "Of course, no browser is performing daily downloads of all CRLs. For a more meaningful comparison, we can consider Chrome’s CRLSets. These are hand-picked sets of revocations that are delivered to Chrome users daily. Recent CRLSets weigh in at 600 kB and include about 1% of all revocations (thirty-five thousand of the four million total). Firefox’s CRLite implementation uses half the bandwidth, updates twice as frequently, and includes all revocations."
+// According to MDN: "Firefox desktop from version 135 requires CT log inclusion for all certificates issued by certificate authorities in Mozilla's Root CA Program".
+//
+// What this means for us:
+// 1. We enforce Certificate Transparency (CT) below (security.pki.certificate_transparency.mode -> 2)
+// 2. Mozilla requires CAs in their program to implement CT, and we disable using the system's root CAs below (security.certerrors.mitm.auto_enable_enterprise_roots + security.enterprise_roots.enabled)
+// 3. We enable + enforce CRLite below (security.pki.crlite_mode -> 2, security.remote_settings.crlite_filters.enabled -> true)
+// 4. CRLite works by using CT logs, AND includes ALL revocations from those logs
+// 5. Therefore, since we're only trusting CAs that use CT, and since CRLite is covering ALL revocations from CT, we can reasonably conclude that CRLite is covering all revocatons, and thus, OCSP should be superfluous
+// So, I'm comfortable finally retiring OCSP... :) - Great to see how far this has come
+// https://wikipedia.org/wiki/Online_Certificate_Status_Protocol
+// https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/
+// https://developer.mozilla.org/docs/Web/Security/Certificate_Transparency#browser_requirements
+// https://github.com/arkenfox/user.js/issues/1576
+pref("security.OCSP.enabled", 0);
+pref("security.OCSP.require", false);
+
 /// Disable Parental Controls
 // https://searchfox.org/mozilla-central/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
 // https://searchfox.org/mozilla-central/source/netwerk/protocol/http/nsHttpHandler.cpp#547
@@ -1137,11 +1158,9 @@ pref("security.tls.enable_delegated_credentials", true); // [DEFAULT]
 pref("security.certerrors.mitm.priming.enabled", true); //[HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
 pref("security.certerrors.mitm.priming.endpoint", "https://mitmdetection.services.mozilla.com/"); //[HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
 
-/// Enable OCSP revocation checks + stapling
-// (https://wikipedia.org/wiki/Online_Certificate_Status_Protocol
+/// Enable OCSP stapling
 // https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // https://blog.cloudflare.com/high-reliability-ocsp-stapling/#ocsp-must-staple
-pref("security.OCSP.enabled", 1); // [DEFAULT - non-Android]
 pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
@@ -1183,11 +1202,6 @@ pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 /// Ensure we use the HSTS preload list
 // https://searchfox.org/mozilla-central/source/remote/cdp/domains/parent/Security.sys.mjs
 pref("network.stricttransportsecurity.preloadlist", true); // [DEFAULT]
-
-/// Hard-fail OCSP revocation checks by default
-// Significant security improvement
-// https://github.com/arkenfox/user.js/issues/1576
-pref("security.OCSP.require", true);
 
 /// If HTTPS-Only Mode is disabled in favor of HTTPS-First, prevent automatically exempting domains (to ensure we always try HTTPS first...)
 pref("dom.security.https_first_add_exception_on_failure", false);
