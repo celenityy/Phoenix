@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Version of Phoenix you'd like to build
-export phoenix_version=2025.08.06.1
+export phoenix_version=2025.09.07.1
 
 # Where `Phoenix` (this repo) is located
 export phoenix_dir=$(dirname $(dirname "$(realpath "$0")"))
@@ -27,4 +27,11 @@ export phoenix_windows_dir="$phoenix_dir/windows"
 # If variables are defined with a custom `env_local.sh`, let's use those
 if [[ -f "$phoenix_dir/build/env_local.sh" ]]; then
     source "$phoenix_dir/build/env_local.sh"
+fi
+
+# Use GNU Sed on macOS instead of the built-in sed, due to differences in syntax
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SED=gsed
+else
+    SED=sed
 fi
