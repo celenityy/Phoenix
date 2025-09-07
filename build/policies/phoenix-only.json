@@ -45,7 +45,6 @@
         "DisableProfileRefresh": true,
         "DisplayBookmarksToolbar": "always",
         "EnableTrackingProtection": {
-            "Category": "strict",
             "Cryptomining": true,
             "EmailTracking": true,
             "Fingerprinting": true,
