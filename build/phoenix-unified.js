@@ -556,6 +556,7 @@ pref("browser.contentblocking.report.monitor.url", "https://monitor.firefox.com/
 pref("browser.contentblocking.report.social.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_social-media-trackers"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.tracker.url", "https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track#w_tracking-content"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.dictionaries.download.url", "https://addons.mozilla.org/language-tools/"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.lna.warning.infoURL", "https://support.mozilla.org/kb/control-personal-device-local-network-permissions-firefox"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.support.url", "https://support.mozilla.org/kb/new-tab"); // [NO-ANDROID] [NO-MAIL]
 pref("browser.xr.warning.infoURL", "https://support.mozilla.org/kb/webxr-permission-info-page"); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.abuseReport.amoFormURL", "https://addons.mozilla.org/feedback/addon/%addonID%/");
