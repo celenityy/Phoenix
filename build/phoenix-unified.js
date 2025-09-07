@@ -1104,8 +1104,8 @@ pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS
 // https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/
 // https://developer.mozilla.org/docs/Web/Security/Certificate_Transparency#browser_requirements
 // https://github.com/arkenfox/user.js/issues/1576
-pref("security.OCSP.enabled", 0);
-pref("security.OCSP.require", false); // [DEFAULT]
+pref("security.OCSP.enabled", 0); // [NO-MAIL]
+pref("security.OCSP.require", false); // [NO-MAIL] [DEFAULT]
 
 /// Disable Parental Controls
 // https://searchfox.org/mozilla-central/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
