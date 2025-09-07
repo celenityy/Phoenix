@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.08.06.1", locked);
+pref("browser.phoenix.version", "2025.09.07.1", locked);
 
 /* INDEX 
 
@@ -84,7 +84,7 @@ Unspecified = This preference should be set EVERYWHERE
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID] [NO-MAIL]
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.08.06.1 💜", locked); // [NO-ANDROID] [NO-MAIL]
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.09.07.1 💜", locked); // [NO-ANDROID] [NO-MAIL]
 
 /*** 000 ABOUT:CONFIG ***/
 

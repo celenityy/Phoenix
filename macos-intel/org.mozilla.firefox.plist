@@ -137,8 +137,6 @@
 	<string>always</string>
 	<key>EnableTrackingProtection</key>
 	<dict>
-		<key>Category</key>
-		<string>strict</string>
 		<key>Cryptomining</key>
 		<true/>
 		<key>EmailTracking</key>
