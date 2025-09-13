@@ -2222,10 +2222,10 @@ pref("browser.tabs.groups.smart.userEnabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.linkPreview.blockListEnabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Remove privacy-invasive AI Chatbot providers [NO-ANDROID] [NO-MAIL]
-// (Anthropic Claude, ChatGPT, Google Gemini, Le Chat Mistral, and Microsoft Copilot) [NO-ANDROID] [NO-MAIL]
-// Unfortunately, at the moment, this includes all of them... [NO-ANDROID] [NO-MAIL]
+// (Anthropic Claude, ChatGPT, Google Gemini, and Le Chat Mistral) [NO-ANDROID] [NO-MAIL]
+// HuggingChat's privacy policy is OK, though it does leave room for improvement - but best option out of the built-in [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/a589ce1e/browser/components/genai/GenAI.sys.mjs#63 [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.chat.providers", ""); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.ml.chat.providers", "huggingchat"); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /// Set the default AI Chatbot (if enabled) to DuckDuckGo [NO-ANDROID] [NO-MAIL]
 // Unfortunately this is not compatible with the pop-up when selecting text [NO-ANDROID] [NO-MAIL]
