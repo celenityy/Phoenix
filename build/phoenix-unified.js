@@ -82,9 +82,14 @@ Unspecified = This preference should be set EVERYWHERE
 
 */
 
+/// Add custom branding at `about:support`
+pref("app.support.vendor", "Phoenix: 2025.09.07.1", locked); // [NO-MAIL] [HIDDEN]
+
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID] [NO-MAIL]
 pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.09.07.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.id", "default", locked); // [LINUX-ONLY] [HIDDEN]
+pref("distribution.version", "default", locked); // [LINUX-ONLY] [HIDDEN]
 
 /*** 000 ABOUT:CONFIG ***/
 
