@@ -713,11 +713,6 @@ pref("privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs", true, loc
 /// Lower the network priority of known trackers (if not blocked for whatever reason...)
 pref("privacy.trackingprotection.lower_network_priority", true);
 
-/// Temporarily unbreak display of privacy policies and certain pages (ex. https://privacy.openai.com/policies)
-// https://codeberg.org/celenity/Phoenix/issues/167
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1980034
-pref("urlclassifier.trackingSkipURLs", "https://api.transcend.io/privacy/graphql");
-
 pref("browser.phoenix.status", "003");
 
 /*** 004 FINGERPRINTING PROTECTION ***/
