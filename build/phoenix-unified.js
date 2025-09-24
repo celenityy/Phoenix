@@ -181,7 +181,7 @@ pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true, locked
 pref("datareporting.policy.firstRunURL", "", locked);
 pref("datareporting.usage.uploadEnabled", false, locked); // [HIDDEN - ANDROID] [DEFAULT - Android] Disables "daily usage pings" https://support.mozilla.org/kb/usage-ping-settings
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked); // [DEFAULT - non-Nightly]
-pref("extensions.dataCollectionPermissions.enabled", false, locked); // [NIGHTLY] [DEFAULT] https://searchfox.org/mozilla-central/source/toolkit/locales-preview/dataCollectionPermissions.ftl
+pref("extensions.dataCollectionPermissions.enabled", false, locked); // https://searchfox.org/mozilla-central/source/toolkit/locales-preview/dataCollectionPermissions.ftl
 pref("network.jar.record_failure_reason", false, locked); // [DEFAULT - non-Nightly] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#14397
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13191
 pref("network.trr.confirmation_telemetry_enabled", false, locked);
@@ -281,6 +281,17 @@ pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for 
 pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/ExperimentAPI.sys.mjs#79 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes it
 pref("nimbus.profilesdatastoreservice.enabled", false, locked); // Disable writing to the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#418
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
+
+/// Disable Firefox Labs (`about:preferences#experimental`) [NO-ANDROID] [NO-MAIL]
+// Firefox Labs requires experiments and telemetry to be enabled (see specific prefs below)
+// When experiments and telemetry are not enabled, this seems to cause a broken/empty "Firefox Labs" section to appear at the bottom of pages at `about:preferences` [NO-ANDROID] [NO-MAIL]
+// From my testing, the following prefs specifically are required for Firefox Labs to work (these are also indicated above): [NO-ANDROID] [NO-MAIL]
+// `app.shield.optoutstudies.enabled` -> `true` [NO-ANDROID] [NO-MAIL]
+// `datareporting.healthreport.uploadEnabled` -> `true` [NO-ANDROID] [NO-MAIL]
+// `messaging-system.rsexperimentloader.collection_id` -> `nimbus-desktop-experiments` [NO-ANDROID] [NO-MAIL]
+// `nimbus.appId` -> `firefox-desktop` [NO-ANDROID] [NO-MAIL]
+// You'll also need to remove the `DisableFirefoxStudies` and `DisableTelemetry` policies [NO-ANDROID] [NO-MAIL]
+pref("browser.preferences.experimental", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Glean redesign/navigation category at `about:glean`
 // This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
@@ -3465,10 +3476,6 @@ pref("sidebar.visibility", "hide-sidebar"); // [NO-ANDROID] [NO-MAIL] Hide by de
 
 /// Enable developer options for `about:profiling`
 pref("devtools.performance.aboutprofiling.has-developer-options", true);
-
-/// Enable Firefox Labs (`about:preferences#experimental`) by default [NO-ANDROID] [NO-MAIL]
-pref("browser.preferences.experimental", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.preferences.experimental.hidden", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable Firefox Translations (+ the pop-up) by default [NO-MAIL]
 // Translations are done locally - very nice to have [NO-MAIL]
