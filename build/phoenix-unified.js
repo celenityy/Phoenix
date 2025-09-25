@@ -1127,12 +1127,14 @@ pref("network.parental_controls_cached_state", false, locked); // [DEFAULT]
 pref("dom.security.https_only_mode_send_http_background_request", false);
 
 /// Disable third-party/OS-level root certificates
-// I've been torn on how to handle this, but IMO the safest way forward is disabling this functionality in Firefox.
+// I've been torn on how to handle this, but IMO the safest way forward is disabling this functionality in Firefox
 // This is commonly abused by malware/etc. and it's even overriden by certain software/garbage AV's...
 // Ex. https://support.kaspersky.com/common/compatibility/14620#block3
-// Since this is something programs actively try to override, I don't see a safe way to support this, so we'll lock it.
+// Since this is something programs actively try to override, I don't see a safe way to support this, so we'll lock it
 // We still allow users to manually import certificates into Firefox... 
-// So we can ensure users are aware of certificates they add and are making this decision consciously.
+// So we can ensure users are aware of certificates they add and are making this decision consciously
+// This is also important to ensure that Certificate Transparency is properly enforced, since it (`security.pki.certificate_transparency.mode`) only covers roots issued by Mozilla
+// https://wiki.mozilla.org/SecurityEngineering/Certificate_Transparency#Certificate_Transparency_Support_in_Firefox
 // We also set "ImportEnterpriseRoots" in policies [NO-ANDROID]
 // https://mozilla.github.io/policy-templates/#certificates--importenterpriseroots [NO-ANDROID]
 pref("security.certerrors.mitm.auto_enable_enterprise_roots", false); // [ANDROID-ONLY] [DEFAULT]
@@ -1151,9 +1153,9 @@ pref("security.tls.enable_0rtt_data", false);
 
 /// Enable (+ enforce) Certificate Transparency
 // https://wiki.mozilla.org/SecurityEngineering/Certificate_Transparency
-pref("security.pki.certificate_transparency.mode", 2); // [DEFAULT - Nightly Desktop]
 pref("security.pki.certificate_transparency.disable_for_hosts", ""); // [DEFAULT]
 pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [DEFAULT]
+pref("security.pki.certificate_transparency.mode", 2); // [DEFAULT - non-Nightly Android]
 
 /// Enable CRLite revocation checks & prioritize over OCSP
 // https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/
