@@ -18,6 +18,10 @@ else
 	rm -rf archives/*
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    /usr/sbin/dot_clean -mv "$phoenix_linux_dir"
+fi
+
 cd "$phoenix_linux_dir"
 echo_green_text "Creating archives/phoenix-linux.zip..."
 zip -r -FS "$phoenix_dir/archives/phoenix-linux.zip" *
@@ -27,6 +31,9 @@ if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
 fi
 
 if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+    	/usr/sbin/dot_clean -mv "$phoenix_linux_flatpak_dir"
+	fi
     cd "$phoenix_linux_flatpak_dir"
 	echo_green_text "Creating archives/phoenix-flatpak.zip..."
 	zip -r -FS "$phoenix_dir/archives/phoenix-flatpak.zip" *
@@ -37,6 +44,9 @@ if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
 fi
 
 if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+    	/usr/sbin/dot_clean -mv "$phoenix_osx_dir"
+	fi
     cd "$phoenix_osx_dir"
 	echo_green_text "Creating archives/phoenix-osx.zip..."
 	zip -r -FS "$phoenix_dir/archives/phoenix-osx.zip" * -x 'Library/*'
@@ -47,6 +57,9 @@ if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
 fi
 
 if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+    	/usr/sbin/dot_clean -mv "$phoenix_osx_intel_dir"
+	fi
     cd "$phoenix_osx_intel_dir"
 	echo_green_text "Creating archives/phoenix-osx-intel.zip..."
 	zip -r -FS "$phoenix_dir/archives/phoenix-osx-intel.zip" * -x 'Library/*'
@@ -57,6 +70,9 @@ if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
 fi
 
 if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+    	/usr/sbin/dot_clean -mv "$phoenix_windows_dir"
+	fi
     cd "$phoenix_windows_dir"
 	echo_green_text "Creating archives/phoenix-windows.zip..."
 	zip -r -FS "$phoenix_dir/archives/phoenix-windows.zip" *
