@@ -45,9 +45,12 @@
         "DisableProfileRefresh": true,
         "DisplayBookmarksToolbar": "always",
         "EnableTrackingProtection": {
+            "BaselineExceptions": true,
+            "ConvenienceExceptions": false,
             "Cryptomining": true,
             "EmailTracking": true,
             "Fingerprinting": true,
+            "SuspectedFingerprinting": true,
             "Value": true
         },
         "EncryptedMediaExtensions": {
@@ -107,6 +110,7 @@
         },
         "HttpsOnlyMode": "force_enabled",
         "NoDefaultBookmarks": true,
+        "OverridePostUpdatePage": "",
         "PrivateBrowsingModeAvailability": 0,
         "SkipTermsOfUse": true,
         "SupportMenu": {
