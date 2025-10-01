@@ -982,6 +982,12 @@ pref("media.aboutwebrtc.hist.enabled", false); // [DEFAULT - non-Nightly]
 /// Enable a fire button in Private Browsing Windows to reset the session [NO-ANDROID] [NO-MAIL]
 pref("browser.privatebrowsing.resetPBM.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
 
+/// Enable the "Forget" button by default [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/components/customizableui/CustomizableWidgets.sys.mjs#576 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/components/enterprisepolicies/Policies.sys.mjs#950 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/locales/en-US/browser/policies/policies-descriptions.ftl#81 [NO-ANDROID] [NO-MAIL]
+pref("privacy.panicButton.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Increase the interval between between Session Store save operations
 // Also improves performance
 // (Default = 10000 (10 secs) for Android, 15000 (15 secs) elsewhere)
