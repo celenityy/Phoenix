@@ -845,6 +845,9 @@ pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true);
 pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", true);
 
 /// Round window sizes
+// Also ensure we always skip earlyBlankFirstPaint to ensure windows are properly sized: https://bugzilla.mozilla.org/show_bug.cgi?id=1448423
+pref("browser.startup.blankWindow", false); // [DEFAULT - non-Windows, non-Linux Nightly]
+pref("privacy.resistFingerprinting.skipEarlyBlankFirstPaint", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("privacy.window.maxInnerHeight", 900); // [DEFAULT - non-Android/Thunderbird]
 pref("privacy.window.maxInnerWidth", 1600);
 
