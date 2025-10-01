@@ -1,4 +1,18 @@
 {
     "policies": {
+        "Bookmarks": [
+            {
+                "Title": "about:attribution",
+                "URL": "file:///etc/firefox/phoenix/assets/about/attribution.html",
+                "Placement": "menu",
+                "Folder": "🥚"
+            },
+            {
+                "Title": "about:phoenix",
+                "URL": "file:///etc/firefox/phoenix/assets/about/phoenix.html",
+                "Placement": "menu",
+                "Folder": "🥚"
+            }
+        ]
     }
 }
