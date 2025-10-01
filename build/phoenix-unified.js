@@ -2238,6 +2238,14 @@ pref("browser.ml.pageAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/browser/app/profile/firefox.js#447 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable "Smart Assist" [NO-ANDROID] [NO-MAIL]
+// Currently relies on OpenAI/ChatGPT... so I'm going to be aggressive here, because I don't really want to deal with this :/ [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/genai/SmartAssistEngine.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.smartAssist.apiKey", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.smartAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.smartAssist.endpoint", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.smartAssist.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Do not use AI to "suggest tabs and a name for tab groups" by default [NO-ANDROID] [NO-MAIL]
 pref("browser.tabs.groups.smart.enabled", false); // [NO-ANDROID] [NO-MAIL] UI
 pref("browser.tabs.groups.smart.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
