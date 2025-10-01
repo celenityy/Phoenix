@@ -359,6 +359,7 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked
 pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.translations.mostRecentTargetLanguages", "en-US"); // https://searchfox.org/firefox-main/rev/4258ca07/browser/components/enterprisepolicies/Policies.sys.mjs#2829
 pref("browser.translations.panelShown", true, locked); // [HIDDEN]
 pref("extensions.getAddons.browseAddons", ""); // [HIDDEN - non-Android]
 pref("extensions.getAddons.discovery.api_url", "data;");
