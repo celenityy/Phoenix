@@ -4008,6 +4008,13 @@ pref("browser.urlbar.suggest.realtimeOptIn", false, locked); // [NO-ANDROID] [NO
 pref("browser.partnerlink.attributionURL", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.partnerlink.campaign.topsites", "", locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable Polygon (stock market) suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/urlbar/private/MarketSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/app/profile/firefox.js#761 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/components/urlbar/UrlbarPrefs.sys.mjs#470 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.market.featureGate", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.market", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Disable row labels by default [NO-ANDROID] [NO-MAIL]
 // Provides a cleaner UI, and removes Firefox Suggest branding from results [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarView.sys.mjs#2353 [NO-ANDROID] [NO-MAIL]
@@ -4020,7 +4027,7 @@ pref("browser.urlbar.groupLabels.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.sponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Telemetry [NO-ANDROID] [NO-MAIL]
+/// Disable telemetry [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.contextualOptIn", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -4048,11 +4055,11 @@ pref("browser.urlbar.yelpRealtime.featureGate", false); // [NO-ANDROID] [NO-MAIL
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#317 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.rustEnabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// If Merino is enabled, only allow fetching content from AccuWeather, AMO, MDN, and Wikipedia (if the corresponding prefs are enabled) [NO-ANDROID] [NO-MAIL]
+/// If Merino is enabled, only allow fetching content from AccuWeather, AMO, MDN, Polygon (stock market), and Wikipedia (if the corresponding prefs are enabled) [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/MerinoClient.sys.mjs#123 [NO-ANDROID] [NO-MAIL]
 // NOTE: These are also required for displaying Weather on Firefox Home (`about:home`) [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.merino.endpointURL", "https://merino.services.mozilla.com/api/v1/suggest"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.merino.providers", "accuweather,amo,mdn,wikipedia"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.merino.providers", "accuweather,amo,market,mdn,wikipedia"); // [NO-ANDROID] [NO-MAIL]
 
 /// If Yelp suggestions are enabled, show subject/title for results [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#706 [NO-ANDROID] [NO-MAIL]
