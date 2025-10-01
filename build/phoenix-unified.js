@@ -4037,9 +4037,12 @@ pref("browser.urlbar.suggest.wikipedia", false); // [NO-ANDROID] [NO-MAIL] [NIGH
 pref("browser.urlbar.wikipedia.featureGate", true); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
 
 /// Disable Yelp suggestions [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/YelpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/urlbar/private/YelpSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/urlbar/private/YelpRealtimeSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.yelp", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.yelpRealtime", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.yelp.featureGate", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.yelpRealtime.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Ensure that we're using the newer Rust backend [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarPrefs.sys.mjs#317 [NO-ANDROID] [NO-MAIL]
