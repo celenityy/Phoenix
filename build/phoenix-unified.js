@@ -3997,6 +3997,11 @@ pref("browser.urlbar.yelp.mlEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT
 pref("browser.urlbar.mdn.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.mdn", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable nags to opt-in to "real-time suggestions" [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/components/urlbar/UrlbarPrefs.sys.mjs#489 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/4258ca07/browser/app/profile/firefox.js#758 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.realtimeOptIn", false, locked); // [NO-ANDROID] [NO-MAIL]
+
 /// Disable partner links/attribution [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/modules/PartnerLinkAttribution.sys.mjs [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1745 [NO-ANDROID] [NO-MAIL]
