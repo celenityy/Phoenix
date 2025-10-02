@@ -6,20 +6,26 @@
 source "$phoenix_dir/build/env.sh"
 
 if [[ -n "$PHOENIX_LINUX_ONLY" ]]; then
+    mkdir -vp "$phoenix_linux_dir/assets/about"
     mkdir -vp "$phoenix_linux_dir/configs/ui-fix"
     mkdir -vp "$phoenix_linux_dir/defaults/pref"
     mkdir -vp "$phoenix_linux_dir/policies"
 else
     mkdir -vp "$phoenix_android_dir"
+    mkdir -vp "$phoenix_linux_dir/assets/about"
     mkdir -vp "$phoenix_linux_dir/configs/ui-fix"
 	mkdir -vp "$phoenix_linux_dir/defaults/pref"
     mkdir -vp "$phoenix_linux_dir/policies"
+    mkdir -vp "$phoenix_linux_flatpak_dir/assets/about"
     mkdir -vp "$phoenix_linux_flatpak_dir/configs/ui-fix"
     mkdir -vp "$phoenix_linux_flatpak_dir/defaults/pref"
     mkdir -vp "$phoenix_linux_flatpak_dir/policies"
+    mkdir -vp "$phoenix_osx_dir/assets/about"
     mkdir -vp "$phoenix_osx_dir/configs/ui-fix"
     mkdir -vp "$phoenix_osx_dir/macos"
+    mkdir -vp "$phoenix_osx_intel_dir/assets/about"
     mkdir -vp "$phoenix_osx_intel_dir/configs/ui-fix"
+    mkdir -vp "$phoenix_windows_dir/assets/about"
     mkdir -vp "$phoenix_windows_dir/configs/ui-fix"
     mkdir -vp "$phoenix_windows_dir/distribution"
 fi
@@ -251,6 +257,13 @@ cp "$phoenix_dir/build/linux/COPYING.txt" "$phoenix_linux_dir"/
 # Copy README
 cp "$phoenix_dir/build/linux/README.md" "$phoenix_linux_dir"/
 
+# Copy assets
+cp "$phoenix_dir/build/assets/about/attribution.css" "$phoenix_linux_dir"/assets/about/
+cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_linux_dir"/assets/about/
+cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_linux_dir"/assets/about/
+cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_linux_dir"/assets/about/
+cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_linux_dir"/assets/
+
 # Copy environment variables
 mkdir -vp "$phoenix_linux_dir/etc/profile.d"
 cp "$phoenix_dir/build/linux/etc/profile.d/phoenix-env-overrides.sh" "$phoenix_linux_dir/etc/profile.d/phoenix-env-overrides.sh"
@@ -305,6 +318,13 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     # Copy README
     cp "$PHOENIX_README" "$phoenix_linux_flatpak_dir"/
 
+    # Copy assets
+    cp "$phoenix_dir/build/assets/about/attribution.css" "$phoenix_linux_flatpak_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_linux_flatpak_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_linux_flatpak_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_linux_flatpak_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_linux_flatpak_dir"/assets/
+
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [NON-FLATPAK-LINUX-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|NON-FLATPAK-LINUX-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
     echo "Created $PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
@@ -334,6 +354,13 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
 
     # Copy README
     cp "$PHOENIX_README" "$phoenix_osx_dir"/
+
+    # Copy assets
+    cp "$phoenix_dir/build/assets/about/attribution.css" "$phoenix_osx_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_osx_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_osx_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_osx_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [NON-FLATPAK-LINUX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|NON-FLATPAK-LINUX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_BOOTSTRAP"
@@ -368,6 +395,13 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     # Copy README
     cp "$PHOENIX_README" "$phoenix_osx_intel_dir"/
 
+    # Copy assets
+    cp "$phoenix_dir/build/assets/about/attribution.css" "$phoenix_osx_intel_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_osx_intel_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_osx_intel_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_osx_intel_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_intel_dir"/assets/
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [NON-FLATPAK-LINUX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|NON-FLATPAK-LINUX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_INTEL_BOOTSTRAP"
     echo "Created $PHOENIX_OSX_INTEL_BOOTSTRAP"
@@ -400,6 +434,13 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
 
     # Copy README
     cp "$PHOENIX_README" "$phoenix_windows_dir"/
+
+    # Copy assets
+    cp "$phoenix_dir/build/assets/about/attribution.css" "$phoenix_windows_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_windows_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_windows_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_windows_dir"/assets/about/
+    cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_windows_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [NON-FLATPAK-LINUX-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|NON-FLATPAK-LINUX-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_WINDOWS_BOOTSTRAP"
