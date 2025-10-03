@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.09.07.1", locked);
+pref("browser.phoenix.version", "2025.10.03.1", locked);
 
 /* INDEX 
 
@@ -83,11 +83,11 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix: 2025.09.07.1", locked); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix: 2025.10.03.1", locked); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID] [NO-MAIL]
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.09.07.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.10.03.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("distribution.id", "default", locked); // [LINUX-ONLY] [HIDDEN]
 pref("distribution.version", "default", locked); // [LINUX-ONLY] [HIDDEN]
 
@@ -285,7 +285,7 @@ pref("nimbus.profilesdatastoreservice.enabled", false, locked); // Disable writi
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // Disable reading from the NimbusEnrollments table database https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/lib/Enrollments.sys.mjs#429
 
 /// Disable Firefox Labs (`about:preferences#experimental`) [NO-ANDROID] [NO-MAIL]
-// Firefox Labs requires experiments and telemetry to be enabled (see specific prefs below)
+// Firefox Labs requires experiments and telemetry to be enabled (see specific prefs below) [NO-ANDROID] [NO-MAIL]
 // When experiments and telemetry are not enabled, this seems to cause a broken/empty "Firefox Labs" section to appear at the bottom of pages at `about:preferences` [NO-ANDROID] [NO-MAIL]
 // From my testing, the following prefs specifically are required for Firefox Labs to work (these are also indicated above): [NO-ANDROID] [NO-MAIL]
 // `app.shield.optoutstudies.enabled` -> `true` [NO-ANDROID] [NO-MAIL]

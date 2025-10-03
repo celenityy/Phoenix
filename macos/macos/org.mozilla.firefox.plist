@@ -32,6 +32,26 @@
 			<key>Placement</key>
 			<string>menu</string>
 			<key>Title</key>
+			<string>about:attribution</string>
+			<key>URL</key>
+			<string>file:///opt/homebrew/opt/phoenix-osx/assets/about/attribution.html</string>
+		</dict>
+		<dict>
+			<key>Folder</key>
+			<string>🥚</string>
+			<key>Placement</key>
+			<string>menu</string>
+			<key>Title</key>
+			<string>about:phoenix</string>
+			<key>URL</key>
+			<string>file:///opt/homebrew/opt/phoenix-osx/assets/about/phoenix.html</string>
+		</dict>
+		<dict>
+			<key>Folder</key>
+			<string>🥚</string>
+			<key>Placement</key>
+			<string>menu</string>
+			<key>Title</key>
 			<string>about:netscape</string>
 			<key>URL</key>
 			<string>http://home.mcom.com</string>
@@ -137,11 +157,17 @@
 	<string>always</string>
 	<key>EnableTrackingProtection</key>
 	<dict>
+		<key>BaselineExceptions</key>
+		<true/>
+		<key>ConvenienceExceptions</key>
+		<false/>
 		<key>Cryptomining</key>
 		<true/>
 		<key>EmailTracking</key>
 		<true/>
 		<key>Fingerprinting</key>
+		<true/>
+		<key>SuspectedFingerprinting</key>
 		<true/>
 		<key>Value</key>
 		<true/>
@@ -1519,6 +1545,8 @@
 	<string>force_enabled</string>
 	<key>NoDefaultBookmarks</key>
 	<true/>
+	<key>OverridePostUpdatePage</key>
+	<string></string>
 	<key>PrivateBrowsingModeAvailability</key>
 	<integer>0</integer>
 	<key>Proxy</key>
@@ -1660,7 +1688,7 @@
 				<key>Name</key>
 				<string>Startpage</string>
 				<key>SuggestURLTemplate</key>
-				<string>https://www.startpage.com/osuggestions?q={searchTerms}</string>
+				<string>https://www.startpage.com/osuggestions?query={searchTerms}</string>
 				<key>URLTemplate</key>
 				<string>https://www.startpage.com/sp/search?query={searchTerms}</string>
 			</dict>
@@ -1676,7 +1704,7 @@
 				<key>Name</key>
 				<string>Startpage (EU)</string>
 				<key>SuggestURLTemplate</key>
-				<string>https://eu.startpage.com/osuggestions?q={searchTerms}</string>
+				<string>https://eu.startpage.com/osuggestions?query={searchTerms}</string>
 				<key>URLTemplate</key>
 				<string>https://eu.startpage.com/sp/search?query={searchTerms}</string>
 			</dict>
@@ -1767,8 +1795,6 @@
 		<false/>
 		<key>FeatureRecommendations</key>
 		<false/>
-		<key>FirefoxLabs</key>
-		<true/>
 		<key>MoreFromMozilla</key>
 		<false/>
 		<key>SkipOnboarding</key>

@@ -12,6 +12,12 @@
                 "URL": "file:///etc/firefox/phoenix/assets/about/phoenix.html",
                 "Placement": "menu",
                 "Folder": "🥚"
+            },
+            {
+                "Title": "about:netscape",
+                "URL": "http://home.mcom.com",
+                "Placement": "menu",
+                "Folder": "🥚"
             }
         ]
     }

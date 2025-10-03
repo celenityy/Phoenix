@@ -42,6 +42,9 @@ Unspecified = This preference should be set EVERYWHERE
 
 */
 
+/// Add custom branding at `about:support`
+pref("app.support.vendor", "Phoenix - Extended: 2025.10.03.1", locked); // [NO-MAIL] [HIDDEN]
+
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
