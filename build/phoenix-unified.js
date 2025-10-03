@@ -1979,10 +1979,15 @@ pref("xpinstall.whitelist.add", "", locked); // [HIDDEN - non-Android] [DEFAULT 
 // These are set as separate preferences to make it easier for users to customize the list of allowed sources - ex. maybe I want to only allow installing add-ons from AMO (`addons.mozilla.org`), I could just clear the values of the prefs EXCEPT for `xpinstall.whitelist.add.AMO` [ANDROID-ONLY]
 // Users can add their own sites here by creating their own preferences with a similar format and values like below, and can of course always just download and install the `.xpi` file anyways [ANDROID-ONLY]
 pref("xpinstall.whitelist.add.AdGuard", "https://agrd.io,https://static.adguard.com,https://static.adtidy.org"); // [ANDROID-ONLY] AdGuard
+pref("xpinstall.whitelist.add.AdGuard.PBM", "https://agrd.io^privateBrowsingId=1,https://static.adguard.com^privateBrowsingId=1,https://static.adtidy.org^privateBrowsingId=1"); // [ANDROID-ONLY] AdGuard (Private Browsing)
 pref("xpinstall.whitelist.add.AMO", "https://addons.mozilla.org"); // [ANDROID-ONLY] AMO
+pref("xpinstall.whitelist.add.AMO.PBM", "https://addons.mozilla.org^privateBrowsingId=1"); // [ANDROID-ONLY] AMO (Private Browsing)
 pref("xpinstall.whitelist.add.EFF", "https://eff.org,https://privacybadger.org"); // [ANDROID-ONLY] Privacy Badger
+pref("xpinstall.whitelist.add.EFF.PBM", "https://eff.org^privateBrowsingId=1,https://privacybadger.org^privateBrowsingId=1"); // [ANDROID-ONLY] Privacy Badger (Private Browsing)
 pref("xpinstall.whitelist.add.Mullvad", "https://mullvad.net"); // [ANDROID-ONLY] Mullvad
+pref("xpinstall.whitelist.add.Mullvad.PBM", "https://mullvad.net^privateBrowsingId=1"); // [ANDROID-ONLY] Mullvad (Private Browsing)
 pref("xpinstall.whitelist.add.NoScript", "https://noscript.net,https://secure.informaction.com"); // [ANDROID-ONLY] NoScript
+pref("xpinstall.whitelist.add.NoScript.PBM", "https://noscript.net^privateBrowsingId=1,https://secure.informaction.com^privateBrowsingId=1"); // [ANDROID-ONLY] NoScript (Private Browsing)
 
 /// Disable add-on sideloading
 // Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
