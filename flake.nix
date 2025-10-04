@@ -48,6 +48,7 @@
                   "${pkgs.phoenix}/pref/phoenix-desktop.js";
                 environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
                 environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
+                environment.etc."firefox/phoenix/assets".source = "${pkgs.phoenix}/assets";
                 programs.firefox.policies =
                   (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/policies.json")).policies;
                 nixpkgs.overlays = [
@@ -110,12 +111,13 @@
                   if stdenvNoCC.isDarwin then
                     ''
                       cp macos/* $out/
+                      cp -r macos/assets $out/assets
                       cp -r macos/configs $out/configs
                       cp -r macos/userjs $out/userjs
                     ''
                   else
                     ''
-                      cp -r linux/policies/policies.json linux/phoenix.cfg linux/defaults/pref linux/configs $out/
+                      cp -r linux/assets linux/policies/policies.json linux/phoenix.cfg linux/defaults/pref linux/configs $out/
                       cp -r linux/userjs $out/userjs
                     ''
                 }
