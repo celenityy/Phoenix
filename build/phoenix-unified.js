@@ -302,8 +302,8 @@ pref("about.glean.redesign.enabled", false, locked); // [NO-ANDROID] [HIDDEN - n
 
 /// Disable OHTTP Telemetry [ANDROID-ONLY]
 // https://searchfox.org/mozilla-central/source/widget/android/OhttpHelper.cpp [ANDROID-ONLY]
-pref("network.ohttp.configURL", "", locked); // [ANDROID-ONLY] [NIGHTLY]
-pref("network.ohttp.relayURL", "", locked); // [ANDROID-ONLY] [NIGHTLY]
+pref("network.ohttp.configURL", "", locked); // [ANDROID-ONLY]
+pref("network.ohttp.relayURL", "", locked); // [ANDROID-ONLY]
 
 /// Disable Origin Trials
 // https://wiki.mozilla.org/Origin_Trials
