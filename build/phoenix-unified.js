@@ -3897,9 +3897,12 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment"
 /// If Merino is enabled, use OHTTP for superior privacy [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/d52edf7e/toolkit/components/nimbus/FeatureManifest.yaml#1415 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/d52edf7e/browser/extensions/newtab/lib/DiscoveryStreamFeed.sys.mjs#1869 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/c2646728/browser/components/urlbar/MerinoClient.sys.mjs#75 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.merino.ohttpConfigURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.merino.ohttpRelayURL", "https://mozilla-ohttp.fastly-edge.com/"); // [NO-ANDROID] [NO-MAIL]
 
 /// If sponsored content is somehow enabled, ensure that privacy protections are enabled [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.sponsor-protection.debug", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
