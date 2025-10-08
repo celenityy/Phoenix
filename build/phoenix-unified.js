@@ -1800,6 +1800,10 @@ pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false); // [NO-MAIL]
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 pref("permissions.default.xr", 2); // [HIDDEN - Android/Thunderbird]
 
+/// If ASM.js is enabled, enforce validation
+// https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#9450
+pref("javascript.options.throw_on_asmjs_validation_failure", true);
+
 /// If JIT (Ion/WarpMonkey) is disabled, also disable it for extensions
 // This is the default, but it's hidden - so setting it here lets us expose it...
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
