@@ -1775,7 +1775,7 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
-pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS] Disable all JITs for the (critical) parent process https://searchfox.org/firefox-main/rev/1c6a8b56/xpcom/build/XPCOMInit.cpp#239 https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#parent-process
+pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS] Disable all JITs for the (critical/especially sensitive) parent process https://searchfox.org/firefox-main/rev/1c6a8b56/xpcom/build/XPCOMInit.cpp#239 https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#parent-process
 pref("javascript.options.native_regexp", false); // irregexp https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/21865
 pref("javascript.options.wasm_optimizingjit", false); // WASM-Ion (BaldrMonkey)
 
