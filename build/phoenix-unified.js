@@ -1787,6 +1787,12 @@ pref("image.jxl.enabled", false); // [DEFAULT]
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml 
 pref("mathml.disabled", true);
 
+/// Disable shared memory allocation from the parent process to content processes
+// https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#9130
+// https://searchfox.org/firefox-main/rev/dc1c78e9/dom/ipc/ContentParent.cpp#2415
+// (For reference, Firefox disables this alongside other JITs in Safe mode: https://searchfox.org/firefox-main/rev/dc1c78e9/js/xpconnect/src/XPCJSContext.cpp#904)
+pref("javascript.options.self_hosted.use_shared_memory", false);
+
 /// Disable SharedArrayBuffer using window.postMessage
 // https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
 // https://developer.mozilla.org/docs/Web/API/Window/postMessage
