@@ -613,7 +613,7 @@ pref("browser.phoenix.status", "002");
 pref("urlclassifier.trackingAnnotationTable.testEntries", ""); // [HIDDEN] [DEFAULT]
 
 /// Allow users to exclude URLs from ETP via the `about:config`
-// These are typically hidden, but very useful (especially for testing/working around breakage), so we can expose this via the `about:config` to make it easier for users to find/add exclusions
+// These are typically hidden, but very useful (especially for testing/working around breakage), so we can expose these via the `about:config` to make it easier for users to find/add exclusions
 pref("privacy.rejectForeign.allowList", ""); // [DEFAULT]
 pref("urlclassifier.features.consentmanager.annotate.skipURLs", ""); // [HIDDEN] [DEFAULT]
 pref("urlclassifier.features.cryptomining.skipURLs", ""); // [HIDDEN] [DEFAULT]
@@ -623,17 +623,17 @@ pref("urlclassifier.features.socialtracking.skipURLs", ""); // [HIDDEN] [DEFAULT
 pref("urlclassifier.trackingSkipURLs", ""); // [HIDDEN] [DEFAULT]
 
 /// Disable exceptions for minor issues by default
-pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // [NIGHTLY]
+pref("privacy.trackingprotection.allow_list.convenience.enabled", false);
 
 /// Enable ETP Strict
-// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop?as=u#w_strict-enhanced-tracking-protection
+// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection
 pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 
 /// Manually enable ETP/Strict protections...
 // These are typically configured by ETP Strict - but unfortunately Firefox doesn't set ETP Strict on the browser's first run :/
 // So we need to also manually configure them. We still also use ETP Strict (not 'Custom') due to our enforcement of it, so we should be covered by Mozilla changes/updates for protections.
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
-// We're also configuring the 'CookieBehavior' & 'EnableTrackingProtection' policies on desktop.
+// We're also configuring the 'CookieBehavior' and 'EnableTrackingProtection' policies on desktop.
 
 //// Block known consent managers (CMPs)
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
@@ -663,20 +663,20 @@ pref("privacy.trackingprotection.enabled", true);
 pref("privacy.trackingprotection.pbmode.enabled", true); // [DEFAULT - non-Android]
 
 //// Block known trackers using the `strict` (Level 2) list
-/// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#15192
-/// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804
+/// https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#16075
+/// https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/nimbus/FeatureManifest.yaml#3609
 pref("privacy.annotate_channels.strict_list.enabled", true); // [DEFAULT - Android]
 pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // [DEFAULT]
 
 //// Block known tracking cookies
-pref("network.cookie.cookieBehavior.trackerCookieBlocking", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird]
+pref("network.cookie.cookieBehavior.trackerCookieBlocking", true); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop]
 pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 
 //// Enable Bounce Tracking Protection
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
-/// https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11
+/// https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#10
 pref("privacy.bounceTrackingProtection.mode", 1); // [DEFAULT - Nightly]
-pref("privacy.bounceTrackingProtection.requireStatefulBounces", false); // [DEFAULT - Nightly] Protect against all bounce trackers, instead of just those who access cookies/storage https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#4436
+pref("privacy.bounceTrackingProtection.requireStatefulBounces", false); // [DEFAULT - Nightly] Protect against all bounce trackers, instead of just those who access cookies/storage https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/nimbus/FeatureManifest.yaml#4930
 
 //// Enable Query Parameter Stripping
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
@@ -708,22 +708,22 @@ pref("privacy.reduceTimerPrecision", true); // [DEFAULT]
 
 //// Enable TCP/dFPI
 /// https://support.mozilla.org/kb/introducing-total-cookie-protection-standard-mode
-/// https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2828
+/// https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/nimbus/FeatureManifest.yaml#3633
 pref("network.cookie.cookieBehavior", 5); // [DEFAULT - non-Thunderbird]
 pref("network.cookie.cookieBehavior.optInPartitioning", true);
 pref("network.cookie.cookieBehavior.optInPartitioning.pbmode", true);
 pref("network.cookie.cookieBehavior.pbmode", 5); // [DEFAULT - non-Thunderbird]
 
 //// Ignore less restricted referer policies (than the default)
-/// https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml#12979
+/// https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#13615
 pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // [DEFAULT] - for cross-site requests
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // [DEFAULT] - for cross-site requests in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // [DEFAULT] - for top navigations in Private Browsing
 pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // for top navigations
 
 /// Enable exceptions required to avoid major breakage by default
-pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT] [NIGHTLY]
-pref("privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs", true, locked); // [NIGHTLY] Skip migration so that privacy.trackingprotection.allow_list.baseline.enabled isn't overriden to false https://searchfox.org/mozilla-central/rev/59cf9b74/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#236
+pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT]
+pref("privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs", true, locked); // Skip migration, so that `privacy.trackingprotection.allow_list.baseline.enabled` isn't overriden to `false` https://searchfox.org/firefox-main/rev/dc1c78e9/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#254
 
 /// Lower the network priority of known trackers (if not blocked for whatever reason...)
 pref("privacy.trackingprotection.lower_network_priority", true);
