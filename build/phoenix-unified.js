@@ -2008,9 +2008,9 @@ pref("xpinstall.whitelist.add.NoScript.PBM", "https://noscript.net^privateBrowsi
 // https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/internal/AddonSettings.sys.mjs#125
 pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures sideloaded extensions are always disabled by default...
 pref("extensions.enabledScopes", 5); // [HIDDEN]
-pref("extensions.installDistroAddons", false); // [DEFAULT - Android] [HIDDEN - non-Android]
+pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android] [DEFAULT - Android]
 pref("extensions.sideloadScopes", 0); // [HIDDEN]
-pref("extensions.startupScanScopes", 0); // [DEFAULT - non-Thunderbird] [HIDDEN - Android]
+pref("extensions.startupScanScopes", 0); // [HIDDEN - Android] [DEFAULT - non-Thunderbird]
 
 /// Disable the AMO Abuse Report API (`navigator.mozAddonManager.reportAbuse`)
 // This depends on mozAddonManager anyways, which we disable below
@@ -2106,7 +2106,7 @@ pref("extensions.webextensions.default-content-security-policy.v3", "script-src 
 /// Never allow installing extensions without first prompting the user
 pref("extensions.postDownloadThirdPartyPrompt", false, locked); // [HIDDEN - Android/Thunderbird] https://github.com/arkenfox/user.js/issues/1090
 pref("xpinstall.whitelist.directRequest", false); // [HIDDEN] For direct URL requests https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#4463
-pref("xpinstall.whitelist.fileRequest", false); // [DEFAULT - Android] [HIDDEN - non-Android] For `file://` requests https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#4475
+pref("xpinstall.whitelist.fileRequest", false); // [HIDDEN - non-Android] [DEFAULT - Android] For `file://` requests https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#4475
 pref("xpinstall.whitelist.required", true, locked); // [DEFAULT] This is the `Warn you when websites try to install add-ons` setting at `about:preferences#privacy`
 
 /// Only allow installation and updates of extensions using Firefox's built-in certificates by default
@@ -2205,7 +2205,7 @@ pref("extensions.openPopupWithoutUserGesture.enabled", false); // [DEFAULT - non
 /// Prevent extensions from using the Gecko Profiler
 // Includes certain Mozilla extensions by default
 // https://firefox-source-docs.mozilla.org/tools/profiler/index.html
-pref("extensions.geckoProfiler.acceptedExtensionIds", ""); // [DEFAULT - Android] [HIDDEN - Android]
+pref("extensions.geckoProfiler.acceptedExtensionIds", ""); // [HIDDEN - Android] [DEFAULT - Android]
 
 /// Prevent recommending search extensions [NO-ANDROID] [NO-MAIL]
 // This is the "Find more search engines" link at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
