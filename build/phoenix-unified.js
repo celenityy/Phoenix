@@ -1183,8 +1183,8 @@ pref("security.tls.enable_delegated_credentials", true); // [DEFAULT]
 /// Enable MITM Detection
 // https://github.com/arkenfox/user.js/issues/740
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
-pref("security.certerrors.mitm.priming.enabled", true); //[HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
-pref("security.certerrors.mitm.priming.endpoint", "https://mitmdetection.services.mozilla.com/"); //[HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
+pref("security.certerrors.mitm.priming.enabled", true); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
+pref("security.certerrors.mitm.priming.endpoint", "https://mitmdetection.services.mozilla.com/"); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Android/Thunderbird]
 
 /// Enable OCSP stapling
 // https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
