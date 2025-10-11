@@ -1591,6 +1591,7 @@ pref("network.proxy.failover_direct", false);
 
 /// Disable file:///net
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1412081
+// (This unfortunately breaks file upload on Android ATM)
 pref("network.file.path_blacklist", "/net"); // [NO-ANDROID] [HIDDEN]
 pref("network.file.path_blacklist", ""); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
 
