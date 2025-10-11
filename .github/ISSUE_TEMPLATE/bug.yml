@@ -19,7 +19,7 @@ body:
   - type: dropdown
     id: browser
     attributes:
-      label: What web browser are you using with Phoenix?
+      label: What web browser(s) are you using with Phoenix?
       description: |
         If your browser is not listed, please select `Other` and enter its name in the comment field below. Note that browsers besides Firefox (Release channel) and IronFox are not officially supported or recommended by Phoenix, and may or may not work as expected (though, we make an effort to support other browsers when it's feasible to do so).
       multiple: true
