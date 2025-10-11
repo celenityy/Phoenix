@@ -13,7 +13,7 @@ body:
       options:
         - label: I confirm that this issue occurs on the **latest release** of Phoenix. You can check what the latest version is on [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
           required: true
-        - label: I confirm that this issue has **NOT** already been reported on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker] (https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
+        - label: I confirm that this issue has **NOT** already been reported on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
           required: true
 
   - type: dropdown
@@ -78,7 +78,8 @@ body:
     attributes:
       label: What version of Firefox/Gecko and Phoenix are you using?
       description: |
-        Please copy the value beside `Version`, located under `Application Basics` at `about:support`. Example: `143.0.4 (Phoenix - Extended: 2025.10.03.1)`
+        Please copy the value beside `Version`, located under `Application Basics` at `about:support`.
+        **Example**: `143.0.4 (Phoenix - Extended: 2025.10.03.1)`
     validations:
       required: true
 
@@ -94,8 +95,8 @@ body:
     attributes:
       label: Does the issue occur on a new browser profile?
       options:
-        - label: Yes.
-        - label: No.
+        - label: Yes
+        - label: No
     validations:
       required: true
 
@@ -104,7 +105,8 @@ body:
     attributes:
       label: Please share your browser's distribution ID.
       description: |
-        Please copy the value beside `Distribution ID`, located under `Application Basics` at `about:support`. Example: `mozilla-EMEfree`. If the distribution ID is blank, simply enter a space.
+        Please copy the value beside `Distribution ID`, located under `Application Basics` at `about:support`. If the distribution ID is blank, simply enter a space.
+        **Example**: `mozilla-EMEfree`
     validations:
       required: true
 
@@ -113,7 +115,8 @@ body:
     attributes:
       label: Please share your browser's update channel.
       description: |
-        Please copy the value beside `Update Channel`, located under `Application Basics` at `about:support`. Example: `release-cck-mozilla-EMEfree`. If there is no `Update Channel` specified, simply enter a space.
+        Please copy the value beside `Update Channel`, located under `Application Basics` at `about:support`. If there is no `Update Channel` specified, simply enter a space.
+        **Example**: `release-cck-mozilla-EMEfree`
     validations:
       required: true
 

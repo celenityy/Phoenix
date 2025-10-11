@@ -13,7 +13,7 @@ body:
       options:
         - label: I confirm that this feature is not already present on the **latest release** of Phoenix. You can check what the latest version is on [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
           required: true
-        - label: I confirm that this feature has **NOT** already been suggested on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker] (https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
+        - label: I confirm that this feature has **NOT** already been suggested on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
           required: true
 
   - type: textarea
