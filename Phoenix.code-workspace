@@ -9,6 +9,10 @@
 			"path": "../Phoenix.wiki"
 		},
 		{
+			"name": "phoenix-build-scripts",
+			"path": "../phoenix-build-scripts"
+		},
+		{
 			"name": "Phoenix-Debian",
 			"path": "../Phoenix-Debian"
 		},
