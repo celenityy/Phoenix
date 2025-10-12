@@ -1190,6 +1190,13 @@
 			<key>installation_mode</key>
 			<string>blocked</string>
 		</dict>
+		<key>{03fdf33c-f6b1-4992-992e-f4115ab16ee0}</key>
+		<dict>
+			<key>blocked_install_message</key>
+			<string>'BrowsingBloc' https://addons.mozilla.org/addon/{03fdf33c-f6b1-4992-992e-f4115ab16ee0} - Fake/scam/impersonation, masquerading as the well known 'Adblock' extension (which itself is also quite sketchy...)</string>
+			<key>installation_mode</key>
+			<string>blocked</string>
+		</dict>
 		<key>{0a3ee209-ab68-4b84-a9ef-eb0ee686dd8d}</key>
 		<dict>
 			<key>blocked_install_message</key>
@@ -1516,6 +1523,17 @@
 		<key>SponsoredSuggestions</key>
 		<false/>
 		<key>WebSuggestions</key>
+		<false/>
+	</dict>
+	<key>GenerativeAI</key>
+	<dict>
+		<key>Chatbot</key>
+		<false/>
+		<key>Enabled</key>
+		<false/>
+		<key>LinkPreviews</key>
+		<false/>
+		<key>TabGroups</key>
 		<false/>
 	</dict>
 	<key>Handlers</key>
