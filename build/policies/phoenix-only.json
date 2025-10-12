@@ -94,6 +94,12 @@
             "SponsoredSuggestions": false,
             "WebSuggestions": false
         },
+        "GenerativeAI": {
+            "Chatbot": false,
+            "Enabled": false,
+            "LinkPreviews": false,
+            "TabGroups": false
+        },
         "Handlers": {
             "extensions": {
                 "pdf": {
