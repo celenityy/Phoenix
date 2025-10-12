@@ -2447,13 +2447,15 @@ pref("browser.phoenix.status", "019");
 
 /// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla & Google (NOT PROXIED), as well as your locale to Mozilla
 // Ex. https://en-us.phish-error.mozilla.com/?url=example.org - Which redirects you directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org 
-// We can improve privacy & speed by sending the domain *only* to Google & without sending your locale to anyone
+// We can improve privacy and speed by sending the domain *only* to Google & without sending your locale to anyone
 // We could also potentially strip tpl=mozilla which tells Google the request is from Firefox - though it looks like there is a different page for Firefox users with a better privacy policy, so we will leave it for now
 // Unclear whether 'MalwareMistake' is used, but we can set it anyways
 pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
 pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
 pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
 pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
+pref("browser.safebrowsing.provider.google5.reportMalwareMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
+pref("browser.safebrowsing.provider.google5.reportPhishMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=");
 
 //// Similar behavior also appears to happen when you report a URL to Safe Browsing
 pref("browser.safebrowsing.reportPhishURL", "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=");
@@ -2488,7 +2490,10 @@ pref("browser.safebrowsing.downloads.enabled", true); // [DEFAULT - non-Android]
 pref("browser.safebrowsing.id", "navclient-auto-ffox"); // [DEFAULT - Official] Ensure we use Mozilla's ID
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
-pref("browser.safebrowsing.provider.mozilla.gethashURL", "https://shavar.services.mozilla.com/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // Ensure we use Mozilla's official ID
+pref("browser.safebrowsing.provider.google5.advisoryURL", "https://developers.google.com/safe-browsing/v4/advisory"); // [DEFAULT - Nightly]
+pref("browser.safebrowsing.provider.google5.enabled", true); // [DEFAULT - Nightly]
+pref("browser.safebrowsing.provider.google5.lists", "goog-phish-proto,googpub-phish-proto,goog-malware-proto,goog-unwanted-proto,goog-harmful-proto"); // [DEFAULT - Nightly]
+pref("browser.safebrowsing.provider.mozilla.gethashURL", "https://shavar.services.mozilla.com/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // Ensure we always use Mozilla's official ID
 pref("browser.safebrowsing.update.enabled", true); // [HIDDEN] [DEFAULT] Also covers Mozilla's tracking protection lists
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto"); // [DEFAULT - non-Android]
 pref("urlclassifier.downloadBlockTable", "goog-badbinurl-proto"); // [DEFAULT - non-Android]
@@ -2511,6 +2516,8 @@ pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked);
 pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
+pref("browser.safebrowsing.provider.google5.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
+pref("browser.safebrowsing.provider.google5.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.mozilla.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.mozilla.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.test.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
@@ -2518,35 +2525,27 @@ pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [HIDDE
 
 /// Proxy Safe Browsing
 // This sets up a new Safe Browsing "provider", using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
-pref("browser.safebrowsing.provider.google4.advisoryName", "Google Safe Browsing (Unproxied)");
-pref("browser.safebrowsing.provider.google4.lists", "disabled"); // Ensure Google's default, unproxied endpoint is disabled
-pref("browser.safebrowsing.provider.google4.lists.default", "goog-badbinurl-proto,goog-downloadwhite-proto,goog-phish-proto,googpub-phish-proto,goog-malware-proto,goog-unwanted-proto,goog-harmful-proto"); // [HIDDEN] This pref does nothing, just makes it easier for users to re-enable this Safe Browsing provider if desired by copying and pasting the value of this pref as the value for `browser.safebrowsing.provider.google.lists`
-pref("browser.safebrowsing.provider.ironfox.advisoryName", "Google Safe Browsing (Proxied by IronFox)"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.advisoryURL", "https://developers.google.com/safe-browsing/v4/advisory"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.dataSharing.enabled", false, locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.ironfox.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
-pref("browser.safebrowsing.provider.ironfox.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.lists", "goog-badbinurl-proto,goog-downloadwhite-proto,goog-phish-proto,googpub-phish-proto,goog-malware-proto,goog-unwanted-proto,goog-harmful-proto"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.nextupdatetime", "1"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.pver", "4"); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.reportMalwareMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url="); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.reportPhishMistakeURL", "https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url="); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url="); // [HIDDEN]
-pref("browser.safebrowsing.provider.ironfox.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [HIDDEN]
+pref("browser.safebrowsing.provider.google4.advisoryName", "Google Safe Browsing (Proxied by IronFox) - v4");
+pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
+pref("browser.safebrowsing.provider.google4.nextupdatetime", "1"); // [HIDDEN]
+pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.ironfoxoss.org/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
+pref("browser.safebrowsing.provider.google5.advisoryName", "Google Safe Browsing (Proxied by IronFox) - v5");
+pref("browser.safebrowsing.provider.google5.gethashURL", "https://safebrowsing.ironfoxoss.org/v5/hashes:search?key=%GOOGLE_SAFEBROWSING_API_KEY%");
+pref("browser.safebrowsing.provider.google5.nextupdatetime", "1"); // [HIDDEN]
+pref("browser.safebrowsing.provider.google5.updateURL", "https://safebrowsing.ironfoxoss.org/v5/hashLists:batchGet?key=%GOOGLE_SAFEBROWSING_API_KEY%");
 
-/// Unbreak Google's default endpoint/Safe Browsing provider(s) (if enabled via the `browser.safebrowsing.provider.google.lists` & `browser.safebrowsing.provider.google4.lists` prefs)
+/// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.downloads.remote.enabled` & `browser.safebrowsing.provider.google.lists` prefs)
 //  Some (ex. LibreWolf) override these for no reason
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
-pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2");
-pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%");
-pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.googleapis.com/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [DEFAULT]
-pref("browser.safebrowsing.provider.google4.updateURL", "https://safebrowsing.googleapis.com/v4/threatListUpdates:fetch?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST"); // [DEFAULT]
+pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
+pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 
 /// Unclear whether these are actually used or not, but looks like Firefox has some kind of functionality to view a "report" from Safe Browsing about the safety, history, and general status of a site
 // By default, it unnecessarily redirects from ex. https://safebrowsing.google.com/safebrowsing/diagnostic?site=example.org to https://transparencyreport.google.com/safe-browsing/search?url=example.org
 // We can skip the redirect to improve performance
 pref("browser.safebrowsing.provider.google.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url=");
 pref("browser.safebrowsing.provider.google4.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url=");
+pref("browser.safebrowsing.provider.google5.reportURL", "https://transparencyreport.google.com/safe-browsing/search?url=");
 
 pref("browser.phoenix.status", "020");
 
