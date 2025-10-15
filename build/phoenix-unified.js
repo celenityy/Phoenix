@@ -3231,6 +3231,10 @@ pref("devtools.webconsole.timestampMessages", true); // [NO-ANDROID]
 // https://wiki.mozilla.org/WebDriver/RemoteProtocol/WebDriver_BiDi
 pref("remote.experimental.enabled", false, locked); // [DEFAULT - non-Nightly]
 
+/// Enable the Anti tracking debug panel by default [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/644f0db1/devtools/client/definitions.js#485 [NO-ANDROID]
+pref("devtools.anti-tracking.enabled", true); // [NO-ANDROID]
+
 /// Enable DevTools buttons by default [NO-ANDROID]
 pref("devtools.command-button-errorcount.enabled", true); // [NO-ANDROID] [DEFAULT] Error Count - https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/framework/toolbox.js#2198
 pref("devtools.command-button-frames.enabled", true); // [NO-ANDROID] [DEFAULT] Frame Target - https://searchfox.org/mozilla-central/rev/f1e32fa7/devtools/client/framework/toolbox.js#2178
