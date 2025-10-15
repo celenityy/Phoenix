@@ -781,7 +781,7 @@
     "POL-0": {
         "content": "filters",
         "group": "regions",
-        "parent": null,
+        "parent": "🇵🇱pl: Oficjalne Polskie Filtry",
         "off": true,
         "title": "🇵🇱pl: Oficjalne Polskie Filtry do uBlocka Origin",
         "tags": "ads polish polski",
@@ -789,6 +789,17 @@
         "contentURL": "https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/polish-adblock-filters/adblock.txt",
         "supportURL": "https://github.com/MajkiIT/polish-ads-filter"
     },
+    "POL-3": {
+		"content": "filters",
+		"group": "regions",
+		"parent": "🇵🇱pl: Oficjalne Polskie Filtry",
+		"off": true,
+		"title": "🇵🇱pl: CERT.PL's Warning List",
+		"tags": "malware polish polski",
+		"lang": "szl pl",
+		"contentURL": "https://hole.cert.pl/domains/v2/domains_ublock.txt",
+		"supportURL": "https://cert.pl/lista-ostrzezen/"
+	},
     "ROU-1": {
         "content": "filters",
         "group": "regions",
