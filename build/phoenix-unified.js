@@ -2243,6 +2243,7 @@ pref("browser.ml.chat.shortcuts.custom", true); // [NO-ANDROID] [NO-MAIL] [DEFAU
 /// Disable AI Chat by default [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/ai-chatbot [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.chat.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.chat.page", false); // [NO-ANDROID] [NO-MAIL] This disables the "Ask AI Chatbot" context menu item - for some reason this isn't covered by `browser.ml.chat.enabled`, and I'm only seeing it on my YouTube specialized config profile?
 
 /// Disable AI/ML Autofill
 // https://searchfox.org/mozilla-central/source/toolkit/components/formautofill/MLAutofill.sys.mjs
