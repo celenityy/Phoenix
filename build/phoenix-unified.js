@@ -4148,7 +4148,7 @@ pref("identity.sendtabpromo.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/base/content/browser-sync.js [NO-ANDROID] [NO-MAIL]
 pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Telemetry [NO-ANDROID]
+/// Disable telemetry [NO-ANDROID]
 pref("identity.fxaccounts.account.telemetry.sanitized_uid", "", locked); // [NO-ANDROID]
 pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false, locked); // [NO-ANDROID]
 pref("services.sync.log.logger.telemetry", "Fatal"); // [NO-ANDROID] [HIDDEN]
