@@ -480,6 +480,7 @@ pref("browser.send_to_device_locales", ""); // [HIDDEN - Android/Thunderbird] Di
 pref("browser.vpn_promo.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#692
 pref("cookiebanners.ui.desktop.showCallout", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("privacy.trackingprotection.allow_list.hasUserInteractedWithETPSettings", true); // Disables nag/onboarding to configure ETP exception lists https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/all.js#3342 https://searchfox.org/firefox-main/rev/dc1c78e9/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#200
+pref("sidebar.verticalTabs.dragToPinPromo.dismissed", true, locked); //  [NO-ANDROID] [NO-MAIL] Promo card for dragging tabs when vertical tabs are enabled (sidebar.verticalTabs) https://searchfox.org/firefox-main/rev/839a8725/browser/components/sidebar/SidebarManager.sys.mjs#158
 
 /// Disable Mozilla.UITour [NO-ANDROID] [NO-MAIL]
 // https://mozilla.github.io/bedrock/uitour/#ui-tour [NO-ANDROID] [NO-MAIL]
