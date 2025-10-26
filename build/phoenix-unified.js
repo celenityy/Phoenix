@@ -791,9 +791,10 @@ pref("layout.css.prefers-color-scheme.content-override", 1);
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43023 [ANDROID-ONLY]
 pref("font.name-list.emoji", "Noto Color Emoji"); // [ANDROID-ONLY]
 
-/// Expose dynamic rounding of content dimensions (`privacy.resistFingerprinting.letterboxing`) in the `about:config`, but do not enable by default [NO-ANDROID] [NO-MAIL]
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID] [NO-MAIL]
+/// Expose dynamic rounding of content dimensions (`privacy.resistFingerprinting.letterboxing`) in the `about:config`, but do not enable by default (except for Android: see note below) [NO-MAIL]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-MAIL]
 pref("privacy.resistFingerprinting.letterboxing", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+pref("privacy.resistFingerprinting.letterboxing", true); // [ANDROID-ONLY] [HIDDEN] This doesn't have a noticeable effect on Android - but it's still referenced by toolkit code, so let's just ensure it's enabled/active for good measure
 
 /// Harden FPP (which we enable at `003` above) to match RFP with a few exceptions...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Android#fingerprinting [ANDROID-ONLY]
@@ -2232,7 +2233,7 @@ pref("browser.phoenix.status", "016");
 
 /// Allow managing models from `about:addons`
 // https://searchfox.org/mozilla-central/rev/20fc11f1/toolkit/mozapps/extensions/internal/ModelHubProvider.sys.mjs#20
-pref("extensions.htmlaboutaddons.local_model_management", true); // [NIGHTLY] [DEFAULT]
+pref("extensions.htmlaboutaddons.local_model_management", true); // [DEFAULT]
 
 /// Allow typing a custom AI chat prompt based on your selection (if pop-up when highlighting text is enabled) [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.chat.shortcuts.custom", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -2511,7 +2512,7 @@ pref("browser.safebrowsing.downloads.remote.enabled", false);
 // https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/nsUrlClassifierDBService.cpp#1964
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1351147
 // (Known providers taken from here: https://searchfox.org/mozilla-central/rev/beba5cde/toolkit/components/url-classifier/nsUrlClassifierUtils.cpp#380)
-pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [DEFAULT] [HIDDEN - non-Android]
+pref("browser.safebrowsing.provider.google.dataSharing.enabled", false, locked); // [HIDDEN - non-Android] [DEFAULT]
 pref("browser.safebrowsing.provider.google.dataSharingURL", "", locked); // [HIDDEN] [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false, locked); // [DEFAULT]
 pref("browser.safebrowsing.provider.google4.dataSharingURL", "", locked);
@@ -2583,7 +2584,7 @@ pref("dom.battery.enabled", false);
 // I was originally against disabling this, but after careful consideration, I've changed my position.
 // The explicit, stated purpose/use case of this API is for analytics/tracking.
 // Websites *can* obtain the data shared from this API through other means; though the other ways to obtain it are more disruptive and less reliable.
-// Analytics/tracking is evidently not a use case that we, as the user agent, should support or assist with.
+// Analytics/tracking is also evidently not a use case that we, as the user agent, should support or assist with.
 // I don't see a justification for adding APIs/features to support this hostile behavior. We are the user agent and must act in the best interest of users...
 // Also disabled by ex. Cromite: https://github.com/uazo/cromite/blob/master/docs/FEATURES.md https://github.com/uazo/cromite/issues/1454
 // https://developer.mozilla.org/docs/Web/API/Beacon_API
@@ -2642,6 +2643,7 @@ pref("dom.reporting.crash.enabled", false); // [DEFAULT]
 pref("dom.reporting.enabled", false); // [DEFAULT]
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
+pref("dom.reporting.testing.enabled", false); // [DEFAULT]
 
 /// Disable Web Share API
 // This API allows websites to share data directly to system applications...
@@ -2657,7 +2659,7 @@ pref("dom.webshare.requireinteraction", true); // [DEFAULT] If enabled, ensure w
 // https://gpuweb.github.io/gpuweb/#privacy-considerations
 // https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
-pref("dom.webgpu.enabled", false); // [DEFAULT - non-Nightly]
+pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
 
 /// Disable WebMIDI
 // PRIVACY: Fingerprinting concerns
@@ -2699,17 +2701,17 @@ pref("browser.phoenix.status", "021");
 /*** 022 MISC. PRIVACY ***/
 
 /// Block ports currently known to be abused by Android apps for tracking/fingerprinting
-// Currently blocked by default on Android - but assuming they don't cause issues, I'd also like to keep these blocked for other platforms (for defense in depth and in case this method of tracking is also being used elsewhere...)
+// Previously blocked by default on Android - and assuming they don't cause issues, I'd also like to keep these blocked for other platforms (for defense in depth and in case this method of tracking is also being used elsewhere...)
 // https://localmess.github.io/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1970141
-pref("network.security.ports.banned", "29009, 29010, 30102, 30103, 12387, 12388, 12580, 12581, 12582, 12583, 12584, 12585, 12586, 12587, 12588, 12589, 12590, 12591"); // [DEFAULT - Android]
+pref("network.security.ports.banned", "29009, 29010, 30102, 30103, 12387, 12388, 12580, 12581, 12582, 12583, 12584, 12585, 12586, 12587, 12588, 12589, 12590, 12591");
 
 /// Disable CSP reporting
 // Fingerprinting concerns, Used for analytics by design
 // Also reduces unsolicited network activity and bandwidth consumption
 // Glad we managed to convince Mozilla to add this :)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1964249
-pref("security.csp.reporting.enabled", false); // [NIGHTLY]
+pref("security.csp.reporting.enabled", false);
 
 /// Disable Hyperlink Auditing (Click Tracking)
 // https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/

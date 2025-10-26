@@ -59,9 +59,9 @@ pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2025.10.12.1
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
-/// Enable dynamic rounding of content dimensions [NO-ANDROID] [NO-MAIL]
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID] [NO-MAIL]
-pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID] [NO-MAIL]
+/// Enable dynamic rounding of content dimensions [NO-ANDROID]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID]
+pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID]
 
 /// Further harden FPP...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
