@@ -4070,6 +4070,15 @@ pref("browser.urlbar.suggest.mdn", false); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/4258ca07/browser/app/profile/firefox.js#758 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.realtimeOptIn", false, locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable online suggestions [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#470 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#492 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#499 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.online.available", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Hides UI at `about:preferences#search`
+pref("browser.urlbar.quicksuggest.online.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.settingsUi", 2); // [NO-ANDROID] [NO-MAIL] Hides UI at `about:preferences#search`
+
 /// Disable partner links/attribution [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/modules/PartnerLinkAttribution.sys.mjs [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1745 [NO-ANDROID] [NO-MAIL]
@@ -4085,7 +4094,7 @@ pref("browser.urlbar.suggest.market", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /// Disable row labels by default [NO-ANDROID] [NO-MAIL]
 // Provides a cleaner UI, and removes Firefox Suggest branding from results [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/UrlbarView.sys.mjs#2353 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#159 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.groupLabels.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable sponsored suggestions [NO-ANDROID] [NO-MAIL]
@@ -4099,11 +4108,6 @@ pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [NO-ANDROID] [N
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.contextualOptIn", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.quicksuggest.settingsUi", 2); // [NO-ANDROID] [NO-MAIL] Hides the "Improve the Firefox Suggest experience" toggle at `about:preferences#search`
-
-/// Disable web suggestions [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/rev/10ecded0/browser/app/profile/firefox.js#489 [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Wikipedia suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/WikipediaSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
