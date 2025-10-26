@@ -826,7 +826,7 @@ pref("webgl.sanitize-unmasked-renderer", false); // Prevents the "Unmasked Rende
 /// Prevent pre-allocating content processes
 // These can cause certain values/settings to persist, even after a user changes them - which could result in leakage/fingerprinting concerns
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#preallocated-content
-pref("dom.ipc.processPrelaunch.enabled", false); // [DEFAULT - Android]
+pref("dom.ipc.processPrelaunch.enabled", false);
 pref("dom.ipc.processPrelaunch.fission.number", 0);
 
 /// Prevent using system accent colors
@@ -3011,7 +3011,6 @@ pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
 // This improves the effectiveness of fission/site isolation, and based on testing, we've also heard from users that this improves performance [ANDROID-ONLY]
 // For reference, this matches what Firefox on Desktop is using [ANDROID-ONLY]
 pref("dom.ipc.processCount", 8); // [ANDROID-ONLY]
-pref("dom.ipc.processCount.webCOOP+COEP", 1); // [ANDROID-ONLY] [DEFAULT - Nightly] This is currently the default on Nightly: https://github.com/mozilla-firefox/firefox/commit/f0688cfc697fe20285e6de6b302c224b1b4dcc31, we can remove this once it hits stable
 pref("dom.ipc.processCount.webIsolated", 4); // [ANDROID-ONLY]
 
 /// Never expose shell access
@@ -3054,12 +3053,12 @@ pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 /// Protect against MIME Exploits
 // https://www.pcmag.com/encyclopedia/term/mime-exploit
 pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT]
-pref("network.sniff.use_extension", true); // [NIGHTLY] Sniff content types based on file extensions (Default only does this for `file://` URLs)
+pref("network.sniff.use_extension", true); // Sniff content types based on file extensions (Default only does this for `file://` URLs)
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
 
 /// Sandbox AudioIPC (cubeb)
-// https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#10941
+// https://searchfox.org/firefox-release/rev/dc8909c6/modules/libpref/init/StaticPrefList.yaml#11110
 pref("media.cubeb.sandbox", true); // [DEFAULT]
 
 /// Use a separate content process for `file://` URLs
@@ -3396,29 +3395,33 @@ pref("widget.windows.window_occlusion_tracking.enabled", true); // [WINDOWS-ONLY
 // https://www.cloudflare.com/learning/video/what-is-buffering/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1540573
 // https://searchfox.org/mozilla-central/rev/f1e32fa7/dom/media/ChannelMediaDecoder.cpp#473
-pref("media.cache_readahead_limit", 7200); // (Default = 60)
-pref("media.cache_readahead_limit.cellular", 7200); // (Default = 30)
-pref("media.cache_resume_threshold", 3600); // (Default = 30)
-pref("media.cache_resume_threshold.cellular", 3600); // (Default = 10)
+pref("media.cache_readahead_limit", 600); // (Default = 60)
+pref("media.cache_readahead_limit.cellular", 600); // (Default = 30)
+pref("media.cache_resume_threshold", 300); // (Default = 30)
+pref("media.cache_resume_threshold.cellular", 300); // (Default = 10)
 pref("media.throttle-cellular-regardless-of-download-rate", false); // [HIDDEN - non-Android] [DEFAULT - non-Android]
 
 /// Increase the chunk size for calls to image decoders
 // (Default = 16384)
-pref("image.mem.decode_bytes_at_a_time", 32768);
+pref("image.mem.decode_bytes_at_a_time", 65536);
 
 /// Increase DNS caching
 pref("network.dnsCacheExpiration", 3600); // (Default = 60)
-pref("network.dnsCacheExpirationGracePeriod", 240); // (Default = 60)
-pref("network.dnsCacheEntries", 1000); // (Default = 800)
+pref("network.dnsCacheExpirationGracePeriod", 120); // (Default = 60)
+pref("network.dnsCacheEntries", 10000); // (Default = 800)
 
 /// Increase the file-backed media cache size for cellular connections
 // (Default = 32768)
 // This is set to match the value of "media.cache_size"
 pref("media.cache_size.cellular", 512000);
 
+/// Increase the image cache size
+// (Default = 5242880 - non-Android, 1048576 - Android)
+pref("image.cache.size", 10485760);
+
 /// Increase the memory-backed media cache size
-// (Default = 8192)
-pref("media.memory_cache_max_size", 65536);
+pref("media.memory_cache_max_size", 262144); // (Default = 8192)
+pref("media.memory_caches_combined_limit_kb", 1048576); // (Default = 524288)
 
 /// Increase memory cache
 pref("browser.cache.memory.capacity", 131072); // (Default = -1)
@@ -3434,6 +3437,7 @@ pref("network.http.max-connections", 1800); // (Default = 128 for Android, 900 e
 pref("network.http.max-persistent-connections-per-proxy", 48); // (Default = 20 for Android, 32 elsewhere)
 pref("network.http.max-persistent-connections-per-server", 10); // (Default = 6)
 pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // (Default = 3)
+pref("network.http.request.max-start-delay", 5); // (Default = 10)
 
 /// Increase TLS token caching
 // https://codeberg.org/celenity/Phoenix/issues/84
