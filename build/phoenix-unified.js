@@ -4048,6 +4048,13 @@ pref("browser.urlbar.yelpRealtime.minKeywordLength", 4); // [NO-ANDROID] [NO-MAI
 // (Locked because it unfortunately doesn't appear to set properly otherwise :/) [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable FlightAware (flight status) suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/urlbar/private/FlightStatusSuggestions.sys.mjs[NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#788 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#489 [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.flightStatus.featureGate", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.suggest.flightStatus", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Disable machine learning [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/MLSuggest.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.mlEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -4127,7 +4134,7 @@ pref("browser.urlbar.quicksuggest.rustEnabled", true); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/MerinoClient.sys.mjs#123 [NO-ANDROID] [NO-MAIL]
 // NOTE: These are also required for displaying Weather on Firefox Home (`about:home`) [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.merino.endpointURL", "https://merino.services.mozilla.com/api/v1/suggest"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.merino.providers", "accuweather,amo,market,mdn,wikipedia"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.merino.providers", "accuweather,amo,flightaware,market,mdn,wikipedia"); // [NO-ANDROID] [NO-MAIL]
 
 /// If Yelp suggestions are enabled, show subject/title for results [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#706 [NO-ANDROID] [NO-MAIL]
