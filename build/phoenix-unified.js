@@ -3494,14 +3494,14 @@ pref("browser.tabs.loadBookmarksInTabs", true); // [NO-ANDROID] [NO-MAIL]
 /// Clean-up default UI [NO-ANDROID] [NO-MAIL]
 pref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","screenshot-button","back-button","forward-button","vertical-spacer","stop-reload-button","urlbar-container","_testpilot-containers-browser-action","fxa-toolbar-menu-button","reset-pbm-toolbar-button","developer-button","ublock0_raymondhill_net-browser-action","downloads-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button"],"vertical-tabs":[],"PersonalToolbar":["personal-bookmarks"]},"seen":["reset-pbm-toolbar-button","developer-button","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action","screenshot-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar"],"currentVersion":23,"newElementCount":8}'); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable annoying Web Speech API errors, especially relevant on Linux
-// https://searchfox.org/mozilla-central/source/browser/actors/SpeechDispatcherParent.sys.mjs#8
+/// Disable annoying Web Speech API error pop-ups, especially relevant on Linux
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/actors/SpeechDispatcherParent.sys.mjs#8
 pref("media.webspeech.synth.dont_notify_on_error", true); // [HIDDEN]
 
-/// Disable extra logging for policies by default [NO-ANDROID] [NO-MAIL] 
-// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in the about:config [NO-ANDROID] [NO-MAIL] 
-// https://searchfox.org/mozilla-central/source/browser/components/enterprisepolicies/Policies.sys.mjs [NO-ANDROID] [NO-MAIL] 
-pref("browser.policies.loglevel", "error"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+/// Disable extra logging for policies by default [NO-MAIL] 
+// This pref allows controlling the log level of policies (extremely useful for troubleshooting...), set here to the default value so that it's exposed in `about:config` [NO-MAIL] 
+// https://searchfox.org/firefox-main/rev/16707ce1/browser/components/enterprisepolicies/Policies.sys.mjs#35 [NO-ANDROID] [NO-MAIL] 
+pref("browser.policies.loglevel", "error"); // [NO-MAIL] [HIDDEN] [DEFAULT]
 
 /// Disable fullscreen delay
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
