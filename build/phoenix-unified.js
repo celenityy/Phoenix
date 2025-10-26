@@ -2744,13 +2744,13 @@ pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
 pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT - Android]
 pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
 
-/// Disable TLS session identifiers [ANDROID-ONLY]
-// Fingerprinting/tracking concerns [ANDROID-ONLY]
-// I'm not worried about this for desktop since these are session-only, but I feel like the situation is very different for Android. Users likely leave the app open (and by extension: keep their browsing session active) for days at a time, much longer than on Desktop. [ANDROID-ONLY]
-// So this does concern me and I think it's worth setting here. [ANDROID-ONLY]
-// For reference, this is also disabled by ex. Cromite [ANDROID-ONLY]
-// https://arxiv.org/abs/1810.07304 [ANDROID-ONLY]
-pref("security.ssl.disable_session_identifiers", true); // [ANDROID-ONLY]
+/// Disable TLS session identifiers
+// Fingerprinting/tracking concerns
+// Especially important for Android, where users likely leave the app open (and by extension: keep their browsing session active) for days at a time, much longer than on Desktop
+// Even on Desktop, this can be used as a vector to detect whether Private Browsing is active: https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/44187
+// For reference, this is also disabled by ex. Cromite
+// https://arxiv.org/abs/1810.07304
+pref("security.ssl.disable_session_identifiers", true);
 
 /// Enable Containers
 // https://support.mozilla.org/kb/how-use-firefox-containers
