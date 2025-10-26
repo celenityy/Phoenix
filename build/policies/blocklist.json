@@ -1,6 +1,10 @@
 {
     "policies": {
         "ExtensionSettings": {
+            "{2b71ab6f-cc0d-4ff8-b482-470f988d5c19}": {
+                "installation_mode": "blocked",
+                "blocked_install_message": "'Tamper monkey' https://addons.mozilla.org/addon/{2b71ab6f-cc0d-4ff8-b482-470f988d5c19} - Fake/scam/impersonation, masquerading as the well known 'Tampermonkey' extension"
+            },
             "{03fdf33c-f6b1-4992-992e-f4115ab16ee0}": {
                 "installation_mode": "blocked",
                 "blocked_install_message": "'BrowsingBloc' https://addons.mozilla.org/addon/{03fdf33c-f6b1-4992-992e-f4115ab16ee0} - Fake/scam/impersonation, masquerading as the well known 'Adblock' extension (which itself is also quite sketchy...)"
