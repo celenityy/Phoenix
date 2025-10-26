@@ -2988,6 +2988,10 @@ pref("security.sandbox.socket.process.level", 1); // [DEFAULT - Linux, non-Thund
 // Also enabled by ex. Tor Browser
 pref("javascript.options.spectre.disable_for_isolated_content", false);
 
+/// Enable WebAssembly Memory Control
+// https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/Overview.md
+pref("javascript.options.wasm_memory_control", true);
+
 /// Enforce strict file:// Origin Policy
 // https://stuffandnonsense.co.uk/blog/firefoxs_file_uri_origin_policy_and_web_fonts
 // https://stackoverflow.com/questions/2856502/css-font-face-not-working-with-firefox-but-working-with-chrome-and-ie
