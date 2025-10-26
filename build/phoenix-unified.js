@@ -4074,10 +4074,10 @@ pref("browser.urlbar.suggest.realtimeOptIn", false, locked); // [NO-ANDROID] [NO
 // https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#470 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#492 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#499 [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.online.available", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Hides UI at `about:preferences#search`
 pref("browser.urlbar.quicksuggest.online.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.settingsUi", 2); // [NO-ANDROID] [NO-MAIL] Hides UI at `about:preferences#search`
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable partner links/attribution [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/modules/PartnerLinkAttribution.sys.mjs [NO-ANDROID] [NO-MAIL]
