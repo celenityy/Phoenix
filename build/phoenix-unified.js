@@ -4096,7 +4096,6 @@ pref("browser.urlbar.quicksuggest.settingsUi", 2); // [NO-ANDROID] [NO-MAIL] Hid
 
 /// Disable web suggestions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/10ecded0/browser/app/profile/firefox.js#489 [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.quicksuggest.scenario", "offline"); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/QuickSuggest.sys.mjs#950
 pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Wikipedia suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
