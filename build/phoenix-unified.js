@@ -4035,10 +4035,12 @@ pref("browser.urlbar.suggest.fakespot", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable fetching minimum keyword lengths from Nimbus and/or Remote Settings [NO-ANDROID] [NO-MAIL]
 // We also set these as user prefs in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes them [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.addons.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/app/profile/firefox.js#729
-pref("browser.urlbar.fakespot.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/FakespotSuggestions.sys.mjs#309
-pref("browser.urlbar.weather.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/WeatherSuggestions.sys.mjs#482
-pref("browser.urlbar.yelp.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/cc4985b7/browser/components/urlbar/private/YelpSuggestions.sys.mjs#345
+pref("browser.urlbar.addons.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/16707ce1/browser/app/profile/firefox.js#736
+pref("browser.urlbar.flightStatus.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [HIDDEN] https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#143
+pref("browser.urlbar.market.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#181
+pref("browser.urlbar.weather.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#627
+pref("browser.urlbar.yelp.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#642
+pref("browser.urlbar.yelpRealtime.minKeywordLength", 4); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/16707ce1/browser/components/urlbar/UrlbarPrefs.sys.mjs#666
 
 /// Disable Firefox Suggest by default [NO-ANDROID] [NO-MAIL]
 /// I'd rather not set this, but unfortunately, when it's on, it causes Firefox to connect to `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-amp/changeset?_expected=*` and `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-other/changeset?_expected=*` on every launch, EVEN IF no suggestions are enabled :/ [NO-ANDROID] [NO-MAIL]
