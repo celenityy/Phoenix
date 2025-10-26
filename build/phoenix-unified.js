@@ -2796,8 +2796,8 @@ pref("cookiebanners.ui.desktop.enabled", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Exclude third party trackers from storage access heuristics (if enabled)
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
-pref("dom.storage_access.auto_grants.exclude_third_party_trackers", true); // [DEFAULT - Nightly] Automatic storage access grants
-pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT - Nightly]
+pref("dom.storage_access.auto_grants.exclude_third_party_trackers", true); // [DEFAULT] Automatic storage access grants
+pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT]
 
 /// Improve built-in query stripping to be on par with LibreWolf and Brave
 // See Mozilla's defaults here: https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/changeset?_expected=0
@@ -2816,7 +2816,7 @@ pref("permissions.isolateBy.userContext", true);
 
 /// Isolate resources (ex. referrers & cookies) injected by extensions
 // (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
-pref("privacy.antitracking.isolateContentScriptResources", true); // [NIGHTLY]
+pref("privacy.antitracking.isolateContentScriptResources", true); // [DEFAULT - Nightly]
 
 /// Limit maximum cookie lifetime to 6 months/180 days (Like Brave)
 // Firefox's default is currently 400 days (34560000)
