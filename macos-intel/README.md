@@ -1,8 +1,8 @@
 # Phoenix
 <p align="center">
-	<img src="assets/phoenix.png"
-		alt="Phoenix"
-		height="200">
+    <img src="assets/phoenix.png"
+        alt="Phoenix"
+        height="200">
 </p>
 
 **Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.** A detailed list of Phoenix's features & enhancements can be found **[here](https://phoenix.celenity.dev/features).**
@@ -207,12 +207,12 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
   outputs = {nixpkgs, phoenix, ...}: {
 	# The configuration here is an example; it will look slightly different
 	# based on your machine name and architecture.
-	nixosConfigurations.your-box = nixpkgs.lib.nixosSystem {
-	  system = "x86_64-linux";
-	  modules = [
-		# This is the important part -- add this line to your module list!
-		phoenix.nixosModules.default
-	  ];
+    nixosConfigurations.your-box = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # This is the important part -- add this line to your module list!
+        phoenix.nixosModules.default
+      ];
 	};
   };
 }
@@ -1215,8 +1215,8 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 - **[Betterfox](https://github.com/yokoffing/Betterfox)**
 	- 🪪 [yokoffing](https://github.com/yokoffing)
 	- ⚖️ [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
-	- 💸 [Donate](https://github.com/sponsors/yokoffing)
-	- Certain preferences (Mostly performance-related)
+    - 💸 [Donate](https://github.com/sponsors/yokoffing)
+    - Certain preferences (Mostly performance-related)
 
 - **[Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)**
 	- 🪪 [Narsil](https://codeberg.org/Narsil)

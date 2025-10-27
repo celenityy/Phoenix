@@ -42,17 +42,17 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2025.10.12.1", locked); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2025.10.26.1", locked); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2025.10.12.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2025.10.26.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
-/// Enable dynamic rounding of content dimensions [NO-ANDROID] [NO-MAIL]
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID] [NO-MAIL]
-pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID] [NO-MAIL]
+/// Enable dynamic rounding of content dimensions [NO-ANDROID]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1407366 [NO-ANDROID]
+pref("privacy.resistFingerprinting.letterboxing", true); // [NO-ANDROID]
 
 /// Further harden FPP...
 // As explained here: https://codeberg.org/celenity/Phoenix/wiki/Extended#fingerprinting
