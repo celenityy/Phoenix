@@ -3580,6 +3580,11 @@ pref("network.dns.disableIPv6", false); // [DEFAULT]
 // https://www.omgubuntu.co.uk/2024/09/mozilla-firefox-130-new-features
 pref("apz.overscroll.enabled", true); // [DEFAULT]
 
+/// Enable the "Page Setup.." menu by default (under `File` - ex. on the menu bar)
+// https://searchfox.org/firefox-main/rev/643d7328/modules/libpref/init/all.js#729
+// https://searchfox.org/firefox-main/rev/643d7328/toolkit/components/printing/content/printUtils.js#82
+pref("print.show_page_setup_menu", true);
+
 /// Enable smooth scrolling by default
 // This currently appears to be overriden by `ui.prefersReducedMotion` on Desktop
 pref("general.smoothScroll", true); // [DEFAULT]
