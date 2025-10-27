@@ -3467,7 +3467,7 @@ pref("browser.phoenix.status", "026");
 /// Things that are nice to have™
 // Not directly privacy & security related
 
-/// Allow downloading and switch locales [NO-ANDROID]
+/// Allow downloading and switching locales [NO-ANDROID]
 pref("app.update.langpack.enabled", true); // [NO-ANDROID] [DEFAULT]
 pref("intl.multilingual.downloadEnabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
 pref("intl.multilingual.enabled", true); // [NO-ANDROID] [DEFAULT - non-Developer/Nightly]
@@ -3540,6 +3540,12 @@ pref("sidebar.visibility", "hide-sidebar"); // [NO-ANDROID] [NO-MAIL] Hide by de
 
 /// Enable developer options for `about:profiling`
 pref("devtools.performance.aboutprofiling.has-developer-options", true);
+
+/// Enable display of in-process subframes at `about:processes` by default
+pref("toolkit.aboutProcesses.showAllSubframes", true);
+
+/// Enable display of thread information at `about:processes` by default
+pref("toolkit.aboutProcesses.showThreads", true); // [DEFAULT - Nightly]
 
 /// Enable Firefox Translations (+ the pop-up) by default [NO-MAIL]
 // Translations are done locally - very nice to have [NO-MAIL]
