@@ -2,7 +2,7 @@
 
 <!-- Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
 
-Please set the title of your issue to "[ENHANCEMENT]", followed by a summary of your issue..."
+Please set the title of your issue to "[ENHANCEMENT]", followed by a summary of your issue.
 
 Note that anything between <!- - and - -> won't be shown when your issue is created.
 -->
