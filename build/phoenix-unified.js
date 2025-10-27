@@ -339,10 +339,10 @@ pref("extensions.getAddons.langpacks.url", ""); // [ANDROID-ONLY] Functionality 
 pref("extensions.recommendations.privacyPolicyUrl", ""); // [DEFAULT - Android]
 pref("toolkit.datacollection.infoURL", ""); // [NO-ANDROID]
 
-/// Disable `about:welcome`/onboarding [NO-ANDROID] [NO-MAIL]
-// Privacy concerns - unsolicited connections [NO-ANDROID] [NO-MAIL]
-// Also just annoying and undesired for our use case :/ [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs [NO-ANDROID] [NO-MAIL]
+/// Disable `about:welcome`/onboarding
+// Privacy concerns - unsolicited connections
+// Also just annoying and undesired for our use case :/
+// https://searchfox.org/mozilla-central/source/browser/components/BrowserContentHandler.sys.mjs
 pref("browser.aboutwelcome.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.log", "off"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable logging
 pref("browser.preonboarding.enabled", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - Linux] Disable the preonboarding modal https://searchfox.org/mozilla-central/rev/16a9e4fb/toolkit/components/nimbus/FeatureManifest.yaml#802 https://searchfox.org/firefox-main/rev/643d7328/toolkit/components/telemetry/app/TelemetryReportingPolicy.sys.mjs#638
