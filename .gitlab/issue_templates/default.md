@@ -2,7 +2,7 @@
 
 <!-- This is for any general issues or unexpected/unintended behavior you come across while using Phoenix.
 
-Please set the title of your issue to "[BUG]", followed by a summary of your issue..."
+Please set the title of your issue to "[BUG]", followed by a summary of your issue.
 
 Note that anything between <!- - and - -> won't be shown when your issue is created.
 -->
