@@ -13,7 +13,7 @@ body:
       options:
         - label: I confirm that this issue occurs on the **latest release** of Phoenix. You can check what the latest version is on [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
           required: true
-        - label: I can confirm that this issue is **NOT** already listed on [the Website Compatibility wiki page](https://phoenix.celenity.dev/compat).
+        - label: I confirm that this issue is **NOT** already listed on [the Website Compatibility wiki page](https://phoenix.celenity.dev/compat).
           required: true
         - label: I confirm that this issue has **NOT** already been reported on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
           required: true
