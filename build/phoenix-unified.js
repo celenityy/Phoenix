@@ -996,6 +996,10 @@ pref("browser.formfill.enable", false);
 // Also likely improves performance...
 pref("media.aboutwebrtc.hist.enabled", false); // [DEFAULT - non-Nightly]
 
+/// Disable window state restoration
+// https://searchfox.org/firefox-main/rev/16707ce1/xpfe/appshell/AppWindow.cpp#2404
+pref("browser.restoreWindowState.disabled", true);
+
 /// Enable a fire button in Private Browsing Windows to reset the session [NO-ANDROID] [NO-MAIL]
 pref("browser.privatebrowsing.resetPBM.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
 
