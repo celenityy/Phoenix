@@ -3528,6 +3528,10 @@ pref("browser.policies.loglevel", "error"); // [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
 
+/// Display "More settings" on print previews by default
+// https://searchfox.org/firefox-main/rev/643d7328/modules/libpref/init/all.js#761
+pref("print.more-settings.open", true);
+
 /// Display the option to enable `Compact` mode at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
 pref("browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
 
