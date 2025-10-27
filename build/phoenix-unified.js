@@ -1115,7 +1115,7 @@ pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT - Nightly] TLS
 pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 
 /// Disable OCSP revocation checks
-
+//
 // So, my current understanding:
 // According to Mozilla blog: "With CRLite, Firefox periodically downloads a compact encoding of the set of all revoked certificates that appear in Certificate Transparency logs. Firefox stores this encoding locally, updates it every 12 hours, and queries it privately every time a new TLS connection is created."
 // and: "Of course, no browser is performing daily downloads of all CRLs. For a more meaningful comparison, we can consider Chrome’s CRLSets. These are hand-picked sets of revocations that are delivered to Chrome users daily. Recent CRLSets weigh in at 600 kB and include about 1% of all revocations (thirty-five thousand of the four million total). Firefox’s CRLite implementation uses half the bandwidth, updates twice as frequently, and includes all revocations."
@@ -1200,6 +1200,12 @@ pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
 pref("network.http.http3.enable_kyber", true); // [DEFAULT - non-Android]
 pref("security.tls.client_hello.send_p256_keyshare", true); // [DEFAULT]
 pref("security.tls.enable_kyber", true); // [DEFAULT - non-Android]
+
+/// Enable prompts for unsafe HTTP redirects
+// https://searchfox.org/firefox-main/rev/16707ce1/modules/libpref/init/all.js#1189
+// https://bugzilla.mozilla.org/show_bug.cgi?id=677754
+// https://searchfox.org/firefox-main/rev/16707ce1/netwerk/protocol/http/nsHttpChannel.cpp#3687
+pref("network.http.prompt-temp-redirect", true);
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
