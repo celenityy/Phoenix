@@ -465,11 +465,11 @@ pref("toolkit.contentRelevancy.log", false); // [HIDDEN - Android/Thunderbird] [
 
 /// Disable Mozilla nags/promotions
 pref("browser.contentblocking.report.hide_vpn_banner", true, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.contentblocking.report.lockwise.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.contentblocking.report.lockwise.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.mobile-android.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.mobile-ios.url", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.contentblocking.report.monitor.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.contentblocking.report.proxy.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.contentblocking.report.monitor.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.contentblocking.report.proxy.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.contentblocking.report.proxy_extension.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.show_mobile_app", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.vpn.url", "", locked); // [NO-ANDROID] [NO-MAIL]
@@ -484,11 +484,12 @@ pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAI
 pref("browser.promo.cookiebanners.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#756
 pref("browser.promo.focus.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#722
 pref("browser.promo.pin.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#734
-pref("browser.protections_panel.infoMessage.seen", true); // [NO-ANDROID] [NO-MAIL] Disables ETP Banner
-pref("browser.send_to_device_locales", ""); // [HIDDEN - Android/Thunderbird] Disables "Send to Device" email promotions https://searchfox.org/firefox-main/rev/dc1c78e9/browser/app/profile/firefox.js#2503 https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#789 https://searchfox.org/firefox-main/rev/dc1c78e9/browser/components/preferences/moreFromMozilla.js#273
+pref("browser.protections_panel.infoMessage.seen", true, locked); // [NO-ANDROID] [NO-MAIL] Disables ETP Banner
+pref("browser.send_to_device_locales", "", locked); // [HIDDEN - Android/Thunderbird] Disables "Send to Device" email promotions https://searchfox.org/firefox-main/rev/dc1c78e9/browser/app/profile/firefox.js#2503 https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#789 https://searchfox.org/firefox-main/rev/dc1c78e9/browser/components/preferences/moreFromMozilla.js#273
 pref("browser.vpn_promo.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#692
-pref("cookiebanners.ui.desktop.showCallout", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("privacy.trackingprotection.allow_list.hasUserInteractedWithETPSettings", true); // Disables nag/onboarding to configure ETP exception lists https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/all.js#3342 https://searchfox.org/firefox-main/rev/dc1c78e9/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#200
+pref("cookiebanners.ui.desktop.showCallout", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("identity.fxaccounts.toolbar.accessed", true, locked); // [NO-ANDROID] [NO-MAIL] Used for Activity Stream/onboarding targeting https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/asrouter/modules/ASRouterTargeting.sys.mjs#98 https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/asrouter/modules/OnboardingMessageProvider.sys.mjs#2506
+pref("privacy.trackingprotection.allow_list.hasUserInteractedWithETPSettings", true, locked); // Disables nag/onboarding to configure ETP exception lists https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/all.js#3342 https://searchfox.org/firefox-main/rev/dc1c78e9/netwerk/url-classifier/UrlClassifierExceptionListService.sys.mjs#200
 pref("sidebar.verticalTabs.dragToPinPromo.dismissed", true, locked); //  [NO-ANDROID] [NO-MAIL] Promo card for dragging tabs when vertical tabs are enabled (sidebar.verticalTabs) https://searchfox.org/firefox-main/rev/839a8725/browser/components/sidebar/SidebarManager.sys.mjs#158
 
 /// Disable Mozilla.UITour [NO-ANDROID] [NO-MAIL]
