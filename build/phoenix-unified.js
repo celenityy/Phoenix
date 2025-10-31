@@ -180,6 +180,7 @@ pref("toolkit.crashreporter.include_context_heap", false, locked); // [DEFAULT -
 // https://searchfox.org/mozilla-release/source/toolkit/components/glean/xpcom/FOG.cpp
 // https://searchfox.org/mozilla-release/source/toolkit/components/telemetry/app/TelemetryUtils.sys.mjs
 // https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml
+pref("browser.aboutwelcome.entrypoint", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Ensure entrypoint to `about:welcome` is not recorded and ex. submitted for telemetry https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/aboutwelcome/actors/AboutWelcomeChild.sys.mjs#266
 pref("browser.safebrowsing.features.emailtracking.datacollection.update", false, locked); // [HIDDEN] https://searchfox.org/mozilla-central/source/toolkit/components/url-classifier/SafeBrowsing.sys.mjs
 pref("captchadetection.actor.enabled", false, locked); // Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection
 pref("captchadetection.hasUnsubmittedData", false, locked); // [HIDDEN] Disable CAPTCHA Detection Pings https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection/CaptchaDetectionPingUtils.sys.mjs
