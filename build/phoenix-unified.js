@@ -131,8 +131,9 @@ pref("network.dns.localDomains", "250analytics.com,a.omappapi.com,activity-strea
 pref("toolkit.aboutLogging.uploadProfileToCloud", false); // [DEFAULT - non-Android]
 pref("toolkit.aboutlogging.uploadProfileUrl", ""); // [HIDDEN]
 
-/// Disable Browser Usage Telemetry metrics
+/// Disable Browser Search/Usage Telemetry metrics
 // https://searchfox.org/mozilla-central/source/browser/docs/BrowserUsageTelemetry.rst
+// https://searchfox.org/mozilla-central/source/browser/components/search/BrowserSearchTelemetry.sys.mjs
 // https://searchfox.org/mozilla-central/source/browser/modules/BrowserUsageTelemetry.sys.mjs
 // https://searchfox.org/mozilla-central/source/toolkit/content/widgets/tabbox.js
 pref("browser.engagement.ctrlTab.has-used", true, locked); // [HIDDEN - Android/Thunderbird]
@@ -142,6 +143,8 @@ pref("browser.engagement.home-button.has-used", true, locked); // [NO-ANDROID] [
 pref("browser.engagement.library-button.has-used", true, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.engagement.sidebar-button.has-used", true, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.engagement.total_uri_count.pbm", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+pref("browser.engagement.search_counts.pbm", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
+pref("browser.search.totalSearches", 100, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/urlbar/UrlbarInput.sys.mjs#3193
 
 /// Disable Coverage
 // https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
@@ -3862,10 +3865,9 @@ pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked);
 pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.system.topstories", false); // [NO-ANDROID] [NO-MAIL] Hides the UI setting
 
-/// Disable Telemetry [NO-ANDROID] [NO-MAIL]
+/// Disable telemetry [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-release/source/browser/components/newtab/pings.yaml [NO-ANDROID] [NO-MAIL]
 pref("browser.contextual-services.contextId", "{foo-123-foo}", locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/source/browser/extensions/newtab/test/xpcshell/test_TelemetryFeed.js
-pref("browser.engagement.search_counts.pbm", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Disable recording search telemetry (in private windows) https://searchfox.org/mozilla-central/source/browser/components/search/BrowserSearchTelemetry.sys.mjs
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.telemetry", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [NIGHTLY]
