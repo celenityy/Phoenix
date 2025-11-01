@@ -1983,6 +1983,7 @@ pref("extensions.quarantineIgnoredByUser.idcac-pub@guus.ninja", true); // I stil
 pref("extensions.quarantineIgnoredByUser.jid1-BoFifL9Vbdl2zQ@jetpack", true); // Decentraleyes
 pref("extensions.quarantineIgnoredByUser.jid1-KtlZuoiikVfFew@jetpack", true); // GNU LibreJS
 pref("extensions.quarantineIgnoredByUser.jid1-MnnxcxisBPnSXQ@jetpack", true); // Privacy Badger
+pref("extensions.quarantineIgnoredByUser.jid1-MnnxcxisBPnSXQ-eff@jetpack", true); // Privacy Badger (from eff.org)
 pref("extensions.quarantineIgnoredByUser.keepassxc-browser@keepassxc.org", true); // KeePassXC-Browser
 pref("extensions.quarantineIgnoredByUser.skipredirect@sblask", true); // Skip Redirect
 pref("extensions.quarantineIgnoredByUser.uBlock0@raymondhill.net", true); // uBlock Origin
