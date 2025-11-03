@@ -851,6 +851,7 @@ pref("widget.non-native-theme.use-theme-accent", false); // [DEFAULT - non-Thund
 // The `ui.use_standins_for_native_colors` pref does the same thing as the 'UseStandinsForNativeColors' RFP/FPP target (so it shouldn't interfere with FPP/RFP)
 // But I also want to set this here to ensure users are protected if they disable FPP for whatever reason, or if they disable ETP/Strict for a specific site/add an exception
 // https://searchfox.org/mozilla-central/rev/a589ce1e/layout/style/PreferenceSheet.cpp#69
+pref("browser.display.document_color_use", 1); // [DEFAULT - non-Windows] Contrast Control, supersedes `browser.display.use_system_colors` https://github.com/arkenfox/user.js/issues/1965
 pref("browser.display.use_system_colors", false); // [DEFAULT - non-Windows]
 pref("ui.use_standins_for_native_colors", true);
 
