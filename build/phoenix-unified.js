@@ -1696,6 +1696,15 @@ pref("media.eme.enabled.6.NOTE", "WINDOWS USERS: ALSO see media.eme.playready.en
 pref("media.autoplay.default", 5);
 pref("media.geckoview.autoplay.request.testing", 2); // [DEFAULT: 0 - Follows the Autoplay site permission]
 
+/// Configure the media autoplay blocking policy
+// https://wiki.mozilla.org/Media/block-autoplay#What_strategy_does_Firefox_use_for_blocking_autoplay?
+// Values are:
+// 0 (Default): Sticky - Autoplay is blocked until the user interacts with a page, and is allowed indefinitely (until the user refreshes the page or navigates to a different page)
+// 1: Transient - Autoplay is blocked until the user interacts with a page, BUT it is only allowed until a certain amount of time passes (controlled by `dom.user_activation.transient.timeout`)
+// 2: Click-to-play - Autoplay is always blocked; media will only play on user interaction of the desired media
+// 2 is ideal on paper (and we used to use that value, at least on Phoenix Extended), but it unfortunately causes breakage and prevents media from playing at all on certain websites - so I believe 1 is a nice balance/compromise
+pref("media.autoplay.blocking_policy", 1);
+
 /// Disable Encrypted Media Extensions (EME) (DRM)
 // Garbage technology with privacy, security, and freedom concerns
 // https://www.w3.org/TR/encrypted-media/
