@@ -3655,6 +3655,12 @@ pref("ui.prefersReducedTransparency", 0); // [NO-ANDROID] [HIDDEN] [DEFAULT]
 pref("ui.scrollToClick", 1); // [NO-ANDROID] [HIDDEN]
 pref("ui.useAccessibilityTheme", 0); // [NO-ANDROID] [HIDDEN] [DEFAULT]
 
+/// Fade out unloaded tabs in the tab bar [NO-ANDROID] [NO-MAIL]
+// By default, Firefox only fades tabs unloaded explicitly (`browser.tabs.fadeOutExplicitlyUnloadedTabs`), but, with `browser.tabs.fadeOutUnloadedTabs`, we can fade all unloaded tabs, regardless of the reason they're unloaded [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/1a8c62b8/browser/app/profile/firefox.js#2650 [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.fadeOutExplicitlyUnloadedTabs", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.tabs.fadeOutUnloadedTabs", true); // [NO-ANDROID] [NO-MAIL]
+
 /// Hide the Title Bar by default
 pref("browser.tabs.inTitlebar", 1);
 
