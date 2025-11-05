@@ -483,7 +483,7 @@ pref("browser.contentblocking.report.vpn-promo.url", "", locked); // [NO-ANDROID
 pref("browser.ipProtection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.guardian.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.userEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ipProtection.variant", "", locked);// [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.variant", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.promo.cookiebanners.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#756
 pref("browser.promo.focus.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#722
@@ -931,7 +931,7 @@ pref("privacy.cpd.sessions", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFA
 pref("privacy.clearHistory.cookiesAndStorage", false); // [NO-ANDROID]
 pref("privacy.clearSiteData.cookiesAndStorage", false); // [NO-ANDROID]
 pref("privacy.cpd.cookies", false); // [NO-ANDROID]
-pref("privacy.cpd.offlineApps", false); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT] 
+pref("privacy.cpd.offlineApps", false); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 
 //// and passwords... [NO-ANDROID]
 pref("privacy.cpd.passwords", false); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
@@ -2570,6 +2570,9 @@ pref("browser.safebrowsing.provider.google5.gethashURL", "https://safebrowsing.i
 pref("browser.safebrowsing.provider.google5.nextupdatetime", "1"); // [HIDDEN]
 pref("browser.safebrowsing.provider.google5.updateURL", "https://safebrowsing.ironfoxoss.org/v5/hashLists:batchGet?key=%GOOGLE_SAFEBROWSING_API_KEY%");
 
+/// Show advanced details on pages blocked by Safe Browsing by default [NO-ANDROID] [NO-MAIL]
+pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [NO-ANDROID] [NO-MAIL]
+
 /// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.downloads.remote.enabled` & `browser.safebrowsing.provider.google.lists` prefs)
 //  Some (ex. LibreWolf) override these for no reason
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
@@ -3206,9 +3209,6 @@ pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android
 /// Reject invalid cookies
 // https://searchfox.org/mozilla-central/rev/edcefd70/modules/libpref/init/all.js#1789
 pref("extensions.cookie.rejectWhenInvalid", true); // [NIGHTLY]
-
-/// Show advanced details on pages blocked by Safe Browsing by default [NO-ANDROID] [NO-MAIL]
-pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...) [NO-ANDROID] [NO-MAIL]
 pref("permissions.media.show_always_ask.enabled", true); // [NO-ANDROID] [NO-MAIL]
@@ -3859,8 +3859,8 @@ pref("browser.newtabpage.activity-stream.system.showSponsored", false, locked); 
 
 /// Disable the promotion card [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/bfad596f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#620 [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.promoCard.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY] [DEFAULT] 
-pref("browser.newtabpage.activity-stream.discoverystream.promoCard.visible", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY] 
+pref("browser.newtabpage.activity-stream.discoverystream.promoCard.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY] [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.promoCard.visible", false, locked); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
 
 /// Disable recent activity by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
