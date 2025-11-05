@@ -1560,6 +1560,13 @@ pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 /// Enable native DNS HTTPS Lookups
 pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
 
+/// Enable TLS SNI Slicing
+// Useful for circumenting certain forms of censorship, ex. from the Great Firewall of China
+// https://github.com/uazo/cromite/issues/2403
+// https://github.com/net4people/bbs/issues/505
+// https://searchfox.org/firefox-main/diff/cb527813/modules/libpref/init/StaticPrefList.yaml#15350
+pref("network.http.http3.sni-slicing", true); // [DEFAULT]
+
 /// Ensure we clear cache upon changing DoH prefs
 // https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14481
 pref("network.trr.clear-cache-on-pref-change", true); // [DEFAULT]
