@@ -1155,9 +1155,13 @@ pref("security.OCSP.enabled", 0); // [NO-MAIL]
 pref("security.OCSP.require", false); // [NO-MAIL] [DEFAULT]
 
 /// Disable Parental Controls
-// https://searchfox.org/mozilla-central/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
-// https://searchfox.org/mozilla-central/source/netwerk/protocol/http/nsHttpHandler.cpp#547
+// https://searchfox.org/firefox-main/source/toolkit/components/parentalcontrols/nsIParentalControlsService.idl
+// https://searchfox.org/firefox-main/rev/cb527813/netwerk/protocol/http/nsHttpHandler.cpp#537
+// https://searchfox.org/firefox-main/rev/cb527813/docshell/base/CanonicalBrowsingContext.cpp#3696
+// https://searchfox.org/firefox-main/source/toolkit/locales-preview/aboutRestricted.ftl
 pref("network.parental_controls_cached_state", false, locked); // [DEFAULT]
+pref("security.restrict_to_adults.always", false, locked); // [DEFAULT]
+pref("security.restrict_to_adults.respect_platform", false, locked); // [DEFAULT]
 
 /// Disable sending background HTTP requests to websites that do not respond quickly to check if they support HTTPS
 pref("dom.security.https_only_mode_send_http_background_request", false);
