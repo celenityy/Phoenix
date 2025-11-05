@@ -3181,6 +3181,15 @@ pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderb
 /// Enable Firefox's newer 'Felt privacy' design for Private Browsing [NO-ANDROID] [NO-MAIL]
 pref("browser.privatebrowsing.felt-privacy-v1", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Enable GREASE (Generate Random Extensions And Sustain Extensibility)
+// This indirectly improves security for users, by ensuring that future TLS extensions/implementations are properly supported by websites
+// For reference, this is enabled/always enforced by Chromium
+// https://groups.google.com/a/chromium.org/g/security-dev/c/d_f6higCJzc
+pref("security.tls.ech.disable_grease_on_fallback", false); // [DEFAULT]
+pref("security.tls.ech.grease_http3", true); // [DEFAULT]
+pref("security.tls.ech.grease_probability", 100); // [DEFAULT] Sets probability of using GREASE for ECH to 100%
+pref("security.tls.grease_http3_enable", true);
+
 /// Enable more detailed property error messages
 pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Developer]
 
