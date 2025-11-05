@@ -1193,8 +1193,9 @@ pref("security.pki.certificate_transparency.disable_for_hosts", ""); // [DEFAULT
 pref("security.pki.certificate_transparency.disable_for_spki_hashes", ""); // [DEFAULT]
 pref("security.pki.certificate_transparency.mode", 2); // [DEFAULT - non-Nightly Android]
 
-/// Enable CRLite revocation checks & prioritize over OCSP
+/// Enable CRLite revocation checks (and prioritize over OCSP)
 // https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/
+pref("security.pki.crlite_channel", "default"); // [DEFAULT - non-Android] Use CRLite clubcards that contain all revocations, instead of just "priority" revocations
 pref("security.pki.crlite_mode", 2); // [DEFAULT - Nightly]
 pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - non-Android]
 
