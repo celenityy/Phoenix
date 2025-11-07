@@ -2301,7 +2301,8 @@ pref("extensions.formautofill.ml.experiment.enabled", false);
 /// Disable Link Preview [NO-ANDROID] [NO-MAIL]
 // Currently no-op - requires `dom.postMessage.sharedArrayBuffer.withCOOP_COEP` set to `true`: https://codeberg.org/celenity/Phoenix/issues/151 [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] UI
+pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.linkPreview.longPress", false); // [NO-ANDROID] [NO-MAIL] 
 pref("browser.ml.linkPreview.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable Page Assist [NO-ANDROID] [NO-MAIL]
