@@ -1568,6 +1568,15 @@
 	</dict>
 	<key>HttpsOnlyMode</key>
 	<string>force_enabled</string>
+	<key>LocalNetworkAccess</key>
+	<dict>
+		<key>BlockTrackers</key>
+		<true/>
+		<key>EnablePrompting</key>
+		<true/>
+		<key>Enabled</key>
+		<true/>
+	</dict>
 	<key>NoDefaultBookmarks</key>
 	<true/>
 	<key>OverridePostUpdatePage</key>

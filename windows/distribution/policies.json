@@ -1070,6 +1070,11 @@
       }
     },
     "HttpsOnlyMode": "force_enabled",
+    "LocalNetworkAccess": {
+      "BlockTrackers": true,
+      "Enabled": true,
+      "EnablePrompting": true
+    },
     "NoDefaultBookmarks": true,
     "OverridePostUpdatePage": "",
     "PrivateBrowsingModeAvailability": 0,

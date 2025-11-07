@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Version of Phoenix you'd like to build
-export phoenix_version=2025.10.26.1
+export phoenix_version=2025.11.07.1
 
 # Where `Phoenix` (this repo) is located
 export phoenix_dir=$(dirname $(dirname "$(realpath "$0")"))
