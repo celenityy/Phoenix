@@ -2724,6 +2724,16 @@ pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
 pref("dom.sitepermsaddon-provider.enabled", false);
 pref("dom.webmidi.gated", true); // [DEFAULT]
 
+/// Enable Local Network Access Restrictions
+// https://wicg.github.io/local-network-access/
+// https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
+pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
+pref("network.lna.enabled", true); // [DEFAULT]
+pref("network.lna.etp.enabled", false); // [DEFAULT] [NIGHTLY] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
+pref("network.lna.websocket.enabled", true); // [NIGHTLY] Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
+pref("permissions.default.local-network", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access the local network by default; we won't set on Android for now since there's not a UI there to control this yet...
+pref("permissions.default.localhost", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access apps and services (outside of the browser) on your device
+
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
 // SECURITY: Protects the authenticity and integrity of messages
@@ -2732,14 +2742,6 @@ pref("dom.webmidi.gated", true); // [DEFAULT]
 // https://blog.mozilla.org/mozilla/messaging-layer-security-is-now-an-internet-standard/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1876002
 pref("dom.origin-trials.mls.state", 1);
-
-/// Enable Private Network Access Restrictions
-// https://wicg.github.io/private-network-access/
-// https://searchfox.org/mozilla-central/rev/a87741c4/netwerk/protocol/http/nsHttpTransaction.cpp#3655
-pref("network.lna.block_trackers", true); // [DEFAULT - Nightly] https://searchfox.org/mozilla-central/rev/16a9e4fb/modules/libpref/init/StaticPrefList.yaml#14149
-pref("network.lna.enabled", true); // [DEFAULT]
-pref("permissions.default.local-network", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access the local network by default; we won't set on Android for now since there's not a UI there to control this yet...
-pref("permissions.default.localhost", 2); // [NIGHTLY] Blocks websites from prompting to access apps and services (outside of the browser) on your device
 
 /// Prevent exposing XPCOM Components.interfaces to websites
 // PRIVACY: Fingerprinting concerns
