@@ -1361,6 +1361,10 @@ pref("browser.urlbar.searchModeSwitcher.featureGate", false); // [NO-ANDROID] [N
 pref("browser.urlbar.clipboard.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.clipboard", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable Firefox's new 'Unified Trust Panel' by default [NO-ANDROID] [NO-MAIL]
+// This prevents setting per-site exceptions for the built-in cookie banner blocker [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.trustPanel.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Disable history suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/UrlbarProviderInputHistory.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.history", false); // [NO-ANDROID] [NO-MAIL]
