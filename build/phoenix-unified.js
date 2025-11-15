@@ -433,12 +433,14 @@ pref("browser.firefox-view.feature-tour", '{"screen":"","complete":true}'); // [
 pref("browser.newtab.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable fetching Firefox Relay's "allowlist" (list of sites known to support Relay)
-// Should reduce network activity, and also allows users of Relay to use it anywhere if desired
+/// Disable fetching Firefox Relay's "allowlist" and "denylist"
+// Should reduce network activity, and also allows users of Relay to use it anywhere if desired (+ should reduce nags from the browser about it in general)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1926974
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
-// https://searchfox.org/mozilla-central/source/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs
+// https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-denylist/changeset?_expected=0
+// https://searchfox.org/firefox-main/rev/c82adde5/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs#42
 pref("signon.firefoxRelay.allowListRemoteSettingsCollection", ""); // [HIDDEN]
+pref("signon.firefoxRelay.denyListRemoteSettingsCollection", ""); // [HIDDEN]
 
 /// Disable fetching Password Manager rules remotely by default
 // (Used for identifying password forms on websites)
