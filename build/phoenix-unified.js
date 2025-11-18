@@ -3028,7 +3028,8 @@ pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - n
 pref("fission.autostart", true); // [DEFAULT - non-Android]
 pref("fission.autostart.session", true); // [DEFAULT - non-Android]
 pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
-pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/mozilla-central/source/dom/ipc/ProcessIsolation.cpp
+pref("fission.highValue.login.monitor", true); // [DEFAULT - Android] Ensure that we are always marking log-in attempts as "high value", even if Fission is disabled - for if/when users decide to enable it later https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/LoginDetectionService.cpp#64
+pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/ProcessIsolation.cpp#50
 pref("gfx.webrender.all", true);
 
 /// Enable the Sanitizer API
