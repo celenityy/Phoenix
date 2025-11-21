@@ -488,10 +488,12 @@ pref("browser.ipProtection.userEnabled", false, locked); // [NO-ANDROID] [NO-MAI
 pref("browser.ipProtection.variant", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.promo.cookiebanners.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#756
+pref("browser.promo.focus.disallowed_regions", "xx");
 pref("browser.promo.focus.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#722
 pref("browser.promo.pin.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#734
 pref("browser.protections_panel.infoMessage.seen", true, locked); // [NO-ANDROID] [NO-MAIL] Disables ETP Banner
 pref("browser.send_to_device_locales", "", locked); // [HIDDEN - Android/Thunderbird] Disables "Send to Device" email promotions https://searchfox.org/firefox-main/rev/dc1c78e9/browser/app/profile/firefox.js#2503 https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#789 https://searchfox.org/firefox-main/rev/dc1c78e9/browser/components/preferences/moreFromMozilla.js#273
+pref("browser.vpn_promo.disallowed_regions", "xx");
 pref("browser.vpn_promo.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#692
 pref("cookiebanners.ui.desktop.showCallout", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("identity.fxaccounts.toolbar.accessed", true, locked); // [NO-ANDROID] [NO-MAIL] Used for Activity Stream/onboarding targeting https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/asrouter/modules/ASRouterTargeting.sys.mjs#98 https://searchfox.org/firefox-main/rev/a7d872e9/browser/components/asrouter/modules/OnboardingMessageProvider.sys.mjs#2506
@@ -1940,7 +1942,9 @@ pref("network.auth.private-browsing-sso", false); // [DEFAULT] [DEFENSE IN DEPTH
 // https://support.mozilla.org/kb/manage-your-logins-firefox-password-manager
 // https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 pref("extensions.formautofill.addresses.enabled", false);
+pref("extensions.formautofill.addresses.supported", "on"); // This feature is currently only exposed in certain regions by default. We set the browser's region to a dummy value ("XX"), so we need to skip that region check and ensure this is always available.
 pref("extensions.formautofill.creditCards.enabled", false);
+pref("extensions.formautofill.creditCards.supported", "on"); // [DEFAULT]
 pref("signon.rememberSignons", false); // [NO-MAIL]
 
 /// Disable password truncation
@@ -2366,20 +2370,21 @@ pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT]
 
 /// Disable Microsoft Location Services [WINDOWS-ONLY]
 // https://searchfox.org/mozilla-central/source/dom/geolocation/Geolocation.cpp [WINDOWS-ONLY]
-pref("geo.prompt.open_system_prefs", false); // [WINDOWS-ONLY] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/mozilla-central/rev/20fc11f1/modules/libpref/init/StaticPrefList.yaml#6406
+pref("geo.prompt.open_system_prefs", false); // [WINDOWS-ONLY] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/StaticPrefList.yaml#6616
 pref("geo.provider.ms-windows-location", false); // [WINDOWS-ONLY]
 
 /// Disable Mozilla's GeoIP/Region Service
 // Prevents Firefox from monitoring the user's region/general location
 // Note: Firefox will still use different regional search engines based on the browser/system locale (ex. tested with Wikipedia), but this prevents using geolocation
 // https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-// https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs
+// https://searchfox.org/firefox-main/source/toolkit/modules/Region.sys.mjs
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16254
 pref("browser.region.local-geocoding", false); // [HIDDEN] [DEFAULT]
 pref("browser.region.network.scan", false); // [DEFAULT] [DEFENSE IN DEPTH] Disable Wi-Fi scanning for these requests
 pref("browser.region.network.url", "");
 pref("browser.region.update.enabled", false);
-pref("browser.search.region", "US"); // [HIDDEN]
-pref("doh-rollout.home-region", "US"); // [HIDDEN]
+pref("browser.search.region", "XX"); // [HIDDEN]
+pref("doh-rollout.home-region", "XX"); // [HIDDEN]
 
 /// Do not force the use of the network geolocation provider by default
 // When either of these preferences are set to `true`, Firefox will ALWAYS use the network geolocation provider (BeaconDB in our case), instead of OS geolocation providers
@@ -4134,8 +4139,8 @@ pref("browser.urlbar.yelpRealtime.minKeywordLength", 4); // [NO-ANDROID] [NO-MAI
 /// Disable Firefox Suggest by default [NO-ANDROID] [NO-MAIL]
 /// I'd rather not set this, but unfortunately, when it's on, it causes Firefox to connect to `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-amp/changeset?_expected=*` and `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/quicksuggest-other/changeset?_expected=*` on every launch, EVEN IF no suggestions are enabled :/ [NO-ANDROID] [NO-MAIL]
 // This also gives us a cleaner UI, and I highly doubt that this is something most of our users want anyways [NO-ANDROID] [NO-MAIL]
-// (Locked because it unfortunately doesn't appear to set properly otherwise :/) [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.quicksuggest.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
+// NOTE: This usually gets ignored and set to `true` anyways (unless we lock it), but we also set the region to a dummy one ("XX"), which prevents that from happening - https://searchfox.org/firefox-main/source/browser/components/urlbar/QuickSuggest.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.quicksuggest.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable FlightAware (flight status) suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/private/FlightStatusSuggestions.sys.mjs[NO-ANDROID] [NO-MAIL]
