@@ -991,7 +991,7 @@ pref("browser.shell.shortcutFavicons", false); // [NO-ANDROID] [HIDDEN - Thunder
 /// Disable LaterRun [NO-ANDROID] [NO-MAIL]
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568 [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1200639 [NO-ANDROID] [NO-MAIL]
-pref("browser.laterrun.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.laterrun.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable logging blocked domains to `about:protections` [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.cfr-milestone.enabled", false); // [NO-ANDROID] [NO-MAIL]
