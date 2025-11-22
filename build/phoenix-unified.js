@@ -702,7 +702,8 @@ pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true); // [DEFAULT]
 
-//// Enable SmartBlock & UA overrides/injections
+//// Enable SmartBlock and UA overrides/injections/interventions
+pref("extensions.webcompat.enable_interventions", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
 pref("extensions.webcompat.enable_shims", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
 pref("extensions.webcompat.perform_injections", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
 pref("extensions.webcompat.perform_ua_overrides", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
