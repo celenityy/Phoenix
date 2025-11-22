@@ -702,7 +702,8 @@ pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("privacy.query_stripping.redirect", true); // [DEFAULT]
 
-//// Enable SmartBlock and UA overrides/injections/interventions
+//// Enable SmartBlock and Web Compatibility interventions by default
+pref("extensions.pictureinpicture.enable_picture_in_picture_overrides", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/pictureinpicture/lib/picture_in_picture_overrides.js#19 https://searchfox.org/firefox-main/source/browser/extensions/pictureinpicture/data/picture_in_picture_overrides.js Controls PiP overrides
 pref("extensions.webcompat.enable_interventions", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
 pref("extensions.webcompat.enable_shims", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
 pref("extensions.webcompat.perform_injections", true); // [HIDDEN] [DEFAULT - non-Thunderbird]
