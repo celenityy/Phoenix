@@ -351,6 +351,7 @@ pref("browser.aboutwelcome.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aboutwelcome.log", "off"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Disable logging
 pref("browser.preonboarding.enabled", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - Linux] Disable the preonboarding modal https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#874 https://searchfox.org/firefox-main/rev/643d7328/toolkit/components/telemetry/app/TelemetryReportingPolicy.sys.mjs#638
 pref("browser.rights.3.shown", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.startup.firstrunSkipsHomepage", false); // [NO-ANDROID] [NO-MAIL] Ensure we never skip the homepage (ex. upon update/in favor of the onboarding) https://searchfox.org/firefox-release/rev/9d94f5e3/browser/app/profile/firefox.js#323
 pref("browser.startup.homepage_override.buildID", "20100101", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ex. matches what Tor Browser uses
 pref("browser.startup.homepage_override.mstone", "ignore", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.startup.upgradeDialog.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/components/asrouter/docs/first-run.md#69
