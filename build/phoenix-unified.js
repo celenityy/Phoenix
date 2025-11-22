@@ -3947,6 +3947,11 @@ pref("browser.newtabpage.activity-stream.trendingSearch.enabled", false); // [NO
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
+/// Enable Firefox Home [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.testing.shouldInitializeFeeds", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#150
+pref("browser.newtabpage.disableNewTabAsAddon", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/browser/components/newtab/AboutNewTabResourceMapping.sys.mjs#186
+pref("browser.newtabpage.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Enable the new shortcuts UI refresh by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabShortcuts.refresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
