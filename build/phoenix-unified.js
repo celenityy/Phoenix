@@ -467,6 +467,19 @@ pref("toolkit.contentRelevancy.enabled", false, locked); // [HIDDEN - Android/Th
 pref("toolkit.contentRelevancy.ingestEnabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 pref("toolkit.contentRelevancy.log", false); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 
+/// Disable IP Protection (Mozilla VPN) [NO-ANDROID] [NO-MAIL]
+// This is a paid Mozilla service, so it doesn't make sense for us to leave this enabled by default [NO-ANDROID] [NO-MAIL]
+// If people really do want to use it, they can though - they'll just need to enable it themselves manually [NO-ANDROID] [NO-MAIL]
+// https://vpn.mozilla.org/ [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/components/ipprotection/docs/Preferences.rst [NO-ANDROID] [NO-MAIL]
+pref("browser.ipProtection.added", true); // [NO-ANDROID] [NO-MAIL] Prevent pinning the IP Protection widget in the navigation bar https://searchfox.org/firefox-main/rev/82e2435f/browser/components/ipprotection/IPProtection.sys.mjs#145
+pref("browser.ipProtection.autoStartEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.autoStartPrivateEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.features.autoStart", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.optedOut", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.ipProtection.userEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Disable Mozilla nags/promotions
 pref("browser.contentblocking.report.hide_vpn_banner", true, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.lockwise.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
@@ -480,10 +493,6 @@ pref("browser.contentblocking.report.vpn.url", "", locked); // [NO-ANDROID] [NO-
 pref("browser.contentblocking.report.vpn-android.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.vpn-ios.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.vpn-promo.url", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.ipProtection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ipProtection.guardian.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ipProtection.userEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ipProtection.variant", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.promo.cookiebanners.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#756
 pref("browser.promo.focus.disallowed_regions", "xx");
