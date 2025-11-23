@@ -1949,6 +1949,7 @@ pref("network.auth.private-browsing-sso", false); // [DEFAULT] [DEFENSE IN DEPTH
 // https://www.wired.com/2016/08/browser-password-manager-probably-isnt-enough/
 // https://support.mozilla.org/kb/manage-your-logins-firefox-password-manager
 // https://wiki.mozilla.org/Firefox/Features/Form_Autofill
+pref("browser.preferences.config_warning.warningPasswordManager.dismissed", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] By default, when `privacy.ui.status_card` is enabled, Firefox displays a warning (at `about:preferences#privacy`) when the password manager is disabled, and encourages users to re-enable it due to it affecting "privacy and security". This warning is inaccurate/questionable; we disable this intentionally, and shouldn't nag users to re-enable it.
 pref("extensions.formautofill.addresses.enabled", false);
 pref("extensions.formautofill.addresses.supported", "on"); // This feature is currently only exposed in certain regions by default. We set the browser's region to a dummy value ("XX"), so we need to skip that region check and ensure this is always available.
 pref("extensions.formautofill.creditCards.enabled", false);
@@ -2769,6 +2770,10 @@ pref("dom.origin-trials.mls.state", 1);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=429070
 // https://devdoc.net/web/developer.mozilla.org/en-US/docs/Components.interfaces.html
 pref("dom.use_components_shim", false); // [DEFAULT - Nightly]
+
+/// Warn users upon potentially misconfigured/problematic settings (at `about:preferences#privacy`) [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/82e2435f/browser/components/preferences/privacy.js#772 [NO-ANDROID] [NO-MAIL]
+pref("privacy.ui.status_card", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 pref("browser.phoenix.status", "021");
 
