@@ -1294,6 +1294,10 @@ pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
 
+/// Ensure that the browser omits credentials when making network requests by default
+// https://searchfox.org/firefox-main/rev/4dad4a9a/modules/libpref/init/StaticPrefList.yaml#13568
+pref("network.fetch.systemDefaultsToOmittingCredentials", true); // [DEFAULT]
+
 /// Ensure we use the HSTS preload list
 // https://searchfox.org/firefox-main/rev/82e2435f/security/manager/ssl/nsSiteSecurityService.cpp#799
 pref("network.stricttransportsecurity.preloadlist", true); // [DEFAULT]
