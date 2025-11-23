@@ -42,7 +42,6 @@
         "DisableFirefoxStudies": true,
         "DisablePrivateBrowsing": false,
         "DisableProfileRefresh": true,
-        "DisplayBookmarksToolbar": "always",
         "EnableTrackingProtection": {
             "BaselineExceptions": true,
             "ConvenienceExceptions": false,
