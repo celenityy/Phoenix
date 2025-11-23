@@ -461,6 +461,11 @@ pref("app.update.background.messaging.targeting.snapshot.intervalSec", -1); // [
 /// Disable Firefox Relay by default
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
+/// Disable import of Mozilla's default bookmarks [NO-ANDROID] [NO-MAIL]
+// NOTE: this pref appears to only work in automation, and we do disable the default bookmarks via policies, but setting this doesn't hurt [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/82e2435f/browser/components/places/PlacesBrowserStartup.sys.mjs#210 [NO-ANDROID] [NO-MAIL]
+pref("browser.bookmarks.testing.skipDefaultBookmarksImport", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+
 /// Disable "Interest-based Content Relevance Ranking and Personalization"
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1886207
 pref("toolkit.contentRelevancy.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT]
