@@ -1018,6 +1018,10 @@ pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/T
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 pref("browser.formfill.enable", false);
 
+/// Disable semantic history
+// https://searchfox.org/firefox-main/source/toolkit/components/places/PlacesSemanticHistoryManager.sys.mjs
+pref("places.semanticHistory.featureGate", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Nightly/Dev Firefox Desktop]
+
 /// Disable taskbar lists [WINDOWS-ONLY] [NO-MAIL]
 pref("browser.taskbar.lists.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
 pref("browser.taskbar.lists.frequent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
