@@ -2956,14 +2956,6 @@ pref("browser.phoenix.status", "022");
 // https://www.stigviewer.com/stig/mozilla_firefox/2023-06-05/finding/V-251547
 pref("security.default_personal_cert", "Ask Every Time", locked); // [DEFAULT]
 
-/// Always warn users before launching other apps
-pref("network.protocol-handler.warn-external.file", true); // [ANDROID-ONLY]
-pref("network.protocol-handler.warn-external.mailto", true); // [NO-MAIL] [DEFAULT - non-Thunderbird] [HIDDEN - THUNDERBIRD]
-pref("network.protocol-handler.warn-external.sms", true); // [ANDROID-ONLY]
-pref("network.protocol-handler.warn-external.tel", true); // [ANDROID-ONLY]
-pref("network.protocol-handler.warn-external.vnd.youtube", true); // [ANDROID-ONLY]
-pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
-
 /// Apply CSP to internal browser.xhtml
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false); // [NO-ANDROID] [ESR]
@@ -2971,6 +2963,78 @@ pref("security.browser_xhtml_csp.report-only", false); // [NO-ANDROID] [ESR]
 /// Block privileged `about:` pages from loading remote scripts
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsContentSecurityManager.cpp#1102
 pref("security.disallow_privilegedabout_remote_script_loads", true);
+
+/// Configure protocol handling
+// This can get very confusing, very fast - so here's a basic explanation:
+// If a protocol is "exposed", it can be opened/used by the browser in all contexts
+// If a protocol is "external", it can not be opened/used by the browser directly, and the protocol will instead open in an external application
+// If a protocol is "external" and set to "warn-external", the user will be warned/prompted before the protocol is opened in an external application
+// By default, Firefox on Desktop "exposes" ALL protocols (network.protocol-handler.expose-all), and allows ALL protocols to be opened externally (network.protocol-handler.external-default) - though it does require prompting before all of them (network.protocol-handler.warn-external-default), except for `mailto:` (network.protocol-handler.external.mailto), and it does manually block several protocols from being opened externally
+// Android is similar, except, in addition to `mailto`, it also disables prompting before opening `sms`, `tel`, and YouTube
+// https://bugzilla.mozilla.org/show_bug.cgi?id=819554
+// https://bugzilla.mozilla.org/show_bug.cgi?id=589403
+// https://bugzilla.mozilla.org/show_bug.cgi?id=630364
+// Instead of "exposing" all protocols, we can reduce attack surface by limiting them to only the ones we actually need/use/want
+// We can also ensure that the user is always warned before opening a protocol externally, and we can block protocols ourselves if desired
+pref("network.protocol-handler.expose.about", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.blob", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.chrome", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.data", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.file", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.http", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.https", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.javascript", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.moz-extension", true); // [DEFAULT - Thunderbird] [HIDDEN - non-Thunderbird]
+pref("network.protocol-handler.expose.resource", true); // [HIDDEN]
+pref("network.protocol-handler.expose.view-source", true); // [NO-ANDROID] [NO-MAIL]
+pref("network.protocol-handler.expose-all", false); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.external.about", false); // [HIDDEN]
+pref("network.protocol-handler.external.afp", false); // [DEFAULT]
+pref("network.protocol-handler.external.blob", false); // [HIDDEN]
+pref("network.protocol-handler.external.chrome", false); // [HIDDEN]
+pref("network.protocol-handler.external.data", false); // [DEFAULT]
+pref("network.protocol-handler.external.disk", false); // [DEFAULT]
+pref("network.protocol-handler.external.disks", false); // [DEFAULT]
+pref("network.protocol-handler.external.hcp", false); // [DEFAULT]
+pref("network.protocol-handler.external.help", false); // [HIDDEN - non-macOS] [DEFAULT - macOS]
+pref("network.protocol-handler.external.htp", false); // [DEFAULT]
+pref("network.protocol-handler.external.htps", false); // [DEFAULT]
+pref("network.protocol-handler.external.http", false); // [HIDDEN]
+pref("network.protocol-handler.external.https", false); // [HIDDEN]
+pref("network.protocol-handler.external.ie.http", false); // [DEFAULT]
+pref("network.protocol-handler.external.iehistory", false); // [DEFAULT]
+pref("network.protocol-handler.external.ierss", false); // [DEFAULT]
+pref("network.protocol-handler.external.ile", false); // [DEFAULT]
+pref("network.protocol-handler.external.javascript", false); // [DEFAULT]
+pref("network.protocol-handler.external.le", false); // [DEFAULT]
+pref("network.protocol-handler.external.mk", false); // [DEFAULT]
+pref("network.protocol-handler.external.moz-extension", false); // [HIDDEN]
+pref("network.protocol-handler.external.moz-icon", false); // [DEFAULT]
+pref("network.protocol-handler.external.moz-sbrs", false); // [HIDDEN]
+pref("network.protocol-handler.external.ms-cxh", false); // [DEFAULT]
+pref("network.protocol-handler.external.ms-cxh-full", false); // [DEFAULT]
+pref("network.protocol-handler.external.ms-help", false); // [DEFAULT]
+pref("network.protocol-handler.external.ms-msdt", false); // [DEFAULT]
+pref("network.protocol-handler.external.ps", false); // [DEFAULT]
+pref("network.protocol-handler.external.res", false); // [DEFAULT]
+pref("network.protocol-handler.external.resource", false); // [HIDDEN]
+pref("network.protocol-handler.external.search", false); // [DEFAULT]
+pref("network.protocol-handler.external.search-ms", false); // [DEFAULT]
+pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT] Never expose shell access https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
+pref("network.protocol-handler.external.tps", false); // [DEFAULT]
+pref("network.protocol-handler.external.ttp", false); // [DEFAULT]
+pref("network.protocol-handler.external.ttps", false); // [DEFAULT]
+pref("network.protocol-handler.external.vbscript", false); // [DEFAULT]
+pref("network.protocol-handler.external.view-source", false); // [HIDDEN]
+pref("network.protocol-handler.external.vnd.ms.radio", false); // [DEFAULT]
+pref("network.protocol-handler.warn-external.file", true); // [DEFAULT - non-Android]
+pref("network.protocol-handler.warn-external.ftp", true); // [HIDDEN - non-Thunderbird] [DEFAULT - non-Thunderbird]
+pref("network.protocol-handler.warn-external.mailto", true); // [HIDDEN - Thunderbird] [DEFAULT - non-Android/Firefox Desktop]
+pref("network.protocol-handler.warn-external.shell", true, locked); // [HIDDEN] [DEFAULT]
+pref("network.protocol-handler.warn-external.sms", true); // [HIDDEN - non-Android] [DEFAULT - non-Android]
+pref("network.protocol-handler.warn-external.tel", true); // [HIDDEN - non-Android] [DEFAULT - non-Android]
+pref("network.protocol-handler.warn-external.vnd.youtube", true); // [HIDDEN - non-Android] [DEFAULT - non-Android]
+pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 
 /// Decrease the lifetime of extension processes
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1847608
@@ -3115,10 +3179,6 @@ pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
 // For reference, this matches what Firefox on Desktop is using [ANDROID-ONLY]
 pref("dom.ipc.processCount", 8); // [ANDROID-ONLY]
 pref("dom.ipc.processCount.webIsolated", 4); // [ANDROID-ONLY]
-
-/// Never expose shell access
-// https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
-pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT]
 
 /// Never skip the assertion that about:pages don't have content security policies (CSP)
 // This is default on Standard Firefox releases, but not on ex. Thunderbird & other builds
