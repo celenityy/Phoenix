@@ -554,6 +554,7 @@ pref("browser.search.param.search_rich_suggestions", "", locked); // [NO-ANDROID
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#4511
 pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT - Release/ESR]
 pref("extensions.webcompat-reporter.newIssueEndpoint", "https://phoenix.celenity.dev/issues"); // Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
+pref("media.decoder-doctor.new-issue-endpoint", "https://phoenix.celenity.dev/issues"); // For decoding errors https://searchfox.org/firefox-main/rev/82e2435f/browser/actors/DecoderDoctorParent.sys.mjs#83
 pref("ui.new-webcompat-reporter.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("ui.new-webcompat-reporter.new-report-endpoint", "https://phoenix.celenity.dev/issues"); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Temporarily override to our URL instead of Mozilla's to work-around upstream bug - https://bugzilla.mozilla.org/show_bug.cgi?id=1963764
 
