@@ -2947,6 +2947,10 @@ pref("network.protocol-handler.warn-external-default", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
 pref("security.browser_xhtml_csp.report-only", false); // [NO-ANDROID] [ESR]
 
+/// Block privileged `about:` pages from loading remote scripts
+// https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsContentSecurityManager.cpp#1102
+pref("security.disallow_privilegedabout_remote_script_loads", true);
+
 /// Decrease the lifetime of extension processes
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1847608
 pref("dom.ipc.keepProcessesAlive.extension", 0); // [HIDDEN - non-Android] [DEFAULT - non-Android]
