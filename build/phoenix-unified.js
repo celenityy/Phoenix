@@ -1017,6 +1017,16 @@ pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/T
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 pref("browser.formfill.enable", false);
 
+/// Disable taskbar lists [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.frequent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.recent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
+pref("browser.taskbar.lists.tasks.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
+
+/// Disable taskbar previews [WINDOWS-ONLY] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/modules/WindowsPreviewPerTab.sys.mjs [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.previews.enable", false); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
+
 /// Disable WebRTC history
 // History will still gather when `about:webrtc` is open
 // Also likely improves performance...
