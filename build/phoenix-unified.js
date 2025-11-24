@@ -290,7 +290,6 @@ pref("app.normandy.last_seen_buildid", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("app.normandy.logging.level", 70); // [NO-ANDROID] [NO-MAIL] Limit logging to fatal only
 pref("app.normandy.user_id", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Thunderbird] Required for Firefox Labs on Desktop
-pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.rsexperimentloader.collection_id", ""); // [DEFAULT: `nimbus-desktop-experiments`] Required for Firefox Labs on Desktop
 pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for Firefox Labs on Desktop
 pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/ExperimentAPI.sys.mjs#80 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes it
@@ -369,8 +368,6 @@ pref("startup.homepage_welcome_url.additional", ""); // [NO-ANDROID] [NO-MAIL] [
 pref("browser.dataFeatureRecommendations.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.discovery.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Android/Thunderbird]
 pref("browser.discovery.sites", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.translations.mostRecentTargetLanguages", "en-US"); // https://searchfox.org/firefox-main/rev/4258ca07/browser/components/enterprisepolicies/Policies.sys.mjs#2829
@@ -453,10 +450,24 @@ pref("signon.recipes.remoteRecipes.enabled", false);
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#948 [NO-ANDROID] [NO-MAIL]
 pref("browser.firefoxbridge.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Disable Firefox Messaging System targeting information background updates [NO-ANDROID]
-// https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/update/BackgroundUpdate.sys.mjs#827 [NO-ANDROID]
+/// Disable the Firefox Messaging System [NO-ANDROID]
 // https://firefox-source-docs.mozilla.org/browser/components/asrouter/docs/index.html [NO-ANDROID]
-pref("app.update.background.messaging.targeting.snapshot.intervalSec", -1); // [NO-ANDROID] [HIDDEN - Thunderbird]
+// https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouter.sys.mjs#1863 [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouterPreferences.sys.mjs#200 [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js#26 [NO-ANDROID]
+pref("app.update.background.messaging.targeting.snapshot.intervalSec", -1); // [NO-ANDROID] Disable targeting information background updates: https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/update/BackgroundUpdate.sys.mjs#827
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.feeds.newtabmessaging", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1569 https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/NewTabMessaging.sys.mjs
+pref("browser.profiles.created", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ensure Firefox thinks we've used/enabled multiple profiles (this passes `hasSelectableProfiles`: https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouter.sys.mjs#1874 + https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouterTargeting.sys.mjs#676)
+pref("messaging-system.askForFeedback", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
+pref("messaging-system.profile.messagingProfileId", -1, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Firefox thinks this is the only profile it can send targetting messages to. As this profile ID does not exist, it tricks Firefox into never sending targetting messages.
+pref("messaging-system.profile.singleProfileMessaging.disable", false); // [NO-ANDROID] [NO-MAIL] This makes Firefox only send targetting messages to the profile defined by `messaging-system.profile.messagingProfileId`
 
 /// Disable Firefox Relay by default
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
@@ -3941,15 +3952,6 @@ pref("browser.newtabpage.activity-stream.unifiedAds.enabled", false, locked); //
 pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-
-/// Disable Messaging Providers [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/backgroundtasks/defaults/backgroundtasks_browser.js#26 [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "null", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "null", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.feeds.newtabmessaging", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1569 https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/NewTabMessaging.sys.mjs
-pref("messaging-system.askForFeedback", false, locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable mobile promotions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#271 [NO-ANDROID] [NO-MAIL]
