@@ -2592,6 +2592,7 @@ pref("browser.safebrowsing.provider.mozilla.gethashURL", "https://shavar.service
 pref("browser.safebrowsing.update.enabled", true); // [HIDDEN] [DEFAULT] Also covers Mozilla's tracking protection lists
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto"); // [DEFAULT - non-Android]
 pref("urlclassifier.downloadBlockTable", "goog-badbinurl-proto"); // [DEFAULT - non-Android]
+pref("urlclassifier.enabled_mode", 3); // [DEFAULT] Ensure we enable classification for ETP and Safe Browsing https://searchfox.org/firefox-main/rev/4dad4a9a/netwerk/base/nsNetUtil.cpp#3332 https://searchfox.org/firefox-main/rev/ac83682a/modules/libpref/init/StaticPrefList.yaml#18483
 pref("urlclassifier.phishTable", "goog-phish-proto,moztest-phish-simple"); // [DEFAULT - Official] Ensure we're using Google's full/private phishing list https://bugzilla.mozilla.org/show_bug.cgi?id=1288840
 
 /// Ensure users can override Safe Browsing warnings by default
