@@ -2752,7 +2752,7 @@ pref("clipboard.copyPrivateDataToClipboardCloudOrHistory", false); // [WINDOWS-O
 // https://searchfox.org/firefox-main/rev/af0f713f/toolkit/components/extensions/NativeMessaging.sys.mjs#12
 pref("webextensions.native-messaging.max-input-message-bytes", 0); // [HIDDEN] [DEFAULT: 1048576]
 pref("webextensions.native-messaging.max-output-message-bytes", 0); // [HIDDEN] [DEFAULT: -1]
-pref("widget.use-xdg-desktop-portal.native-messaging", 0); // [LINUX-ONLY} [DEFAULT] For Flatpak/Snap https://searchfox.org/firefox-main/source/toolkit/components/extensions/docs/native-messaging-portal-design.rst
+pref("widget.use-xdg-desktop-portal.native-messaging", 0); // [LINUX-ONLY] [DEFAULT] For Flatpak/Snap https://searchfox.org/firefox-main/source/toolkit/components/extensions/docs/native-messaging-portal-design.rst
 
 /// Disable Reporting API
 // PRIVACY: Fingerprinting concerns, used for analytics by design
