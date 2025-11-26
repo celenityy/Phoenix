@@ -4392,6 +4392,11 @@ pref("identity.mobilepromo.android", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("identity.mobilepromo.ios", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("identity.sendtabpromo.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable sending the user agent with Firefox Sync requests [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/af0f713f/services/sync/modules/resource.sys.mjs#38 [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/af0f713f/services/sync/modules/resource.sys.mjs#99 [NO-ANDROID]
+pref("services.sync.sendVersionInfo", false); // [NO-ANDROID]
+
 /// Disable set-up/feature recommendation [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/base/content/browser-sync.js [NO-ANDROID] [NO-MAIL]
 pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", true, locked); // [NO-ANDROID] [NO-MAIL]
@@ -4414,9 +4419,6 @@ pref("services.sync.extension-storage.skipPercentageChance", 0); // [NO-ANDROID]
 
 /// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL]
 pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL]
-
-/// Reduce information shared with Firefox Sync [NO-ANDROID]
-pref("services.sync.sendVersionInfo", false); // [NO-ANDROID]
 
 /// Sync additional preferences... [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true); // [NO-ANDROID] [NO-MAIL]
