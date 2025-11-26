@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 source build/env.sh
 
 # Update "browser.phoenix.version"
