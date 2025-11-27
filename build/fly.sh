@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -e
 
 # Welcome to the Phoenix Unified build script!
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
