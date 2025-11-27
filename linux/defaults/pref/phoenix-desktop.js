@@ -2726,9 +2726,6 @@ pref("dom.origin-trials.mls.state", 1);
 // https://devdoc.net/web/developer.mozilla.org/en-US/docs/Components.interfaces.html
 pref("dom.use_components_shim", false); // [DEFAULT - Nightly]
 
-/// Warn users upon potentially misconfigured/problematic settings (at `about:preferences#privacy`) [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/rev/82e2435f/browser/components/preferences/privacy.js#772 [NO-ANDROID] [NO-MAIL]
-pref("privacy.ui.status_card", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 pref("browser.phoenix.status", "021");
 
