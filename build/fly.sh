@@ -279,6 +279,7 @@ cp "$phoenix_dir/build/assets/about/attribution.html" "$phoenix_linux_dir"/asset
 cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_linux_dir"/assets/about/
 cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_linux_dir"/assets/about/
 cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_linux_dir"/assets/
+cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_linux_dir"/assets/
 
 # Copy environment variables
 mkdir -vp "$phoenix_linux_dir/etc/profile.d"
@@ -342,6 +343,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_linux_flatpak_dir"/assets/about/
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_linux_flatpak_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_linux_flatpak_dir"/assets/
+    cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_linux_flatpak_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [NON-FLATPAK-LINUX-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|NON-FLATPAK-LINUX-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
@@ -379,6 +381,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_osx_dir"/assets/about/
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_osx_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_dir"/assets/
+    cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_osx_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [NON-FLATPAK-LINUX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|NON-FLATPAK-LINUX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_BOOTSTRAP"
@@ -419,6 +422,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_osx_intel_dir"/assets/about/
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_osx_intel_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_intel_dir"/assets/
+    cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_osx_intel_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [NON-FLATPAK-LINUX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|NON-FLATPAK-LINUX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_INTEL_BOOTSTRAP"
@@ -459,6 +463,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.css" "$phoenix_windows_dir"/assets/about/
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_windows_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_windows_dir"/assets/
+    cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_windows_dir"/assets/
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [NON-FLATPAK-LINUX-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|NON-FLATPAK-LINUX-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_WINDOWS_BOOTSTRAP"
