@@ -15,3 +15,5 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  tags:
+    - saas-linux-2xlarge-amd64
