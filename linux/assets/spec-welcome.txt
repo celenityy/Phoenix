@@ -1,0 +1,9 @@
+Hi!
+
+You're seeing this because it's your first time running this profile with a Phoenix specialized config, and uBlock Origin hasn't yet installed and initialized itself. Trying to load the desired webpage now would compromise your privacy and security, as uBlock Origin wouldn't be ready to protect you.
+
+You should see uBlock Origin's icon to the top right of the window, and it'll be either yellow or red. 
+
+If uBlock Origin's icon is yellow, that means it's still initializing. Please wait a few moments; the icon should turn red when it's ready.
+
+If the icon is red, you're good to go! You can simply restart the browser, load this profile, and enjoy. :)

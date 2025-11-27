@@ -43,7 +43,7 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2025.11.07.1", locked); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2025.11.27.1", locked); // [NO-MAIL] [HIDDEN]
 
 
 /*** 001 FINGERPRINTING PROTECTION ***/
