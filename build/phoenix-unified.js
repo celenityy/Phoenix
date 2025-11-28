@@ -1503,9 +1503,9 @@ pref("browser.urlbar.richSuggestions.featureGate", true); // [NO-ANDROID] [NO-MA
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1914143
 pref("browser.search.rustSelector.featureGate", true); // [DEFAULT]
 
-/// Enable the "Search in Private Window" result by default [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/search/SearchService.sys.mjs#1228 [NO-ANDROID] [NO-MAIL]
-pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+/// Enable the "Search in Private Window" result by default [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/search/SearchService.sys.mjs#1228 [NO-MAIL]
+pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // [NO-MAIL] [HIDDEN]
 
 /// Enable shortcut suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/UrlbarProviderTopSites.sys.mjs [NO-ANDROID] [NO-MAIL]
