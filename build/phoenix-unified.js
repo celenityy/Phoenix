@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.11.27.1", locked);
+pref("browser.phoenix.version", "{PHOENIX_VERSION}", locked);
 
 /* INDEX 
 
@@ -84,8 +84,8 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: 2025.11.27.1", locked); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2025.11.27.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
+pref("app.support.vendor", "Phoenix: {PHOENIX_VERSION}", locked); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("distribution.about", "Phoenix for Mozilla Firefox - {PHOENIX_VERSION} 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
 
 /// Distribution ID and version must be set for `distribution.about` to display [LINUX-ONLY]
 // `default` matches Mozilla's stock/default value - setting this to anything else could potentially compromise privacy (as this value is shared with Mozilla via the browser update endpoint) [LINUX-ONLY]
