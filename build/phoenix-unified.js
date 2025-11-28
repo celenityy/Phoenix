@@ -2131,7 +2131,7 @@ pref("extensions.addonAbuseReport.url", "");
 // We're also setting this as a user pref, which is quite nice from a security perspective - as it allows users to enable this functionality only when it's necessary...
 // Ex: A user attempts to install an extension, sees the extra prompt/warning, and selects `Enable` (which temporarily sets this pref to `true`...). The user then proceeds to install the extension. On the next launch of Firefox/Thunderbird, this pref is reset back to `false`, meaning the ability to install extensions is fully disabled without them even thinking about it
 pref("xpinstall.enabled", true); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
-pref("xpinstall.enabled", false); // [NO-ANDROID] [HIDDEN] So the default is `false`
+pref("xpinstall.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] So the default is `false`
 
 /// Disable mozAddonManager
 // mozAddonManager has various privacy (fingerprinting) and security (added attack surface) concerns.
@@ -2144,7 +2144,7 @@ pref("extensions.webapi.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("extensions.webapi.enabled", true); // [ANDROID-ONLY] [DEFAULT]
 pref("extensions.webapi.testing", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains
 pref("extensions.webapi.testing.http", false); // [DEFAULT] Disables mozAddonManager on Mozilla testing domains using insecure protocols
-pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [NO-ANDROID]
+pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [NO-ANDROID] [NO-MAIL]
 pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [ANDROID-ONLY] [DEFAULT]
 
 /// Enable Add-on Distribution Control (Install Origins)
