@@ -123,7 +123,7 @@
                 }
                 install -Dm644 linux/COPYING.txt $out/share/doc/phoenix/COPYING.txt
                 install -Dm644 linux/README.md $out/share/doc/phoenix/README.md
-                install -Dm644 linux/userjs/README $out/share/doc/phoenix/userjs/README
+                install -Dm644 linux/userjs/README.md $out/share/doc/phoenix/userjs/README.md
 
                 runHook postInstall
               '';
