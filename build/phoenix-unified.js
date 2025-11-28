@@ -1387,8 +1387,8 @@ pref("browser.phoenix.status", "008");
 
 /*** 009 SEARCH & URL BAR ***/
 
-/// Allow using a different search engine in normal vs. private Windows
-pref("browser.search.separatePrivateDefault.ui.enabled", true);
+/// Allow using a different search engine in normal vs. private Windows [NO-MAIL]
+pref("browser.search.separatePrivateDefault.ui.enabled", true); // [NO-MAIL]
 
 /// Always show Punycode
 // Protects against phishing & IDN Homograph Attacks
