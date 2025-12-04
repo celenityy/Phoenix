@@ -3390,6 +3390,13 @@ pref("permissions.media.show_always_ask.enabled", true); // [NO-ANDROID] [NO-MAI
 // ex. https://ozuma.sakura.ne.jp/httpstatus/400
 pref("browser.http.blank_page_with_error_response.enabled", false); // [DEFAULT - non-Android]
 
+/// Set certain default site permissions [NO-ANDROID] [NO-MAIL]
+// These match Firefox's default settings, but, the prefs are hidden by default - so this exposes them at `about:config` [NO-ANDROID] [NO-MAIL]
+pref("permissions.default.focus-tab-by-prompt", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Tab focus/switching - 0: Always ask, 1: Allow
+pref("permissions.default.persistent-storage", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Persistent storage - 0: Always ask, 1: Allow, 2: Block
+pref("permissions.default.screen", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Screensharing - 0: Always ask, 2: Block
+pref("permissions.default.speaker", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Speaker Selection - 0: Always ask, 2: Block
+
 pref("browser.phoenix.status", "024");
 
 /*** 025 DEBUGGING ***/
