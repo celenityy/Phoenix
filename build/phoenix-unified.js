@@ -3525,6 +3525,9 @@ pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 // https://searchfox.org/firefox-main/rev/82e2435f/remote/doc/Prefs.md#41
 pref("remote.prefs.recommended", false);
 
+/// Significantly reduce input history [NO-ANDROID]
+pref("devtools.webconsole.inputHistoryCount", 10); // [NO-ANDROID] [DEFEAULT: 300]
+
 /// Set Browser/Error Console scope to "Multiprocess" instead of "Parent process only" by default [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/devtools/client/webconsole/webconsole-ui.js#47 [NO-ANDROID]
 pref("devtools.browsertoolbox.scope", "everything"); // [NO-ANDROID] [DEFAULT - Thunderbird] 
