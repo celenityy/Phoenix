@@ -3415,6 +3415,9 @@ pref("devtools.markup.beautifyOnCopy", true); // [NO-ANDROID]
 /// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools [NO-ANDROID]
 pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [NO-ANDROID] [HIDDEN]
 
+/// Disable annoying "Firefox Profiler is now integrated into Developer Tools" banner when opening the performance panel [NO-ANDROID]
+pref("devtools.performance.new-panel-onboarding", false); // [NO-ANDROID] [HIDDEN]
+
 /// Disable editor onboarding [NO-ANDROID]
 pref("devtools.webconsole.input.editorOnboarding", false); // [NO-ANDROID]
 
