@@ -3431,6 +3431,9 @@ pref("devtools.browserconsole.enableNetworkMonitoring", false); // [NO-ANDROID] 
 /// Disable pausing on debugger statements by default [NO-ANDROID]
 pref("devtools.debugger.pause-on-debugger-statement", false); // [NO-ANDROID]
 
+/// Disable the performance panel intro [NO-ANDROID]
+pref("devtools.performance.popup.intro-displayed", true); // [NO-ANDROID]
+
 /// Disable Remote Debugging by default
 // We also reset this per-session by setting it as a user pref in `phoenix-user-pref.cfg`
 // https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html
