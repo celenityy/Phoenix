@@ -3495,6 +3495,11 @@ pref("devtools.webconsole.persistlog", true); // [NO-ANDROID]
 /// Prevent console API from writing to `stdout` when used by chrome content
 pref("devtools.console.stdout.chrome", false); // [DEFAULT - non-Android, `MOZILLA_OFFICIAL` builds]
 
+/// Prevent filter queries/searches and recent selections from persisting across restarts [NO-ANDROID]
+// (For this to be effective, these pref must be set as "user" prefs) [NO-ANDROID]
+pref("devtools.debugger.pending-selected-location", "{}"); // [NO-ANDROID] [DEFAULT]
+pref("devtools.netmonitor.requestfilter", ""); // [NO-ANDROID] [DEFAULT]
+
 /// Prevent logging URLs in Reader errors
 pref("reader.errors.includeURLs", false); // [DEFAULT - Android/Thunderbird]
 
