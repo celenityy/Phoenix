@@ -3454,6 +3454,9 @@ pref("remote.experimental.enabled", false, locked); // [DEFAULT - non-Nightly]
 // https://searchfox.org/firefox-main/rev/644f0db1/devtools/client/definitions.js#485 [NO-ANDROID]
 pref("devtools.anti-tracking.enabled", true); // [NO-ANDROID]
 
+/// Enable automatic bracket/quote closing by default [NO-ANDROID]
+pref("devtools.editor.autoclosebrackets", true); // [NO-ANDROID] [DEFAULT]
+
 /// Enable DevTools buttons by default [NO-ANDROID]
 pref("devtools.command-button-errorcount.enabled", true); // [NO-ANDROID] [DEFAULT] Error Count - https://searchfox.org/firefox-main/rev/82e2435f/devtools/client/framework/toolbox.js#2209
 pref("devtools.command-button-frames.enabled", true); // [NO-ANDROID] [DEFAULT] Frame Target - https://searchfox.org/firefox-main/rev/82e2435f/devtools/client/framework/toolbox.js#2189
