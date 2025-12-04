@@ -2788,6 +2788,8 @@ pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
 // Test: https://permission.site/
 pref("dom.sitepermsaddon-provider.enabled", false);
 pref("dom.webmidi.gated", true); // [DEFAULT]
+pref("permissions.default.midi", 2); // [HIDDEN]
+pref("permissions.default.midi-sysex", 2); // [HIDDEN]
 
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
