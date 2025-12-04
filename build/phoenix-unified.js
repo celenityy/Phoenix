@@ -3205,6 +3205,11 @@ pref("security.data_uri.block_toplevel_data_uri_navigations", true); // [DEFAULT
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/media/platforms/ffmpeg/FFmpegLibWrapper.cpp#61
 pref("media.libavcodec.allow-obsolete", false); // [DEFAULT]
 
+/// If WebGL is enabled, force it to be loaded out of process
+pref("webgl.out-of-process", true); // [DEFAULT]
+pref("webgl.out-of-process.force", true);
+pref("webgl.out-of-process.worker", true); // [DEFAULT]
+
 /// Increase the number of processes [ANDROID-ONLY]
 // This improves the effectiveness of fission/site isolation, and based on testing, we've also heard from users that this improves performance [ANDROID-ONLY]
 // For reference, this matches what Firefox on Desktop is using [ANDROID-ONLY]
