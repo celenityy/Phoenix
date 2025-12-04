@@ -3338,6 +3338,11 @@ pref("security.tls.grease_http3_enable", true);
 /// Enable more detailed property error messages
 pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Developer]
 
+/// Ensure that holding shift bypasses context menu events
+// (When holding shift, this prevents websites from hijacking the right click/context menu)
+// https://developer.mozilla.org/docs/Web/API/Element/contextmenu_event
+pref("dom.event.contextmenu.shift_suppresses_event", true); // [DEFAULT]
+
 /// Force pop-up windows to open in new tabs instead
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
 pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunderbird]
