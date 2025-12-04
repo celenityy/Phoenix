@@ -3453,6 +3453,9 @@ pref("devtools.webconsole.timestampMessages", true); // [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/remote/doc/Prefs.md#25
 pref("remote.experimental.enabled", false, locked); // [DEFAULT - non-Nightly]
 
+/// Display responses in the "raw" format in the network monitor by default [NO-ANDROID]
+pref("devtools.netmonitor.ui.default-raw-response", true); // [NO-ANDROID]
+
 /// Enable the Anti tracking debug panel by default [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/644f0db1/devtools/client/definitions.js#485 [NO-ANDROID]
 pref("devtools.anti-tracking.enabled", true); // [NO-ANDROID]
