@@ -3409,6 +3409,9 @@ pref("devtools.aboutdebugging.process-debugging", true); // [NO-ANDROID] [DEFAUL
 /// Always prompt before connecting to Remote Debugging...
 pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nightly]
 
+/// "Beautify" HTML content upon copy to the clipboard by default [NO-ANDROID]
+pref("devtools.markup.beautifyOnCopy", true); // [NO-ANDROID]
+
 /// Disable annoying "A simpler highlighter can be enabled in the settings..." banner when using developer tools [NO-ANDROID]
 pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [NO-ANDROID] [HIDDEN]
 
