@@ -3009,6 +3009,7 @@ pref("security.disallow_privilegedabout_remote_script_loads", true);
 // Instead of "exposing" all protocols, we can reduce attack surface by limiting them to only the ones we actually need/use/want
 // We can also ensure that the user is always warned before opening a protocol externally, and we can block protocols ourselves if desired
 pref("network.protocol-handler.expose.about", true); // [DEFAULT - Thunderbird]
+pref("network.protocol-handler.expose.bankid", true); // [ANDROID-ONLY] [HIDDEN] Needed for BankID authentication on Android - see https://gitlab.com/ironfox-oss/IronFox/-/issues/213
 pref("network.protocol-handler.expose.blob", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.chrome", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.data", true); // [DEFAULT - Thunderbird]
@@ -3022,6 +3023,7 @@ pref("network.protocol-handler.expose.view-source", true); // [NO-ANDROID] [NO-M
 pref("network.protocol-handler.expose-all", false); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.external.about", false); // [HIDDEN]
 pref("network.protocol-handler.external.afp", false); // [DEFAULT]
+pref("network.protocol-handler.external.bankid", true); // [HIDDEN] Ensure we do not try to handle BankID authentication internally...
 pref("network.protocol-handler.external.blob", false); // [HIDDEN]
 pref("network.protocol-handler.external.chrome", false); // [HIDDEN]
 pref("network.protocol-handler.external.data", false); // [DEFAULT]
