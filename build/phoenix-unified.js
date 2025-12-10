@@ -3871,7 +3871,7 @@ pref("nimbus.validation.enabled", false); // [HIDDEN - non-Firefox Desktop]
 /// Export bookmarks to a `bookmarks.html` file by default [NO-ANDROID] [NO-MAIL]
 pref("browser.bookmarks.autoExportHTML", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Expose hidden UI preferences in the about:config [NO-ANDROID]
+/// Expose hidden UI preferences at about:config [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/widget/nsXPLookAndFeel.cpp#87 [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/widget/LookAndFeel.h#48 [NO-ANDROID]
 pref("ui.hideCursorWhileTyping", 1); // [NO-ANDROID] [HIDDEN] [DEFAULT]
