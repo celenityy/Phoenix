@@ -2791,6 +2791,12 @@ pref("dom.webmidi.gated", true); // [DEFAULT]
 pref("permissions.default.midi", 2); // [HIDDEN]
 pref("permissions.default.midi-sysex", 2); // [HIDDEN]
 
+/// Disable the Windows UI Automation API
+// Similar privacy and security concerns as with Accessibility Services (accessibility.force_disabled) above
+// https://wikipedia.org/wiki/Microsoft_UI_Automation
+// https://searchfox.org/firefox-main/rev/87a1e2a5/modules/libpref/init/StaticPrefList.yaml#298
+pref("accessibility.uia.enable", 0);
+
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
