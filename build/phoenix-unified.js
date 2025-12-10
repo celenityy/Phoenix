@@ -2763,6 +2763,13 @@ pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
 pref("dom.reporting.header.enabled", false); // [DEFAULT]
 pref("dom.reporting.testing.enabled", false); // [DEFAULT]
 
+/// Disable tab hover previews by default [NO-ANDROID] [NO-MAIL]
+// PRIVACY: Reduces disk activity [NO-ANDROID] [NO-MAIL]
+// SECURITY: Attack Surface Reduction [NO-ANDROID] [NO-MAIL]
+// As a bonus, also boosts performance... [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.hoverPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.hoverPreview.showThumbnails", false); // [NO-ANDROID] [NO-MAIL]
+
 /// Disable Web Share API
 // This API allows websites to share data directly to system applications...
 // PRIVACY: Could result in leakage/unexpected behavior
@@ -3599,10 +3606,6 @@ pref("extensions.logging.enabled", false); // [DEFAULT]
 /// Disable pacing requests
 // https://codeberg.org/celenity/Phoenix/issues/84
 pref("network.http.pacing.requests.enabled", false);
-
-/// Disable tab hover previews by default [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.hoverPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.hoverPreview.showThumbnails", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Display advanced performance settings at `about:preferences#general` [NO-ANDROID] [NO-MAIL]
 // Despite what the name suggests, Firefox will remain at the default/recommended performance settings - all this does is expose the UI settings... [NO-ANDROID] [NO-MAIL]
