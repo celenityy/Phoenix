@@ -161,9 +161,8 @@ Huge thank you to the following projects & individuals for making Phoenix possib
 	- Invaluable feedback and support of the project.
 
 - **[Arkenfox](https://github.com/arkenfox/user.js)**
-	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
+	- 🪪 [earthlng](https://github.com/earthlng), [claustromaniac](https://github.com/claustromaniac), [Arkenfox authors](https://github.com/arkenfox)
 	- ⚖️ [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
-	- Without Arkenfox, I'm not sure where this project would be... it's incredible, and the documentation/research/work they've done is invaluable.
 
 - **[Betterfox](https://github.com/yokoffing/Betterfox)**
 	- 🪪 [yokoffing](https://github.com/yokoffing)
