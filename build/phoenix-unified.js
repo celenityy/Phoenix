@@ -2358,7 +2358,8 @@ pref("extensions.formautofill.ml.experiment.enabled", false); // [NO-ANDROID] [E
 // https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.linkPreview.collapsed", true); // [NO-ANDROID] [NO-MAIL] Ensure we don't prompt users to enable the AI ("key points") functionality - https://codeberg.org/librewolf/settings/pulls/98#issuecomment-9002205
 pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.linkPreview.longPress", false); // [NO-ANDROID] [NO-MAIL] 
+pref("browser.ml.linkPreview.longPress", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.linkPreview.noKeyPointsRegions", "xx"); // [NO-ANDROID] [NO-MAIL] This hides the UI toggle for the AI ("key points") functionality at `about:preferences#general`
 pref("browser.ml.linkPreview.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable Page Assist [NO-ANDROID] [NO-MAIL]
