@@ -289,6 +289,15 @@ cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_linux_dir"/assets/
 mkdir -vp "$phoenix_linux_dir/etc/profile.d"
 cp "$phoenix_dir/build/linux/etc/profile.d/phoenix-env-overrides.sh" "$phoenix_linux_dir/etc/profile.d/phoenix-env-overrides.sh"
 
+# Copy specialized config default permission files
+mkdir -vp "$phoenix_linux_dir/resources/specs/apple-maps"
+mkdir -vp "$phoenix_linux_dir/resources/specs/discord"
+mkdir -vp "$phoenix_linux_dir/resources/specs/element"
+mkdir -vp "$phoenix_linux_dir/resources/specs/google-maps"
+mkdir -vp "$phoenix_linux_dir/resources/specs/twitter"
+
+cp -vrf "$phoenix_dir/resources/specs" "$phoenix_linux_dir/resources/"
+
 # Copy specialized config user.js files
 mkdir -vp "$phoenix_linux_dir/userjs/apple-maps"
 mkdir -vp "$phoenix_linux_dir/userjs/discord"
@@ -356,6 +365,15 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_linux_flatpak_dir"/assets/
     cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_linux_flatpak_dir"/assets/
 
+    # Copy specialized config default permission files
+    mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/apple-maps"
+    mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/discord"
+    mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/element"
+    mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/google-maps"
+    mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/twitter"
+
+    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_linux_flatpak_dir/resources/"
+
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
     echo "Created $PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
@@ -400,6 +418,15 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_osx_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_dir"/assets/
     cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_osx_dir"/assets/
+
+    # Copy specialized config default permission files
+    mkdir -vp "$phoenix_osx_dir/resources/specs/apple-maps"
+    mkdir -vp "$phoenix_osx_dir/resources/specs/discord"
+    mkdir -vp "$phoenix_osx_dir/resources/specs/element"
+    mkdir -vp "$phoenix_osx_dir/resources/specs/google-maps"
+    mkdir -vp "$phoenix_osx_dir/resources/specs/twitter"
+
+    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_osx_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_BOOTSTRAP"
@@ -449,6 +476,15 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_osx_intel_dir"/assets/
     cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_osx_intel_dir"/assets/
 
+    # Copy specialized config default permission files
+    mkdir -vp "$phoenix_osx_intel_dir/resources/specs/apple-maps"
+    mkdir -vp "$phoenix_osx_intel_dir/resources/specs/discord"
+    mkdir -vp "$phoenix_osx_intel_dir/resources/specs/element"
+    mkdir -vp "$phoenix_osx_intel_dir/resources/specs/google-maps"
+    mkdir -vp "$phoenix_osx_intel_dir/resources/specs/twitter"
+
+    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_osx_intel_dir/resources/"
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_INTEL_BOOTSTRAP"
     echo "Created $PHOENIX_OSX_INTEL_BOOTSTRAP"
@@ -496,6 +532,15 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     cp "$phoenix_dir/build/assets/about/phoenix.html" "$phoenix_windows_dir"/assets/about/
     cp "$phoenix_dir/build/assets/phoenix.png" "$phoenix_windows_dir"/assets/
     cp "$phoenix_dir/build/assets/spec-welcome.txt" "$phoenix_windows_dir"/assets/
+
+    # Copy specialized config default permission files
+    mkdir -vp "$phoenix_windows_dir/resources/specs/apple-maps"
+    mkdir -vp "$phoenix_windows_dir/resources/specs/discord"
+    mkdir -vp "$phoenix_windows_dir/resources/specs/element"
+    mkdir -vp "$phoenix_windows_dir/resources/specs/google-maps"
+    mkdir -vp "$phoenix_windows_dir/resources/specs/twitter"
+
+    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_windows_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_WINDOWS_BOOTSTRAP"
