@@ -4203,8 +4203,8 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment"
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.merino.ohttpConfigURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.merino.ohttpRelayURL", "https://mozilla-ohttp.fastly-edge.com/"); // [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.merino.ohttpConfigURL", "https://prod.merino.prod.webservices.mozgcp.net/ohttp-configs"); // [NO-ANDROID] [NO-MAIL] https://github.com/mozilla/application-services/blob/1db4410891aa5eac49419100807c9522c4a3a89d/components/viaduct/src/ohttp.rs#L93
+pref("browser.urlbar.merino.ohttpRelayURL", "https://ohttp-relay-merino-prod.edgecompute.app/"); // [NO-ANDROID] [NO-MAIL] https://github.com/mozilla/application-services/blob/1db4410891aa5eac49419100807c9522c4a3a89d/components/viaduct/src/ohttp.rs#L92
 
 /// If sponsored content is somehow enabled, ensure that privacy protections are enabled [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.sponsor-protection.debug", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
