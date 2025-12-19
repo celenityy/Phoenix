@@ -84,7 +84,7 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: {PHOENIX_VERSION}", locked); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("app.support.vendor", "Phoenix: {PHOENIX_VERSION}"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
 pref("distribution.about", "Phoenix for Mozilla Firefox - {PHOENIX_VERSION} 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
 
 /// Distribution ID and version must be set for `distribution.about` to display [LINUX-ONLY]
