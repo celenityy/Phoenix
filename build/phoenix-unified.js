@@ -473,9 +473,11 @@ pref("messaging-system.profile.singleProfileMessaging.disable", false); // [NO-A
 pref("signon.firefoxRelay.feature", "disabled"); // [HIDDEN - Thunderbird]
 
 /// Disable import of Mozilla's default bookmarks [NO-ANDROID] [NO-MAIL]
-// NOTE: this pref appears to only work in automation, and we do disable the default bookmarks via policies, but setting this doesn't hurt [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/rev/82e2435f/browser/components/places/PlacesBrowserStartup.sys.mjs#210 [NO-ANDROID] [NO-MAIL]
-pref("browser.bookmarks.testing.skipDefaultBookmarksImport", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+// We also disable the default bookmarks via the `NoDefaultBookmarks` policy [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/268969d4/browser/components/places/PlacesBrowserStartup.sys.mjs#63 [NO-ANDROID] [NO-MAIL]
+pref("browser.bookmarks.restore_default_bookmarks", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT] Ensure the browser never tries to restore/import the default bookmarks
+pref("browser.bookmarks.testing.skipDefaultBookmarksImport", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] NOTE: This only appears to work in automation, but doesn't hurt to set anyways https://searchfox.org/firefox-main/rev/82e2435f/browser/components/places/PlacesBrowserStartup.sys.mjs#210
+pref("browser.places.importBookmarksHTML", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] This is a clever hack that effectively tricks Firefox into skipping the process of importing default bookmarks - instead it will try to import bookmarks from a HTML file that doesn't exist by default, hence, Firefox will import nothing - This is also nice to set here to expose this pref via `about:config`, as its hidden
 
 /// Disable "Interest-based Content Relevance Ranking and Personalization"
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1886207
