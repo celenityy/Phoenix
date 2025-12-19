@@ -2810,6 +2810,7 @@ pref("accessibility.uia.enable", 0);
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
 pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
+pref("network.lna.blocking", true); // [ANDROID-ONLY] [DEFAULT - Nightly] We don't want to set this until the next ESR cycle is over, as this functionality was still very early in development there, and the pref causes breakage/issues - for non-ESR Desktop, we still set this pref to true by default anyways via policies
 pref("network.lna.enabled", true); // [DEFAULT]
 pref("network.lna.etp.enabled", false); // [DEFAULT] [NIGHTLY] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
 pref("network.lna.websocket.enabled", true); // [NIGHTLY] Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
