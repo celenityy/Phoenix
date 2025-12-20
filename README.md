@@ -155,10 +155,15 @@ Phoenix is not sponsored or endorsed by Mozilla.
 Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
 
 - **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
-	- Designed Phoenix's icon, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
+	- Designed Phoenix's icon *(derived from Xonotic, see below)*, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
 
 - **[GW72](https://codeberg.org/GW72)**
 	- Invaluable feedback and support of the project.
+
+- **[Xonotic](https://xonotic.org/)**
+	- 🪪 [Severin Meyer](https://sev.dev/)
+	- ⚖️ [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)
+	- [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)
 
 - **[Arkenfox](https://github.com/arkenfox/user.js)**
 	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
