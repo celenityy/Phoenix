@@ -646,9 +646,9 @@ pref("signon.firefoxRelay.terms_of_service_url", "https://www.mozilla.org/about/
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/telemetry/docs/internals/preferences.rst#208
 pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 999, locked);
 pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "32503679999000", locked);
-pref("termsofuse.acceptedDate", "32503679999000", locked); // [HIDDEN - Android/Thunderbird] [NIGHTLY]
-pref("termsofuse.acceptedVersion", 999, locked); // [HIDDEN - Android/Thunderbird] [NIGHTLY]
-pref("termsofuse.bypassNotification", true, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - builds without MOZILLA_OFFICIAL] [NIGHTLY]
+pref("termsofuse.acceptedDate", "32503679999000", locked); // [HIDDEN - Android/Thunderbird]
+pref("termsofuse.acceptedVersion", 999, locked); // [HIDDEN - Android/Thunderbird]
+pref("termsofuse.bypassNotification", true, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - builds without MOZILLA_OFFICIAL]
 
 pref("browser.phoenix.status", "002");
 
