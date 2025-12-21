@@ -2533,6 +2533,15 @@ pref("pdfjs.enableAltTextForEnglish", true);
 pref("pdfjs.enableNewAltTextWhenAddingImage", true); // [DEFAULT] Enables the Alt Text Editor after adding an image
 pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
+/// Enable hardware acceleration by default
+// This should help improve performance, which is especially notable for us since we disable JIT
+pref("pdfjs.enableHWA", true);
+
+/// Enable optimized partial rendering by default
+// In my testing, this appears to make a *significant* performance improvement
+// https://github.com/mozilla/pdf.js/blob/010e52e15db0cb534774cdf92e20c03bcd13d735/web/pdf_page_view.js#L93
+pref("pdfjs.enableOptimizedPartialRendering", true);
+
 /// Enforce using the internal font renderer
 // This disable the CSS Font Loading API
 // https://mozilla.github.io/pdf.js/api/draft/module-pdfjsLib.html
