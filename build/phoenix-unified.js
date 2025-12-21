@@ -1032,10 +1032,6 @@ pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/T
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 pref("browser.formfill.enable", false);
 
-/// Disable semantic history
-// https://searchfox.org/firefox-main/source/toolkit/components/places/PlacesSemanticHistoryManager.sys.mjs
-pref("places.semanticHistory.featureGate", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Nightly/Dev Firefox Desktop]
-
 /// Disable taskbar lists [WINDOWS-ONLY] [NO-MAIL]
 pref("browser.taskbar.lists.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
 pref("browser.taskbar.lists.frequent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
@@ -2392,6 +2388,10 @@ pref("browser.ml.pageAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT
 /// Disable Perplexity URL bar promotion [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/urlbar/UrlbarPrefs.sys.mjs#229 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO-MAIL]
+
+/// Disable semantic history
+// https://searchfox.org/firefox-main/source/toolkit/components/places/PlacesSemanticHistoryManager.sys.mjs
+pref("places.semanticHistory.featureGate", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Nightly/Dev Firefox Desktop]
 
 /// Disable "Smart Assist" [NO-ANDROID] [NO-MAIL]
 // Currently relies on OpenAI/ChatGPT... so I'm going to be aggressive here, because I don't really want to deal with this :/ [NO-ANDROID] [NO-MAIL]
