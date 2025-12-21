@@ -2376,14 +2376,14 @@ pref("browser.aiwindow.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aiwindow.insights", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.aiwindow.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Disable Link Preview [NO-ANDROID] [NO-MAIL]
-// Currently no-op - requires `dom.postMessage.sharedArrayBuffer.withCOOP_COEP` set to `true`: https://codeberg.org/celenity/Phoenix/issues/151 [NO-ANDROID] [NO-MAIL]
+/// Disable Link Preview "Key Points" [NO-ANDROID] [NO-MAIL]
+// Currently no-op anyways - requires `dom.postMessage.sharedArrayBuffer.withCOOP_COEP` set to `true`: https://codeberg.org/celenity/Phoenix/issues/151 [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/mozilla/ai/ai-tech/ai-link-previews-firefox/ [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.linkPreview.collapsed", true); // [NO-ANDROID] [NO-MAIL] Ensure we don't prompt users to enable the AI ("key points") functionality - https://codeberg.org/librewolf/settings/pulls/98#issuecomment-9002205
-pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.ml.linkPreview.collapsed", true); // [NO-ANDROID] [NO-MAIL] Ensure we don't prompt users to enable AI "key points" - https://codeberg.org/librewolf/settings/pulls/98#issuecomment-9002205
+pref("browser.ml.linkPreview.enabled", false); // [NO-ANDROID] [NO-MAIL] This disables Link Preview itself by default - if this alone is re-enabled, it'll still provide basic previews without AI
 pref("browser.ml.linkPreview.longPress", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.linkPreview.noKeyPointsRegions", "xx"); // [NO-ANDROID] [NO-MAIL] This hides the UI toggle for the AI ("key points") functionality at `about:preferences#general`
 pref("browser.ml.linkPreview.optin", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.linkPreview.supportedLocales", "null"); // [NO-ANDROID] [NO-MAIL] This hides the UI toggle at `about:preferences#general`
 
 /// Disable Page Assist [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/genai/PageAssist.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -2400,6 +2400,7 @@ pref("browser.ml.smartAssist.apiKey", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ml.smartAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ml.smartAssist.endpoint", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ml.smartAssist.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ml.smartAssist.overrideNewTab", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable the WebExtensions AI API
 // https://firefox-source-docs.mozilla.org/toolkit/components/ml/extensions.html#webextensions-ai-api
