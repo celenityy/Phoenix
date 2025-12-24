@@ -193,10 +193,16 @@
     "adguard-spyware-url": {
         "content": "filters",
         "group": "privacy",
-        "title": "AdGuard - URL Tracking Protection",
+        "title": "AdGuard/uBO - URL Tracking Protection",
         "tags": "privacy",
-        "contentURL": "https://filters.adtidy.org/extension/ublock/filters/17.txt",
-        "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters"
+        "contentURL": "https://ublockorigin.github.io/uAssets/filters/privacy-removeparam.txt",
+        "cdnURLs": [
+            "https://ublockorigin.github.io/uAssetsCDN/filters/privacy-removeparam.txt",
+            "https://ublockorigin.pages.dev/filters/privacy-removeparam.txt",
+            "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/privacy-removeparam.txt",
+            "https://cdn.statically.io/gh/uBlockOrigin/uAssetsCDN/main/filters/privacy-removeparam.txt"
+        ],
+        "supportURL": "https://github.com/uBlockOrigin/uAssets"
     },
     "block-lan": {
         "content": "filters",
@@ -790,16 +796,16 @@
         "supportURL": "https://github.com/MajkiIT/polish-ads-filter"
     },
     "POL-3": {
-		"content": "filters",
-		"group": "regions",
-		"parent": "🇵🇱pl: Oficjalne Polskie Filtry",
-		"off": true,
-		"title": "🇵🇱pl: CERT.PL's Warning List",
-		"tags": "malware polish polski",
-		"lang": "szl pl",
-		"contentURL": "https://hole.cert.pl/domains/v2/domains_ublock.txt",
-		"supportURL": "https://cert.pl/lista-ostrzezen/"
-	},
+        "content": "filters",
+        "group": "regions",
+        "parent": "🇵🇱pl: Oficjalne Polskie Filtry",
+        "off": true,
+        "title": "🇵🇱pl: CERT.PL's Warning List",
+        "tags": "malware polish polski",
+        "lang": "szl pl",
+        "contentURL": "https://hole.cert.pl/domains/v2/domains_ublock.txt",
+        "supportURL": "https://cert.pl/lista-ostrzezen/"
+    },
     "ROU-1": {
         "content": "filters",
         "group": "regions",
