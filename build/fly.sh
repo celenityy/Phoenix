@@ -296,7 +296,7 @@ mkdir -vp "$phoenix_linux_dir/resources/specs/element"
 mkdir -vp "$phoenix_linux_dir/resources/specs/google-maps"
 mkdir -vp "$phoenix_linux_dir/resources/specs/twitter"
 
-cp -vrf "$phoenix_dir/resources/specs" "$phoenix_linux_dir/resources/"
+cp -vrf "$phoenix_dir/build/resources/specs" "$phoenix_linux_dir/resources/"
 
 # Copy specialized config user.js files
 mkdir -vp "$phoenix_linux_dir/userjs/apple-maps"
@@ -372,7 +372,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/google-maps"
     mkdir -vp "$phoenix_linux_flatpak_dir/resources/specs/twitter"
 
-    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_linux_flatpak_dir/resources/"
+    cp -vrf "$phoenix_dir/build/resources/specs" "$phoenix_linux_flatpak_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_USER_PREF_CFG" > "$PHOENIX_LINUX_FLATPAK_USER_PREF_CFG"
@@ -426,7 +426,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     mkdir -vp "$phoenix_osx_dir/resources/specs/google-maps"
     mkdir -vp "$phoenix_osx_dir/resources/specs/twitter"
 
-    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_osx_dir/resources/"
+    cp -vrf "$phoenix_dir/build/resources/specs" "$phoenix_osx_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_BOOTSTRAP"
@@ -483,7 +483,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     mkdir -vp "$phoenix_osx_intel_dir/resources/specs/google-maps"
     mkdir -vp "$phoenix_osx_intel_dir/resources/specs/twitter"
 
-    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_osx_intel_dir/resources/"
+    cp -vrf "$phoenix_dir/build/resources/specs" "$phoenix_osx_intel_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_OSX_INTEL_BOOTSTRAP"
@@ -540,7 +540,7 @@ if [[ -z "$PHOENIX_LINUX_ONLY" ]]; then
     mkdir -vp "$phoenix_windows_dir/resources/specs/google-maps"
     mkdir -vp "$phoenix_windows_dir/resources/specs/twitter"
 
-    cp -vrf "$phoenix_dir/resources/specs" "$phoenix_windows_dir/resources/"
+    cp -vrf "$phoenix_dir/build/resources/specs" "$phoenix_windows_dir/resources/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "$PHOENIX_BOOTSTRAP" > "$PHOENIX_WINDOWS_BOOTSTRAP"
