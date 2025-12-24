@@ -1,0 +1,7 @@
+
+# This file allows us to set exceptions for our desired service by default, without also impacting othering websites
+origin	camera	                3	https://discord.com
+origin	cookie	                1	https://discord.com
+origin	desktop-notification	3	https://discord.com
+origin	microphone	            3	https://discord.com
+origin	screen	                3	https://discord.com
