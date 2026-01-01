@@ -89,7 +89,7 @@ pref("distribution.about", "Phoenix for Mozilla Firefox - {PHOENIX_VERSION} 💜
 
 /// Distribution ID and version must be set for `distribution.about` to display [LINUX-ONLY]
 // `default` matches Mozilla's stock/default value - setting this to anything else could potentially compromise privacy (as this value is shared with Mozilla via the browser update endpoint) [LINUX-ONLY]
-// For now, we only want to set these on Linux - since Mozilla offers EME-free builds on macOS and Linux that use different values here - so it's unclear how they'd interact [LINUX-ONLY]
+// For now, we only want to set these on Linux - since Mozilla offers EME-free builds on macOS and Windows that use different values here - so it's unclear how they'd interact [LINUX-ONLY]
 pref("distribution.id", "default", locked); // [LINUX-ONLY] [HIDDEN]
 pref("distribution.version", "default", locked); // [LINUX-ONLY] [HIDDEN]
 
