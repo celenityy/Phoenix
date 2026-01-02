@@ -682,6 +682,9 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
 // We're also configuring the 'CookieBehavior' and 'EnableTrackingProtection' policies on desktop.
 
+//// Block harmful add-on URLs
+pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [NIGHTLY] [DEFAULT - non-Thunderbird]
+
 //// Block known consent managers (CMPs)
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.enabled", false); // [DEFAULT]
