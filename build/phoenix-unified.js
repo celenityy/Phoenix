@@ -4071,8 +4071,11 @@ pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-c", false, 
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#781 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1563 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/NewTabAttributionFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/NewTabAttributionService.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.attribution.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.newtabattributionfeed", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("dap.ohttp.hpke", "", locked); // [NO-ANDROID] [NO-MAIL]
+pref("dap.ohttp.relayURL", "", locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable onboarding [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1972 [NO-ANDROID] [NO-MAIL]
