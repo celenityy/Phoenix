@@ -495,6 +495,7 @@ pref("browser.ipProtection.autoStartEnabled", false); // [NO-ANDROID] [NO-MAIL] 
 pref("browser.ipProtection.autoStartPrivateEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.features.autoStart", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.ipProtection.features.siteExceptions", true); // [NO-ANDROID] [NO-MAIL] If IP Protection is enabled, enable support for site exceptions https://searchfox.org/firefox-main/rev/aee7c0f2/browser/app/profile/firefox.js#3547
 pref("browser.ipProtection.optedOut", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.ipProtection.userEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
