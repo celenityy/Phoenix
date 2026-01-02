@@ -3935,6 +3935,9 @@ pref("findbar.highlightAll", true);
 /// Prevent the alt key from toggling menu bar by default
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux]
 
+/// Prevent automatically closing the Bookmarks menu after selecting a bookmark [NO-ANDROID] [NO-MAIL]
+pref("browser.bookmarks.openInTabClosesMenu", false); // [NO-ANDROID] [NO-MAIL]
+
 /// Prevent displaying Private Browsing windows as separate icons on the Windows Taskbar by default [NO-ANDROID] [NO-MAIL]
 pref("browser.privateWindowSeparation.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
@@ -3955,9 +3958,6 @@ pref("services.settings.loglevel", "warn"); // [HIDDEN] [DEFAULT]
 // Default is https://www.mozilla.org/about/manifesto/
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs#10
 pref("toolkit.mozprotocol.url", "about:mozilla"); // [HIDDEN]
-
-/// Prevent automatically closing the Bookmarks menu after selecting a bookmark [NO-ANDROID] [NO-MAIL]
-pref("browser.bookmarks.openInTabClosesMenu", false); // [NO-ANDROID] [NO-MAIL]
 
 pref("browser.phoenix.status", "027");
 
