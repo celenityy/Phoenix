@@ -4312,6 +4312,10 @@ pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Proxy images [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/aee7c0f2/browser/extensions/newtab/lib/ActivityStream.sys.mjs#921 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.imageProxy.enabled", true); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
+
 /// Remove default shortcuts [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.default.sites", ""); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#181
 pref("browser.newtabpage.activity-stream.improvesearch.noDefaultSearchTile", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#831
