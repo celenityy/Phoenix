@@ -141,6 +141,8 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
 }
 ```
 
+Alternatively, the Phoenix package, overlay, and NixOS module can be used directly in both flake and non-flake contexts. Simply pin the Phoenix source repository using your tool of choice (e.g. niv, npins, flakes) and then include `nix/package.nix`, `nix/overlay.nix`, or `nix/module.nix` as desired.
+
 </details>
 
 ## **If you would like to use Phoenix on any other unsupported platform, see [📛Manual Installation](manual_installation.md).**
