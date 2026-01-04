@@ -1020,6 +1020,27 @@ pref("browser.cache.disk_cache_ssl", true); // [DEFAULT] Controls disk cache for
 // Prevents .ico files from persisting, even after deletion [NO-ANDROID]
 pref("browser.shell.shortcutFavicons", false); // [NO-ANDROID] [HIDDEN - Thunderbird]
 
+/// Disable frecency
+// This also prevents random recently visited sites from being pinned to the homepage on Desktop
+// https://firefox-source-docs.mozilla.org/browser/urlbar/ranking.html#frecency-implementation
+// https://devdoc.net/web/developer.mozilla.org/en-US/docs/The_Places_frecency_algorithm.html
+// NOTE: `places.frecency.unvisitedBookmarkBonus` is required for bookmark URL bar suggestions on Desktop:
+// https://codeberg.org/celenity/Phoenix/issues/218
+// https://www.labnol.org/software/browsers/prevent-firefox-showing-bookmarks-address-location-bar/3636#:~:text=Option%20C%3A%20Remove%20Bookmarks%20Completely%20from%20Address%20Bar
+pref("places.frecency.bookmarkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 75]
+pref("places.frecency.defaultVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.downloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.embedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.framedLinkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.linkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 100]
+pref("places.frecency.permRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 50]
+pref("places.frecency.redirectSourceVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.reloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.tempRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 40]
+pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 2000]
+pref("places.frecency.unvisitedBookmarkBonus", 0); // [ANDROID-ONLY] [HIDDEN - Android/Thunderbird] [Default: 140]
+pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 200]
+
 /// Disable LaterRun [NO-ANDROID] [NO-MAIL]
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568 [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1200639 [NO-ANDROID] [NO-MAIL]
@@ -4291,22 +4312,6 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoin
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190 (Hides the toggle at `about:preferences#home`)
-
-/// Prevent adding random recently visited sites to shortcuts/pins by default
-// https://searchfox.org/mozilla-central/rev/73bd66f4/toolkit/components/places/nsNavHistory.cpp#62
-pref("places.frecency.bookmarkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 75]
-pref("places.frecency.defaultVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.downloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.embedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.framedLinkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.linkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 100]
-pref("places.frecency.permRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 50]
-pref("places.frecency.redirectSourceVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.reloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
-pref("places.frecency.tempRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 40]
-pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 2000]
-pref("places.frecency.unvisitedBookmarkBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 140]
-pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 200]
 
 /// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
