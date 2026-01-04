@@ -1637,8 +1637,11 @@ pref("network.trr.mode", 3);
 pref("network.dns.echconfig.enabled", true); // [DEFAULT]
 pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
-/// Enable native DNS HTTPS Lookups
+/// Enable native DNS over HTTPS Lookups
+// NOTE: Native DNS over HTTPS is currently broken on Windows 10, but can be toggled anyways with the
+// `network.dns.native_https_query_win10` pref: https://bugzilla.mozilla.org/show_bug.cgi?id=1873461
 pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
+pref("network.dns.native_https_query_in_automation", true); // Used in automation
 
 /// Enable TLS SNI Slicing
 // Useful for circumenting certain forms of censorship, ex. from the Great Firewall of China
