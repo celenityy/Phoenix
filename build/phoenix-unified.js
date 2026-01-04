@@ -1637,7 +1637,7 @@ pref("network.trr.mode", 3);
 pref("network.dns.echconfig.enabled", true); // [DEFAULT]
 pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
-/// Enable native DNS over HTTPS Lookups
+/// Enable native DNS over HTTPS lookups
 // NOTE: Native DNS over HTTPS is currently broken on Windows 10, but can be toggled anyways with the
 // `network.dns.native_https_query_win10` pref: https://bugzilla.mozilla.org/show_bug.cgi?id=1873461
 pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
