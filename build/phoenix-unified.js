@@ -2677,6 +2677,7 @@ pref("urlclassifier.phishTable", "goog-phish-proto,moztest-phish-simple"); // [D
 pref("browser.safebrowsing.allowOverride", true); // [DEFAULT]
 
 /// Prevent sending metadata of downloaded files to Safe Browsing providers
+// NOTE: If this is enabled, we proxy this (via the `browser.safebrowsing.downloads.remote.url` pref)
 // https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox
 // https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -2699,6 +2700,7 @@ pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [HIDDE
 
 /// Proxy Safe Browsing
 // This sets up a new Safe Browsing "provider", using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
+pref("browser.safebrowsing.downloads.remote.url", "https://safebrowsing.ironfoxoss.org/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%");
 pref("browser.safebrowsing.provider.google4.advisoryName", "Google Safe Browsing (Proxied by IronFox) - v4");
 pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 pref("browser.safebrowsing.provider.google4.nextupdatetime", "1"); // [HIDDEN]
@@ -2711,9 +2713,8 @@ pref("browser.safebrowsing.provider.google5.updateURL", "https://safebrowsing.ir
 /// Show advanced details on pages blocked by Safe Browsing by default [NO-ANDROID] [NO-MAIL]
 pref("browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [NO-ANDROID] [NO-MAIL]
 
-/// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.downloads.remote.enabled` & `browser.safebrowsing.provider.google.lists` prefs)
+/// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.provider.google.lists` pref)
 //  Some (ex. LibreWolf) override these for no reason
-pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 
