@@ -2620,8 +2620,8 @@ pref("browser.phoenix.status", "019");
 
 /*** 020 SAFE BROWSING ***/
 
-/// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla & Google (NOT PROXIED), as well as your locale to Mozilla
-// Ex. https://en-us.phish-error.mozilla.com/?url=example.org - Which redirects you directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org 
+/// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla and Google (NOT PROXIED), as well as your locale to Mozilla
+// (ex. https://en-us.phish-error.mozilla.com/?url=example.org - which redirects directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org)
 // We can improve privacy and speed by sending the domain *only* to Google & without sending your locale to anyone
 // We could also potentially strip tpl=mozilla which tells Google the request is from Firefox - though it looks like there is a different page for Firefox users with a better privacy policy, so we will leave it for now
 // Unclear whether 'MalwareMistake' is used, but we can set it anyways
