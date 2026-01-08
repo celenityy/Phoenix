@@ -2,7 +2,7 @@
 //
 
 //
-// Copyright (C) 2024-2025 celenity
+// Copyright (C) 2024-2026 celenity
 //
 // This file is part of Phoenix.
 //
