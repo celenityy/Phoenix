@@ -1750,6 +1750,12 @@ pref("privacy.webrtc.hideGlobalIndicator", false); // [HIDDEN - Android/Thunderb
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/common/SandboxSettings.cpp#185
 pref("media.peerconnection.mtransport_process", true); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 
+/// Disable RTP Control Protocol (RTCP) reception
+// https://wikipedia.org/wiki/RTP_Control_Protocol
+// Used for quality monitoring and statistics
+// https://searchfox.org/firefox-main/rev/874c5779/dom/media/webrtc/transportbridge/MediaPipeline.cpp#651
+pref("media.webrtc.net.force_disable_rtcp_reception", true);
+
 /// Enable global toggles for muting the camera/microphone
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#2595
 pref("privacy.webrtc.globalMuteToggles", true); // [HIDDEN - Android]
