@@ -3774,6 +3774,9 @@ pref("layout.css.grid-template-masonry-value.enabled", true); // [DEFAULT - Nigh
 // https://web.dev/articles/fetch-priority
 pref("network.fetchpriority.enabled", true); // [DEFAULT]
 
+/// Enable hardware acceleration by default
+pref("layers.acceleration.disabled", false); // [DEFAULT]
+
 /// Enable JS GC Parallel Marking
 pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Android]
 
