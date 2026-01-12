@@ -1896,6 +1896,14 @@ pref("media.rdd-wmf.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 // are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
 pref("media.ffvpx-hw.enabled", true); // [DEFAULT - Linux, Windows Nightly]
 
+/// Enable multi-threaded media decoding
+// (Improves performance...)
+pref("media.gmp.decoder.multithreaded", true);
+
+/// Enable multi-threaded media encoding
+// (Improves performance...)
+pref("media.gmp.encoder.multithreaded", true);
+
 /// If GMP is enabled (via `media.gmp-manager.updateEnabled`), ensure that installed plug-ins are visible/exposed in `about:addons`
 pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
 
