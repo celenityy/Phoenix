@@ -1843,6 +1843,14 @@ pref("media.eme.playready.enabled", false); // [WINDOWS-ONLY]
 // https://github.com/arkenfox/user.js/issues/709
 pref("media.gmp-manager.updateEnabled", false); // [HIDDEN]
 
+/// Disable GMP decoding [ANDROID-ONLY]
+// GMP isn't supported Android, so we can set this to reduce attack surface and ensure we never try to use it for decoding [ANDROID-ONLY]
+pref("media.gmp.decoder.enabled", false); // [ANDROID-ONLY]
+
+/// Disable GMP encoding
+// GMP only makes sense for decoding/media *consumption*
+pref("media.gmp.encoder.enabled", false); // [DEFAULT]
+
 /// Disable GMP local sources
 // When combined with `media.gmp-manager.updateEnabled`, this blocks all GMP downloads/updates
 // When GMP is enabled (`media.gmp-manager.updateEnabled` set to `true`), this is still useful - as it ensures the GMP plug-ins that Firefox installs are always the latest versions available (instead of being outdated/potentially vulnerable), directly from Mozilla
