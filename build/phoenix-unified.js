@@ -1888,6 +1888,7 @@ pref("media.gmp.insecure.allow", false); // [LINUX-ONLY] [DEFAULT]
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
 // https://docs.google.com/document/d/1WDEY5fQetK_YE5oxGxXK9BzC1A8kJP3q6F1gAPc2UGE/edit
 pref("media.allow-audio-non-utility", false); // [DEFAULT - non-iOS]
+pref("media.utility-android-media-codec.enabled", true); // [ANDROID-ONLY] For the Android MediaCodec PlatformDecoderModule
 pref("media.utility-process.enabled", true); // [DEFAULT]
 
 /// Validate signature when updating GMP (if enabled)
