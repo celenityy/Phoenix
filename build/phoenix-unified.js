@@ -1880,7 +1880,7 @@ pref("userContent.player.click_to_play", true); // [NO-ANDROID] [HIDDEN]
 /// Enable the Data Decoder (RDD) process
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
 // NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
-// are enabled: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
 pref("media.rdd-applemedia.enabled", true); // [OSX-ONLY] [DEFAULT]
 pref("media.rdd-ffmpeg.enabled", true); // [DEFAULT]
 pref("media.rdd-ffvpx.enabled", true); // [DEFAULT - non-Android]
@@ -1890,6 +1890,11 @@ pref("media.rdd-vorbis.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-vpx.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-wav.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-wmf.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
+
+/// Enable hardware video decoding
+// NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+pref("media.ffvpx-hw.enabled", true); // [DEFAULT - Linux, Windows Nightly]
 
 /// If GMP is enabled (via `media.gmp-manager.updateEnabled`), ensure that installed plug-ins are visible/exposed in `about:addons`
 pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
