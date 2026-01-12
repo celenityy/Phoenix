@@ -1884,6 +1884,12 @@ pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/media/gmp/GMPServiceParent.cpp#1039 [LINUX-ONLY]
 pref("media.gmp.insecure.allow", false); // [LINUX-ONLY] [DEFAULT]
 
+/// Use the more confined utility process for media decoding
+// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
+// https://docs.google.com/document/d/1WDEY5fQetK_YE5oxGxXK9BzC1A8kJP3q6F1gAPc2UGE/edit
+pref("media.allow-audio-non-utility", false); // [DEFAULT - non-iOS]
+pref("media.utility-process.enabled", true); // [DEFAULT]
+
 /// Validate signature when updating GMP (if enabled)
 pref("media.gmp-manager.cert.checkAttributes", true); // [DEFAULT]
 pref("media.gmp-manager.cert.requireBuiltIn", true); // [DEFAULT]
