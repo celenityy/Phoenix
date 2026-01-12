@@ -1889,6 +1889,7 @@ pref("userContent.player.click_to_play", true); // [NO-ANDROID] [HIDDEN]
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
 // NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
 // are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
 pref("media.rdd-applemedia.enabled", true); // [OSX-ONLY] [DEFAULT]
 pref("media.rdd-ffmpeg.enabled", true); // [DEFAULT]
 pref("media.rdd-ffvpx.enabled", true); // [DEFAULT - non-Android]
@@ -1899,10 +1900,27 @@ pref("media.rdd-vpx.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-wav.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-wmf.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 
-/// Enable hardware video decoding
+/// Enable hardware/platform media decoding
+// https://searchfox.org/firefox-main/source/dom/media/platforms/PDMFactory.cpp
 // NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
 // are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
+pref("media.android-media-codec.enabled", false); // [ANDROID-ONLY]
+pref("media.android-media-codec.preferred", false); // [ANDROID-ONLY]
 pref("media.ffvpx-hw.enabled", true); // [DEFAULT - Linux, Windows Nightly]
+pref("media.gmp.decoder.preferred", false); // [DEFAULT]
+pref("media.hardware-video-decoding.enabled", true); // [DEFAULT]
+
+/// Enable hardware/platform media encoding
+// https://searchfox.org/firefox-main/source/dom/media/platforms/PEMFactory.cpp
+// NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
+pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
+pref("media.gmp.encoder.preferred", false); // [DEFAULT]
+pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
+pref("media.use-remote-encoder.audio", true);
+pref("media.use-remote-encoder.video", true);
 
 /// Enable multi-threaded media decoding
 // (Improves performance...)
@@ -3700,7 +3718,7 @@ pref("browser.phoenix.status", "025");
 
 /*** 026 PERFORMANCE ***/
 
-// A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
+// Some of these are taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 /// Compress cached JavaScript bytecode
 // https://github.com/yokoffing/Betterfox/issues/247
