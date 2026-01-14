@@ -1,7 +1,0 @@
-{
-    "assets.json": {
-        "content": "internal",
-        "updateAfter": 1,
-        "contentURL": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.dev.json"
-    }
-}
