@@ -2943,13 +2943,15 @@ pref("accessibility.uia.enable", 0);
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
+pref("network.lna.allow_top_level_navigation", false); // Enforce LNA for top-level document navigation https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14619
 pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
 pref("network.lna.blocking", true); // [ANDROID-ONLY] [DEFAULT - Nightly] We don't want to set this until the next ESR cycle is over, as this functionality was still very early in development there, and the pref causes breakage/issues - for non-ESR Desktop, we still set this pref to true by default anyways via policies
 pref("network.lna.enabled", true); // [DEFAULT]
-pref("network.lna.etp.enabled", false); // [DEFAULT] [NIGHTLY] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
-pref("network.lna.websocket.enabled", true); // [NIGHTLY] Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
-pref("permissions.default.local-network", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access the local network by default; we won't set on Android for now since there's not a UI there to control this yet...
-pref("permissions.default.localhost", 2); // [NO-ANDROID] [NIGHTLY] Blocks websites from prompting to access apps and services (outside of the browser) on your device
+pref("network.lna.etp.enabled", false); // [DEFAULT] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
+pref("network.lna.local-network-to-localhost.skip-checks", false); // Enforce LNA for requests from local network to your device https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14641
+pref("network.lna.websocket.enabled", true); // Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
+pref("permissions.default.local-network", 2); // [NO-ANDROID] Blocks websites from prompting to access the local network by default
+pref("permissions.default.localhost", 2); // [NO-ANDROID] Blocks websites from prompting to access apps and services (outside of the browser) on your device
 
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
