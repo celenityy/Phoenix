@@ -1625,7 +1625,6 @@ pref("network.notify.IPv6", false); // [DEFAULT - Windows]
 pref("network.notify.resolvers", false);
 
 /// Enable DNS Rebinding Protection
-// (Some like ex. LibreWolf set this to `true`...)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1672528
 pref("network.trr.allow-rfc1918", false); // [DEFAULT]
 
