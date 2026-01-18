@@ -154,7 +154,6 @@ pref("toolkit.coverage.enabled", false, locked); // [DEFAULT] [HIDDEN - Android/
 pref("toolkit.coverage.endpoint.base", "", locked); // [DEFAULT - Android/Thunderbird] [HIDDEN - Android/Thunderbird]
 pref("toolkit.coverage.log-level", 70); // [HIDDEN] Limits logging to fatal only
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
-pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 /// Disable Crash Reporting
 // https://github.com/mozilla-services/socorro
@@ -636,7 +635,6 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/android/search?q=%TERMS%"); // [ANDROID-ONLY]
 pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%"); // [NO-MAIL] Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), and compatibility mode (compatMode)
 pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%"); // [NO-MAIL] Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), and compatibility mode (compatMode)
-pref("lightweightThemes.getMoreURL", "https://addons.mozilla.org/themes/"); // [NO-ANDROID] [NO-MAIL]
 pref("pdfjs.altTextLearnMoreUrl", "https://support.mozilla.org/kb/pdf-alt-text");
 pref("pdfjs.commentLearnMoreUrl", "https://support.mozilla.org/kb/view-pdf-files-firefox-or-choose-another-viewer#w_add-a-comment-to-a-pdf");
 pref("signon.firefoxRelay.learn_more_url", "https://support.mozilla.org/kb/relay-integration#w_frequently-asked-questions");
@@ -4397,7 +4395,6 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "merino.services.mozilla.com"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190 (Hides the toggle at `about:preferences#home`)
 
 /// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
 // https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
