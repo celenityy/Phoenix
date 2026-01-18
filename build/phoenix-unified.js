@@ -463,7 +463,6 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiment
 pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "null", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "null", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.newtabmessaging", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1569 https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/NewTabMessaging.sys.mjs
-pref("browser.profiles.created", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Ensure Firefox thinks we've used/enabled multiple profiles (this passes `hasSelectableProfiles`: https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouter.sys.mjs#1874 + https://searchfox.org/firefox-main/rev/ac83682a/browser/components/asrouter/modules/ASRouterTargeting.sys.mjs#676)
 pref("messaging-system.askForFeedback", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("messaging-system.log", "off"); // [NO-ANDROID] [NO-MAIL] Disables logging
 pref("messaging-system.profile.messagingProfileId", -1, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Firefox thinks this is the only profile it can send targetting messages to. As this profile ID does not exist, it tricks Firefox into never sending targetting messages.
