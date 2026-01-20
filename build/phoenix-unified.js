@@ -947,7 +947,6 @@ pref("browser.download.enableDeletePrivate", true); // [DEFAULT] https://bugzill
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearHistory.cache", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearHistory.formdata", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
-pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearSiteData.browsingHistoryAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
 pref("privacy.clearSiteData.cache", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearSiteData.formdata", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
@@ -974,7 +973,6 @@ pref("privacy.clearOnShutdown.sessions", true); // [NO-ANDROID] [HIDDEN - Thunde
 pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("privacy.clearOnShutdown_v2.downloads", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("privacy.clearOnShutdown_v2.formdata", true); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Clear cache on exit by default
 // We also disable disk cache entirely below...
