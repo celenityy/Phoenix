@@ -250,7 +250,7 @@ pref("toolkit.telemetry.scheduler.tickInterval", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.server", "data;", locked);
 pref("toolkit.telemetry.server_owner", "", locked);
-pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - desktop Firefox]
+pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop Firefox]
 pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [HIDDEN - Android] [DEFAULT]
 pref("toolkit.telemetry.testing.disableFuzzingDelay", false, locked); // [HIDDEN] [DEFAULT] [DEFENSE IN DEPTH] Always delay sending pings between 0-1 AM
@@ -685,7 +685,7 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // We're also configuring the 'CookieBehavior' and 'EnableTrackingProtection' policies on desktop.
 
 //// Block harmful add-on URLs
-pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [NIGHTLY] [DEFAULT - non-Thunderbird]
+pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [DEFAULT - Desktop Firefox] https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/app/profile/firefox.js#2434
 
 //// Block known consent managers (CMPs)
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
