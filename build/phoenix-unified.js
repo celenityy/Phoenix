@@ -1483,9 +1483,6 @@ pref("browser.urlbar.trending.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DE
 pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Display the search bar at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
-pref("browser.search.widget.inNavBar", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-
 /// Enable bookmark suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/UrlbarProviderBookmarkKeywords.sys.mjs [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.suggest.bookmark", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
