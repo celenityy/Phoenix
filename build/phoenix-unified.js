@@ -941,7 +941,7 @@ pref("permissions.memory_only", false); // [HIDDEN] [DEFAULT]
 /// Allow users to automatically delete files downloaded in Private Browsing
 // (browser.download.deletePrivate controls the functionality itself)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1790641
-pref("browser.download.enableDeletePrivate", true); // [DEFAULT - Nightly]
+pref("browser.download.enableDeletePrivate", true); // [DEFAULT] https://bugzilla.mozilla.org/show_bug.cgi?id=1981504
 
 /// Check the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...` by default [NO-ANDROID]
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
