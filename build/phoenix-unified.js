@@ -3585,6 +3585,9 @@ pref("devtools.inspector.simple-highlighters.message-dismissed", true); // [NO-A
 /// Disable annoying "Firefox Profiler is now integrated into Developer Tools" banner when opening the performance panel [NO-ANDROID]
 pref("devtools.performance.new-panel-onboarding", false); // [NO-ANDROID] [HIDDEN]
 
+/// Disable automatic bracket/quote closing by default [NO-ANDROID]
+pref("devtools.editor.autoclosebrackets", false); // [NO-ANDROID]
+
 /// Disable editor onboarding [NO-ANDROID]
 pref("devtools.webconsole.input.editorOnboarding", false); // [NO-ANDROID]
 
@@ -3632,9 +3635,6 @@ pref("devtools.netmonitor.ui.default-raw-response", true); // [NO-ANDROID]
 /// Enable the Anti tracking debug panel by default [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/644f0db1/devtools/client/definitions.js#485 [NO-ANDROID]
 pref("devtools.anti-tracking.enabled", true); // [NO-ANDROID]
-
-/// Enable automatic bracket/quote closing by default [NO-ANDROID]
-pref("devtools.editor.autoclosebrackets", true); // [NO-ANDROID] [DEFAULT]
 
 /// Enable DevTools buttons by default [NO-ANDROID]
 pref("devtools.command-button-errorcount.enabled", true); // [NO-ANDROID] [DEFAULT] Error Count - https://searchfox.org/firefox-main/rev/82e2435f/devtools/client/framework/toolbox.js#2209
