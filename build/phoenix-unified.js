@@ -4110,6 +4110,9 @@ pref("browser.newtabpage.activity-stream.filterAdult", false); // [NO-ANDROID] [
 /// Disable Contile (Sponsored tiles) [NO-ANDROID] [NO-MAIL]
 // https://mozilla-services.github.io/contile/ [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/TopSitesFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.sov.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/e5219f2a/browser/extensions/newtab/lib/TopSitesFeed.sys.mjs#534
+pref("browser.newtabpage.activity-stream.sov.frecency.exposure", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.sov.name", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.topsites.contile.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#993
 pref("browser.topsites.contile.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.topsites.contile.sov.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-release/rev/9d94f5e3/toolkit/components/nimbus/FeatureManifest.yaml#2007
