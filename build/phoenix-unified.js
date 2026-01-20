@@ -1478,8 +1478,8 @@ pref("browser.urlbar.suggest.trending", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trending.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable URL trimming [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Display the search bar at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
 pref("browser.search.widget.inNavBar", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
