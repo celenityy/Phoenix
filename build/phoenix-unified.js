@@ -824,9 +824,6 @@ pref("media.benchmark.vp9.threshold", 0);
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/modules/LightweightThemeConsumer.sys.mjs#17
 pref("browser.theme.unified-color-scheme", false); // [HIDDEN - non-Thunderbird] [DEFAULT - non-Thunderbird]
 
-/// Enable canvas randomization for the browser chrome
-pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", false); // [DEFAULT]
-
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/StaticPrefList.yaml#9422
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
