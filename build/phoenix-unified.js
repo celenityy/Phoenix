@@ -2022,7 +2022,7 @@ pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 pref("layout.forms.reveal-password-button.enabled", true);
 
 /// Crash on insecure password input
-pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
+pref("intl.allow-insecure-text-input", false); // [HIDDEN] [DEFAULT - non-Nightly]
 
 /// Disable Autofill
 pref("signon.autofillForms", false);
