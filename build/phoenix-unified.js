@@ -2022,7 +2022,7 @@ pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 pref("layout.forms.reveal-password-button.enabled", true);
 
 /// Crash on insecure password input
-pref("intl.allow-insecure-text-input", false); // [HIDDEN] [DEFAULT - non-Nightly]
+pref("intl.allow-insecure-text-input", false); // [OSX-ONLY] [DEFAULT - non-Firefox release/beta/Debug] https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/modules/libpref/init/all.js#3454
 
 /// Disable Autofill
 pref("signon.autofillForms", false);
