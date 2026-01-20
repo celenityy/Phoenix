@@ -3917,6 +3917,9 @@ pref("browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
 /// Display a spinning animation while websites are loading [NO-ANDROID] [NO-MAIL]
 pref("browser.spin_cursor_while_busy", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Do not close the browser window if all tabs are closed by default [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.closeWindowWithLastTab", false); // [NO-ANDROID] [NO-MAIL]
+
 /// Enable autoscrolling by default
 pref("apz.autoscroll.enabled", true); // [DEFAULT]
 pref("general.autoScroll", true); // [HIDDEN - Android] [DEFAULT - non-Android/Unix (excluding macOS, where it is on by default)]
