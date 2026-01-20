@@ -196,6 +196,10 @@ pref("datareporting.policy.firstRunURL", "", locked);
 pref("datareporting.usage.uploadEnabled", false, locked); // [HIDDEN - ANDROID] [DEFAULT - Android] Disables "daily usage pings" https://support.mozilla.org/kb/usage-ping-settings
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked); // [DEFAULT - non-Nightly]
 pref("extensions.dataCollectionPermissions.enabled", false, locked); // https://support.mozilla.org/kb/extension-data-collection https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/
+pref("extensions.gleanPingAddons.daily.interval", 2147483647, locked); // [HIDDEN] Disable the Glean add-on ping scheduler https://searchfox.org/firefox-main/rev/e5219f2a/toolkit/mozapps/extensions/extensions.manifest#1
+pref("extensions.gleanPingAddons.updated.delay", 2147483647, locked); // [HIDDEN] https://searchfox.org/firefox-main/rev/e5219f2a/toolkit/mozapps/extensions/AddonManager.sys.mjs#116
+pref("extensions.gleanPingAddons.updated.idleTimeout", 2147483647, locked); // [HIDDEN] https://searchfox.org/firefox-main/source/toolkit/mozapps/extensions/AddonManager.sys.mjs#124
+pref("extensions.gleanPingAddons.updated.testing", false, locked); // [HIDDEN] [DEFAULT] https://searchfox.org/firefox-main/source/toolkit/mozapps/extensions/AddonManager.sys.mjs#132
 pref("extensions.telemetry.EnvironmentAddonBuilder", false, locked); // [HIDDEN - non-Android] [NIGHTLY] Do not use Glean for add-on telemetry https://bugzilla.mozilla.org/show_bug.cgi?id=1981496 https://searchfox.org/firefox-main/rev/d285a4fb/toolkit/mozapps/extensions/AddonManager.sys.mjs#4801
 pref("network.jar.record_failure_reason", false, locked); // [DEFAULT - non-Nightly] https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#15576
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#14262
