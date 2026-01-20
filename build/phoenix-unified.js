@@ -310,6 +310,7 @@ pref("nimbus.profilesdatastoreservice.sync.enabled", false, locked); // Disable 
 // `nimbus.appId` -> `firefox-desktop` [NO-ANDROID] [NO-MAIL]
 // You'll also need to remove the `DisableFirefoxStudies` and `DisableTelemetry` policies [NO-ANDROID] [NO-MAIL]
 pref("browser.preferences.experimental", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.preferences.experimental.hidden", true); // [NO-ANDROID] [NO-MAIL] Avoids the "Firefox Labs" section from shortly appearing on first launch https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/components/preferences/experimental.js#185
 
 /// Disable Glean redesign/navigation category at `about:glean`
 // This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
