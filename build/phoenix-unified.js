@@ -540,8 +540,8 @@ pref("browser.uitour.surveyDuration", 0, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.uitour.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Pocket [NO-ANDROID] [NO-MAIL]
-pref("extensions.pocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+/// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
+pref("extensions.pocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR] https://searchfox.org/firefox-esr140/source/browser/app/profile/firefox.js#2624
 
 /// Disable "Privacy-Preserving Attribution"
 // https://support.mozilla.org/kb/privacy-preserving-attribution
