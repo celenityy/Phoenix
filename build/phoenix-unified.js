@@ -423,10 +423,6 @@ pref("doh-rollout.trrRace.randomSubdomainCount", 0); // [HIDDEN]
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/moz-essential-domain-fallbacks/changeset?_expected=0
 pref("network.essential_domains_fallback", false); // [DEFAULT]
 
-/// Disable Fakespot
-pref("toolkit.shopping.ohttpConfigURL", "");
-pref("toolkit.shopping.ohttpRelayURL", "");
-
 /// Disable "Feature Tours" [NO-ANDROID] [NO-MAIL]
 pref("browser.firefox-view.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtab.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
