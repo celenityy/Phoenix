@@ -1281,11 +1281,11 @@ pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
 pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
-pref("media.webrtc.enable_pq_hybrid_kex", true); // [NIGHTLY] [DEFAULT]
-pref("media.webrtc.send_mlkem_keyshare", true); // [NIGHTLY] [DEFAULT]
-pref("network.http.http3.enable_kyber", true); // [DEFAULT - non-Android]
+pref("media.webrtc.enable_pq_hybrid_kex", true); // [DEFAULT]
+pref("media.webrtc.send_mlkem_keyshare", true); // [DEFAULT]
+pref("network.http.http3.enable_kyber", true); // [DEFAULT]
 pref("security.tls.client_hello.send_p256_keyshare", true); // [DEFAULT]
-pref("security.tls.enable_kyber", true); // [DEFAULT - non-Android]
+pref("security.tls.enable_kyber", true); // [DEFAULT]
 
 /// Enable prompts for unsafe HTTP redirects
 // https://searchfox.org/firefox-main/rev/16707ce1/modules/libpref/init/all.js#1189
