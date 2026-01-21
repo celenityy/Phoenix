@@ -1559,13 +1559,6 @@ pref("browser.urlbar.scotchBonnet.disableOneOffs", false); // [NO-ANDROID] [NO-M
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/urlbar/docs/preferences.rst#138 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.formatting.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 
-/// If search suggestions are enabled, use OHTTP for superior privacy
-// Currently only supports Google
-// https://searchfox.org/firefox-main/rev/4258ca07/toolkit/components/search/SearchSuggestionController.sys.mjs#545
-// https://searchfox.org/firefox-main/rev/4258ca07/toolkit/components/nimbus/FeatureManifest.yaml#357
-pref("browser.search.suggest.ohttp.enabled", true); // [DEFAULT - non-Firefox Desktop]
-pref("browser.search.suggest.ohttp.featureGate", true); // [HIDDEN - non-Firefox Desktop]
-
 /// If URL trimming is enabled, untrim on user interaction [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.untrimOnUserInteraction.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 
