@@ -44,7 +44,6 @@ ___
 - [🚀Install](#install)
 - [👋Uninstall](#uninstall)
 - [🔥Extended](#extended)
-	- [Extended Installation](#extended-installation)
 - [💡Specialized Configs](#specialized-configs)
 - [📛Manual Installation](#manual-installation)
 	- [🤔Using Extended or a Specialized Config Manually](#using-extended-or-a-specialized-config-manually)
@@ -68,6 +67,7 @@ It doesn't have to be this way.
 
 > [!IMPORTANT]
 > ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
+
 Phoenix currently provides official support for:
 
 * **Android**
@@ -112,13 +112,16 @@ For the other platforms see:
 # 🔥Extended
 
 For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers an **Extended** config. **For a list of features specific to Phoenix Extended, please see [here](https://phoenix.celenity.dev/extended)**.
+
 See:
 
 [Extended](readme/extended.md)
 
 # 💡Specialized Configs
 
-It should also be noted that Phoenix contains specialized configurations for **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these services, like you would any other app on your device. See:
+It should also be noted that Phoenix contains specialized configurations for **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these services, like you would any other app on your device.
+
+See:
 
 [Specialized Configs](readme/specialized_configs.md) 
 

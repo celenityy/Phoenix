@@ -2,7 +2,7 @@
 //
 
 //
-// Copyright (C) 2024-2025 celenity
+// Copyright (C) 2024-2026 celenity
 //
 // This file is part of Phoenix.
 //
@@ -43,11 +43,11 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2025.12.23.1"); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2026.01.21.1"); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2025.12.23.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.01.21.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 

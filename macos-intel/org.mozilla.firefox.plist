@@ -11,7 +11,7 @@
 				<key>adminSettings</key>
 				<dict>
 					<key>assetsBootstrapLocation</key>
-					<string>https://gitlab.com/celenityy/Phoenix/-/raw/pages/uBlock/assets.json</string>
+					<string>https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.json</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1592,7 +1592,7 @@
 		<array>
 			<dict>
 				<key>Alias</key>
-				<string>@duckduckgo, @ddg</string>
+				<string>@ddg</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo</string>
 				<key>IconURL</key>
@@ -1608,7 +1608,7 @@
 			</dict>
 			<dict>
 				<key>Alias</key>
-				<string>@duckduckgonoai, @ddgnoai</string>
+				<string>@ddgnoai</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo (No AI)</string>
 				<key>IconURL</key>
@@ -1624,7 +1624,7 @@
 			</dict>
 			<dict>
 				<key>Alias</key>
-				<string>@duckduckgohtml, @ddghtml</string>
+				<string>@ddghtml</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo (HTML)</string>
 				<key>IconURL</key>
@@ -1640,7 +1640,7 @@
 			</dict>
 			<dict>
 				<key>Alias</key>
-				<string>@duckduckgolite, @ddglite</string>
+				<string>@ddglite</string>
 				<key>Description</key>
 				<string>Search DuckDuckGo (Lite)</string>
 				<key>IconURL</key>
@@ -1694,7 +1694,7 @@
 			</dict>
 			<dict>
 				<key>Alias</key>
-				<string>@startpage, @sp</string>
+				<string>@sp</string>
 				<key>Description</key>
 				<string>Search Startpage</string>
 				<key>IconURL</key>
@@ -1710,7 +1710,7 @@
 			</dict>
 			<dict>
 				<key>Alias</key>
-				<string>@startpageeu, @speu</string>
+				<string>@speu</string>
 				<key>Description</key>
 				<string>Search Startpage (EU)</string>
 				<key>IconURL</key>

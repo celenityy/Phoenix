@@ -2,7 +2,7 @@
 // The Phoenix shall rise from the ashes of what fell before it.
 
 //
-// Copyright (C) 2024-2025 celenity
+// Copyright (C) 2024-2026 celenity
 //
 // This file is part of Phoenix.
 //
@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2025.12.23.1", locked);
+pref("browser.phoenix.version", "2026.01.21.1", locked);
 
 /* INDEX 
 
@@ -76,7 +76,7 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: 2025.12.23.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("app.support.vendor", "Phoenix: 2026.01.21.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
 
 
 /*** 000: ABOUT:CONFIG ***/
@@ -166,6 +166,10 @@ pref("datareporting.policy.firstRunURL", "", locked);
 pref("datareporting.usage.uploadEnabled", false, locked); // [HIDDEN - ANDROID] [DEFAULT - Android] Disables "daily usage pings" https://support.mozilla.org/kb/usage-ping-settings
 pref("dom.security.unexpected_system_load_telemetry_enabled", false, locked); // [DEFAULT - non-Nightly]
 pref("extensions.dataCollectionPermissions.enabled", false, locked); // https://support.mozilla.org/kb/extension-data-collection https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/
+pref("extensions.gleanPingAddons.daily.interval", 2147483647, locked); // [HIDDEN] Disable the Glean add-on ping scheduler https://searchfox.org/firefox-main/rev/e5219f2a/toolkit/mozapps/extensions/extensions.manifest#1
+pref("extensions.gleanPingAddons.updated.delay", 2147483647, locked); // [HIDDEN] https://searchfox.org/firefox-main/rev/e5219f2a/toolkit/mozapps/extensions/AddonManager.sys.mjs#116
+pref("extensions.gleanPingAddons.updated.idleTimeout", 2147483647, locked); // [HIDDEN] https://searchfox.org/firefox-main/source/toolkit/mozapps/extensions/AddonManager.sys.mjs#124
+pref("extensions.gleanPingAddons.updated.testing", false, locked); // [HIDDEN] [DEFAULT] https://searchfox.org/firefox-main/source/toolkit/mozapps/extensions/AddonManager.sys.mjs#132
 pref("extensions.telemetry.EnvironmentAddonBuilder", false, locked); // [HIDDEN - non-Android] [NIGHTLY] Do not use Glean for add-on telemetry https://bugzilla.mozilla.org/show_bug.cgi?id=1981496 https://searchfox.org/firefox-main/rev/d285a4fb/toolkit/mozapps/extensions/AddonManager.sys.mjs#4801
 pref("network.jar.record_failure_reason", false, locked); // [DEFAULT - non-Nightly] https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#15576
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#14262
@@ -497,6 +501,9 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // Manually specifying these is also useful for cases like Android: where all protections aren't enabled with ETP Strict, and on Thunderbird: where ETP Strict doesn't exist at all...
 // We're also configuring the 'CookieBehavior' and 'EnableTrackingProtection' policies on desktop.
 
+//// Block harmful add-on URLs
+pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [NIGHTLY] [DEFAULT - non-Thunderbird]
+
 //// Block known consent managers (CMPs)
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
 pref("privacy.trackingprotection.consentmanager.skip.enabled", false); // [DEFAULT]
@@ -785,6 +792,27 @@ pref("layout.css.visited_links_enabled", false);
 pref("browser.cache.disk.enable", false);
 pref("browser.cache.disk_cache_ssl", true); // [DEFAULT] Controls disk cache for secure (HTTPS) resources, depends on `browser.cache.disk.enable` (which is why we're keeping this on by default)
 
+
+/// Disable frecency
+// This also prevents random recently visited sites from being pinned to the homepage on Desktop
+// https://firefox-source-docs.mozilla.org/browser/urlbar/ranking.html#frecency-implementation
+// https://devdoc.net/web/developer.mozilla.org/en-US/docs/The_Places_frecency_algorithm.html
+// NOTE: `places.frecency.unvisitedBookmarkBonus` is required for bookmark URL bar suggestions on Desktop:
+// https://codeberg.org/celenity/Phoenix/issues/218
+// https://www.labnol.org/software/browsers/prevent-firefox-showing-bookmarks-address-location-bar/3636#:~:text=Option%20C%3A%20Remove%20Bookmarks%20Completely%20from%20Address%20Bar
+pref("places.frecency.bookmarkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 75]
+pref("places.frecency.defaultVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.downloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.embedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.framedLinkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.linkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 100]
+pref("places.frecency.permRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 50]
+pref("places.frecency.redirectSourceVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
+pref("places.frecency.reloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
+pref("places.frecency.tempRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 40]
+pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 2000]
+pref("places.frecency.unvisitedBookmarkBonus", 0); // [ANDROID-ONLY] [HIDDEN - Android/Thunderbird] [Default: 140]
+pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 200]
 
 
 pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
@@ -1173,6 +1201,8 @@ pref("browser.phoenix.status", "009");
 
 /*** 010 DNS ***/
 
+/// Customize list of built-in DoH resolvers
+pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UIName":"Quad9 🇨🇭","autoDefault":true},{"uri":"https://dns.adguard-dns.com/dns-query","UIName":"AdGuard 🇨🇾","autoDefault":false},{"uri":"https://unfiltered.adguard-dns.com/dns-query","UIName":"AdGuard (Unfiltered) 🇨🇾","autoDefault":false},{"uri":"https://mozilla.cloudflare-dns.com/dns-query","UIName":"Cloudflare 🇺🇸","autoDefault":false},{"uri":"https://security.cloudflare-dns.com/dns-query","UIName":"Cloudflare (Malware Protection) 🇺🇸","autoDefault":false},{"uri":"https://noads.joindns4.eu/dns-query","UIName":"DNS4EU (Ad Blocking) 🇨🇿","autoDefault":false},{"uri":"https://protective.joindns4.eu/dns-query","UIName":"DNS4EU (Protective) 🇨🇿","autoDefault":false},{"uri":"https://unfiltered.joindns4.eu/dns-query","UIName":"DNS4EU (Unfiltered) 🇨🇿","autoDefault":false},{"uri":"https://base.dns.mullvad.net/dns-query","UIName":"Mullvad (Base) 🇸🇪","autoDefault":false},{"uri":"https://dns.mullvad.net/dns-query","UIName":"Mullvad (Unfiltered) 🇸🇪","autoDefault":false},{"uri":"https://firefox.dns.nextdns.io/","UIName":"NextDNS 🇺🇸","autoDefault":false},{"uri":"https://wikimedia-dns.org/dns-query","UIName":"Wikimedia 🇺🇸","autoDefault":false}]'); // [HIDDEN]
 
 /// Disable DoH Connectivity Checks
 pref("network.connectivity-service.DNS_HTTPS.domain", "");
@@ -1212,8 +1242,11 @@ pref("network.trr.mode", 3);
 pref("network.dns.echconfig.enabled", true); // [DEFAULT]
 pref("network.dns.http3_echconfig.enabled", true); // [DEFAULT]
 
-/// Enable native DNS HTTPS Lookups
+/// Enable native DNS over HTTPS lookups
+// NOTE: Native DNS over HTTPS is currently broken on Windows 10, but can be toggled anyways with the
+// `network.dns.native_https_query_win10` pref: https://bugzilla.mozilla.org/show_bug.cgi?id=1873461
 pref("network.dns.native_https_query", true); // [DEFAULT - non-macOS]
+pref("network.dns.native_https_query_in_automation", true); // Used in automation
 
 /// Enable TLS SNI Slicing
 // Useful for circumenting certain forms of censorship, ex. from the Great Firewall of China
@@ -1321,6 +1354,12 @@ pref("privacy.webrtc.hideGlobalIndicator", false); // [HIDDEN - Android/Thunderb
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/common/SandboxSettings.cpp#185
 pref("media.peerconnection.mtransport_process", true); // [HIDDEN - Android/Thunderbird] [DEFAULT]
 
+/// Disable RTP Control Protocol (RTCP) reception
+// https://wikipedia.org/wiki/RTP_Control_Protocol
+// Used for quality monitoring and statistics
+// https://searchfox.org/firefox-main/rev/874c5779/dom/media/webrtc/transportbridge/MediaPipeline.cpp#651
+pref("media.webrtc.net.force_disable_rtcp_reception", true);
+
 /// Enable global toggles for muting the camera/microphone
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#2595
 pref("privacy.webrtc.globalMuteToggles", true); // [HIDDEN - Android]
@@ -1398,6 +1437,14 @@ pref("media.mediadrm-widevinecdm.visible", false); // [ANDROID-ONLY] Android's M
 // https://github.com/arkenfox/user.js/issues/709
 pref("media.gmp-manager.updateEnabled", false); // [HIDDEN]
 
+/// Disable GMP decoding [ANDROID-ONLY]
+// GMP isn't supported Android, so we can set this to reduce attack surface and ensure we never try to use it for decoding [ANDROID-ONLY]
+pref("media.gmp.decoder.enabled", false); // [ANDROID-ONLY]
+
+/// Disable GMP encoding
+// GMP only makes sense for decoding/media *consumption*
+pref("media.gmp.encoder.enabled", false); // [DEFAULT]
+
 /// Disable GMP local sources
 // When combined with `media.gmp-manager.updateEnabled`, this blocks all GMP downloads/updates
 // When GMP is enabled (`media.gmp-manager.updateEnabled` set to `true`), this is still useful - as it ensures the GMP plug-ins that Firefox installs are always the latest versions available (instead of being outdated/potentially vulnerable), directly from Mozilla
@@ -1427,9 +1474,59 @@ pref("media.gmp-gmpopenh264.visible", false); // Don't display in UI/`about:addo
 pref("media.webrtc.hw.h264.enabled", true); // [DEFAULT - Android] Enables H264 hardware decoding https://bugzilla.mozilla.org/show_bug.cgi?id=1717679
 
 
+/// Enable the Data Decoder (RDD) process
+// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
+// NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
+pref("media.rdd-ffmpeg.enabled", true); // [DEFAULT]
+pref("media.rdd-ffvpx.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-opus.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-process.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-vorbis.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-vpx.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-wav.enabled", true); // [DEFAULT - non-Android]
+
+/// Enable hardware/platform media decoding
+// https://searchfox.org/firefox-main/source/dom/media/platforms/PDMFactory.cpp
+// NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
+pref("media.android-media-codec.enabled", false); // [ANDROID-ONLY]
+pref("media.android-media-codec.preferred", false); // [ANDROID-ONLY]
+pref("media.ffvpx-hw.enabled", true); // [DEFAULT - Linux, Windows Nightly]
+pref("media.gmp.decoder.preferred", false); // [DEFAULT]
+pref("media.hardware-video-decoding.enabled", true); // [DEFAULT]
+
+/// Enable hardware/platform media encoding
+// https://searchfox.org/firefox-main/source/dom/media/platforms/PEMFactory.cpp
+// NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
+// are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
+// https://phabricator.services.mozilla.com/D260149
+pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
+pref("media.gmp.encoder.preferred", false); // [DEFAULT]
+pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
+pref("media.use-remote-encoder.audio", true);
+pref("media.use-remote-encoder.video", true);
+
+/// Enable multi-threaded media decoding
+// (Improves performance...)
+pref("media.gmp.decoder.multithreaded", true);
+
+/// Enable multi-threaded media encoding
+// (Improves performance...)
+pref("media.gmp.encoder.multithreaded", true);
+
 /// If GMP is enabled (via `media.gmp-manager.updateEnabled`), ensure that installed plug-ins are visible/exposed in `about:addons`
 pref("media.gmp-provider.enabled", true); // [DEFAULT - non-Thunderbird]
 
+
+/// Use the more confined utility process for media decoding
+// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#data-decoder-rdd-process
+// https://docs.google.com/document/d/1WDEY5fQetK_YE5oxGxXK9BzC1A8kJP3q6F1gAPc2UGE/edit
+pref("media.allow-audio-non-utility", false); // [DEFAULT - non-iOS]
+pref("media.utility-android-media-codec.enabled", true); // [ANDROID-ONLY] For the Android MediaCodec PlatformDecoderModule
+pref("media.utility-process.enabled", true); // [DEFAULT]
 
 /// Validate signature when updating GMP (if enabled)
 pref("media.gmp-manager.cert.checkAttributes", true); // [DEFAULT]
@@ -2070,8 +2167,8 @@ pref("browser.phoenix.status", "019");
 
 /*** 020 SAFE BROWSING ***/
 
-/// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla & Google (NOT PROXIED), as well as your locale to Mozilla
-// Ex. https://en-us.phish-error.mozilla.com/?url=example.org - Which redirects you directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org 
+/// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla and Google (NOT PROXIED), as well as your locale to Mozilla
+// (ex. https://en-us.phish-error.mozilla.com/?url=example.org - which redirects directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org)
 // We can improve privacy and speed by sending the domain *only* to Google & without sending your locale to anyone
 // We could also potentially strip tpl=mozilla which tells Google the request is from Firefox - though it looks like there is a different page for Firefox users with a better privacy policy, so we will leave it for now
 // Unclear whether 'MalwareMistake' is used, but we can set it anyways
@@ -2127,6 +2224,7 @@ pref("urlclassifier.phishTable", "goog-phish-proto,moztest-phish-simple"); // [D
 pref("browser.safebrowsing.allowOverride", true); // [DEFAULT]
 
 /// Prevent sending metadata of downloaded files to Safe Browsing providers
+// NOTE: If this is enabled, we proxy this (via the `browser.safebrowsing.downloads.remote.url` pref)
 // https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox
 // https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -2149,6 +2247,7 @@ pref("browser.safebrowsing.provider.test.dataSharingURL", "", locked); // [HIDDE
 
 /// Proxy Safe Browsing
 // This sets up a new Safe Browsing "provider", using the servers we've set up for IronFox, hosted on our Cloudflare storage bucket (in EU jurisdiction)
+pref("browser.safebrowsing.downloads.remote.url", "https://safebrowsing.ironfoxoss.org/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%");
 pref("browser.safebrowsing.provider.google4.advisoryName", "Google Safe Browsing (Proxied by IronFox) - v4");
 pref("browser.safebrowsing.provider.google4.gethashURL", "https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&key=%GOOGLE_SAFEBROWSING_API_KEY%&$httpMethod=POST");
 pref("browser.safebrowsing.provider.google4.nextupdatetime", "1"); // [HIDDEN]
@@ -2159,9 +2258,8 @@ pref("browser.safebrowsing.provider.google5.nextupdatetime", "1"); // [HIDDEN]
 pref("browser.safebrowsing.provider.google5.updateURL", "https://safebrowsing.ironfoxoss.org/v5/hashLists:batchGet?key=%GOOGLE_SAFEBROWSING_API_KEY%");
 
 
-/// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.downloads.remote.enabled` & `browser.safebrowsing.provider.google.lists` prefs)
+/// Unbreak Google's download protection and legacy Safe Browsing provider (if enabled via the `browser.safebrowsing.provider.google.lists` pref)
 //  Some (ex. LibreWolf) override these for no reason
-pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.gethashURL", "https://safebrowsing.google.com/safebrowsing/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // [DEFAULT]
 pref("browser.safebrowsing.provider.google.updateURL", "https://safebrowsing.google.com/safebrowsing/downloads?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2&key=%GOOGLE_SAFEBROWSING_API_KEY%"); // [DEFAULT]
 
@@ -2312,11 +2410,13 @@ pref("accessibility.uia.enable", 0);
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
+pref("network.lna.allow_top_level_navigation", false); // Enforce LNA for top-level document navigation https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14619
 pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
 pref("network.lna.blocking", true); // [ANDROID-ONLY] [DEFAULT - Nightly] We don't want to set this until the next ESR cycle is over, as this functionality was still very early in development there, and the pref causes breakage/issues - for non-ESR Desktop, we still set this pref to true by default anyways via policies
 pref("network.lna.enabled", true); // [DEFAULT]
-pref("network.lna.etp.enabled", false); // [DEFAULT] [NIGHTLY] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
-pref("network.lna.websocket.enabled", true); // [NIGHTLY] Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
+pref("network.lna.etp.enabled", false); // [DEFAULT] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
+pref("network.lna.local-network-to-localhost.skip-checks", false); // Enforce LNA for requests from local network to your device https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14641
+pref("network.lna.websocket.enabled", true); // Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
 
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
@@ -2434,9 +2534,8 @@ pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", t
 
 /// Improve built-in query stripping to be on par with LibreWolf and Brave
 // See Mozilla's defaults here: https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/changeset?_expected=0
-// https://codeberg.org/librewolf/settings/src/commit/e93018221243f0af7cdbbf737b6af17d70cde8aa/librewolf.cfg#L103
-// https://github.com/brave/brave-core/blob/master/components/query_filter/utils.cc
-pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _bhlid _branch_match_id _branch_referrer _gl _hsenc _kx _openstat at_recipient_id at_recipient_list bbeml bsft_clkid bsft_uid dclid et_rid fb_action_ids fb_comment_id fbclid gbraid gclid guce_referrer guce_referrer_sig hsCtaTracking igshid irclickid mc_eid mkt_tok ml_subscriber ml_subscriber_hash msclkid mtm_cid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id pk_cid rb_clickid s_cid sc_customer sc_eh sc_uid srsltid ss_email_id twclid unicorn_click_id vero_conv vero_id vgo_ee wbraid wickedid yclid ymclid ysclid");
+// https://github.com/brave/brave-core/blob/9ce48443963b47716b73b643335aab67d9a6c664/components/query_filter/utils.cc#L26
+pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _bhlid _branch_match_id _branch_referrer _gl _hsenc _kx _openstat at_recipient_id at_recipient_list bbeml bsft_clkid bsft_uid dclid et_rid fb_action_ids fb_comment_id fbclid gbraid gclid guce_referrer guce_referrer_sig hsCtaTracking igshid irclickid mc_eid mkt_tok ml_subscriber ml_subscriber_hash msclkid mtm_cid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id pk_cid rb_clickid s_cid sc_customer sc_eh sc_uid sms_click sms_source sms_uph srsltid ss_email_id syclid ttclid twclid unicorn_click_id vero_conv vero_id vgo_ee wbraid wickedid yclid ymclid ysclid");
 
 //// Unbreak urldefense.com redirects
 /// (ex. https://urldefense.com/v3/__https://www.portainer.io/hs/preferences-center/en/direct?data=W2nXS-N30h-M1W45lXqV2nFX8ZW3SzKNq3gnnN0W4cQh6C1Bnn1kW1VjfB24fr2-BW4mm3dy3T2wkqW2MWfBj49z9PPW4mqs512qWTfrW4px5K71Nn7N2W32DKbz1V7s-qW21bSln2KWpS4W1SdHmq2YwgS9W3P8RNt2r6W8pW49QSSt1_tcPsW3GSrf749CfyJW2PPdX33JPrgmW4hcHf84hm-NmW2FS2pd2sMKL-W2YGYkz43RS-9W4pjpV52t0rxlW3SB_f94psLW2W3_Sm6w2FGVTjW3K2-cG4fzZLWW2qDSdB3bzPyBW3j8X_q2PMxWzW36CtK22MvcXrW4hNdFB3DLWP3W3VMWNy3SYMyvW1Vs-MC43NZJNW4hLsTd2B1T2JW2sB9wk3DMh2mW2D0QS-2t04tYW43Cpv42Tz6SwW32rgcB3_SfvDW4mq1yB36nnnkW3BNLQw2YfSH9W49sKsP3z4zKPW3zd1YL1Zm6S3W4kmj3Z2sQ7WVW36xkSD2RSm5hW1Q0SqC30sK9ZW2-kSbQ2nH5KcW36fNc_2RjGNjW36pblN43qsbhW2CCNvJ3_SL29W1_sQHx4fqK9NW3Sy1cb4mpD3h0&utm_campaign=XNF&utm_source=hs_automation&utm_medium=email&utm_content=264158909&_hsenc=p2ANqtz--9JvIgI266aB1UVizENwYNYREZSotsXOhWcMNeKjZLJO9ZwmR9xlyfsQN2orbT25IymZ_vKUNTANMKQMVQBnzowi2339ExVoOKMJaHx0t2yn5esgg&_hsmi=264158909__;!!MlclJBHn!0eDf-zTf69h-IhFT9WDu2GIXAtCy6RENwguPVpTF1k2K-Nbnzy1NXix2Gj7azc8yDFyI2z3Tz4nTFuGe2hlLzsBl$)
@@ -2447,7 +2546,7 @@ pref("privacy.query_stripping.allow_list", "urldefense.com");
 // https://support.mozilla.org/kb/how-use-firefox-containers
 pref("permissions.isolateBy.userContext", true);
 
-/// Isolate resources (ex. referrers & cookies) injected by extensions
+/// Isolate resources (ex. referrers and cookies) injected by extensions
 // (ex. https://searchfox.org/mozilla-central/source/toolkit/components/extensions/test/xpcshell/test_ext_contentscript_antitracking.js)
 pref("privacy.antitracking.isolateContentScriptResources", true); // [DEFAULT - Nightly]
 
@@ -2650,7 +2749,7 @@ pref("dom.security.sanitizer.enabled", true);
 
 /// Enable socket process sandboxing
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1608558
-pref("security.sandbox.socket.process.level", 1); // [DEFAULT - Linux, non-Thunderbird]
+pref("security.sandbox.socket.process.level", 2); // [DEFAULT - Linux, non-Thunderbird]
 
 /// Enable Spectre mitigations for isolated content
 // Also enabled by ex. Tor Browser
@@ -2864,6 +2963,7 @@ pref("devtools.debugger.prompt-connection", true, locked); // [DEFAULT - non-Nig
 
 
 
+
 /// Disable JS dump()
 // https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/all.js#602
 pref("browser.dom.window.dump.enabled", false); // [DEFAULT - non-Android, desktop `MOZILLA_OFFICIAL` builds]
@@ -2890,7 +2990,6 @@ pref("geckoview.console.enabled", false); // [ANDROID-ONLY]
 // https://wiki.mozilla.org/WebDriver/RemoteProtocol/WebDriver_BiDi
 // https://searchfox.org/firefox-main/rev/82e2435f/remote/doc/Prefs.md#25
 pref("remote.experimental.enabled", false, locked); // [DEFAULT - non-Nightly]
-
 
 
 
@@ -2936,7 +3035,7 @@ pref("browser.phoenix.status", "025");
 
 /*** 026 PERFORMANCE ***/
 
-// A lot of these taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
+// Some of these are taken from https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 
 /// Compress cached JavaScript bytecode
 // https://github.com/yokoffing/Betterfox/issues/247
@@ -2981,6 +3080,9 @@ pref("layout.css.grid-template-masonry-value.enabled", true); // [DEFAULT - Nigh
 /// Enable the "fetchpriority" attribute
 // https://web.dev/articles/fetch-priority
 pref("network.fetchpriority.enabled", true); // [DEFAULT]
+
+/// Enable hardware acceleration by default
+pref("layers.acceleration.disabled", false); // [DEFAULT]
 
 /// Enable JS GC Parallel Marking
 pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Android]
@@ -3095,6 +3197,7 @@ pref("print.more-settings.open", true);
 
 
 
+
 /// Enable autoscrolling by default
 pref("apz.autoscroll.enabled", true); // [DEFAULT]
 pref("general.autoScroll", true); // [HIDDEN - Android] [DEFAULT - non-Android/Unix (excluding macOS, where it is on by default)]
@@ -3168,6 +3271,7 @@ pref("findbar.highlightAll", true);
 pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux]
 
 
+
 /// Prevent including the space next to words when double-clicking/selecting text
 // https://codeberg.org/celenity/Phoenix/issues/84#issuecomment-3097957
 pref("layout.word_select.eat_space_to_next_word", false); // [DEFAULT - non-Windows]
@@ -3185,7 +3289,6 @@ pref("services.settings.loglevel", "warn"); // [HIDDEN] [DEFAULT]
 // Default is https://www.mozilla.org/about/manifesto/
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs#10
 pref("toolkit.mozprotocol.url", "about:mozilla"); // [HIDDEN]
-
 
 pref("browser.phoenix.status", "027");
 
@@ -3261,21 +3364,6 @@ pref("browser.phoenix.status", "028");
 
 
 
-/// Prevent adding random recently visited sites to shortcuts/pins by default
-// https://searchfox.org/mozilla-central/rev/73bd66f4/toolkit/components/places/nsNavHistory.cpp#62
-pref("places.frecency.bookmarkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 75]
-pref("places.frecency.defaultVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.downloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.embedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.framedLinkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.linkVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 100]
-pref("places.frecency.permRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 50]
-pref("places.frecency.redirectSourceVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT]
-pref("places.frecency.reloadVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default on Firefox Desktop: 0]
-pref("places.frecency.tempRedirectVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Firefox Desktop] [Default on Firefox Desktop: 40]
-pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 2000]
-pref("places.frecency.unvisitedBookmarkBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 140]
-pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 200]
 
 
 

@@ -1,6 +1,6 @@
 
 # Version of Phoenix you'd like to build
-export PHOENIX_VERSION=2025.12.23.1
+export PHOENIX_VERSION=2026.01.21.1
 
 # Where `Phoenix` (this repo) is located
 export phoenix_dir=$(dirname $(dirname "$(realpath "$0")"))

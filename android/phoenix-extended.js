@@ -2,7 +2,7 @@
 //
 
 //
-// Copyright (C) 2024-2025 celenity
+// Copyright (C) 2024-2026 celenity
 //
 // This file is part of Phoenix.
 //
@@ -43,7 +43,7 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2025.12.23.1"); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2026.01.21.1"); // [NO-MAIL] [HIDDEN]
 
 
 /*** 001 FINGERPRINTING PROTECTION ***/
