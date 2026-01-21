@@ -3114,8 +3114,8 @@ pref("privacy.dynamic_firstparty.limitForeign", true);
 /// Restrict tracking referers
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
-pref("network.http.referer.defaultPolicy.trackers", 1);
-pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+pref("network.http.referer.defaultPolicy.trackers", 2); // [DEFAULT]
+pref("network.http.referer.defaultPolicy.trackers.pbmode", 2); // [DEFAULT]
 
 /// Strip tracking parameters from URLs when shared by default
 pref("privacy.query_stripping.strip_on_share.enabled", true); // [DEFAULT - non-Android/Thunderbird]
