@@ -3016,7 +3016,6 @@ pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction"
 pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false); // [DEFAULT - non-Android]
 pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT]
 pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT]
-pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT]
 pref("privacy.restrict3rdpartystorage.heuristic.recently_visited_time", 0);
 
 /// Disable TLS session identifiers
