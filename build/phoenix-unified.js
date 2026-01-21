@@ -3285,6 +3285,7 @@ pref("dom.security.setHTML.enabled", true);
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#1293
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/chromium/sandbox/win/src/security_level.h#38
+// For macOS, any level >= 1 enables the sandbox and setting a higher level has no effect. (default 1)
 pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default: Windows), 2 = USER_LIMITED (Stricter)]
 
 /// Enable the Integrity-Policy header
