@@ -3114,6 +3114,7 @@ pref("privacy.dynamic_firstparty.limitForeign", true);
 /// Restrict tracking referers
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
+// Setting to 1 currently breaks various functionality https://codeberg.org/celenity/Phoenix/pulls/228#issuecomment-10051167
 pref("network.http.referer.defaultPolicy.trackers", 2); // [DEFAULT]
 pref("network.http.referer.defaultPolicy.trackers.pbmode", 2); // [DEFAULT]
 
