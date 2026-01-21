@@ -2790,6 +2790,8 @@ pref("browser.phoenix.status", "020");
 // "Firefox Accessibility Service is a technology built into Firefox that provides 3rd party applications running on the same device the ability to inspect, monitor, visualize, and alter web page content hosted within Firefox."
 // We need to ensure we're still accomodating for impaired users, but I feel this is something that must be handled by the browser instead of external software
 // https://web.archive.org/web/20240608190300/support.mozilla.org/en-US/kb/accessibility-services
+// Values are -1 always on. 1 always off, 0 (default) is auto as some platform perform further checks.
+// This pref is checked only once, and the browser needs a restart to pick up any changes.
 pref("accessibility.force_disabled", 1);
 pref("devtools.accessibility.enabled", false); // [NO-ANDROID] - Disables the Accessibility Inspector/context menu item by default - https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 
