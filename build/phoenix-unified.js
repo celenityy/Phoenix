@@ -3307,11 +3307,11 @@ pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
 /// Enforce Per-site Process Isolation + isolate all websites
 // https://wiki.mozilla.org/Project_Fission
 pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird]
-pref("fission.autostart", true); // [DEFAULT - non-Android]
-pref("fission.autostart.session", true); // [DEFAULT - non-Android]
-pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
+pref("fission.autostart", true); // [DEFAULT]
+pref("fission.autostart.session", true); // [DEFAULT]
+pref("fission.disableSessionHistoryInParent", false); // [DEFAULT] SHIP, required for Fission
 pref("fission.highValue.login.monitor", true); // [DEFAULT - Android] Ensure that we are always marking log-in attempts as "high value", even if Fission is disabled - for if/when users decide to enable it later https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/LoginDetectionService.cpp#64
-pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/ProcessIsolation.cpp#50
+pref("fission.webContentIsolationStrategy", 1); // [DEFAULT] Isolate everything https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/ProcessIsolation.cpp#50
 pref("gfx.webrender.all", true);
 
 /// Enable the Sanitizer API
