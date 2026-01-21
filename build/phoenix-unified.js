@@ -2833,8 +2833,6 @@ pref("beacon.enabled", false);
 // NOTE: This only impacts extensions; this is thankfully never exposed to websites
 // I'm still not convinced extensions need or should have access to this data though (While there are currently other ways for extensions to access clipboard data, those are deprecated and will presumably not be around for much longer)
 // https://developer.mozilla.org/docs/Web/API/Clipboard
-pref("dom.events.asyncClipboard.clipboardItem", false);
-pref("dom.events.asyncClipboard.readText", false);
 pref("dom.events.testing.asyncClipboard", false, locked); // [DEFAULT]
 
 /// Disable Content Analysis SDK
