@@ -3290,7 +3290,7 @@ pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Defaul
 
 /// Enable the Integrity-Policy header
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Integrity-Policy
-pref("security.integrity_policy.enabled", true); // [DEFAULT - Nightly]
+pref("security.integrity_policy.enabled", true); // [DEFAULT]
 pref("security.integrity_policy.stylesheet.enabled", true); // [NIGHTLY]
 
 /// Enable Opaque Response Blocking
