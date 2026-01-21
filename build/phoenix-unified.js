@@ -2916,7 +2916,7 @@ pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Silicon-OSX/non
 // Toggling 'dom.webmidi.enabled' itself could be fingerprintable, but setting these instead just causes the permission to be automatically denied at a random interval
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/midi/MIDIPermissionRequest.cpp#120
 // Test: https://permission.site/
-pref("dom.sitepermsaddon-provider.enabled", false);
+pref("dom.sitepermsaddon-provider.enabled", false); // [DEFAULT - non-Android]
 pref("dom.webmidi.gated", true); // [DEFAULT]
 pref("permissions.default.midi", 2); // [HIDDEN]
 pref("permissions.default.midi-sysex", 2); // [HIDDEN]
