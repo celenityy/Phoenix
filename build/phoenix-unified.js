@@ -1678,6 +1678,7 @@ pref("browser.phoenix.status", "010");
 // https://bugzilla.mozilla.org/show_bug.cgi?id=500983
 // https://bugzilla.mozilla.org/show_bug.cgi?id=500983#c7
 // https://superuser.com/questions/169303/why-are-my-browsers-suddenly-configured-to-use-a-proxy
+// BITS usage currently requires 5 (default) https://searchfox.org/firefox-main/rev/ba7a7a320649794a9948b32156f5b438fef5ce7a/toolkit/mozapps/update/UpdateService.sys.mjs#861 [WINDOWS-ONLY]
 // The proxy type. See nsIProtocolProxyService.idl
 //    PROXYCONFIG_DIRECT   = 0
 //    PROXYCONFIG_MANUAL   = 1
