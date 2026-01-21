@@ -3344,7 +3344,7 @@ pref("security.fileuri.strict_origin_policy", true); // [DEFAULT]
 
 /// Enforce various important security-related prefs
 pref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
-pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
+pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT] [ESR]
 pref("security.all_resource_uri_content_accessible", false); // [DEFAULT]
 pref("security.allow_eval_in_parent_process", false); // [DEFAULT - non-Android/Thunderbird]
 pref("security.allow_eval_with_system_principal", false); // [DEFAULT - non-Android]
