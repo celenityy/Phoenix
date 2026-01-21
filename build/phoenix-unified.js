@@ -3311,7 +3311,7 @@ pref("gfx.webrender.all", true);
 
 /// Enable the Sanitizer API
 // https://github.com/WICG/sanitizer-api
-pref("dom.security.sanitizer.enabled", true);
+pref("dom.security.sanitizer.enabled", true); [DEFAULT]
 
 /// Enable Shadow Stacks [WINDOWS-ONLY]
 // https://wikipedia.org/wiki/Shadow_stack [WINDOWS-ONLY]
