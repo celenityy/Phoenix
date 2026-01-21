@@ -1943,7 +1943,7 @@ pref("browser.phoenix.status", "013");
 
 /// Disable ASM.JS
 // https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
-pref("javascript.options.asmjs", false);
+pref("javascript.options.asmjs", false); // [DEFAULT] https://bugzilla.mozilla.org/show_bug.cgi?id=2002635
 
 /// Disable Graphite & SVG OpenType fonts
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+graphite
