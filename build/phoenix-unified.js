@@ -3274,7 +3274,7 @@ pref("security.sandbox.cig.prespawn.enabled", true); // [WINDOWS-ONLY] [DEFAULT 
 // Sandboxing is obviously critical from a security perspective as well, so doesn't hurt IMO to explicitly enable here [NO-ANDROID]
 pref("security.sandbox.content.level", 6); // [LINUX-ONLY] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#1596
 pref("security.sandbox.content.level", 3); // [OSX-ONLY] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#1567
-pref("security.sandbox.content.level", 8); // [WINDOWS-ONLY] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#1555
+pref("security.sandbox.content.level", 9); // [WINDOWS-ONLY] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#1555
 
 /// Enable the Cross-Origin-Embedder Policy Header
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy
@@ -3336,7 +3336,7 @@ pref("security.sandbox.socket.shadow-stack.enabled", true); // [WINDOWS-ONLY] [D
 
 /// Enable socket process sandboxing
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1608558
-pref("security.sandbox.socket.process.level", 1); // [DEFAULT - Linux, non-Thunderbird]
+pref("security.sandbox.socket.process.level", 2); // [DEFAULT - Linux, non-Thunderbird]
 
 /// Enable Spectre mitigations for isolated content
 // Also enabled by ex. Tor Browser
