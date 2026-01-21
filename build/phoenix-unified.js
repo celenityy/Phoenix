@@ -3009,11 +3009,13 @@ pref("network.http.referer.hideOnionSource", true); // [DEFAULT]
 /// Disable storage access heuristics
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
 pref("dom.storage_access.auto_grants", false); // Automatic storage access grants
-pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // [DEFAULT - non-desktop Nightly] 
+pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // [DEFAULT - Android] 
 pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
-pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
-pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT - Android]
-pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
+pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false); // [DEFAULT - non-Android]
+pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT]
+pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT]
+pref("privacy.restrict3rdpartystorage.heuristic.exclude_third_party_trackers", true); // [DEFAULT]
+pref("privacy.restrict3rdpartystorage.heuristic.recently_visited_time", 0);
 
 /// Disable TLS session identifiers
 // Fingerprinting/tracking concerns
