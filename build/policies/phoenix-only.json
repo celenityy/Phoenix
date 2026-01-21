@@ -42,6 +42,11 @@
         "DisableFirefoxStudies": true,
         "DisablePrivateBrowsing": false,
         "DisableProfileRefresh": true,
+        "DNSOverHTTPS": {
+            "Enabled": true,
+            "Fallback": false,
+            "ProviderURL": "https://dns.quad9.net/dns-query"
+        },
         "EnableTrackingProtection": {
             "BaselineExceptions": true,
             "ConvenienceExceptions": false,

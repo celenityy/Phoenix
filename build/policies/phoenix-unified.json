@@ -8,11 +8,6 @@
             "ImportEnterpriseRoots": false
         },
         "DisableTelemetry": true,
-        "DNSOverHTTPS": {
-            "Enabled": true,
-            "Fallback": false,
-            "ProviderURL": "https://dns.quad9.net/dns-query"
-        },
         "Proxy": {
             "Mode": "none",
             "UseProxyForDNS": true
