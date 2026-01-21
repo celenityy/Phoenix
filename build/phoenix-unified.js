@@ -2907,7 +2907,7 @@ pref("dom.webshare.requireinteraction", true); // [DEFAULT] If enabled, ensure w
 // https://gpuweb.github.io/gpuweb/#privacy-considerations
 // https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
-pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
+pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Silicon-OSX/non-Nightly]
 
 /// Disable WebMIDI
 // PRIVACY: Fingerprinting concerns
