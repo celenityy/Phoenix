@@ -3331,7 +3331,7 @@ pref("javascript.options.spectre.disable_for_isolated_content", false);
 
 /// Enable Trusted Types
 // https://developer.mozilla.org/docs/Web/API/Trusted_Types_API
-pref("dom.security.trusted_types.enabled", true); // [DEFAULT - Nightly]
+pref("dom.security.trusted_types.enabled", true); // [DEFAULT]
 
 /// Enable WebAssembly Memory Control
 // https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/Overview.md
