@@ -3276,11 +3276,6 @@ pref("dom.origin-trials.coep-credentialless.state", 1); // 'credentialless'
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy
 pref("browser.tabs.remote.useCrossOriginOpenerPolicy", true); // [DEFAULT]
 
-/// Enable Element.setHTML
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1805632
-// https://webdocs.dev/en-us/docs/web/api/element/sethtml
-pref("dom.security.setHTML.enabled", true);
-
 /// Enable GPU Sandboxing
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#1293
