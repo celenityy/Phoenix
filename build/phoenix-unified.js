@@ -3114,6 +3114,8 @@ pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN] [DEFAULT]
 pref("privacy.dynamic_firstparty.limitForeign", true);
 
 /// Restrict tracking referers
+// 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
+// 3=no-referrer-when-downgrade.
 pref("network.http.referer.defaultPolicy.trackers", 1);
 pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
