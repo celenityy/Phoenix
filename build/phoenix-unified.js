@@ -3471,7 +3471,7 @@ pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
 // Appears to mitigate a (potentially severe?) privacy/security issue, but bug is confidential so I'm unable to find actual details...
 // This is also being set by Tor Browser
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1889130
-pref("network.socket.ip_addr_any.disabled", true); // [DEFAULT - Nightly]
+pref("network.socket.ip_addr_any.disabled", true); // [DEFAULT]
 
 /// Disable WebVTT Testing Events
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/media/webvtt/HTMLTrackElement.cpp#530
