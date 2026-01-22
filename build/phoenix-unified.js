@@ -3493,7 +3493,7 @@ pref("security.tls.ech.grease_probability", 100); // [DEFAULT] Sets probability 
 pref("security.tls.grease_http3_enable", true);
 
 /// Enable more detailed property error messages
-pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Developer]
+pref("javascript.options.property_error_message_fix", true); // [DEFAULT]
 
 /// Ensure that holding shift bypasses context menu events
 // (When holding shift, this prevents websites from hijacking the right click/context menu)
