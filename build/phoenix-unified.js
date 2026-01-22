@@ -4173,12 +4173,12 @@ pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.en
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Pocket [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.showRecentSaves", false); // [NO-ANDROID] [NO-MAIL]
+/// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.showRecentSaves", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Disable Pocket sponsored stories [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/pocket-sponsored-stories-new-tabs [NO-ANDROID] [NO-MAIL]
