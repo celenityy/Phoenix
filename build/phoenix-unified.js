@@ -3743,7 +3743,7 @@ pref("javascript.options.wasm_simd_avx", true); // [DEFAULT] [NO-ANDROID]
 
 /// Enable Branch Hinting
 // https://github.com/WebAssembly/branch-hinting/blob/main/proposals/branch-hinting/Overview.md
-pref("javascript.options.wasm_branch_hinting", true); // [DEFAULT - Nightly]
+pref("javascript.options.wasm_branch_hinting", true); // [DEFAULT]
 
 /// Enable Canvas2D acceleration (if supported)
 // `gfx.canvas.accelerated.force-enabled` can be used to forcefully enable this acceleration, regardless of platform support
