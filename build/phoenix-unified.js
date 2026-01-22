@@ -3909,8 +3909,8 @@ pref("browser.tabs.closeWindowWithLastTab", false); // [NO-ANDROID] [NO-MAIL]
 pref("apz.autoscroll.enabled", true); // [DEFAULT]
 pref("general.autoScroll", true); // [HIDDEN - Android] [DEFAULT - non-Android/Unix (excluding macOS, where it is on by default)]
 
-/// Enable Backup settings (at `about:preferences#general`) by default [NO-ANDROID] [NO-MAIL]
-pref("browser.backup.preferences.ui.enabled", true); // [NO-ANDROID] [NO-MAIL]
+/// Enable Backup settings (at `about:preferences#general`) by default [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.backup.preferences.ui.enabled", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Enable + customize the new Sidebar by default [NO-ANDROID] [NO-MAIL]
 pref("browser.toolbarbuttons.introduced.sidebar-button", false); // [NO-ANDROID] [NO-MAIL] Prevents Sidebar from automatically opening and closing on first launch - also needs `browser.uiCustomization.state`
