@@ -3970,7 +3970,7 @@ pref("dom.manifest.enabled", true); // [NO-MAIL] [DEFAULT]
 
 /// Enable Tab Groups [NO-ANDROID] [NO-MAIL]
 // https://www.ghacks.net/2024/12/03/how-to-enable-tab-groups-in-firefox/ [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
+pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable Taskbar Tabs (PWAs) by default [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1915736 [NO-ANDROID] [NO-MAIL]
