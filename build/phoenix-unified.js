@@ -4380,9 +4380,9 @@ pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] [ESR] https://searchfox.org/firefox-esr140/rev/8c69555d/browser/extensions/newtab/lib/ActivityStream.sys.mjs#187 (Hides the toggle at `about:preferences#home`)
 
-/// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
-// https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL]
+/// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL] [ESR]
+// https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Proxy images [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/aee7c0f2/browser/extensions/newtab/lib/ActivityStream.sys.mjs#921 [NO-ANDROID] [NO-MAIL]
