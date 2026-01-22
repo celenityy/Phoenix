@@ -3796,7 +3796,7 @@ pref("image.mem.decode_bytes_at_a_time", 65536);
 
 /// Increase DNS caching
 pref("network.dnsCacheExpiration", 3600); // (Default = 60)
-pref("network.dnsCacheExpirationGracePeriod", 120); // (Default = 60)
+pref("network.dnsCacheExpirationGracePeriod", 600); // (Default = 600)
 pref("network.dnsCacheEntries", 10000); // (Default = 800)
 
 /// Increase the file-backed media cache size for cellular connections
