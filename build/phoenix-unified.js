@@ -3466,8 +3466,6 @@ pref("browser.disableResetPrompt", true, locked); // [NO-ANDROID] [NO-MAIL] [HID
 // https://bugzilla.mozilla.org/show_bug.cgi?id=620472
 pref("network.manage-offline-status", false);
 pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
-pref("offline.autoDetect", false); // [LINUX-ONLY] RedHat/Fedora-specific
-pref("toolkit.networkmanager.disable", true); // [LINUX-ONLY] RedHat/Fedora-specific
 
 /// Disable network requests to 0.0.0.0
 // Appears to mitigate a (potentially severe?) privacy/security issue, but bug is confidential so I'm unable to find actual details...
