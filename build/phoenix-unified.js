@@ -3386,7 +3386,7 @@ pref("javascript.options.content_process_write_protect_code", true); // [DEFAULT
 /// Prevent AutoConfig files (if being used) from gaining privileged browser access...
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 // https://searchfox.org/firefox-main/rev/82e2435f/extensions/pref/autoconfig/src/nsReadConfig.cpp#148
-pref("general.config.sandbox_enabled", true, locked); // [HIDDEN] [DEFAULT]
+pref("general.config.sandbox_enabled", true, locked); // [HIDDEN] [DEFAULT - Release/Beta]
 
 /// Prevent remoteTypes from triggering process switches they shouldn't be able to...
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/ipc/ContentParent.cpp#5535
