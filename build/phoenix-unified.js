@@ -3978,7 +3978,7 @@ pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.taskbarTabs.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Windows]
 
 /// Enable the `Unload Tab` context menu item by default [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.unloadTabInContextMenu", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.unloadTabInContextMenu", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable the `View Image Info` context menu item by default [NO-ANDROID] [NO-MAIL]
 pref("browser.menu.showViewImageInfo", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Developer Edition]
