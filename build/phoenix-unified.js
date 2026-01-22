@@ -4638,7 +4638,6 @@ pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{d19a89b9-76c1
 pref("services.sync.prefs.sync.findbar.highlightAll", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.layout.forms.reveal-password-button.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.media.autoplay.blocking_policy", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.media.ffmpeg.vaapi.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.middlemouse.paste", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.network.IDN_show_punycode", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.pdfjs.sidebarViewOnLoad", true); // [NO-ANDROID] [NO-MAIL]
