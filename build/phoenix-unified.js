@@ -3770,7 +3770,7 @@ pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Andr
 
 /// Enable SIMD
 // https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/
-pref("javascript.options.wasm_relaxed_simd", true); // [DEFAULT - Nightly]
+pref("javascript.options.wasm_relaxed_simd", true); // [DEFAULT]
 
 /// Enable VA-API by default [LINUX-ONLY] [NO-MAIL]
 pref("media.ffmpeg.vaapi.enabled", true); // [LINUX-ONLY] [NO-MAIL]
