@@ -4106,7 +4106,7 @@ pref("browser.topsites.contile.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.topsites.contile.sov.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-release/rev/9d94f5e3/toolkit/components/nimbus/FeatureManifest.yaml#2007
 
 /// Disable Fakespot [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-release/rev/9d94f5e3/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1338
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR] https://searchfox.org/firefox-release/rev/9d94f5e3/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1338
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds", "need_to_know"); // [NO-ANDROID] [NO-MAIL] [DEFAULT = "need_to_know, fakespot"] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#1094
 
 /// Disable fetching favicons remotely from Mozila's remote Tippy Top service [NO-ANDROID] [NO-MAIL]
