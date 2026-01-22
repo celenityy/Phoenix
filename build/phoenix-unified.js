@@ -3528,10 +3528,6 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 pref("accessibility.blockautorefresh", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
 
-/// Reject invalid cookies
-// https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/all.js#1791
-pref("extensions.cookie.rejectWhenInvalid", true); // [NIGHTLY]
-
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...) [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#933 [NO-ANDROID] [NO-MAIL]
 pref("permissions.media.show_always_ask.enabled", true); // [NO-ANDROID] [NO-MAIL]
