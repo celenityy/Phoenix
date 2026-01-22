@@ -4597,8 +4597,8 @@ pref("services.sync.log.appender.file.level", "Fatal"); // [NO-ANDROID]
 /// Improve the reliability of extension storage sync [NO-ANDROID]
 pref("services.sync.extension-storage.skipPercentageChance", 0); // [NO-ANDROID]
 
-/// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL]
-pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL]
+/// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL] [ESR]
+pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Sync additional preferences... [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true); // [NO-ANDROID] [NO-MAIL]
