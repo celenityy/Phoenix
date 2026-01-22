@@ -3406,7 +3406,7 @@ pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
 /// Protect against MIME Exploits
 // https://www.pcmag.com/encyclopedia/term/mime-exploit
-pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT]
+pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT] [EST]
 pref("network.sniff.use_extension", true); // Sniff content types based on file extensions (Default only does this for `file://` URLs)
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
