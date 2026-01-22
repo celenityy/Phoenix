@@ -4289,8 +4289,8 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.uuid",
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "solid-color-picker-#f4dbe9"); // [NO-ANDROID] [NO-MAIL]
 
-/// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+/// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 
 /// Ensure default homepage is `about:home` [NO-ANDROID] [NO-MAIL]
 // This is typically the default, but overriden by some distro-packaged versions of Firefox (ex. Fedora) [NO-ANDROID] [NO-MAIL]
