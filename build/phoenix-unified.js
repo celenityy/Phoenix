@@ -4214,10 +4214,10 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", fal
 
 /// Disable sponsored shortcuts [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/sponsor-privacy [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spoc-topsites-positions", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.spoc-topsites-positions", "", locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.spocZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/AboutPreferences.sys.mjs#69
 
