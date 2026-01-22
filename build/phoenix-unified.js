@@ -3975,7 +3975,7 @@ pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 /// Enable Taskbar Tabs (PWAs) by default [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1915736 [NO-ANDROID] [NO-MAIL]
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-ANDROID] [NO-MAIL]
-pref("browser.taskbarTabs.enabled", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.taskbarTabs.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Windows]
 
 /// Enable the `Unload Tab` context menu item by default [NO-ANDROID] [NO-MAIL]
 pref("browser.tabs.unloadTabInContextMenu", true); // [NO-ANDROID] [NO-MAIL]
