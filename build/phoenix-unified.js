@@ -4037,9 +4037,6 @@ pref("browser.tabs.inTitlebar", 1);
 /// Highlight all Findbar (Ctrl + F) results by default
 pref("findbar.highlightAll", true);
 
-/// Prevent the alt key from toggling menu bar by default
-pref("ui.key.menuAccessKeyFocuses", false); // [DEFAULT - non-Windows/Linux]
-
 /// Prevent automatically closing the Bookmarks menu after selecting a bookmark [NO-ANDROID] [NO-MAIL]
 pref("browser.bookmarks.openInTabClosesMenu", false); // [NO-ANDROID] [NO-MAIL]
 
@@ -4063,6 +4060,9 @@ pref("services.settings.loglevel", "warn"); // [HIDDEN] [DEFAULT]
 // Default is https://www.mozilla.org/about/manifesto/
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/mozprotocol/MozProtocolHandler.sys.mjs#10
 pref("toolkit.mozprotocol.url", "about:mozilla"); // [HIDDEN]
+
+/// Toggle the menu bar with the alt key by default
+pref("ui.key.menuAccessKeyFocuses", true); // [NO-OSX] [DEFAULT - Windows/Linux]
 
 pref("browser.phoenix.status", "027");
 
