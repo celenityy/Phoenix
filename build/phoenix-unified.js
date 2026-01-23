@@ -2927,14 +2927,14 @@ pref("dom.webmidi.gated", true); // [DEFAULT]
 pref("permissions.default.midi", 2); // [HIDDEN]
 pref("permissions.default.midi-sysex", 2); // [HIDDEN]
 
-/// Disable the Windows UI Automation API [WINDOWS-ONLY]
-// Similar privacy and security concerns as with Accessibility Services (accessibility.force_disabled) above [WINDOWS-ONLY]
-// https://wikipedia.org/wiki/Microsoft_UI_Automation [WINDOWS-ONLY]
-// https://searchfox.org/firefox-main/rev/87a1e2a5/modules/libpref/init/StaticPrefList.yaml#298 [WINDOWS-ONLY]
-// 0: Never. [WINDOWS-ONLY]
-// 1: Always. [WINDOWS-ONLY]
-// 2: Enable unless incompatible accessibility clients are detected. (default) [WINDOWS-ONLY]
-pref("accessibility.uia.enable", 0); // [WINDOWS-ONLY]
+/// Disable the Windows UI Automation API
+// Similar privacy and security concerns as with Accessibility Services (accessibility.force_disabled) above
+// https://wikipedia.org/wiki/Microsoft_UI_Automation 
+// https://searchfox.org/firefox-main/rev/87a1e2a5/modules/libpref/init/StaticPrefList.yaml#298
+// 0: Never.
+// 1: Always.
+// 2: Enable unless incompatible accessibility clients are detected. (default)
+pref("accessibility.uia.enable", 0); // [Windows]
 
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
