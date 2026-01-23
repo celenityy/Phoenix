@@ -1044,6 +1044,10 @@ pref("places.frecency.typedVisitBonus", 0); // [HIDDEN - Android/Thunderbird] [D
 pref("places.frecency.unvisitedBookmarkBonus", 0); // [ANDROID-ONLY] [HIDDEN - Android/Thunderbird] [Default: 140]
 pref("places.frecency.unvisitedTypedBonus", 0); // [HIDDEN - Android/Thunderbird] [Default: 200]
 
+/// Disable "frequent"/"recent" taskbar lists by default [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.frequent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.recent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
+
 /// Disable LaterRun [NO-ANDROID] [NO-MAIL]
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568 [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1200639 [NO-ANDROID] [NO-MAIL]
@@ -1059,12 +1063,6 @@ pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/T
 // Can be leaked to sites...
 // https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 pref("browser.formfill.enable", false);
-
-/// Disable taskbar lists [WINDOWS-ONLY] [NO-MAIL]
-pref("browser.taskbar.lists.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
-pref("browser.taskbar.lists.frequent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
-pref("browser.taskbar.lists.recent.enabled", false); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
-pref("browser.taskbar.lists.tasks.enabled", false); // [WINDOWS-ONLY] [NO-MAIL]
 
 /// Disable taskbar previews [WINDOWS-ONLY] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/modules/WindowsPreviewPerTab.sys.mjs [WINDOWS-ONLY] [NO-MAIL]
@@ -3943,6 +3941,11 @@ pref("devtools.performance.aboutprofiling.has-developer-options", true);
 
 /// Enable display of in-process subframes at `about:processes` by default
 pref("toolkit.aboutProcesses.showAllSubframes", true);
+
+/// Enable taskbar lists/tasks by default [WINDOWS-ONLY] [NO-MAIL]
+// https://codeberg.org/celenity/Phoenix/pulls/228 [WINDOWS-ONLY] [NO-MAIL]
+pref("browser.taskbar.lists.enabled", true); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
+pref("browser.taskbar.lists.tasks.enabled", true); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
 
 /// Enable display of thread information at `about:processes` by default
 pref("toolkit.aboutProcesses.showThreads", true); // [DEFAULT - Nightly]
