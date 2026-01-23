@@ -3326,7 +3326,7 @@ pref("security.sandbox.gmp.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFA
 pref("security.sandbox.gpu.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.rdd.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.socket.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
-pref("security.sandbox.content.shadow-stack.enabled", false); // [WINDOWS-ONLY] [DEFAULT]
+//pref("security.sandbox.content.shadow-stack.enabled", false); // [WINDOWS-ONLY] [DEFAULT] https://codeberg.org/celenity/Phoenix/issues/110
 
 /// Enable socket process sandboxing
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1608558
