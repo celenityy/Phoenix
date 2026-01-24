@@ -2951,8 +2951,8 @@ pref("network.lna.enabled", true); // [DEFAULT]
 pref("network.lna.etp.enabled", false); // [DEFAULT] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
 pref("network.lna.local-network-to-localhost.skip-checks", false); // Enforce LNA for requests from local network to your device https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14641
 pref("network.lna.websocket.enabled", true); // Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
-pref("permissions.default.local-network", 2); // [NO-ANDROID] Blocks websites from prompting to access the local network by default
-pref("permissions.default.localhost", 2); // [NO-ANDROID] Blocks websites from prompting to access apps and services (outside of the browser) on your device
+pref("permissions.default.local-network", 2); // [NO-ANDROID] Blocks websites from prompting to access the local network by default - 0: Always ask, 1: Allow, 2: Block
+pref("permissions.default.localhost", 0); // [NO-ANDROID] [DEFAULT] Blocks websites from prompting to access apps and services (outside of the browser) on your device - 0: Always ask, 1: Allow, 2: Block
 
 /// Enable Messaging Layer Security (MLS)
 // PRIVACY: Ensures messages are only received by the intended recipient
