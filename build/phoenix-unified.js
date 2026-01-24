@@ -322,6 +322,11 @@ pref("about.glean.redesign.enabled", false, locked); // [NO-ANDROID] [HIDDEN - n
 pref("network.ohttp.configURL", "", locked); // [ANDROID-ONLY]
 pref("network.ohttp.relayURL", "", locked); // [ANDROID-ONLY]
 
+/// Disable notification permission telemetry [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/28328852/browser/app/profile/firefox.js#938 [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/28328852/browser/modules/PermissionUI.sys.mjs#79 [NO-ANDROID]
+pref("permissions.desktop-notification.telemetry.siteCategories", "{}", locked); // [NO-ANDROID]
+
 /// Disable Origin Trials
 // https://wiki.mozilla.org/Origin_Trials
 pref("dom.origin-trials.enabled", false);
