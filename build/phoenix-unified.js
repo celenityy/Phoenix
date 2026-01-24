@@ -154,7 +154,6 @@ pref("toolkit.coverage.enabled", false, locked); // [DEFAULT] [HIDDEN - Android/
 pref("toolkit.coverage.endpoint.base", "", locked); // [DEFAULT - Android/Thunderbird] [HIDDEN - Android/Thunderbird]
 pref("toolkit.coverage.log-level", 70); // [HIDDEN] Limits logging to fatal only
 pref("toolkit.coverage.opt-out", true, locked); // [HIDDEN]
-pref("toolkit.telemetry.coverage.opt-out", true, locked); // [HIDDEN]
 
 /// Disable Crash Reporting
 // https://github.com/mozilla-services/socorro
@@ -251,7 +250,7 @@ pref("toolkit.telemetry.scheduler.tickInterval", 999999999, locked); // [HIDDEN]
 pref("toolkit.telemetry.send.overrideOfficialCheck", false, locked); // [HIDDEN] [DEFAULT] Never send pings on unofficial builds - https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html
 pref("toolkit.telemetry.server", "data;", locked);
 pref("toolkit.telemetry.server_owner", "", locked);
-pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - desktop Firefox]
+pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop Firefox]
 pref("toolkit.telemetry.shutdownPingSender.enabled", false, locked); // [HIDDEN - Android]
 pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false, locked); // [HIDDEN - Android] [DEFAULT]
 pref("toolkit.telemetry.testing.disableFuzzingDelay", false, locked); // [HIDDEN] [DEFAULT] [DEFENSE IN DEPTH] Always delay sending pings between 0-1 AM
@@ -311,6 +310,7 @@ pref("nimbus.profilesdatastoreservice.sync.enabled", false, locked); // Disable 
 // `nimbus.appId` -> `firefox-desktop` [NO-ANDROID] [NO-MAIL]
 // You'll also need to remove the `DisableFirefoxStudies` and `DisableTelemetry` policies [NO-ANDROID] [NO-MAIL]
 pref("browser.preferences.experimental", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.preferences.experimental.hidden", true); // [NO-ANDROID] [NO-MAIL] Avoids the "Firefox Labs" section from shortly appearing on first launch https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/components/preferences/experimental.js#185
 
 /// Disable Glean redesign/navigation category at `about:glean`
 // This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
@@ -541,8 +541,8 @@ pref("browser.uitour.surveyDuration", 0, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.uitour.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Pocket [NO-ANDROID] [NO-MAIL]
-pref("extensions.pocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+/// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
+pref("extensions.pocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR] https://searchfox.org/firefox-esr140/source/browser/app/profile/firefox.js#2624
 
 /// Disable "Privacy-Preserving Attribution"
 // https://support.mozilla.org/kb/privacy-preserving-attribution
@@ -636,7 +636,6 @@ pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/search
 pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/android/search?q=%TERMS%"); // [ANDROID-ONLY]
 pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%"); // [NO-MAIL] Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), and compatibility mode (compatMode)
 pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%"); // [NO-MAIL] Removes maximum app/browser version (maxAppVersion), operating system (appOS), ABI (appABI), locale (locale), and compatibility mode (compatMode)
-pref("lightweightThemes.getMoreURL", "https://addons.mozilla.org/themes/"); // [NO-ANDROID] [NO-MAIL]
 pref("pdfjs.altTextLearnMoreUrl", "https://support.mozilla.org/kb/pdf-alt-text");
 pref("pdfjs.commentLearnMoreUrl", "https://support.mozilla.org/kb/view-pdf-files-firefox-or-choose-another-viewer#w_add-a-comment-to-a-pdf");
 pref("signon.firefoxRelay.learn_more_url", "https://support.mozilla.org/kb/relay-integration#w_frequently-asked-questions");
@@ -687,7 +686,7 @@ pref("browser.contentblocking.category", "strict", locked); // [HIDDEN]
 // We're also configuring the 'CookieBehavior' and 'EnableTrackingProtection' policies on desktop.
 
 //// Block harmful add-on URLs
-pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [NIGHTLY] [DEFAULT - non-Thunderbird]
+pref("privacy.trackingprotection.harmfuladdon.enabled", true); // [DEFAULT - Desktop Firefox] https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/app/profile/firefox.js#2434
 
 //// Block known consent managers (CMPs)
 pref("privacy.trackingprotection.consentmanager.annotate_channels", true); // [DEFAULT]
@@ -829,9 +828,6 @@ pref("media.benchmark.vp9.threshold", 0);
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/modules/LightweightThemeConsumer.sys.mjs#17
 pref("browser.theme.unified-color-scheme", false); // [HIDDEN - non-Thunderbird] [DEFAULT - non-Thunderbird]
 
-/// Enable canvas randomization for the browser chrome
-pref("privacy.resistFingerprinting.randomization.canvas.disable_for_chrome", false); // [DEFAULT]
-
 /// Enable fdlibm for Math.sin, Math.cos, and Math.tan
 // https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/StaticPrefList.yaml#9422
 // https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ
@@ -949,13 +945,12 @@ pref("permissions.memory_only", false); // [HIDDEN] [DEFAULT]
 /// Allow users to automatically delete files downloaded in Private Browsing
 // (browser.download.deletePrivate controls the functionality itself)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1790641
-pref("browser.download.enableDeletePrivate", true); // [DEFAULT - Nightly]
+pref("browser.download.enableDeletePrivate", true); // [DEFAULT] https://bugzilla.mozilla.org/show_bug.cgi?id=1981504
 
 /// Check the boxes for clearing browsing data when navigating to `about:preferences#privacy` -> `Cookies and Site Data` -> `Manage Data...` by default [NO-ANDROID]
 pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearHistory.cache", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearHistory.formdata", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
-pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearSiteData.browsingHistoryAndDownloads", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
 pref("privacy.clearSiteData.cache", true); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
 pref("privacy.clearSiteData.formdata", true); // [NO-ANDROID] [HIDDEN - Thunderbird]
@@ -982,7 +977,6 @@ pref("privacy.clearOnShutdown.sessions", true); // [NO-ANDROID] [HIDDEN - Thunde
 pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("privacy.clearOnShutdown_v2.downloads", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("privacy.clearOnShutdown_v2.formdata", true); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Clear cache on exit by default
 // We also disable disk cache entirely below...
@@ -1289,11 +1283,11 @@ pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
 pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
-pref("media.webrtc.enable_pq_hybrid_kex", true); // [NIGHTLY] [DEFAULT]
-pref("media.webrtc.send_mlkem_keyshare", true); // [NIGHTLY] [DEFAULT]
-pref("network.http.http3.enable_kyber", true); // [DEFAULT - non-Android]
+pref("media.webrtc.enable_pq_hybrid_kex", true); // [DEFAULT]
+pref("media.webrtc.send_mlkem_keyshare", true); // [DEFAULT]
+pref("network.http.http3.enable_kyber", true); // [DEFAULT]
 pref("security.tls.client_hello.send_p256_keyshare", true); // [DEFAULT]
-pref("security.tls.enable_kyber", true); // [DEFAULT - non-Android]
+pref("security.tls.enable_kyber", true); // [DEFAULT]
 
 /// Enable prompts for unsafe HTTP redirects
 // https://searchfox.org/firefox-main/rev/16707ce1/modules/libpref/init/all.js#1189
@@ -1488,11 +1482,8 @@ pref("browser.urlbar.suggest.trending", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.trending.featureGate", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable URL trimming [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-
-/// Display the search bar at `Customize toolbar...` [NO-ANDROID] [NO-MAIL]
-pref("browser.search.widget.inNavBar", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.urlbar.trimHttps", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.trimURLs", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Enable bookmark suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/UrlbarProviderBookmarkKeywords.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -1570,13 +1561,6 @@ pref("browser.urlbar.scotchBonnet.disableOneOffs", false); // [NO-ANDROID] [NO-M
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/urlbar/docs/preferences.rst#138 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.formatting.enabled", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 
-/// If search suggestions are enabled, use OHTTP for superior privacy
-// Currently only supports Google
-// https://searchfox.org/firefox-main/rev/4258ca07/toolkit/components/search/SearchSuggestionController.sys.mjs#545
-// https://searchfox.org/firefox-main/rev/4258ca07/toolkit/components/nimbus/FeatureManifest.yaml#357
-pref("browser.search.suggest.ohttp.enabled", true); // [DEFAULT - non-Firefox Desktop]
-pref("browser.search.suggest.ohttp.featureGate", true); // [HIDDEN - non-Firefox Desktop]
-
 /// If URL trimming is enabled, untrim on user interaction [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.untrimOnUserInteraction.featureGate", true); // [NO-ANDROID] [NO-MAIL]
 
@@ -1625,7 +1609,6 @@ pref("network.notify.IPv6", false); // [DEFAULT - Windows]
 pref("network.notify.resolvers", false);
 
 /// Enable DNS Rebinding Protection
-// (Some like ex. LibreWolf set this to `true`...)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1672528
 pref("network.trr.allow-rfc1918", false); // [DEFAULT]
 
@@ -1699,6 +1682,13 @@ pref("browser.phoenix.status", "010");
 // https://bugzilla.mozilla.org/show_bug.cgi?id=500983
 // https://bugzilla.mozilla.org/show_bug.cgi?id=500983#c7
 // https://superuser.com/questions/169303/why-are-my-browsers-suddenly-configured-to-use-a-proxy
+// BITS usage currently requires 5 (default) https://searchfox.org/firefox-main/rev/ba7a7a320649794a9948b32156f5b438fef5ce7a/toolkit/mozapps/update/UpdateService.sys.mjs#861 [WINDOWS-ONLY]
+// The proxy type. See nsIProtocolProxyService.idl
+//    PROXYCONFIG_DIRECT   = 0
+//    PROXYCONFIG_MANUAL   = 1
+//    PROXYCONFIG_PAC      = 2
+//    PROXYCONFIG_WPAD     = 4
+//    PROXYCONFIG_SYSTEM   = 5 (default)
 pref("network.proxy.type", 0);
 
 // Prevent bypasses/leakage
@@ -1956,7 +1946,7 @@ pref("browser.phoenix.status", "013");
 
 /// Disable ASM.JS
 // https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
-pref("javascript.options.asmjs", false);
+pref("javascript.options.asmjs", false); // [DEFAULT] https://bugzilla.mozilla.org/show_bug.cgi?id=2002635
 
 /// Disable Graphite & SVG OpenType fonts
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+graphite
@@ -2022,8 +2012,8 @@ pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 // https://developer.mozilla.org/docs/Web/HTML/Element/input/password
 pref("layout.forms.reveal-password-button.enabled", true);
 
-/// Crash on insecure password input
-pref("intl.allow-insecure-text-input", false); // [DEFAULT, HIDDEN - non-Nightly]
+/// Crash on insecure password input [OSX-ONLY]
+pref("intl.allow-insecure-text-input", false); // [OSX-ONLY] [DEFAULT - non-Firefox release/beta/Debug] https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/modules/libpref/init/all.js#3454
 
 /// Disable Autofill
 pref("signon.autofillForms", false);
@@ -2802,6 +2792,8 @@ pref("browser.phoenix.status", "020");
 // "Firefox Accessibility Service is a technology built into Firefox that provides 3rd party applications running on the same device the ability to inspect, monitor, visualize, and alter web page content hosted within Firefox."
 // We need to ensure we're still accomodating for impaired users, but I feel this is something that must be handled by the browser instead of external software
 // https://web.archive.org/web/20240608190300/support.mozilla.org/en-US/kb/accessibility-services
+// Values are -1 always on. 1 always off, 0 (default) is auto as some platform perform further checks.
+// This pref is checked only once, and the browser needs a restart to pick up any changes.
 pref("accessibility.force_disabled", 1);
 pref("devtools.accessibility.enabled", false); // [NO-ANDROID] - Disables the Accessibility Inspector/context menu item by default - https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/
 
@@ -2845,8 +2837,6 @@ pref("beacon.enabled", false);
 // NOTE: This only impacts extensions; this is thankfully never exposed to websites
 // I'm still not convinced extensions need or should have access to this data though (While there are currently other ways for extensions to access clipboard data, those are deprecated and will presumably not be around for much longer)
 // https://developer.mozilla.org/docs/Web/API/Clipboard
-pref("dom.events.asyncClipboard.clipboardItem", false);
-pref("dom.events.asyncClipboard.readText", false);
 pref("dom.events.testing.asyncClipboard", false, locked); // [DEFAULT]
 
 /// Disable Content Analysis SDK
@@ -2921,7 +2911,7 @@ pref("dom.webshare.requireinteraction", true); // [DEFAULT] If enabled, ensure w
 // https://gpuweb.github.io/gpuweb/#privacy-considerations
 // https://gpuweb.github.io/gpuweb/#security-considerations
 // https://browserleaks.com/webgpu
-pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
+pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Silicon-OSX/non-Nightly]
 
 /// Disable WebMIDI
 // PRIVACY: Fingerprinting concerns
@@ -2930,16 +2920,19 @@ pref("dom.webgpu.enabled", false); // [DEFAULT - non-Windows/non-Nightly]
 // Toggling 'dom.webmidi.enabled' itself could be fingerprintable, but setting these instead just causes the permission to be automatically denied at a random interval
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/midi/MIDIPermissionRequest.cpp#120
 // Test: https://permission.site/
-pref("dom.sitepermsaddon-provider.enabled", false);
+pref("dom.sitepermsaddon-provider.enabled", false); // [DEFAULT - non-Android]
 pref("dom.webmidi.gated", true); // [DEFAULT]
 pref("permissions.default.midi", 2); // [HIDDEN]
 pref("permissions.default.midi-sysex", 2); // [HIDDEN]
 
 /// Disable the Windows UI Automation API
 // Similar privacy and security concerns as with Accessibility Services (accessibility.force_disabled) above
-// https://wikipedia.org/wiki/Microsoft_UI_Automation
+// https://wikipedia.org/wiki/Microsoft_UI_Automation 
 // https://searchfox.org/firefox-main/rev/87a1e2a5/modules/libpref/init/StaticPrefList.yaml#298
-pref("accessibility.uia.enable", 0);
+// 0: Never.
+// 1: Always.
+// 2: Enable unless incompatible accessibility clients are detected. (default)
+pref("accessibility.uia.enable", 0); // [Windows]
 
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
@@ -3020,11 +3013,12 @@ pref("network.http.referer.hideOnionSource", true); // [DEFAULT]
 /// Disable storage access heuristics
 // https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
 pref("dom.storage_access.auto_grants", false); // Automatic storage access grants
-pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // [DEFAULT - non-desktop Nightly] 
+pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // [DEFAULT - Android] 
 pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
-pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
-pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT - Android]
-pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT - Android]
+pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false); // [DEFAULT - non-Android]
+pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // [DEFAULT]
+pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // [DEFAULT]
+pref("privacy.restrict3rdpartystorage.heuristic.recently_visited_time", 0);
 
 /// Disable TLS session identifiers
 // Fingerprinting/tracking concerns
@@ -3054,7 +3048,7 @@ pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 // https://developer.mozilla.org/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies
 // https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie#partitioned
 // https://github.com/privacycg/CHIPS
-pref("network.cookie.CHIPS.enabled", true); // [DEFAULT - Nightly]
+pref("network.cookie.CHIPS.enabled", true); // [DEFAULT]
 pref("network.cookie.chips.partitionLimitDryRun", false); // [DEFAULT]
 
 /// Enable Do Not Track & Global Privacy Control
@@ -3122,8 +3116,11 @@ pref("autoadmin.append_emailaddr", false, locked); // [HIDDEN] [DEFAULT]
 pref("privacy.dynamic_firstparty.limitForeign", true);
 
 /// Restrict tracking referers
-pref("network.http.referer.defaultPolicy.trackers", 1);
-pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+// 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
+// 3=no-referrer-when-downgrade.
+// Setting to 1 currently breaks various functionality https://codeberg.org/celenity/Phoenix/pulls/228#issuecomment-10051167
+pref("network.http.referer.defaultPolicy.trackers", 2); // [DEFAULT]
+pref("network.http.referer.defaultPolicy.trackers.pbmode", 2); // [DEFAULT]
 
 /// Strip tracking parameters from URLs when shared by default
 pref("privacy.query_stripping.strip_on_share.enabled", true); // [DEFAULT - non-Android/Thunderbird]
@@ -3284,21 +3281,17 @@ pref("dom.origin-trials.coep-credentialless.state", 1); // 'credentialless'
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy
 pref("browser.tabs.remote.useCrossOriginOpenerPolicy", true); // [DEFAULT]
 
-/// Enable Element.setHTML
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1805632
-// https://webdocs.dev/en-us/docs/web/api/element/sethtml
-pref("dom.security.setHTML.enabled", true);
-
 /// Enable GPU Sandboxing
 // https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp#1293
 // https://searchfox.org/firefox-main/rev/82e2435f/security/sandbox/chromium/sandbox/win/src/security_level.h#38
+// For macOS, any level >= 1 enables the sandbox and setting a higher level has no effect. (default 1)
 pref("security.sandbox.gpu.level", 2); // [1 = USER_RESTRICTED_NON_ADMIN (Default: Windows), 2 = USER_LIMITED (Stricter)]
 
 /// Enable the Integrity-Policy header
 // https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/Integrity-Policy
-pref("security.integrity_policy.enabled", true); // [DEFAULT - Nightly]
-pref("security.integrity_policy.stylesheet.enabled", true); // [NIGHTLY]
+pref("security.integrity_policy.enabled", true); // [DEFAULT]
+pref("security.integrity_policy.stylesheet.enabled", true); // [DEFAULT]
 
 /// Enable Opaque Response Blocking
 // https://github.com/annevk/orb
@@ -3314,16 +3307,16 @@ pref("dom.origin_agent_cluster.enabled", true); // [DEFAULT]
 /// Enforce Per-site Process Isolation + isolate all websites
 // https://wiki.mozilla.org/Project_Fission
 pref("browser.sessionstore.disable_platform_collection", false); // [DEFAULT - non-Thunderbird]
-pref("fission.autostart", true); // [DEFAULT - non-Android]
-pref("fission.autostart.session", true); // [DEFAULT - non-Android]
-pref("fission.disableSessionHistoryInParent", false); // [DEFAULT - non-Android] SHIP, required for Fission
+pref("fission.autostart", true); // [DEFAULT]
+pref("fission.autostart.session", true); // [DEFAULT]
+pref("fission.disableSessionHistoryInParent", false); // [DEFAULT] SHIP, required for Fission
 pref("fission.highValue.login.monitor", true); // [DEFAULT - Android] Ensure that we are always marking log-in attempts as "high value", even if Fission is disabled - for if/when users decide to enable it later https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/LoginDetectionService.cpp#64
-pref("fission.webContentIsolationStrategy", 1); // [DEFAULT - non-Android] Isolate everything https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/ProcessIsolation.cpp#50
+pref("fission.webContentIsolationStrategy", 1); // [DEFAULT] Isolate everything https://searchfox.org/firefox-main/rev/d88792ab/dom/ipc/ProcessIsolation.cpp#50
 pref("gfx.webrender.all", true);
 
 /// Enable the Sanitizer API
 // https://github.com/WICG/sanitizer-api
-pref("dom.security.sanitizer.enabled", true);
+pref("dom.security.sanitizer.enabled", true); [DEFAULT]
 
 /// Enable Shadow Stacks [WINDOWS-ONLY]
 // https://wikipedia.org/wiki/Shadow_stack [WINDOWS-ONLY]
@@ -3331,6 +3324,7 @@ pref("security.sandbox.gmp.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFA
 pref("security.sandbox.gpu.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.rdd.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 pref("security.sandbox.socket.shadow-stack.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
+//pref("security.sandbox.content.shadow-stack.enabled", false); // [WINDOWS-ONLY] [DEFAULT] https://codeberg.org/celenity/Phoenix/issues/110
 
 /// Enable socket process sandboxing
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1608558
@@ -3342,7 +3336,7 @@ pref("javascript.options.spectre.disable_for_isolated_content", false);
 
 /// Enable Trusted Types
 // https://developer.mozilla.org/docs/Web/API/Trusted_Types_API
-pref("dom.security.trusted_types.enabled", true); // [DEFAULT - Nightly]
+pref("dom.security.trusted_types.enabled", true); // [DEFAULT]
 
 /// Enable WebAssembly Memory Control
 // https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/Overview.md
@@ -3355,7 +3349,7 @@ pref("security.fileuri.strict_origin_policy", true); // [DEFAULT]
 
 /// Enforce various important security-related prefs
 pref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
-pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT]
+pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT] [ESR]
 pref("security.all_resource_uri_content_accessible", false); // [DEFAULT]
 pref("security.allow_eval_in_parent_process", false); // [DEFAULT - non-Android/Thunderbird]
 pref("security.allow_eval_with_system_principal", false); // [DEFAULT - non-Android]
@@ -3394,7 +3388,7 @@ pref("javascript.options.content_process_write_protect_code", true); // [DEFAULT
 /// Prevent AutoConfig files (if being used) from gaining privileged browser access...
 // https://www.mozilla.org/firefox/62.0/releasenotes/
 // https://searchfox.org/firefox-main/rev/82e2435f/extensions/pref/autoconfig/src/nsReadConfig.cpp#148
-pref("general.config.sandbox_enabled", true, locked); // [HIDDEN] [DEFAULT]
+pref("general.config.sandbox_enabled", true, locked); // [HIDDEN] [DEFAULT - Release/Beta]
 
 /// Prevent remoteTypes from triggering process switches they shouldn't be able to...
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/ipc/ContentParent.cpp#5535
@@ -3414,7 +3408,7 @@ pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
 /// Protect against MIME Exploits
 // https://www.pcmag.com/encyclopedia/term/mime-exploit
-pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT]
+pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT] [ESR]
 pref("network.sniff.use_extension", true); // Sniff content types based on file extensions (Default only does this for `file://` URLs)
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
@@ -3474,14 +3468,12 @@ pref("browser.disableResetPrompt", true, locked); // [NO-ANDROID] [NO-MAIL] [HID
 // https://bugzilla.mozilla.org/show_bug.cgi?id=620472
 pref("network.manage-offline-status", false);
 pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
-pref("offline.autoDetect", false); // [LINUX-ONLY] RedHat/Fedora-specific
-pref("toolkit.networkmanager.disable", true); // [LINUX-ONLY] RedHat/Fedora-specific
 
 /// Disable network requests to 0.0.0.0
 // Appears to mitigate a (potentially severe?) privacy/security issue, but bug is confidential so I'm unable to find actual details...
 // This is also being set by Tor Browser
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1889130
-pref("network.socket.ip_addr_any.disabled", true); // [DEFAULT - Nightly]
+pref("network.socket.ip_addr_any.disabled", true); // [DEFAULT]
 
 /// Disable WebVTT Testing Events
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/media/webvtt/HTMLTrackElement.cpp#530
@@ -3503,7 +3495,7 @@ pref("security.tls.ech.grease_probability", 100); // [DEFAULT] Sets probability 
 pref("security.tls.grease_http3_enable", true);
 
 /// Enable more detailed property error messages
-pref("javascript.options.property_error_message_fix", true); // [DEFAULT - Nightly/Developer]
+pref("javascript.options.property_error_message_fix", true); // [DEFAULT]
 
 /// Ensure that holding shift bypasses context menu events
 // (When holding shift, this prevents websites from hijacking the right click/context menu)
@@ -3537,10 +3529,6 @@ pref("dom.disable_window_move_resize", true); // [DEFAULT - Android]
 /// Prevent websites from automatically refreshing
 pref("accessibility.blockautorefresh", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.meta_refresh_when_inactive.disabled", true); // [DEFAULT - Android]
-
-/// Reject invalid cookies
-// https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/all.js#1791
-pref("extensions.cookie.rejectWhenInvalid", true); // [NIGHTLY]
 
 /// Show 'Always ask' for camera & microphone in the permissions drop-down (when that's what the user chose...) [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#933 [NO-ANDROID] [NO-MAIL]
@@ -3752,14 +3740,14 @@ pref("network.http.pacing.requests.enabled", false);
 // Despite what the name suggests, Firefox will remain at the default/recommended performance settings - all this does is expose the UI settings... [NO-ANDROID] [NO-MAIL]
 pref("browser.preferences.defaultPerformanceSettings.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Enable Advanced Vector Extensions (AVX)
-// https://wikipedia.org/wiki/Advanced_Vector_Extensions
-// https://www.supportyourtech.com/articles/how-to-enable-avx-support-in-windows-11-a-step-by-step-guide/
-pref("javascript.options.wasm_simd_avx", true);
+/// Enable Advanced Vector Extensions (AVX) [NO-ANDROID]
+// https://wikipedia.org/wiki/Advanced_Vector_Extensions [NO-ANDROID]
+// https://www.supportyourtech.com/articles/how-to-enable-avx-support-in-windows-11-a-step-by-step-guide/ [NO-ANDROID]
+pref("javascript.options.wasm_simd_avx", true); // [DEFAULT] [NO-ANDROID]
 
 /// Enable Branch Hinting
 // https://github.com/WebAssembly/branch-hinting/blob/main/proposals/branch-hinting/Overview.md
-pref("javascript.options.wasm_branch_hinting", true); // [DEFAULT - Nightly]
+pref("javascript.options.wasm_branch_hinting", true); // [DEFAULT]
 
 /// Enable Canvas2D acceleration (if supported)
 // `gfx.canvas.accelerated.force-enabled` can be used to forcefully enable this acceleration, regardless of platform support
@@ -3784,10 +3772,7 @@ pref("javascript.options.mem.gc_parallel_marking", true); // [DEFAULT - non-Andr
 
 /// Enable SIMD
 // https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/
-pref("javascript.options.wasm_relaxed_simd", true); // [DEFAULT - Nightly]
-
-/// Enable VA-API by default [LINUX-ONLY] [NO-MAIL]
-pref("media.ffmpeg.vaapi.enabled", true); // [LINUX-ONLY] [NO-MAIL]
+pref("javascript.options.wasm_relaxed_simd", true); // [DEFAULT]
 
 /// Enable the WebRender native compositor (if supported)
 // `gfx.webrender.compositor.force-enabled` can be used to forcefully enable this acceleration, regardless of platform support
@@ -3815,8 +3800,7 @@ pref("image.mem.decode_bytes_at_a_time", 65536);
 
 /// Increase DNS caching
 pref("network.dnsCacheExpiration", 3600); // (Default = 60)
-pref("network.dnsCacheExpirationGracePeriod", 120); // (Default = 60)
-pref("network.dnsCacheEntries", 10000); // (Default = 800)
+pref("network.dnsCacheEntries", 10000); // (Default = 1600)
 
 /// Increase the file-backed media cache size for cellular connections
 // (Default = 32768)
@@ -3926,8 +3910,8 @@ pref("browser.tabs.closeWindowWithLastTab", false); // [NO-ANDROID] [NO-MAIL]
 pref("apz.autoscroll.enabled", true); // [DEFAULT]
 pref("general.autoScroll", true); // [HIDDEN - Android] [DEFAULT - non-Android/Unix (excluding macOS, where it is on by default)]
 
-/// Enable Backup settings (at `about:preferences#general`) by default [NO-ANDROID] [NO-MAIL]
-pref("browser.backup.preferences.ui.enabled", true); // [NO-ANDROID] [NO-MAIL]
+/// Enable Backup settings (at `about:preferences#general`) by default [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.backup.preferences.ui.enabled", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Enable + customize the new Sidebar by default [NO-ANDROID] [NO-MAIL]
 pref("browser.toolbarbuttons.introduced.sidebar-button", false); // [NO-ANDROID] [NO-MAIL] Prevents Sidebar from automatically opening and closing on first launch - also needs `browser.uiCustomization.state`
@@ -3957,7 +3941,7 @@ pref("toolkit.aboutProcesses.showThreads", true); // [DEFAULT - Nightly]
 pref("browser.translations.automaticallyPopup", true); // [NO-MAIL] [DEFAULT]
 pref("browser.translations.enable", true); // [NO-MAIL] [DEFAULT - non-Thunderbird]
 pref("browser.translations.select.enable", true); // [NO-MAIL] [DEFAULT - non-Android/Thunderbird]
-pref("browser.translations.newSettingsUI.enable", true); // [NO-ANDROID] [NO-MAIL] Enables the new UI at `about:preferences#general`
+pref("browser.translations.newSettingsUI.enable", true); // [NO-ANDROID] [NO-MAIL] [ESR] Enables the new UI at `about:preferences#general`
 pref("browser.translations.simulateUnsupportedEngine", false); // [NO-MAIL] [DEFAULT]
 pref("extensions.translations.disabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Enables `Exceptions` UI at `about:preferences#general`
 
@@ -3992,15 +3976,15 @@ pref("dom.manifest.enabled", true); // [NO-MAIL] [DEFAULT]
 
 /// Enable Tab Groups [NO-ANDROID] [NO-MAIL]
 // https://www.ghacks.net/2024/12/03/how-to-enable-tab-groups-in-firefox/ [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
+pref("browser.tabs.groups.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable Taskbar Tabs (PWAs) by default [NO-ANDROID] [NO-MAIL]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1915736 [NO-ANDROID] [NO-MAIL]
 // https://windowsreport.com/firefox-is-bringing-web-apps-to-windows-11-with-taskbar-tabs-first-look/ [NO-ANDROID] [NO-MAIL]
-pref("browser.taskbarTabs.enabled", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.taskbarTabs.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Windows]
 
 /// Enable the `Unload Tab` context menu item by default [NO-ANDROID] [NO-MAIL]
-pref("browser.tabs.unloadTabInContextMenu", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.tabs.unloadTabInContextMenu", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable the `View Image Info` context menu item by default [NO-ANDROID] [NO-MAIL]
 pref("browser.menu.showViewImageInfo", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Developer Edition]
@@ -4125,7 +4109,7 @@ pref("browser.topsites.contile.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.topsites.contile.sov.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-release/rev/9d94f5e3/toolkit/components/nimbus/FeatureManifest.yaml#2007
 
 /// Disable Fakespot [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-release/rev/9d94f5e3/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1338
+pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.fakespot.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR] https://searchfox.org/firefox-release/rev/9d94f5e3/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1338
 pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds", "need_to_know"); // [NO-ANDROID] [NO-MAIL] [DEFAULT = "need_to_know, fakespot"] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/FeatureManifest.yaml#1094
 
 /// Disable fetching favicons remotely from Mozila's remote Tippy Top service [NO-ANDROID] [NO-MAIL]
@@ -4195,12 +4179,12 @@ pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.en
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Pocket [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.showRecentSaves", false); // [NO-ANDROID] [NO-MAIL]
+/// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.showRecentSaves", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Disable Pocket sponsored stories [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/pocket-sponsored-stories-new-tabs [NO-ANDROID] [NO-MAIL]
@@ -4236,10 +4220,10 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", fal
 
 /// Disable sponsored shortcuts [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/sponsor-privacy [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spoc-topsites-positions", "", locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.spoc-topsites-positions", "", locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.spocZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/AboutPreferences.sys.mjs#69
 
@@ -4283,8 +4267,8 @@ pref("browser.newtabpage.activity-stream.testing.shouldInitializeFeeds", true); 
 pref("browser.newtabpage.disableNewTabAsAddon", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/browser/components/newtab/AboutNewTabResourceMapping.sys.mjs#186
 pref("browser.newtabpage.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Enable the new shortcuts UI refresh by default [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.newtabShortcuts.refresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+/// Enable the new shortcuts UI refresh by default [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.newtabShortcuts.refresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 
 /// Enable publisher favicons (if stories are enabled) by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.publisherFavicon.enabled", true); // [NO-ANDROID] [NO-MAIL]
@@ -4311,8 +4295,8 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.uuid",
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "solid-color-picker-#f4dbe9"); // [NO-ANDROID] [NO-MAIL]
 
-/// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+/// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 
 /// Ensure default homepage is `about:home` [NO-ANDROID] [NO-MAIL]
 // This is typically the default, but overriden by some distro-packaged versions of Firefox (ex. Fedora) [NO-ANDROID] [NO-MAIL]
@@ -4329,7 +4313,7 @@ pref("browser.newtabpage.activity-stream.debug", false); // [NO-ANDROID] [NO-MAI
 /// Hide checkboxes to enable sponsored shortcuts and Pocket sponsored stories [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1386 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-pref("browser.newtabpage.activity-stream.system.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("browser.newtabpage.activity-stream.system.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [ESR]
 
 /// Hide the Firefox logo [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false); // [NO-ANDROID] [NO-MAIL]
@@ -4397,11 +4381,11 @@ pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "merino.services.mozilla.com"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#190 (Hides the toggle at `about:preferences#home`)
+pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] [ESR] https://searchfox.org/firefox-esr140/rev/8c69555d/browser/extensions/newtab/lib/ActivityStream.sys.mjs#187 (Hides the toggle at `about:preferences#home`)
 
-/// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL]
-// https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL]
+/// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL] [ESR]
+// https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/ [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Proxy images [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/aee7c0f2/browser/extensions/newtab/lib/ActivityStream.sys.mjs#921 [NO-ANDROID] [NO-MAIL]
@@ -4616,17 +4600,17 @@ pref("services.sync.log.appender.file.level", "Fatal"); // [NO-ANDROID]
 /// Improve the reliability of extension storage sync [NO-ANDROID]
 pref("services.sync.extension-storage.skipPercentageChance", 0); // [NO-ANDROID]
 
-/// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL]
-pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL]
+/// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL] [ESR]
+pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Sync additional preferences... [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.bookmarks.openInTabClosesMenu", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.download.open_pdf_attachments_inline", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true); // [NO-ANDROID] [NO-MAIL]
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", true); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showWeather", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.preferences.experimental", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.privatebrowsing.resetPBM.enabled", true); // [NO-ANDROID] [NO-MAIL]
@@ -4657,7 +4641,6 @@ pref("services.sync.prefs.sync.extensions.quarantineIgnoredByUser.{d19a89b9-76c1
 pref("services.sync.prefs.sync.findbar.highlightAll", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.layout.forms.reveal-password-button.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.media.autoplay.blocking_policy", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.media.ffmpeg.vaapi.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.middlemouse.paste", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.network.IDN_show_punycode", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.pdfjs.sidebarViewOnLoad", true); // [NO-ANDROID] [NO-MAIL]
