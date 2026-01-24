@@ -299,6 +299,7 @@ pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/firefox-
 pref("nimbus.profilesdatastoreservice.enabled", false, locked); // Disable writing to the NimbusEnrollments table database https://searchfox.org/firefox-main/rev/16707ce1/toolkit/components/nimbus/lib/Enrollments.sys.mjs#617
 pref("nimbus.profilesdatastoreservice.read.enabled", false, locked); // Disable reading from the NimbusEnrollments table database https://searchfox.org/firefox-main/rev/16707ce1/toolkit/components/nimbus/lib/Enrollments.sys.mjs#628
 pref("nimbus.profilesdatastoreservice.sync.enabled", false, locked); // Disable syncing NimbusEnrollments data https://searchfox.org/firefox-main/rev/16707ce1/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs#425 https://searchfox.org/firefox-main/rev/16707ce1/toolkit/components/nimbus/lib/Enrollments.sys.mjs#638
+pref("nimbus.rollouts.enabled", false, locked); // [HIDDEN - non-Firefox Desktop] Nimbus rollouts/"remote improvements" (A/B Testing) https://support.mozilla.org/kb/remote-improvements
 
 /// Disable Firefox Labs (`about:preferences#experimental`) [NO-ANDROID] [NO-MAIL]
 // Firefox Labs requires experiments and telemetry to be enabled (see specific prefs below) [NO-ANDROID] [NO-MAIL]
