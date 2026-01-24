@@ -2292,6 +2292,7 @@ pref("extensions.webcompat.useScriptingAPI", true); // [DEFAULT]
 pref("extensions.webextensions.base-content-security-policy", "script-src 'self' 'unsafe-inline'; upgrade-insecure-requests;"); // [NO-ANDROID] `unsafe-inline` is required for Web Compatibility interventions (`about:compat`)
 pref("extensions.webextensions.base-content-security-policy", "script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; upgrade-insecure-requests;"); // [ANDROID-ONLY] 'wasm-unsafe-eval' appears to be required here for Translations on Android - doesn't seem to impact other platforms
 pref("extensions.webextensions.base-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;");
+pref("extensions.webextensions.base-content-security-policy.v3-with-localhost", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; upgrade-insecure-requests;");
 pref("extensions.webextensions.default-content-security-policy.v3", "script-src 'self'; upgrade-insecure-requests;"); // [DEFAULT]
 
