@@ -2944,6 +2944,7 @@ pref("accessibility.uia.enable", 0); // [Windows]
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
 pref("network.lna.allow_top_level_navigation", false); // Enforce LNA for top-level document navigation https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14619
+pref("network.lna.benchmarking-is-local", true); // Enable LNA for IP addresses in the 192.18.X.X range https://searchfox.org/firefox-main/rev/28328852/modules/libpref/init/StaticPrefList.yaml#14678
 pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
 pref("network.lna.blocking", true); // [ANDROID-ONLY] [DEFAULT - Nightly] We don't want to set this until the next ESR cycle is over, as this functionality was still very early in development there, and the pref causes breakage/issues - for non-ESR Desktop, we still set this pref to true by default anyways via policies
 pref("network.lna.enabled", true); // [DEFAULT]
