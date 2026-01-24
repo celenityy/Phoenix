@@ -2943,6 +2943,8 @@ pref("accessibility.uia.enable", 0); // [Windows]
 /// Enable Local Network Access Restrictions
 // https://wicg.github.io/local-network-access/
 // https://searchfox.org/firefox-main/rev/7f33a0cc/netwerk/protocol/http/nsHttpTransaction.cpp#3735
+// NOTE: `network.localhost.prompt.testing.allow` is used when `network.localhost.prompt.testing` is set to `true`, same applies for `network.localnetwork.prompt.testing.allow` and  `network.localnetwork.prompt.testing`
+// when `network.localhost.prompt.testing`/`network.localnetwork.prompt.testing.allow` are set to false, the site permissions are followed like normal instead
 pref("network.lna.allow_top_level_navigation", false); // Enforce LNA for top-level document navigation https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14619
 pref("network.lna.benchmarking-is-local", true); // Enable LNA for IP addresses in the 192.18.X.X range https://searchfox.org/firefox-main/rev/28328852/modules/libpref/init/StaticPrefList.yaml#14678
 pref("network.lna.block_trackers", true); // https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14469
@@ -2951,6 +2953,10 @@ pref("network.lna.enabled", true); // [DEFAULT]
 pref("network.lna.etp.enabled", false); // [DEFAULT] Enable LNA, regardless of ETP/ETP Strict https://searchfox.org/firefox-main/rev/7f33a0cc/browser/components/protections/ContentBlockingPrefs.sys.mjs#265
 pref("network.lna.local-network-to-localhost.skip-checks", false); // Enforce LNA for requests from local network to your device https://searchfox.org/firefox-main/rev/8e6b6cb1/modules/libpref/init/StaticPrefList.yaml#14641
 pref("network.lna.websocket.enabled", true); // Enforce LNA for WebSocket connections https://searchfox.org/firefox-main/rev/7f33a0cc/modules/libpref/init/StaticPrefList.yaml#14490
+pref("network.localhost.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN]
+pref("network.localhost.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN] Blocks websites from prompting to access apps and services (outside of the browser) on your device
+pref("network.localnetwork.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN]
+pref("network.localnetwork.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN] Blocks websites from prompting to access the local network
 pref("permissions.default.local-network", 2); // [NO-ANDROID] Blocks websites from prompting to access the local network by default - 0: Always ask, 1: Allow, 2: Block
 pref("permissions.default.localhost", 0); // [NO-ANDROID] [DEFAULT] Blocks websites from prompting to access apps and services (outside of the browser) on your device - 0: Always ask, 1: Allow, 2: Block
 
