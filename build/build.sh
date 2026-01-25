@@ -1,7 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-set -eu
+set -euo pipefail
 
-source build/env.sh
+# Set-up our environment
+bash -x $(dirname $0)/env.sh
+source $(dirname $0)/env.sh
 
-./build/fly.sh && ./build/gen_archive.sh
+bash -x "${PHOENIX_BUILD}/fly.sh" && bash -x "${PHOENIX_BUILD}/gen_archive.sh"
