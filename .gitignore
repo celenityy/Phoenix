@@ -2,4 +2,7 @@
 # nix build
 result-*
 result
-build/env_local.sh
+/build/env_local.sh
+/build/tmp/
+/env_override.sh
+/wip/
