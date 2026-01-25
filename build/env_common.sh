@@ -76,22 +76,28 @@ fi
 PHOENIX_ANDROID_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_ANDROID_ONLY+x}" ]]; then
     export PHOENIX_ANDROID_ONLY="${PHOENIX_ANDROID_ONLY_DEFAULT}"
-    export PHOENIX_ALL=0
 fi
 if [ "${PHOENIX_ANDROID_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_ANDROID=1
+    export PHOENIX_LINUX=0
+    export PHOENIX_LINUX_FLATPAK=0
+    export PHOENIX_OSX=0
+    export PHOENIX_OSX_INTEL=0
+    export PHOENIX_WINDOWS=0
 fi
 
 # Whether we're ONLY building Phoenix for Linux
 PHOENIX_LINUX_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
     export PHOENIX_LINUX_ONLY="${PHOENIX_LINUX_ONLY_DEFAULT}"
-    export PHOENIX_ALL=0
 fi
 if [ "${PHOENIX_LINUX_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_LINUX=1
+    export PHOENIX_ANDROID=0
+    export PHOENIX_LINUX_FLATPAK=0
+    export PHOENIX_OSX=0
+    export PHOENIX_OSX_INTEL=0
+    export PHOENIX_WINDOWS=0
 fi
 
 # Whether we're ONLY building Phoenix for Linux (Flatpak)
@@ -100,8 +106,12 @@ if [[ -z "${PHOENIX_LINUX_FLATPAK_ONLY+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK_ONLY="${PHOENIX_LINUX_FLATPAK_ONLY_DEFAULT}"
 fi
 if [ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_LINUX_FLATPAK=1
+    export PHOENIX_ANDROID=0
+    export PHOENIX_LINUX=0
+    export PHOENIX_OSX=0
+    export PHOENIX_OSX_INTEL=0
+    export PHOENIX_WINDOWS=0
 fi
 
 # Whether we're ONLY building Phoenix for OS X
@@ -110,8 +120,12 @@ if [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
     export PHOENIX_OSX_ONLY="${PHOENIX_OSX_ONLY_DEFAULT}"
 fi
 if [ "${PHOENIX_OSX_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_OSX=1
+    export PHOENIX_ANDROID=0
+    export PHOENIX_LINUX=0
+    export PHOENIX_LINUX_FLATPAK=0
+    export PHOENIX_OSX_INTEL=0
+    export PHOENIX_WINDOWS=0
 fi
 
 # Whether we're ONLY building Phoenix for OS X (Intel)
@@ -120,8 +134,12 @@ if [[ -z "${PHOENIX_OSX_INTEL_ONLY+x}" ]]; then
     export PHOENIX_OSX_INTEL_ONLY="${PHOENIX_OSX_INTEL_ONLY_DEFAULT}"
 fi
 if [ "${PHOENIX_OSX_INTEL_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_OSX_INTEL=1
+    export PHOENIX_ANDROID=0
+    export PHOENIX_LINUX=0
+    export PHOENIX_LINUX_FLATPAK=0
+    export PHOENIX_OSX=0
+    export PHOENIX_WINDOWS=0
 fi
 
 # Whether we're ONLY building Phoenix for Windows
@@ -130,22 +148,12 @@ if [[ -z "${PHOENIX_WINDOWS_ONLY+x}" ]]; then
     export PHOENIX_WINDOWS_ONLY="${PHOENIX_WINDOWS_ONLY_DEFAULT}"
 fi
 if [ "${PHOENIX_WINDOWS_ONLY}" == 1 ]; then
-    export PHOENIX_ALL=0
     export PHOENIX_WINDOWS=1
-fi
-
-# Whether we're building Phoenix for all platforms (Default)
-PHOENIX_ALL_DEFAULT=1
-if [[ -z "${PHOENIX_ALL+x}" ]]; then
-    export PHOENIX_ALL="${PHOENIX_ALL_DEFAULT}"
-fi
-if [ "${PHOENIX_ALL}" == 1 ]; then
-    export PHOENIX_ANDROID=1
-    export PHOENIX_LINUX=1
-    export PHOENIX_LINUX_FLATPAK=1
-    export PHOENIX_OSX=1
-    export PHOENIX_OSX_INTEL=1
-    export PHOENIX_WINDOWS=1
+    export PHOENIX_ANDROID=0
+    export PHOENIX_LINUX=0
+    export PHOENIX_LINUX_FLATPAK=0
+    export PHOENIX_OSX=0
+    export PHOENIX_OSX_INTEL=0
 fi
 
 # Whether we're building Phoenix for Android (Default)
