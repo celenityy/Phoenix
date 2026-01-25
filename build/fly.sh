@@ -1386,22 +1386,22 @@ fi
 if [ "${PHOENIX_LINUX}" == 1 ]; then
     echo_green_text 'Building Phoenix policies for Linux...'
 
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies//temp6.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp4.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp7.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp5.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_LINUX_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_LINUX_POLICIES}" || error_fn
     echo
 fi
 
 if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     echo_green_text 'Building Phoenix policies for Linux (Flatpak)...'
 
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp4.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp6.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp5.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp7.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
     echo
 fi
 
