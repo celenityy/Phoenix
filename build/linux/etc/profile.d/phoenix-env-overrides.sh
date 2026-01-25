@@ -34,6 +34,6 @@ export SSLKEYLOGFILE='';
 # Enable Wayland
 ## Credit to Rasmus: https://askubuntu.com/users/13884/rasmus
 ## https://askubuntu.com/questions/1456684/how-to-initialize-firefox-on-wayland-always-by-default
-if [ "${XDG_SESSION_TYPE}" == "wayland" ]; then
+if [ "${XDG_SESSION_TYPE}" == 'wayland' ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
