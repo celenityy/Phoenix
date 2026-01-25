@@ -2198,7 +2198,8 @@ pref("xpinstall.whitelist.add.NoScript.PBM", "https://noscript.net^privateBrowsi
 // https://archive.is/DYjAM
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/AddonSettings.sys.mjs#125
-pref("extensions.autoDisableScopes", 15, locked); // [DEFAULT - non-Thunderbird] Defense in depth, ensures sideloaded extensions are always disabled by default...
+pref("extensions.autoDisableScopes", 15); // [DEFAULT - non-Thunderbird] Defense in depth, ensures sideloaded extensions are always disabled by default... (Not locked for desktop because it can be useful in certain instances, ex. for those who use impermanence)
+pref("extensions.autoDisableScopes", 15, locked); // [ANDROID-ONLY] Locked for Android because this isn't needed/supported or wanted at all there
 pref("extensions.enabledScopes", 5); // [HIDDEN]
 pref("extensions.installDistroAddons", false); // [HIDDEN - non-Android] [DEFAULT - Android]
 pref("extensions.sideloadScopes", 0); // [HIDDEN]
