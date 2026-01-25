@@ -1,0 +1,91 @@
+{
+    "policies": {
+        "ContentAnalysis": {
+            "DefaultResult": 0,
+            "Enabled": false,
+            "InterceptionPoints": {
+                "Clipboard": {
+                    "Enabled": false
+                },
+                "DragAndDrop": {
+                    "Enabled": false
+                },
+                "FileUpload": {
+                    "Enabled": false
+                },
+                "Print": {
+                    "Enabled": false
+                }
+            },
+            "MaxConnectionsCount": 0,
+            "ShowBlockedResult": true
+        },
+        "DisableDefaultBrowserAgent": true,
+        "DisableFeedbackCommands": true,
+        "DisableFirefoxStudies": true,
+        "DisablePrivateBrowsing": false,
+        "DNSOverHTTPS": {
+            "Enabled": true,
+            "Fallback": false,
+            "ProviderURL": "https://dns.quad9.net/dns-query"
+        },
+        "EnableTrackingProtection": {
+            "BaselineExceptions": true,
+            "ConvenienceExceptions": false,
+            "Cryptomining": true,
+            "EmailTracking": true,
+            "Fingerprinting": true,
+            "SuspectedFingerprinting": true,
+            "Value": true
+        },
+        "EncryptedMediaExtensions": {
+            "Enabled": false
+        },
+        "FirefoxHome": {
+            "Highlights": false,
+            "Pocket": false,
+            "Snippets": false,
+            "SponsoredTopSites": false,
+            "SponsoredPocket": false,
+            "SponsoredStories": false,
+            "Stories": false
+        },
+        "GenerativeAI": {
+            "Chatbot": false,
+            "Enabled": false,
+            "LinkPreviews": false,
+            "TabGroups": false
+        },
+        "Handlers": {
+            "extensions": {
+                "pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            },
+            "mimeTypes": {
+                "application/pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            }
+        },
+        "LocalNetworkAccess": {
+            "BlockTrackers": true,
+            "Enabled": true,
+            "EnablePrompting": true
+        },
+        "NoDefaultBookmarks": true,
+        "OverridePostUpdatePage": "",
+        "PrivateBrowsingModeAvailability": 0,
+        "SkipTermsOfUse": true,
+        "UserMessaging": {
+            "ExtensionRecommendations": false,
+            "FeatureRecommendations": false,
+            "MoreFromMozilla": false,
+            "SkipOnboarding": true,
+            "UrlbarInterventions": false,
+            "WhatsNew": false
+        }
+    }
+}

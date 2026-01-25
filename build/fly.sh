@@ -57,6 +57,64 @@ if [ "${PHOENIX_EXTRA_PREFS_JS}" == 1 ]; then
     mkdir -vp "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}"
 fi
 
+if [ "${PHOENIX_EXTRA_POLICIES}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES is set, but \$PHOENIX_EXTRA_POLICIES_FILE is not set! Aborting..."
+        exit 1
+    fi
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_ANDROID is set, but \$PHOENIX_EXTRA_POLICIES_FILE_ANDROID is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_ANDROID is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID}"
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_OSX}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_OSX}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX is set, but \$PHOENIX_EXTRA_POLICIES_FILE_OSX is not set! Aborting..."
+        exit 1
+    fi
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX_SILICON is set, but \$PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICO}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX_SILICON is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON}"
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX_INTEL is set, but \$PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX_INTEL is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}"
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_WINDOWS is set, but \$PHOENIX_EXTRA_POLICIES_FILE_WINDOWS is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_WINDOWS is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}"
+fi
+
 PHOENIX_LICENSE="${PHOENIX_ROOT}/COPYING.txt"
 PHOENIX_README="${PHOENIX_ROOT}/README.md"
 
@@ -256,6 +314,8 @@ PHOENIX_SPECIALIZED_YOUTUBE_MUSIC_UI_FIX_OSX_INTEL_CFG="${PHOENIX_OSX_INTEL_DIR}
 PHOENIX_SPECIALIZED_YOUTUBE_MUSIC_UI_FIX_WINDOWS_CFG="${PHOENIX_WINDOWS_DIR}/configs/ui-fix/youtube-music.cfg"
 
 PHOENIX_UNIFIED_POLICIES="${PHOENIX_BUILD}/policies/phoenix-unified.json"
+PHOENIX_CORE_POLICIES="${PHOENIX_BUILD}/policies/phoenix-core.json"
+PHOENIX_DESKTOP_POLICIES="${PHOENIX_BUILD}/policies/phoenix-desktop.json"
 PHOENIX_ONLY_POLICIES="${PHOENIX_BUILD}/policies/phoenix-only.json"
 
 PHOENIX_BLOCKLIST_POLICIES="${PHOENIX_BUILD}/policies/blocklist.json"
@@ -341,6 +401,13 @@ PHOENIX_EXTRA_EXTENDED_CFG_OUTPUT_OSX_INTEL="${PHOENIX_EXTRA_CFG_OUTPUT_DIR}/${P
 
 PHOENIX_EXTRA_CFG_OUTPUT_WINDOWS="${PHOENIX_EXTRA_CFG_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS}.cfg"
 PHOENIX_EXTRA_EXTENDED_CFG_OUTPUT_WINDOWS="${PHOENIX_EXTRA_CFG_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS}.cfg"
+
+PHOENIX_EXTRA_POLICIES_OUTPUT_ANDROID="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID}/policies.json"
+PHOENIX_EXTRA_POLICIES_OUTPUT_LINUX="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK}/policies.json"
+PHOENIX_EXTRA_POLICIES_OUTPUT_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK}/policies.json"
+PHOENIX_EXTRA_POLICIES_OUTPUT_OSX="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON}/policies.json"
+PHOENIX_EXTRA_POLICIES_OUTPUT_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}/policies.json"
+PHOENIX_EXTRA_POLICIES_OUTPUT_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}/policies.json"
 
 # ANDROID
 if [ "${PHOENIX_ANDROID}" == 1 ]; then
@@ -1949,13 +2016,53 @@ jq -s '.[0] * .[1]' "${PHOENIX_UNIFIED_POLICIES}" "${PHOENIX_BLOCKLIST_POLICIES}
 echo
 jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp1.json" "${PHOENIX_COOKIES_POLICIES}" > "${PHOENIX_TEMP}/policies/temp2.json" || error_fn
 echo
-jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_ONLY_POLICIES}" > "${PHOENIX_POLICIES}" || error_fn
+
+if [ "${PHOENIX_MAIL}" != 1 ]; then
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_CORE_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
+    echo
+else
+    cp -f "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
+    echo
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES}" == 1 ]; then
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp0.json" "${PHOENIX_EXTRA_POLICIES_FILE}" > "${PHOENIX_TEMP}/policies/temp01.json" || error_fn
+    echo
+else
+    cp -f "${PHOENIX_TEMP}/policies/temp0.json" "${PHOENIX_TEMP}/policies/temp01.json"
+fi
+
+if [ "${PHOENIX_ANDROID}" == 1 ]; then
+    echo_green_text 'Building Phoenix policies for Android...'
+
+    if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp01.json" "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID}" > "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID}/policies.json" || error_fn
+        echo
+    fi
+fi
+
+jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp01.json" "${PHOENIX_DESKTOP_POLICIES}" > "${PHOENIX_TEMP}/policies/temp98.json" || error_fn
 echo
+
+if [ "${PHOENIX_MAIL}" != 1 ]; then
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_ONLY_POLICIES}" > "${PHOENIX_POLICIES}" || error_fn
+    echo
+else
+    cp -f "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_POLICIES}" || error_fn
+    echo
+fi
 
 # (This is used by both Linux and Flatpak)
 if [ "${PHOENIX_LINUX}" == 1 ] || [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
-    jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp3.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp00.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_LINUX}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp00.json" "${PHOENIX_EXTRA_POLICIES_FILE_LINUX}" > "${PHOENIX_TEMP}/policies/temp3.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp00.json" "${PHOENIX_TEMP}/policies/temp3.json"
+    fi
 fi
 
 if [ "${PHOENIX_LINUX}" == 1 ]; then
@@ -1965,8 +2072,18 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
     echo
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp5.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_LINUX_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp000.json" "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK}" > "${PHOENIX_LINUX_POLICIES}" || error_fn
+        echo
+        cp -f "${PHOENIX_LINUX_POLICIES}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK}/policies.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp000.json" "${PHOENIX_LINUX_POLICIES}" || error_fn
+        echo
+    fi
 fi
 
 if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
@@ -1976,14 +2093,32 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     echo
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp7.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp0000.json" "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK}" > "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
+        echo
+        cp -f "${PHOENIX_LINUX_FLATPAK_POLICIES}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK}/policies.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp0000.json" "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
+        echo
+    fi
 fi
 
 # (This is used by both OS X and OS X Intel)
 if [ "${PHOENIX_OSX}" == 1 ] || [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
-    jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp8.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp00000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_OSX}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp00000.json" "${PHOENIX_EXTRA_POLICIES_FILE_OSX}" > "${PHOENIX_TEMP}/policies/temp8.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp00000.json" "${PHOENIX_TEMP}/policies/temp8.json" || error_fn
+        echo
+    fi
 fi
 
 if [ "${PHOENIX_OSX}" == 1 ]; then
@@ -1993,10 +2128,26 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     echo
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp9.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp10.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp10.json" "${PHOENIX_ONLY_OSX_SILICON_POLICIES}" > "${PHOENIX_OSX_POLICIES_JSON}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp10.json" "${PHOENIX_ONLY_OSX_SILICON_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON}" > "${PHOENIX_OSX_POLICIES_JSON}" || error_fn
+        echo
+        cp -f "${PHOENIX_OSX_POLICIES_JSON}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON}/policies.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp000000.json" "${PHOENIX_OSX_POLICIES_JSON}" || error_fn
+        echo
+    fi
+
     python3 "${PHOENIX_BUILD}/convert_json_to_plist.py" "${PHOENIX_OSX_POLICIES_JSON}" "${PHOENIX_OSX_POLICIES_PLIST}" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == 1 ]; then
+        cp -f "${PHOENIX_OSX_POLICIES_PLIST}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON}/org.mozilla.firefox.plist" || error_fn
+        echo
+    fi
 fi
 
 if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
@@ -2006,10 +2157,26 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     echo
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp11.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp12.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp12.json" "${PHOENIX_ONLY_OSX_INTEL_POLICIES}" > "${PHOENIX_OSX_INTEL_POLICIES_JSON}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp12.json" "${PHOENIX_ONLY_OSX_INTEL_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp0000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL}" > "${PHOENIX_OSX_INTEL_POLICIES_JSON}" || error_fn
+        echo
+        cp -f "${PHOENIX_OSX_INTEL_POLICIES_JSON}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}/policies.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp0000000.json" "${PHOENIX_OSX_INTEL_POLICIES_JSON}" || error_fn
+        echo
+    fi
+
     python3 "${PHOENIX_BUILD}/convert_json_to_plist.py" "${PHOENIX_OSX_INTEL_POLICIES_JSON}" "${PHOENIX_OSX_INTEL_POLICIES_PLIST}" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == 1 ]; then
+        cp -f "${PHOENIX_OSX_INTEL_POLICIES_PLIST}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}/org.mozilla.firefox.plist" || error_fn
+        echo
+    fi
 fi
 
 if [ "${PHOENIX_WINDOWS}" == 1 ]; then
@@ -2017,8 +2184,18 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_WINDOWS_POLICIES}" > "${PHOENIX_TEMP}/policies/temp13.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp13.json" "${PHOENIX_ONLY_WINDOWS_POLICIES}" > "${PHOENIX_WINDOWS_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp13.json" "${PHOENIX_ONLY_WINDOWS_POLICIES}" > "${PHOENIX_TEMP}/policies/temp00000000.json" || error_fn
     echo
+
+    if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" == 1 ]; then
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp00000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS}" > "${PHOENIX_WINDOWS_POLICIES}" || error_fn
+        echo
+        cp -f "${PHOENIX_WINDOWS_POLICIES}" "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}/policies.json" || error_fn
+        echo
+    else
+        cp -f "${PHOENIX_TEMP}/policies/temp00000000.json" "${PHOENIX_WINDOWS_POLICIES}" || error_fn
+        echo
+    fi
 fi
 
 rm -rf "${PHOENIX_TEMP}/" || error_fn

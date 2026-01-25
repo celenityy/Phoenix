@@ -17,58 +17,8 @@
                 "Folder": "🥚"
             }
         ],
-        "ContentAnalysis": {
-            "DefaultResult": 0,
-            "Enabled": false,
-            "InterceptionPoints": {
-                "Clipboard": {
-                    "Enabled": false
-                },
-                "DragAndDrop": {
-                    "Enabled": false
-                },
-                "FileUpload": {
-                    "Enabled": false
-                },
-                "Print": {
-                    "Enabled": false
-                }
-            },
-            "MaxConnectionsCount": 0,
-            "ShowBlockedResult": true
-        },
-        "DisableDefaultBrowserAgent": true,
-        "DisableFeedbackCommands": true,
-        "DisableFirefoxStudies": true,
-        "DisablePrivateBrowsing": false,
         "DisableProfileRefresh": true,
-        "DNSOverHTTPS": {
-            "Enabled": true,
-            "Fallback": false,
-            "ProviderURL": "https://dns.quad9.net/dns-query"
-        },
-        "EnableTrackingProtection": {
-            "BaselineExceptions": true,
-            "ConvenienceExceptions": false,
-            "Cryptomining": true,
-            "EmailTracking": true,
-            "Fingerprinting": true,
-            "SuspectedFingerprinting": true,
-            "Value": true
-        },
-        "EncryptedMediaExtensions": {
-            "Enabled": false
-        },
         "ExtensionSettings": {
-            "*": {
-                "blocked_install_message": "I am Iron Man.",
-                "allowed_types": [
-                    "extension",
-                    "theme",
-                    "dictionary",
-                    "locale"
-                ]
-            },
             "uBlock0@raymondhill.net": {
                 "default_area": "navbar",
                 "installation_mode": "normal_installed",
@@ -83,61 +33,14 @@
                 "temporarily_allow_weak_signatures": false
             }
         },
-        "FirefoxHome": {
-            "Highlights": false,
-            "Pocket": false,
-            "Snippets": false,
-            "SponsoredTopSites": false,
-            "SponsoredPocket": false,
-            "SponsoredStories": false,
-            "Stories": false
-        },
         "FirefoxSuggest": {
             "ImproveSuggest": false,
             "SponsoredSuggestions": false,
             "WebSuggestions": false
         },
-        "GenerativeAI": {
-            "Chatbot": false,
-            "Enabled": false,
-            "LinkPreviews": false,
-            "TabGroups": false
-        },
-        "Handlers": {
-            "extensions": {
-                "pdf": {
-                    "action": "handleInternally",
-                    "ask": true
-                }
-            },
-            "mimeTypes": {
-                "application/pdf": {
-                    "action": "handleInternally",
-                    "ask": true
-                }
-            }
-        },
-        "HttpsOnlyMode": "force_enabled",
-        "LocalNetworkAccess": {
-            "BlockTrackers": true,
-            "Enabled": true,
-            "EnablePrompting": true
-        },
-        "NoDefaultBookmarks": true,
-        "OverridePostUpdatePage": "",
-        "PrivateBrowsingModeAvailability": 0,
-        "SkipTermsOfUse": true,
         "SupportMenu": {
             "Title": "Phoenix Issue Tracker",
             "URL": "https://phoenix.celenity.dev/issues"
-        },
-        "UserMessaging": {
-            "ExtensionRecommendations": false,
-            "FeatureRecommendations": false,
-            "MoreFromMozilla": false,
-            "SkipOnboarding": true,
-            "UrlbarInterventions": false,
-            "WhatsNew": false
         }
     }
 }
