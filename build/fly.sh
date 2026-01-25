@@ -376,10 +376,22 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
     echo
     echo "Created ${PHOENIX_LINUX_USER_PREF_CFG}"
 
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_LINUX_USER_PREF_CFG}" > "${PHOENIX_LINUX_USER_PREF_CFG}" || error_fn
+        echo
+    fi
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [NO-LINUX], [NO-NON-FLATPAK-LINUX], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_UNIFIED_PREFS}" > "${PHOENIX_LINUX_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_LINUX_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_LINUX_PREFS}" > "${PHOENIX_LINUX_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_LINUX_PREFS}" "${PHOENIX_LINUX_CFG}" || error_fn
     echo
@@ -388,6 +400,12 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_EXTENDED_UNIFIED_PREFS}" > "${PHOENIX_EXTENDED_LINUX_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_EXTENDED_LINUX_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_EXTENDED_LINUX_PREFS}" > "${PHOENIX_EXTENDED_LINUX_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTENDED_LINUX_CFG}" || error_fn
     echo
@@ -459,10 +477,22 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     echo
     echo "Created ${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}"
 
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" > "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" || error_fn
+        echo
+    fi
+
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_UNIFIED_PREFS}" > "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_LINUX_FLATPAK_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_LINUX_FLATPAK_PREFS}" > "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_LINUX_FLATPAK_CFG}" || error_fn
     echo
@@ -471,6 +501,12 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_EXTENDED_UNIFIED_PREFS}" > "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" > "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTENDED_LINUX_FLATPAK_CFG}" || error_fn
     echo
@@ -542,10 +578,22 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     echo
     echo "Created ${PHOENIX_OSX_BOOTSTRAP}"
 
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_OSX_BOOTSTRAP}" > "${PHOENIX_OSX_BOOTSTRAP}" || error_fn
+        echo
+    fi
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_UNIFIED_PREFS}" > "${PHOENIX_OSX_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_OSX_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_OSX_PREFS}" > "${PHOENIX_OSX_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_OSX_PREFS}" "${PHOENIX_TEMP}/phoenix-osx-tmp.cfg" || error_fn
     echo
@@ -558,6 +606,12 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_EXTENDED_UNIFIED_PREFS}" > "${PHOENIX_EXTENDED_OSX_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_EXTENDED_OSX_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_EXTENDED_OSX_PREFS}" > "${PHOENIX_EXTENDED_OSX_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTENDED_OSX_CFG}" || error_fn
     echo
@@ -629,10 +683,22 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     echo
     echo "Created ${PHOENIX_OSX_INTEL_BOOTSTRAP}"
 
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_OSX_INTEL_BOOTSTRAP}" > "${PHOENIX_OSX_INTEL_BOOTSTRAP}" || error_fn
+        echo
+    fi
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_UNIFIED_PREFS}" > "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_OSX_INTEL_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_OSX_INTEL_PREFS}" > "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_TEMP}/phoenix-osx-intel-tmp.cfg" || error_fn
     echo
@@ -645,6 +711,12 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_EXTENDED_UNIFIED_PREFS}" > "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_EXTENDED_OSX_INTEL_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" > "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTENDED_OSX_INTEL_CFG}" || error_fn
     echo
@@ -716,10 +788,22 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
     echo
     echo "Created ${PHOENIX_WINDOWS_BOOTSTRAP}"
 
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_WINDOWS_BOOTSTRAP}" > "${PHOENIX_WINDOWS_BOOTSTRAP}" || error_fn
+        echo
+    fi
+
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_UNIFIED_PREFS}" > "${PHOENIX_WINDOWS_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_WINDOWS_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_WINDOWS_PREFS}" > "${PHOENIX_WINDOWS_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_TEMP}/phoenix-windows-tmp.cfg" || error_fn
     echo
@@ -732,6 +816,12 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
     grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_EXTENDED_UNIFIED_PREFS}" > "${PHOENIX_EXTENDED_WINDOWS_PREFS}" || error_fn
     echo
     echo "Created ${PHOENIX_EXTENDED_WINDOWS_PREFS}"
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then
+        # Remove lines containing [NO-MAIL]
+        grep -vE 'NO-MAIL' "${PHOENIX_EXTENDED_WINDOWS_PREFS}" > "${PHOENIX_EXTENDED_WINDOWS_PREFS}" || error_fn
+        echo
+    fi
 
     python3 "${PHOENIX_BUILD}/convert.py" "${PHOENIX_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTENDED_WINDOWS_CFG}" || error_fn
     echo
