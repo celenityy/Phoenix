@@ -192,8 +192,18 @@ if [[ -z "${PHOENIX_WINDOWS+x}" ]]; then
     export PHOENIX_WINDOWS="${PHOENIX_WINDOWS_DEFAULT}"
 fi
 
+# Whether we should exclude "NO-MAIL" preferences when building Phoenix
+## (ex. for Dove)
+PHOENIX_MAIL_DEFAULT=0
+if [[ -z "${PHOENIX_MAIL+x}" ]]; then
+    export PHOENIX_MAIL="${PHOENIX_MAIL_DEFAULT}"
+fi
+
 # Whether we should build Phoenix's specialized configs (Default)
 PHOENIX_SPECS_DEFAULT=1
-if [[ -z "${PHOENIX_SPECS+x}" ]]; then
+if [ "${PHOENIX_MAIL}" == 1 ]; then
+    # Mail never wants or needs specialized configs
+    export PHOENIX_SPECS=0
+elif [[ -z "${PHOENIX_SPECS+x}" ]]; then
     export PHOENIX_SPECS="${PHOENIX_SPECS_DEFAULT}"
 fi
