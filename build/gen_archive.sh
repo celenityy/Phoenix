@@ -42,61 +42,71 @@ PHOENIX_ZIP='zip -r -FS'
 
 if [ "${PHOENIX_LINUX}" == 1 ]; then
     if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-        "${PHOENIX_DOT_CLEAN}" "${PHOENIX_LINUX_DIR}" || error_fn
+        ${PHOENIX_DOT_CLEAN} "${PHOENIX_LINUX_DIR}" || error_fn
         echo
     fi
 
-    pushd "${PHOENIX_LINUX_DIR}"
-    echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-linux.zip..."
-    "${PHOENIX_ZIP}" "${PHOENIX_ARCHIVES}/phoenix-linux.zip" * || error_fn
+    pushd "${PHOENIX_LINUX_DIR}" || error_fn
     echo
-    popd
+    echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-linux.zip..."
+    ${PHOENIX_ZIP} "${PHOENIX_ARCHIVES}/phoenix-linux.zip" * || error_fn
+    echo
+    popd || error_fn
+    echo
 fi
 
 if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
 	if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    	"${PHOENIX_DOT_CLEAN}" "${PHOENIX_LINUX_FLATPAK_DIR}" || error_fn
+    	${PHOENIX_DOT_CLEAN} "${PHOENIX_LINUX_FLATPAK_DIR}" || error_fn
         echo
 	fi
-    pushd "${PHOENIX_LINUX_FLATPAK_DIR}"
-	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-flatpak.zip..."
-	"${PHOENIX_ZIP}" "${PHOENIX_ARCHIVES}/phoenix-flatpak.zip" * || error_fn
+    pushd "${PHOENIX_LINUX_FLATPAK_DIR}" || error_fn
     echo
-    popd
+	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-flatpak.zip..."
+	${PHOENIX_ZIP} "${PHOENIX_ARCHIVES}/phoenix-flatpak.zip" * || error_fn
+    echo
+    popd || error_fn
+    echo
 fi
 
 if [ "${PHOENIX_OSX}" == 1 ]; then
 	if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    	"${PHOENIX_DOT_CLEAN}" "${PHOENIX_OSX_DIR}" || error_fn
+    	${PHOENIX_DOT_CLEAN} "${PHOENIX_OSX_DIR}" || error_fn
         echo
 	fi
-    pushd "${PHOENIX_OSX_DIR}"
-	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-osx.zip..."
-	"${PHOENIX_ZIP}" "${PHOENIX_ARCHIVES}/phoenix-osx.zip" * -x 'Library/*' || error_fn
+    pushd "${PHOENIX_OSX_DIR}" || error_fn
     echo
-    popd
+	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-osx.zip..."
+	${PHOENIX_ZIP} "${PHOENIX_ARCHIVES}/phoenix-osx.zip" * -x 'Library/*' || error_fn
+    echo
+    popd || error_fn
+    echo
 fi
 
 if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
 	if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    	"${PHOENIX_DOT_CLEAN}" "${PHOENIX_OSX_INTEL_DIR}" || error_fn
+    	${PHOENIX_DOT_CLEAN} "${PHOENIX_OSX_INTEL_DIR}" || error_fn
         echo
 	fi
-    pushd "${PHOENIX_OSX_INTEL_DIR}"
-	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-osx-intel.zip..."
-	"${PHOENIX_ZIP}" "${PHOENIX_ARCHIVES}/phoenix-osx-intel.zip" * -x 'Library/*' || error_fn
+    pushd "${PHOENIX_OSX_INTEL_DIR}" || error_fn
     echo
-    popd
+	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-osx-intel.zip..."
+	${PHOENIX_ZIP} "${PHOENIX_ARCHIVES}/phoenix-osx-intel.zip" * -x 'Library/*' || error_fn
+    echo
+    popd || error_fn
+    echo
 fi
 
 if [ "${PHOENIX_WINDOWS}" == 1 ]; then
 	if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    	"${PHOENIX_DOT_CLEAN}" "${PHOENIX_WINDOWS_DIR}" || error_fn
+    	${PHOENIX_DOT_CLEAN} "${PHOENIX_WINDOWS_DIR}" || error_fn
         echo
 	fi
-    pushd "${PHOENIX_WINDOWS_DIR}"
-	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-windows.zip..."
-	"${PHOENIX_ZIP}" "${PHOENIX_ARCHIVES}/phoenix-windows.zip" * || error_fn
+    pushd "${PHOENIX_WINDOWS_DIR}" || error_fn
     echo
-    popd
+	echo_green_text "Creating ${PHOENIX_ARCHIVES}/phoenix-windows.zip..."
+	${PHOENIX_ZIP} "${PHOENIX_ARCHIVES}/phoenix-windows.zip" * || error_fn
+    echo
+    popd || error_fn
+    echo
 fi
