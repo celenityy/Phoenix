@@ -1,7 +1,9 @@
 # Policies
 
 * `phoenix-unified.json` - These policies should be set **EVERYWHERE**.
-* `phoenix-only.json` - These policies should be set everywhere, **EXCEPT** for Thunderbird *(Useful for ex. Dove)*.
+* `phoenix-core.json` - These policies should be set everywhere, **EXCEPT** for Thunderbird *(Useful for ex. IronFox)*.
+* `phoenix-only.json` - These policies should be set everywhere, **EXCEPT** for Android and Thunderbird *(Useful for ex. Dove)*.
+* `phoenix-desktop.json` - These policies should be set everywhere, **EXCEPT** for Android.
 * `phoenix-linux-unified.json` - These policies should **ONLY** be set for GNU/Linux.
 * `phoenix-only-linux.json` - These policies should **ONLY** be set for GNU/Linux, but **NOT** for Thunderbird.
 * `phoenix-osx-unified.json` - These policies should **ONLY** be set for macOS.
