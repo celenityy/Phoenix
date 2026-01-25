@@ -104,7 +104,7 @@ if [ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]; then
     export PHOENIX_LINUX_FLATPAK=1
 fi
 
-# Whether we're ONLY building Phoenix for macOS
+# Whether we're ONLY building Phoenix for OS X
 PHOENIX_OSX_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
     export PHOENIX_OSX_ONLY="${PHOENIX_OSX_ONLY_DEFAULT}"
@@ -114,7 +114,7 @@ if [ "${PHOENIX_OSX_ONLY}" == 1 ]; then
     export PHOENIX_OSX=1
 fi
 
-# Whether we're ONLY building Phoenix for macOS (Intel)
+# Whether we're ONLY building Phoenix for OS X (Intel)
 PHOENIX_OSX_INTEL_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_OSX_INTEL_ONLY+x}" ]]; then
     export PHOENIX_OSX_INTEL_ONLY="${PHOENIX_OSX_INTEL_ONLY_DEFAULT}"
@@ -166,13 +166,13 @@ if [[ -z "${PHOENIX_LINUX_FLATPAK+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK="${PHOENIX_LINUX_FLATPAK_DEFAULT}"
 fi
 
-# Whether we're building Phoenix for macOS (Default)
+# Whether we're building Phoenix for OS X (Default)
 PHOENIX_OSX_DEFAULT=1
 if [[ -z "${PHOENIX_OSX+x}" ]]; then
     export PHOENIX_OSX="${PHOENIX_OSX_DEFAULT}"
 fi
 
-# Whether we're building Phoenix for macOS (Intel) (Default)
+# Whether we're building Phoenix for OS X (Intel) (Default)
 PHOENIX_OSX_INTEL_DEFAULT=1
 if [[ -z "${PHOENIX_OSX_INTEL+x}" ]]; then
     export PHOENIX_OSX_INTEL="${PHOENIX_OSX_INTEL_DEFAULT}"
