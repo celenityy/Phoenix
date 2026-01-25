@@ -13,8 +13,8 @@ echo_green_text() {
 
 error_fn() {
 	echo
-	echo_red_text -e "\033[31mSomething went wrong! The script failed.\033[0m"
-	echo_red_text -e "\033[31mPlease report this (with the output message) to https://phoenix.celenity.dev/issues\033[0m"
+	echo_red_text "\033[31mSomething went wrong! The script failed.\033[0m"
+	echo_red_text "\033[31mPlease report this (with the output message) to https://phoenix.celenity.dev/issues\033[0m"
 	echo
 	exit 1
 }
