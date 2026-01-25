@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# Functions
 echo_red_text() {
 	echo -e "\033[31m$1\033[0m"
 }
