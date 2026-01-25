@@ -488,7 +488,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     echo
 fi
 
-# MACOS
+# OS X
 if [ "${PHOENIX_OSX}" == 1 ]; then
     echo_green_text 'Building Phoenix for OS X...'
     mkdir -vp "${PHOENIX_OSX_DIR}/assets/about" || error_fn
@@ -575,7 +575,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     echo
 fi
 
-# MACOS (INTEL)
+# OS X (INTEL)
 if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     echo_green_text 'Building Phoenix for OS X (Intel)...'
     mkdir -vp "${PHOENIX_OSX_INTEL_DIR}/assets/about" || error_fn
@@ -1010,7 +1010,7 @@ if [ "${PHOENIX_SPECS}" == 1 ]; then
         echo
     fi
 
-    # MACOS
+    # OS X
     if [ "${PHOENIX_OSX}" == 1 ]; then
         echo_green_text 'Building Phoenix specialized configs for OS X...'
 
@@ -1129,7 +1129,7 @@ if [ "${PHOENIX_SPECS}" == 1 ]; then
         echo
     fi
 
-    # MACOS (INTEL)
+    # OS X (INTEL)
     if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
         echo_green_text 'Building Phoenix specialized configs for OS X (Intel)...'
 
