@@ -5,6 +5,13 @@
         "BlockAboutProfiles": false,
         "BlockAboutSupport": false,
         "DisableTelemetry": true,
+        "Preferences": {
+            "browser.phoenix.applied.policies": {
+                "Status": "locked",
+                "Type": "boolean",
+                "Value": true
+            }
+        },
         "Proxy": {
             "Mode": "none",
             "UseProxyForDNS": true
