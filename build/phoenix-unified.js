@@ -4697,3 +4697,4 @@ pref("general.config.vendor", "phoenix"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO
 pref("browser.phoenix.status", "033"); // [NO-ANDROID]
 
 pref("browser.phoenix.status", "successfully applied :D", locked);
+pref("browser.phoenix.applied.cfg", true, locked);
