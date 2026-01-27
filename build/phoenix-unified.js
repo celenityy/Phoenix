@@ -97,7 +97,6 @@ pref("distribution.version", "default", locked); // [LINUX-ONLY] [HIDDEN]
 
 /// Disable warning when attempting to access `about:config`
 pref("browser.aboutConfig.showWarning", false); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT - Thunderbird]
-pref("general.warnOnAboutConfig", false); // [NO-ANDROID] [ESR]
 
 /// Ensure that the `about:config` is always enabled
 pref("general.aboutConfig.enable", true, locked); // [DEFAULT - non-Android]
