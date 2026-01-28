@@ -2462,6 +2462,7 @@ pref("browser.aiwindow.apiKey", ''); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.aiwindow.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.aiwindow.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aiwindow.insights", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.aiwindow.memories", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.aiwindow.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable Link Preview "Key Points" [NO-ANDROID] [NO-MAIL]
