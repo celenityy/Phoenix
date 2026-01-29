@@ -16,6 +16,17 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
+    ${
+      if stdenvNoCC.isDarwin then
+        ''
+          export PHOENIX_OSX_ONLY=1
+        ''
+      else
+        ''
+          export PHOENIX_LINUX_ONLY=1
+        ''
+    }
+
     patchShebangs ./build/*.sh
     sed -i '/general.config.filename/d' build/phoenix-unified.js
     ./build/build.sh
