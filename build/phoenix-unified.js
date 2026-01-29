@@ -3183,6 +3183,7 @@ pref("network.protocol-handler.expose.https", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.javascript", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.moz-extension", true); // [DEFAULT - Thunderbird] [HIDDEN - non-Thunderbird]
 pref("network.protocol-handler.expose.obtainium", true); // [ANDROID-ONLY] [HIDDEN] Needed for installing apps from Obtainium - https://apps.obtainium.imranr.dev/
+pref("network.protocol-handler.expose.tel", true); // [ANDROID-ONLY] [HIDDEN] Needed for opening links in the Phone app - https://gitlab.com/ironfox-oss/IronFox/-/issues/231
 pref("network.protocol-handler.expose.resource", true); // [HIDDEN]
 pref("network.protocol-handler.expose.view-source", true); // [NO-ANDROID] [NO-MAIL]
 pref("network.protocol-handler.expose-all", false); // [DEFAULT - Thunderbird]
@@ -3222,6 +3223,7 @@ pref("network.protocol-handler.external.resource", false); // [HIDDEN]
 pref("network.protocol-handler.external.search", false); // [DEFAULT]
 pref("network.protocol-handler.external.search-ms", false); // [DEFAULT]
 pref("network.protocol-handler.external.shell", false, locked); // [DEFAULT] Never expose shell access https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771
+pref("network.protocol-handler.external.tel", true); // [HIDDEN] Ensure we do not try to handle tel (Phone) links internally...
 pref("network.protocol-handler.external.tps", false); // [DEFAULT]
 pref("network.protocol-handler.external.ttp", false); // [DEFAULT]
 pref("network.protocol-handler.external.ttps", false); // [DEFAULT]
