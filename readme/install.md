@@ -122,7 +122,7 @@ NixOS is supported for [flake-based configurations](https://wiki.nixos.org/wiki/
     # which is often the case. If you've named it something else,
     # you'll need to change the `nixpkgs` below.
     phoenix = {
-      url = "git+https://gitlab.com/celenityy/Phoenix";
+      url = "git+https://gitlab.com/celenityy/Phoenix?ref=pages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
