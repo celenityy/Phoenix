@@ -2433,15 +2433,10 @@ pref("extensions.htmlaboutaddons.local_model_management", true); // [DEFAULT]
 /// Allow typing a custom AI chat prompt based on your selection (if pop-up when highlighting text is enabled) [NO-ANDROID] [NO-MAIL]
 pref("browser.ml.chat.shortcuts.custom", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Control the Firefox "AI" (Local machine learning) Runtime
+/// Disable the Firefox "AI" (Local machine learning) Runtime
 // https://firefox-source-docs.mozilla.org/toolkit/components/ml/index.html
-// On desktop, we need to keep this enabled, as it's required for certain legitimate functionality,
-// such as PDF.js alt text image generation
-// On Android and Thunderbird, the legitimate features aren't implemented, so we can disable it entirely
-// Note that, even when this is enabled,
-// we don't actually enable/install any AI models/functionality by default
-pref("browser.ml.enable", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ml.enable", false); // [ANDROID-ONLY]
+// Note that, even when this is enabled, we don't actually enable/install any AI models/functionality by default
+pref("browser.ml.enable", false);
 
 /// Disable AI Chat [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/ai-chatbot [NO-ANDROID] [NO-MAIL]
