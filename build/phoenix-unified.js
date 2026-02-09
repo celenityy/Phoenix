@@ -2426,6 +2426,13 @@ pref("browser.phoenix.status", "016");
 
 /*** 017 AI ***/
 
+/// Disable all AI functionality by default
+pref("browser.ai.control.default", "blocked");
+pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
+pref("browser.ai.control.pdfjsAltText", "blocked");
+pref("browser.ai.control.sidebarChatbot", "blocked");
+pref("browser.ai.control.smartTabGroups", "blocked");
+
 /// Allow managing models from `about:addons`
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/ModelHubProvider.sys.mjs#18
 pref("extensions.htmlaboutaddons.local_model_management", true); // [DEFAULT]
@@ -3950,6 +3957,7 @@ pref("toolkit.aboutProcesses.showThreads", true); // [DEFAULT - Nightly]
 // Translations are done locally - very nice to have [NO-MAIL]
 // https://support.mozilla.org/kb/website-translation [NO-MAIL]
 // Currently broken on Thunderbird :( [NO-MAIL]
+pref("browser.ai.control.translations", "available"); // [NO-MAIL] [DEFAULT]
 pref("browser.translations.automaticallyPopup", true); // [NO-MAIL] [DEFAULT]
 pref("browser.translations.enable", true); // [NO-MAIL] [DEFAULT - non-Thunderbird]
 pref("browser.translations.select.enable", true); // [NO-MAIL] [DEFAULT - non-Android/Thunderbird]
