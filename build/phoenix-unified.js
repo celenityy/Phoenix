@@ -1981,6 +1981,13 @@ pref("image.jxl.enabled", false); // [DEFAULT]
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml 
 pref("mathml.disabled", true);
 
+/// Disable shared memory and atomics (for JavaScript/WASM)
+// Helps mitigate against Spectre-like attacks
+// https://jsschools.com/web_dev/webassemblys-shared-memory-unleash-desktop-level/
+// https://searchfox.org/firefox-main/rev/52e25e8b/js/src/shell/js.cpp#12887
+// https://searchfox.org/firefox-main/rev/52e25e8b/js/moz.configure#798
+pref("javascript.options.shared_memory", false);
+
 /// Disable shared memory allocation from the parent process to content processes
 // https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#9130
 // https://searchfox.org/firefox-main/rev/dc1c78e9/dom/ipc/ContentParent.cpp#2415
