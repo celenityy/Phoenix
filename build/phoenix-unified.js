@@ -856,8 +856,9 @@ pref("privacy.resistFingerprinting.letterboxing", true); // [ANDROID-ONLY] [HIDD
 // This also improves security - Attack Surface Reduction, reduced timer precision
 // List of targets: https://searchfox.org/firefox-main/source/toolkit/components/resistfingerprinting/RFPTargets.inc
 // Easily build your own (global) override list: https://raw.githack.com/rindeal/Firefox-FPP-Override-List-Editor/master/FirefoxFPPOverrideListEditor.html
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [NO-ANDROID] [NO-MAIL]
-pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-FrameRate,-JSDateTimeUTC"); // [ANDROID-ONLY]
+// (We're setting -EfficientCanvasRandomization for now to work-around an upstream bug that prevents randomization from applying everywhere as expected: https://bugzilla.mozilla.org/show_bug.cgi?id=2013976)
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CSSPrefersColorScheme,-EfficientCanvasRandomization,-FrameRate,-JSDateTimeUTC"); // [NO-ANDROID] [NO-MAIL]
+pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasImageExtractionPrompt,-CSSPrefersColorScheme,-EfficientCanvasRandomization,-FrameRate,-JSDateTimeUTC"); // [ANDROID-ONLY]
 
 /// If FPP/RFP is disabled, limit font visibility to base system fonts + fonts from optional language packs
 // We could set this to 1 to only allow base system fonts - but this is already covered by FPP/RFP. So if one disables RFP/FPP or adds an override, I think it's reasonable to allow fonts from language packs - as that may be the reason they've disabled it. I see no reason to ever expose user-installed fonts though.
