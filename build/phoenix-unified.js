@@ -3736,6 +3736,11 @@ pref("browser.phoenix.status", "025");
 // (Default = 0, which means it's off)
 pref("browser.cache.jsbc_compression_level", 3);
 
+/// Disable async stack tracing by default
+// https://searchfox.org/firefox-main/rev/52e25e8b/modules/libpref/init/all.js#891
+pref("javascript.options.asyncstack", false);
+pref("javascript.options.asyncstack_capture_debuggee_only", true); // [DEFAULT] If async stack tracing (javascript.options.asyncstack) is enabled, only capture data when devtools are open
+
 /// Disable certain UI animations by default // [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/widget/nsXPLookAndFeel.cpp#87 [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/82e2435f/widget/LookAndFeel.h#48 [NO-ANDROID]
