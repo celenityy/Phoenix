@@ -52,6 +52,18 @@ source "${PHOENIX_ENV_HELPERS}"
 # Version info
 export PHOENIX_VERSIONS="${PHOENIX_BUILD}/versions.sh"
 
+# Should we create a build log file? (Default)
+PHOENIX_LOG_BUILD_DEFAULT=1
+if [[ -z "${PHOENIX_LOG_BUILD+x}" ]]; then
+    export PHOENIX_LOG_BUILD="${PHOENIX_LOG_BUILD_DEFAULT}"
+fi
+
+# Directory where we should store log files (if logging is desired)
+PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
+if [[ -z "${PHOENIX_LOG_DIR+x}" ]]; then
+    export PHOENIX_LOG_DIR="${PHOENIX_LOG_DIR_DEFAULT}"
+fi
+
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
     PHOENIX_SED_DEFAULT='gsed'
