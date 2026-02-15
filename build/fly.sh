@@ -2029,11 +2029,11 @@ echo
 jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp1.json" "${PHOENIX_COOKIES_POLICIES}" > "${PHOENIX_TEMP}/policies/temp2.json" || error_fn
 echo
 
-if [ "${PHOENIX_MAIL}" != 1 ]; then
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_CORE_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
+if [ "${PHOENIX_MAIL}" == 1 ]; then
+    cp -f "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
     echo
 else
-    cp -f "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp2.json" "${PHOENIX_CORE_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0.json" || error_fn
     echo
 fi
 
@@ -2056,11 +2056,11 @@ fi
 jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp01.json" "${PHOENIX_DESKTOP_POLICIES}" > "${PHOENIX_TEMP}/policies/temp98.json" || error_fn
 echo
 
-if [ "${PHOENIX_MAIL}" != 1 ]; then
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_ONLY_POLICIES}" > "${PHOENIX_POLICIES}" || error_fn
+if [ "${PHOENIX_MAIL}" == 1 ]; then
+    cp -f "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_POLICIES}" || error_fn
     echo
 else
-    cp -f "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_POLICIES}" || error_fn
+    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp98.json" "${PHOENIX_ONLY_POLICIES}" > "${PHOENIX_POLICIES}" || error_fn
     echo
 fi
 
@@ -2082,10 +2082,16 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp4.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp5.json" || error_fn
-    echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000.json" || error_fn
-    echo
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then 
+        cp -f "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_TEMP}/policies/temp000.json" || error_fn
+        echo
+    else
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp4.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp5.json" || error_fn
+        echo
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp5.json" "${PHOENIX_ONLY_LINUX_NONFLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000.json" || error_fn
+        echo
+    fi
 
     if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" == 1 ]; then
         jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp000.json" "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK}" > "${PHOENIX_LINUX_POLICIES}" || error_fn
@@ -2103,10 +2109,16 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp3.json" "${PHOENIX_UNIFIED_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp6.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp7.json" || error_fn
-    echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000.json" || error_fn
-    echo
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then 
+        cp -f "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_TEMP}/policies/temp0000.json" || error_fn
+        echo
+    else
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp6.json" "${PHOENIX_ONLY_LINUX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp7.json" || error_fn
+        echo
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp7.json" "${PHOENIX_ONLY_LINUX_FLATPAK_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000.json" || error_fn
+        echo
+    fi
 
     if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" == 1 ]; then
         jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp0000.json" "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK}" > "${PHOENIX_LINUX_FLATPAK_POLICIES}" || error_fn
@@ -2138,10 +2150,16 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp8.json" "${PHOENIX_UNIFIED_OSX_SILICON_POLICIES}" > "${PHOENIX_TEMP}/policies/temp9.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp9.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp10.json" || error_fn
-    echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp10.json" "${PHOENIX_ONLY_OSX_SILICON_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000000.json" || error_fn
-    echo
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then 
+        cp -f "${PHOENIX_TEMP}/policies/temp9.json" "${PHOENIX_TEMP}/policies/temp000000.json" || error_fn
+        echo
+    else
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp9.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp10.json" || error_fn
+        echo
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp10.json" "${PHOENIX_ONLY_OSX_SILICON_POLICIES}" > "${PHOENIX_TEMP}/policies/temp000000.json" || error_fn
+        echo
+    fi
 
     if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == 1 ]; then
         jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON}" > "${PHOENIX_OSX_POLICIES_JSON}" || error_fn
@@ -2167,10 +2185,16 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp8.json" "${PHOENIX_UNIFIED_OSX_INTEL_POLICIES}" > "${PHOENIX_TEMP}/policies/temp11.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp11.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp12.json" || error_fn
-    echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp12.json" "${PHOENIX_ONLY_OSX_INTEL_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000000.json" || error_fn
-    echo
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then 
+        cp -f "${PHOENIX_TEMP}/policies/temp11.json" "${PHOENIX_TEMP}/policies/temp0000000.json" || error_fn
+        echo
+    else
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp11.json" "${PHOENIX_ONLY_OSX_POLICIES}" > "${PHOENIX_TEMP}/policies/temp12.json" || error_fn
+        echo
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp12.json" "${PHOENIX_ONLY_OSX_INTEL_POLICIES}" > "${PHOENIX_TEMP}/policies/temp0000000.json" || error_fn
+        echo
+    fi
 
     if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == 1 ]; then
         jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp0000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL}" > "${PHOENIX_OSX_INTEL_POLICIES_JSON}" || error_fn
@@ -2196,8 +2220,14 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
 
     jq -s '.[0] * .[1]' "${PHOENIX_POLICIES}" "${PHOENIX_UNIFIED_WINDOWS_POLICIES}" > "${PHOENIX_TEMP}/policies/temp13.json" || error_fn
     echo
-    jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp13.json" "${PHOENIX_ONLY_WINDOWS_POLICIES}" > "${PHOENIX_TEMP}/policies/temp00000000.json" || error_fn
-    echo
+
+    if [ "${PHOENIX_MAIL}" == 1 ]; then 
+        cp -f "${PHOENIX_TEMP}/policies/temp13.json" "${PHOENIX_TEMP}/policies/temp00000000.json" || error_fn
+        echo
+    else
+        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp13.json" "${PHOENIX_ONLY_WINDOWS_POLICIES}" > "${PHOENIX_TEMP}/policies/temp00000000.json" || error_fn
+        echo
+    fi
 
     if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" == 1 ]; then
         jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/policies/temp00000000.json" "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS}" > "${PHOENIX_WINDOWS_POLICIES}" || error_fn
