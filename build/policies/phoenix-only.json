@@ -38,6 +38,7 @@
             "SponsoredSuggestions": false,
             "WebSuggestions": false
         },
+        "HttpsOnlyMode": "force_enabled",
         "SupportMenu": {
             "Title": "Phoenix Issue Tracker",
             "URL": "https://phoenix.celenity.dev/issues"
