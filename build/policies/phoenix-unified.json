@@ -8,7 +8,6 @@
         "Preferences": {
             "browser.phoenix.applied.policies": {
                 "Status": "locked",
-                "Type": "boolean",
                 "Value": true
             }
         },
