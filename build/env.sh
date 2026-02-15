@@ -18,3 +18,4 @@ EOF
 fi
 
 source "$(dirname $0)/env_local.sh"
+source "$(dirname $0)/utilities.sh"
