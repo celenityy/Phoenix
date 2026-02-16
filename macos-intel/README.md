@@ -83,17 +83,15 @@ Phoenix currently provides official support for:
 
 At the moment, only Debian based distributions are that Phoenix is in their official repository.
 
-Look at the following table, 
+Take a look at [the Repology table](https://repology.org/project/phoenix-firefox/versions).
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/phoenix-firefox.svg)](https://repology.org/project/phoenix-firefox/versions)
-
-If your distribution is in the table you just need to run:
+If your distribution is in the table, you just need to run:
 
 ```sh
 sudo apt install phoenix
 ```
 
-If your Debian based distribution is not in the table or you are on the other platforms see:
+If your Debian based distribution is not in the table or you are on the other platforms, please see:
 
 [Install](readme/install.md)
 
