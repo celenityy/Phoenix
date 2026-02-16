@@ -5,3 +5,5 @@ pref("general.config.sandbox_enabled", true, locked);
 
 pref("general.config.filename", "phoenix.cfg");
 pref("general.config.obscure_value", 0);
+
+pref("browser.phoenix.applied.prefs", true, locked);

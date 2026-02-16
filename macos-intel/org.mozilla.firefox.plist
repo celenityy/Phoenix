@@ -1577,6 +1577,16 @@
 	<true/>
 	<key>OverridePostUpdatePage</key>
 	<string></string>
+	<key>Preferences</key>
+	<dict>
+		<key>browser.phoenix.applied.policies</key>
+		<dict>
+			<key>Status</key>
+			<string>locked</string>
+			<key>Value</key>
+			<true/>
+		</dict>
+	</dict>
 	<key>PrivateBrowsingModeAvailability</key>
 	<integer>0</integer>
 	<key>Proxy</key>
