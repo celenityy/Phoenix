@@ -2218,6 +2218,12 @@ pref("extensions.startupScanScopes", 0); // [HIDDEN - Android] [DEFAULT - non-Th
 // https://mozilla.github.io/addons-server/topics/api/abuse.html
 pref("extensions.addonAbuseReport.url", "");
 
+/// Disable arbitrary content script execution for extension (moz-extension) documents by default
+// https://bugzilla.mozilla.org/show_bug.cgi?id=2011234
+// https://searchfox.org/firefox-main/rev/da6c7924/toolkit/components/extensions/WebExtensionPolicy.cpp#959
+// https://searchfox.org/firefox-main/rev/da6c7924/toolkit/components/extensions/WebExtensionPolicy.cpp#999
+pref("extensions.webextensions.allow_executeScript_in_moz_extension", false); // [DEFAULT - Nightly]
+
 /// Disable installation of add-ons by default [DESKTOP]
 // We also reset this per-session by setting it as a user pref in `phoenix-user-pref.cfg` [DESKTOP]
 // Includes extensions and themes
