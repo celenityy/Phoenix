@@ -1891,7 +1891,7 @@ pref("media.rdd-applemedia.enabled", true); // [OSX-ONLY] [DEFAULT]
 pref("media.rdd-ffmpeg.enabled", true); // [DEFAULT]
 pref("media.rdd-ffvpx.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-opus.enabled", true); // [DEFAULT - non-Android]
-pref("media.rdd-process.enabled", true); // [DEFAULT - non-Android]
+pref("media.rdd-process.enabled", true); // [NO-ANDROID] [DEFAULT - non-Android] NOTE: This currently appears to cause memory safety issues on Android (detected via memory tagging), so for now this needs to remain disabled
 pref("media.rdd-vorbis.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-vpx.enabled", true); // [DEFAULT - non-Android]
 pref("media.rdd-wav.enabled", true); // [DEFAULT - non-Android]
@@ -1902,7 +1902,7 @@ pref("media.rdd-wmf.enabled", true); // [WINDOWS-ONLY] [DEFAULT]
 // NOTE: Required for media playback on certain sites (ex. rumble.com, x.com) when isolated content processes
 // are enabled on Android: https://bugzilla.mozilla.org/show_bug.cgi?id=1810736
 // https://phabricator.services.mozilla.com/D260149
-pref("media.android-media-codec.enabled", false); // [ANDROID-ONLY]
+// pref("media.android-media-codec.enabled", false); // [ANDROID-ONLY] Currently required for media playback :(
 pref("media.android-media-codec.preferred", false); // [ANDROID-ONLY]
 pref("media.ffvpx-hw.enabled", true); // [DEFAULT - Linux, Windows Nightly]
 pref("media.gmp.decoder.preferred", false); // [DEFAULT]
