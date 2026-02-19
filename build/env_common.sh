@@ -29,7 +29,15 @@ fi
 export PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
 
 # Build directory
-export PHOENIX_BUILD="${PHOENIX_ROOT}/build"
+PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
+if [[ -z "${PHOENIX_BUILD+x}" ]]; then
+    if [ "${PHOENIX_NIX}" == 1 ]; then
+        # Nix needs to use /tmp here, see https://codeberg.org/celenity/Dove/issues/59
+        export PHOENIX_BUILD='/tmp/phoenix/build'
+    else
+        export PHOENIX_BUILD="${PHOENIX_BUILD_DEFAULT}"
+    fi
+fi
 
 # Directory for unused/extra files
 export PHOENIX_UNUSED="${PHOENIX_ROOT}/unused"
