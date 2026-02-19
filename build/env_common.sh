@@ -15,6 +15,12 @@ fi
 
 # Phoenix
 
+# Whether we're being invoked from a Nix flake
+PHOENIX_NIX_DEFAULT=0
+if [[ -z "${PHOENIX_NIX+x}" ]]; then
+    export PHOENIX_NIX="${PHOENIX_NIX_DEFAULT}"
+fi
+
 # Archives directory
 export PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
 

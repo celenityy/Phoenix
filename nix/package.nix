@@ -16,6 +16,8 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
+    export PHOENIX_NIX=1
+
     ${
       if stdenvNoCC.isDarwin then
         ''
