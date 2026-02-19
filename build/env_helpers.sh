@@ -9,8 +9,6 @@ fi
 # Set OS
 if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
     export PHOENIX_OS='osx'
-elif [[ "${PHOENIX_NIX}" == 1 ]]; then
-    export PHOENIX_OS='nix'
 elif [[ "${PHOENIX_PLATFORM}" == 'linux' ]]; then
     if [[ -f "/etc/os-release" ]]; then
         source /etc/os-release

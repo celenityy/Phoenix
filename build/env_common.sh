@@ -15,6 +15,10 @@ fi
 
 # Phoenix
 
+# Set our platform, OS, and architecture
+export PHOENIX_ENV_HELPERS="${PHOENIX_BUILD}/env_helpers.sh"
+source "${PHOENIX_ENV_HELPERS}"
+
 # Whether we're being invoked from a Nix flake
 PHOENIX_NIX_DEFAULT=0
 if [[ -z "${PHOENIX_NIX+x}" ]]; then
@@ -50,10 +54,6 @@ export PHOENIX_OSX_INTEL_DIR="${PHOENIX_ROOT}/macos-intel"
 
 # Windows directory
 export PHOENIX_WINDOWS_DIR="${PHOENIX_ROOT}/windows"
-
-# Set our platform, OS, and architecture
-export PHOENIX_ENV_HELPERS="${PHOENIX_BUILD}/env_helpers.sh"
-source "${PHOENIX_ENV_HELPERS}"
 
 # Version info
 export PHOENIX_VERSIONS="${PHOENIX_BUILD}/versions.sh"
