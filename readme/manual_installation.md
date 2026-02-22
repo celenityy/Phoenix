@@ -10,7 +10,7 @@ However, if this is not desirable for you & your situation, or you would simply 
 **1:** Download `phoenix.cfg` for your platform:
 
 - Linux: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/phoenix.cfg)
-- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/phoenix.cfg)
+- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg)
 - Windows: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/phoenix.cfg)
 
 You can right click and select `Save page as` from your browser after navigating to the link for your platform's `phoenix.cfg`, or you can run the following command in your terminal:
@@ -24,7 +24,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 **macOS**:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/phoenix.cfg
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg
 ```
 
 **Windows**:
@@ -36,7 +36,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 **2:** Download `phoenix.js` *(`phoenix-desktop.js` for Linux users)* for your platform:
 
 - Linux: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/defaults/pref/phoenix-desktop.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/defaults/pref/phoenix-desktop.js)
-- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix.js)
+- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js)
 - Windows: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/defaults/pref/phoenix.js)
 
 You can right click and select `Save page as` from your browser after navigating to the link for your platform's `phoenix.js` *(or `phoenix-desktop.js` for Linux users)*, or you can run the following command in your terminal:
@@ -50,7 +50,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 **macOS**:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/defaults/pref/phoenix.js
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js
 ```
 
 **Windows**:
@@ -62,7 +62,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 **3:** Download `policies.json` *(or `org.mozilla.firefox.plist` for macOS users)* for your platform:
 
 - Linux: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/policies/policies.json`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/policies/policies.json)
-- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/org.mozilla.firefox.plist`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/org.mozilla.firefox.plist)
+- macOS: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/org.mozilla.firefox.plist`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/org.mozilla.firefox.plist)
 - Windows: [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/distribution/policies.json`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/distribution/policies.json)
 
 You can right click and select `Save page as` from your browser after navigating to the link for your platform's `policies.json` *(or `org.mozilla.firefox.plist` for macOS users)*, or you can run the following command in your terminal:
@@ -76,7 +76,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 **macOS**:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/macos/macos/org.mozilla.firefox.plist
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/org.mozilla.firefox.plist
 ```
 
 **Windows**:

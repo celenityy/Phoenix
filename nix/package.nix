@@ -29,9 +29,9 @@ stdenvNoCC.mkDerivation {
         ''
     }
 
-    patchShebangs ./build/*.sh
-    sed -i '/general.config.filename/d' build/phoenix-unified.js
-    ./build/build.sh
+    patchShebangs ./scripts/*.sh
+    sed -i '/general.config.filename/d' build-resources/phoenix-unified.js
+    ./scripts/build.sh
 
     runHook postBuild
   '';
@@ -42,10 +42,10 @@ stdenvNoCC.mkDerivation {
     ${
       if stdenvNoCC.isDarwin then
         ''
-          cp macos/* $out/
-          cp -r macos/assets $out/assets
-          cp -r macos/configs $out/configs
-          cp -r macos/userjs $out/userjs
+          cp osx/* $out/
+          cp -r osx/assets $out/assets
+          cp -r osx/configs $out/configs
+          cp -r osx/userjs $out/userjs
         ''
       else
         ''
@@ -53,9 +53,9 @@ stdenvNoCC.mkDerivation {
           cp -r linux/userjs $out/userjs
         ''
     }
-    install -Dm644 linux/COPYING.txt $out/share/doc/phoenix/COPYING.txt
-    install -Dm644 linux/README.md $out/share/doc/phoenix/README.md
-    install -Dm644 linux/userjs/README.md $out/share/doc/phoenix/userjs/README.md
+    install -Dm644 COPYING.txt $out/share/doc/phoenix/COPYING.txt
+    install -Dm644 README.md $out/share/doc/phoenix/README.md
+    install -Dm644 build-resources/specs/README.md $out/share/doc/phoenix/userjs/README.md
 
     runHook postInstall
   '';

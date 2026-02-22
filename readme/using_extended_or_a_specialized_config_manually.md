@@ -5,7 +5,7 @@ With a manual installation of Phoenix, if you would like to use Phoenix's [Exten
 **1:** Download the `.cfg` file of your choice for your platform:
 
 - Linux: [See here](https://gitlab.com/celenity/Phoenix/-/tree/pages/linux/configs).
-- macOS: [See here](https://gitlab.com/celenity/Phoenix/-/tree/pages/macos/configs).
+- macOS: [See here](https://gitlab.com/celenity/Phoenix/-/tree/pages/osx/configs).
 - Windows: [See here](https://gitlab.com/celenity/Phoenix/-/tree/pages/windows/configs).
 
  from [here](https://gitlab.com/celenityy/Phoenix/-/tree/pages/configs). For this example, we'll use `youtube.cfg`. **Simply replace mentions of `youtube.cfg` below with the configuration you would like to use.**

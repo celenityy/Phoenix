@@ -1,4 +1,0 @@
-
-# This file allows us to set exceptions for our desired service by default, without also impacting othering websites
-origin	cookie	    1	https://x.com
-origin	microphone	3	https://x.com

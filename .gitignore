@@ -1,8 +1,8 @@
 .DS_Store
-/build/env_local.sh
 /build/logs/
 /build/tmp/
 /env_override.sh
+/scripts/env_local.sh
 /wip/
 
 # nix build
