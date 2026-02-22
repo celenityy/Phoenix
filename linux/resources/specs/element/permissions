@@ -1,0 +1,296 @@
+
+# This file allows us to set exceptions for our desired service by default, without also impacting othering websites
+origin	camera	                3	https://app.element.io
+origin	desktop-notification	3	https://app.element.io
+origin	microphone	            3	https://app.element.io
+origin	screen	                3	https://app.element.io
+
+origin	camera	                3	https://app.nitro.chat
+origin	desktop-notification	3	https://app.nitro.chat
+origin	microphone	            3	https://app.nitro.chat
+origin	screen	                3	https://app.nitro.chat
+
+origin	camera	                3	https://aria.im
+origin	desktop-notification	3	https://aria.im
+origin	microphone	            3	https://aria.im
+origin	screen	                3	https://aria.im
+
+origin	camera	                3	https://chat.archaeo.social
+origin	desktop-notification	3	https://chat.archaeo.social
+origin	microphone	            3	https://chat.archaeo.social
+origin	screen	                3	https://chat.archaeo.social
+
+origin	camera	                3	https://chat.bark.lgbt
+origin	desktop-notification	3	https://chat.bark.lgbt
+origin	microphone	            3	https://chat.bark.lgbt
+origin	screen	                3	https://chat.bark.lgbt
+
+origin	camera	                3	https://chat.digitalprivacy.diy
+origin	desktop-notification	3	https://chat.digitalprivacy.diy
+origin	microphone	            3	https://chat.digitalprivacy.diy
+origin	screen	                3	https://chat.digitalprivacy.diy
+
+origin	camera	                3	https://chat.fedoraproject.org
+origin	desktop-notification	3	https://chat.fedoraproject.org
+origin	microphone	            3	https://chat.fedoraproject.org
+origin	screen	                3	https://chat.fedoraproject.org
+
+origin	camera	                3	https://chat.fox.yt
+origin	desktop-notification	3	https://chat.fox.yt
+origin	microphone	            3	https://chat.fox.yt
+origin	screen	                3	https://chat.fox.yt
+
+origin	camera	                3	https://chat.fsfe.org
+origin	desktop-notification	3	https://chat.fsfe.org
+origin	microphone	            3	https://chat.fsfe.org
+origin	screen	                3	https://chat.fsfe.org
+
+origin	camera	                3	https://chat.magdeburg.jetzt
+origin	desktop-notification	3	https://chat.magdeburg.jetzt
+origin	microphone	            3	https://chat.magdeburg.jetzt
+origin	screen	                3	https://chat.magdeburg.jetzt
+
+origin	camera	                3	https://chat.mozilla.org
+origin	desktop-notification	3	https://chat.mozilla.org
+origin	microphone	            3	https://chat.mozilla.org
+origin	screen	                3	https://chat.mozilla.org
+
+origin	camera	                3	https://chat.oblak.be
+origin	desktop-notification	3	https://chat.oblak.be
+origin	microphone	            3	https://chat.oblak.be
+origin	screen	                3	https://chat.oblak.be
+
+origin	camera	                3	https://chat.pcriot.org
+origin	desktop-notification	3	https://chat.pcriot.org
+origin	microphone	            3	https://chat.pcriot.org
+origin	screen	                3	https://chat.pcriot.org
+
+origin	camera	                3	https://chat.pub.solar
+origin	desktop-notification	3	https://chat.pub.solar
+origin	microphone	            3	https://chat.pub.solar
+origin	screen	                3	https://chat.pub.solar
+
+origin	camera	                3	https://chat.socialnetwork24.com
+origin	desktop-notification	3	https://chat.socialnetwork24.com
+origin	microphone	            3	https://chat.socialnetwork24.com
+origin	screen	                3	https://chat.socialnetwork24.com
+
+origin	camera	                3	https://chat.soziale.cloud
+origin	desktop-notification	3	https://chat.soziale.cloud
+origin	microphone	            3	https://chat.soziale.cloud
+origin	screen	                3	https://chat.soziale.cloud
+
+origin	camera	                3	https://chat.studichat.de
+origin	desktop-notification	3	https://chat.studichat.de
+origin	microphone	            3	https://chat.studichat.de
+origin	screen	                3	https://chat.studichat.de
+
+origin	camera	                3	https://chat.tchncs.de
+origin	desktop-notification	3	https://chat.tchncs.de
+origin	microphone	            3	https://chat.tchncs.de
+origin	screen	                3	https://chat.tchncs.de
+
+origin	camera	                3	https://chat.utwente.io
+origin	desktop-notification	3	https://chat.utwente.io
+origin	microphone	            3	https://chat.utwente.io
+origin	screen	                3	https://chat.utwente.io
+
+origin	camera	                3	https://conversation.hadoly.fr
+origin	desktop-notification	3	https://conversation.hadoly.fr
+origin	microphone	            3	https://conversation.hadoly.fr
+origin	screen	                3	https://conversation.hadoly.fr
+
+origin	camera	                3	https://element.4d2.org
+origin	desktop-notification	3	https://element.4d2.org
+origin	microphone	            3	https://element.4d2.org
+origin	screen	                3	https://element.4d2.org
+
+origin	camera	                3	https://element.arcticfoxes.net
+origin	desktop-notification	3	https://element.arcticfoxes.net
+origin	microphone	            3	https://element.arcticfoxes.net
+origin	screen	                3	https://element.arcticfoxes.net
+
+origin	camera	                3	https://element.bitcoinist.org
+origin	desktop-notification	3	https://element.bitcoinist.org
+origin	microphone	            3	https://element.bitcoinist.org
+origin	screen	                3	https://element.bitcoinist.org
+
+origin	camera	                3	https://element.catgirl.cloud
+origin	desktop-notification	3	https://element.catgirl.cloud
+origin	microphone	            3	https://element.catgirl.cloud
+origin	screen	                3	https://element.catgirl.cloud
+
+origin	camera	                3	https://element.chagai.website
+origin	desktop-notification	3	https://element.chagai.website
+origin	microphone	            3	https://element.chagai.website
+origin	screen	                3	https://element.chagai.website
+
+origin	camera	                3	https://element.chatwave.org
+origin	desktop-notification	3	https://element.chatwave.org
+origin	microphone	            3	https://element.chatwave.org
+origin	screen	                3	https://element.chatwave.org
+
+origin	camera	                3	https://element.data.coop
+origin	desktop-notification	3	https://element.data.coop
+origin	microphone	            3	https://element.data.coop
+origin	screen	                3	https://element.data.coop
+
+origin	camera	                3	https://element.debian.social
+origin	desktop-notification	3	https://element.debian.social
+origin	microphone	            3	https://element.debian.social
+origin	screen	                3	https://element.debian.social
+
+origin	camera	                3	https://element.duesen.chat
+origin	desktop-notification	3	https://element.duesen.chat
+origin	microphone	            3	https://element.duesen.chat
+origin	screen	                3	https://element.duesen.chat
+
+origin	camera	                3	https://element.envs.net
+origin	desktop-notification	3	https://element.envs.net
+origin	microphone	            3	https://element.envs.net
+origin	screen	                3	https://element.envs.net
+
+origin	camera	                3	https://element.flieger.chat
+origin	desktop-notification	3	https://element.flieger.chat
+origin	microphone	            3	https://element.flieger.chat
+origin	screen	                3	https://element.flieger.chat
+
+origin	camera	                3	https://element.frei.chat
+origin	desktop-notification	3	https://element.frei.chat
+origin	microphone	            3	https://element.frei.chat
+origin	screen	                3	https://element.frei.chat
+
+origin	camera	                3	https://element.freiburg.social
+origin	desktop-notification	3	https://element.freiburg.social
+origin	microphone	            3	https://element.freiburg.social
+origin	screen	                3	https://element.freiburg.social
+
+origin	camera	                3	https://element.g24.at
+origin	desktop-notification	3	https://element.g24.at
+origin	microphone	            3	https://element.g24.at
+origin	screen	                3	https://element.g24.at
+
+origin	camera	                3	https://element.gemeinsam.jetzt
+origin	desktop-notification	3	https://element.gemeinsam.jetzt
+origin	microphone	            3	https://element.gemeinsam.jetzt
+origin	screen	                3	https://element.gemeinsam.jetzt
+
+origin	camera	                3	https://element.gnulinux.club
+origin	desktop-notification	3	https://element.gnulinux.club
+origin	microphone	            3	https://element.gnulinux.club
+origin	screen	                3	https://element.gnulinux.club
+
+origin	camera	                3	https://element.grapheneos.org
+origin	desktop-notification	3	https://element.grapheneos.org
+origin	microphone	            3	https://element.grapheneos.org
+origin	screen	                3	https://element.grapheneos.org
+
+origin	camera	                3	https://element.hot-chilli.im
+origin	desktop-notification	3	https://element.hot-chilli.im
+origin	microphone	            3	https://element.hot-chilli.im
+origin	screen	                3	https://element.hot-chilli.im
+
+origin	camera	                3	https://element.imagisphe.re
+origin	desktop-notification	3	https://element.imagisphe.re
+origin	microphone	            3	https://element.imagisphe.re
+origin	screen	                3	https://element.imagisphe.re
+
+origin	camera	                3	https://element.kosmikdog.eu
+origin	desktop-notification	3	https://element.kosmikdog.eu
+origin	microphone	            3	https://element.kosmikdog.eu
+origin	screen	                3	https://element.kosmikdog.eu
+
+origin	camera	                3	https://element.neat.chat
+origin	desktop-notification	3	https://element.neat.chat
+origin	microphone	            3	https://element.neat.chat
+origin	screen	                3	https://element.neat.chat
+
+origin	camera	                3	https://element.nope.chat
+origin	desktop-notification	3	https://element.nope.chat
+origin	microphone	            3	https://element.nope.chat
+origin	screen	                3	https://element.nope.chat
+
+origin	camera	                3	https://element.norge.chat
+origin	desktop-notification	3	https://element.norge.chat
+origin	microphone	            3	https://element.norge.chat
+origin	screen	                3	https://element.norge.chat
+
+origin	camera	                3	https://element.private.coffee
+origin	desktop-notification	3	https://element.private.coffee
+origin	microphone	            3	https://element.private.coffee
+origin	screen	                3	https://element.private.coffee
+
+origin	camera	                3	https://element.tedomum.net
+origin	desktop-notification	3	https://element.tedomum.net
+origin	microphone	            3	https://element.tedomum.net
+origin	screen	                3	https://element.tedomum.net
+
+origin	camera	                3	https://element.unredacted.org
+origin	desktop-notification	3	https://element.unredacted.org
+origin	microphone	            3	https://element.unredacted.org
+origin	screen	                3	https://element.unredacted.org
+
+origin	camera	                3	https://element.yatrix.org
+origin	desktop-notification	3	https://element.yatrix.org
+origin	microphone	            3	https://element.yatrix.org
+origin	screen	                3	https://element.yatrix.org
+
+origin	camera	                3	https://gnome.element.io
+origin	desktop-notification	3	https://gnome.element.io
+origin	microphone	            3	https://gnome.element.io
+origin	screen	                3	https://gnome.element.io
+
+origin	camera	                3	https://matrix.glasgow.social
+origin	desktop-notification	3	https://matrix.glasgow.social
+origin	microphone	            3	https://matrix.glasgow.social
+origin	screen	                3	https://matrix.glasgow.social
+
+origin	camera	                3	https://matrix.hyteck.de
+origin	desktop-notification	3	https://matrix.hyteck.de
+origin	microphone	            3	https://matrix.hyteck.de
+origin	screen	                3	https://matrix.hyteck.de
+
+origin	camera	                3	https://matrix.libreon.fr
+origin	desktop-notification	3	https://matrix.libreon.fr
+origin	microphone	            3	https://matrix.libreon.fr
+origin	screen	                3	https://matrix.libreon.fr
+
+origin	camera	                3	https://matrix.nichi.co
+origin	desktop-notification	3	https://matrix.nichi.co
+origin	microphone	            3	https://matrix.nichi.co
+origin	screen	                3	https://matrix.nichi.co
+
+origin	camera	                3	https://mtrx.nz
+origin	desktop-notification	3	https://mtrx.nz
+origin	microphone	            3	https://mtrx.nz
+origin	screen	                3	https://mtrx.nz
+
+origin	camera	                3	https://riot.club1.fr
+origin	desktop-notification	3	https://riot.club1.fr
+origin	microphone	            3	https://riot.club1.fr
+origin	screen	                3	https://riot.club1.fr
+
+origin	camera	                3	https://riot.grin.hu
+origin	desktop-notification	3	https://riot.grin.hu
+origin	microphone	            3	https://riot.grin.hu
+origin	screen	                3	https://riot.grin.hu
+
+origin	camera	                3	https://rollenspiel.chat
+origin	desktop-notification	3	https://rollenspiel.chat
+origin	microphone	            3	https://rollenspiel.chat
+origin	screen	                3	https://rollenspiel.chat
+
+origin	camera	                3	https://talk.comm.cx
+origin	desktop-notification	3	https://talk.comm.cx
+origin	microphone	            3	https://talk.comm.cx
+origin	screen	                3	https://talk.comm.cx
+
+origin	camera	                3	https://web.synod.im
+origin	desktop-notification	3	https://web.synod.im
+origin	microphone	            3	https://web.synod.im
+origin	screen	                3	https://web.synod.im
+
+origin	camera	                3	https://webchat.kde.org
+origin	desktop-notification	3	https://webchat.kde.org
+origin	microphone	            3	https://webchat.kde.org
+origin	screen	                3	https://webchat.kde.org
