@@ -63,32 +63,31 @@ if [[ -z "${PHOENIX_ANDROID_OUTPUTS+x}" ]]; then
     export PHOENIX_ANDROID_OUTPUTS="${PHOENIX_ANDROID_OUTPUTS_DEFAULT}"
 fi
 
-# Linux directory
+# Linux outputs directory
 PHOENIX_LINUX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux"
 if [[ -z "${PHOENIX_LINUX_OUTPUTS+x}" ]]; then
     export PHOENIX_LINUX_OUTPUTS="${PHOENIX_LINUX_OUTPUTS_DEFAULT}"
 fi
 
-## Linux (Flatpak) directory
+## Linux (Flatpak) outputs directory
 PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux-flatpak"
 if [[ -z "${PHOENIX_LINUX_FLATPAK_OUTPUTS+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK_OUTPUTS="${PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT}"
 fi
 
-# OS X directory
-# (dir currently named macos)
+# OS X outputs directory
 PHOENIX_OSX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx"
 if [[ -z "${PHOENIX_OSX_OUTPUTS+x}" ]]; then
     export PHOENIX_OSX_OUTPUTS="${PHOENIX_OSX_OUTPUTS_DEFAULT}"
 fi
 
-## OS X (Intel) directory
+## OS X (Intel) outputs directory
 PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx-intel"
 if [[ -z "${PHOENIX_OSX_INTEL_OUTPUTS+x}" ]]; then
     export PHOENIX_OSX_INTEL_OUTPUTS="${PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT}"
 fi
 
-# Windows directory
+# Windows outputs directory
 PHOENIX_WINDOWS_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/windows"
 if [[ -z "${PHOENIX_WINDOWS_OUTPUTS+x}" ]]; then
     export PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_WINDOWS_OUTPUTS_DEFAULT}"
