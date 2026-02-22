@@ -1,6 +1,5 @@
 .DS_Store
-/build/logs/
-/build/tmp/
+/build/
 /env_override.sh
 /scripts/env_local.sh
 /wip/
