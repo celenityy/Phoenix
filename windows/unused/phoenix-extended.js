@@ -43,11 +43,11 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2026.02.16.1"); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2026.02.23.1"); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.02.16.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.02.23.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
