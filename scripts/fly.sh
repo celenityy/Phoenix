@@ -664,6 +664,8 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/element/linux/user.js" "${PHOENIX_LINUX_OUTPUTS}/userjs/ui-fix/element/" || error_fn
         echo
+        cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/extended/linux/user.js" "${PHOENIX_LINUX_OUTPUTS}/userjs/ui-fix/extended/" || error_fn
+        echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/google-maps/linux/user.js" "${PHOENIX_LINUX_OUTPUTS}/userjs/ui-fix/google-maps/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/photopea/linux/user.js" "${PHOENIX_LINUX_OUTPUTS}/userjs/ui-fix/photopea/" || error_fn
@@ -932,6 +934,8 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/element/linux-flatpak/user.js" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/userjs/ui-fix/element/" || error_fn
         echo
+        cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/extended/linux-flatpak/user.js" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/userjs/ui-fix/extended/" || error_fn
+        echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/google-maps/linux-flatpak/user.js" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/userjs/ui-fix/google-maps/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/photopea/linux-flatpak/user.js" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/userjs/ui-fix/photopea/" || error_fn
@@ -1199,6 +1203,8 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/discord/osx/user.js" "${PHOENIX_OSX_OUTPUTS}/userjs/ui-fix/discord/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/element/osx/user.js" "${PHOENIX_OSX_OUTPUTS}/userjs/ui-fix/element/" || error_fn
+        echo
+        cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/extended/osx/user.js" "${PHOENIX_OSX_OUTPUTS}/userjs/ui-fix/extended/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/google-maps/osx/user.js" "${PHOENIX_OSX_OUTPUTS}/userjs/ui-fix/google-maps/" || error_fn
         echo
@@ -1476,6 +1482,8 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/discord/osx-intel/user.js" "${PHOENIX_OSX_INTEL_OUTPUTS}/userjs/ui-fix/discord/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/element/osx-intel/user.js" "${PHOENIX_OSX_INTEL_OUTPUTS}/userjs/ui-fix/element/" || error_fn
+        echo
+        cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/extended/osx-intel/user.js" "${PHOENIX_OSX_INTEL_OUTPUTS}/userjs/ui-fix/extended/" || error_fn
         echo
         cp -vf "${PHOENIX_BUILD_RESOURCES}/specs/ui-fix/google-maps/osx-intel/user.js" "${PHOENIX_OSX_INTEL_OUTPUTS}/userjs/ui-fix/google-maps/" || error_fn
         echo
