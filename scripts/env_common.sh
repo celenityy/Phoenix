@@ -28,6 +28,15 @@ if [[ -z "${PHOENIX_NIX+x}" ]]; then
     export PHOENIX_NIX="${PHOENIX_NIX_DEFAULT}"
 fi
 
+# Nix flakes should only build their respective platform
+if [ "${PHOENIX_NIX}" == 1 ]; then
+    if [ "${PHOENIX_OS}" == 'osx' ]; then
+        export PHOENIX_OSX_ONLY=1
+    else
+        export PHOENIX_LINUX_ONLY=1
+    fi
+fi
+
 # Version info
 export PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
 
