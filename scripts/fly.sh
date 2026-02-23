@@ -65,6 +65,35 @@ if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" == 1 ]; then
     mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID}"
 fi
 
+if [ "${PHOENIX_EXTRA_POLICIES_LINUX}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_LINUX}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_LINUX is set, but \$PHOENIX_EXTRA_POLICIES_FILE_LINUX is not set! Aborting..."
+        exit 1
+    fi
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK is set, but \$PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK}"
+fi
+
+if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" == 1 ]; then
+    if [ "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK is set, but \$PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK is not set! Aborting..."
+        exit 1
+    elif [ "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK}" == 'undefined' ]; then
+        echo_red_text "\$PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK is set, but \$PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK is not set! Aborting..."
+        exit 1
+    fi
+    mkdir -vp "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK}"
+fi
+
 if [ "${PHOENIX_EXTRA_POLICIES_OSX}" == 1 ]; then
     if [ "${PHOENIX_EXTRA_POLICIES_FILE_OSX}" == 'undefined' ]; then
         echo_red_text "\$PHOENIX_EXTRA_POLICIES_OSX is set, but \$PHOENIX_EXTRA_POLICIES_FILE_OSX is not set! Aborting..."
