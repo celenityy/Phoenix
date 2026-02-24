@@ -1,6 +1,6 @@
 # Phoenix
 <p align="center">
-    <img src="assets/phoenix.png"
+    <img src="build-resources/assets/phoenix.png"
         alt="Phoenix"
         height="200">
 </p>
