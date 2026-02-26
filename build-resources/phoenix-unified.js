@@ -2527,7 +2527,7 @@ pref("browser.ml.chat.providers", ""); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 /// Set the default AI Chatbot (if enabled) to DuckDuckGo [NO-ANDROID] [NO-MAIL]
 // Unfortunately this is not compatible with the pop-up when selecting text [NO-ANDROID] [NO-MAIL]
 // Also AFAICT currently not possible to add this as a persistent option [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.chat.provider", "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat"); // [NO-ANDROID] [NO-MAIL] 
+pref("browser.ml.chat.provider", "https://duck.ai/"); // [NO-ANDROID] [NO-MAIL] 
 
 pref("browser.phoenix.status", "017");
 
