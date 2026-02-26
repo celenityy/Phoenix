@@ -2440,6 +2440,7 @@ pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
 pref("browser.ai.control.pdfjsAltText", "blocked");
 pref("browser.ai.control.sidebarChatbot", "blocked");
 pref("browser.ai.control.smartTabGroups", "blocked");
+pref("browser.preferences.aiControls", false); // [NO-ANDROID] [NO-MAIL] Hides the AI Controls UI settings panel (about:preferences#ai)
 
 /// Allow managing models from `about:addons`
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/ModelHubProvider.sys.mjs#18
