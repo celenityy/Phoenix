@@ -1381,9 +1381,9 @@ pref("network.dns.disablePrefetch", true);
 pref("network.dns.disablePrefetchFromHTTPS", true);
 pref("network.dns.prefetch_via_proxy", false); // [DEFAULT]
 pref("network.http.speculative-parallel-limit", 0); // [DEFAULT - Thunderbird]
-pref("network.predictor.enable-hover-on-ssl", false); // [DEFAULT]
-pref("network.predictor.enable-prefetch", false); // [DEFAULT]
-pref("network.predictor.enabled", false);
+pref("network.predictor.enable-hover-on-ssl", false); // [DEFAULT] https://searchfox.org/firefox-main/rev/3c918058/docshell/base/nsDocShell.cpp#14207
+pref("network.predictor.enable-prefetch", false); // [NO-ANDROID] [ESR] [DEFAULT]
+pref("network.predictor.enabled", false); // [NO-ANDROID] [ESR]
 pref("network.prefetch-next", false);
 
 /// Disable Preconnect
