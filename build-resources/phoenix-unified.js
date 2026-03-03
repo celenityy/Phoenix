@@ -2557,6 +2557,7 @@ pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT]
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/geolocation/Geolocation.cpp#769 [WINDOWS-ONLY]
 pref("geo.prompt.open_system_prefs", false); // [WINDOWS-ONLY] Ensure users aren't prompted to open settings and enable it - https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/StaticPrefList.yaml#6616
 pref("geo.provider.ms-windows-location", false); // [WINDOWS-ONLY]
+pref("geo.provider.use_winrt", false); // [WINDOWS-ONLY] Windows Runtime Geolocator https://searchfox.org/firefox-main/source/dom/system/windows/WindowsUtilsChild.cpp
 
 /// Disable Mozilla's GeoIP/Region Service
 // Prevents Firefox from monitoring the user's region/general location
