@@ -2718,6 +2718,11 @@ pref("browser.safebrowsing.provider.google5.reportPhishMistakeURL", "https://saf
 //// Similar behavior also appears to happen when you report a URL to Safe Browsing
 pref("browser.safebrowsing.reportPhishURL", "https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&url=");
 
+/// Disable extra logging by default
+// These are currently the default values, but we can set them here to expose at about:config
+pref("browser.safebrowsing.debug", false); // [DEFAULT]
+pref("browser.safebrowsing.realTime.debug", false); // [HIDDEN] [DEFAULT] [NIGHTLY] https://searchfox.org/firefox-main/rev/83d1a08d/toolkit/components/url-classifier/RealTimeRequestSimulator.cpp#31
+
 /// Disable the legacy (v2.2) Safe Browsing API
 // https://code.google.com/archive/p/google-safe-browsing/wikis/Protocolv2Spec.wiki
 // Has been nonfunctional since October 2018
