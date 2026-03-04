@@ -843,6 +843,12 @@ pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-W
 // Matches with RFP & prevents exposing system theme
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
+/// Ensure user agent is always set to Firefox
+// Primarily useful for ex. users of forks, and serves as defense in depth regardless
+// Prevents fingerprinting and ensures we avoid compatibility issues
+// https://searchfox.org/firefox-main/rev/83d1a08d/netwerk/protocol/http/nsHttpHandler.cpp#1059
+pref("general.useragent.compatMode.firefox", true);
+
 /// Ensure we use the standard Noto Color Emoji font by default (instead of ex. Samsung's if available) [ANDROID-ONLY]
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/43023 [ANDROID-ONLY]
 pref("font.name-list.emoji", "Noto Color Emoji"); // [ANDROID-ONLY]
