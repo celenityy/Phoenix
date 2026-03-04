@@ -3540,6 +3540,12 @@ pref("network.offline-mirrors-connectivity", false); // [DEFAULT]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1889130
 pref("network.socket.ip_addr_any.disabled", true); // [DEFAULT]
 
+/// Disable profiler integration/icons at about:processes
+// Improves UI/UX - we don't really support the Gecko Profiler
+// Also useful for hardened forks that remove the Gecko Profiler entirely (ex. IronFox)
+// https://searchfox.org/firefox-main/rev/83d1a08d/modules/libpref/init/all.js#3722
+pref("toolkit.aboutProcesses.showProfilerIcons", false);
+
 /// Disable WebVTT Testing Events
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/media/webvtt/HTMLTrackElement.cpp#530
 pref("media.webvtt.testing.events", false); // [DEFAULT]
