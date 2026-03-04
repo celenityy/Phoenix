@@ -2562,8 +2562,8 @@ pref("permissions.default.geo", 2); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable logging network geolocation requests by default
 // This is already Firefox's default setting - but setting it here exposes it in the `about:config` since it's hidden
-// https://searchfox.org/firefox-main/rev/82e2435f/dom/system/NetworkGeolocationProvider.sys.mjs#18
-pref("geo.provider.network.logging.enabled", false); // [HIDDEN] [DEFAULT] 
+// https://searchfox.org/firefox-main/rev/83d1a08db47b91a4d53341a799745caac9c38bde/dom/system/NetworkGeolocationProvider.sys.mjs#18
+pref("geo.provider.network.loglevel", "Off"); // [HIDDEN] [DEFAULT] 
 
 /// Disable Microsoft Location Services [WINDOWS-ONLY]
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/geolocation/Geolocation.cpp#769 [WINDOWS-ONLY]
