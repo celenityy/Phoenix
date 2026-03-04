@@ -2727,6 +2727,15 @@ pref("browser.safebrowsing.provider.google.advisoryName", "Google Safe Browsing 
 pref("browser.safebrowsing.provider.google.lists", "disabled");
 pref("browser.safebrowsing.provider.google.lists.default", "goog-badbinurl-shavar,goog-downloadwhite-digest256,goog-phish-shavar,googpub-phish-shavar,goog-malware-shavar,goog-unwanted-shavar"); // [HIDDEN] This pref does nothing, just makes it easier for users to re-enable this Safe Browsing provider if desired by copying and pasting the value of this pref as the value for `browser.safebrowsing.provider.google.lists`
 
+/// Disable Real Time Mode (1) (2) [NIGHTLY]
+// This sets Safe Browsing to use Local List Mode instead (3)
+// Real Time Mode results in hashes for every URL being submitted to Google,
+// while Local List Mode works more like V4 and only submits hashes if there's a match with the local threat list
+// 1: https://developers.google.com/safe-browsing/reference/Real.Time.Mode
+// 2: https://bugzilla.mozilla.org/show_bug.cgi?id=2010020
+// 3: https://developers.google.com/safe-browsing/reference/Local.List.Mode
+pref("browser.safebrowsing.realTime.enabled", false); // [DEFAULT - non-Nightly]
+
 /// Enable an additional plug-in blocklist from Mozilla
 pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest256"); // [DEFAULT - Nightly]
 
