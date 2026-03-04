@@ -444,8 +444,8 @@ pref("browser.pdfjs.feature-tour", '{"screen":"","complete":true}'); // [NO-ANDR
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-allowlist/changeset?_expected=0
 // https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxrelay-denylist/changeset?_expected=0
 // https://searchfox.org/firefox-main/rev/c82adde5/toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs#42
-pref("signon.firefoxRelay.allowListRemoteSettingsCollection", ""); // [HIDDEN]
-pref("signon.firefoxRelay.denyListRemoteSettingsCollection", ""); // [HIDDEN]
+pref("signon.firefoxRelay.allowListRemoteSettingsCollection", ""); // [HIDDEN] [DEFAULT: fxrelay-allowlist]
+pref("signon.firefoxRelay.denyListRemoteSettingsCollection", ""); // [HIDDEN] [DEFAULT: fxrelay-denylist]
 
 /// Disable fetching Password Manager rules remotely by default
 // (Used for identifying password forms on websites)
