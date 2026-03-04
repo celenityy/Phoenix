@@ -2736,6 +2736,12 @@ pref("browser.safebrowsing.provider.google.lists.default", "goog-badbinurl-shava
 // 3: https://developers.google.com/safe-browsing/reference/Local.List.Mode
 pref("browser.safebrowsing.realTime.enabled", false); // [DEFAULT - non-Nightly]
 
+/// Disable the Real Time Request Simulator (1) (2) [NIGHTLY]
+// This is just used for data collection/telemetry and testing...
+// 1: https://phabricator.services.mozilla.com/D280931
+// 2: https://bugzilla.mozilla.org/show_bug.cgi?id=2010022
+pref("browser.safebrowsing.realTime.simulation.enabled", false); // [DEFAULT - non-Nightly]
+
 /// Enable an additional plug-in blocklist from Mozilla
 pref("urlclassifier.blockedTable", "moztest-block-simple,mozplugin-block-digest256"); // [DEFAULT - Nightly]
 
