@@ -3652,6 +3652,11 @@ pref("devtools.editor.autoclosebrackets", false); // [NO-ANDROID]
 /// Disable editor onboarding [NO-ANDROID]
 pref("devtools.webconsole.input.editorOnboarding", false); // [NO-ANDROID]
 
+/// Disable gecko-trace
+// https://searchfox.org/firefox-main/rev/83d1a08d/toolkit/components/gecko-trace/GeckoTrace.cpp#251
+// https://searchfox.org/firefox-main/rev/83d1a08d/modules/libpref/init/StaticPrefList.yaml#18411
+pref("toolkit.gecko-trace.enable", false); // [DEFAULT]
+
 /// Disable JS dump()
 // https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/all.js#602
 pref("browser.dom.window.dump.enabled", false); // [DEFAULT - non-Android, desktop `MOZILLA_OFFICIAL` builds]
