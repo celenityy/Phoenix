@@ -872,6 +872,12 @@ pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CanvasExtractio
 // https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/StaticPrefList.yaml#10128
 pref("layout.css.font-visibility", 2);
 
+/// Never expose the device model in the user agent [ANDROID-ONLY]
+// FPP/RFP take precedence over this - so it's mainly for defense in depth/if FPP is disabled per-site [ANDROID-ONLY]
+// https://searchfox.org/firefox-main/rev/83d1a08d/netwerk/protocol/http/nsHttpHandler.cpp#152 [ANDROID-ONLY]
+// https://searchfox.org/firefox-main/rev/83d1a08d/netwerk/protocol/http/nsHttpHandler.cpp#1156 [ANDROID-ONLY]
+pref("general.useragent.use_device", false); // [ANDROID-ONLY] [HIDDEN] [DEFAULT]
+
 /// Prevent enumeration of media devices
 // Exceptions can be set via the `media.devices.enumerate.legacy.allowlist` pref
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1528042
