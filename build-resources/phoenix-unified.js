@@ -1324,21 +1324,20 @@ pref("security.tls.hello_downgrade_check", true); // [DEFAULT]
 
 /// Enforce using HTTPS as much as possible
 pref("dom.securecontext.allowlist", ""); // [HIDDEN] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsMixedContentBlocker.cpp#270
-pref("dom.security.https_first", true);
-pref("dom.security.https_first_for_custom_ports", true); // [DEFAULT] DEFENSE IN DEPTH
+pref("dom.security.https_first", true); // [DEFAULT]
+pref("dom.security.https_first_for_custom_ports", true);
 pref("dom.security.https_first_for_local_addresses", true);
 pref("dom.security.https_first_for_unknown_suffixes", true);
 pref("dom.security.https_first_pbm", true); // [DEFAULT]
-pref("dom.security.https_first_schemeless", true);
+pref("dom.security.https_first_schemeless", true); // [DEFAULT]
 pref("dom.security.https_only_mode", true);
 pref("dom.security.https_only_mode", true, locked); // [NO-ANDROID] [NO-MAIL] Locked for Desktop due to being a critical privacy/security feature, but not locked for Android/Thunderbird since it's unfortunately not yet possible to add exceptions there - https://gitlab.com/ironfox-oss/IronFox/-/issues/48
 pref("dom.security.https_only_mode.upgrade_local", true);
 pref("dom.security.https_only_mode_pbm", true);
 pref("dom.security.https_only_mode_pbm", true, locked); // [NO-ANDROID] [NO-MAIL] Locked for Desktop due to being a critical privacy/security feature, but not locked for Android/Thunderbird since it's unfortunately not yet possible to add exceptions there - https://gitlab.com/ironfox-oss/IronFox/-/issues/48
-pref("security.mixed_content.block_active_content", true);
+pref("security.mixed_content.block_active_content", true); // [DEFAULT - non-Thunderbird]
 pref("security.mixed_content.block_display_content", false); // [DEFAULT] Unnecessary with the "security.mixed_content.upgrade_display_content" pref - "security.mixed_content.upgrade_display_content" tries to upgrade mixed content by default and still blocks it if fails, this pref ("security.mixed_content.block_display_content") just blocks all mixed content entirely, causing unnecessary breakage for users. https://github.com/mozilla/policy-templates/issues/1141
-pref("security.mixed_content.block_object_subrequest", true);
-pref("security.mixed_content.upgrade_display_content", true);
+pref("security.mixed_content.upgrade_display_content", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
 pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
