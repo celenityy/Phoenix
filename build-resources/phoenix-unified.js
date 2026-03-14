@@ -1604,8 +1604,10 @@ pref("doh-rollout.provider-list", '[{"uri":"https://dns.quad9.net/dns-query","UI
 
 /// Disable DoH Connectivity Checks
 pref("network.connectivity-service.DNS_HTTPS.domain", "");
-pref("network.trr.confirmationNS", "skip");
+pref("network.trr.attempt-when-retrying-confirmation", true); // Ensure we always attempt to use DoH no matter what, regardless of the confirmation connectivity check https://searchfox.org/firefox-main/rev/e535ba2b/netwerk/dns/TRRService.cpp#286
+pref("network.trr.confirmationNS", "skip"); // https://searchfox.org/firefox-main/rev/e535ba2b/netwerk/dns/TRRService.cpp#273
 pref("network.trr.skip-check-for-blocked-host", true); // https://searchfox.org/firefox-main/rev/82e2435f/netwerk/dns/TRRService.cpp#1062
+pref("network.trr.wait-for-confirmation", false); // [DEFAULT] Ensure we always attempt to use DoH no matter what, regardless of the confirmation connectivity check https://searchfox.org/firefox-main/rev/e535ba2b/netwerk/dns/TRRService.cpp#282
 
 /// Disable EDNS Client Subnet (ECS) to prevent leaking general location data to authoritative DNS servers...
 // https://wikipedia.org/wiki/EDNS_Client_Subnet
