@@ -1840,6 +1840,8 @@ pref("media.autoplay.blocking_policy", 1);
 pref("browser.eme.ui.enabled", false); // [NO-ANDROID] [NO-MAIL] UI settings/toggle
 pref("media.eme.enabled", false);
 pref("media.eme.require-app-approval", true); // [DEFAULT - Android] https://bugzilla.mozilla.org/show_bug.cgi?id=1620102 https://searchfox.org/firefox-main/rev/82e2435f/dom/media/eme/MediaKeySystemAccessPermissionRequest.h#17
+pref("media.eme.require-app-approval.prompt.testing", true); // [ANDROID-ONLY] [HIDDEN] https://searchfox.org/firefox-main/rev/881a9b31/dom/media/eme/MediaKeySystemAccessPermissionRequest.h#21
+pref("media.eme.require-app-approval.prompt.testing.allow", false); // [ANDROID-ONLY] [HIDDEN] https://searchfox.org/firefox-main/rev/881a9b31/dom/media/eme/MediaKeySystemAccessPermissionRequest.h#21
 
 //// Disable the Google Widevine CDM by default (if EME is enabled)
 /// https://developers.google.com/widevine/drm/overview
