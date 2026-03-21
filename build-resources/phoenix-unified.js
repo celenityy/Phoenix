@@ -4169,6 +4169,7 @@ pref("app.update.notifyDuringDownload", true); // [NO-ANDROID] Ensure that users
 pref("app.update.promptWaitTime", 0); // [NO-ANDROID] Immediately prompt users to update when an update is ready
 
 /// (Attempt to) Allow background browser updates without BITS [NO-ANDROID]
+// (For info on BITS: https://bugzilla.mozilla.org/show_bug.cgi?id=1540193) [NO-ANDROID]
 // NOTE: This only appears to work in automation, and doesn't apply outside of Windows, but doesn't hurt to set here [NO-ANDROID]
 // https://searchfox.org/firefox-main/rev/881a9b31/toolkit/mozapps/update/UpdateService.sys.mjs#6414 [NO-ANDROID]
 pref("app.update.background.allowDownloadsWithoutBITS", true); // [NO-ANDROID] [HIDDEN]
