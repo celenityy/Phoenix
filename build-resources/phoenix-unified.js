@@ -1196,7 +1196,7 @@ pref("security.warn_submit_secure_to_insecure", true); // [DEFAULT]
 // AFAICT this functionality is quite obscure, use is seemingly nonexistent outside of very specific environments (ex. enterprise/government).
 // Those who do actually use this functionality may also not want the browser to automatically import/expose these certificates, as they have many other uses.
 // These certificates can also still be imported in browser settings anyways, so those who do need to use this functionality still can that way.
-// So I no reason to leave this enabled by default - disabling it reduces attack surface and gives more control to users.
+// So, I see no reason to leave this enabled by default - disabling it reduces attack surface and gives more control to users.
 // (For reference, Tor Browser also disables this)
 // https://blog.mozilla.org/security/2020/04/14/expanding-client-certificates-in-firefox-75/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1637807
