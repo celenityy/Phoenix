@@ -1302,7 +1302,7 @@ pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
-pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT]
+pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT] [ESR]
 pref("media.webrtc.enable_pq_hybrid_kex", true); // [DEFAULT]
 pref("media.webrtc.send_mlkem_keyshare", true); // [DEFAULT]
 pref("network.http.http3.enable_kyber", true); // [DEFAULT]
