@@ -4168,6 +4168,11 @@ pref("app.update.badgeWaitTime", 0); // [NO-ANDROID] Immediately show badge on h
 pref("app.update.notifyDuringDownload", true); // [NO-ANDROID] Ensure that users are notified when an update is downloaded
 pref("app.update.promptWaitTime", 0); // [NO-ANDROID] Immediately prompt users to update when an update is ready
 
+/// (Attempt to) Allow background browser updates without BITS [NO-ANDROID]
+// NOTE: This only appears to work in automation, and doesn't apply outside of Windows, but doesn't hurt to set here [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/881a9b31/toolkit/mozapps/update/UpdateService.sys.mjs#6414 [NO-ANDROID]
+pref("app.update.background.allowDownloadsWithoutBITS", true); // [NO-ANDROID] [HIDDEN]
+
 /// Automatically update extensions by default
 pref("extensions.systemAddon.update.enabled", true); // [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/AddonManager.sys.mjs#1317
 pref("extensions.systemAddon.update.url", "https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml"); // [HIDDEN - Thunderbird] [DEFAULT - non-Thunderbird]
