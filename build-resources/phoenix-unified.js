@@ -488,6 +488,12 @@ pref("browser.bookmarks.restore_default_bookmarks", false, locked); // [NO-ANDRO
 pref("browser.bookmarks.testing.skipDefaultBookmarksImport", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] NOTE: This only appears to work in automation, but doesn't hurt to set anyways https://searchfox.org/firefox-main/rev/82e2435f/browser/components/places/PlacesBrowserStartup.sys.mjs#210
 pref("browser.places.importBookmarksHTML", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] This is a clever hack that effectively tricks Firefox into skipping the process of importing default bookmarks - instead it will try to import bookmarks from a HTML file that doesn't exist by default, hence, Firefox will import nothing - This is also nice to set here to expose this pref via `about:config`, as its hidden
 
+/// Disable import of Mozilla's default protocol handlers
+// (ex. Gmail, Outlook, and friends)
+// https://searchfox.org/firefox-main/rev/881a9b31/uriloader/exthandler/ExtHandlerService.sys.mjs#94
+// https://searchfox.org/firefox-main/rev/881a9b31/uriloader/exthandler/HandlerList.sys.mjs
+pref("gecko.handlerService.defaultHandlersVersion", 2147483647, locked); // [HIDDEN]
+
 /// Disable "Interest-based Content Relevance Ranking and Personalization"
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1886207
 pref("toolkit.contentRelevancy.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT]
