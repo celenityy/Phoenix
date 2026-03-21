@@ -1289,6 +1289,32 @@ pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT - non
 // https://wikipedia.org/wiki/Delegated_credential
 pref("security.tls.enable_delegated_credentials", true); // [DEFAULT]
 
+/// Enable HTTPS-First
+// This is a less-aggressive alternative to HTTPS-Only Mode
+// Sets the browser to attempt to use HTTPS for connections first, but silently fall-back if HTTPS is unavailable
+// Used if HTTPS-Only Mode is disabled
+// https://support.mozilla.org/kb/https-first
+pref("dom.security.https_first", true); // [DEFAULT]
+pref("dom.security.https_first_add_exception_on_failure", false); // Prevent automatically exempting domains, so that HTTPS-First is always tried no matter what
+pref("dom.security.https_first_for_custom_ports", true);
+pref("dom.security.https_first_for_local_addresses", true);
+pref("dom.security.https_first_for_unknown_suffixes", true);
+pref("dom.security.https_first_pbm", true); // [DEFAULT]
+pref("dom.security.https_first_schemeless", true); // [DEFAULT]
+
+/// Enable HTTPS-Only Mode
+// Enforces the use of HTTPS for connections, and warns the user if HTTPS is unavailable
+// https://support.mozilla.org/kb/https-only-prefs
+// NOTE: Locked on Desktop due to being a critical privacy and security feature,
+// but we won't lock it for Android/Thunderbird, as it's unfortunately not possible to add exceptions there
+// https://gitlab.com/ironfox-oss/IronFox/-/issues/48
+pref("dom.security.https_only_mode", true);
+pref("dom.security.https_only_mode", true, locked); // [NO-ANDROID] [NO-MAIL]
+pref("dom.security.https_only_mode.upgrade_local", true); // Enforce HTTPS-Only Mode for local requests
+pref("dom.security.https_only_mode_pbm", true);
+pref("dom.security.https_only_mode_pbm", true, locked); // [NO-ANDROID] [NO-MAIL]
+pref("dom.security.https_only_mode_error_page_user_suggestions", true); // Show suggestions when an HTTPS page can not be found - ex. if 'example.com' is insecure, the browser may suggest trying to connect to 'www.example.com' instead
+
 /// Enable MITM Detection
 // https://github.com/arkenfox/user.js/issues/740
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1529643
@@ -1323,26 +1349,6 @@ pref("security.cert_pinning.enforcement_level", 2);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1576790
 pref("security.tls.hello_downgrade_check", true); // [DEFAULT]
 
-/// Enforce using HTTPS as much as possible
-pref("dom.securecontext.allowlist", ""); // [HIDDEN] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsMixedContentBlocker.cpp#270
-pref("dom.security.https_first", true); // [DEFAULT]
-pref("dom.security.https_first_for_custom_ports", true);
-pref("dom.security.https_first_for_local_addresses", true);
-pref("dom.security.https_first_for_unknown_suffixes", true);
-pref("dom.security.https_first_pbm", true); // [DEFAULT]
-pref("dom.security.https_first_schemeless", true); // [DEFAULT]
-pref("dom.security.https_only_mode", true);
-pref("dom.security.https_only_mode", true, locked); // [NO-ANDROID] [NO-MAIL] Locked for Desktop due to being a critical privacy/security feature, but not locked for Android/Thunderbird since it's unfortunately not yet possible to add exceptions there - https://gitlab.com/ironfox-oss/IronFox/-/issues/48
-pref("dom.security.https_only_mode.upgrade_local", true);
-pref("dom.security.https_only_mode_pbm", true);
-pref("dom.security.https_only_mode_pbm", true, locked); // [NO-ANDROID] [NO-MAIL] Locked for Desktop due to being a critical privacy/security feature, but not locked for Android/Thunderbird since it's unfortunately not yet possible to add exceptions there - https://gitlab.com/ironfox-oss/IronFox/-/issues/48
-pref("security.mixed_content.block_active_content", true); // [DEFAULT - non-Thunderbird]
-pref("security.mixed_content.block_display_content", false); // [DEFAULT] Unnecessary with the "security.mixed_content.upgrade_display_content" pref - "security.mixed_content.upgrade_display_content" tries to upgrade mixed content by default and still blocks it if fails, this pref ("security.mixed_content.block_display_content") just blocks all mixed content entirely, causing unnecessary breakage for users. https://github.com/mozilla/policy-templates/issues/1141
-pref("security.mixed_content.upgrade_display_content", true); // [DEFAULT]
-pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT]
-pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT]
-pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT]
-
 /// Ensure that the browser omits credentials when making network requests by default
 // https://searchfox.org/firefox-main/rev/4dad4a9a/modules/libpref/init/StaticPrefList.yaml#13568
 pref("network.fetch.systemDefaultsToOmittingCredentials", true); // [DEFAULT]
@@ -1350,9 +1356,6 @@ pref("network.fetch.systemDefaultsToOmittingCredentials", true); // [DEFAULT]
 /// Ensure we use the HSTS preload list
 // https://searchfox.org/firefox-main/rev/82e2435f/security/manager/ssl/nsSiteSecurityService.cpp#799
 pref("network.stricttransportsecurity.preloadlist", true); // [DEFAULT]
-
-/// If HTTPS-Only Mode is disabled in favor of HTTPS-First, prevent automatically exempting domains (to ensure we always try HTTPS first...)
-pref("dom.security.https_first_add_exception_on_failure", false);
 
 /// Only allow certificate error exceptions per-session
 pref("security.certerrors.permanentOverride", false); // [HIDDEN - Android/Thunderbird]
@@ -1368,9 +1371,13 @@ pref("security.ssl.require_safe_negotiation", true);
 /// Show detailed information on insecure warning pages
 pref("browser.xul.error_pages.expert_bad_cert", true);
 
-/// Show suggestions when an HTTPS page can not be found 
-// Ex. If 'example.com' isn't secure, it may suggest 'www.example.com'
-pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+/// Upgrade Mixed Content
+// These pertain to handling insecure (HTTP) content in secure (HTTPS) contexts
+// https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
+pref("dom.securecontext.allowlist", ""); // [HIDDEN] [DEFAULT] This can be used for adding exceptions: https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsMixedContentBlocker.cpp#270
+pref("security.mixed_content.block_active_content", true); // [DEFAULT - non-Thunderbird]
+pref("security.mixed_content.block_display_content", false); // [DEFAULT] Unnecessary with the "security.mixed_content.upgrade_display_content" pref - that pref tries to upgrade mixed content by default and still blocks it if fails, this pref just blocks all mixed content entirely, causing unnecessary breakage for users: https://github.com/mozilla/policy-templates/issues/1141
+pref("security.mixed_content.upgrade_display_content", true); // [DEFAULT]
 
 pref("browser.phoenix.status", "007");
 
