@@ -457,7 +457,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_ANDROID_PREFS}" "${PHOENIX_TEMP}/android.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_ANDROID_PREFS}" "${PHOENIX_TEMP}/android.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/android.cfg" "${PHOENIX_ANDROID_USER_PREF_CFG}" > "${PHOENIX_ANDROID_CFG}" || error_fn
     echo
@@ -473,7 +473,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTENDED_ANDROID_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTENDED_ANDROID_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -493,7 +493,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
             cat "${PHOENIX_ANDROID_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_ANDROID}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
             echo
         fi
 
@@ -501,7 +501,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_ANDROID}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
             echo
         fi
     fi
@@ -719,7 +719,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_PREFS}" "${PHOENIX_TEMP}/linux.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_PREFS}" "${PHOENIX_TEMP}/linux.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/linux.cfg" "${PHOENIX_LINUX_USER_PREF_CFG}" > "${PHOENIX_LINUX_CFG}" || error_fn
     echo
@@ -745,7 +745,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTENDED_LINUX_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTENDED_LINUX_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -765,7 +765,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
             cat "${PHOENIX_LINUX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
             echo
         fi
 
@@ -773,7 +773,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
             echo
         fi
     fi
@@ -987,7 +987,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_TEMP}/linux-flatpak.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_TEMP}/linux-flatpak.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/linux-flatpak.cfg" "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" > "${PHOENIX_LINUX_FLATPAK_CFG}" || error_fn
     echo
@@ -1013,7 +1013,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTENDED_LINUX_FLATPAK_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTENDED_LINUX_FLATPAK_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1033,7 +1033,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
             cat "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX_FLATPAK}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
             echo
         fi
 
@@ -1041,7 +1041,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX_FLATPAK}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
             echo
         fi
     fi
@@ -1268,7 +1268,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_PREFS}" "${PHOENIX_TEMP}/osx.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_PREFS}" "${PHOENIX_TEMP}/osx.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/osx.cfg" "${PHOENIX_OSX_USER_PREF_CFG}" > "${PHOENIX_OSX_CFG}" || error_fn
     echo
@@ -1294,7 +1294,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTENDED_OSX_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTENDED_OSX_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1314,7 +1314,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
             cat "${PHOENIX_OSX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX}.cfg" || error_fn
             echo
         fi
 
@@ -1322,7 +1322,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX}.cfg" || error_fn
             echo
         fi
     fi
@@ -1547,7 +1547,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_TEMP}/osx-intel.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_TEMP}/osx-intel.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/osx-intel.cfg" "${PHOENIX_OSX_INTEL_USER_PREF_CFG}" > "${PHOENIX_OSX_INTEL_CFG}" || error_fn
     echo
@@ -1573,7 +1573,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTENDED_OSX_INTEL_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTENDED_OSX_INTEL_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1593,7 +1593,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
             cat "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX_INTEL}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
             echo
         fi
 
@@ -1601,7 +1601,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX_INTEL}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
             echo
         fi
     fi
@@ -1730,7 +1730,7 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
     echo
 
     # Create .cfg files
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_TEMP}/windows.cfg" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_TEMP}/windows.cfg" || error_fn
     echo
     cat "${PHOENIX_TEMP}/windows.cfg" "${PHOENIX_WINDOWS_USER_PREF_CFG}" > "${PHOENIX_WINDOWS_CFG}" || error_fn
     echo
@@ -1756,7 +1756,7 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
         echo
 
         # Create .cfg file
-        python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTENDED_WINDOWS_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTENDED_WINDOWS_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1776,14 +1776,14 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
             cat "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_WINDOWS}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS}.cfg"
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS}.cfg"
         fi
 
         if [ "${PHOENIX_EXTENDED}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_WINDOWS}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" || error_fn
             echo
 
-            python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS}.cfg"
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS}.cfg"
         fi
     fi
 
@@ -1808,7 +1808,7 @@ fi
 # SPECIALIZED CONFIGS
 if [ "${PHOENIX_SPECS}" == 1 ]; then
 
-    python3 "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_UNIFIED_PREFS}" "${PHOENIX_EXTENDED_UNIFIED_CFG}" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_UNIFIED_PREFS}" "${PHOENIX_EXTENDED_UNIFIED_CFG}" || error_fn
     echo
 
     cat "${PHOENIX_EXTENDED_UNIFIED_CFG}" "${PHOENIX_SPECIALIZED_UNIFIED_CFG}" "${PHOENIX_SPECIALIZED_UNIFIED_APPLE_MAPS_CFG}" > "${PHOENIX_SPECIALIZED_APPLE_MAPS_CFG}" || error_fn
@@ -2573,7 +2573,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
         echo
     fi
 
-    python3 "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${PHOENIX_OSX_POLICIES_JSON}" "${PHOENIX_OSX_POLICIES_PLIST}" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${PHOENIX_OSX_POLICIES_JSON}" "${PHOENIX_OSX_POLICIES_PLIST}" || error_fn
     echo
 
     if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == 1 ]; then
@@ -2608,7 +2608,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
         echo
     fi
 
-    python3 "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${PHOENIX_OSX_INTEL_POLICIES_JSON}" "${PHOENIX_OSX_INTEL_POLICIES_PLIST}" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${PHOENIX_OSX_INTEL_POLICIES_JSON}" "${PHOENIX_OSX_INTEL_POLICIES_PLIST}" || error_fn
     echo
 
     if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == 1 ]; then

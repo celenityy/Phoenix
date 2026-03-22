@@ -134,6 +134,16 @@ if [[ -z "${PHOENIX_TAR+x}" ]]; then
     export PHOENIX_TAR="${PHOENIX_TAR_DEFAULT}"
 fi
 
+# Python
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+    readonly PHOENIX_PYTHON_DEFAULT='/opt/homebrew/bin/python'
+else
+    readonly PHOENIX_PYTHON_DEFAULT='/usr/bin/python'
+fi
+if [[ -z "${PHOENIX_PYTHON+x}" ]]; then
+    export PHOENIX_PYTHON="${PHOENIX_PYTHON_DEFAULT}"
+fi
+
 # Whether we're ONLY building Phoenix for Android
 readonly PHOENIX_ANDROID_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_ANDROID_ONLY+x}" ]]; then
