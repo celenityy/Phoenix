@@ -55,7 +55,7 @@ if [[ -z "${PHOENIX_BUILD+x}" ]]; then
 fi
 
 # Temporary build directory
-readonly export PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
+export PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
 
 # Build resources directory
 readonly export PHOENIX_BUILD_RESOURCES="${PHOENIX_ROOT}/build-resources"
