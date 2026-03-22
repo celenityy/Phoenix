@@ -8,7 +8,7 @@
 
 # If variables are defined with a custom `env_override.sh` file (located at the root project directory), let's use those
 ## These need to be set first, to ensure that they don't interfere with certain variables
-PHOENIX_ENV_OVERRIDE="${PHOENIX_ROOT}/env_override.sh"
+readonly PHOENIX_ENV_OVERRIDE="${PHOENIX_ROOT}/env_override.sh"
 if [[ -f "${PHOENIX_ENV_OVERRIDE}" ]]; then
     source "${PHOENIX_ENV_OVERRIDE}"
 fi
@@ -16,14 +16,14 @@ fi
 # Phoenix
 
 # Scripts directory
-export PHOENIX_SCRIPTS="${PHOENIX_ROOT}/scripts"
+readonly export PHOENIX_SCRIPTS="${PHOENIX_ROOT}/scripts"
 
 # Set our platform, OS, and architecture
-export PHOENIX_ENV_HELPERS="${PHOENIX_SCRIPTS}/env_helpers.sh"
+readonly export PHOENIX_ENV_HELPERS="${PHOENIX_SCRIPTS}/env_helpers.sh"
 source "${PHOENIX_ENV_HELPERS}"
 
 # Whether we're being invoked from a Nix flake
-PHOENIX_NIX_DEFAULT=0
+readonly PHOENIX_NIX_DEFAULT=0
 if [[ -z "${PHOENIX_NIX+x}" ]]; then
     export PHOENIX_NIX="${PHOENIX_NIX_DEFAULT}"
 fi
@@ -38,13 +38,13 @@ if [ "${PHOENIX_NIX}" == 1 ]; then
 fi
 
 # Version info
-export PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
+readonly export PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
 
 # Archives directory
-export PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
+readonly export PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
 
 # Build directory
-PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
+readonly PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
 if [[ -z "${PHOENIX_BUILD+x}" ]]; then
     if [ "${PHOENIX_NIX}" == 1 ]; then
         # Nix needs to use /tmp here, see https://codeberg.org/celenity/Dove/issues/59
@@ -55,70 +55,70 @@ if [[ -z "${PHOENIX_BUILD+x}" ]]; then
 fi
 
 # Temporary build directory
-export PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
+readonly export PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
 
 # Build resources directory
-export PHOENIX_BUILD_RESOURCES="${PHOENIX_ROOT}/build-resources"
+readonly export PHOENIX_BUILD_RESOURCES="${PHOENIX_ROOT}/build-resources"
 
 # Phoenix outputs directory
-PHOENIX_OUTPUTS_DEFAULT="${PHOENIX_ROOT}"
+readonly PHOENIX_OUTPUTS_DEFAULT="${PHOENIX_ROOT}"
 if [[ -z "${PHOENIX_OUTPUTS+x}" ]]; then
     export PHOENIX_OUTPUTS="${PHOENIX_OUTPUTS_DEFAULT}"
 fi
 
 # Android outputs directory
-PHOENIX_ANDROID_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/android"
+readonly PHOENIX_ANDROID_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/android"
 if [[ -z "${PHOENIX_ANDROID_OUTPUTS+x}" ]]; then
     export PHOENIX_ANDROID_OUTPUTS="${PHOENIX_ANDROID_OUTPUTS_DEFAULT}"
 fi
 
 # Linux outputs directory
-PHOENIX_LINUX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux"
+readonly PHOENIX_LINUX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux"
 if [[ -z "${PHOENIX_LINUX_OUTPUTS+x}" ]]; then
     export PHOENIX_LINUX_OUTPUTS="${PHOENIX_LINUX_OUTPUTS_DEFAULT}"
 fi
 
 ## Linux (Flatpak) outputs directory
-PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux-flatpak"
+readonly PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux-flatpak"
 if [[ -z "${PHOENIX_LINUX_FLATPAK_OUTPUTS+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK_OUTPUTS="${PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT}"
 fi
 
 # OS X outputs directory
-PHOENIX_OSX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx"
+readonly PHOENIX_OSX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx"
 if [[ -z "${PHOENIX_OSX_OUTPUTS+x}" ]]; then
     export PHOENIX_OSX_OUTPUTS="${PHOENIX_OSX_OUTPUTS_DEFAULT}"
 fi
 
 ## OS X (Intel) outputs directory
-PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx-intel"
+readonly PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx-intel"
 if [[ -z "${PHOENIX_OSX_INTEL_OUTPUTS+x}" ]]; then
     export PHOENIX_OSX_INTEL_OUTPUTS="${PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT}"
 fi
 
 # Windows outputs directory
-PHOENIX_WINDOWS_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/windows"
+readonly PHOENIX_WINDOWS_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/windows"
 if [[ -z "${PHOENIX_WINDOWS_OUTPUTS+x}" ]]; then
     export PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_WINDOWS_OUTPUTS_DEFAULT}"
 fi
 
 # Should we create a build log file? (Default)
-PHOENIX_LOG_BUILD_DEFAULT=1
+readonly PHOENIX_LOG_BUILD_DEFAULT=1
 if [[ -z "${PHOENIX_LOG_BUILD+x}" ]]; then
     export PHOENIX_LOG_BUILD="${PHOENIX_LOG_BUILD_DEFAULT}"
 fi
 
 # Directory where we should store log files (if logging is desired)
-PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
+readonly PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
 if [[ -z "${PHOENIX_LOG_DIR+x}" ]]; then
     export PHOENIX_LOG_DIR="${PHOENIX_LOG_DIR_DEFAULT}"
 fi
 
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    PHOENIX_SED_DEFAULT='gsed'
+    readonly PHOENIX_SED_DEFAULT='gsed'
 else
-    PHOENIX_SED_DEFAULT='sed'
+    readonly PHOENIX_SED_DEFAULT='sed'
 fi
 if [[ -z "${PHOENIX_SED+x}" ]]; then
     export PHOENIX_SED="${PHOENIX_SED_DEFAULT}"
@@ -126,16 +126,16 @@ fi
 
 # GNU tar
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    PHOENIX_TAR_DEFAULT='gtar'
+    readonly PHOENIX_TAR_DEFAULT='gtar'
 else
-    PHOENIX_TAR_DEFAULT='tar'
+    readonly PHOENIX_TAR_DEFAULT='tar'
 fi
 if [[ -z "${PHOENIX_TAR+x}" ]]; then
     export PHOENIX_TAR="${PHOENIX_TAR_DEFAULT}"
 fi
 
 # Whether we're ONLY building Phoenix for Android
-PHOENIX_ANDROID_ONLY_DEFAULT=0
+readonly PHOENIX_ANDROID_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_ANDROID_ONLY+x}" ]]; then
     export PHOENIX_ANDROID_ONLY="${PHOENIX_ANDROID_ONLY_DEFAULT}"
 fi
@@ -152,7 +152,7 @@ if [ "${PHOENIX_ANDROID_ONLY}" == 1 ]; then
 fi
 
 # Whether we're ONLY building Phoenix for Linux
-PHOENIX_LINUX_ONLY_DEFAULT=0
+readonly PHOENIX_LINUX_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
     export PHOENIX_LINUX_ONLY="${PHOENIX_LINUX_ONLY_DEFAULT}"
 fi
@@ -166,7 +166,7 @@ if [ "${PHOENIX_LINUX_ONLY}" == 1 ]; then
 fi
 
 # Whether we're ONLY building Phoenix for Linux (Flatpak)
-PHOENIX_LINUX_FLATPAK_ONLY_DEFAULT=0
+readonly PHOENIX_LINUX_FLATPAK_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_LINUX_FLATPAK_ONLY+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK_ONLY="${PHOENIX_LINUX_FLATPAK_ONLY_DEFAULT}"
 fi
@@ -180,7 +180,7 @@ if [ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]; then
 fi
 
 # Whether we're ONLY building Phoenix for OS X
-PHOENIX_OSX_ONLY_DEFAULT=0
+readonly PHOENIX_OSX_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
     export PHOENIX_OSX_ONLY="${PHOENIX_OSX_ONLY_DEFAULT}"
 fi
@@ -194,7 +194,7 @@ if [ "${PHOENIX_OSX_ONLY}" == 1 ]; then
 fi
 
 # Whether we're ONLY building Phoenix for OS X (Intel)
-PHOENIX_OSX_INTEL_ONLY_DEFAULT=0
+readonly PHOENIX_OSX_INTEL_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_OSX_INTEL_ONLY+x}" ]]; then
     export PHOENIX_OSX_INTEL_ONLY="${PHOENIX_OSX_INTEL_ONLY_DEFAULT}"
 fi
@@ -208,7 +208,7 @@ if [ "${PHOENIX_OSX_INTEL_ONLY}" == 1 ]; then
 fi
 
 # Whether we're ONLY building Phoenix for Windows
-PHOENIX_WINDOWS_ONLY_DEFAULT=0
+readonly PHOENIX_WINDOWS_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_WINDOWS_ONLY+x}" ]]; then
     export PHOENIX_WINDOWS_ONLY="${PHOENIX_WINDOWS_ONLY_DEFAULT}"
 fi
@@ -222,7 +222,7 @@ if [ "${PHOENIX_WINDOWS_ONLY}" == 1 ]; then
 fi
 
 # Whether we're building Phoenix for Android (Default)
-PHOENIX_ANDROID_DEFAULT=1
+readonly PHOENIX_ANDROID_DEFAULT=1
 if [ "${PHOENIX_NIX}" == 1 ]; then
     # This makes absolutely no sense for Nix - ensure we never try to build Android there
     export PHOENIX_ANDROID=0
@@ -231,31 +231,31 @@ elif [[ -z "${PHOENIX_ANDROID+x}" ]]; then
 fi
 
 # Whether we're building Phoenix for Linux (Default)
-PHOENIX_LINUX_DEFAULT=1
+readonly PHOENIX_LINUX_DEFAULT=1
 if [[ -z "${PHOENIX_LINUX+x}" ]]; then
     export PHOENIX_LINUX="${PHOENIX_LINUX_DEFAULT}"
 fi
 
 # Whether we're building Phoenix for Linux (Flatpak) (Default)
-PHOENIX_LINUX_FLATPAK_DEFAULT=1
+readonly PHOENIX_LINUX_FLATPAK_DEFAULT=1
 if [[ -z "${PHOENIX_LINUX_FLATPAK+x}" ]]; then
     export PHOENIX_LINUX_FLATPAK="${PHOENIX_LINUX_FLATPAK_DEFAULT}"
 fi
 
 # Whether we're building Phoenix for OS X (Default)
-PHOENIX_OSX_DEFAULT=1
+readonly PHOENIX_OSX_DEFAULT=1
 if [[ -z "${PHOENIX_OSX+x}" ]]; then
     export PHOENIX_OSX="${PHOENIX_OSX_DEFAULT}"
 fi
 
 # Whether we're building Phoenix for OS X (Intel) (Default)
-PHOENIX_OSX_INTEL_DEFAULT=1
+readonly PHOENIX_OSX_INTEL_DEFAULT=1
 if [[ -z "${PHOENIX_OSX_INTEL+x}" ]]; then
     export PHOENIX_OSX_INTEL="${PHOENIX_OSX_INTEL_DEFAULT}"
 fi
 
 # Whether we're building Phoenix for Windows (Default)
-PHOENIX_WINDOWS_DEFAULT=1
+readonly PHOENIX_WINDOWS_DEFAULT=1
 if [ "${PHOENIX_NIX}" == 1 ]; then
     # This makes absolutely no sense for Nix - ensure we never try to build Windows there
     export PHOENIX_WINDOWS=0
@@ -265,13 +265,13 @@ fi
 
 # Whether we should exclude "NO-MAIL" preferences when building Phoenix
 ## (ex. for Dove)
-PHOENIX_MAIL_DEFAULT=0
+readonly PHOENIX_MAIL_DEFAULT=0
 if [[ -z "${PHOENIX_MAIL+x}" ]]; then
     export PHOENIX_MAIL="${PHOENIX_MAIL_DEFAULT}"
 fi
 
 # Whether we should ONLY build Phoenix standard
-PHOENIX_STANDARD_ONLY_DEFAULT=0
+readonly PHOENIX_STANDARD_ONLY_DEFAULT=0
 if [[ -z "${PHOENIX_STANDARD_ONLY+x}" ]]; then
     export PHOENIX_STANDARD_ONLY="${PHOENIX_STANDARD_ONLY_DEFAULT}"
 fi
@@ -281,7 +281,7 @@ if [ "${PHOENIX_STANDARD_ONLY}" == 1 ]; then
 fi
 
 # Whether we should ONLY build Phoenix extended
-PHOENIX_EXTENDED_ONLY_DEFAULT=0
+readonly PHOENIX_EXTENDED_ONLY_DEFAULT=0
 if [ "${PHOENIX_MAIL}" == 1 ]; then
     # Mail only wants/needs extended
     export PHOENIX_EXTENDED_ONLY=1
@@ -294,19 +294,19 @@ if [ "${PHOENIX_EXTENDED_ONLY}" == 1 ]; then
 fi
 
 # Whether we should build Phoenix standard (Default)
-PHOENIX_STANDARD_DEFAULT=1
+readonly PHOENIX_STANDARD_DEFAULT=1
 if [[ -z "${PHOENIX_STANDARD+x}" ]]; then
     export PHOENIX_STANDARD="${PHOENIX_STANDARD_DEFAULT}"
 fi
 
 # Whether we should build Phoenix extended (Default)
-PHOENIX_EXTENDED_DEFAULT=1
+readonly PHOENIX_EXTENDED_DEFAULT=1
 if [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
     export PHOENIX_EXTENDED="${PHOENIX_EXTENDED_DEFAULT}"
 fi
 
 # Whether we should build Phoenix's specialized configs (Default)
-PHOENIX_SPECS_DEFAULT=1
+readonly PHOENIX_SPECS_DEFAULT=1
 if [ "${PHOENIX_MAIL}" == 1 ]; then
     # Mail never wants or need specialized configs
     export PHOENIX_SPECS=0
@@ -316,13 +316,13 @@ fi
 
 # Whether we should append contents of an additional .cfg file
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
-PHOENIX_EXTRA_CFG_DEFAULT=0
+readonly PHOENIX_EXTRA_CFG_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_CFG+x}" ]]; then
     export PHOENIX_EXTRA_CFG="${PHOENIX_EXTRA_CFG_DEFAULT}"
 fi
 
 ## This points to the location of the .cfg file that we should append the contents of
-PHOENIX_EXTRA_CFG_FILE_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_CFG_FILE_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_CFG}" != 1 ] || [ -z "${PHOENIX_EXTRA_CFG_FILE+x}" ]; then
     export PHOENIX_EXTRA_CFG_FILE="${PHOENIX_EXTRA_CFG_FILE_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_CFG_FILE+x}" ]]; then
@@ -330,7 +330,7 @@ elif [[ -f "${PHOENIX_EXTRA_CFG_FILE+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_CFG_OUTPUT_DIR_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_CFG_OUTPUT_DIR_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_CFG}" != 1 ] || [ -z "${PHOENIX_EXTRA_CFG_OUTPUT_DIR+x}" ]; then
     export PHOENIX_EXTRA_CFG_OUTPUT_DIR="${PHOENIX_EXTRA_CFG_OUTPUT_DIR_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_CFG_OUTPUT_DIR+x}" ]]; then
@@ -339,13 +339,13 @@ fi
 
 # Whether we should append contents of an additional .js prefs file
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
-PHOENIX_EXTRA_PREFS_JS_DEFAULT=0
+readonly PHOENIX_EXTRA_PREFS_JS_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_PREFS_JS+x}" ]]; then
     export PHOENIX_EXTRA_PREFS_JS="${PHOENIX_EXTRA_PREFS_JS_DEFAULT}"
 fi
 
 ## This points to the location of the .cfg file that we should append the contents of
-PHOENIX_EXTRA_PREFS_JS_FILE_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_PREFS_JS_FILE_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_PREFS_JS}" != 1 ] || [ -z "${PHOENIX_EXTRA_PREFS_JS_FILE+x}" ]; then
     export PHOENIX_EXTRA_PREFS_JS_FILE="${PHOENIX_EXTRA_PREFS_JS_FILE_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_PREFS_JS_FILE+x}" ]]; then
@@ -353,7 +353,7 @@ elif [[ -f "${PHOENIX_EXTRA_PREFS_JS_FILE+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_PREFS_JS}" != 1 ] || [ -z "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR+x}" ]; then
     export PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR="${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR+x}" ]]; then
@@ -361,11 +361,11 @@ elif [[ -d "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR+x}" ]]; then
 fi
 
 ## What should we name our output files?
-PHOENIX_EXTRA_OUTPUT_FILENAME_DEFAULT='phoenix'
+readonly PHOENIX_EXTRA_OUTPUT_FILENAME_DEFAULT='phoenix'
 if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME+x}" ]]; then
     export PHOENIX_EXTRA_OUTPUT_FILENAME="${PHOENIX_EXTRA_OUTPUT_FILENAME_DEFAULT}"
 fi
-PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_DEFAULT='phoenix-extended'
+readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_DEFAULT='phoenix-extended'
 if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME+x}" ]]; then
     export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_DEFAULT}"
 fi
@@ -432,13 +432,13 @@ fi
 
 # Whether we should append contents of an additional policies.json file
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional policies
-PHOENIX_EXTRA_POLICIES_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES="${PHOENIX_EXTRA_POLICIES_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE="${PHOENIX_EXTRA_POLICIES_FILE_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE+x}" ]]; then
@@ -446,13 +446,13 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for Android only
-PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_ANDROID="${PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_ANDROID_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_ANDROID_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_ANDROID="${PHOENIX_EXTRA_POLICIES_FILE_ANDROID_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID+x}" ]]; then
@@ -460,7 +460,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID+x}" ]]; then
@@ -468,13 +468,13 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for Linux only
-PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_LINUX="${PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_LINUX_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_LINUX}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_LINUX="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX+x}" ]]; then
@@ -482,13 +482,13 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for Linux (non-Flatpak) only
-PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK+x}" ]]; then
@@ -496,7 +496,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK+x}" ]]; then
@@ -504,13 +504,13 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for Linux (Flatpak) only
-PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK+x}" ]]; then
@@ -518,7 +518,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK+x}" ]]; then
@@ -526,13 +526,13 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for OS X only
-PHOENIX_EXTRA_POLICIES_OSX_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_OSX_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_OSX="${PHOENIX_EXTRA_POLICIES_OSX_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_OSX_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_OSX}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_OSX="${PHOENIX_EXTRA_POLICIES_FILE_OSX_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX+x}" ]]; then
@@ -540,13 +540,13 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for OS X (Apple Silicon) only
-PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON+x}" ]]; then
@@ -554,7 +554,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON+x}" ]]; then
@@ -562,13 +562,13 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for OS X (Intel) only
-PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL+x}" ]]; then
@@ -576,7 +576,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL+x}" ]]; then
@@ -584,13 +584,13 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL+x}" ]]; then
 fi
 
 # Whether we should append contents of an additional policies.json file for Windows only
-PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT=0
+readonly PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT=0
 if [[ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_WINDOWS="${PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT}"
 fi
 
 ## This points to the location of the policies.json file that we should append the contents of
-PHOENIX_EXTRA_POLICIES_FILE_WINDOWS_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_FILE_WINDOWS_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_FILE_WINDOWS="${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS_DEFAULT}"
 elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS+x}" ]]; then
@@ -598,7 +598,7 @@ elif [[ -f "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS+x}" ]]; then
 fi
 
 ## This points to the directory where we should put our (final) output files
-PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS_DEFAULT='undefined'
+readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS_DEFAULT='undefined'
 if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS+x}" ]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS_DEFAULT}"
 elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS+x}" ]]; then

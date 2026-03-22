@@ -18,10 +18,10 @@ rm -rf "${PHOENIX_ARCHIVES}/*" || error_fn
 echo
 
 # dot_clean for OS X
-PHOENIX_DOT_CLEAN='/usr/sbin/dot_clean -mv'
+readonly PHOENIX_DOT_CLEAN='/usr/sbin/dot_clean -mv'
 
 # zip
-PHOENIX_ZIP='zip -r -FS'
+readonly PHOENIX_ZIP='zip -r -FS'
 
 if [ "${PHOENIX_LINUX}" == 1 ]; then
     if [[ "${PHOENIX_OS}" == 'osx' ]]; then

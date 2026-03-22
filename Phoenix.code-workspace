@@ -36,6 +36,10 @@
 			"name": "pkgbuilds",
 			"path": "../pkgbuilds"
 		},
+        {
+			"name": "scoop",
+			"path": "../scoop"
+		},
 		{
 			"name": "tap",
 			"path": "../tap"
