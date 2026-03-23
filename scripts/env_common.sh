@@ -102,7 +102,7 @@ if [[ -z "${PHOENIX_WINDOWS_OUTPUTS+x}" ]]; then
     export PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_WINDOWS_OUTPUTS_DEFAULT}"
 fi
 
-# Should we create a build log file? (Default)
+# Should we create a log file for build.sh? (Default)
 readonly PHOENIX_LOG_BUILD_DEFAULT=1
 if [[ -z "${PHOENIX_LOG_BUILD+x}" ]]; then
     export PHOENIX_LOG_BUILD="${PHOENIX_LOG_BUILD_DEFAULT}"
@@ -615,3 +615,6 @@ elif [[ -d "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS+x}" ]]; then
     export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}"
 fi
 
+# Set our external environment variables
+readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"
+source "${PHOENIX_ENV_EXTERNAL}"
