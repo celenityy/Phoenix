@@ -849,11 +849,11 @@ pref("javascript.options.use_fdlibm_for_sin_cos_tan", true); // [DEFAULT - non-W
 // Matches with RFP & prevents exposing system theme
 pref("layout.css.prefers-color-scheme.content-override", 1);
 
-/// Ensure user agent is always set to Firefox
-// NOTE: This appears to be broken on Thunderbird; it causes both Thunderbird AND Firefox to be reported in the user agent...
-// Primarily useful for ex. users of forks, and serves as defense in depth regardless
-// Prevents fingerprinting and ensures we avoid compatibility issues
-// https://searchfox.org/firefox-main/rev/83d1a08d/netwerk/protocol/http/nsHttpHandler.cpp#1059
+/// Ensure user agent is always set to Firefox [NO-MAIL]
+// NOTE: This appears to be broken on Thunderbird; it causes both Thunderbird AND Firefox to be reported in the user agent... [NO-MAIL]
+// Primarily useful for ex. users of forks, and serves as defense in depth regardless [NO-MAIL]
+// Prevents fingerprinting and ensures we avoid compatibility issues [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/83d1a08d/netwerk/protocol/http/nsHttpHandler.cpp#1059 [NO-MAIL]
 pref("general.useragent.compatMode.firefox", true); // [NO-MAIL]
 
 /// Ensure we use the standard Noto Color Emoji font by default (instead of ex. Samsung's if available) [ANDROID-ONLY]
