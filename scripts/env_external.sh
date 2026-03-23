@@ -12,11 +12,15 @@
 ## https://docs.python.org/3/using/cmdline.html#environment-variables
 
 ## Disable JIT
-readonly export PYTHON_JIT=0
-readonly export PYTHON_PERF_JIT_SUPPORT=0
+readonly PYTHON_JIT=0
+readonly PYTHON_PERF_JIT_SUPPORT=0
+export PYTHON_JIT
+export PYTHON_PERF_JIT_SUPPORT
 
 ## Disable remote debugging
-readonly export PYTHON_DISABLE_REMOTE_DEBUG=1
+readonly PYTHON_DISABLE_REMOTE_DEBUG=1
+export PYTHON_DISABLE_REMOTE_DEBUG
 
 ## Enable performance optimizations
-readonly export PYTHONOPTIMIZE=1
+readonly PYTHONOPTIMIZE=1
+export PYTHONOPTIMIZE

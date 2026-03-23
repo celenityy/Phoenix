@@ -11,11 +11,15 @@ if [[ ! -f "$(dirname $0)/env_local.sh" ]]; then
     # Write env_local.sh
     echo "Writing ${ENV_LOCAL}..."
     cat > "${ENV_LOCAL}" << EOF
-readonly export PHOENIX_ROOT="${ROOT}"
+readonly PHOENIX_ROOT="${ROOT}"
+export PHOENIX_ROOT
 
 source "\${PHOENIX_ROOT}/scripts/env_common.sh"
 EOF
 fi
 
-source "$(dirname $0)/env_local.sh"
+if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
+    source "$(dirname $0)/env_local.sh"
+fi
+
 source "$(dirname $0)/utilities.sh"

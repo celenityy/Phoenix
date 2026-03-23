@@ -3,16 +3,21 @@
 set -euo pipefail
 
 # Set-up our environment
-bash -x $(dirname $0)/env.sh || error_fn
-echo
+if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
+    bash -x $(dirname $0)/env.sh || error_fn
+    echo
+fi
 source $(dirname $0)/env.sh || error_fn
 echo
 
 pushd "${PHOENIX_ROOT}" || error_fn
 echo
 
+# Build Phoenix
+readonly PHOENIX_FROM_BUILD=1
+export PHOENIX_FROM_BUILD
 if [ "${PHOENIX_LOG_BUILD}" == 1 ]; then
-    BUILD_LOG_FILE="${PHOENIX_LOG_DIR}/build.log"
+    readonly BUILD_LOG_FILE="${PHOENIX_LOG_DIR}/build.log"
 
     # If the log file already exists, remove it
     if [ -f "${BUILD_LOG_FILE}" ]; then
