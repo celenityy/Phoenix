@@ -6,10 +6,6 @@ set -euo pipefail
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 # Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-    bash -x $(dirname $0)/env.sh || error_fn
-    echo
-fi
 source $(dirname $0)/env.sh || error_fn
 echo
 
