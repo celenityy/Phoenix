@@ -4016,6 +4016,10 @@ pref("browser.compactmode.show", true); // [NO-ANDROID] [NO-MAIL]
 /// Display a spinning animation while websites are loading [NO-ANDROID] [NO-MAIL]
 pref("browser.spin_cursor_while_busy", true); // [NO-ANDROID] [NO-MAIL]
 
+/// Display supported media codecs/capabilities at `about:support` by default
+// https://searchfox.org/firefox-release/rev/70f5597c/toolkit/content/aboutSupport.js#1044
+pref("media.mediacapabilities.from-database", true); // [DEFAULT - Nightly]
+
 /// Do not close the browser window if all tabs are closed by default [NO-ANDROID] [NO-MAIL]
 pref("browser.tabs.closeWindowWithLastTab", false); // [NO-ANDROID] [NO-MAIL]
 
