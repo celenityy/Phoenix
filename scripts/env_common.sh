@@ -173,6 +173,10 @@ export PHOENIX_TAR
 # Python
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
     readonly PHOENIX_PYTHON_DEFAULT='/opt/homebrew/bin/python'
+elif [[ "${PHOENIX_NIX}" == 1 ]]; then
+    ## Nix doesn't need to set a specific Python path, see discussion at https://codeberg.org/celenity/Dove/issues/59
+    ## and https://codeberg.org/celenity/Phoenix/issues/252
+    readonly PHOENIX_PYTHON_DEFAULT='python'
 else
     readonly PHOENIX_PYTHON_DEFAULT='/usr/bin/python'
 fi
