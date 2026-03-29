@@ -55,6 +55,14 @@ else
 fi
 export PHOENIX_BUILD
 
+# External sources directory
+readonly PHOENIX_EXTERNAL="${PHOENIX_ROOT}/external"
+export PHOENIX_EXTERNAL
+
+# External downloads/resources directory
+readonly PHOENIX_DOWNLOADS="${PHOENIX_EXTERNAL}/downloads"
+export PHOENIX_DOWNLOADS
+
 # Temporary build directory
 readonly PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
 export PHOENIX_TEMP
@@ -135,6 +143,15 @@ else
 fi
 export PHOENIX_LOG_BUILD
 
+# Should we create a log file for get_sources.sh? (Default)
+readonly PHOENIX_LOG_SOURCES_DEFAULT=1
+if [[ -z "${PHOENIX_LOG_SOURCES+x}" ]]; then
+    readonly PHOENIX_LOG_SOURCES="${PHOENIX_LOG_SOURCES_DEFAULT}"
+else
+    readonly PHOENIX_LOG_SOURCES="${PHOENIX_LOG_SOURCES}"
+fi
+export PHOENIX_LOG_SOURCES
+
 # Directory where we should store log files (if logging is desired)
 readonly PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
 if [[ -z "${PHOENIX_LOG_DIR+x}" ]]; then
@@ -143,6 +160,19 @@ else
     readonly PHOENIX_LOG_DIR="${PHOENIX_LOG_DIR}"
 fi
 export PHOENIX_LOG_DIR
+
+# GNU awk
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+    readonly PHOENIX_AWK_DEFAULT='gawk'
+else
+    readonly PHOENIX_AWK_DEFAULT='awk'
+fi
+if [[ -z "${PHOENIX_AWK+x}" ]]; then
+    readonly PHOENIX_AWK="${PHOENIX_AWK_DEFAULT}"
+else
+    readonly PHOENIX_AWK="${PHOENIX_AWK}"
+fi
+export PHOENIX_AWK
 
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -171,14 +201,27 @@ fi
 export PHOENIX_TAR
 
 # Python
-if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    readonly PHOENIX_PYTHON_DEFAULT='/opt/homebrew/bin/python'
-elif [[ "${PHOENIX_NIX}" == 1 ]]; then
-    ## Nix doesn't need to set a specific Python path, see discussion at https://codeberg.org/celenity/Dove/issues/59
+readonly PHOENIX_PYTHON_DIR_DEFAULT="${PHOENIX_EXTERNAL}/python"
+if [[ -z "${PHOENIX_PYTHON_DIR+x}" ]]; then
+    readonly PHOENIX_PYTHON_DIR="${PHOENIX_PYTHON_DIR_DEFAULT}"
+fi
+export PHOENIX_PYTHON_DIR
+
+# Python (UV) environment
+readonly PHOENIX_PYENV_DIR_DEFAULT="${PHOENIX_BUILD}/pyenv"
+if [[ -z "${PHOENIX_PYENV_DIR+x}" ]]; then
+    readonly PHOENIX_PYENV_DIR="${PHOENIX_PYENV_DIR_DEFAULT}"
+fi
+readonly PHOENIX_PYENV="${PHOENIX_PYENV_DIR}/bin/activate"
+export PHOENIX_PYENV
+export PHOENIX_PYENV_DIR
+
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+    ## Nix doesn't want/need to set a specific Python path, see discussion at https://codeberg.org/celenity/Dove/issues/59
     ## and https://codeberg.org/celenity/Phoenix/issues/252
     readonly PHOENIX_PYTHON_DEFAULT='python'
 else
-    readonly PHOENIX_PYTHON_DEFAULT='/usr/bin/python'
+    readonly PHOENIX_PYTHON_DEFAULT="${PHOENIX_PYENV_DIR}/bin/python"
 fi
 if [[ -z "${PHOENIX_PYTHON+x}" ]]; then
     readonly PHOENIX_PYTHON="${PHOENIX_PYTHON_DEFAULT}"
@@ -186,6 +229,66 @@ else
     readonly PHOENIX_PYTHON="${PHOENIX_PYTHON}"
 fi
 export PHOENIX_PYTHON
+
+# UV
+readonly PHOENIX_UV_DIR_DEFAULT="${PHOENIX_EXTERNAL}/uv"
+if [[ -z "${PHOENIX_UV_DIR+x}" ]]; then
+    readonly PHOENIX_UV_DIR="${PHOENIX_UV_DIR_DEFAULT}"
+fi
+readonly PHOENIX_UV="${PHOENIX_UV_DIR}/uv"
+readonly PHOENIX_UV_LOCAL="${PHOENIX_BUILD}/uv"
+export PHOENIX_UV
+export PHOENIX_UV_DIR
+export PHOENIX_UV_LOCAL
+
+# UV (local directory)
+readonly PHOENIX_UV_LOCAL_DEFAULT="${PHOENIX_BUILD}/uv"
+if [[ -z "${PHOENIX_UV_LOCAL+x}" ]]; then
+    readonly PHOENIX_UV_LOCAL="${PHOENIX_UV_LOCAL_DEFAULT}"
+fi
+export PHOENIX_UV_LOCAL
+
+# UV cache
+readonly PHOENIX_UV_CACHE_DEFAULT="${PHOENIX_UV_LOCAL}/cache"
+if [[ -z "${PHOENIX_UV_CACHE+x}" ]]; then
+    readonly PHOENIX_UV_CACHE="${PHOENIX_UV_CACHE_DEFAULT}"
+fi
+export PHOENIX_UV_CACHE
+
+# UV Python directory
+readonly PHOENIX_UV_PYTHON_DEFAULT="${PHOENIX_UV_LOCAL}/python"
+if [[ -z "${PHOENIX_UV_PYTHON+x}" ]]; then
+    readonly PHOENIX_UV_PYTHON="${PHOENIX_UV_PYTHON_DEFAULT}"
+fi
+export PHOENIX_UV_PYTHON
+
+# UV tools
+readonly PHOENIX_UV_TOOLS_DEFAULT="${PHOENIX_UV_LOCAL}/tools"
+if [[ -z "${PHOENIX_UV_TOOLS+x}" ]]; then
+    readonly PHOENIX_UV_TOOLS="${PHOENIX_UV_TOOLS_DEFAULT}"
+fi
+export PHOENIX_UV_TOOLS
+
+# If curl flags are added, this determines whether they should be appended to our default flags (default),
+## or if they should override them entirely
+readonly PHOENIX_CURL_FLAGS_OVERRIDE_DEFAULT=0
+if [[ -z "${PHOENIX_CURL_FLAGS_OVERRIDE+x}" ]]; then
+    readonly PHOENIX_CURL_FLAGS_OVERRIDE="${PHOENIX_CURL_FLAGS_OVERRIDE_DEFAULT}"
+else
+    readonly PHOENIX_CURL_FLAGS_OVERRIDE="${PHOENIX_CURL_FLAGS_OVERRIDE}"
+fi
+export PHOENIX_CURL_FLAGS_OVERRIDE
+
+# curl flags
+readonly PHOENIX_CURL_FLAGS_DEFAULT='-q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose'
+if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]]; then
+    readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT}"
+elif [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == 1 ]]; then
+    readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS}"
+else
+    readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT} ${PHOENIX_CURL_FLAGS}"
+fi
+export PHOENIX_CURL_FLAGS
 
 # Whether we're ONLY building Phoenix for Android
 readonly PHOENIX_ANDROID_ONLY_DEFAULT=0

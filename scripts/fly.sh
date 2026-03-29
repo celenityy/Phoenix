@@ -14,6 +14,12 @@ fi
 source $(dirname $0)/env.sh || error_fn
 echo
 
+# Set-up Python venv
+if [ "${PHOENIX_NIX}" != 1 ]; then
+    source "${PHOENIX_PYENV}" || error_fn
+    echo
+fi
+
 # Include version info
 source "${PHOENIX_VERSIONS}" || error_fn
 echo
