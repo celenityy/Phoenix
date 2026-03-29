@@ -19,10 +19,10 @@ PHOENIX_GET_SOURCE_UV=0
 
 if [ "${target}" == 'python' ]; then
     # Get Python
-    PHOENIX_GET_SOURCE_PYTHON=1
+    readonly PHOENIX_GET_SOURCE_PYTHON=1
 elif [ "${target}" == 'uv' ]; then
     # Get + set-up uv
-    PHOENIX_GET_SOURCE_UV=1
+    readonly PHOENIX_GET_SOURCE_UV=1
 elif [ "${target}" == 'all' ]; then
     # If no argument is specified (or argument is set to "all"), just get everything
     readonly PHOENIX_GET_SOURCE_PYTHON=1
