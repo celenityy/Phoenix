@@ -33,6 +33,15 @@
       environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
       environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
       environment.etc."firefox/phoenix/assets".source = "${pkgs.phoenix}/assets";
+      environment.variables = {
+        MOZ_CRASHREPORTER = "";
+        MOZ_CRASHREPORTER_DISABLE = 1;
+        MOZ_CRASHREPORTER_NO_REPORT = 1;
+        MOZ_CRASHREPORTER_URL = "data;";
+        MOZ_DISABLE_ASAN_REPORTER = 1;
+        MOZ_ENABLE_WAYLAND = 1;
+        SSLKEYLOGFILE = "";
+      };
       programs.firefox.policies =
         (builtins.fromJSON (builtins.readFile "${pkgs.phoenix}/policies.json")).policies;
       nixpkgs.overlays = [
