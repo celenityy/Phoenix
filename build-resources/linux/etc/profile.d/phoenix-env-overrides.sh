@@ -13,6 +13,10 @@
 # Environment variables for GNU/Linux distros that further harden Firefox for Phoenix
 # Also impacts other Mozilla software (like Thunderbird)
 
+# Set our host platform
+readonly PHOENIX_HOST_PLATFORM='linux'
+export PHOENIX_HOST_PLATFORM
+
 # Disable Mozilla's ASan Crash Reporter
 ## https://searchfox.org/firefox-main/rev/409e9501/toolkit/xre/nsEmbedFunctions.cpp#260
 ## https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html
