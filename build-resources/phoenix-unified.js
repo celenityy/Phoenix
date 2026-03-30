@@ -4208,6 +4208,10 @@ pref("extensions.update.interval", 3600);
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#2707
 pref("extensions.checkUpdateSecurity", true); // [HIDDEN] [DEFAULT]
 
+/// Ensure we do not throttle background update checks
+// This typically occurs after the browser hasn't been used for a set number of days (ex. 2 weeks)
+pref("app.update.background.checkPolicy.throttleEnabled", false); // [HIDDEN] [DEFAULT - ESR]
+
 /// Sync with Remote Settings hourly, rather than the default of only once a day
 // This is used for delivering lots of security-critical databases (Ex. CRLite/revocation checks, malicious add-on blocklists, etc...)
 // So let's make sure our users are up to date as quick as possible
