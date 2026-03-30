@@ -269,6 +269,14 @@ if [[ -z "${PHOENIX_UV_TOOLS+x}" ]]; then
 fi
 export PHOENIX_UV_TOOLS
 
+# Cipher suites
+## (This enforces strong cipher suites - see ex. https://browserleaks.com/tls)
+readonly PHOENIX_CIPHERS_DEFAULT='TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384'
+if [[ -z "${PHOENIX_CIPHERS+x}" ]]; then
+    readonly PHOENIX_CIPHERS="${PHOENIX_CIPHERS_DEFAULT}"
+fi
+export PHOENIX_CIPHERS
+
 # If curl flags are added, this determines whether they should be appended to our default flags (default),
 ## or if they should override them entirely
 readonly PHOENIX_CURL_FLAGS_OVERRIDE_DEFAULT=0
@@ -280,7 +288,7 @@ fi
 export PHOENIX_CURL_FLAGS_OVERRIDE
 
 # curl flags
-readonly PHOENIX_CURL_FLAGS_DEFAULT='-q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose'
+readonly PHOENIX_CURL_FLAGS_DEFAULT="-q --disable --no-netrc -j -e "" -A "" -S --ciphers ${PHOENIX_CIPHERS} --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --tlsv1.2 --trace-time --user-agent "" --verbose"
 if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]]; then
     readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT}"
 elif [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == 1 ]]; then
