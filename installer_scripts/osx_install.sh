@@ -228,6 +228,22 @@ case ${DEVICETYPE} in
 		sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
 		echo
 
+        echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_CURL}" https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
+        "${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CHMOD}" 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CP}" dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
 		echo -e ""
 		echo_green_text "Where is your installation of Firefox located?";
 		echo_green_text "Your options are:";
@@ -309,6 +325,22 @@ case ${DEVICETYPE} in
 		echo_green_text "Loading dev.celenity.phoenix.apply.intel.plist..."
 		sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
 		echo
+
+        echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_CURL}" https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx-intel/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
+        "${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CHMOD}" 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CP}" dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+
+        echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
 
 		echo -e ""
 		echo_green_text "Where is your installation of Firefox located?";

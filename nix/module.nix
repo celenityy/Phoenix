@@ -40,6 +40,7 @@
         MOZ_CRASHREPORTER_URL = "data;";
         MOZ_DISABLE_ASAN_REPORTER = 1;
         MOZ_ENABLE_WAYLAND = 1;
+        PHOENIX_HOST_NIX = 1;
         SSLKEYLOGFILE = "";
       };
       programs.firefox.policies =

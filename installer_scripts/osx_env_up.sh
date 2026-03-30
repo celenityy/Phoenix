@@ -1,0 +1,95 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+# Functions
+echo_red_text() {
+	echo -e "\033[31m$1\033[0m"
+}
+
+echo_green_text() {
+	echo -e "\033[32m$1\033[0m"
+}
+
+error_fn() {
+	echo
+	echo_red_text "Something went wrong! The script failed."
+	echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
+	echo
+	exit 1
+}
+
+# curl flags
+PHOENIX_INSTALL_CURL_FLAGS='-q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose'
+
+# chmod
+PHOENIX_INSTALL_CHMOD='/bin/chmod -v'
+
+# cp
+PHOENIX_INSTALL_CP='/bin/cp'
+
+# curl
+PHOENIX_INSTALL_CURL="curl ${PHOENIX_INSTALL_CURL_FLAGS} -O -sSL"
+
+# launchctl
+PHOENIX_INSTALL_LAUNCHCTL='/bin/launchctl'
+
+# mkdir
+PHOENIX_INSTALL_MKDIR='/bin/mkdir -vp'
+
+# sleep
+PHOENIX_INSTALL_SLEEP='/bin/sleep'
+
+# sudo
+PHOENIX_INSTALL_SUDO='/usr/bin/sudo'
+
+# Save temporary files/downloads to /tmp
+PHOENIX_INSTALL_TEMP='/tmp'
+
+pushd "${PHOENIX_INSTALL_TEMP}"
+
+echo_green_text "Welcome to the Phoenix environment variable updater for macOS!"
+
+echo -e ""
+echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?";
+echo_green_text "Your options are:";
+echo_red_text "1. Silicon";
+echo_green_text "2. Intel";
+read "DEVICETYPE?Please enter your selection: "
+case ${DEVICETYPE} in
+	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
+		echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_CURL}" https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+		;;
+
+	"intel" | "Intel" | "INTEL" | 2)
+		echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+        "${PHOENIX_INSTALL_CURL}" https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx-intel/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+        echo
+        ;;
+esac
+
+echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
+"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CHMOD}" 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo
+
+echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_CP}" dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo
+
+echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+"${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo
+
+popd
+
+echo_green_text "All done. :) Congratulations, you've successfully updated Phoenix's environment variables.\n"
+
+echo_red_text "Your system will now reboot to finalize your changes."
+"${PHOENIX_INSTALL_SLEEP}" 5 || error_fn
+echo
+echo_green_text "Press enter to continue."
+read
+
+"${PHOENIX_INSTALL_SUDO}" /sbin/reboot

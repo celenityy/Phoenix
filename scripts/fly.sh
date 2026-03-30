@@ -1231,6 +1231,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_OUTPUTS}/Library/"
 
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/celenity/Phoenix" "${PHOENIX_OSX_OUTPUTS}/Library/celenity/"
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchAgents/" "${PHOENIX_OSX_OUTPUTS}/Library/LaunchAgents/"
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchDaemons" "${PHOENIX_OSX_OUTPUTS}/Library/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
@@ -1510,6 +1511,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/"
 
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/celenity/Phoenix" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/celenity/"
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchAgents/" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/LaunchAgents/"
     cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchDaemons" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/"
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
