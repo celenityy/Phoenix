@@ -3051,6 +3051,11 @@ pref("permissions.default.localhost", 0); // [NO-ANDROID] [DEFAULT] Blocks websi
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1876002
 pref("dom.origin-trials.mls.state", 1);
 
+/// Enable unused permission expiration
+// Automatically removes permissions that haven't been used recently
+// Improves privacy and security by resetting no longer necessary/possibly unwanted permissions
+pref("permissions.expireUnused.enabled", true); // [DEFAULT - Nightly]
+
 /// Prevent exposing XPCOM Components.interfaces to websites
 // PRIVACY: Fingerprinting concerns
 // SECURITY: Attack Surface Reduction
