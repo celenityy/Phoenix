@@ -4,11 +4,12 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-    bash -x $(dirname $0)/env.sh || error_fn
-    echo
+    bash -x $(dirname $0)/env.sh
 fi
-source $(dirname $0)/env.sh || error_fn
-echo
+source $(dirname $0)/env.sh
+
+# Include utilities
+source "${PHOENIX_UTILS}"
 
 pushd "${PHOENIX_ROOT}" || error_fn
 echo

@@ -6,8 +6,7 @@ set -euo pipefail
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 # Set-up our environment
-source $(dirname $0)/env.sh || error_fn
-echo
+source $(dirname $0)/env.sh
 
 # Include utilities
 source "${PHOENIX_UTILS}"
