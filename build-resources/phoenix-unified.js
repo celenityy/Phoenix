@@ -607,6 +607,7 @@ pref("browser.mailto.dualPrompt", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/app/profile/firefox.js#284 [NO-ANDROID] [NO-MAIL]
 pref("browser.shell.checkDefaultPDF", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-Windows]
 pref("browser.shell.checkDefaultPDF.silencedByUser", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-Windows]
+pref("browser.shell.setDefaultPDFHandler.onlyReplaceBrowsers", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-Windows] If the browser is set as the default PDF viewer, always replace the existing default PDF viewer, regardless of whether it's a browser
 
 /// Remove special privileges from Mozilla domains
 // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content
