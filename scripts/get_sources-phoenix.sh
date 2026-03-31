@@ -19,14 +19,14 @@ PHOENIX_GET_SOURCE_UV=0
 
 if [ "${target}" == 'python' ]; then
     # Get Python
-    readonly PHOENIX_GET_SOURCE_PYTHON=1
+    PHOENIX_GET_SOURCE_PYTHON=1
 elif [ "${target}" == 'uv' ]; then
     # Get + set-up uv
-    readonly PHOENIX_GET_SOURCE_UV=1
+    PHOENIX_GET_SOURCE_UV=1
 elif [ "${target}" == 'all' ]; then
     # If no argument is specified (or argument is set to "all"), just get everything
-    readonly PHOENIX_GET_SOURCE_PYTHON=1
-    readonly PHOENIX_GET_SOURCE_UV=1
+    PHOENIX_GET_SOURCE_PYTHON=1
+    PHOENIX_GET_SOURCE_UV=1
 else
     echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
     echo 'All: all (Default)'
@@ -34,18 +34,21 @@ else
     echo 'uv: uv'
     exit 1
 fi
+readonly PHOENIX_GET_SOURCE_PYTHON
+readonly PHOENIX_GET_SOURCE_UV
 
 # If the 'checksum-update' argument is specified, in addition to downloading the dependencies as usual,
 ## we're also updating their checksums
 PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=0
 if [ "${mode}" == 'checksum-update' ]; then
-    readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=1
+    PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=1
 elif [ "${mode}" != 'download' ]; then
     echo_red_text "ERROR: Invalid mode: ${mode}\n You must enter one of the following:"
     echo 'Download: download (Default)'
     echo 'Download + update checksums: checksum-update'
     exit 1
 fi
+readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE
 
 # Include version info
 source "${PHOENIX_VERSIONS}"
