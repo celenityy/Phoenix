@@ -4208,6 +4208,11 @@ pref("extensions.update.interval", 3600);
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#2707
 pref("extensions.checkUpdateSecurity", true); // [HIDDEN] [DEFAULT]
 
+/// Ensure that another browser instance isn't running before applying browser updates
+// (This is the default, but it's usually hidden, so this exposes it at `about:config`, as it can be useful to disable in certain cases)
+// https://searchfox.org/firefox-main/rev/0ea834f7/toolkit/mozapps/update/UpdateService.sys.mjs#436
+pref("app.update.checkOnlyInstance.enabled", true); // [HIDDEN] [DEFAULT]
+
 /// Ensure we do not throttle background update checks
 // This typically occurs after the browser hasn't been used for a set number of days (ex. 2 weeks)
 pref("app.update.background.checkPolicy.throttleEnabled", false); // [HIDDEN] [DEFAULT - ESR]
