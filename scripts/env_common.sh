@@ -19,6 +19,10 @@ fi
 readonly PHOENIX_SCRIPTS="${PHOENIX_ROOT}/scripts"
 export PHOENIX_SCRIPTS
 
+## Phoenix utilities
+readonly PHOENIX_UTILS="${PHOENIX_SCRIPTS}/utilities.sh"
+export PHOENIX_UTILS
+
 # Set our platform, OS, and architecture
 readonly PHOENIX_ENV_HELPERS="${PHOENIX_SCRIPTS}/env_helpers.sh"
 export PHOENIX_ENV_HELPERS

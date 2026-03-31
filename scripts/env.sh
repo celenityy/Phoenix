@@ -21,5 +21,3 @@ fi
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
     source "$(dirname $0)/env_local.sh"
 fi
-
-source "$(dirname $0)/utilities.sh"

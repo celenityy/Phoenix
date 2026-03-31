@@ -16,6 +16,9 @@ fi
 source $(dirname $0)/env.sh || error_fn
 echo
 
+# Include utilities
+source "${PHOENIX_UTILS}"
+
 rm -rf "${PHOENIX_ARCHIVES}/*" || error_fn
 echo
 

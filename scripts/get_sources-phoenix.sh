@@ -2,13 +2,16 @@
 
 set -euo pipefail
 
+# Set-up our environment
+source $(dirname $0)/env.sh
+
+# Include utilities
+source "${PHOENIX_UTILS}"
+
 if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
     echo_red_text "ERROR: Do not call get_sources-phoenix.sh directly. Instead, use get_sources.sh." >&1
     exit 1
 fi
-
-# Set-up our environment
-source $(dirname $0)/env.sh
 
 readonly target="$1"
 readonly mode="$2"

@@ -2,17 +2,20 @@
 
 set -euo pipefail
 
-if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
-    echo_red_text 'ERROR: Do not call fly.sh directly. Instead, use build.sh.' >&1
-    exit 1
-fi
-
 # Welcome to the Phoenix Unified build script!
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 # Set-up our environment
 source $(dirname $0)/env.sh || error_fn
 echo
+
+# Include utilities
+source "${PHOENIX_UTILS}"
+
+if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
+    echo_red_text 'ERROR: Do not call fly.sh directly. Instead, use build.sh.' >&1
+    exit 1
+fi
 
 # Set-up Python venv
 if [ "${PHOENIX_NIX}" != 1 ]; then
