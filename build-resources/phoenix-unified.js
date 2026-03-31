@@ -1948,7 +1948,7 @@ pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
 pref("media.gmp.encoder.preferred", false); // [DEFAULT]
 pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
 pref("media.use-remote-encoder.audio", true);
-pref("media.use-remote-encoder.video", true);
+pref("media.use-remote-encoder.video", true); // [NO-WINDOWS] Do not set on Windows for now, due to performance/stability issues: https://codeberg.org/celenity/Phoenix/issues/253#issuecomment-12472035
 
 /// Enable multi-threaded media decoding
 // (Improves performance...)
