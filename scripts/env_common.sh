@@ -227,10 +227,8 @@ if [[ -z "${PHOENIX_UV_DIR+x}" ]]; then
 fi
 readonly PHOENIX_UV_DIR
 readonly PHOENIX_UV="${PHOENIX_UV_DIR}/uv"
-readonly PHOENIX_UV_LOCAL="${PHOENIX_BUILD}/uv"
 export PHOENIX_UV
 export PHOENIX_UV_DIR
-export PHOENIX_UV_LOCAL
 
 # UV (local directory)
 readonly PHOENIX_UV_LOCAL_DEFAULT="${PHOENIX_BUILD}/uv"
