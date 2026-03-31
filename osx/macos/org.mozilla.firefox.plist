@@ -149,6 +149,8 @@
 	<false/>
 	<key>DisableProfileRefresh</key>
 	<true/>
+	<key>DisableRemoteImprovements</key>
+	<true/>
 	<key>DisableTelemetry</key>
 	<true/>
 	<key>EnableTrackingProtection</key>

@@ -1,5 +1,5 @@
 
-readonly PHOENIX_VERSION='2026.02.23.1'
+readonly PHOENIX_VERSION='2026.03.30.1'
 
 ## Python
 ### https://github.com/astral-sh/python-build-standalone

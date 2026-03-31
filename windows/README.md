@@ -1,6 +1,6 @@
 # Phoenix
 <p align="center">
-    <img src="assets/phoenix.png"
+    <img src="build-resources/assets/phoenix.png"
         alt="Phoenix"
         height="200">
 </p>
@@ -73,7 +73,7 @@ Phoenix currently provides official support for:
 * **Android**
 * **Arch Linux**
 * **Debian** *(& derivatives...)*
-* **Fedora Linux** *(39-41)*
+* **Fedora Linux**
 * **NixOS**
 * **macOS**
 * **Ubuntu** *(& derivatives...)*

@@ -827,6 +827,7 @@
     "DisableFeedbackCommands": true,
     "DisableFirefoxStudies": true,
     "DisablePrivateBrowsing": false,
+    "DisableRemoteImprovements": true,
     "DNSOverHTTPS": {
       "Enabled": true,
       "Fallback": false,
