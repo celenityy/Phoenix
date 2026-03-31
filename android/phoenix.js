@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2026.03.30.1", locked);
+pref("browser.phoenix.version", "2026.03.31.1", locked);
 
 /* INDEX 
 
@@ -76,7 +76,7 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: 2026.03.30.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("app.support.vendor", "Phoenix: 2026.03.31.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
 
 
 /*** 000: ABOUT:CONFIG ***/
@@ -1530,7 +1530,7 @@ pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
 pref("media.gmp.encoder.preferred", false); // [DEFAULT]
 pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
 pref("media.use-remote-encoder.audio", true);
-pref("media.use-remote-encoder.video", true);
+pref("media.use-remote-encoder.video", true); // [NO-WINDOWS] Do not set on Windows for now, due to performance/stability issues: https://codeberg.org/celenity/Phoenix/issues/253#issuecomment-12472035
 
 /// Enable multi-threaded media decoding
 // (Improves performance...)

@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2026.03.30.1", locked);
+pref("browser.phoenix.version", "2026.03.31.1", locked);
 
 /* INDEX 
 
@@ -76,8 +76,8 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: 2026.03.30.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2026.03.30.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
+pref("app.support.vendor", "Phoenix: 2026.03.31.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2026.03.31.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
 
 /// Distribution ID and version must be set for `distribution.about` to display [LINUX-ONLY]
 // `default` matches Mozilla's stock/default value - setting this to anything else could potentially compromise privacy (as this value is shared with Mozilla via the browser update endpoint) [LINUX-ONLY]
@@ -1879,7 +1879,7 @@ pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
 pref("media.gmp.encoder.preferred", false); // [DEFAULT]
 pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
 pref("media.use-remote-encoder.audio", true);
-pref("media.use-remote-encoder.video", true);
+pref("media.use-remote-encoder.video", true); // [NO-WINDOWS] Do not set on Windows for now, due to performance/stability issues: https://codeberg.org/celenity/Phoenix/issues/253#issuecomment-12472035
 
 /// Enable multi-threaded media decoding
 // (Improves performance...)
@@ -4698,11 +4698,11 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2026.03.30.1"); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2026.03.31.1"); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.03.30.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.03.31.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 

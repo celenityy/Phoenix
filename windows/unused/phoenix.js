@@ -16,7 +16,7 @@
 // Welcome to the heart of the Phoenix.
 // This file contains preferences shared across all Phoenix configs, platforms (Desktop & Android), and Dove.
 
-pref("browser.phoenix.version", "2026.03.30.1", locked);
+pref("browser.phoenix.version", "2026.03.31.1", locked);
 
 /* INDEX 
 
@@ -76,8 +76,8 @@ Unspecified = This preference should be set EVERYWHERE
 
 /*** BRANDING ***/
 
-pref("app.support.vendor", "Phoenix: 2026.03.30.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
-pref("distribution.about", "Phoenix for Mozilla Firefox - 2026.03.30.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
+pref("app.support.vendor", "Phoenix: 2026.03.31.1"); // [NO-MAIL] [HIDDEN] `about:support` -> `Version`
+pref("distribution.about", "Phoenix for Mozilla Firefox - 2026.03.31.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] `about:preferences#general` -> `Firefox Updates` - `distribution.id` and `distribution.version` must be set for this to display, see details below
 
 
 /*** 000: ABOUT:CONFIG ***/
@@ -1890,7 +1890,6 @@ pref("media.ffmpeg.encoder.enabled", true); // [DEFAULT - non-Android]
 pref("media.gmp.encoder.preferred", false); // [DEFAULT]
 pref("media.hardware-video-encoding.enabled", true); // [DEFAULT]
 pref("media.use-remote-encoder.audio", true);
-pref("media.use-remote-encoder.video", true);
 
 /// Enable multi-threaded media decoding
 // (Improves performance...)
