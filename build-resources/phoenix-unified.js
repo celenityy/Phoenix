@@ -2006,7 +2006,8 @@ pref("gfx.font_rendering.opentype_svg.enabled", false);
 pref("javascript.options.baselinejit", false); // Baseline Compiler
 pref("javascript.options.ion", false); // WarpMonkey
 pref("javascript.options.jithints", false); // Eager baseline hints https://bugzilla.mozilla.org/show_bug.cgi?id=1831572
-pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS] Disable all JITs for the (critical/especially sensitive) parent process https://searchfox.org/firefox-main/rev/1c6a8b56/xpcom/build/XPCOMInit.cpp#239 https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#parent-process
+// Disabling main process jit breaks translations https://bugzilla.mozilla.org/show_bug.cgi?id=2019140#c31
+// pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS] Disable all JITs for the (critical/especially sensitive) parent process https://searchfox.org/firefox-main/rev/1c6a8b56/xpcom/build/XPCOMInit.cpp#239 https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#parent-process
 pref("javascript.options.native_regexp", false); // irregexp JIT, for regex evaluation https://searchfox.org/firefox-main/rev/dc1c78e9/modules/libpref/init/StaticPrefList.yaml#8741 https://searchfox.org/firefox-main/rev/dc1c78e9/js/xpconnect/src/XPCJSContext.cpp#901
 pref("javascript.options.wasm_optimizingjit", false); // WASM-Ion (BaldrMonkey)
 
