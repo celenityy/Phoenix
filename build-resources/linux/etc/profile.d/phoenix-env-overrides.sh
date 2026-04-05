@@ -16,6 +16,12 @@
 # Set our host platform
 export PHOENIX_HOST_PLATFORM='linux'
 
+# Disable GFX crash telemetry
+## https://searchfox.org/firefox-main/rev/0989a082/gfx/thebes/gfxEnv.h#100
+## https://searchfox.org/firefox-main/rev/0989a082/gfx/thebes/gfxPlatform.cpp#373
+export MOZ_GFX_CRASH_MOZ_CRASH=1
+export MOZ_GFX_CRASH_TELEMETRY=''
+
 # Disable Mozilla's ASan Crash Reporter
 ## https://searchfox.org/firefox-main/rev/409e9501/toolkit/xre/nsEmbedFunctions.cpp#260
 ## https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html

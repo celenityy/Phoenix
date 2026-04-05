@@ -41,36 +41,36 @@ pushd "${PHOENIX_INSTALL_TEMP}"
 
 echo_green_text "Welcome to the Phoenix environment variable updater for macOS!"
 
-echo -e ""
-echo_green_text "Are you using an Apple Silicon (M-series chip) or Intel device?";
-echo_green_text "Your options are:";
-echo_red_text "1. Silicon";
-echo_green_text "2. Intel";
-read "DEVICETYPE?Please enter your selection: "
-case ${DEVICETYPE} in
-	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
-		echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --tlsv1.2 --trace-time --user-agent "" --verbose -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist -o "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
-        echo
-		;;
-
-	"intel" | "Intel" | "INTEL" | 2)
-		echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --tlsv1.2 --trace-time --user-agent "" --verbose -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx-intel/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist -o "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
-        echo
-        ;;
-esac
-
-echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
-sudo chmod -v 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist..."
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --tlsv1.2 --trace-time --user-agent "" --verbose -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist -o "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist" || error_fn
 echo
 
-echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-sudo cp dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist to 644..."
+sudo chmod -v 644 dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist || error_fn
 echo
 
-echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-"${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+echo_green_text "Copying dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist..."
+sudo cp dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist || error_fn
+echo
+
+echo_green_text "Loading dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist..."
+"${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_MOZ_CRASH.plist || error_fn
+echo
+
+echo_green_text "Downloading dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist..."
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ntlm --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --tlsv1.2 --trace-time --user-agent "" --verbose -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/build-resources/osx/Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist -o "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist" || error_fn
+echo
+
+echo_green_text "Changing permissions of dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist to 644..."
+sudo chmod -v 644 dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist || error_fn
+echo
+
+echo_green_text "Copying dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist..."
+sudo cp dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist || error_fn
+echo
+
+echo_green_text "Loading dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist..."
+"${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.MOZ_GFX_CRASH_TELEMETRY.plist || error_fn
 echo
 
 popd
