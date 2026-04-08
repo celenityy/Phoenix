@@ -350,17 +350,20 @@ function get_python() {
 
 # Get + set-up uv
 function get_uv() {
-    if  [ ! -d "${PHOENIX_PYTHON_DIR}" ]; then
-        echo_red_text "ERROR: You tried to download uv, but you don't have Python downloaded yet."
-        exit 1
-    fi
+    # If all we're doing is updating the checksum, we don't care if the environment is prepared
+    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+        if  [ ! -d "${PHOENIX_PYTHON_DIR}" ]; then
+            echo_red_text "ERROR: You tried to download uv, but you don't have Python downloaded yet."
+            exit 1
+        fi
 
-    if [[ -d "${PHOENIX_PYENV_DIR}" ]]; then
-        echo_red_text "The uv environment is already set-up at ${PHOENIX_PYENV_DIR}"
-        read -p "Do you want to re-create it? [y/N] " -n 1 -r
-        echo
-        if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-            rm -rf "${PHOENIX_PYENV_DIR}" "${PHOENIX_UV_DIR}" "${PHOENIX_UV_LOCAL}"
+        if [[ -d "${PHOENIX_PYENV_DIR}" ]]; then
+            echo_red_text "The uv environment is already set-up at ${PHOENIX_PYENV_DIR}"
+            read -p "Do you want to re-create it? [y/N] " -n 1 -r
+            echo
+            if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+                rm -rf "${PHOENIX_PYENV_DIR}" "${PHOENIX_UV_DIR}" "${PHOENIX_UV_LOCAL}"
+            fi
         fi
     fi
 
