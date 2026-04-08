@@ -1350,7 +1350,16 @@ pref("network.http.prompt-temp-redirect", true);
 
 /// Enforce Strict Certificate Pinning
 // https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning
-pref("security.cert_pinning.enforcement_level", 2);
+// The list of domains currently covered can be found here: https://searchfox.org/firefox-main/source/security/manager/ssl/StaticHPKPins.h
+// Some are also displayed in a prettier format here: https://searchfox.org/firefox-main/source/security/manager/tools/PreloadedHPKPins.json
+// For values/modes, see: https://searchfox.org/firefox-main/rev/19539767/security/manager/ssl/PublicKeyPinningService.cpp#32
+//    Disabled             = 0
+//    AllowUserCAMITM      = 1
+//    Strict               = 2
+//    EnforceTestMode      = 3
+// Strict excludes certain domains that Mozilla wants to collect telemetry for/labels as "testing", while EnforceTestMode
+// includes all domains/enforces everything
+pref("security.cert_pinning.enforcement_level", 3);
 
 /// Enforce TLS 1.3 downgrade protection
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1576790
