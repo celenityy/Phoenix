@@ -313,13 +313,39 @@ function get_python() {
         fi
     fi
 
-    echo_red_text 'Downloading Python...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]; then
+        echo_red_text 'Downloading Python (Linux - ARM64)...'
+        download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz"
 
-    # Validate SHA512sum
-    validate_sha512sum "${PYTHON_SHA512SUM}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+        # "Validate" (Update) SHA512sum
+        validate_sha512sum "${PYTHON_SHA512SUM_LINUX_ARM64}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz"
 
-    echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+        echo_red_text 'Downloading Python (Linux - x86_64)...'
+        download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+
+        # "Validate" (Update) SHA512sum
+        validate_sha512sum "${PYTHON_SHA512SUM_LINUX_X86_64}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+
+        echo_red_text 'Downloading Python (OS X - ARM64)...'
+        download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz"
+
+        # "Validate" (Update) SHA512sum
+        validate_sha512sum "${PYTHON_SHA512SUM_OSX_ARM64}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz"
+
+        echo_red_text 'Downloading Python (OS X - x86_64)...'
+        download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz"
+
+        # "Validate" (Update) SHA512sum
+        validate_sha512sum "${PYTHON_SHA512SUM_OSX_X86_64}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz"
+    else
+        echo_red_text 'Downloading Python...'
+        download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+
+        # Validate SHA512sum
+        validate_sha512sum "${PYTHON_SHA512SUM}" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+
+        echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+    fi
 }
 
 # Get + set-up uv
@@ -367,15 +393,29 @@ function get_uv() {
         fi
     fi
 
-    echo_red_text 'Downloading uv...'
-    download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-${UV_ARCH}-${UV_PLATFORM}.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM}"
+    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]; then
+        echo_red_text 'Downloading uv (Linux - ARM64)...'
+        download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM_LINUX_ARM64}"
 
-    echo_red_text 'Installing Python...'
-    "${PHOENIX_UV}" python install "${PYTHON_VERSION}"
+        echo_red_text 'Downloading uv (Linux - x86_64)...'
+        download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM_LINUX_X86_64}"
 
-    echo_red_text 'Creating uv environment...'
-    "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
-    echo_green_text "SUCCESS: Set-up uv environment at ${PHOENIX_PYENV_DIR}"
+        echo_red_text 'Downloading uv (OS X - ARM64)...'
+        download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-aarch64-apple-darwin.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM_OSX_ARM64}"
+
+        echo_red_text 'Downloading uv (OS X - x86_64)...'
+        download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM_OSX_X86_64}"
+    else
+        echo_red_text 'Downloading uv...'
+        download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-${UV_ARCH}-${UV_PLATFORM}.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM}"
+
+        echo_red_text 'Installing Python...'
+        "${PHOENIX_UV}" python install "${PYTHON_VERSION}"
+
+        echo_red_text 'Creating uv environment...'
+        "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
+        echo_green_text "SUCCESS: Set-up uv environment at ${PHOENIX_PYENV_DIR}"
+    fi
 }
 
 if [ "${PHOENIX_GET_SOURCE_PYTHON}" == 1 ]; then
