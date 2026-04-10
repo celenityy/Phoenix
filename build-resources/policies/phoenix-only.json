@@ -4,7 +4,7 @@
             "Extensions": {
                 "uBlock0@raymondhill.net": {
                     "adminSettings": {
-                        "assetsBootstrapLocation": "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.json"
+                        "assetsBootstrapLocation": "https://assets.celenity.dev/ublock/phoenix/assets.json"
                     }
                 }
             }
