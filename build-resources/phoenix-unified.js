@@ -4811,7 +4811,7 @@ pref("librewolf.aboutMenu.checkVersion", true); // [NO-ANDROID] [NO-MAIL]
 
 /// Set the uBlock Origin config to our own by default [NO-ANDROID] [NO-MAIL]
 // https://phoenix.celenity.dev/content-blocking [NO-ANDROID] [NO-MAIL]
-pref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/celenityy/assets/-/raw/pages/ublock/phoenix/assets.json"); // [NO-ANDROID] [NO-MAIL]
+pref("librewolf.uBO.assetsBootstrapLocation", "https://assets.celenity.dev/ublock/phoenix/assets.json"); // [NO-ANDROID] [NO-MAIL]
 
 pref("browser.phoenix.status", "032"); // [NO-ANDROID] [NO-MAIL]
 
