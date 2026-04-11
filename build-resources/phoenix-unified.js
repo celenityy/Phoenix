@@ -400,16 +400,13 @@ pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird]
 pref("doh-rollout._testing", true, locked); // [HIDDEN]
 pref("doh-rollout.disable-heuristics", true, locked); // [HIDDEN]
 pref("doh-rollout.doneFirstRun", true, locked); // [HIDDEN]
-pref("doh-rollout.doorhanger-decision", "UIDisabled", locked); // [HIDDEN]
 pref("doh-rollout.enabled", false, locked); // [HIDDEN]
-pref("doh-rollout.mode", 5, locked); // [HIDDEN]
 pref("doh-rollout.provider-steering.enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.provider-steering.provider-list", "", locked); // [HIDDEN]
 pref("doh-rollout.self-enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.skipHeuristicsCheck", true, locked); // [HIDDEN]
 pref("doh-rollout.trr-selection.enabled", false, locked); // [HIDDEN]
 pref("doh-rollout.trr-selection.provider-list", "", locked); // [HIDDEN]
-pref("doh-rollout.uri", "", locked); // [HIDDEN]
 pref("network.android_doh.autoselect_enabled", false, locked); // [HIDDEN - non-Android] https://searchfox.org/firefox-main/rev/82e2435f/mobile/android/geckoview/src/main/java/org/mozilla/geckoview/GeckoRuntimeSettings.java#1773
 
 /// Disable DoH performance measurements
