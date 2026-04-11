@@ -1,5 +1,25 @@
 {
     "policies": {
+        "AIControls": {
+            "Default": {
+                "Value": "blocked"
+            },
+            "LinkPreviewKeyPoints": {
+                "Value": "blocked"
+            },
+            "PDFAltText": {
+                "Value": "blocked"
+            },
+            "SidebarChatbot": {
+                "Value": "blocked"
+            },
+            "SmartTabGroups": {
+                "Value": "blocked"
+            },
+            "SmartWindow": {
+                "Value": "blocked"
+            }
+        },
         "ContentAnalysis": {
             "DefaultResult": 0,
             "Enabled": false,
