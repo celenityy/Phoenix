@@ -3555,6 +3555,9 @@ pref("browser.phoenix.status", "023");
 /// Block pop-ups by default
 pref("dom.disable_open_during_load", true); // [DEFAULT - non-Thunderbird]
 
+/// Block third-party redirects by default
+pref("dom.security.framebusting_intervention.enabled", true); // [DEFAULT]
+
 /// Block websites from prompting to display notifications by default [NO-MAIL]
 // I have yet to see a legitimate use-case for websites using push notifications... [NO-MAIL]
 // but I see them constantly abused for malicious purposes & spam :/ [NO-MAIL]
