@@ -2741,6 +2741,9 @@ pref("browser.phoenix.status", "019");
 
 /*** 020 SAFE BROWSING ***/
 
+/// Block notifications for websites on Safe Browsing lists
+pref("dom.webnotifications.block_if_on_safebrowsing", true); // [DEFAULT]
+
 /// By default, when you report a Safe Browsing false positive, it sends the URL to both Mozilla and Google (NOT PROXIED), as well as your locale to Mozilla
 // (ex. https://en-us.phish-error.mozilla.com/?url=example.org - which redirects directly to https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&url=example.org)
 // We can improve privacy and speed by sending the domain *only* to Google & without sending your locale to anyone
