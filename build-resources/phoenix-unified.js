@@ -2993,6 +2993,14 @@ pref("dom.reporting.testing.enabled", false); // [DEFAULT]
 pref("browser.tabs.hoverPreview.enabled", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.tabs.hoverPreview.showThumbnails", false); // [NO-ANDROID] [NO-MAIL]
 
+/// Disable Web Serial API
+// PRIVACY: Fingerprinting concerns
+// SECURITY: Attack Surface Reduction
+// https://developer.mozilla.org/docs/Web/API/Web_Serial_API
+// Toggling 'dom.webserial.enabled' itself could be fingerprintable, but setting these instead just causes the permission to be automatically denied
+pref("dom.webserial.gated", true); // [DEFAULT]
+pref("permissions.default.serial", 2); // [HIDDEN]
+
 /// Disable Web Share API
 // This API allows websites to share data directly to system applications...
 // PRIVACY: Could result in leakage/unexpected behavior
