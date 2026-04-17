@@ -1311,7 +1311,7 @@ pref("dom.security.https_first_schemeless", true); // [DEFAULT]
 // https://support.mozilla.org/kb/https-only-prefs
 // NOTE: Locked on Desktop due to being a critical privacy and security feature,
 // but we won't lock it for Android/Thunderbird, as it's unfortunately not possible to add exceptions there
-// https://gitlab.com/ironfox-oss/IronFox/-/issues/48
+// https://codeberg.org/ironfox-oss/bugs/issues/48
 pref("dom.security.https_only_mode", true);
 pref("dom.security.https_only_mode", true, locked); // [NO-ANDROID] [NO-MAIL]
 pref("dom.security.https_only_mode.upgrade_local", true); // Enforce HTTPS-Only Mode for local requests
@@ -2079,7 +2079,7 @@ pref("network.http.basic_http_auth.enabled", false);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1119035#c2
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1119077#c1
-// https://gitlab.com/ironfox-oss/IronFox/-/issues/11 [ANDROID-ONLY]
+// https://codeberg.org/ironfox-oss/bugs/issues/11 [ANDROID-ONLY]
 pref("signon.formlessCapture.enabled", false); // [NO-ANDROID]
 pref("signon.privateBrowsingCapture.enabled", false);
 
@@ -3277,7 +3277,7 @@ pref("security.disallow_privilegedabout_remote_script_loads", true);
 // Instead of "exposing" all protocols, we can reduce attack surface by limiting them to only the ones we actually need/use/want
 // We can also ensure that the user is always warned before opening a protocol externally, and we can block protocols ourselves if desired
 pref("network.protocol-handler.expose.about", true); // [DEFAULT - Thunderbird]
-pref("network.protocol-handler.expose.bankid", true); // [ANDROID-ONLY] [HIDDEN] Needed for BankID authentication on Android - see https://gitlab.com/ironfox-oss/IronFox/-/issues/213
+pref("network.protocol-handler.expose.bankid", true); // [ANDROID-ONLY] [HIDDEN] Needed for BankID authentication on Android - see https://codeberg.org/ironfox-oss/bugs/issues/213
 pref("network.protocol-handler.expose.blob", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.chrome", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.data", true); // [DEFAULT - Thunderbird]
@@ -3287,7 +3287,7 @@ pref("network.protocol-handler.expose.https", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.javascript", true); // [DEFAULT - Thunderbird]
 pref("network.protocol-handler.expose.moz-extension", true); // [DEFAULT - Thunderbird] [HIDDEN - non-Thunderbird]
 pref("network.protocol-handler.expose.obtainium", true); // [ANDROID-ONLY] [HIDDEN] Needed for installing apps from Obtainium - https://apps.obtainium.imranr.dev/
-pref("network.protocol-handler.expose.tel", true); // [ANDROID-ONLY] [HIDDEN] Needed for opening links in the Phone app - https://gitlab.com/ironfox-oss/IronFox/-/issues/231
+pref("network.protocol-handler.expose.tel", true); // [ANDROID-ONLY] [HIDDEN] Needed for opening links in the Phone app - https://codeberg.org/ironfox-oss/bugs/issues/231
 pref("network.protocol-handler.expose.resource", true); // [HIDDEN]
 pref("network.protocol-handler.expose.view-source", true); // [NO-ANDROID] [NO-MAIL]
 pref("network.protocol-handler.expose-all", false); // [DEFAULT - Thunderbird]
