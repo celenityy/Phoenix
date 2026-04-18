@@ -231,65 +231,19 @@ Phoenix is not sponsored or endorsed by Mozilla.
 Huge thank you to the following projects & individuals for making Phoenix
 possible. Please show them support!
 
-- **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
-  - Designed Phoenix's icon *(derived from Xonotic, see below)*,
-created the install & uninstall scripts, helped with maintenance/packaging,
-assisted with README formatting, provided general advice & support,
-and responsible for various other significant contributions to the project.
+| Projects & Names                                                                                                                                                                                                                                                                                                                                                                       | Notes                                                                                                                                                                                                                                                                     | License                                                                          | Donate                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------|
+| [Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)                                                                                                                                                                                                                                                                                                                               | Designed Phoenix's icon *(derived from Xonotic, see below)*, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions. | -                                                                                | -                                               |
+| [GW72](https://codeberg.org/GW72)                                                                                                                                                                                                                                                                                                                                                      | Invaluable feedback and support of the project.                                                                                                                                                                                                                           | -                                                                                | -                                               |
+| [Xonotic](https://xonotic.org): [Severin Meyer](https://sev.dev)                                                                                                                                                                                                                                                                                                                       | [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)                                                                                                                                                           | [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)       | -                                               |
+| [Arkenfox](https://github.com/arkenfox/user.js): [Thorin-Oakenpants](https://github.com/thorin-Oakenpants), [earthlng](https://github.com/earthlng), [claustromaniac](https://github.com/claustromaniac)                                                                                                                                                                               | -                                                                                                                                                                                                                                                                         | [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)               | -                                               |
+| [Betterfox](https://github.com/yokoffing/Betterfox): [yokoffing](https://github.com/yokoffing)                                                                                                                                                                                                                                                                                         | Certain preferences (Mostly performance-related)                                                                                                                                                                                                                          | [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)                  | [Donate](https://github.com/sponsors/yokoffing) |
+| [Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg): [Narsil](https://codeberg.org/Narsil)                                                                                                                                                                                                                                                                                 | Certain preferences + inspiration                                                                                                                                                                                                                                         | [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)   | -                                               |
+| [Brace](https://codeberg.org/divested/brace): [Divested Computing Group](https://divested.dev)                                                                                                                                                                                                                                                                                         | Certain preferences + inspiration                                                                                                                                                                                                                                         | [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)          | -                                               |
+| [LibreWolf](https://librewolf.net): [bgstack15](https://codeberg.org/bgstack15), [fxbrit](https://codeberg.org/fxbrit), [Malte Jürgens](https://codeberg.org/maltejur), [ohfp](https://codeberg.org/ohfp), [James McClain](https://codeberg.org/TheGreatMcPain), [threadpanic](https://codeberg.org/threadpanic), [Guillaume](https://codeberg.org/ltguillaume)                        | Inspiration + certain preferences & policies                                                                                                                                                                                                                              | [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt) | -                                               |
+| [firefox-config](https://codeberg.org/rusty-snake/firefox-config): [rusty-snake](https://codeberg.org/rusty-snake)                                                                                                                                                                                                                                                                     | Inspiration + certain preferences                                                                                                                                                                                                                                         | [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)               | -                                               |
+| [uBlock Origin](https://github.com/gorhill/uBlock): [Raymond Hill](https://github.com/gorhill), [ItsProfesssional](https://github.com/ItsProfessional), [MasterKia](https://github.com/MasterKia), [peace2000](https://github.com/peace2000), [Peter Lowe](https://pgl.yoyo.org), [PiQuark6046](https://github.com/piquark6046), [stephenhawk8054](https://github.com/stephenhawk8054) | Pre-installed extension - provides content blocking                                                                                                                                                                                                                       | [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)               | -                                               |
+| [Quad9](https://quad9.net/): [Quad9 Team](https://quad9.net/about/team)                                                                                                                                                                                                                                                                                                                | Default DNS Over HTTPS Resolver                                                                                                                                                                                                                                           | -                                                                                | [Donate](https://www.quad9.net/donate)          |
+| And of course... [Firefox](https://mozilla.org/firefox): [Mozilla](https://www.mozilla.org)                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                                                                         | [MPL-2.0](https://www.mozilla.org/foundation/licensing)                          | [Donate](https://foundation.mozilla.org/donate) |
 
-- **[GW72](https://codeberg.org/GW72)**
-  - Invaluable feedback and support of the project.
-
-- **[Xonotic](https://xonotic.org)**
-  - 🪪 [Severin Meyer](https://sev.dev)
-  - ⚖️ [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)
-  - [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)
-
-- **[Arkenfox](https://github.com/arkenfox/user.js)**
-  - 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants), [earthlng](https://github.com/earthlng), [claustromaniac](https://github.com/claustromaniac)
-  - ⚖️ [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
-
-- **[Betterfox](https://github.com/yokoffing/Betterfox)**
-  - 🪪 [yokoffing](https://github.com/yokoffing)
-  - ⚖️ [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
-  - 💸 [Donate](https://github.com/sponsors/yokoffing)
-  - Certain preferences (Mostly performance-related)
-
-- **[Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)**
-  - 🪪 [Narsil](https://codeberg.org/Narsil)
-  - ⚖️ [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
-  - Certain preferences + inspiration
-
-- **[Brace](https://codeberg.org/divested/brace)**
-  - 🪪 [Divested Computing Group](https://divested.dev)
-  - ⚖️ [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
-  - Certain preferences + inspiration
-
-- **[LibreWolf](https://librewolf.net)**
-  - 🪪 [bgstack15](https://codeberg.org/bgstack15), [fxbrit](https://codeberg.org/fxbrit),
-[Malte Jürgens](https://codeberg.org/maltejur), [ohfp](https://codeberg.org/ohfp), [James McClain](https://codeberg.org/TheGreatMcPain), [threadpanic](https://codeberg.org/threadpanic), [Guillaume](https://codeberg.org/ltguillaume)
-  - ⚖️ [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt)
-  - Inspiration + certain preferences & policies
-
-- **[firefox-config](https://codeberg.org/rusty-snake/firefox-config)**
-  - 🪪 [rusty-snake](https://codeberg.org/rusty-snake)
-  - ⚖️ [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
-  - Inspiration + certain preferences
-
-- **[uBlock Origin](https://github.com/gorhill/uBlock)**
-  - 🪪 [Raymond Hill](https://github.com/gorhill), [ItsProfesssional](https://github.com/ItsProfessional), [MasterKia](https://github.com/MasterKia), [peace2000](https://github.com/peace2000),
-[Peter Lowe](https://pgl.yoyo.org), [PiQuark6046](https://github.com/piquark6046), [stephenhawk8054](https://github.com/stephenhawk8054)
-  - ⚖️ [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
-  - Pre-installed extension - provides content blocking
-
-- **[Quad9](https://quad9.net/)**
-  - 🪪 [Quad9 Team](https://quad9.net/about/team)
-  - 💸 [Donate](https://www.quad9.net/donate)
-  - Default DNS Over HTTPS Resolver
-
-And of course...
-
-- **[Firefox](https://mozilla.org/firefox)**
-  - 🪪 [Mozilla](https://www.mozilla.org)
-  - ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing)
-  - 💸 [Donate](https://foundation.mozilla.org/donate)
+⭐ If you like this project, please consider giving it a star!
