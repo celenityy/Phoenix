@@ -1,6 +1,13 @@
 <div align="center"> <!-- rumdl-disable-line MD033 --> <!-- rumdl-disable-line MD041 -->
 
-# Phoenix
+# [Phoenix](https://phoenix.celenity.dev)
+
+<!-- Navigation Bar -->
+<p align="center"> <!-- rumdl-disable-line MD033 -->
+  <a href="https://codeberg.org/celenity/Phoenix">Project Intro</a> | <!-- rumdl-disable-line MD033 -->
+  <a href="https://codeberg.org/celenity/Phoenix/wiki">Wiki</a> | <!-- rumdl-disable-line MD033 -->
+  <a href="#contributing">Contribute</a> <!-- rumdl-disable-line MD033 -->
+</p>
 
 ![phoenix](build-resources/assets/phoenix_wide.png)
 
@@ -15,13 +22,9 @@ colorhunt.co/palette/272a34221d25b23232fd4747 or 272A34 221D25 B23232 FD4747
 Codeberg: 4793cc, GitLab: fc6d26, GitHub: 0d1117
 )
 
-<!-- Project -->
-[![Phoenix](https://img.shields.io/badge/phoenix-1?style=for-the-badge&logo=firefox&logoColor=white&color=FD4747)](https://phoenix.celenity.dev)
-
-<!-- License -->
+<!-- General -->
 [![License](https://img.shields.io/gitlab/license/celenityy%2FPhoenix?style=for-the-badge&logo=gnu&logoColor=white&label=%20&labelColor=B23232&color=B23232)](https://spdx.org/licenses/GPL-3.0-or-later.html)
-
-<!-- Packages -->
+[![Phoenix](https://img.shields.io/badge/phoenix-1?style=for-the-badge&logo=firefox&logoColor=white&color=FD4747)](https://phoenix.celenity.dev)
 [![Repology](https://img.shields.io/repology/repositories/phoenix-firefox?style=for-the-badge&logo=hackthebox&logoColor=white&label=REPOLOGY&labelColor=221D25&color=FD4747)](https://repology.org/project/phoenix-firefox/versions)
 [![Codeberg Release](https://img.shields.io/gitea/v/release/celenity/Phoenix?gitea_url=https://codeberg.org&include_prereleases&sort=date&display_name=release&date_order_by=created_at&style=for-the-badge&logo=git-lfs&logoColor=white&labelColor=221D25&color=green)](https://codeberg.org/celenity/Phoenix/releases)
 
@@ -61,6 +64,7 @@ Codeberg: 4793cc, GitLab: fc6d26, GitHub: 0d1117
     - [Specialized configs](#specialized-configs) <!-- rumdl-disable-line MD051 -->
     - [Manual installation](#manual-installation) <!-- rumdl-disable-line MD051 -->
       - [Using extended or a specialized config manually](#using-extended-or-a-specialized-config-manually) <!-- rumdl-disable-line MD051 -->
+  - [Contributing](#contributing) <!-- rumdl-disable-line MD051 -->
   - [Licensing](#licensing) <!-- rumdl-disable-line MD051 -->
   - [Notices](#notices) <!-- rumdl-disable-line MD051 -->
   - [Attribution](#attribution) <!-- rumdl-disable-line MD051 -->
@@ -201,6 +205,13 @@ With a manual installation of Phoenix, if you would like to use Phoenix's
 [specialized configs](#-specialized-configs), you'll need to follow:
 
 See: [Using Extended or a Specialized Config Manually.md](readme/using_extended_or_a_specialized_config_manually.md)
+
+## Contributing
+
+You can help by contributing code or by telling others about Phoenix. Reach out
+to us and let us know how you want to help.
+
+- Build instructions: [wiki/build.md](https://codeberg.org/celenity/Phoenix/wiki/Build)
 
 ## ⚖️ Licensing
 
