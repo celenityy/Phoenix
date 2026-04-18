@@ -48,21 +48,22 @@ Codeberg: 4793cc, GitLab: fc6d26, GitHub: 0d1117
 
 ## 📖 Table of Contents
 
+<!-- Emoji is breaking rumdl LSP. -->
 - [Phoenix](#phoenix)
-  - [Table of Contents](#-table-of-contents)
+  - [Table of Contents](#table-of-contents) <!-- rumdl-disable-line MD051 -->
   - [About Phoenix](#about-phoenix)
     - [How Phoenix Work?](#how-phoenix-work)
-    - [Motivation](#-motivation)
+    - [Motivation](#motivation) <!-- rumdl-disable-line MD051 -->
     - [Want to join Phoenix community?](#want-to-join-phoenix-community)
-  - [Installation](#-installation)
+  - [Installation](#installation) <!-- rumdl-disable-line MD051 -->
     - [Install](#install)
-    - [Extended](#-extended)
-    - [Specialized configs](#-specialized-configs)
-    - [Manual installation](#-manual-installation)
-      - [Using extended or a specialized config manually](#-using-extended-or-a-specialized-config-manually)
-  - [Licensing](#-licensing)
-  - [Notices](#-notices)
-  - [Attribution](#-attribution)
+    - [Extended](#extended) <!-- rumdl-disable-line MD051 -->
+    - [Specialized configs](#specialized-configs) <!-- rumdl-disable-line MD051 -->
+    - [Manual installation](#manual-installation) <!-- rumdl-disable-line MD051 -->
+      - [Using extended or a specialized config manually](#using-extended-or-a-specialized-config-manually) <!-- rumdl-disable-line MD051 -->
+  - [Licensing](#licensing) <!-- rumdl-disable-line MD051 -->
+  - [Notices](#notices) <!-- rumdl-disable-line MD051 -->
+  - [Attribution](#attribution) <!-- rumdl-disable-line MD051 -->
 
 ## About Phoenix
 
