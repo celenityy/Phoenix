@@ -10,7 +10,7 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[{*.{json,jsonc},*.sh,*.yml,*.nix}]
+[{*.{json,jsonc},*.sh,*.yml,*.nix,*.md}]
 indent_size = 2
 
 [*.js]
