@@ -1,7 +1,5 @@
 <div align="center"> <!-- rumdl-disable-line MD033 --> <!-- rumdl-disable-line MD041 -->
 
-# [Phoenix](https://phoenix.celenity.dev)
-
 <!-- Navigation Bar -->
 <p align="center"> <!-- rumdl-disable-line MD033 -->
   <a href="https://codeberg.org/celenity/Phoenix">Project Intro</a> | <!-- rumdl-disable-line MD033 -->
@@ -9,7 +7,10 @@
   <a href="#contributing">Contribute</a> <!-- rumdl-disable-line MD033 -->
 </p>
 
+<!-- Current color scheme: colorhunt.co/palette/272a34221d25b23232fd4747 or 272A34 221D25 B23232 FD4747 -->
 ![phoenix](build-resources/assets/phoenix_wide.png)
+
+# [Phoenix](https://phoenix.celenity.dev)
 
 **Phoenix is a suite of configurations & advanced modifications for Mozilla
 Firefox, designed to put the user first - with a focus on privacy, security,
