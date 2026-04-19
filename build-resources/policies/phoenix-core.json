@@ -48,7 +48,7 @@
         "DNSOverHTTPS": {
             "Enabled": true,
             "Fallback": false,
-            "ProviderURL": "https://dns.quad9.net/dns-query"
+            "ProviderURL": "https://base.dns.mullvad.net/dns-query"
         },
         "EnableTrackingProtection": {
             "BaselineExceptions": true,
