@@ -1630,6 +1630,9 @@ pref("network.trr.confirmationNS", "skip"); // https://searchfox.org/firefox-mai
 pref("network.trr.skip-check-for-blocked-host", true); // https://searchfox.org/firefox-main/rev/82e2435f/netwerk/dns/TRRService.cpp#1062
 pref("network.trr.wait-for-confirmation", false); // [DEFAULT] Ensure we always attempt to use DoH no matter what, regardless of the confirmation connectivity check https://searchfox.org/firefox-main/rev/e535ba2b/netwerk/dns/TRRService.cpp#282
 
+/// Disable DoH GET
+pref("network.trr.useGET", false); // https://bugzilla.mozilla.org/show_bug.cgi?id=1699759
+
 /// Disable EDNS Client Subnet (ECS) to prevent leaking general location data to authoritative DNS servers...
 // https://wikipedia.org/wiki/EDNS_Client_Subnet
 pref("network.trr.disable-ECS", true); // [DEFAULT]
