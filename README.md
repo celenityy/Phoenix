@@ -16,33 +16,6 @@ Firefox, designed to put the user first - with a focus on privacy, security,
 freedom, functionality, & usability.** A detailed list of Phoenix's features &
 enhancements can be **[found here](https://phoenix.celenity.dev/features)**.
 
-[//]: # (
-Colors:
-colorhunt.co/palette/272a34221d25b23232fd4747 or 272A34 221D25 B23232 FD4747
-Codeberg: 4793cc, GitLab: fc6d26, GitHub: 0d1117
-)
-
-<!-- General -->
-[![License](https://img.shields.io/gitlab/license/celenityy%2FPhoenix?style=for-the-badge&logo=gnu&logoColor=white&label=%20&labelColor=B23232&color=B23232)](https://spdx.org/licenses/GPL-3.0-or-later.html)
-[![Phoenix](https://img.shields.io/badge/phoenix-1?style=for-the-badge&logo=firefox&logoColor=white&color=FD4747)](https://phoenix.celenity.dev)
-[![Repology](https://img.shields.io/repology/repositories/phoenix-firefox?style=for-the-badge&logo=hackthebox&logoColor=white&label=REPOLOGY&labelColor=221D25&color=FD4747)](https://repology.org/project/phoenix-firefox/versions)
-[![Codeberg Release](https://img.shields.io/gitea/v/release/celenity/Phoenix?gitea_url=https://codeberg.org&include_prereleases&sort=date&display_name=release&date_order_by=created_at&style=for-the-badge&logo=git-lfs&logoColor=white&labelColor=221D25&color=green)](https://codeberg.org/celenity/Phoenix/releases)
-
-<!-- Codeberg -->
-[![Codeberg Stars](https://img.shields.io/gitea/stars/celenity/Phoenix?gitea_url=https://codeberg.org&style=for-the-badge&logo=codeberg&logoColor=white&labelColor=272A34&color=4793cc)](https://codeberg.org/celenity/Phoenix/stars)
-[![Codeberg Issues](https://img.shields.io/gitea/issues/open-raw/celenity/Phoenix?gitea_url=https://codeberg.org&style=for-the-badge&logo=gitbook&logoColor=white&labelColor=272A34&color=4793cc)](https://codeberg.org/celenity/Phoenix/issues)
-[![Codeberg Pull Requests](https://img.shields.io/gitea/pull-requests/open-raw/celenity/Phoenix?gitea_url=https://codeberg.org&style=for-the-badge&logo=git&logoColor=white&labelColor=272A34&color=4793cc)](https://codeberg.org/celenity/Phoenix/pulls)
-
-<!-- GitLab -->
-[![GitLab Stars](https://img.shields.io/gitlab/stars/celenityy%2FPhoenix?style=for-the-badge&logo=gitlab&logoColor=white&labelColor=272A34&color=fc6d26)](https://gitlab.com/celenityy/Phoenix/-/starrers)
-[![GitLab Issues](https://img.shields.io/gitlab/issues/open-raw/celenityy%2FPhoenix?style=for-the-badge&logo=gitbook&logoColor=white&labelColor=272A34&color=fc6d26)](https://gitlab.com/celenityy/Phoenix/-/work_items)
-[![GitLab Merge Requests](https://img.shields.io/gitlab/merge-requests/open-raw/celenityy%2FPhoenix?style=for-the-badge&logo=git&logoColor=white&labelColor=272A34&color=fc6d26)](https://gitlab.com/celenityy/Phoenix/-/merge_requests)
-
-<!-- GitHub -->
-[![GitHub Stars](https://img.shields.io/github/stars/celenityy/Phoenix?style=for-the-badge&logo=github&logoColor=white&labelColor=272A34&color=0d1117)](https://github.com/celenityy/Phoenix/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues-raw/celenityy/Phoenix?style=for-the-badge&logo=gitbook&logoColor=white&labelColor=272A34&color=0d1117)](https://github.com/celenityy/Phoenix/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/celenityy/Phoenix?style=for-the-badge&logo=git&logoColor=white&labelColor=272A34&color=0d1117)](https://github.com/celenityy/Phoenix/pulls)
-
 </div>
 
 > [!NOTE]
@@ -139,10 +112,6 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.o
 
 ## 🚀 Installation
 
-<a href="https://repology.org/project/phoenix-firefox/versions">
-  <img src="https://repology.org/badge/vertical-allrepos/phoenix-firefox.svg" alt="Packaging status" align="right">
-</a>
-
 | Platform | Derivatives | Firefox Support                   | Support Status                                            |
 |----------|-------------|-----------------------------------|-----------------------------------------------------------|
 | Android  | -           | [IronFox](https://ironfoxoss.org) | Official                                                  |
@@ -155,6 +124,8 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.o
 | macOS    | -           | Firefox                           | Official                                                  |
 | Ubuntu   | Yes         | Firefox                           | Official                                                  |
 | Windows  | -           | Firefox, Zen                      | [Partial](https://codeberg.org/celenity/Phoenix/issues/3) |
+
+Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
 ### Install
 
