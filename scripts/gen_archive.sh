@@ -24,7 +24,12 @@ echo
 readonly PHOENIX_DOT_CLEAN='/usr/sbin/dot_clean -mv'
 
 # zip
-readonly PHOENIX_ZIP='zip -r -FS'
+if [ "${PHOENIX_NIX}" == 1 ]; then
+    readonly PHOENIX_ZIP='zip -r'
+    rm "${PHOENIX_ARCHIVES}/phoenix-linux.zip"
+else
+    readonly PHOENIX_ZIP='zip -r -FS'
+fi
 
 if [ "${PHOENIX_LINUX}" == 1 ]; then
     if [[ "${PHOENIX_OS}" == 'osx' ]]; then
