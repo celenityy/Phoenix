@@ -18,6 +18,9 @@
             },
             "SmartWindow": {
                 "Value": "blocked"
+            },
+            "Translations": {
+                "Value": "available"
             }
         },
         "ContentAnalysis": {
