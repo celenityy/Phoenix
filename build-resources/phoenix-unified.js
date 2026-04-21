@@ -2041,6 +2041,10 @@ pref("dom.postMessage.sharedArrayBuffer.withCOOP_COEP", false); // [NO-MAIL]
 // https://developer.mozilla.org/docs/Web/API/WebXR_Device_API
 pref("permissions.default.xr", 2); // [HIDDEN - Android/Thunderbird]
 
+/// Disable XSLT
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1998002
+pref("dom.xslt.enabled", false);
+
 /// If JIT (Ion/WarpMonkey) is disabled, also disable it for extensions
 // This is the default, but it's hidden - so setting it here lets us expose it...
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
