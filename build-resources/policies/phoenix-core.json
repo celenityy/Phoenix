@@ -71,12 +71,6 @@
             "SponsoredStories": false,
             "Stories": false
         },
-        "GenerativeAI": {
-            "Chatbot": false,
-            "Enabled": false,
-            "LinkPreviews": false,
-            "TabGroups": false
-        },
         "Handlers": {
             "extensions": {
                 "pdf": {
