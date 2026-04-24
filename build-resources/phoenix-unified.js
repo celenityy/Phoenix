@@ -3643,6 +3643,10 @@ pref("dom.event.contextmenu.shift_suppresses_event", true); // [DEFAULT]
 pref("browser.link.open_newwindow", 3); // [DEFAULT]
 pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunderbird]
 
+/// If a connection with HTTP/3 fails, allow retrying it with a different IP address
+// https://searchfox.org/firefox-main/rev/62066911/netwerk/protocol/http/ConnectionEntry.cpp#1031
+pref("network.http.http3.retry_different_ip_family", true); // [DEFAULT - Nightly]
+
 /// Limit what events can cause pop-ups
 pref("dom.popup_allowed_events", "click dblclick");
 
