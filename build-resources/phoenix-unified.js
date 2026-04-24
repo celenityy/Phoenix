@@ -3657,6 +3657,11 @@ pref("browser.link.open_newwindow.restriction", 0); // [DEFAULT - Android/Thunde
 // https://searchfox.org/firefox-main/rev/62066911/netwerk/protocol/http/ConnectionEntry.cpp#1031
 pref("network.http.http3.retry_different_ip_family", true); // [DEFAULT - Nightly]
 
+/// If a connection to a primary or back-up half-open network socket fails while the other is still connecting,
+// retry the connection with the one that is still connecting
+// https://searchfox.org/firefox-main/rev/62066911/modules/libpref/init/StaticPrefList.yaml#16190
+pref("network.http.retry_with_another_half_open", true); // [DEFAULT - Nightly]
+
 /// Limit what events can cause pop-ups
 pref("dom.popup_allowed_events", "click dblclick");
 
