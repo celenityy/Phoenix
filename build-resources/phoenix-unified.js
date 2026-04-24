@@ -4834,7 +4834,19 @@ pref("librewolf.uBO.assetsBootstrapLocation", "https://assets.celenity.dev/ubloc
 
 pref("browser.phoenix.status", "032"); // [NO-ANDROID] [NO-MAIL]
 
-/*** 033 SPECIALIZED/CUSTOM CONFIGS ***/ // [NO-ANDROID]
+/*** 033 WATERFOX ***/ // [NO-ANDROID] [NO-MAIL]
+
+/// The following prefs are specific to Waterfox and its derivatives, you can safely ignore them if you're not using Waterfox [NO-ANDROID] [NO-MAIL]
+// Note that we definitely do NOT support or recommend using Waterfox... [NO-ANDROID] [NO-MAIL]
+
+/// Do not allow ads/tracking on "partner" sites [NO-ANDROID] [NO-MAIL]
+// (Currently includes Startpage) [NO-ANDROID] [NO-MAIL]
+// https://github.com/BrowserWorks/waterfox/issues/4182 [NO-ANDROID] [NO-MAIL]
+pref("waterfox.blocker.allowSearchPartnerAds", false); // [NO-ANDROID] [NO-MAIL]
+
+pref("browser.phoenix.status", "033"); // [NO-ANDROID] [NO-MAIL]
+
+/*** 034 SPECIALIZED/CUSTOM CONFIGS ***/ // [NO-ANDROID]
 
 /// Configure remote AutoConfig files (if active) [NO-ANDROID]
 pref("autoadmin.failover_to_cached", true); // [NO-ANDROID]
@@ -4846,7 +4858,7 @@ pref("general.config.filename", "phoenix.cfg"); // [NO-ANDROID] [NO-MAIL] [NO-OS
 pref("general.config.obscure_value", 0); // [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
 pref("general.config.vendor", "phoenix"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO-WINDOWS]
 
-pref("browser.phoenix.status", "033"); // [NO-ANDROID]
+pref("browser.phoenix.status", "034"); // [NO-ANDROID]
 
 pref("browser.phoenix.status", "successfully applied :D", locked);
 pref("browser.phoenix.applied.cfg", true, locked);
