@@ -1708,6 +1708,11 @@ pref("network.trr.send_accept-language_headers", false); // [DEFAULT]
 pref("network.trr.send_empty_accept-encoding_headers", true); // [DEFAULT]
 pref("network.trr.send_user-agent_headers", false); // [DEFAULT]
 
+/// Prioritize HTTP/3
+// https://searchfox.org/firefox-main/rev/62066911/netwerk/dns/nsIDNSService.idl#354
+pref("network.trr.allow_default_http3_first", true); // [DEFAULT - Nightly]
+pref("network.trr.force_http3_first", true);
+
 /// Temporarily exclude certain captive portal domains from DNS over HTTPS by default [ANDROID-ONLY]
 // Android unfortunately doesn't currently prompt users to fallback from DNS over HTTPS when a site can't be found (like desktop does), which causes unexpected breakage for users, as it leaves them without a clear explanation of the issue and a way to add the exceptions [ANDROID-ONLY]
 // I don't love the idea of doing this... so again, to clarify: these are temporary will be removed once Firefox adds the fallback UI [ANDROID-ONLY]
