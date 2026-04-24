@@ -1181,6 +1181,11 @@ pref("browser.phoenix.status", "006");
 // (To expose the preference via the `about:config`)
 pref("security.certerror.hideAddException", false); // [HIDDEN] [DEFAULT]
 
+/// Always attempt to resolve HTTPS resource records, regardless of connectivity checks/other factors
+// https://searchfox.org/firefox-main/rev/62066911/netwerk/protocol/http/nsHttpChannel.cpp#987
+// https://developer.mozilla.org/docs/Glossary/HTTPS_RR
+pref("network.dns.force_use_https_rr", true);
+
 /// Always preload intermediates
 // https://wiki.mozilla.org/Security/CryptoEngineering/Intermediate_Preloading
 pref("security.remote_settings.intermediates.enabled", true); // [DEFAULT]
