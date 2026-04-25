@@ -3187,9 +3187,17 @@ pref("cookiebanners.service.enableGlobalRules.subFrames", true); // [DEFAULT]
 pref("network.cookie.CHIPS.enabled", true); // [DEFAULT]
 pref("network.cookie.chips.partitionLimitDryRun", false); // [DEFAULT]
 
-/// Enable Do Not Track & Global Privacy Control
-// Do Not Track is also covered by ETP Strict, pref to be removed soon...
+/// Enable Do Not Track
+// https://wikipedia.org/wiki/Do_Not_Track
+// Has legal backing in certain regions, such as Germany (1)
+// Also still respected by a surprising number of sites - including Mozilla's own
+// (ex. addons.mozilla.org disables Google Analytics if DNT is enabled)
+// 1: https://vivaldi.com/blog/do-no-track-gets-legal-backing-in-germany/
+pref("browser.preferences.config_warning.donottrackheader.dismissed", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Hide notice that DNT is no longer supported at `about:preferences#privacy` (when `privacy.ui.status_card` is enabled)
 pref("privacy.donottrackheader.enabled", true);
+
+/// Enable Global Privacy Control
+// https://globalprivacycontrol.org/
 pref("privacy.globalprivacycontrol.enabled", true);
 pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT - non-Thunderbird]
 pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thunderbird]
