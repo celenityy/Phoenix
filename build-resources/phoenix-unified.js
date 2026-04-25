@@ -4072,6 +4072,11 @@ pref("browser.policies.loglevel", "error"); // [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("full-screen-api.transition-duration.enter", "0 0"); // [Default = 200 200]
 pref("full-screen-api.transition-duration.leave", "0 0"); // [Default = 200 200]
 
+/// Display an icon to clear search boxes (for `search` `<input>` types)
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1654288
+// https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/input/search
+pref("layout.forms.input-type-search.enabled", true);
+
 /// Display "More settings" on print previews by default
 // https://searchfox.org/firefox-main/rev/643d7328/modules/libpref/init/all.js#761
 pref("print.more-settings.open", true);
