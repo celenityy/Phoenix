@@ -19,6 +19,7 @@
 *.code-workspace gitlab-language=json
 *.jsonc          gitlab-language=json
 *.plist          gitlab-language=xml
+*.yml            gitlab-language=yaml
 flake.lock       gitlab-language=json
 permissions      gitlab-language=ini
 _redirects       gitlab-language=ini
@@ -28,6 +29,7 @@ _redirects       gitlab-language=ini
 *.code-workspace linguist-language=JSON
 *.jsonc          linguist-language=JSON
 *.plist          linguist-language=XML
+*.yml            linguist-language=YAML
 flake.lock       linguist-language=JSON
 permissions      linguist-language=INI
 _redirects       linguist-language=INI
