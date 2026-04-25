@@ -3906,10 +3906,10 @@ pref("network.http.pacing.requests.enabled", false);
 // Despite what the name suggests, Firefox will remain at the default/recommended performance settings - all this does is expose the UI settings... [NO-ANDROID] [NO-MAIL]
 pref("browser.preferences.defaultPerformanceSettings.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
-/// Enable Advanced Vector Extensions (AVX) [NO-ANDROID]
-// https://wikipedia.org/wiki/Advanced_Vector_Extensions [NO-ANDROID]
-// https://www.supportyourtech.com/articles/how-to-enable-avx-support-in-windows-11-a-step-by-step-guide/ [NO-ANDROID]
-pref("javascript.options.wasm_simd_avx", true); // [DEFAULT] [NO-ANDROID]
+/// Enable Advanced Vector Extensions (AVX)
+// https://wikipedia.org/wiki/Advanced_Vector_Extensions
+// https://www.supportyourtech.com/articles/how-to-enable-avx-support-in-windows-11-a-step-by-step-guide/
+pref("javascript.options.wasm_simd_avx", true); // [DEFAULT]
 
 /// Enable Branch Hinting
 // https://github.com/WebAssembly/branch-hinting/blob/main/proposals/branch-hinting/Overview.md
