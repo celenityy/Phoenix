@@ -4121,6 +4121,13 @@ pref("devtools.performance.aboutprofiling.has-developer-options", true);
 /// Enable display of in-process subframes at `about:processes` by default
 pref("toolkit.aboutProcesses.showAllSubframes", true);
 
+/// Enable image/table resizing (for text input) by default
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1449564
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1604144
+pref("editor.inline_table_editing.enabled_by_default", true);
+pref("editor.positioning.enabled_by_default", true);
+pref("editor.resizing.enabled_by_default", true);
+
 /// Enable taskbar lists/tasks by default [WINDOWS-ONLY] [NO-MAIL]
 // https://codeberg.org/celenity/Phoenix/pulls/228 [WINDOWS-ONLY] [NO-MAIL]
 pref("browser.taskbar.lists.enabled", true); // [WINDOWS-ONLY] [NO-MAIL] [DEFAULT]
