@@ -4,7 +4,6 @@ title: "[WEB COMPAT] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
 labels: ["web compat"]
 assignees:
   - celenity
-  - celenityy
 body:
   - type: checkboxes
     id: checklist
