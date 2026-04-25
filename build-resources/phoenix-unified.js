@@ -2250,7 +2250,7 @@ pref("xpinstall.whitelist.add.NoScript.PBM", "https://noscript.net^privateBrowsi
 
 /// Disable add-on sideloading
 // Only allows installing extensions from profile & application directories (Prevents extensions being installed from the system/via other software)
-// https://archive.is/DYjAM
+// https://web.archive.org/web/20220608121322/https://mike.kaply.com/2012/02/21/understanding-add-on-scopes/
 // https://support.mozilla.org/kb/deploying-firefox-with-extensions
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/AddonSettings.sys.mjs#125
 pref("extensions.autoDisableScopes", 15); // [DEFAULT - non-Thunderbird] Defense in depth, ensures sideloaded extensions are always disabled by default... (Not locked for desktop because it can be useful in certain instances, ex. for those who use impermanence)
