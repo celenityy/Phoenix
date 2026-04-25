@@ -2890,6 +2890,16 @@ pref("browser.phoenix.status", "020");
 
 /*** 021 MISC. PRIVACY + SECURITY ***/
 
+/// Block background tabs from opening file pickers
+// https://searchfox.org/firefox-main/rev/62066911/modules/libpref/init/StaticPrefList.yaml#2210
+// https://searchfox.org/firefox-main/rev/62066911/docshell/base/CanonicalBrowsingContext.cpp#3705
+pref("browser.disable_pickers_background_tabs", true); // [DEFAULT]
+
+/// Block background/hidden extension pages from opening file pickers
+// https://searchfox.org/firefox-main/rev/62066911/modules/libpref/init/StaticPrefList.yaml#2216
+// https://searchfox.org/firefox-main/rev/62066911/docshell/base/CanonicalBrowsingContext.cpp#3719
+pref("browser.disable_pickers_in_hidden_extension_pages", true); // [DEFAULT - Nightly]
+
 /// Disable Accessibility Services
 // PRIVACY: Can be used to monitor users by design
 // SECURITY: Can be easily abused by bad actors, Attack Surface Reduction
