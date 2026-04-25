@@ -4,7 +4,6 @@ title: "[ENHANCEMENT] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR SUGGESTION
 labels: ["enhancement"]
 assignees:
   - celenity
-  - celenityy
 body:
   - type: checkboxes
     id: checklist

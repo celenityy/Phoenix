@@ -4,7 +4,6 @@ title: "[OTHER] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
 labels: ["other"]
 assignees:
   - celenity
-  - celenityy
 body:
   - type: textarea
     id: reason
