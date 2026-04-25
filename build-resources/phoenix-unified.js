@@ -4914,11 +4914,6 @@ pref("autoadmin.failover_to_cached", true); // [NO-ANDROID]
 pref("autoadmin.offline_failover", true); // [NO-ANDROID]
 pref("autoadmin.refresh_interval", 60); // [NO-ANDROID]
 
-/// Enable support for custom/specialized configs... [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
-pref("general.config.filename", "phoenix.cfg"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO-WINDOWS]
-pref("general.config.obscure_value", 0); // [NO-ANDROID] [NO-OSX] [NO-WINDOWS]
-pref("general.config.vendor", "phoenix"); // [NO-ANDROID] [NO-MAIL] [NO-OSX] [NO-WINDOWS]
-
 pref("browser.phoenix.status", "034"); // [NO-ANDROID]
 
 pref("browser.phoenix.status", "successfully applied :D", locked);
