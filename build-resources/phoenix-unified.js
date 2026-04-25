@@ -3549,6 +3549,7 @@ pref("browser.tabs.remote.enforceRemoteTypeRestrictions", true); // [DEFAULT - N
 // https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
 // https://web.dev/articles/schemeful-samesite
 pref("network.cookie.sameSite.laxByDefault", true);
+pref("network.cookie.sameSite.laxByDefaultWarningsForBeta", true); // If `network.cookie.sameSite.laxByDefault` is disabled, ensure we still display a warning in the web console
 pref("network.cookie.sameSite.noneRequiresSecure", true); // [DEFAULT]
 pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
