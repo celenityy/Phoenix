@@ -3926,6 +3926,10 @@ pref("gfx.canvas.accelerated.cache-size", 4096); // Increase cache size (Default
 // (For testing: https://codepen.io/rachelandrew/pen/wvWmZWB)
 pref("layout.css.grid-template-masonry-value.enabled", true); // [DEFAULT - Nightly/Thunderbird] 
 
+/// Enable dynamic reflow roots
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1159042
+pref("layout.dynamic-reflow-roots.enabled", true); // [DEFAULT - Nightly]
+
 /// Enable the "fetchpriority" attribute
 // https://web.dev/articles/fetch-priority
 pref("network.fetchpriority.enabled", true); // [DEFAULT]
