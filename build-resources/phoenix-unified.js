@@ -3613,6 +3613,13 @@ pref("network.trr.wait-for-portal", false); // [DEFAULT] Do not wait for captive
 // https://mozilla.github.io/policy-templates/#disableprofilerefresh [NO-ANDROID] [NO-MAIL]
 pref("browser.disableResetPrompt", true, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
+/// Disable input (editable field) auto-zoom by default [NO-ANDROID]
+// https://bugzilla.mozilla.org/show_bug.cgi?id=834613 [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/62066911/mobile/android/geckoview/src/main/java/org/mozilla/geckoview/GeckoRuntimeSettings.java#464 [NO-ANDROID]
+// This is the default value for desktop, but it's typically hidden - so we're just setting it here to expose at `about:config` [NO-ANDROID]
+// https://searchfox.org/firefox-main/rev/62066911/dom/base/nsDOMWindowUtils.cpp#3018 [NO-ANDROID]
+pref("formhelper.autozoom", false); // [NO-ANDROID] [HIDDEN] [DEFAULT]
+
 /// Disable network connectivity status monitoring
 // (Ex. used for automatically switching between offline & online mode)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=620472
