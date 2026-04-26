@@ -4365,7 +4365,9 @@ pref("browser.newtabpage.activity-stream.feeds.favicon", false); // [NO-ANDROID]
 
 /// Disable fetching the layout remotely [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-release/rev/db5de899/browser/extensions/newtab/lib/SectionsLayoutFeed.sys.mjs#455 [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/cdf7090f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1761 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.clientLayout.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.feeds.sectionslayoutfeed", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable fetching locale/fluent files remotely [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/asrouter/docs/remote_cfr.md#60 [NO-ANDROID] [NO-MAIL]
@@ -4466,6 +4468,10 @@ pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // [
 pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // [NO-ANDROID] [NO-MAIL] Bookmarks
 pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // [NO-ANDROID] [NO-MAIL] Downloads
 pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // [NO-ANDROID] [NO-MAIL] Visited websites
+
+/// Disable "smart" shortcut personalization [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/cdf7090f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1792 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.feeds.smartshortcutsfeed", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable sponsored shortcuts [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/sponsor-privacy [NO-ANDROID] [NO-MAIL]
