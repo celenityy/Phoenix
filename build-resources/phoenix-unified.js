@@ -4160,6 +4160,10 @@ pref("print.show_page_setup_menu", true);
 // (ex. appears when right-clicking a tab) [NO-ANDROID] [NO-MAIL]
 pref("browser.menu.share_url.allow", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-MOZ_PROXY_BYPASS_PROTECTION builds] [DEFAULT - non-MOZ_PROXY_BYPASS_PROTECTION builds]
 
+/// Enable QR code creation (from the `Share` (URL) menu) [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-main/rev/d81da5ef/browser/modules/SharingUtils.sys.mjs#352 [NO-ANDROID] [NO-MAIL]
+pref("browser.shareqrcode.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - OS X Nightly]
+
 /// Enable smooth scrolling by default
 // This currently appears to be overriden by `ui.prefersReducedMotion` on Desktop
 pref("general.smoothScroll", true); // [DEFAULT]
