@@ -4321,11 +4321,24 @@ pref("browser.phoenix.status", "028");
 
 /*** 029 FIREFOX HOME ***/
 
+/// Allow users to enable widgets, but disable by default to provide a cleaner homepage [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.widgets.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.widgets.focusTimer.enabled", false); // [NO-ANDROID] [NO-MAIL] Timer
+pref("browser.newtabpage.activity-stream.widgets.focusTimer.showSystemNotifications", true); // [NO-ANDROID] [NO-MAIL] Display timer notifications
+pref("browser.newtabpage.activity-stream.widgets.lists.enabled", false); // [NO-ANDROID] [NO-MAIL] Task list
+pref("browser.newtabpage.activity-stream.widgets.system.enabled", true); // [NO-ANDROID] [NO-MAIL] UI
+pref("browser.newtabpage.activity-stream.widgets.system.focusTimer.enabled", true); // [NO-ANDROID] [NO-MAIL] Timer (UI)
+pref("browser.newtabpage.activity-stream.widgets.system.lists.enabled", true); // [NO-ANDROID] [NO-MAIL] Task list (UI)
+
 /// Disable AccuWeather by default, but allow users to enable it if desired [NO-ANDROID] [NO-MAIL]
 // NOTE: This depends on Merino: `browser.urlbar.merino.endpointURL`, and the AccuWeather provider must be allowed: `browser.urlbar.merino.providers`) [NO-ANDROID] [NO-MAIL]
 // NOTE: We also warn users before navigating to AccuWeather if they select the widget, via uBlock Origin, so that this feature can be used safely without directly navigating to AccuWeather's website (which includes ads/tracking/etc.) [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.showWeather", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.system.showWeather", true); // [NO-ANDROID] [NO-MAIL] UI
+pref("browser.newtabpage.activity-stream.widgets.system.weather.enabled", true); // [NO-ANDROID] [NO-MAIL] UI
+pref("browser.newtabpage.activity-stream.widgets.system.weatherForecast.enabled", true); // [NO-ANDROID] [NO-MAIL] UI
+pref("browser.newtabpage.activity-stream.widgets.weather.enabled", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.widgets.weatherForecast.enabled", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable adult content filtering by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/modules/FilterAdult.sys.mjs [NO-ANDROID] [NO-MAIL]
