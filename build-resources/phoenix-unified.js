@@ -1988,11 +1988,6 @@ pref("media.allow-audio-non-utility", false); // [DEFAULT - non-iOS]
 pref("media.utility-android-media-codec.enabled", true); // [ANDROID-ONLY] For the Android MediaCodec PlatformDecoderModule
 pref("media.utility-process.enabled", true); // [DEFAULT]
 
-/// Validate signature when updating GMP (if enabled)
-pref("media.gmp-manager.cert.checkAttributes", true); // [DEFAULT]
-pref("media.gmp-manager.cert.requireBuiltIn", true); // [DEFAULT]
-pref("media.gmp-manager.checkContentSignature", true); // [DEFAULT]
-
 pref("browser.phoenix.status", "013");
 
 /*** 014 ATTACK SURFACE REDUCTION ***/
