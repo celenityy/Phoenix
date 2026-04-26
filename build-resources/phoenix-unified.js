@@ -4333,6 +4333,10 @@ pref("browser.newtabpage.activity-stream.discoverystream.contextualContent.feeds
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1507 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.feeds.favicon", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
+/// Disable fetching the layout remotely [NO-ANDROID] [NO-MAIL]
+// https://searchfox.org/firefox-release/rev/db5de899/browser/extensions/newtab/lib/SectionsLayoutFeed.sys.mjs#455 [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.sections.clientLayout.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+
 /// Disable fetching locale/fluent files remotely [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/asrouter/docs/remote_cfr.md#60 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/asrouter/modules/RemoteL10n.sys.mjs [NO-ANDROID] [NO-MAIL]
