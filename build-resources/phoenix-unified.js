@@ -549,9 +549,6 @@ pref("browser.uitour.surveyDuration", 0, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.uitour.testingOrigins", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.uitour.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 
-/// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
-pref("extensions.pocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR] https://searchfox.org/firefox-esr140/source/browser/app/profile/firefox.js#2624
-
 /// Disable "Privacy-Preserving Attribution"
 // https://support.mozilla.org/kb/privacy-preserving-attribution
 pref("dom.origin-trials.private-attribution.state", 2, locked); // [DEFAULT]
@@ -1336,7 +1333,7 @@ pref("security.ssl.enable_ocsp_must_staple", true); // [DEFAULT]
 pref("security.ssl.enable_ocsp_stapling", true); // [DEFAULT]
 
 /// Enable Post Quantum Key Agreement (Kyber)
-pref("media.webrtc.enable_pq_dtls", true); // [DEFAULT] [ESR]
+pref("media.webrtc.enable_pq_dtls", true); // [NO-ANDROID] [ESR] [DEFAULT]
 pref("media.webrtc.enable_pq_hybrid_kex", true); // [DEFAULT]
 pref("media.webrtc.send_mlkem_keyshare", true); // [DEFAULT]
 pref("network.http.http3.enable_kyber", true); // [DEFAULT]
@@ -1588,9 +1585,6 @@ pref("browser.urlbar.filter.javascript", true); // [NO-ANDROID] [NO-MAIL] [DEFAU
 // (Ex. labels adaptive history results with "A" and semantic history results with "S") [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/themes/shared/urlbarView.css#361 [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.showDebuggingIcons", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
-
-/// Expose the UI to add custom search engines at `about:preferences#search` [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Expose the UI to switch search engines for individual searches [NO-ANDROID] [NO-MAIL]
 // "This time, search with..." [NO-ANDROID] [NO-MAIL]
@@ -3285,7 +3279,6 @@ pref("security.default_personal_cert", "Ask Every Time", locked); // [DEFAULT]
 
 /// Apply CSP to internal browser.xhtml
 pref("security.browser_xhtml_csp.enabled", true); // [DEFAULT]
-pref("security.browser_xhtml_csp.report-only", false); // [NO-ANDROID] [ESR]
 
 /// Block privileged `about:` pages from loading remote scripts
 // https://searchfox.org/firefox-main/rev/82e2435f/dom/security/nsContentSecurityManager.cpp#1102
@@ -3497,7 +3490,6 @@ pref("security.fileuri.strict_origin_policy", true); // [DEFAULT]
 
 /// Enforce various important security-related prefs
 pref("dom.block_external_protocol_in_iframes", true); // [DEFAULT]
-pref("dom.block_external_protocol_navigation_from_sandbox", true); // [DEFAULT] [ESR]
 pref("security.all_resource_uri_content_accessible", false); // [DEFAULT]
 pref("security.allow_eval_in_parent_process", false); // [DEFAULT - non-Android/Thunderbird]
 pref("security.allow_eval_with_system_principal", false); // [DEFAULT - non-Android]
@@ -3557,7 +3549,6 @@ pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
 /// Protect against MIME Exploits
 // https://www.pcmag.com/encyclopedia/term/mime-exploit
-pref("dom.workers.importScripts.enforceStrictMimeType", true); // [DEFAULT] [ESR]
 pref("network.sniff.use_extension", true); // Sniff content types based on file extensions (Default only does this for `file://` URLs)
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
@@ -4405,7 +4396,6 @@ pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboardi
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Pocket [NO-ANDROID] [NO-MAIL] [ESR]
-pref("browser.newtabpage.activity-stream.discoverystream.recentSaves.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // [NO-ANDROID] [NO-MAIL] [ESR]
@@ -4446,9 +4436,7 @@ pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", fal
 /// Disable sponsored shortcuts [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/sponsor-privacy [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.spoc-topsites-positions", "", locked); // [NO-ANDROID] [NO-MAIL] [ESR]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesPlacement.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
-pref("browser.newtabpage.activity-stream.discoverystream.spocTopsitesZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.spocZoneIds", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/AboutPreferences.sys.mjs#69
 
@@ -4492,9 +4480,6 @@ pref("browser.newtabpage.activity-stream.testing.shouldInitializeFeeds", true); 
 pref("browser.newtabpage.disableNewTabAsAddon", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/browser/components/newtab/AboutNewTabResourceMapping.sys.mjs#186
 pref("browser.newtabpage.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Enable the new shortcuts UI refresh by default [NO-ANDROID] [NO-MAIL] [ESR]
-pref("browser.newtabpage.activity-stream.newtabShortcuts.refresh", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
-
 /// Enable publisher favicons (if stories are enabled) by default [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.publisherFavicon.enabled", true); // [NO-ANDROID] [NO-MAIL]
 
@@ -4520,9 +4505,6 @@ pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.uuid",
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "solid-color-picker-#f4dbe9"); // [NO-ANDROID] [NO-MAIL]
 
-/// Ensure collections can always be dismissed [NO-ANDROID] [NO-MAIL] [ESR]
-pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [ESR]
-
 /// Ensure default homepage is `about:home` [NO-ANDROID] [NO-MAIL]
 // This is typically the default, but overriden by some distro-packaged versions of Firefox (ex. Fedora) [NO-ANDROID] [NO-MAIL]
 pref("browser.startup.homepage", "about:home"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -4538,7 +4520,6 @@ pref("browser.newtabpage.activity-stream.debug", false); // [NO-ANDROID] [NO-MAI
 /// Hide checkboxes to enable sponsored shortcuts and Pocket sponsored stories [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1386 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-pref("browser.newtabpage.activity-stream.system.showSponsoredCheckboxes", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [ESR]
 
 /// Hide the Firefox logo [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false); // [NO-ANDROID] [NO-MAIL]
@@ -4824,9 +4805,6 @@ pref("services.sync.log.appender.file.level", "Fatal"); // [NO-ANDROID]
 
 /// Improve the reliability of extension storage sync [NO-ANDROID]
 pref("services.sync.extension-storage.skipPercentageChance", 0); // [NO-ANDROID]
-
-/// Prevent automatically sharing Firefox Sync accounts [NO-ANDROID] [NO-MAIL] [ESR]
-pref("identity.fxaccounts.migrateToDevEdition", false); // [NO-ANDROID] [NO-MAIL] [ESR]
 
 /// Sync additional preferences... [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.bookmarks.autoExportHTML", true); // [NO-ANDROID] [NO-MAIL]
