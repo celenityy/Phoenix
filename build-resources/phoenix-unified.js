@@ -4291,6 +4291,11 @@ pref("app.update.interval", 3600); // [NO-ANDROID] (Default: 21600 (6 hours))
 // Default is once every 24 hours
 pref("extensions.update.interval", 3600);
 
+/// Check for GMP plug-in updates hourly (assuming GMP is enabled)
+// Default is once every 24 hours
+// https://searchfox.org/firefox-main/rev/d81da5ef/toolkit/modules/GMPInstallManager.sys.mjs#574
+pref("media.gmp-manager.secondsBetweenChecks", 3600); // [HIDDEN]
+
 /// Disable insecure extension updates
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/AddonUpdateChecker.sys.mjs#66
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/mozapps/extensions/internal/XPIDatabase.sys.mjs#2707
