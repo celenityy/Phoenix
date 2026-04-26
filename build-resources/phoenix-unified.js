@@ -2143,6 +2143,7 @@ pref("network.negotiate-auth.trusted-uris", ""); // [DEFAULT] Modified by ex. Re
 // https://support.mozilla.org/kb/firefox-password-manager-alerts-breached-websites [NO-ANDROID] [NO-MAIL]
 // https://support.mozilla.org/kb/mozilla-monitor-faq#w_does-mozilla-monitor-know-my-passwords [NO-ANDROID] [NO-MAIL]
 // https://blog.mozilla.org/security/2018/06/25/scanning-breached-accounts-k-anonymity/ [NO-ANDROID] [NO-MAIL]
+pref("browser.urlbar.trustPanel.breachAlerts", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN] Warn if a site has had a breach from the Unified Trust Panel (if enabled) https://searchfox.org/firefox-main/rev/d81da5ef/browser/base/content/browser-trustPanel.js#533
 pref("signon.management.page.breach-alerts.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("signon.management.page.vulnerable-passwords.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
