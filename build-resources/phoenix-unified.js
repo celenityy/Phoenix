@@ -4156,6 +4156,10 @@ pref("apz.overscroll.enabled", true); // [DEFAULT]
 // https://searchfox.org/firefox-main/rev/643d7328/toolkit/components/printing/content/printUtils.js#82
 pref("print.show_page_setup_menu", true);
 
+/// Enable the `Share` (URL) context menu item by default [NO-ANDROID] [NO-MAIL]
+// (ex. appears when right-clicking a tab) [NO-ANDROID] [NO-MAIL]
+pref("browser.menu.share_url.allow", true); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-MOZ_PROXY_BYPASS_PROTECTION builds] [DEFAULT - non-MOZ_PROXY_BYPASS_PROTECTION builds]
+
 /// Enable smooth scrolling by default
 // This currently appears to be overriden by `ui.prefersReducedMotion` on Desktop
 pref("general.smoothScroll", true); // [DEFAULT]
