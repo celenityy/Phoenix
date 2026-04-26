@@ -346,6 +346,7 @@ pref("browser.phoenix.status", "001");
 /// Clear unnecessary/undesired Mozilla URLs
 pref("app.feedback.baseURL", ""); // [NO-ANDROID]
 pref("app.normandy.shieldLearnMoreUrl", ""); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.privacyInfo.url", ""); // [NO-ANDROID] [NO-MAIL]
 pref("datareporting.healthreport.infoURL", ""); // [NO-ANDROID]
 pref("extensions.getAddons.langpacks.url", ""); // [ANDROID-ONLY] Functionality isn't supported on Android, so no need to connect there - ex. https://services.addons.mozilla.org/api/v4/addons/language-tools/?app=android&type=language&appversion=138.0.1
 pref("extensions.recommendations.privacyPolicyUrl", ""); // [DEFAULT - Android]
