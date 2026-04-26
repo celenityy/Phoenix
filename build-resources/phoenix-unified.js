@@ -103,7 +103,6 @@ pref("general.aboutConfig.enable", true, locked); // [DEFAULT - non-Android]
 
 /// Ensure our policies aren't overriden...
 // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/enterprisepolicies/EnterprisePoliciesParent.sys.mjs#22
-pref("browser.policies.perUserDir", false, locked); // [LINUX-ONLY] [NO-MAIL] RedHat/Fedora-specific
 pref("toolkit.policies.perUserDir", false, locked); // [HIDDEN] [DEFAULT]
 
 pref("browser.phoenix.status", "000");
@@ -1923,7 +1922,6 @@ pref("media.hls.enabled", false); // [ANDROID-ONLY]
 // https://searchfox.org/firefox-main/source/toolkit/content/gmp-sources/openh264.json
 pref("media.ffmpeg.allow-openh264", false); // [DEFAULT - Nightly]
 pref("media.gmp-gmpopenh264.enabled", false);
-pref("media.gmp-gmpopenh264.provider.enabled", false); // [LINUX-ONLY] RedHat/Fedora-specific
 pref("media.gmp-gmpopenh264.visible", false); // Don't display in UI/`about:addons`
 pref("media.webrtc.hw.h264.enabled", true); // [DEFAULT - Android] Enables H264 hardware decoding https://bugzilla.mozilla.org/show_bug.cgi?id=1717679
 
