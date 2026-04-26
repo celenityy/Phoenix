@@ -1073,6 +1073,7 @@ pref("browser.contentblocking.cfr-milestone.enabled", false); // [NO-ANDROID] [N
 pref("browser.contentblocking.cfr-milestone.milestone-shown-time", "999999999"); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.contentblocking.cfr-milestone.update-interval", 0); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("browser.contentblocking.database.enabled", false); // [DEFAULT - Android/Thunderbird]
+pref("browser.contentblocking.report.privacy_metrics.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT - non-Nightly]
 
 /// Disable Search & Form History
 // Can be leaked to sites...
