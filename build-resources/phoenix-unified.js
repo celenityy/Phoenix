@@ -292,6 +292,8 @@ pref("app.normandy.last_seen_buildid", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("app.normandy.logging.level", 70); // [NO-ANDROID] [NO-MAIL] Limit logging to fatal only
 pref("app.normandy.user_id", "", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 pref("app.shield.optoutstudies.enabled", false, locked); // [HIDDEN - Android/Thunderbird] Required for Firefox Labs on Desktop
+pref("browser.aboutwelcome.experimentsGate.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN - non-OS X] [DEFAULT - non-OS X] https://searchfox.org/firefox-main/rev/cdf7090f/browser/app/profile/firefox.js#2091 https://searchfox.org/firefox-main/rev/cdf7090f/browser/components/aboutwelcome/actors/AboutWelcomeParent.sys.mjs#61 Do not have `about:welcome` depend on Nimbus
+pref("browser.aboutwelcome.experimentsGate.skipSplashIfLoaded", true, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/cdf7090f/browser/app/profile/firefox.js#2098 https://searchfox.org/firefox-main/rev/92e193f9/browser/components/asrouter/modules/OnboardingMessageProvider.sys.mjs#3173
 pref("messaging-system.rsexperimentloader.collection_id", ""); // [DEFAULT: `nimbus-desktop-experiments`] Required for Firefox Labs on Desktop
 pref("nimbus.appId", ""); // [HIDDEN] [DEFAULT: `firefox-desktop`] Required for Firefox Labs on Desktop
 pref("nimbus.profileId", "", locked); // [HIDDEN] https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/nimbus/ExperimentAPI.sys.mjs#80 - We also set this as a user pref in `phoenix-user-pref.cfg`, to ensure that Firefox properly uses/recognizes it
