@@ -2068,6 +2068,10 @@ pref("signon.storeWhenAutocompleteOff", true); // [DEFAULT]
 // https://developer.mozilla.org/docs/Web/HTML/Element/input/password
 pref("layout.forms.reveal-password-button.enabled", true);
 
+/// Always prompt for access to "extended information" (direct attestation) of security keys
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1981587
+pref("security.webauthn.always_allow_direct_attestation", false, locked); // [DEFAULT]
+
 /// Crash on insecure password input [OSX-ONLY]
 pref("intl.allow-insecure-text-input", false); // [OSX-ONLY] [DEFAULT - non-Firefox release/beta/Debug] https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/modules/libpref/init/all.js#3454
 
