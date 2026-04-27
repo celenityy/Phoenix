@@ -29,7 +29,7 @@ enhancements can be **[found here](https://phoenix.celenity.dev/features)**.
 - [Phoenix](#phoenix)
   - [Table of Contents](#table-of-contents) <!-- rumdl-disable-line MD051 -->
   - [About Phoenix](#about-phoenix)
-    - [How Phoenix Work?](#how-phoenix-work)
+    - [How Phoenix Works](#how-phoenix-works)
     - [Motivation](#motivation) <!-- rumdl-disable-line MD051 -->
     - [Want to join Phoenix community?](#want-to-join-phoenix-community)
   - [Installation](#installation) <!-- rumdl-disable-line MD051 -->
@@ -45,7 +45,7 @@ enhancements can be **[found here](https://phoenix.celenity.dev/features)**.
 
 ## About Phoenix
 
-### How Phoenix work?
+### How Phoenix works
 
 Phoenix works by leveraging Firefox's
 [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig)
