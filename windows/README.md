@@ -1,214 +1,221 @@
-# Phoenix
-<p align="center">
-    <img src="build-resources/assets/phoenix.png"
-        alt="Phoenix"
-        height="200">
+<div align="center"> <!-- rumdl-disable-line MD033 --> <!-- rumdl-disable-line MD041 -->
+
+<!-- Navigation Bar -->
+<p align="center"> <!-- rumdl-disable-line MD033 -->
+  <a href="https://codeberg.org/celenity/Phoenix">Project Intro</a> | <!-- rumdl-disable-line MD033 -->
+  <a href="https://codeberg.org/celenity/Phoenix/wiki">Wiki</a> | <!-- rumdl-disable-line MD033 -->
+  <a href="#contributing">Contribute</a> <!-- rumdl-disable-line MD033 -->
 </p>
 
-**Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, functionality, & usability.** A detailed list of Phoenix's features & enhancements can be found **[here](https://phoenix.celenity.dev/features).**
+<!-- Current color scheme: colorhunt.co/palette/272a34221d25b23232fd4747 or 272A34 221D25 B23232 FD4747 -->
+![phoenix](build-resources/assets/phoenix_wide.png)
+
+# [Phoenix](https://phoenix.celenity.dev)
+
+**Phoenix is a suite of configurations & advanced modifications for Mozilla
+Firefox, designed to put the user first - with a focus on privacy, security,
+freedom, functionality, & usability.** A detailed list of Phoenix's features &
+enhancements can be **[found here](https://phoenix.celenity.dev/features)**.
+
+</div>
 
 > [!NOTE]
-> **Thunderbird users should consider taking a look at [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
+> **Thunderbird users should consider taking a look at
+> [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
 
-### Want to join the Phoenix Community?
+## 📖 Table of Contents
 
-We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/TsADPVDerv)!
+<!-- Emoji is breaking rumdl LSP. -->
+- [Phoenix](#phoenix)
+  - [Table of Contents](#table-of-contents) <!-- rumdl-disable-line MD051 -->
+  - [About Phoenix](#about-phoenix)
+    - [How Phoenix Works](#how-phoenix-works)
+    - [Motivation](#motivation) <!-- rumdl-disable-line MD051 -->
+    - [Want to join Phoenix community?](#want-to-join-phoenix-community)
+  - [Installation](#installation) <!-- rumdl-disable-line MD051 -->
+    - [Install](#install)
+    - [Extended](#extended) <!-- rumdl-disable-line MD051 -->
+    - [Specialized configs](#specialized-configs) <!-- rumdl-disable-line MD051 -->
+    - [Manual installation](#manual-installation) <!-- rumdl-disable-line MD051 -->
+      - [Using extended or a specialized config manually](#using-extended-or-a-specialized-config-manually) <!-- rumdl-disable-line MD051 -->
+  - [Contributing](#contributing) <!-- rumdl-disable-line MD051 -->
+  - [Licensing](#licensing) <!-- rumdl-disable-line MD051 -->
+  - [Notices](#notices) <!-- rumdl-disable-line MD051 -->
+  - [Attribution](#attribution) <!-- rumdl-disable-line MD051 -->
 
-___
+## About Phoenix
 
-Phoenix works by leveraging Firefox's [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig) & [Enterprise Policies](https://mozilla.github.io/policy-templates/) functionality, and is installed on top of your standard, official Firefox installation. **This allows us to go above and beyond what a simple `user.js` file can offer, without the security risks a fork can introduce**. For example, forks often fall behind on Firefox updates, **which can leave users open to severe, detrimental vulnerabilities.** Phoenix's approach allows users to continue receiving immediate updates, directly from Mozilla.
+### How Phoenix works
 
-Phoenix's approach also provides users with a seamless experience that is accessible and easy to use. Gone are the days of creating `override` files, manually keeping track of updates, resetting old preferences, & adding your `user.js` file to each and every profile you make. **Not only is Phoenix the most effective & comprehensive approach to configuring Firefox, it is also the most accessible & easiest to use.**
+Phoenix works by leveraging Firefox's
+[AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig)
+& [Enterprise Policies](https://mozilla.github.io/policy-templates/)
+functionality, and is installed on top of your standard, official Firefox
+installation. **This allows us to go above and beyond what a simple `user.js`
+file can offer, without the security risks a fork can introduce**. For example,
+forks often fall behind on Firefox updates,
+**which can leave users open to severe, detrimental vulnerabilities.** Phoenix's
+approach allows users to continue receiving immediate updates, directly from
+Mozilla.
 
-Phoenix's changes to Firefox are carefully considered based on extensive research & studying of Firefox's inner workings. **Phoenix is designed to maintain website compatibility and to avoid breakage as much as possible, while still substantially improving privacy & security compared to vanilla Firefox & most other web browsers.** For users who **are** fine with breakage and want to go even further in enhancing their privacy & security, Phoenix also offers an **Extended** config. This is completely optional and primarily recommended for advanced users. For more information on Phoenix's compatibility with websites and known issues, please see [here](https://phoenix.celenity.dev/compat).
+Phoenix's approach also provides users with a seamless experience that is
+accessible and easy to use. Gone are the days of creating `override` files,
+manually keeping track of updates, resetting old preferences, & adding your
+`user.js` file to each and every profile you make. **Not only is Phoenix the
+most effective & comprehensive approach to configuring Firefox, it is also the
+most accessible & easiest to use.**
 
-Additionally, **Phoenix disables various anti-features & strives to put the user back in control of their browsing experience.** Phoenix also includes quality of life enhancements, performance improvements, and other 'goodies' where possible and where it doesn't compromise user privacy or security.
+Phoenix's changes to Firefox are carefully considered based on extensive
+research & studying of Firefox's inner workings. **Phoenix is designed to
+maintain website compatibility and to avoid breakage as much as possible, while
+still substantially improving privacy & security compared to vanilla Firefox &
+most other web browsers.** For users who **are** fine with breakage and want to
+go even further in enhancing their privacy & security, Phoenix also offers an
+**Extended** config. This is completely optional and primarily recommended for
+advanced users. For more information on Phoenix's compatibility with websites
+and known issues, please [see here](https://phoenix.celenity.dev/compat).
+
+Additionally, **Phoenix disables various anti-features & strives to put the user
+back in control of their browsing experience.** Phoenix also includes quality of
+life enhancements, performance improvements, and other 'goodies' where possible
+and where it doesn't compromise user privacy or security.
 
 At the end of the day, above all else:
 
 **Phoenix is designed from the ground up to always put the user first.**
 
 > [!IMPORTANT]
->**⚠️ All users MUST read the Wiki [here](https://phoenix.celenity.dev/wiki) before proceeding. The [Important](https://phoenix.celenity.dev/important) & [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
+> **⚠️ All users MUST read the [Wiki](https://phoenix.celenity.dev/wiki)
+> before proceeding. The [Important](https://phoenix.celenity.dev/important) &
+> [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
 
-___
+### 💪 Motivation
 
-# 📖Glossary
+Believe it or not, in the not so distant past, browsers were designed to put the
+user first. There's a reason that another word to refer to them is
+[**user agent**](https://wikipedia.org/wiki/User_agent)...
 
-**<details><summary>Click me</summary>**
+Sadly, this time has passed. The majority of browser marketshare is now
+controlled by Google, an ad surveillance company. In all fairness to Google,
+they **do** put their customers first - it's just that their customers are the
+advertisers they siphon data to, not users like you and me. And this is the
+company behind the engine powering nearly every modern web browser in the world.
+Talk about a conflict of interest...
 
-- [Phoenix](#phoenix)
-		- [Want to join the Phoenix Community?](#want-to-join-the-phoenix-community)
-- [📖Glossary](#glossary)
-- [💪Motivation](#motivation)
-- [🚀Install](#install)
-- [👋Uninstall](#uninstall)
-- [🔥Extended](#extended)
-- [💡Specialized Configs](#specialized-configs)
-- [📛Manual Installation](#manual-installation)
-	- [🤔Using Extended or a Specialized Config Manually](#using-extended-or-a-specialized-config-manually)
-- [⚖️Licensing](#licensing)
-- [🏛️Notices](#notices)
-- [💜Attribution](#attribution)
-
-</details>
-
-# 💪Motivation
-
-Believe it or not, in the not so distant past, browsers were designed to put the user first. There's a reason that another word to refer to them is [**user agent**](https://wikipedia.org/wiki/User_agent)...
-
-Sadly, this time has passed. The majority of browser marketshare is now controlled by Google, an ad surveillance company. In all fairness to Google, they **do** put their customers first - it's just that their customers are the advertisers they siphon data to, not users like you and me. And this is the company behind the engine powering nearly every modern web browser in the world. Talk about a conflict of interest...
-
-Unfortunately, most of the competition is no better - Just take a look at [Microsoft & the 800 ad companies they share your data with](https://proton.me/blog/outlook-is-microsofts-new-data-collection-service)...
+Unfortunately, most of the competition is no better - Just take a look at
+[Microsoft & the 800 ad companies they share your data with](https://proton.me/blog/outlook-is-microsofts-new-data-collection-service)...
 
 It doesn't have to be this way.
 
-# 🚀Install
+### Want to join Phoenix Community?
+
+We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/TsADPVDerv)!
+
+## 🚀 Installation
+
+| Platform | Derivatives | Firefox Support                            | Support Status                                                                                                |
+| -------- | ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Android  | Yes         | [IronFox](https://ironfoxoss.org), Firefox | IronFox: Official, Firefox: [Partial](https://codeberg.org/celenity/Phoenix/src/branch/dev/android/README.md) |
+| Arch     | Partial     | Firefox                                    | Official + Community                                                                                          |
+| Debian   | Yes         | Firefox: bin, ESR                          | Official                                                                                                      |
+| Fedora   | No          | Firefox                                    | Official                                                                                                      |
+| Flatpak  | -           | org.mozilla.firefox                        | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)                                                      |
+| Gentoo   | Yes         | Firefox: bin, source                       | Community                                                                                                     |
+| NixOS    | -           | Firefox                                    | Official + Community                                                                                          |
+| macOS    | -           | Firefox                                    | Official                                                                                                      |
+| Ubuntu   | Yes         | Firefox                                    | Official                                                                                                      |
+| Windows  | -           | Firefox, Zen                               | [Partial](https://codeberg.org/celenity/Phoenix/issues/3)                                                     |
+
+Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
+
+### Install
 
 > [!IMPORTANT]
-> ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
+> ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first
+> run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
 
-Phoenix currently provides official support for:
+See: [Install.md](readme/install.md)
 
-* **Android**
-* **Arch Linux**
-* **Debian** *(& derivatives...)*
-* **Fedora Linux**
-* **NixOS**
-* **macOS**
-* **Ubuntu** *(& derivatives...)*
+### 🔥 Extended
 
-> [!NOTE]
-> It is the only Debian based distributions in which Phoenix also supports Firefox-ESR.
+For advanced users who would like to go above & beyond when protecting their
+privacy & security, at the cost of occasional breakage, Phoenix offers an
+**Extended** config. **For a list of features specific to [Phoenix Extended,
+please see here](https://phoenix.celenity.dev/extended)**.
 
-At the moment, only Debian based distributions are that Phoenix is in their official repository.
+See: [Extended.md](readme/extended.md)
 
-Take a look at [the Repology table](https://repology.org/project/phoenix-firefox/versions).
+### 💡 Specialized Configs
 
-If your distribution is in the table, you just need to run:
+It should also be noted that Phoenix contains specialized configurations for
+**Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and
+**YouTube**. These configs are designed to be used in their own, separate
+Firefox profile, and provide means to safely and easily use these services, like
+you would any other app on your device.
 
-```sh
-sudo apt install phoenix
-```
+See: [Specialized Configs.md](readme/specialized_configs.md)
 
-If your Debian based distribution is not in the table or you are on the other platforms, please see:
-
-[Install](readme/install.md)
-
-# 👋Uninstall
-
-For Debian based distribution run:
-
-```sh
-sudo apt remove phoenix
-```
-
-For the other platforms see:
-
-[Unistall](readme/uninstall.md)
-
-# 🔥Extended
-
-For advanced users who would like to go above & beyond when protecting their privacy & security, at the cost of occasional breakage, Phoenix offers an **Extended** config. **For a list of features specific to Phoenix Extended, please see [here](https://phoenix.celenity.dev/extended)**.
-
-See:
-
-[Extended](readme/extended.md)
-
-# 💡Specialized Configs
-
-It should also be noted that Phoenix contains specialized configurations for **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and **YouTube**. These configs are designed to be used in their own, separate Firefox profile, and provide means to safely and easily use these services, like you would any other app on your device.
-
-See:
-
-[Specialized Configs](readme/specialized_configs.md) 
-
-# 📛Manual Installation
+### 📛 Manual Installation
 
 > [!CAUTION]
 >**This is NOT recommended for most users.**
 
-By default, Phoenix is installed & updated via your operating system's package manager. This allows for fast, easy updates & fixes as needed, right with the rest of your system!
+By default, Phoenix is installed & updated via your operating system's package
+manager. This allows for fast, easy updates & fixes as needed, right with the
+rest of your system!
 
-However, if this is not desirable for you & your situation, or you would simply like to use Phoenix on an unsupported operating system, you can follow this tutorial:
+However, if this is not desirable for you & your situation, or you would simply
+like to use Phoenix on an unsupported operating system, you can follow this
+tutorial:
 
-[Manual Installation](readme/manual_installation.md) 
+See: [Manual Installation.md](readme/manual_installation.md)
 
+#### 🤔 Using Extended or a Specialized Config Manually
 
-## 🤔Using Extended or a Specialized Config Manually
+With a manual installation of Phoenix, if you would like to use Phoenix's
+[extended](#-extended) config, or one of our
+[specialized configs](#-specialized-configs), you'll need to follow:
 
-With a manual installation of Phoenix, if you would like to use Phoenix's [Extended](#extended) config, or one of our [specialized configs](#specialized-configs), you'll need to follow:
+See: [Using Extended or a Specialized Config Manually.md](readme/using_extended_or_a_specialized_config_manually.md)
 
-[Using Extended or a Specialized Config Manually](readme/using_extended_or_a_specialized_config_manually.md) 
+## Contributing
 
-# ⚖️Licensing
+You can help by contributing code or by telling others about Phoenix. Reach out
+to us and let us know how you want to help.
 
-Phoenix is licensed under the [GNU General Public License v3.0 or later](https://spdx.org/licenses/GPL-3.0-or-later.html) *(`GPL-3.0-or-later`)* where applicable.
+- Build instructions: [wiki/build.md](https://codeberg.org/celenity/Phoenix/wiki/Build)
 
-# 🏛️Notices
+## ⚖️ Licensing
 
-This is not an officially supported Mozilla product. Phoenix is in no way affiliated with Mozilla.
+Phoenix is licensed under the
+[GNU General Public License v3.0 or later](https://spdx.org/licenses/GPL-3.0-or-later.html)
+*(`GPL-3.0-or-later`)* where applicable.
+
+## 🏛️ Notices
+
+This is not an officially supported Mozilla product. Phoenix is in no way
+affiliated with Mozilla.
 
 Phoenix is not sponsored or endorsed by Mozilla.
 
-# 💜Attribution
+## 💜 Attribution
 
-Huge thank you to the following projects & individuals for making Phoenix possible. Please show them support!
+Huge thank you to the following projects & individuals for making Phoenix
+possible. Please show them support!
 
-- **[Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)**
-	- Designed Phoenix's icon *(derived from Xonotic, see below)*, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions to the project.
+| Projects & Names                                                                                                                                                                                                                                                                                                                                                                       | Notes                                                                                                                                                                                                                                                                     | License                                                                          | Donate                                          |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------|
+| [Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)                                                                                                                                                                                                                                                                                                                               | Designed Phoenix's icon *(derived from Xonotic, see below)*, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions. | -                                                                                | -                                               |
+| [GW72](https://codeberg.org/GW72)                                                                                                                                                                                                                                                                                                                                                      | Invaluable feedback and support of the project.                                                                                                                                                                                                                           | -                                                                                | -                                               |
+| [Xonotic](https://xonotic.org): [Severin Meyer](https://sev.dev)                                                                                                                                                                                                                                                                                                                       | [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)                                                                                                                                                           | [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)       | -                                               |
+| [Arkenfox](https://github.com/arkenfox/user.js): [Thorin-Oakenpants](https://github.com/thorin-Oakenpants), [earthlng](https://github.com/earthlng), [claustromaniac](https://github.com/claustromaniac)                                                                                                                                                                               | -                                                                                                                                                                                                                                                                         | [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)               | -                                               |
+| [Betterfox](https://github.com/yokoffing/Betterfox): [yokoffing](https://github.com/yokoffing)                                                                                                                                                                                                                                                                                         | Certain preferences (Mostly performance-related)                                                                                                                                                                                                                          | [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)                  | [Donate](https://github.com/sponsors/yokoffing) |
+| [Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg): [Narsil](https://codeberg.org/Narsil)                                                                                                                                                                                                                                                                                 | Certain preferences + inspiration                                                                                                                                                                                                                                         | [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)   | -                                               |
+| [Brace](https://codeberg.org/divested/brace): [Divested Computing Group](https://divested.dev)                                                                                                                                                                                                                                                                                         | Certain preferences + inspiration                                                                                                                                                                                                                                         | [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)          | -                                               |
+| [LibreWolf](https://librewolf.net): [bgstack15](https://codeberg.org/bgstack15), [fxbrit](https://codeberg.org/fxbrit), [Malte Jürgens](https://codeberg.org/maltejur), [ohfp](https://codeberg.org/ohfp), [James McClain](https://codeberg.org/TheGreatMcPain), [threadpanic](https://codeberg.org/threadpanic), [Guillaume](https://codeberg.org/ltguillaume)                        | Inspiration + certain preferences & policies                                                                                                                                                                                                                              | [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt) | -                                               |
+| [firefox-config](https://codeberg.org/rusty-snake/firefox-config): [rusty-snake](https://codeberg.org/rusty-snake)                                                                                                                                                                                                                                                                     | Inspiration + certain preferences                                                                                                                                                                                                                                         | [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)               | -                                               |
+| [uBlock Origin](https://github.com/gorhill/uBlock): [Raymond Hill](https://github.com/gorhill), [ItsProfesssional](https://github.com/ItsProfessional), [MasterKia](https://github.com/MasterKia), [peace2000](https://github.com/peace2000), [Peter Lowe](https://pgl.yoyo.org), [PiQuark6046](https://github.com/piquark6046), [stephenhawk8054](https://github.com/stephenhawk8054) | Pre-installed extension - provides content blocking                                                                                                                                                                                                                       | [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)               | -                                               |
+| [Mullvad DNS](https://mullvad.net/help/dns-over-https-and-dns-over-tls): [Mullvad VPN AB](https://mullvad.net/about)                                                                                                                                                                                                                                                                                                                | Default DNS Over HTTPS Resolver                                                                                                                                                                                                                                           | -                                                                                | [Donate](https://www.quad9.net/donate)          |
+| And of course... [Firefox](hhttps://www.firefox.com/): [Mozilla](https://www.mozilla.org/)                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                                                                         | [MPL-2.0](https://www.mozilla.org/foundation/licensing)                          | [Donate](https://foundation.mozilla.org/donate) |
 
-- **[GW72](https://codeberg.org/GW72)**
-	- Invaluable feedback and support of the project.
-
-- **[Xonotic](https://xonotic.org/)**
-	- 🪪 [Severin Meyer](https://sev.dev/)
-	- ⚖️ [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)
-	- [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)
-
-- **[Arkenfox](https://github.com/arkenfox/user.js)**
-	- 🪪 [Thorin-Oakenpants](https://github.com/thorin-oakenpants) + [earthlng](https://github.com/earthlng) + [claustromaniac](https://github.com/claustromaniac)
-	- ⚖️ [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)
-
-- **[Betterfox](https://github.com/yokoffing/Betterfox)**
-	- 🪪 [yokoffing](https://github.com/yokoffing)
-	- ⚖️ [MIT](https://github.com/yokoffing/Betterfox/blob/main/LICENSE)
-    - 💸 [Donate](https://github.com/sponsors/yokoffing)
-    - Certain preferences (Mostly performance-related)
-
-- **[Narsil's mozilla.cfg](https://codeberg.org/Narsil/mozilla.cfg)**
-	- 🪪 [Narsil](https://codeberg.org/Narsil)
-	- ⚖️ [GPLv3](https://codeberg.org/Narsil/mozilla.cfg/src/branch/master/LICENSE.txt)
-	- Certain preferences + inspiration
-
-- **[Brace](https://codeberg.org/divested/brace)**
-	- 🪪 [Divested Computing Group](https://divested.dev/)
-	- ⚖️ [AGPLv3](https://codeberg.org/divested/brace/src/branch/master/LICENSE)
-	- Certain preferences + inspiration
-
-- **[LibreWolf](https://librewolf.net/)**
-	- 🪪 [bgstack15](https://codeberg.org/bgstack15) + [fxbrit](https://codeberg.org/fxbrit) + [Malte Jürgens](https://codeberg.org/maltejur) + [ohfp](https://codeberg.org/ohfp) + [James McClain](https://codeberg.org/TheGreatMcPain) + [threadpanic](https://codeberg.org/threadpanic) + [Guillaume](https://codeberg.org/ltguillaume)
-	- ⚖️ [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt)
-	- Inspiration + certain preferences & policies
-
-- **[firefox-config](https://codeberg.org/rusty-snake/firefox-config)**
-	- 🪪 [rusty-snake](https://codeberg.org/rusty-snake)
-	- ⚖️ [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)
-	- Inspiration + certain preferences
-
-- **[uBlock Origin](https://github.com/gorhill/uBlock)**
-	- 🪪 [Raymond Hill](https://github.com/gorhill) + [ItsProfesssional](https://github.com/ItsProfessional) + [MasterKia](https://github.com/MasterKia) + [peace2000](https://github.com/peace2000) + [Peter Lowe](https://pgl.yoyo.org/) + [PiQuark6046](https://github.com/piquark6046) + [stephenhawk8054](https://github.com/stephenhawk8054)
-	- ⚖️ [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
-	- Pre-installed extension - provides content blocking
-
-- **[Quad9](https://quad9.net/)**
-	- 🪪 [Quad9 Team](https://quad9.net/about/team/)
-	- 💸 [Donate](https://www.quad9.net/donate/)
-	- Default DNS Over HTTPS Resolver
-
-And of course...
-
-- **[Firefox](https://mozilla.org/firefox)**
-	- 🪪 [Mozilla](https://www.mozilla.org/)
-	- ⚖️ [MPL-2.0](https://www.mozilla.org/foundation/licensing/)
-	- 💸 [Donate](https://foundation.mozilla.org/donate/)
+⭐ If you like this project, please consider giving it a star!
