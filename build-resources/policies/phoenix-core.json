@@ -50,8 +50,7 @@
         "DisableRemoteImprovements": true,
         "DNSOverHTTPS": {
             "Enabled": true,
-            "Fallback": false,
-            "ProviderURL": "https://base.dns.mullvad.net/dns-query"
+            "Fallback": false
         },
         "EnableTrackingProtection": {
             "BaselineExceptions": true,
