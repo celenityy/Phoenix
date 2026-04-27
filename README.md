@@ -113,18 +113,18 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.o
 
 ## 🚀 Installation
 
-| Platform | Derivatives | Firefox Support                   | Support Status                                            |
-|----------|-------------|-----------------------------------|-----------------------------------------------------------|
-| Android  | -           | [IronFox](https://ironfoxoss.org) | Official                                                  |
-| Arch     | Partial     | Firefox                           | Official + Community                                      |
-| Debian   | Yes         | Firefox: bin, ESR                 | Official                                                  |
-| Fedora   | No          | Firefox                           | Official                                                  |
-| Flatpak  | -           | org.mozilla.firefox               | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)  |
-| Gentoo   | Yes         | Firefox: bin, source              | Community                                                 |
-| NixOS    | -           | Firefox                           | Official + Community                                      |
-| macOS    | -           | Firefox                           | Official                                                  |
-| Ubuntu   | Yes         | Firefox                           | Official                                                  |
-| Windows  | -           | Firefox, Zen                      | [Partial](https://codeberg.org/celenity/Phoenix/issues/3) |
+| Platform | Derivatives | Firefox Support                            | Support Status                                                                                                |
+| -------- | ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Android  | Yes         | [IronFox](https://ironfoxoss.org), Firefox | IronFox: Official, Firefox: [Partial](https://codeberg.org/celenity/Phoenix/src/branch/dev/android/README.md) |
+| Arch     | Partial     | Firefox                                    | Official + Community                                                                                          |
+| Debian   | Yes         | Firefox: bin, ESR                          | Official                                                                                                      |
+| Fedora   | No          | Firefox                                    | Official                                                                                                      |
+| Flatpak  | -           | org.mozilla.firefox                        | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)                                                      |
+| Gentoo   | Yes         | Firefox: bin, source                       | Community                                                                                                     |
+| NixOS    | -           | Firefox                                    | Official + Community                                                                                          |
+| macOS    | -           | Firefox                                    | Official                                                                                                      |
+| Ubuntu   | Yes         | Firefox                                    | Official                                                                                                      |
+| Windows  | -           | Firefox, Zen                               | [Partial](https://codeberg.org/celenity/Phoenix/issues/3)                                                     |
 
 Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
