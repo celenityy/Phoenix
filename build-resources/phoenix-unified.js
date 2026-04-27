@@ -399,7 +399,7 @@ pref("extensions.webservice.discoverURL", ""); // [HIDDEN - non-Thunderbird]
 // https://searchfox.org/firefox-main/source/toolkit/components/doh/DoHController.sys.mjs
 // https://searchfox.org/firefox-main/source/toolkit/components/doh/DoHHeuristics.sys.mjs
 // https://searchfox.org/firefox-main/source/netwerk/docs/dns/dns-over-https-trr.md
-pref("doh-rollout._testing", true, locked); // [HIDDEN]
+pref("doh-rollout._testing", false); // [HIDDEN] [DEFAULT]
 pref("doh-rollout.disable-heuristics", true, locked); // [HIDDEN]
 pref("doh-rollout.doneFirstRun", true, locked); // [HIDDEN]
 pref("doh-rollout.enabled", false, locked); // [HIDDEN]
