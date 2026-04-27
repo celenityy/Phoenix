@@ -43,11 +43,11 @@ Unspecified = This preference should be set EVERYWHERE
 */
 
 /// Add custom branding at `about:support`
-pref("app.support.vendor", "Phoenix - Extended: 2026.03.31.1"); // [NO-MAIL] [HIDDEN]
+pref("app.support.vendor", "Phoenix - Extended: 2026.04.27.1"); // [NO-MAIL] [HIDDEN]
 
 /// Add custom branding under `Firefox Updates` at `about:preferences#general` [NO-ANDROID]
 // This will unfortunately only display if the version of Firefox you're using is repackaged (ex. Flatpaks/Linux distros) [NO-ANDROID]
-pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.03.31.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
+pref("distribution.about", "Phoenix - Extended for Mozilla Firefox: 2026.04.27.1 💜", locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
 
 /*** 001 FINGERPRINTING PROTECTION ***/
 
@@ -86,6 +86,14 @@ pref("javascript.options.wasm", false);
 pref("browser.phoenix.status.extended", "003");
 
 /*** 004 MISC. PRIVACY + SECURITY ***/
+
+/// Disable JavaScript Just-in-time Compilation (JIT) for the (critical/especially sensitive) parent process
+// https://searchfox.org/firefox-main/rev/1c6a8b56/xpcom/build/XPCOMInit.cpp#239
+// https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#parent-process
+// (This is usually set by Phoenix for all configs, but, due to it an upstream bug leading to it causing issues with Translations, we're
+// only setting it on Extended for now)
+// (For details, see: https://codeberg.org/celenity/Phoenix/issues/256 + https://codeberg.org/celenity/Phoenix/pulls/254)
+pref("javascript.options.main_process_disable_jit", true); // [DEFAULT - iOS]
 
 
 pref("browser.phoenix.status.extended", "004");
