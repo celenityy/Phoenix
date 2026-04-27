@@ -6,9 +6,11 @@
 }:
 {
   options.programs.firefox.phoenix = {
-    enable = lib.mkEnableOption "Enable privacy & security hardening of Firefox using the Phoenix configs" // {
-      default = true;
-    };
+    enable =
+      lib.mkEnableOption "Enable privacy & security hardening of Firefox using the Phoenix configs"
+      // {
+        default = true;
+      };
 
     firefoxPackages = lib.mkOption {
       type = lib.types.listOf lib.types.str;
@@ -29,8 +31,8 @@
         }
       ];
 
-      environment.etc."firefox/defaults/pref/phoenix-desktop.js".source =
-        "${pkgs.phoenix}/pref/phoenix-desktop.js";
+      environment.etc."firefox/defaults/pref/phoenix.js".source = "${pkgs.phoenix}/pref/phoenix.js";
+      environment.etc."firefox/phoenix.cfg".source = "${pkgs.phoenix}/phoenix.cfg";
       environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
       environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
       environment.etc."firefox/phoenix/assets".source = "${pkgs.phoenix}/assets";
@@ -53,11 +55,10 @@
 
       nixpkgs.overlays = [
         (import ./overlay.nix)
-        (final: prev:
+        (
+          final: prev:
           builtins.listToAttrs (
-            map
-              (p: lib.nameValuePair p (final.withPhoenix prev.${p}))
-              cfg.firefoxPackages
+            map (p: lib.nameValuePair p (final.withPhoenix prev.${p})) cfg.firefoxPackages
           )
         )
       ];
