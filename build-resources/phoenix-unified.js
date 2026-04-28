@@ -163,7 +163,7 @@ pref("asanreporter.apiurl", "", locked); // [HIDDEN - non-MOZ_ASAN_REPORTER buil
 pref("asanreporter.clientid", "unknown", locked); // [HIDDEN - non-MOZ_ASAN_REPORTER builds] [DEFAULT]
 pref("asanreporter.loglevel", 70); // [HIDDEN]
 pref("breakpad.reportURL", "", locked);
-pref("browser.crashReports.crashPull", false, locked); // [DEFAULT] Do not request crash reports for background processes from users https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/crash-reports-ondemand/changeset?_expected=0
+pref("browser.crashReports.crashPull", false, locked); // [NO-ANDROID] [ESR] [DEFAULT] Do not request crash reports for background processes from users https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/crash-reports-ondemand/changeset?_expected=0
 pref("browser.crashReports.onDemand", false, locked); // Supercedes "browser.crashReports.crashPull" - see details above
 pref("browser.crashReports.requestedNeverShowAgain", true, locked); // Do not request crash reports for background processes from users https://searchfox.org/firefox-main/source/toolkit/components/crashes/RemoteSettingsCrashPull.sys.mjs
 pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked); // [NO-ANDROID] [HIDDEN - Thunderbird] [DEFAULT]
@@ -201,7 +201,7 @@ pref("extensions.gleanPingAddons.updated.testing", false, locked); // [HIDDEN] [
 pref("extensions.telemetry.EnvironmentAddonBuilder", false, locked); // [HIDDEN - non-Android] [NIGHTLY] Do not use Glean for add-on telemetry https://bugzilla.mozilla.org/show_bug.cgi?id=1981496 https://searchfox.org/firefox-main/rev/d285a4fb/toolkit/mozapps/extensions/AddonManager.sys.mjs#4801
 pref("network.jar.record_failure_reason", false, locked); // [DEFAULT - non-Nightly] https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#15576
 pref("network.traffic_analyzer.enabled", false, locked); // https://searchfox.org/firefox-release/rev/9d94f5e3/modules/libpref/init/StaticPrefList.yaml#14262
-pref("network.trr.confirmation_telemetry_enabled", false, locked);
+pref("network.trr.confirmation_telemetry_enabled", false, locked); // [NO-ANDROID] [ESR]
 pref("nimbus.telemetry.targetingContextEnabled", false, locked); // [HIDDEN - ANDROID/THUNDERBIRD] [DEFAULT - Artifact builds] Targeting context telemetry - https://searchfox.org/firefox-release/rev/9d94f5e3/browser/app/profile/firefox.js#2139
 pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false, locked);
 pref("telemetry.fog.aboutGlean.debugTag", "", locked); // [NO-ANDROID] [HIDDEN] Do not set a debug ping tag https://searchfox.org/firefox-main/rev/4258ca07/toolkit/content/aboutGlean.js#122
@@ -311,8 +311,8 @@ pref("nimbus.rollouts.enabled", false, locked); // [HIDDEN - non-Firefox Desktop
 // `messaging-system.rsexperimentloader.collection_id` -> `nimbus-desktop-experiments` [NO-ANDROID] [NO-MAIL]
 // `nimbus.appId` -> `firefox-desktop` [NO-ANDROID] [NO-MAIL]
 // You'll also need to remove the `DisableFirefoxStudies` and `DisableTelemetry` policies [NO-ANDROID] [NO-MAIL]
-pref("browser.preferences.experimental", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.preferences.experimental.hidden", true); // [NO-ANDROID] [NO-MAIL] Avoids the "Firefox Labs" section from shortly appearing on first launch https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/components/preferences/experimental.js#185
+pref("browser.preferences.experimental", false); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.preferences.experimental.hidden", true); // [NO-ANDROID] [NO-MAIL] [ESR] Avoids the "Firefox Labs" section from shortly appearing on first launch https://searchfox.org/firefox-main/rev/93aad2a6615f670b1279c229dd37f7397236131a/browser/components/preferences/experimental.js#185
 
 /// Disable Glean redesign/navigation category at `about:glean`
 // This isn't really a major issue for us, but we don't want or support Glean, so I see no reason not to set this
@@ -509,7 +509,7 @@ pref("browser.ipProtection.autoStartEnabled", false); // [NO-ANDROID] [NO-MAIL] 
 pref("browser.ipProtection.autoStartPrivateEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.ipProtection.features.autoStart", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ipProtection.features.siteExceptions", true); // [NO-ANDROID] [NO-MAIL] If IP Protection is enabled, enable support for site exceptions https://searchfox.org/firefox-main/rev/aee7c0f2/browser/app/profile/firefox.js#3547
+pref("browser.ipProtection.features.siteExceptions", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] If IP Protection is enabled, enable support for site exceptions https://searchfox.org/firefox-main/rev/aee7c0f2/browser/app/profile/firefox.js#3547
 pref("browser.ipProtection.optedOut", true); // [NO-ANDROID] [NO-MAIL]
 pref("browser.ipProtection.userEnabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
@@ -528,7 +528,7 @@ pref("browser.contentblocking.report.vpn-android.url", "", locked); // [NO-ANDRO
 pref("browser.contentblocking.report.vpn-ios.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.contentblocking.report.vpn-promo.url", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.ipProtection.locationButtonBadgeDismissed", true, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/cdf7090f/browser/components/ipprotection/IPProtectionPanel.sys.mjs#273
-pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.privatebrowsing.vpnpromourl", "", locked); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("browser.promo.cookiebanners.enabled", false, locked); // [HIDDEN - Android/Thunderbird] [DEFAULT - Desktop] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#756
 pref("browser.promo.focus.disallowed_regions", "xx");
 pref("browser.promo.focus.enabled", false, locked); // [HIDDEN - Android/Thunderbird] https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/modules/BrowserUtils.sys.mjs#722
@@ -743,7 +743,7 @@ pref("privacy.socialtracking.block_cookies.enabled", true); // [DEFAULT]
 /// https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection
 /// https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#10
 pref("privacy.bounceTrackingProtection.mode", 1); // [DEFAULT - Nightly]
-pref("privacy.bounceTrackingProtection.requireStatefulBounces", false); // [DEFAULT - Nightly] Protect against all bounce trackers, instead of just those who access cookies/storage https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/nimbus/FeatureManifest.yaml#4930
+pref("privacy.bounceTrackingProtection.requireStatefulBounces", false); // [DEFAULT] Protect against all bounce trackers, instead of just those who access cookies/storage https://searchfox.org/firefox-main/rev/dc1c78e9/toolkit/components/nimbus/FeatureManifest.yaml#4930
 
 //// Enable Query Parameter Stripping
 /// https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html
@@ -1477,7 +1477,7 @@ pref("browser.urlbar.suggest.clipboard", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable Firefox's new 'Unified Trust Panel' by default [NO-ANDROID] [NO-MAIL]
 // This prevents setting per-site exceptions for the built-in cookie banner blocker [NO-ANDROID] [NO-MAIL]
-pref("browser.urlbar.trustPanel.featureGate", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.trustPanel.featureGate", false); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable history suggestions by default [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/UrlbarProviderInputHistory.sys.mjs [NO-ANDROID] [NO-MAIL]
@@ -1643,10 +1643,6 @@ pref("network.trr.useGET", false); // https://bugzilla.mozilla.org/show_bug.cgi?
 /// Disable EDNS Client Subnet (ECS) to prevent leaking general location data to authoritative DNS servers...
 // https://wikipedia.org/wiki/EDNS_Client_Subnet
 pref("network.trr.disable-ECS", true); // [DEFAULT]
-
-/// Disable falling back to system DNS by default
-pref("network.trr.retry_on_recoverable_errors", true); // https://searchfox.org/firefox-main/rev/82e2435f/netwerk/dns/nsHostResolver.cpp#1351
-pref("network.trr.strict_native_fallback", true); // https://searchfox.org/firefox-main/rev/82e2435f/toolkit/components/telemetry/docs/data/environment.rst#418
 
 /// Disable nsNotifyAddrListener
 // (Ex. used for disabling DoH if certain conditions are met)
@@ -2158,8 +2154,8 @@ pref("browser.urlbar.trustPanel.breachAlerts", true); // [NO-ANDROID] [NO-MAIL] 
 pref("signon.management.page.breach-alerts.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("signon.management.page.vulnerable-passwords.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
-/// Enable anti-spoof confirmation prompts
-pref("network.auth.confirmAuth.enabled", true);
+/// Enable anti-spoof confirmation prompts [NO-ANDROID] [ESR]
+pref("network.auth.confirmAuth.enabled", true); // [NO-ANDROID] [ESR]
 
 /// Enable strong password generation (if the Password Manager is enabled) by default
 pref("signon.generation.enabled", true); // [DEFAULT]
@@ -2311,10 +2307,6 @@ pref("extensions.webextOptionalPermissionPrompts", true); // [DEFAULT]
 /// Enable Mozilla's Extension Blocklist
 pref("extensions.blocklist.enabled", true); // [DEFAULT]
 
-/// Enable Manifest V3
-// https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/
-pref("extensions.manifestV3.enabled", true); // [DEFAULT]
-
 /// Enable restricted/quarantined domains by default, and use our own list instead of Mozilla's
 // Mozilla's list unfortunately hasn't been updated in ~2 years (FWIW: Our list includes all of their entries in addition to our own)
 // We can use this to prevent less trustworthy add-ons from running on sensitive websites, while still allowing important/legitimate ones and content blockers (like uBlock Origin) to run on them
@@ -2340,10 +2332,6 @@ pref("extensions.userContextIsolation.@testpilot-container.restricted", "[]"); /
 
 /// Ensure uBlock Origin can access all containers by default (if installed)
 pref("extensions.userContextIsolation.uBlock0@raymondhill.net.restricted", "[]"); // [HIDDEN]
-
-/// Ensure Web Compatibility interventions use the MV3 API instead of the older MV2 one
-// https://searchfox.org/firefox-main/rev/82e2435f/modules/libpref/init/all.js#4118
-pref("extensions.webcompat.useScriptingAPI", true); // [DEFAULT]
 
 /// Harden CSP policy
 // Compared to Firefox's default, this:
@@ -2455,7 +2443,7 @@ pref("extensions.manifestV2.actionsPopupURLRestricted", true); // [DEFAULT - And
 /// Prevent extensions from opening pop-ups without user interaction
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/components/extensions/parent/ext-browserAction.js#1071
 // https://searchfox.org/firefox-main/rev/82e2435f/mobile/shared/components/extensions/ext-browserAction.js#184
-pref("extensions.openPopupWithoutUserGesture.enabled", false); // [DEFAULT - non-Nightly]
+pref("extensions.openPopupWithoutUserGesture.enabled", false);
 
 /// Prevent extensions from using the Gecko Profiler
 // Includes certain Mozilla extensions by default
@@ -2520,20 +2508,16 @@ pref("browser.ml.chat.sidebar", false); // [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-esr140/source/toolkit/components/formautofill/MLAutofill.sys.mjs [NO-ANDROID]
 pref("extensions.formautofill.ml.experiment.enabled", false); // [NO-ANDROID] [ESR]
 
-/// Disable AI windows/"Smart" windows [NO-ANDROID] [NO-MAIL]
+/// Disable AI "smart" windows [NO-ANDROID] [NO-MAIL]
+// Relies on OpenAI/ChatGPT... [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/components/aiwindow/ui/modules/AIWindow.sys.mjs [NO-ANDROID] [NO-MAIL]
-// Appears to be similar to "Smart Assist" below, relies on OpenAI/ChatGPT [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/28d9e40f/browser/components/aiwindow/models/Utils.sys.mjs#32 [NO-ANDROID] [NO-MAIL]
-pref("browser.aiwindow.apiKey", ''); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.aiwindow.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.aiwindow.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.aiwindow.insights", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.aiwindow.memories", false); // [NO-ANDROID] [NO-MAIL]
-pref("browser.aiwindow.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.smartwindow.apiKey", ''); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.smartwindow.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.smartwindow.endpoint", ""); // [NO-ANDROID] [NO-MAIL]
-pref("browser.smartwindow.memories", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.smartwindow.firstrun.explainerURL", ""); // [NO-ANDROID] [NO-MAIL]
+pref("browser.smartwindow.memories.generateFromConversation", false); // [NO-ANDROID] [NO-MAIL]
+pref("browser.smartwindow.memories.generateFromHistory", false); // [NO-ANDROID] [NO-MAIL]
 pref("browser.smartwindow.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.smartwindow.preferences.endpoint", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
@@ -2557,15 +2541,6 @@ pref("browser.urlbar.perplexity.hasBeenInSearchMode", true); // [NO-ANDROID] [NO
 /// Disable semantic history
 // https://searchfox.org/firefox-main/source/toolkit/components/places/PlacesSemanticHistoryManager.sys.mjs
 pref("places.semanticHistory.featureGate", false); // [HIDDEN - Android/Thunderbird] [DEFAULT - non-Nightly/Dev Firefox Desktop]
-
-/// Disable "Smart Assist" [NO-ANDROID] [NO-MAIL]
-// Currently relies on OpenAI/ChatGPT... so I'm going to be aggressive here, because I don't really want to deal with this :/ [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/source/browser/components/genai/SmartAssistEngine.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.ml.smartAssist.apiKey", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ml.smartAssist.enabled", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ml.smartAssist.endpoint", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ml.smartAssist.model", ""); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.ml.smartAssist.overrideNewTab", false); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Disable the WebExtensions AI API
 // https://firefox-source-docs.mozilla.org/toolkit/components/ml/extensions.html#webextensions-ai-api
@@ -2668,8 +2643,8 @@ pref("browser.phoenix.status", "018");
 // Setting these ensures that the inference model is only downloaded if the user opts in (by enabling the toggle to "Create alt text automatically" from "Image alt text settings" when viewing a PDF)
 // https://support.mozilla.org/kb/pdf-alt-text#w_add-alt-text-automatically
 // https://hacks.mozilla.org/2024/05/experimenting-with-local-alt-text-generation-in-firefox-nightly/
-pref("pdfjs.enableAltTextModelDownload", false);
-pref("pdfjs.enableGuessAltText", false);
+pref("pdfjs.enableAltTextModelDownload", false); // [DEFAULT - non-Android]
+pref("pdfjs.enableGuessAltText", false); // [DEFAULT - non-Android]
 
 /// Disable automatic hyperlinks
 // By default, PDF.js automatically creates hyperlinks for URLs - and clicking on or attempting to select a Hyperlink immediately navigates the user to the link, without warning or prior indication
@@ -2695,14 +2670,14 @@ pref("pdfjs.enableSignatureEditor", true);
 /// Enable Alt Text creation
 // This does NOT enable "Automatic Alt Text", we disable that separately above
 // https://support.mozilla.org/kb/pdf-alt-text
-pref("pdfjs.enableAltText", true);
+pref("pdfjs.enableAltText", true); // [DEFAULT - non-Android]
 pref("pdfjs.enableAltTextForEnglish", true);
 pref("pdfjs.enableNewAltTextWhenAddingImage", true); // [DEFAULT] Enables the Alt Text Editor after adding an image
 pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
 /// Enable hardware acceleration by default
 // This should help improve performance, which is especially notable for us since we disable JIT
-pref("pdfjs.enableHWA", true);
+pref("pdfjs.enableHWA", true); // [DEFAULT - non-Android]
 
 /// Enable optimized partial rendering by default
 // In my testing, this appears to make a *significant* performance improvement
@@ -2722,7 +2697,7 @@ pref("pdfjs.textLayerMode", 1); // [DEFAULT]
 // So by default, if Firefox encounters a PDF file, it'll just automatically open it in most cases, and will load them from remote origins
 // But thanks to the "Handlers" policy on Desktop (https://mozilla.github.io/policy-templates/#handlers), we force Firefox to prompt users before opening the file - and additionally, with the `browser.download.start_downloads_in_tmp_dir` & `browser.helperApps.deleteTempFileOnExit` prefs, when the users chooses to "Open" the PDF, it downloads the PDF to a temporary directory and loads it locally (from a `file://` URL), instead of from remote origins like the normal behavior
 // This is also beneficial because it also allows users to effectively disable PDF.js (via the `browser.helperApps.showOpenOptionForPdfJS` pref), without being fingerprintable (like is the case with the standard `pdfjs.disabled` pref)
-// The pref below are to further ensure we don't automatically open PDFs, and that we don't try to fetch anything remotely
+// The prefs below are to further ensure we don't automatically open PDFs, and that we don't try to fetch anything remotely
 // As a bonus, these likely also improve performance in many cases...
 // https://deepwiki.com/mozilla/pdfjs-dist/6.2-advanced-configuration#network-options
 // https://deepwiki.com/mozilla/pdfjs-dist/6.2-advanced-configuration#performance-optimization-configurations
@@ -2826,7 +2801,7 @@ pref("browser.safebrowsing.downloads.enabled", true); // [DEFAULT - non-Android]
 pref("browser.safebrowsing.id", "navclient-auto-ffox"); // [DEFAULT - Official] Ensure we use Mozilla's ID
 pref("browser.safebrowsing.malware.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.phishing.enabled", true); // [DEFAULT]
-pref("browser.safebrowsing.provider.google5.enabled", true); // [DEFAULT - Nightly]
+pref("browser.safebrowsing.provider.google5.enabled", true); // [DEFAULT]
 pref("browser.safebrowsing.provider.mozilla.gethashURL", "https://shavar.services.mozilla.com/gethash?client=navclient-auto-ffox&appver=%MAJOR_VERSION%&pver=2.2"); // Ensure we always use Mozilla's official ID
 pref("browser.safebrowsing.update.enabled", true); // [HIDDEN] [DEFAULT] Also covers Mozilla's tracking protection lists
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto"); // [DEFAULT - non-Android]
@@ -3011,9 +2986,9 @@ pref("widget.use-xdg-desktop-portal.native-messaging", 0); // [LINUX-ONLY] [DEFA
 // https://w3c.github.io/reporting/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1492036
 pref("dom.reporting.crash.enabled", false); // [DEFAULT]
-pref("dom.reporting.enabled", false); // [DEFAULT]
+pref("dom.reporting.enabled", false);
 pref("dom.reporting.featurePolicy.enabled", false); // [DEFAULT]
-pref("dom.reporting.header.enabled", false); // [DEFAULT]
+pref("dom.reporting.header.enabled", false);
 pref("dom.reporting.testing.enabled", false); // [DEFAULT]
 
 /// Disable tab hover previews by default [NO-ANDROID] [NO-MAIL]
@@ -3213,7 +3188,7 @@ pref("privacy.globalprivacycontrol.functionality.enabled", true); // [DEFAULT - 
 pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [DEFAULT - non-Thunderbird]
 
 /// Enable the (new) UI for browser profiles by default [NO-ANDROID] [NO-MAIL]
-pref("browser.profiles.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT - Nightly]
+pref("browser.profiles.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable the UI for containers at `about:preferences#general` (`about:preferences#containers`) [NO-ANDROID] [NO-MAIL]
 // We also include the Firefox Multi-Account Containers extension by default [NO-ANDROID] [NO-MAIL]
@@ -3650,7 +3625,7 @@ pref("toolkit.aboutProcesses.showProfilerIcons", false);
 pref("media.webvtt.testing.events", false); // [DEFAULT]
 
 /// Enable Firefox's newer 'Felt privacy' design for Certificate Errors
-pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderbird]
+pref("security.certerrors.felt-privacy-v1", true); // [HIDDEN - Android/Thunderbird] [DEFAULT - Firefox Desktop]
 
 /// Enable Firefox's newer 'Felt privacy' design for Private Browsing [NO-ANDROID] [NO-MAIL]
 pref("browser.privatebrowsing.felt-privacy-v1", true); // [NO-ANDROID] [NO-MAIL]
@@ -4400,7 +4375,7 @@ pref("browser.urlbar.quicksuggest.impressionCaps.sponsoredEnabled", false, locke
 /// Disable MARS (Mozilla Ad Routing Service) [NO-ANDROID] [NO-MAIL]
 // https://ads.mozilla.org/assets/docs/openapi/mars-api.html [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/AdsFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.reportAds.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.discoverystream.reportAds.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.contextualAds.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.contextualAds.locale-config", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.contextualAds.region-config", "", locked); // [NO-ANDROID] [NO-MAIL]
@@ -4432,8 +4407,8 @@ pref("dap.ohttp.relayURL", "", locked); // [NO-ANDROID] [NO-MAIL]
 
 /// Disable onboarding [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1972 [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.dismissed", true, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.onboardingExperience.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.onboarding.maybeDisplay", false, locked); // [NO-ANDROID] [NO-MAIL]
 
@@ -4455,7 +4430,6 @@ pref("browser.newtabpage.activity-stream.discoverystream.placements.spocs.counts
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint", "data;", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocs-endpoint-query", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocAdTypes", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.spocMessageVariant", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.spocSiteId", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "", locked); // [NO-ANDROID] [NO-MAIL] Ensure we don't try to send a deletion request, as there's no data to delete... and we block the endpoint anyways https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/docs/v2-system-addon/preferences.md#128
@@ -4496,9 +4470,9 @@ pref("browser.newtabpage.activity-stream.feeds.system.topstories", false); // [N
 pref("browser.contextual-services.contextId", "{foo-123-foo}", locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/source/browser/modules/ContextId.sys.mjs
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1501
 pref("browser.newtabpage.activity-stream.telemetry", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#494
-pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#517
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#517
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.inferredInterests.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Ensure we never submit "inferred" New Tab interests with new tab pings https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#537
-pref("browser.newtabpage.activity-stream.telemetry.privatePing.redactNewtabPing.enabled", true, locked); // [NO-ANDROID] [NO-MAIL] Redact information from new tab pings https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#530 https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/TelemetryFeed.sys.mjs#386
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.redactNewtabPing.enabled", true, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Redact information from new tab pings https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#530 https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/TelemetryFeed.sys.mjs#386
 pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "", locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#510
 pref("browser.newtabpage.activity-stream.telemetry.surfaceId", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#524
 pref("browser.newtabpage.activity-stream.telemetry.ut.events", false, locked); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#502
@@ -4532,7 +4506,7 @@ pref("browser.newtabpage.disableNewTabAsAddon", false); // [NO-ANDROID] [NO-MAIL
 pref("browser.newtabpage.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable publisher favicons (if stories are enabled) by default [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.publisherFavicon.enabled", true); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.publisherFavicon.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Enable shortcuts by default [NO-ANDROID] [NO-MAIL] [DEFAULT]
 // https://searchfox.org/firefox-main/source/browser/components/urlbar/UrlbarProviderTopSites.sys.mjs [NO-ANDROID] [NO-MAIL] [DEFAULT]
@@ -4599,23 +4573,23 @@ pref("browser.newtabpage.sponsor-protection.debug", false); // [NO-ANDROID] [NO-
 pref("browser.newtabpage.sponsor-protection.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// If stories are enabled, allow customization and following/unfollowing interests/topics [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.sections.customizeMenuPanel.enabled", true); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#714
+pref("browser.newtabpage.activity-stream.discoverystream.sections.customizeMenuPanel.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#714
 pref("browser.newtabpage.activity-stream.discoverystream.sections.interestPicker.enabled", true); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#831
-pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.enabled", true); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#706
+pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#706
 pref("browser.newtabpage.activity-stream.discoverystream.topicSelection.enabled", true); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#1236
 
 /// If stories are enabled, disable "personalization" [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/RecommendationProvider.sys.mjs [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/rev/7d68baf8/browser/app/profile/firefox.js#1967 [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/extensions/newtab/lib/InferredPersonalizationFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.discoverystream.personalization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR]
+pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.locale-config", "", locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.region-config", "", locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.sections.personalization.inferred.user.enabled", false, locked); // [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.discoverystream.shortcuts.personalization.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL]
+pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false, locked); // [NO-ANDROID] [NO-MAIL][ESR] 
 pref("browser.newtabpage.activity-stream.feeds.inferredpersonalizationfeed", false, locked); // [NO-ANDROID] [NO-MAIL]
 
 /// If stories are enabled, disable impression tracking [NO-ANDROID] [NO-MAIL]
@@ -4631,13 +4605,12 @@ pref("browser.newtabpage.activity-stream.discoverystream.sections.enabled", true
 
 /// If stories are enabled, fetch content from Merino (instead of Pocket and friends) [NO-ANDROID] [NO-MAIL]
 // Newer, more private (ex. OHTTP), etc. [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.config", '{"collapsible":true,"enabled":true}'); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#886
+pref("browser.newtabpage.activity-stream.discoverystream.config", '{"collapsible":true,"enabled":true}'); // [NO-ANDROID] [NO-MAIL] [DEFAULT] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#886
 pref("browser.newtabpage.activity-stream.discoverystream.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "https://merino.services.mozilla.com/"); // [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "merino.services.mozilla.com"); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.newtabpage.activity-stream.feeds.recommendationprovider", true); // [NO-ANDROID] [NO-MAIL] [ESR] [DEFAULT]
 pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", '{"hidden":true,"show_spocs":false}'); // [NO-ANDROID] [NO-MAIL] [ESR] https://searchfox.org/firefox-esr140/rev/8c69555d/browser/extensions/newtab/lib/ActivityStream.sys.mjs#187 (Hides the toggle at `about:preferences#home`)
 
 /// Prevent searches from jumping to the URL bar [NO-ANDROID] [NO-MAIL] [ESR]
@@ -4646,7 +4619,7 @@ pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", fal
 
 /// Proxy images [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/aee7c0f2/browser/extensions/newtab/lib/ActivityStream.sys.mjs#921 [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.discoverystream.imageProxy.enabled", true); // [NO-ANDROID] [NO-MAIL] [NIGHTLY]
+pref("browser.newtabpage.activity-stream.discoverystream.imageProxy.enabled", true); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
 
 /// Remove default shortcuts [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.default.sites", ""); // [NO-ANDROID] [NO-MAIL] https://searchfox.org/mozilla-central/rev/7d68baf8/browser/extensions/newtab/lib/ActivityStream.sys.mjs#181
@@ -4866,7 +4839,6 @@ pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.discoverystrea
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showRecentSaves", true); // [NO-ANDROID] [NO-MAIL] [ESR]
 pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showWeather", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.browser.preferences.experimental", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.privatebrowsing.resetPBM.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.privateWindowSeparation.enabled", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.search.openintab", true); // [NO-ANDROID] [NO-MAIL]
@@ -4879,7 +4851,6 @@ pref("services.sync.prefs.sync.browser.urlbar.openintab", true); // [NO-ANDROID]
 pref("services.sync.prefs.sync.browser.urlbar.suggest.calculator", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.urlbar.suggest.clipboard", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.urlbar.unitConversion.enabled", true); // [NO-ANDROID] [NO-MAIL]
-pref("services.sync.prefs.sync.browser.urlbar.update2.engineAliasRefresh", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.xul.error_pages.expert_bad_cert", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.browser.xul.error_pages.show_safe_browsing_details_on_load", true); // [NO-ANDROID] [NO-MAIL]
 pref("services.sync.prefs.sync.devtools.chrome.enabled", true); // [NO-ANDROID] [NO-MAIL]
