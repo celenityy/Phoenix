@@ -1,39 +1,30 @@
-# .gitattributes
-
-# Aliases
 [attr]lfs filter=lfs diff=lfs merge=lfs -text
-[attr]crlf eol=crlf
 
-# Normalize
 * text=auto eol=lf
 
-# Windows
-# *.bat crlf
-
-# LFS, binary files
 *.png lfs
 *.zip lfs
 
-# GitLab: syntax highlight
+# lowercase only
 *.cfg            gitlab-language=javascript
 *.code-workspace gitlab-language=json
 *.jsonc          gitlab-language=json
 *.plist          gitlab-language=xml
 *.yml            gitlab-language=yaml
 flake.lock       gitlab-language=json
-permissions      gitlab-language=ini
-_redirects       gitlab-language=ini
+permissions      gitlab-language=shell
+_redirects       gitlab-language=shell
 
-# GitHub & Codeberg: languages and diffs
-*.cfg            linguist-language=JAVASCRIPT
+# SHELL -> Shell, json -> JSON
+*.cfg            linguist-language=JavaScript
 *.code-workspace linguist-language=JSON
 *.jsonc          linguist-language=JSON
 *.plist          linguist-language=XML
 *.yml            linguist-language=YAML
 flake.lock       linguist-language=JSON
-permissions      linguist-language=INI
-_redirects       linguist-language=INI
+permissions      linguist-language=Shell
+_redirects       linguist-language=Shell
 
-# Statistics
-*.json  linguist-detectable
-# *.md  linguist-detectable
+*.json           linguist-detectable
+*.yaml           linguist-detectable
+*.xml            linguist-detectable
