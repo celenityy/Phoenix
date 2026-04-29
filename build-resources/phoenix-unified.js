@@ -3538,7 +3538,7 @@ pref("network.cookie.sameSite.schemeful", true); // [DEFAULT - Nightly]
 
 /// Protect against MIME Exploits
 // https://www.pcmag.com/encyclopedia/term/mime-exploit
-pref("network.sniff.use_extension", true); // Sniff content types based on file extensions (Default only does this for `file://` URLs)
+pref("network.sniff.use_extension", false); // [DEFAULT] Only use file extensions to sniff content for `file://` URLs - https://searchfox.org/firefox-main/rev/0fa53bd1/netwerk/streamconv/converters/nsUnknownDecoder.cpp#489 https://bugzilla.mozilla.org/show_bug.cgi?id=1948543
 pref("security.block_fileuri_script_with_wrong_mime", true);
 pref("security.block_Worker_with_wrong_mime", true); // [DEFAULT]
 
