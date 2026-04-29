@@ -1164,10 +1164,6 @@ pref("browser.phoenix.status", "005");
 /// Block insecure downloads
 pref("dom.block_download_insecure", true); // [DEFAULT]
 
-/// Disable extra download logging by default
-// This lets us expose it in the about:config for Android/Thunderbird
-pref("browser.download.loglevel", "Error"); // [DEFAULT, HIDDEN - Android/Thunderbird]
-
 /// Notify when downloading files
 pref("browser.download.alwaysOpenPanel", true); // [DEFAULT - Desktop] [HIDDEN - Android/Thunderbird]
 
@@ -2017,7 +2013,7 @@ pref("javascript.options.wasm_optimizingjit", false); // WASM-Ion (BaldrMonkey)
 
 /// Disable JPEG-XL
 // https://github.com/mozilla/standards-positions/pull/1064
-pref("image.jxl.enabled", false); // [DEFAULT]
+pref("image.jxl.enabled", false); // [DEFAULT] [HIDDEN (Undefined) - non-MOZ_JXL builds]
 
 /// Disable MathML
 // https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml 
@@ -4484,12 +4480,6 @@ pref("browser.search.serpEventTelemetryCategorization.enabled", false, locked); 
 pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false, locked); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
 pref("browser.search.serpMetricsRecordedCounter", 0, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT] Ensure we never try to submit SERP categorization event metrics https://searchfox.org/firefox-main/rev/82e2435f/browser/components/search/SERPCategorization.sys.mjs#546
 
-/// Disable trending searches by default [NO-ANDROID] [NO-MAIL]
-// Currently appears to be no-op, so we can also ensure the UI is hidden [NO-ANDROID] [NO-MAIL]
-// https://searchfox.org/firefox-main/source/browser/extensions/newtab/lib/TrendingSearchFeed.sys.mjs [NO-ANDROID] [NO-MAIL]
-pref("browser.newtabpage.activity-stream.system.trendingSearch.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN] [DEFAULT]
-pref("browser.newtabpage.activity-stream.trendingSearch.enabled", false); // [NO-ANDROID] [NO-MAIL] [HIDDEN]
-
 /// Disable wallpaper promotions [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/firefox-main/rev/82e2435f/browser/extensions/newtab/lib/ActivityStream.sys.mjs#910 [NO-ANDROID] [NO-MAIL]
 pref("browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed", true); // [NO-ANDROID] [NO-MAIL]
@@ -4743,7 +4733,7 @@ pref("browser.urlbar.suggest.sports", false); // [NO-ANDROID] [NO-MAIL]
 /// Disable telemetry [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst [NO-ANDROID] [NO-MAIL]
 pref("browser.urlbar.quicksuggest.contextualOptIn", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
-pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [DEFAULT]
+pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, locked); // [NO-ANDROID] [NO-MAIL] [ESR] [DEFAULT]
 
 /// Disable Wikipedia suggestions by default, but allow users to enable them if desired [NO-ANDROID] [NO-MAIL]
 // https://searchfox.org/mozilla-central/source/browser/components/urlbar/private/WikipediaSuggestions.sys.mjs [NO-ANDROID] [NO-MAIL]
