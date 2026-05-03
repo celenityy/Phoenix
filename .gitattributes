@@ -7,7 +7,6 @@
 
 # lowercase only
 *.cfg            gitlab-language=javascript
-*.code-workspace gitlab-language=json
 *.jsonc          gitlab-language=json
 *.plist          gitlab-language=xml
 *.yml            gitlab-language=yaml
@@ -17,7 +16,6 @@ _redirects       gitlab-language=shell
 
 # SHELL -> Shell, json -> JSON
 *.cfg            linguist-language=JavaScript
-*.code-workspace linguist-language=JSON
 *.jsonc          linguist-language=JSON
 *.plist          linguist-language=XML
 *.yml            linguist-language=YAML

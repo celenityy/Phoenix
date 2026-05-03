@@ -1,13 +1,17 @@
-.DS_Store
+# Build
 /build/
 /env_override.sh
 /external/
 /scripts/env_local.sh
 /wip/
 
-# nix build
-result-*
-result
+# IDE
+.DS_Store
+/.vscode/
+*.code-workspace
+
+# NixOS
+result*
 
 # Duplicates
 /android/phoenix.cfg

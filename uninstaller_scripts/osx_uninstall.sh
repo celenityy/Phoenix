@@ -188,7 +188,7 @@ case ${RESULT} in
 			brew update --force && brew upgrade --greedy || error_fn
 			echo
 			;;
-		
+
 		"n" | "no" | "N" | "NO")
 			;;
 esac
