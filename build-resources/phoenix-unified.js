@@ -2653,6 +2653,9 @@ pref("pdfjs.enableAutoLinking", false);
 /// Disable JavaScript
 pref("pdfjs.enableScripting", false);
 
+/// Disable WebGPU
+pref("pdfjs.enableWebGPU", false);
+
 /// Disable XFA
 // Not even a standard...
 // https://learn.microsoft.com/deployedge/microsoft-edge-policies#viewxfapdfiniemodeallowedorigins
