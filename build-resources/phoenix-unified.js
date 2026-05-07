@@ -2669,6 +2669,9 @@ pref("pdfjs.enableXfa", false);
 /// Enable the ability to add signatures
 pref("pdfjs.enableSignatureEditor", true);
 
+/// Enable the ability to add comments
+pref("pdfjs.enableComment", true); // [DEFAULT - non-Android]
+
 /// Enable Alt Text creation
 // This does NOT enable "Automatic Alt Text", we disable that separately above
 // https://support.mozilla.org/kb/pdf-alt-text
@@ -2679,7 +2682,7 @@ pref("pdfjs.enableUpdatedAddImage", true); // [DEFAULT]
 
 /// Enable hardware acceleration by default
 // This should help improve performance, which is especially notable for us since we disable JIT
-pref("pdfjs.enableHWA", true); // [DEFAULT - non-Android]
+pref("pdfjs.enableHWA", true); // [DEFAULT]
 
 /// Enable optimized partial rendering by default
 // In my testing, this appears to make a *significant* performance improvement
