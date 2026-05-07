@@ -2687,7 +2687,7 @@ pref("pdfjs.enableHWA", true); // [DEFAULT]
 /// Enable optimized partial rendering by default
 // In my testing, this appears to make a *significant* performance improvement
 // https://github.com/mozilla/pdf.js/blob/010e52e15db0cb534774cdf92e20c03bcd13d735/web/pdf_page_view.js#L93
-pref("pdfjs.enableOptimizedPartialRendering", true);
+pref("pdfjs.enableOptimizedPartialRendering", true); // [DEFAULT]
 
 /// Enforce using the internal font renderer
 // This disable the CSS Font Loading API
