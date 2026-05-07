@@ -2667,7 +2667,7 @@ pref("pdfjs.enableWebGPU", false);
 pref("pdfjs.enableXfa", false);
 
 /// Enable the ability to add signatures
-pref("pdfjs.enableSignatureEditor", true);
+pref("pdfjs.enableSignatureEditor", true); // [DEFAULT - non-Android]
 
 /// Enable the ability to add comments
 pref("pdfjs.enableComment", true); // [DEFAULT - non-Android]
