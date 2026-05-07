@@ -1225,7 +1225,7 @@ pref("security.tls.version.enable-deprecated", false, locked); // [DEFAULT]
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1036765
 pref("security.ssl3.dhe_rsa_aes_128_sha", false); // [DEFAULT]
 pref("security.ssl3.dhe_rsa_aes_256_sha", false); // [DEFAULT]
-pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT] TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
 pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT - Nightly] TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 
 /// Disable OCSP revocation checks
