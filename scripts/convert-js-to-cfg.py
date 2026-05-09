@@ -27,7 +27,7 @@ def process_file(input_file, output_file):
 
 # Check if the correct number of arguments is provided
 if len(sys.argv) != 3:
-    print("Usage: python3 convert.py <input_file> <output_file>")
+    print("Usage: python3 convert-js-to-cfg.py <input.js> <output.cfg>")
     sys.exit(1)
 
 # Get the input and output file names from command line args

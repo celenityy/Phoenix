@@ -152,23 +152,6 @@ readonly PHOENIX_OSX_INTEL_PREFS="${PHOENIX_OSX_INTEL_OUTPUTS}/unused/phoenix.js
 readonly PHOENIX_OSX_PREFS="${PHOENIX_OSX_OUTPUTS}/unused/phoenix.js"
 readonly PHOENIX_WINDOWS_PREFS="${PHOENIX_WINDOWS_OUTPUTS}/unused/phoenix.js"
 
-readonly PHOENIX_BOOTSTRAP="${PHOENIX_BUILD_RESOURCES}/phoenix-bootstrap.js"
-
-readonly PHOENIX_LINUX_BOOTSTRAP="${PHOENIX_LINUX_OUTPUTS}/defaults/pref/phoenix.js"
-readonly PHOENIX_LINUX_FLATPAK_BOOTSTRAP="${PHOENIX_LINUX_FLATPAK_OUTPUTS}/defaults/pref/phoenix.js"
-readonly PHOENIX_OSX_BOOTSTRAP="${PHOENIX_OSX_OUTPUTS}/defaults/pref/phoenix.js"
-readonly PHOENIX_OSX_INTEL_BOOTSTRAP="${PHOENIX_OSX_INTEL_OUTPUTS}/defaults/pref/phoenix.js"
-readonly PHOENIX_WINDOWS_BOOTSTRAP="${PHOENIX_WINDOWS_OUTPUTS}/defaults/pref/phoenix.js"
-
-readonly PHOENIX_USER_PREF_CFG="${PHOENIX_BUILD_RESOURCES}/phoenix-user-pref.cfg"
-
-readonly PHOENIX_ANDROID_USER_PREF_CFG="${PHOENIX_ANDROID_OUTPUTS}/unused/phoenix-user-pref.cfg"
-readonly PHOENIX_LINUX_FLATPAK_USER_PREF_CFG="${PHOENIX_LINUX_FLATPAK_OUTPUTS}/unused/phoenix-user-pref.cfg"
-readonly PHOENIX_LINUX_USER_PREF_CFG="${PHOENIX_LINUX_OUTPUTS}/unused/phoenix-user-pref.cfg"
-readonly PHOENIX_OSX_USER_PREF_CFG="${PHOENIX_OSX_OUTPUTS}/unused/phoenix-user-pref.cfg"
-readonly PHOENIX_OSX_INTEL_USER_PREF_CFG="${PHOENIX_OSX_INTEL_OUTPUTS}/unused/phoenix-user-pref.cfg"
-readonly PHOENIX_WINDOWS_USER_PREF_CFG="${PHOENIX_WINDOWS_OUTPUTS}/unused/phoenix-user-pref.cfg"
-
 readonly PHOENIX_ANDROID_CFG="${PHOENIX_ANDROID_OUTPUTS}/phoenix.cfg"
 readonly PHOENIX_LINUX_CFG="${PHOENIX_LINUX_OUTPUTS}/phoenix.cfg"
 readonly PHOENIX_LINUX_FLATPAK_CFG="${PHOENIX_LINUX_FLATPAK_OUTPUTS}/phoenix.cfg"
@@ -436,11 +419,24 @@ readonly PHOENIX_EXTRA_POLICIES_OUTPUT_OSX="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_
 readonly PHOENIX_EXTRA_POLICIES_OUTPUT_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}/policies.json"
 readonly PHOENIX_EXTRA_POLICIES_OUTPUT_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}/policies.json"
 
+cp -f "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.cfg" "${PHOENIX_ROOT}/phoenix.cfg"
+
+# Set PHOENIX_MAIL
+if [ "${PHOENIX_MAIL}" == 1 ]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+fi
+
+# Update the version
+"${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+echo
+
 # ANDROID
 if [ "${PHOENIX_ANDROID}" == 1 ]; then
     echo_green_text 'Building Phoenix for Android...'
-    mkdir -vp "${PHOENIX_ANDROID_OUTPUTS}/unused" || error_fn
-    echo
 
     # Copy license
     cp "${PHOENIX_ROOT}/COPYING.txt" "${PHOENIX_ANDROID_OUTPUTS}/" || error_fn
@@ -451,29 +447,23 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
     echo
 
     # Copy Android-specific files
-    cp -f "${PHOENIX_BUILD_RESOURCES}/android/phoenix-unextend.js" "${PHOENIX_ANDROID_OUTPUTS}/"
-
-    # Remove lines containing [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-ANDROID], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-ANDROID|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_ANDROID_USER_PREF_CFG}" || error_fn
+    cp -f "${PHOENIX_BUILD_RESOURCES}/android/phoenix-unextend.js" "${PHOENIX_ANDROID_OUTPUTS}/" || error_fn
     echo
-    echo "Created ${PHOENIX_ANDROID_USER_PREF_CFG}"
+
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_ANDROID_CFG}" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_ANDROID_CFG}" "${PHOENIX_TEMP}/phoenix-android-temp.js" || error_fn
+    echo
 
     # Remove lines containing [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-ANDROID], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-ANDROID|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_ANDROID_PREFS}" || error_fn
+    grep -vE 'FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-ANDROID|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_TEMP}/phoenix-android-temp.js" > "${PHOENIX_ANDROID_PREFS}" || error_fn
+    echo
+    rm "${PHOENIX_TEMP}/phoenix-android-temp.js" || error_fn
     echo
     echo "Created ${PHOENIX_ANDROID_PREFS}"
-
-    # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_ANDROID_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_ANDROID_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_ANDROID_PREFS}" "${PHOENIX_TEMP}/android.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/android.cfg" "${PHOENIX_ANDROID_USER_PREF_CFG}" > "${PHOENIX_ANDROID_CFG}" || error_fn
-    echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
         # Remove lines containing [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-ANDROID], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
@@ -486,7 +476,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTENDED_ANDROID_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTENDED_ANDROID_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -506,7 +496,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
             cat "${PHOENIX_ANDROID_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_ANDROID}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
             echo
         fi
 
@@ -514,7 +504,7 @@ if [ "${PHOENIX_ANDROID}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_ANDROID_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_ANDROID}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_ANDROID}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID}.cfg" || error_fn
             echo
         fi
     fi
@@ -695,53 +685,28 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
     cp -vf "${PHOENIX_BUILD_RESOURCES}/linux/etc/profile.d/phoenix-env-overrides.sh" "${PHOENIX_LINUX_OUTPUTS}/etc/profile.d/" || error_fn
     echo
 
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [NO-LINUX], [NO-NON-FLATPAK-LINUX], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_LINUX_USER_PREF_CFG}" || error_fn
-    echo
-    echo "Created ${PHOENIX_LINUX_USER_PREF_CFG}"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [NO-LINUX], [NO-NON-FLATPAK-LINUX], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BOOTSTRAP}" > "${PHOENIX_TEMP}/phoenix-bootstrap-linux-temp.js" || error_fn
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_LINUX_CFG}" || error_fn
     echo
 
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-bootstrap-linux-temp.js" > "${PHOENIX_LINUX_BOOTSTRAP}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-bootstrap-linux-temp.js" "${PHOENIX_LINUX_BOOTSTRAP}" || error_fn
-        echo
-    fi
-    echo "Created ${PHOENIX_LINUX_BOOTSTRAP}" || error_fn
+    # Copy the bootstrap phoenix.js
+    cp "${PHOENIX_ROOT}/phoenix.js" "${PHOENIX_LINUX_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_LINUX_CFG}" "${PHOENIX_TEMP}/phoenix-linux-temp.js" || error_fn
     echo
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [NO-LINUX], [NO-NON-FLATPAK-LINUX], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_TEMP}/phoenix-linux-prefs-temp.js" || error_fn
+    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|NO-LINUX|NO-NON-FLATPAK-LINUX|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_TEMP}/phoenix-linux-temp.js" > "${PHOENIX_LINUX_PREFS}" || error_fn
     echo
-
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-linux-prefs-temp.js" > "${PHOENIX_LINUX_PREFS}" || error_fn
-        echo
-    else 
-        cp -f "${PHOENIX_TEMP}/phoenix-linux-prefs-temp.js" "${PHOENIX_LINUX_PREFS}" || error_fn
-        echo
-    fi
+    rm "${PHOENIX_TEMP}/phoenix-linux-temp.js" || error_fn
+    echo
     echo "Created ${PHOENIX_LINUX_PREFS}" || error_fn
     echo
 
     # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_BOOTSTRAP}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_PREFS}" "${PHOENIX_TEMP}/linux.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/linux.cfg" "${PHOENIX_LINUX_USER_PREF_CFG}" > "${PHOENIX_LINUX_CFG}" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
     echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
@@ -765,7 +730,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTENDED_LINUX_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTENDED_LINUX_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -785,7 +750,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
             cat "${PHOENIX_LINUX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
             echo
         fi
 
@@ -793,7 +758,7 @@ if [ "${PHOENIX_LINUX}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_LINUX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX}.cfg" || error_fn
             echo
         fi
     fi
@@ -968,53 +933,28 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
         echo
     fi
 
-    # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" || error_fn
-    echo
-    echo "Created ${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}"
-
-    # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BOOTSTRAP}" > "${PHOENIX_TEMP}/phoenix-bootstrap-linux-flatpak-temp.js" || error_fn
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_LINUX_FLATPAK_CFG}" || error_fn
     echo
 
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-bootstrap-linux-flatpak-temp.js" > "${PHOENIX_LINUX_FLATPAK_BOOTSTRAP}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-bootstrap-linux-flatpak-temp.js" "${PHOENIX_LINUX_FLATPAK_BOOTSTRAP}" || error_fn
-        echo
-    fi
-    echo "Created ${PHOENIX_LINUX_FLATPAK_BOOTSTRAP}" || error_fn
+    # Copy the bootstrap phoenix.js
+    cp "${PHOENIX_ROOT}/phoenix.js" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_LINUX_FLATPAK_CFG}" "${PHOENIX_TEMP}/phoenix-linux-flatpak-temp.js" || error_fn
     echo
 
     # Remove lines containing [ANDROID-ONLY], [INTEL-OSX-ONLY], [NO-FLATPAK-LINUX], [NO-LINUX], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_TEMP}/phoenix-linux-flatpak-prefs-temp.js" || error_fn
+    grep -vE 'ANDROID-ONLY|INTEL-OSX-ONLY|NO-FLATPAK-LINUX|NO-LINUX|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_TEMP}/phoenix-linux-flatpak-temp.js" > "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
     echo
-
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-linux-flatpak-prefs-temp.js" > "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-linux-flatpak-prefs-temp.js" "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
-        echo
-    fi
+    rm "${PHOENIX_TEMP}/phoenix-linux-flatpak-temp.js" || error_fn
+    echo
     echo "Created ${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
     echo
 
     # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_FLATPAK_BOOTSTRAP}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_FLATPAK_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_TEMP}/linux-flatpak.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/linux-flatpak.cfg" "${PHOENIX_LINUX_FLATPAK_USER_PREF_CFG}" > "${PHOENIX_LINUX_FLATPAK_CFG}" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_LINUX_FLATPAK_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
     echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
@@ -1038,7 +978,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTENDED_LINUX_FLATPAK_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTENDED_LINUX_FLATPAK_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1058,7 +998,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
             cat "${PHOENIX_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX_FLATPAK}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
             echo
         fi
 
@@ -1066,7 +1006,7 @@ if [ "${PHOENIX_LINUX_FLATPAK}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_LINUX_FLATPAK_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_LINUX_FLATPAK}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_LINUX_FLATPAK}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK}.cfg" || error_fn
             echo
         fi
     fi
@@ -1244,59 +1184,38 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     fi
 
     # Copy OS X-specific files
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_OUTPUTS}/Library/"
-
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/celenity/Phoenix" "${PHOENIX_OSX_OUTPUTS}/Library/celenity/"
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchAgents/" "${PHOENIX_OSX_OUTPUTS}/Library/LaunchAgents/"
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchDaemons" "${PHOENIX_OSX_OUTPUTS}/Library/"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_OSX_USER_PREF_CFG}" || error_fn
-    echo
-    echo "Created ${PHOENIX_OSX_USER_PREF_CFG}"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_BOOTSTRAP}" > "${PHOENIX_TEMP}/phoenix-bootstrap-osx-temp.js" || error_fn
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_OUTPUTS}/Library/" || error_fn
     echo
 
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-bootstrap-osx-temp.js" > "${PHOENIX_OSX_BOOTSTRAP}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-bootstrap-osx-temp.js" "${PHOENIX_OSX_BOOTSTRAP}" || error_fn
-        echo
-    fi
-    echo "Created ${PHOENIX_OSX_BOOTSTRAP}" || error_fn
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/celenity/Phoenix" "${PHOENIX_OSX_OUTPUTS}/Library/celenity/" || error_fn
+    echo
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchAgents/" "${PHOENIX_OSX_OUTPUTS}/Library/LaunchAgents/" || error_fn
+    echo
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx/Library/LaunchDaemons" "${PHOENIX_OSX_OUTPUTS}/Library/" || error_fn
+    echo
+
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_OSX_CFG}" || error_fn
+    echo
+
+    # Copy the bootstrap phoenix.js
+    cp "${PHOENIX_ROOT}/phoenix.js" "${PHOENIX_OSX_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_OSX_CFG}" "${PHOENIX_TEMP}/phoenix-osx-temp.js" || error_fn
     echo
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-OSX], [NO-SILICON-OSX], [LINUX-NON-FLATPAK-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_TEMP}/phoenix-osx-prefs-temp.js" || error_fn
+    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-OSX|NO-SILICON-OSX|LINUX-NON-FLATPAK-ONLY|WINDOWS-ONLY' "${PHOENIX_TEMP}/phoenix-osx-temp.js" > "${PHOENIX_OSX_PREFS}" || error_fn
     echo
-
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-osx-prefs-temp.js" > "${PHOENIX_OSX_PREFS}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-osx-prefs-temp.js" "${PHOENIX_OSX_PREFS}" || error_fn
-        echo
-    fi
+    rm "${PHOENIX_TEMP}/phoenix-osx-temp.js" || error_fn
+    echo
     echo "Created ${PHOENIX_OSX_PREFS}" || error_fn
     echo
 
     # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_BOOTSTRAP}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_PREFS}" "${PHOENIX_TEMP}/osx.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/osx.cfg" "${PHOENIX_OSX_USER_PREF_CFG}" > "${PHOENIX_OSX_CFG}" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
     echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
@@ -1320,7 +1239,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTENDED_OSX_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTENDED_OSX_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1340,7 +1259,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
             cat "${PHOENIX_OSX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX}.cfg" || error_fn
             echo
         fi
 
@@ -1348,7 +1267,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_OSX_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX}.cfg" || error_fn
             echo
         fi
     fi
@@ -1524,59 +1443,38 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     fi
 
     # Copy OS X-specific files
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/"
-
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/celenity/Phoenix" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/celenity/"
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchAgents/" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/LaunchAgents/"
-    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchDaemons" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_OSX_INTEL_USER_PREF_CFG}" || error_fn
-    echo
-    echo "Created ${PHOENIX_OSX_INTEL_USER_PREF_CFG}"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BOOTSTRAP}" > "${PHOENIX_TEMP}/phoenix-bootstrap-osx-intel-temp.js" || error_fn
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-shared/Library/LaunchAgents" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/" || error_fn
     echo
 
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-bootstrap-osx-intel-temp.js" > "${PHOENIX_OSX_INTEL_BOOTSTRAP}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-bootstrap-osx-intel-temp.js" "${PHOENIX_OSX_INTEL_BOOTSTRAP}" || error_fn
-        echo
-    fi
-    echo "Created ${PHOENIX_OSX_INTEL_BOOTSTRAP}" || error_fn
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/celenity/Phoenix" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/celenity/" || error_fn
+    echo
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchAgents/" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/LaunchAgents/" || error_fn
+    echo
+    cp -rf "${PHOENIX_BUILD_RESOURCES}/osx-intel/Library/LaunchDaemons" "${PHOENIX_OSX_INTEL_OUTPUTS}/Library/" || error_fn
+    echo
+
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_OSX_INTEL_CFG}" || error_fn
+    echo
+
+    # Copy the bootstrap phoenix.js
+    cp "${PHOENIX_ROOT}/phoenix.js" "${PHOENIX_OSX_INTEL_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_OSX_INTEL_CFG}" "${PHOENIX_TEMP}/phoenix-osx-intel-temp.js" || error_fn
     echo
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [LINUX-ONLY], [NO-INTEL-OSX], [NO-OSX], [LINUX-NON-FLATPAK-ONLY], [SILICON-OSX-ONLY], and [WINDOWS-ONLY]
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_TEMP}/phoenix-osx-intel-prefs-temp.js" || error_fn
+    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|LINUX-ONLY|NO-INTEL-OSX|NO-OSX|LINUX-NON-FLATPAK-ONLY|SILICON-OSX-ONLY|WINDOWS-ONLY' "${PHOENIX_TEMP}/phoenix-osx-intel-temp.js" > "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
     echo
-
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-osx-intel-prefs-temp.js" > "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-osx-intel-prefs-temp.js" "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
-        echo
-    fi
+    rm "${PHOENIX_TEMP}/phoenix-osx-intel-temp.js" || error_fn
+    echo
     echo "Created ${PHOENIX_OSX_INTEL_PREFS}" || error_fn
     echo
 
     # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_INTEL_BOOTSTRAP}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_INTEL_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_INTEL_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_TEMP}/osx-intel.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/osx-intel.cfg" "${PHOENIX_OSX_INTEL_USER_PREF_CFG}" > "${PHOENIX_OSX_INTEL_CFG}" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_OSX_INTEL_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
     echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
@@ -1600,7 +1498,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTENDED_OSX_INTEL_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTENDED_OSX_INTEL_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1620,7 +1518,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
             cat "${PHOENIX_OSX_INTEL_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX_INTEL}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
             echo
         fi
 
@@ -1628,7 +1526,7 @@ if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_OSX_INTEL_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_OSX_INTEL}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_OSX_INTEL}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL}.cfg" || error_fn
             echo
         fi
     fi
@@ -1713,53 +1611,28 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
         echo
     fi
 
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_USER_PREF_CFG}" > "${PHOENIX_WINDOWS_USER_PREF_CFG}" || error_fn
-    echo
-    echo "Created ${PHOENIX_WINDOWS_USER_PREF_CFG}"
-
-    # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_BOOTSTRAP}" > "${PHOENIX_TEMP}/phoenix-bootstrap-windows-temp.js" || error_fn
+    # Copy phoenix.cfg
+    cp "${PHOENIX_ROOT}/phoenix.cfg" "${PHOENIX_WINDOWS_CFG}" || error_fn
     echo
 
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-bootstrap-windows-temp.js" > "${PHOENIX_WINDOWS_BOOTSTRAP}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-bootstrap-windows-temp.js" "${PHOENIX_WINDOWS_BOOTSTRAP}" || error_fn
-        echo
-    fi
-    echo "Created ${PHOENIX_WINDOWS_BOOTSTRAP}" || error_fn
+    # Copy the bootstrap phoenix.js
+    cp "${PHOENIX_ROOT}/phoenix.js" "${PHOENIX_WINDOWS_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
+    echo
+
+    # Create phoenix.js
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${PHOENIX_WINDOWS_CFG}" "${PHOENIX_TEMP}/phoenix-windows-temp.js" || error_fn
     echo
 
     # Remove lines containing [ANDROID-ONLY], [FLATPAK-LINUX-ONLY], [INTEL-OSX-ONLY], [LINUX-ONLY], [NO-WINDOWS], [LINUX-NON-FLATPAK-ONLY], [OSX-ONLY], and [SILICON-OSX-ONLY] 
-    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.js" > "${PHOENIX_TEMP}/phoenix-windows-prefs-temp.js" || error_fn
+    grep -vE 'ANDROID-ONLY|FLATPAK-LINUX-ONLY|INTEL-OSX-ONLY|LINUX-ONLY|NO-WINDOWS|LINUX-NON-FLATPAK-ONLY|OSX-ONLY|SILICON-OSX-ONLY' "${PHOENIX_TEMP}/phoenix-windows-temp.js" > "${PHOENIX_WINDOWS_PREFS}" || error_fn
     echo
-
-    if [ "${PHOENIX_MAIL}" == 1 ]; then
-        # Remove lines containing [NO-MAIL]
-        grep -vE 'NO-MAIL' "${PHOENIX_TEMP}/phoenix-windows-prefs-temp.js" > "${PHOENIX_WINDOWS_PREFS}" || error_fn
-        echo
-    else
-        cp -f "${PHOENIX_TEMP}/phoenix-windows-prefs-temp.js" "${PHOENIX_WINDOWS_PREFS}" || error_fn
-        echo
-    fi
+    rm "${PHOENIX_TEMP}/phoenix-windows-temp.js" || error_fn
+    echo
     echo "Created ${PHOENIX_WINDOWS_PREFS}" || error_fn
     echo
 
     # Update the version
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_WINDOWS_BOOTSTRAP}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_WINDOWS_PREFS}" || error_fn
-    echo
-    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_WINDOWS_USER_PREF_CFG}" || error_fn
-    echo
-
-    # Create .cfg files
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_TEMP}/windows.cfg" || error_fn
-    echo
-    cat "${PHOENIX_TEMP}/windows.cfg" "${PHOENIX_WINDOWS_USER_PREF_CFG}" > "${PHOENIX_WINDOWS_CFG}" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_WINDOWS_OUTPUTS}/defaults/pref/phoenix.js" || error_fn
     echo
 
     if [ "${PHOENIX_EXTENDED}" == 1 ]; then
@@ -1783,7 +1656,7 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
         echo
 
         # Create .cfg file
-        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTENDED_WINDOWS_CFG}" || error_fn
+        "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTENDED_WINDOWS_CFG}" || error_fn
         echo
 
         # Create files that contain contents of both Phoenix + Phoenix extended
@@ -1803,14 +1676,14 @@ if [ "${PHOENIX_WINDOWS}" == 1 ]; then
             cat "${PHOENIX_WINDOWS_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_WINDOWS}" > "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS}.cfg"
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS}.cfg"
         fi
 
         if [ "${PHOENIX_EXTENDED}" == 1 ]; then
             cat "${PHOENIX_PLUS_EXTENDED_WINDOWS_PREFS}" "${PHOENIX_EXTRA_PREFS_JS_FILE_PROCESSED_WINDOWS}" > "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" || error_fn
             echo
 
-            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS}.cfg"
+            "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTRA_EXTENDED_PREFS_JS_OUTPUT_WINDOWS}" "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR}/${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS}.cfg"
         fi
     fi
 
@@ -1835,7 +1708,7 @@ fi
 # SPECIALIZED CONFIGS
 if [ "${PHOENIX_SPECS}" == 1 ]; then
 
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert.py" "${PHOENIX_EXTENDED_UNIFIED_PREFS}" "${PHOENIX_EXTENDED_UNIFIED_CFG}" || error_fn
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-js-to-cfg.py" "${PHOENIX_EXTENDED_UNIFIED_PREFS}" "${PHOENIX_EXTENDED_UNIFIED_CFG}" || error_fn
     echo
 
     cat "${PHOENIX_EXTENDED_UNIFIED_CFG}" "${PHOENIX_SPECIALIZED_UNIFIED_CFG}" "${PHOENIX_SPECIALIZED_UNIFIED_APPLE_MAPS_CFG}" > "${PHOENIX_SPECIALIZED_APPLE_MAPS_CFG}" || error_fn

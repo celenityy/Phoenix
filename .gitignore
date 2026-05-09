@@ -8,3 +8,16 @@
 # nix build
 result-*
 result
+
+# Duplicates
+/android/phoenix.cfg
+/linux/defaults/pref/phoenix.js
+/linux/phoenix.cfg
+/linux-flatpak/defaults/pref/phoenix.js
+/linux-flatpak/phoenix.cfg
+/osx/defaults/pref/phoenix.js
+/osx/macos/phoenix.cfg
+/osx-intel/defaults/pref/phoenix.js
+/osx-intel/phoenix.cfg
+/windows/defaults/pref/phoenix.js
+/windows/phoenix.cfg

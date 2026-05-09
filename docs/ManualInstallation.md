@@ -1,7 +1,7 @@
 # 📛 Manual Installation
 
 > [!CAUTION]
->**This is NOT recommended for most users.**
+> **This is NOT recommended for most users.**
 
 By default, Phoenix is installed & updated via your operating system's package
 manager. This allows for fast, easy updates & fixes as needed, right with the
@@ -21,26 +21,26 @@ Phoenix with the following steps:
 
 **1:** Download `phoenix.cfg`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/phoenix.cfg)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.cfg` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/phoenix.cfg
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg
 ```
 
 **2:** Download `phoenix.js`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/defaults/pref/phoenix.js)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.js` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/linux/defaults/pref/phoenix.js
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js
 ```
 
 **3:** Download `policies.json`:
@@ -56,7 +56,7 @@ curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegat
 ```
 
 **4:** If it does not already exist, you will want to
-create a folder named `firefox` located in your system's `etc` directory. 
+create a folder named `firefox` located in your system's `etc` directory.
 This will work **regardless of your distribution** - even Snaps are supported.
 You can also just run the command below:
 
@@ -73,7 +73,7 @@ sudo chmod 655 /etc/firefox
 **5:** Copy `phoenix.cfg` to the `/etc/firefox` directory you just created. You
 can either drag and drop it manually, or run the following command:
 
-**NOTE**: If you have previously installed `phoenix.cfg` to a different location *(such as Firefox's installation directory)*, **please REMOVE it** to ensure any conflicts are avoided.
+**NOTE**: If you have previously installed `phoenix.cfg` to a different location _(such as Firefox's installation directory)_, **please REMOVE it** to ensure any conflicts are avoided.
 
 ```sh
 sudo cp phoenix.cfg /etc/firefox/phoenix.cfg
@@ -128,26 +128,26 @@ sudo cp policies.json /etc/firefox/policies/policies.json
 
 **1:** Download `phoenix.cfg`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.cfg` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/macos/phoenix.cfg
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg
 ```
 
 **2:** Download `phoenix.js`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.js` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/defaults/pref/phoenix.js
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js
 ```
 
 **3:** Download `org.mozilla.firefox.plist`:
@@ -169,11 +169,11 @@ For example: If I see `/Users/${USER}/Applications/Firefox.app/Contents/MacOS/fi
 my installation directory would be: **`/Users/${USER}/Applications/Firefox.app`**.
 
 > [!CAUTION]
->**Your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
+> **Your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
 
 **5:** Copy `phoenix.cfg` to the **`Resources`** folder within your installation directory.
 You can either drag and drop it manually, or run the following command:
-*assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory*
+_assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory_
 
 ```sh
 sudo cp phoenix.cfg /Users/${USER}/Applications/Firefox.app/Resources/phoenix.cfg
@@ -182,7 +182,7 @@ sudo cp phoenix.cfg /Users/${USER}/Applications/Firefox.app/Resources/phoenix.cf
 **6:** If it does not already exist, inside the `Resources` directory, create a new folder named `defaults`,
 and inside this new `defaults` folder, create another folder titled `pref`.
 You can do this manually through your file explorer, or you can run the following command:
-*assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory*
+_assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory_
 
 ```sh
 sudo mkdir -p /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref
@@ -196,7 +196,7 @@ sudo chmod 744 /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref
 
 **7:** Copy `phoenix.js` to the
 `pref` folder that you just created. You can run the following command:
-*Assuming your installation directory is `/Users/${USER}/Applications/Firefox.app`*
+_Assuming your installation directory is `/Users/${USER}/Applications/Firefox.app`_
 
 ```sh
 sudo cp phoenix.js /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref/phoenix.js
@@ -213,26 +213,26 @@ sudo cp org.mozilla.firefox.plist /Library/Preferences/org.mozilla.firefox.plist
 
 **1:** Download `phoenix.cfg`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/phoenix.cfg)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.cfg` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/phoenix.cfg
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.cfg
 ```
 
 **2:** Download `phoenix.js`:
 
-- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/defaults/pref/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/defaults/pref/phoenix.js)
+- [`https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js)
 
 You can right click and select `Save page as` from your browser after navigating
 to the link for `phoenix.js` above, or you can run the following
 command in your terminal:
 
 ```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/windows/defaults/pref/phoenix.js
+curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://gitlab.com/celenityy/Phoenix/-/raw/pages/phoenix.js
 ```
 
 **3:** Download `policies.json`:
@@ -252,7 +252,7 @@ your platform. An easy way to find it is by navigating to `about:support` and
 checking the directory next to `Application Binary`.
 
 > [!CAUTION]
->**Your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
+> **Your directory will probably be different, and you should replace this directory on the following steps with your actual installation directory.**
 
 **5:** Copy `phoenix.cfg` to the **root** of your installation directory. You
 can either drag and drop it manually, or run the following command:
