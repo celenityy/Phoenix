@@ -23,7 +23,7 @@ def process_file(input_file, output_file):
                 file.write(modified_line)
             elif "        defaultPref(" in line and "[FN]" not in line:
                 # Change defaultPref to pref
-                modified_line = line.replace("      defaultPref(", "pref(")
+                modified_line = line.replace("        defaultPref(", "pref(")
                 file.write(modified_line)
             elif "    defaultPref(" in line and "[FN]" not in line:
                 # Change defaultPref to pref
