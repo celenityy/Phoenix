@@ -447,6 +447,16 @@ fi
 readonly PHOENIX_WINDOWS
 export PHOENIX_WINDOWS
 
+# Whether we should reset the preference to enable Remote Debugging (devtools.debugger.remote-enabled) per-session
+## We reset `devtools.debugger.remote-enabled` by default to improve privacy and security, but some (ex. IronFox)
+## use their own mechanism to handle it (IronFox doesn't reset it for Nightly builds)
+readonly PHOENIX_RESET_REMOTE_DEBUGGING_DEFAULT=1
+if [[ -z "${PHOENIX_RESET_REMOTE_DEBUGGING+x}" ]]; then
+    PHOENIX_RESET_REMOTE_DEBUGGING="${PHOENIX_RESET_REMOTE_DEBUGGING_DEFAULT}"
+fi
+readonly PHOENIX_RESET_REMOTE_DEBUGGING
+export PHOENIX_RESET_REMOTE_DEBUGGING
+
 # Whether we should exclude "NO-MAIL" preferences when building Phoenix
 ## (ex. for Dove)
 readonly PHOENIX_MAIL_DEFAULT=0

@@ -396,6 +396,15 @@ else
     echo
 fi
 
+# Set PHOENIX_RESET_REMOTE_DEBUGGING
+if [ "${PHOENIX_RESET_REMOTE_DEBUGGING}" == 1 ]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+fi
+
 # Update the version
 "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
 echo
