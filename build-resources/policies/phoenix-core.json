@@ -98,6 +98,7 @@
         "UserMessaging": {
             "ExtensionRecommendations": false,
             "FeatureRecommendations": false,
+            "FirefoxLabs": false,
             "MoreFromMozilla": false,
             "SkipOnboarding": true,
             "UrlbarInterventions": false,
