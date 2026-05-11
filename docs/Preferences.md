@@ -6,7 +6,23 @@ The following page is meant to serve as documentation for preferences introduced
 
 Additionally, these preferences do **NOT** function on Phoenix for Android, **with the exception of IronFox**.
 
-## browser.phoenix.enableNativeMessaging
+</div>
+
+## Preferences
+
+- [`browser.phoenix.enableNativeMessaging`](#browser-phoenix-enablenativemessaging)
+- [`browser.phoenix.extended`](#browser-phoenix-extended)
+- [`browser.phoenix.FFUIFix`](#browser-phoenix-ffuifix)
+- [`browser.phoenix.fingerprintingProtection.global.userOverrides`](#browser-phoenix-fingerprintingprotection-global-useroverrides)
+- [`browser.phoenix.fingerprintingProtection.granular.enabled`](#browser-phoenix-fingerprintingprotection-granular-enabled)
+- [`browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-hardenoverrides-enabled)
+- [`browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreakoverrides-enabled)
+- [`browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreaktimezoneoverrides-enabled)
+- [`browser.phoenix.fingerprintingProtection.granular.userOverrides`](#browser-phoenix-fingerprintingprotection-granular-useroverrides)
+- [`browser.phoenix.trr.autoBootstrap`](#browser-phoenix-trr-autobootstrap)
+  - [`browser.phoenix.trr.autoBootstrap.useFallback`](#browser-phoenix-trr-autobootstrap-usefallback)
+
+### browser.phoenix.enableNativeMessaging
 
 ```
 browser.phoenix.enableNativeMessaging
@@ -18,7 +34,7 @@ Default - **Android**: `true`
 
 If `true`, Phoenix enables support for [Native messaging](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Native_messaging). This allows extensions that you [give permission](https://support.mozilla.org/kb/permission-request-messages-firefox-extensions?as=u#w_exchange-messages-with-programs-other-than-firefox) to communicate with external programs on your device.
 
-## browser.phoenix.extended
+### browser.phoenix.extended
 
 ```
 browser.phoenix.extended
@@ -31,7 +47,7 @@ If `true`, Phoenix configures additional preferences to maximize privacy and sec
 
 Preferences configured by `browser.phoenix.extended` can still be individually overriden by users if desired, regardless of `browser.phoenix.extended`'s value.
 
-## browser.phoenix.FFUIFix
+### browser.phoenix.FFUIFix
 
 ```
 browser.phoenix.FFUIFix
@@ -44,7 +60,7 @@ If `true`, Phoenix configures preferences to support the [`Firefox-UI-Fix`](http
 
 **NOTE**: This preference is not supported on Android.
 
-## browser.phoenix.fingerprintingProtection.global.userOverrides
+### browser.phoenix.fingerprintingProtection.global.userOverrides
 
 ```
 browser.phoenix.fingerprintingProtection.global.userOverrides
@@ -63,7 +79,7 @@ For an example of how this preference's value should be formatted:
 +ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally
 ```
 
-## browser.phoenix.fingerprintingProtection.granular.enabled
+### browser.phoenix.fingerprintingProtection.granular.enabled
 
 ```
 browser.phoenix.fingerprintingProtection.granular.enabled
@@ -76,7 +92,7 @@ If `false`, Phoenix will disable **all** default granular _(per-site)_ fingerpri
 
 **NOTE**: Setting this to `false` is **not** recommend, as it **will** cause breakage and degrade your privacy and security.
 
-## browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
+### browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
 
 ```
 browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
@@ -91,7 +107,7 @@ If `true`, Phoenix enables fingerprinting protection overrides to **strengthen**
 
 If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`, this preference will **not** take effect.
 
-## browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
+### browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
 
 ```
 browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
@@ -106,7 +122,7 @@ If `true`, Phoenix enables fingerprinting protection overrides to **relax** prot
 
 If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`, this preference will **not** take effect.
 
-## browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled
+### browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled
 
 ```
 browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled
@@ -121,7 +137,7 @@ If `true`, Phoenix enables fingerprinting protection overrides to disable timezo
 
 If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`, this preference will **not** take effect.
 
-## browser.phoenix.fingerprintingProtection.granular.userOverrides
+### browser.phoenix.fingerprintingProtection.granular.userOverrides
 
 ```
 browser.phoenix.fingerprintingProtection.granular.userOverrides
@@ -140,7 +156,7 @@ For an example of how this preference's value should be formatted:
 {"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"firstPartyDomain":"*","thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedToo"}
 ```
 
-## browser.phoenix.trr.autoBootstrap
+### browser.phoenix.trr.autoBootstrap
 
 ```
 browser.phoenix.trr.autoBootstrap
@@ -153,7 +169,7 @@ If `true`, Phoenix will automatically configure the bootstrap address for DNS ov
 
 **NOTE**: When this setting is enabled, a browser restart is required upon changing DNS over HTTPS providers.
 
-## browser.phoenix.trr.autoBootstrap.useFallback
+### browser.phoenix.trr.autoBootstrap.useFallback
 
 ```
 browser.phoenix.trr.autoBootstrap.useFallback
