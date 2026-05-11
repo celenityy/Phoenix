@@ -29,7 +29,9 @@ browser.phoenix.enableNativeMessaging
 ```
 
 **Type**: `Boolean`
+
 Default - **Desktop**: `false`
+
 Default - **Android**: `true`
 
 If `true`, Phoenix enables support for [Native messaging](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Native_messaging). This allows extensions that you [give permission](https://support.mozilla.org/kb/permission-request-messages-firefox-extensions?as=u#w_exchange-messages-with-programs-other-than-firefox) to communicate with external programs on your device.
@@ -41,6 +43,7 @@ browser.phoenix.extended
 ```
 
 **Type**: `Boolean`
+
 **Default**: `false`
 
 If `true`, Phoenix configures additional preferences to maximize privacy and security, at the cost of breakage/unintended behavior for some users.
@@ -54,6 +57,7 @@ browser.phoenix.FFUIFix
 ```
 
 **Type**: `Boolean`
+
 **Default**: `false`
 
 If `true`, Phoenix configures preferences to support the [`Firefox-UI-Fix`](https://github.com/black7375/Firefox-UI-Fix) CSS skin.
@@ -67,6 +71,7 @@ browser.phoenix.fingerprintingProtection.global.userOverrides
 ```
 
 **Type**: `String`
+
 **Default**: ` `
 
 This preference contains a list of global overrides for Phoenix's fingerprinting protection. **Targets specified here always take priority over default targets from Phoenix and Mozilla**.
@@ -86,6 +91,7 @@ browser.phoenix.fingerprintingProtection.granular.enabled
 ```
 
 **Type**: `Boolean`
+
 **Default**: `true`
 
 If `false`, Phoenix will disable **all** default granular _(per-site)_ fingerprinting protection overrides. This includes overrides from **both** Phoenix and Mozilla. Overrides specified at `browser.phoenix.fingerprintingProtection.granular.userOverrides` are **not** impacted by this preference.
@@ -99,6 +105,7 @@ browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
 ```
 
 **Type**: `Boolean`
+
 **Default**: `true`
 
 If `true`, Phoenix enables fingerprinting protection overrides to **strengthen** protection for certain websites.
@@ -114,6 +121,7 @@ browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
 ```
 
 **Type**: `Boolean`
+
 **Default**: `true`
 
 If `true`, Phoenix enables fingerprinting protection overrides to **relax** protections for certain websites, in order to resolve breakage and unexpected behavior.
@@ -129,6 +137,7 @@ browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabl
 ```
 
 **Type**: `Boolean`
+
 **Default**: `true`
 
 If `true`, Phoenix enables fingerprinting protection overrides to disable timezone spoofing for certain websites, in order to resolve breakage and unexpected behavior. This preference is **only** effective if timezone spoofing is enabled.
@@ -144,6 +153,7 @@ browser.phoenix.fingerprintingProtection.granular.userOverrides
 ```
 
 **Type**: `String`
+
 **Default**: ` `
 
 This preference contains a list of granular _(per-site)_ overrides for Phoenix's fingerprinting protection. **Overrides specified here always take priority over default overrides from Phoenix and Mozilla**.
@@ -163,6 +173,7 @@ browser.phoenix.trr.autoBootstrap
 ```
 
 **Type**: `Boolean`
+
 **Default**: `true`
 
 If `true`, Phoenix will automatically configure the bootstrap address for DNS over HTTPS _(`network.trr.bootstrapAddr`)_, depending on the currently configured provider.
@@ -176,6 +187,7 @@ browser.phoenix.trr.autoBootstrap.useFallback
 ```
 
 **Type**: `Boolean`
+
 **Default**: `false`
 
 If `true`, for supported DNS over HTTPS providers, Phoenix will set the bootstrap address to that of the secondary/fall-back DNS server, instead of the primary DNS server.
