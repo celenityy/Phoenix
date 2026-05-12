@@ -32,9 +32,9 @@ elif [ "${target}" == 'all' ]; then
     PHOENIX_GET_SOURCE_UV=1
 else
     echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
-    echo 'All: all (Default)'
-    echo 'Python: python'
-    echo 'uv: uv'
+    echo 'All:      all (Default)'
+    echo 'Python:   python'
+    echo 'uv:       uv'
     exit 1
 fi
 readonly PHOENIX_GET_SOURCE_PYTHON
@@ -47,8 +47,8 @@ if [ "${mode}" == 'checksum-update' ]; then
     PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=1
 elif [ "${mode}" != 'download' ]; then
     echo_red_text "ERROR: Invalid mode: ${mode}\n You must enter one of the following:"
-    echo 'Download: download (Default)'
-    echo 'Download + update checksums: checksum-update'
+    echo 'Download:                     download (Default)'
+    echo 'Download + update checksums:  checksum-update'
     exit 1
 fi
 readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE
@@ -109,8 +109,8 @@ function validate_sha512sum() {
         update_sha512sum "${expected_sha512sum}" "${local_sha512sum}" "${file}"
     elif [ "${local_sha512sum}" != "${expected_sha512sum}" ]; then
         echo_red_text 'ERROR: Checksum validation failed.'
-        echo "Expected SHA512sum: ${expected_sha512sum}"
-        echo "Actual SHA512sum: ${local_sha512sum}"
+        echo "Expected SHA512sum:   ${expected_sha512sum}"
+        echo "Actual SHA512sum:     ${local_sha512sum}"
 
         # If checksum validation fails, also just remove the file
         rm -f "${file}"
