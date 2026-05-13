@@ -398,21 +398,21 @@ else
     echo
 fi
 
+# Set PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
+if [ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == 1 ]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
+    echo
+else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
+    echo
+fi
+
 # Set PHOENIX_MAIL
 if [ "${PHOENIX_MAIL}" == 1 ]; then
     "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
     echo
 else
     "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
-    echo
-fi
-
-# Set PHOENIX_RESET_REMOTE_DEBUGGING
-if [ "${PHOENIX_RESET_REMOTE_DEBUGGING}" == 1 ]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_BUILD}/phoenix.cfg" || error_fn
-    echo
-else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_BUILD}/phoenix.cfg" || error_fn
     echo
 fi
 
