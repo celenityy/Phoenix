@@ -19,6 +19,7 @@ Additionally, these preferences do **NOT** function on Phoenix for Android, **wi
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreakoverrides-enabled)
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreaktimezoneoverrides-enabled)
 - [`browser.phoenix.fingerprintingProtection.granular.userOverrides`](#browser-phoenix-fingerprintingprotection-granular-useroverrides)
+- [`browser.phoenix.reset.xpinstall.enabled`](#browser-phoenix-reset-xpinstall-enabled)
 - [`browser.phoenix.trr.autoBootstrap`](#browser-phoenix-trr-autobootstrap)
   - [`browser.phoenix.trr.autoBootstrap.useFallback`](#browser-phoenix-trr-autobootstrap-usefallback)
 
@@ -165,6 +166,20 @@ For an example of how this preference's value should be formatted:
 ```
 {"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"firstPartyDomain":"*","thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedToo"}
 ```
+
+### browser.phoenix.reset.xpinstall.enabled
+
+```
+browser.phoenix.reset.xpinstall.enabled
+```
+
+**Type**: `Boolean`
+
+Default - **Desktop**: `true`
+
+Default - **Android**: `false`
+
+If `true`, Phoenix will reset the preference to enable add-on installation *(`xpinstall.enabled`)* per-session.
 
 ### browser.phoenix.trr.autoBootstrap
 
