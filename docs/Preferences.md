@@ -19,6 +19,9 @@ Additionally, these preferences do **NOT** function on Phoenix for Android, **wi
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreakoverrides-enabled)
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreaktimezoneoverrides-enabled)
 - [`browser.phoenix.fingerprintingProtection.granular.userOverrides`](#browser-phoenix-fingerprintingprotection-granular-useroverrides)
+- [`browser.phoenix.reset.javascript.options.wasm`](#browser-phoenix-reset-javascript-options-wasm)
+- [`browser.phoenix.reset.network.http.referer.XOriginPolicy`](#browser-phoenix-reset-network-http-referer-xoriginpolicy)
+- [`browser.phoenix.reset.webgl.disabled`](#browser-phoenix-reset-webgl-disabled)
 - [`browser.phoenix.reset.xpinstall.enabled`](#browser-phoenix-reset-xpinstall-enabled)
 - [`browser.phoenix.trr.autoBootstrap`](#browser-phoenix-trr-autobootstrap)
   - [`browser.phoenix.trr.autoBootstrap.useFallback`](#browser-phoenix-trr-autobootstrap-usefallback)
@@ -166,6 +169,42 @@ For an example of how this preference's value should be formatted:
 ```
 {"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"firstPartyDomain":"*","thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedToo"}
 ```
+
+### browser.phoenix.reset.javascript.options.wasm
+
+```
+browser.phoenix.reset.javascript.options.wasm
+```
+
+**Type**: `Boolean`
+
+**Default**: `false`
+
+If `true`, Phoenix will reset the preference to enable WebAssembly *(`javascript.options.wasm`)* per-session.
+
+### browser.phoenix.reset.network.http.referer.XOriginPolicy
+
+```
+browser.phoenix.reset.network.http.referer.XOriginPolicy
+```
+
+**Type**: `Boolean`
+
+**Default**: `false`
+
+If `true`, Phoenix will reset the preference to control the cross-origin referer policy *(`network.http.referer.XOriginPolicy`)* per-session.
+
+### browser.phoenix.reset.webgl.disabled
+
+```
+browser.phoenix.reset.webgl.disabled
+```
+
+**Type**: `Boolean`
+
+**Default**: `false`
+
+If `true`, Phoenix will reset the preference to disable WebGL *(`webgl.disabled`)* per-session.
 
 ### browser.phoenix.reset.xpinstall.enabled
 
