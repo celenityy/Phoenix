@@ -36,6 +36,16 @@ echo
 mkdir -vp "${PHOENIX_TEMP}/policies" || error_fn
 echo
 
+if [ "${PHOENIX_OVERRIDES_CFG_FILE}" != 'undefined' ] && [ ! -f "${PHOENIX_OVERRIDES_CFG_FILE}" ]; then
+    echo_red_text "\$PHOENIX_OVERRIDES_CFG_FILE is set, but ${PHOENIX_OVERRIDES_CFG_FILE} does not exist! Aborting..."
+    exit 1
+fi
+
+if [ "${PHOENIX_OVERRIDES_CFG_FILE}" != 'undefined' ] && [ ! -s "${PHOENIX_OVERRIDES_CFG_FILE}" ]; then
+    echo_red_text "\$PHOENIX_OVERRIDES_CFG_FILE is set, but ${PHOENIX_OVERRIDES_CFG_FILE} is empty! Aborting..."
+    exit 1
+fi
+
 if [ "${PHOENIX_EXTRA_CFG}" == 1 ]; then
     if [ "${PHOENIX_EXTRA_CFG_FILE}" == 'undefined' ]; then
         echo_red_text "\$PHOENIX_EXTRA_CFG is set, but \$PHOENIX_EXTRA_CFG_FILE is not set! Aborting..."
@@ -376,38 +386,50 @@ readonly PHOENIX_EXTRA_POLICIES_OUTPUT_OSX="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_
 readonly PHOENIX_EXTRA_POLICIES_OUTPUT_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL}/policies.json"
 readonly PHOENIX_EXTRA_POLICIES_OUTPUT_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS}/policies.json"
 
-cp -f "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.cfg" "${PHOENIX_ROOT}/phoenix.cfg"
+cp -f "${PHOENIX_BUILD_RESOURCES}/phoenix-preferences.cfg" "${PHOENIX_BUILD}/phoenix-preferences.cfg"
+cp -f "${PHOENIX_BUILD_RESOURCES}/phoenix-unified.cfg" "${PHOENIX_BUILD}/phoenix.cfg"
 
 # Set PHOENIX_APPLY_EXTENDED
 if [ "${PHOENIX_EXTENDED_ONLY}" == 1 ] || [ "${PHOENIX_MAIL}" == 1 ]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
     echo
 else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
     echo
 fi
 
 # Set PHOENIX_MAIL
 if [ "${PHOENIX_MAIL}" == 1 ]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
     echo
 else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_BUILD}/phoenix-preferences.cfg" || error_fn
     echo
 fi
 
 # Set PHOENIX_RESET_REMOTE_DEBUGGING
 if [ "${PHOENIX_RESET_REMOTE_DEBUGGING}" == 1 ]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_BUILD}/phoenix.cfg" || error_fn
     echo
 else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    "${PHOENIX_SED}" -i "s|{PHOENIX_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_BUILD}/phoenix.cfg" || error_fn
     echo
 fi
 
 # Update the version
-"${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+"${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_BUILD}/phoenix.cfg" || error_fn
 echo
+
+if [ "${PHOENIX_OVERRIDES_CFG_FILE}" != 'undefined' ]; then
+    # If necessary, apply overrides for Phoenix-specific preferences
+    cat "${PHOENIX_BUILD}/phoenix-preferences.cfg" "${PHOENIX_OVERRIDES_CFG_FILE}" "${PHOENIX_BUILD}/phoenix.cfg" > "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+else
+    cat "${PHOENIX_BUILD}/phoenix-preferences.cfg" "${PHOENIX_BUILD}/phoenix.cfg" > "${PHOENIX_ROOT}/phoenix.cfg" || error_fn
+    echo
+fi
+rm -f "${PHOENIX_BUILD}/phoenix.cfg"
+rm -f "${PHOENIX_BUILD}/phoenix-preferences.cfg"
 
 # ANDROID
 if [ "${PHOENIX_ANDROID}" == 1 ]; then

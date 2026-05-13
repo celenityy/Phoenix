@@ -520,6 +520,16 @@ fi
 readonly PHOENIX_SPECS
 export PHOENIX_SPECS
 
+# This points to the location of the .cfg file containing overrides for Phoenix-specific preferences
+## This is separate from the standard overrides file because these preferences must be set early in order to take effect
+## May have other use cases as well
+readonly PHOENIX_OVERRIDES_CFG_FILE_DEFAULT='undefined'
+if [ -z "${PHOENIX_OVERRIDES_CFG_FILE+x}" ]; then
+    PHOENIX_OVERRIDES_CFG_FILE="${PHOENIX_OVERRIDES_CFG_FILE_DEFAULT}"
+fi
+readonly PHOENIX_OVERRIDES_CFG_FILE
+export PHOENIX_OVERRIDES_CFG_FILE
+
 # Whether we should append contents of an additional .cfg file
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
 readonly PHOENIX_EXTRA_CFG_DEFAULT=0
