@@ -411,9 +411,9 @@ function build_phoenix() {
 
     pushd "${phoenix_output_dir}"
     if [ "${phoenix_platform}" == 'windows' ]; then
-        zip -r "${PHOENIX_OUTPUTS}/phoenix-${phoenix_platform}.zip" * -x '.DS_Store'
+        zip -r "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip" * -x '.DS_Store'
     else
-        "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${PHOENIX_OUTPUTS}/phoenix-${phoenix_platform}.tar.xz" *
+        "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz" *
     fi
     popd
 }
