@@ -7,4 +7,4 @@ pref("general.config.filename", "phoenix.cfg", locked);
 pref("general.config.obscure_value", 0, locked);
 pref("general.config.vendor", "phoenix", locked);
 
-pref("browser.phoenix.applied.prefs", true, locked);
+pref("browser.phoenix.applied.bootstrap", true, locked);

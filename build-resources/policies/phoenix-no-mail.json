@@ -1,0 +1,108 @@
+{
+    "policies": {
+        "AIControls": {
+            "Default": {
+                "Value": "blocked"
+            },
+            "LinkPreviewKeyPoints": {
+                "Value": "blocked"
+            },
+            "PDFAltText": {
+                "Value": "blocked"
+            },
+            "SidebarChatbot": {
+                "Value": "blocked"
+            },
+            "SmartTabGroups": {
+                "Value": "blocked"
+            },
+            "SmartWindow": {
+                "Value": "blocked"
+            },
+            "Translations": {
+                "Value": "available"
+            }
+        },
+        "ContentAnalysis": {
+            "DefaultResult": 0,
+            "Enabled": false,
+            "InterceptionPoints": {
+                "Clipboard": {
+                    "Enabled": false
+                },
+                "DragAndDrop": {
+                    "Enabled": false
+                },
+                "FileUpload": {
+                    "Enabled": false
+                },
+                "Print": {
+                    "Enabled": false
+                }
+            },
+            "MaxConnectionsCount": 0,
+            "ShowBlockedResult": true
+        },
+        "DisableDefaultBrowserAgent": true,
+        "DisableFeedbackCommands": true,
+        "DisableFirefoxStudies": true,
+        "DisablePrivateBrowsing": false,
+        "DisableRemoteImprovements": true,
+        "DNSOverHTTPS": {
+            "Enabled": true,
+            "Fallback": false
+        },
+        "EnableTrackingProtection": {
+            "BaselineExceptions": true,
+            "ConvenienceExceptions": false,
+            "Cryptomining": true,
+            "EmailTracking": true,
+            "Fingerprinting": true,
+            "SuspectedFingerprinting": true,
+            "Value": true
+        },
+        "EncryptedMediaExtensions": {
+            "Enabled": false
+        },
+        "FirefoxHome": {
+            "Highlights": false,
+            "Pocket": false,
+            "SponsoredTopSites": false,
+            "SponsoredPocket": false,
+            "SponsoredStories": false,
+            "Stories": false
+        },
+        "Handlers": {
+            "extensions": {
+                "pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            },
+            "mimeTypes": {
+                "application/pdf": {
+                    "action": "handleInternally",
+                    "ask": true
+                }
+            }
+        },
+        "LocalNetworkAccess": {
+            "BlockTrackers": true,
+            "Enabled": true,
+            "EnablePrompting": true
+        },
+        "NoDefaultBookmarks": true,
+        "OverridePostUpdatePage": "",
+        "PrivateBrowsingModeAvailability": 0,
+        "SkipTermsOfUse": true,
+        "UserMessaging": {
+            "ExtensionRecommendations": false,
+            "FeatureRecommendations": false,
+            "FirefoxLabs": false,
+            "MoreFromMozilla": false,
+            "SkipOnboarding": true,
+            "UrlbarInterventions": false,
+            "WhatsNew": false
+        }
+    }
+}

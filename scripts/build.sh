@@ -11,8 +11,7 @@ source $(dirname $0)/env.sh
 # Include utilities
 source "${PHOENIX_UTILS}"
 
-pushd "${PHOENIX_ROOT}" || error_fn
-echo
+pushd "${PHOENIX_ROOT}"
 
 # Build Phoenix
 readonly PHOENIX_FROM_BUILD=1
@@ -28,18 +27,9 @@ if [ "${PHOENIX_LOG_BUILD}" == 1 ]; then
   # Ensure our log directory exists
   mkdir -vp "${PHOENIX_LOG_DIR}"
 
-  bash -x "${PHOENIX_SCRIPTS}/fly.sh" > >(tee -a "${BUILD_LOG_FILE}") 2>&1 || error_fn
-  echo
-
-  bash -x "${PHOENIX_SCRIPTS}/gen_archive.sh" > >(tee -a "${BUILD_LOG_FILE}") 2>&1 || error_fn
-  echo
+  bash -x "${PHOENIX_SCRIPTS}/fly.sh" > >(tee -a "${BUILD_LOG_FILE}") 2>&1
 else
-  bash -x "${PHOENIX_SCRIPTS}/fly.sh" || error_fn
-  echo
-
-  bash -x "${PHOENIX_SCRIPTS}/gen_archive.sh" || error_fn
-  echo
+  bash -x "${PHOENIX_SCRIPTS}/fly.sh"
 fi
 
-popd || error_fn
-echo
+popd

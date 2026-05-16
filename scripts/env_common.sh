@@ -73,8 +73,12 @@ export PHOENIX_TEMP
 readonly PHOENIX_BUILD_RESOURCES="${PHOENIX_ROOT}/build-resources"
 export PHOENIX_BUILD_RESOURCES
 
+# Specialized config directory
+readonly PHOENIX_SPECS="${PHOENIX_ROOT}/specs"
+export PHOENIX_SPECS
+
 # Phoenix outputs directory
-readonly PHOENIX_OUTPUTS_DEFAULT="${PHOENIX_ROOT}"
+readonly PHOENIX_OUTPUTS_DEFAULT="${PHOENIX_ROOT}/outputs"
 if [[ -z "${PHOENIX_OUTPUTS+x}" ]]; then
   PHOENIX_OUTPUTS="${PHOENIX_OUTPUTS_DEFAULT}"
 fi
@@ -82,51 +86,27 @@ readonly PHOENIX_OUTPUTS
 export PHOENIX_OUTPUTS
 
 # Android outputs directory
-readonly PHOENIX_ANDROID_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/android"
-if [[ -z "${PHOENIX_ANDROID_OUTPUTS+x}" ]]; then
-  PHOENIX_ANDROID_OUTPUTS="${PHOENIX_ANDROID_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_ANDROID_OUTPUTS
+readonly PHOENIX_ANDROID_OUTPUTS="${PHOENIX_OUTPUTS}/android"
 export PHOENIX_ANDROID_OUTPUTS
 
 # Linux outputs directory
-readonly PHOENIX_LINUX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux"
-if [[ -z "${PHOENIX_LINUX_OUTPUTS+x}" ]]; then
-  PHOENIX_LINUX_OUTPUTS="${PHOENIX_LINUX_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_LINUX_OUTPUTS
+readonly PHOENIX_LINUX_OUTPUTS="${PHOENIX_OUTPUTS}/linux"
 export PHOENIX_LINUX_OUTPUTS
 
 ## Linux (Flatpak) outputs directory
-readonly PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/linux-flatpak"
-if [[ -z "${PHOENIX_LINUX_FLATPAK_OUTPUTS+x}" ]]; then
-  PHOENIX_LINUX_FLATPAK_OUTPUTS="${PHOENIX_LINUX_FLATPAK_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_LINUX_FLATPAK_OUTPUTS
+readonly PHOENIX_LINUX_FLATPAK_OUTPUTS="${PHOENIX_OUTPUTS}/linux-flatpak"
 export PHOENIX_LINUX_FLATPAK_OUTPUTS
 
 # OS X outputs directory
-readonly PHOENIX_OSX_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx"
-if [[ -z "${PHOENIX_OSX_OUTPUTS+x}" ]]; then
-  PHOENIX_OSX_OUTPUTS="${PHOENIX_OSX_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_OSX_OUTPUTS
+readonly PHOENIX_OSX_OUTPUTS="${PHOENIX_OUTPUTS}/osx"
 export PHOENIX_OSX_OUTPUTS
 
 ## OS X (Intel) outputs directory
-readonly PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/osx-intel"
-if [[ -z "${PHOENIX_OSX_INTEL_OUTPUTS+x}" ]]; then
-  PHOENIX_OSX_INTEL_OUTPUTS="${PHOENIX_OSX_INTEL_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_OSX_INTEL_OUTPUTS
+readonly PHOENIX_OSX_INTEL_OUTPUTS="${PHOENIX_OUTPUTS}/osx-intel"
 export PHOENIX_OSX_INTEL_OUTPUTS
 
 # Windows outputs directory
-readonly PHOENIX_WINDOWS_OUTPUTS_DEFAULT="${PHOENIX_OUTPUTS}/windows"
-if [[ -z "${PHOENIX_WINDOWS_OUTPUTS+x}" ]]; then
-  PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_WINDOWS_OUTPUTS_DEFAULT}"
-fi
-readonly PHOENIX_WINDOWS_OUTPUTS
+readonly PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_OUTPUTS}/windows"
 export PHOENIX_WINDOWS_OUTPUTS
 
 # Should we create a log file for build.sh? (Default)
@@ -459,6 +439,34 @@ fi
 readonly PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
 export PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
 
+# Whether we should build enterprise policies for Android
+## This is usually not supported/possible to apply on Android, but some (ex. IronFox) do patch/add support to apply them
+readonly PHOENIX_ANDROID_POLICIES_DEFAULT=0
+if [[ -z "${PHOENIX_ANDROID_POLICIES+x}" ]]; then
+  PHOENIX_ANDROID_POLICIES="${PHOENIX_ANDROID_POLICIES_DEFAULT}"
+fi
+readonly PHOENIX_ANDROID_POLICIES
+export PHOENIX_ANDROID_POLICIES
+
+# Whether we should build Phoenix for desktop (non-Android) platforms in the static .js prefs format
+## This is not recommended in favor of the .cfg format, and will likely be removed entirely in the near future
+readonly PHOENIX_STATIC_JS_DEFAULT=0
+if [[ -z "${PHOENIX_STATIC_JS+x}" ]]; then
+  PHOENIX_STATIC_JS="${PHOENIX_STATIC_JS_DEFAULT}"
+fi
+readonly PHOENIX_STATIC_JS
+export PHOENIX_STATIC_JS
+
+# Whether we should build Phoenix for Android in the static .js prefs format
+## This is the default for Android because its typically the only supported mechanism for applying prefs there
+## But some (ex. IronFox) do patch/add support for using Phoenix in the .cfg format, so they may not want/need the static .js format
+readonly PHOENIX_STATIC_JS_ANDROID_DEFAULT=1
+if [[ -z "${PHOENIX_STATIC_JS_ANDROID+x}" ]]; then
+  PHOENIX_STATIC_JS_ANDROID="${PHOENIX_STATIC_JS_ANDROID_DEFAULT}"
+fi
+readonly PHOENIX_STATIC_JS_ANDROID
+export PHOENIX_STATIC_JS_ANDROID
+
 # Whether we should exclude "NO-MAIL" preferences when building Phoenix
 ## (ex. for Dove)
 readonly PHOENIX_MAIL_DEFAULT=0
@@ -468,417 +476,133 @@ fi
 readonly PHOENIX_MAIL
 export PHOENIX_MAIL
 
-# Whether we should ONLY build Phoenix standard
-readonly PHOENIX_STANDARD_ONLY_DEFAULT=0
-if [[ -z "${PHOENIX_STANDARD_ONLY+x}" ]]; then
-  PHOENIX_STANDARD_ONLY="${PHOENIX_STANDARD_ONLY_DEFAULT}"
-fi
-readonly PHOENIX_STANDARD_ONLY
-export PHOENIX_STANDARD_ONLY
-if [ "${PHOENIX_STANDARD_ONLY}" == 1 ]; then
-  PHOENIX_STANDARD=1
-  PHOENIX_EXTENDED=0
-fi
-
-# Whether we should ONLY build Phoenix extended
-readonly PHOENIX_EXTENDED_ONLY_DEFAULT=0
-if [ "${PHOENIX_MAIL}" == 1 ]; then
-  # Mail only wants/needs extended
-  PHOENIX_EXTENDED_ONLY=1
-elif [[ -z "${PHOENIX_EXTENDED_ONLY+x}" ]]; then
-  PHOENIX_EXTENDED_ONLY="${PHOENIX_EXTENDED_ONLY_DEFAULT}"
-fi
-readonly PHOENIX_EXTENDED_ONLY
-export PHOENIX_EXTENDED_ONLY
-if [ "${PHOENIX_EXTENDED_ONLY}" == 1 ]; then
-  PHOENIX_EXTENDED=1
-  PHOENIX_STANDARD=0
-fi
-
-# Whether we should build Phoenix standard (Default)
-readonly PHOENIX_STANDARD_DEFAULT=1
-if [[ -z "${PHOENIX_STANDARD+x}" ]]; then
-  PHOENIX_STANDARD="${PHOENIX_STANDARD_DEFAULT}"
-fi
-readonly PHOENIX_STANDARD
-export PHOENIX_STANDARD
-
-# Whether we should build Phoenix extended (Default)
+# Whether we should use Phoenix Extended
+## When this is enabled:
+### For Phoenix in the .cfg format, the pref to enable Phoenix Extended is true by default
+### For Phoenix in the .js format, the pref files are parsed to include preferences/values for
+#### Phoenix Extended at build-time
 readonly PHOENIX_EXTENDED_DEFAULT=1
-if [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
+if [ "${PHOENIX_MAIL}" == 1 ]; then
+  # Mail always uses Extended
+  PHOENIX_EXTENDED=1
+elif [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
   PHOENIX_EXTENDED="${PHOENIX_EXTENDED_DEFAULT}"
 fi
 readonly PHOENIX_EXTENDED
 export PHOENIX_EXTENDED
 
-# Whether we should build Phoenix's specialized configs (Default)
-readonly PHOENIX_SPECS_DEFAULT=1
+# Whether we should support Phoenix's specialized config functionality
+readonly PHOENIX_NO_SPEC_DEFAULT=0
 if [ "${PHOENIX_ANDROID_ONLY}" == 1 ] || [ "${PHOENIX_MAIL}" == 1 ]; then
   # Android and Mail never want or need specialized configs
-  PHOENIX_SPECS=0
-elif [[ -z "${PHOENIX_SPECS+x}" ]]; then
-  PHOENIX_SPECS="${PHOENIX_SPECS_DEFAULT}"
+  PHOENIX_NO_SPEC=1
+elif [[ -z "${PHOENIX_NO_SPEC+x}" ]]; then
+  PHOENIX_NO_SPEC="${PHOENIX_NO_SPEC_DEFAULT}"
 fi
-readonly PHOENIX_SPECS
-export PHOENIX_SPECS
+readonly PHOENIX_NO_SPEC
+export PHOENIX_NO_SPEC
 
-# This points to the location of the .cfg file containing overrides for Phoenix-specific preferences
+# Where a .cfg file containing overrides for Phoenix-specific preferences is located
 ## This is separate from the standard overrides file because these preferences must be set early in order to take effect
 ## May have other use cases as well
-readonly PHOENIX_OVERRIDES_CFG_FILE_DEFAULT='undefined'
-if [ -z "${PHOENIX_OVERRIDES_CFG_FILE+x}" ]; then
-    PHOENIX_OVERRIDES_CFG_FILE="${PHOENIX_OVERRIDES_CFG_FILE_DEFAULT}"
+readonly PHOENIX_OVERRIDES_CFG_DEFAULT='undefined'
+if [ -z "${PHOENIX_OVERRIDES_CFG+x}" ]; then
+    PHOENIX_OVERRIDES_CFG="${PHOENIX_OVERRIDES_CFG_DEFAULT}"
 fi
-readonly PHOENIX_OVERRIDES_CFG_FILE
-export PHOENIX_OVERRIDES_CFG_FILE
+readonly PHOENIX_OVERRIDES_CFG
+export PHOENIX_OVERRIDES_CFG
 
-# Whether we should append contents of an additional .cfg file
+# Where an additional .cfg file is located that should be appended to phoenix.cfg
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
-readonly PHOENIX_EXTRA_CFG_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_CFG+x}" ]]; then
+## (ex. for overriding preferences that are not Phoenix-specific)
+readonly PHOENIX_EXTRA_CFG_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_CFG+x}" ]; then
   PHOENIX_EXTRA_CFG="${PHOENIX_EXTRA_CFG_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_CFG
 export PHOENIX_EXTRA_CFG
 
-## This points to the location of the .cfg file that we should append the contents of
-readonly PHOENIX_EXTRA_CFG_FILE_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_CFG}" != 1 ] || [ -z "${PHOENIX_EXTRA_CFG_FILE+x}" ]; then
-  PHOENIX_EXTRA_CFG_FILE="${PHOENIX_EXTRA_CFG_FILE_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_CFG_FILE
-export PHOENIX_EXTRA_CFG_FILE
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_CFG_OUTPUT_DIR_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_CFG}" != 1 ] || [ -z "${PHOENIX_EXTRA_CFG_OUTPUT_DIR+x}" ]; then
-  PHOENIX_EXTRA_CFG_OUTPUT_DIR="${PHOENIX_EXTRA_CFG_OUTPUT_DIR_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_CFG_OUTPUT_DIR
-export PHOENIX_EXTRA_CFG_OUTPUT_DIR
-
-# Whether we should append contents of an additional .js prefs file
+# Where an additional .js file is located that should be appended to phoenix.cfg
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
-readonly PHOENIX_EXTRA_PREFS_JS_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_PREFS_JS+x}" ]]; then
-  PHOENIX_EXTRA_PREFS_JS="${PHOENIX_EXTRA_PREFS_JS_DEFAULT}"
+readonly PHOENIX_EXTRA_JS_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_JS+x}" ]; then
+  PHOENIX_EXTRA_JS="${PHOENIX_EXTRA_JS_DEFAULT}"
 fi
-readonly PHOENIX_EXTRA_PREFS_JS
-export PHOENIX_EXTRA_PREFS_JS
+readonly PHOENIX_EXTRA_JS
+export PHOENIX_EXTRA_JS
 
-## This points to the location of the .cfg file that we should append the contents of
-readonly PHOENIX_EXTRA_PREFS_JS_FILE_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_PREFS_JS}" != 1 ] || [ -z "${PHOENIX_EXTRA_PREFS_JS_FILE+x}" ]; then
-  PHOENIX_EXTRA_PREFS_JS_FILE="${PHOENIX_EXTRA_PREFS_JS_FILE_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_PREFS_JS_FILE
-export PHOENIX_EXTRA_PREFS_JS_FILE
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_PREFS_JS}" != 1 ] || [ -z "${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR+x}" ]; then
-  PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR="${PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR
-export PHOENIX_EXTRA_PREFS_JS_OUTPUT_DIR
-
-## What should we name our output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_DEFAULT='phoenix'
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME="${PHOENIX_EXTRA_OUTPUT_FILENAME_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME
-export PHOENIX_EXTRA_OUTPUT_FILENAME
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_DEFAULT='phoenix-extended'
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME
-
-## What should we name our Android output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-android"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID="${PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID
-export PHOENIX_EXTRA_OUTPUT_FILENAME_ANDROID
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-android"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_ANDROID
-
-## What should we name our Linux output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-linux"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX="${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX
-export PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-linux"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX
-
-## What should we name our Linux (Flatpak) output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-linux-flatpak"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK="${PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK
-export PHOENIX_EXTRA_OUTPUT_FILENAME_LINUX_FLATPAK
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-linux-flatpak"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_LINUX_FLATPAK
-
-## What should we name our OS X output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-osx"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_OSX="${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_OSX
-export PHOENIX_EXTRA_OUTPUT_FILENAME_OSX
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-osx"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX
-
-## What should we name our OS X (Intel) output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-osx-intel"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL="${PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL
-export PHOENIX_EXTRA_OUTPUT_FILENAME_OSX_INTEL
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-osx-intel"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_OSX_INTEL
-
-## What should we name our Windows output files?
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS_DEFAULT="${PHOENIX_EXTRA_OUTPUT_FILENAME}-windows"
-if [[ -z "${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS+x}" ]]; then
-  PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS="${PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS
-export PHOENIX_EXTRA_OUTPUT_FILENAME_WINDOWS
-
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS_DEFAULT="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME}-windows"
-if [[ -z "${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS+x}" ]]; then
-  PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS="${PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS
-export PHOENIX_EXTRA_EXTENDED_OUTPUT_FILENAME_WINDOWS
-
-# Whether we should append contents of an additional policies.json file
+# Where an additional policies.json file is located that should be applied to all platforms
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional policies
-readonly PHOENIX_EXTRA_POLICIES_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES+x}" ]]; then
+readonly PHOENIX_EXTRA_POLICIES_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES+x}" ]; then
   PHOENIX_EXTRA_POLICIES="${PHOENIX_EXTRA_POLICIES_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES
 export PHOENIX_EXTRA_POLICIES
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE="${PHOENIX_EXTRA_POLICIES_FILE_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE
-export PHOENIX_EXTRA_POLICIES_FILE
-
-# Whether we should append contents of an additional policies.json file for Android only
-readonly PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to Android
+readonly PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]; then
   PHOENIX_EXTRA_POLICIES_ANDROID="${PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_ANDROID
 export PHOENIX_EXTRA_POLICIES_ANDROID
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_ANDROID_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_ANDROID+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_ANDROID="${PHOENIX_EXTRA_POLICIES_FILE_ANDROID_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_ANDROID
-export PHOENIX_EXTRA_POLICIES_FILE_ANDROID
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_ANDROID}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_ANDROID
-
-# Whether we should append contents of an additional policies.json file for Linux only
-readonly PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to Linux
+readonly PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]; then
   PHOENIX_EXTRA_POLICIES_LINUX="${PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX
 export PHOENIX_EXTRA_POLICIES_LINUX
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_LINUX}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_LINUX="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX
-export PHOENIX_EXTRA_POLICIES_FILE_LINUX
-
-# Whether we should append contents of an additional policies.json file for Linux (non-Flatpak) only
-readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to Linux (non-Flatpak)
+readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]; then
   PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
 export PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK
-export PHOENIX_EXTRA_POLICIES_FILE_LINUX_NONFLATPAK
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_NONFLATPAK
-
-# Whether we should append contents of an additional policies.json file for Linux (Flatpak) only
-readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to Linux (Flatpak)
+readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]; then
   PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
 export PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK
-export PHOENIX_EXTRA_POLICIES_FILE_LINUX_FLATPAK
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_LINUX_FLATPAK
-
-# Whether we should append contents of an additional policies.json file for OS X only
-readonly PHOENIX_EXTRA_POLICIES_OSX_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to OS X
+readonly PHOENIX_EXTRA_POLICIES_OSX_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]; then
   PHOENIX_EXTRA_POLICIES_OSX="${PHOENIX_EXTRA_POLICIES_OSX_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX
 export PHOENIX_EXTRA_POLICIES_OSX
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_OSX}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_OSX="${PHOENIX_EXTRA_POLICIES_FILE_OSX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX
-export PHOENIX_EXTRA_POLICIES_FILE_OSX
-
-# Whether we should append contents of an additional policies.json file for OS X (Apple Silicon) only
-readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to OS X (Apple Silicon)
+readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]; then
   PHOENIX_EXTRA_POLICIES_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON
 export PHOENIX_EXTRA_POLICIES_OSX_SILICON
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON
-export PHOENIX_EXTRA_POLICIES_FILE_OSX_SILICON
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_SILICON
-
-# Whether we should append contents of an additional policies.json file for OS X (Intel) only
-readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to OS X (Intel)
+readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]; then
   PHOENIX_EXTRA_POLICIES_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL
 export PHOENIX_EXTRA_POLICIES_OSX_INTEL
 
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL
-export PHOENIX_EXTRA_POLICIES_FILE_OSX_INTEL
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_OSX_INTEL
-
-# Whether we should append contents of an additional policies.json file for Windows only
-readonly PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT=0
-if [[ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]]; then
+# Where an additional policies.json file is located that should ONLY be applied to Windows
+readonly PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT='undefined'
+if [ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]; then
   PHOENIX_EXTRA_POLICIES_WINDOWS="${PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS
 export PHOENIX_EXTRA_POLICIES_WINDOWS
-
-## This points to the location of the policies.json file that we should append the contents of
-readonly PHOENIX_EXTRA_POLICIES_FILE_WINDOWS_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_FILE_WINDOWS="${PHOENIX_EXTRA_POLICIES_FILE_WINDOWS_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_FILE_WINDOWS
-export PHOENIX_EXTRA_POLICIES_FILE_WINDOWS
-
-## This points to the directory where we should put our (final) output files
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS_DEFAULT='undefined'
-if [ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" != 1 ] || [ -z "${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS+x}" ]; then
-  PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS="${PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS
-export PHOENIX_EXTRA_POLICIES_OUTPUT_DIR_WINDOWS
 
 # Set our external environment variables
 readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"

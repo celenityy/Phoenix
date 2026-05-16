@@ -13,6 +13,9 @@
 # NixOS
 result*
 
+# Outputs
+/outputs/
+
 # Duplicates
 /android/phoenix.cfg
 /linux/defaults/pref/phoenix.js
