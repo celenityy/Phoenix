@@ -172,6 +172,9 @@ function push_file() {
 
     # Set our MIME type
     case "${push_file}" in
+        *.js)
+            local readonly mime_type='text/javascript'
+            ;;
         *.tar.xz)
             local readonly mime_type='application/x-gtar'
             ;;
@@ -257,6 +260,14 @@ function push_phoenix() {
     fi
 
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+
+    # For Android, also push phoenix.js
+    if [ "${phoenix_platform}" == 'android' ]; then
+        mkdir -p "${PHOENIX_TEMP}"
+        cp "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix.js" "${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js"
+        push_and_add_sha512sum "${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+        rm -rf "${PHOENIX_TEMP}"
+    fi
 }
 
 if [ "${PHOENIX_PUSH_ANDROID}" == 1 ]; then
