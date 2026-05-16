@@ -25,6 +25,13 @@ export PYTHON_DISABLE_REMOTE_DEBUG
 readonly PYTHONOPTIMIZE=1
 export PYTHONOPTIMIZE
 
+# s3cmd
+
+## Avoid installing manual pages/doc files
+### https://github.com/s3tools/s3cmd/blob/master/INSTALL.md#note-to-distributions-package-maintainers
+readonly S3CMD_PACKAGING='yes'
+export S3CMD_PACKAGING
+
 # UV
 ## https://docs.astral.sh/uv/reference/environment/
 

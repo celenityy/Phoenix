@@ -125,6 +125,14 @@ fi
 readonly PHOENIX_LOG_SOURCES
 export PHOENIX_LOG_SOURCES
 
+# Should we create a log file for push.sh? (Default)
+readonly PHOENIX_LOG_PUSH_DEFAULT=1
+if [[ -z "${PHOENIX_LOG_PUSH+x}" ]]; then
+  PHOENIX_LOG_PUSH="${PHOENIX_LOG_PUSH_DEFAULT}"
+fi
+readonly PHOENIX_LOG_PUSH
+export PHOENIX_LOG_PUSH
+
 # Directory where we should store log files (if logging is desired)
 readonly PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
 if [[ -z "${PHOENIX_LOG_DIR+x}" ]]; then
@@ -200,6 +208,16 @@ fi
 readonly PHOENIX_PYTHON
 export PHOENIX_PYTHON
 
+# s3cmd
+readonly PHOENIX_S3CMD_DIR_DEFAULT="${PHOENIX_EXTERNAL}/s3cmd"
+if [[ -z "${PHOENIX_S3CMD_DIR+x}" ]]; then
+    PHOENIX_S3CMD_DIR="${PHOENIX_S3CMD_DIR_DEFAULT}"
+fi
+readonly PHOENIX_S3CMD_DIR
+readonly PHOENIX_S3CMD="${PHOENIX_PYENV_DIR}/bin/s3cmd"
+export PHOENIX_S3CMD
+export PHOENIX_S3CMD_DIR
+
 # UV
 readonly PHOENIX_UV_DIR_DEFAULT="${PHOENIX_EXTERNAL}/uv"
 if [[ -z "${PHOENIX_UV_DIR+x}" ]]; then
@@ -270,6 +288,27 @@ else
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT} ${PHOENIX_CURL_FLAGS}"
 fi
 export PHOENIX_CURL_FLAGS
+
+# If s3cmd flags are added, this determines whether they should be appended to our default flags (default),
+## or if they should override them entirely
+readonly PHOENIX_S3CMD_FLAGS_OVERRIDE_DEFAULT=0
+if [[ -z "${PHOENIX_S3CMD_FLAGS_OVERRIDE+x}" ]]; then
+    PHOENIX_S3CMD_FLAGS_OVERRIDE="${PHOENIX_S3CMD_FLAGS_OVERRIDE_DEFAULT}"
+fi
+readonly PHOENIX_S3CMD_FLAGS_OVERRIDE
+export PHOENIX_S3CMD_FLAGS_OVERRIDE
+
+# s3cmd flags
+readonly PHOENIX_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --no-guess-mime-type --no-mime-magic --progress --ssl'
+if [[ -z "${PHOENIX_S3CMD_FLAGS+x}" ]]; then
+    PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT}"
+elif [[ "${PHOENIX_S3CMD_FLAGS_OVERRIDE}" == 1 ]]; then
+    PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS}"
+else
+    PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT} ${PHOENIX_S3CMD_FLAGS}"
+fi
+readonly PHOENIX_S3CMD_FLAGS
+export PHOENIX_S3CMD_FLAGS
 
 # Whether we're ONLY building Phoenix for Android
 readonly PHOENIX_ANDROID_ONLY_DEFAULT=0
@@ -603,6 +642,40 @@ if [ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]; then
 fi
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS
 export PHOENIX_EXTRA_POLICIES_WINDOWS
+
+# S3
+
+# S3 access key
+readonly PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE_DEFAULT='/opt/celenity/celenity-releases-s3-access-key.txt'
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE+x}" ]]; then
+    PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE="${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE_DEFAULT}"
+fi
+readonly PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE
+export PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE
+
+# S3 bucket name
+readonly PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE_DEFAULT='/opt/celenity/celenity-releases-s3-bucket-name.txt'
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE+x}" ]]; then
+    PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE="${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE_DEFAULT}"
+fi
+readonly PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE
+export PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE
+
+# S3 endpoint
+readonly PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE_DEFAULT='/opt/celenity/celenity-releases-s3-endpoint.txt'
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE+x}" ]]; then
+    PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE="${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE_DEFAULT}"
+fi
+readonly PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE
+export PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE
+
+# S3 secret key
+readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE_DEFAULT='/opt/celenity/celenity-releases-s3-secret-key.txt'
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE+x}" ]]; then
+    PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE="${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE_DEFAULT}"
+fi
+readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
+export PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
 
 # Set our external environment variables
 readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"

@@ -10,6 +10,11 @@ readonly PYTHON_SHA512SUM_OSX_ARM64='f9a64cfbc8706b7f6d22a463879b27086ff929350a6
 readonly PYTHON_SHA512SUM_OSX_X86_64='28d38843ee3be61a4bdcac150a8b3512d75911fd6869bd4196a677240b10ec60d11dec2a93c106f3a7e9659920e092056b7eb977b0926435193c1e76b593d131'
 readonly PYTHON_VERSION='3.14.5'
 
+## s3cmd
+### https://github.com/s3tools/s3cmd
+readonly S3CMD_COMMIT='cee84f9c539a7bbf5ee73c7bf29a47632119c0c6'
+readonly S3CMD_SHA512SUM='b1b7c792265dfa1ccdd40f816e3463617c168e4317acac930b251ce73fcd3b8eb479d966d4ba93fbe8c0cf251bada64bcd9caf30d1e5e94c20a87a36447c1263'
+
 ## uv
 ### Version: 0.11.14
 ### https://github.com/astral-sh/uv

@@ -18,26 +18,33 @@ readonly mode="$2"
 
 # Set-up target parameters
 PHOENIX_GET_SOURCE_PYTHON=0
+PHOENIX_GET_SOURCE_S3CMD=0
 PHOENIX_GET_SOURCE_UV=0
 
 if [ "${target}" == 'python' ]; then
   # Get Python
   PHOENIX_GET_SOURCE_PYTHON=1
+elif [ "${target}" == 's3cmd' ]; then
+  # Get s3cmd
+  PHOENIX_GET_SOURCE_S3CMD=1
 elif [ "${target}" == 'uv' ]; then
   # Get + set-up uv
   PHOENIX_GET_SOURCE_UV=1
 elif [ "${target}" == 'all' ]; then
-  # If no argument is specified (or argument is set to "all"), just get everything
+  # If no argument is specified (or argument is set to "all"), just get everything, except S3
+  ## (We don't need to bother getting S3 here since it's only used in certain scenarios)
   PHOENIX_GET_SOURCE_PYTHON=1
   PHOENIX_GET_SOURCE_UV=1
 else
   echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
   echo 'All:      all (Default)'
   echo 'Python:   python'
+  echo 's3cmd:    s3cmd'
   echo 'uv:       uv'
   exit 1
 fi
 readonly PHOENIX_GET_SOURCE_PYTHON
+readonly PHOENIX_GET_SOURCE_S3CMD
 readonly PHOENIX_GET_SOURCE_UV
 
 # If the 'checksum-update' argument is specified, in addition to downloading the dependencies as usual,
@@ -348,6 +355,39 @@ function get_python() {
   fi
 }
 
+# Get s3cmd
+function get_s3cmd() {
+    # If all we're doing is updating the checksum, we don't care if the environment is prepared
+    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+        if  [ ! -d "${PHOENIX_UV_DIR}" ] || [ ! -f "${PHOENIX_PYENV}" ]; then
+            echo_red_text "ERROR: You tried to download s3cmd, but you don't have a uv environment set-up yet."
+            exit 1
+        fi
+
+        if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
+            echo_red_text "s3cmd is already installed at ${PHOENIX_PYENV_DIR}/bin/s3cmd"
+            read -p "Do you want to re-download it? [y/N] " -n 1 -r
+            echo
+            if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
+                return 0
+            else
+                source "${PHOENIX_PYENV}"
+                "${PHOENIX_UV}" pip uninstall s3cmd
+            fi
+        fi
+    fi
+
+    echo_red_text "Downloading s3cmd..."
+    download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${S3CMD_SHA512SUM}"
+
+    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+        source "${PHOENIX_PYENV}"
+        echo_red_text 'Installing s3cmd...'
+        "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
+        echo_green_text "SUCCESS: Set-up s3cmd at ${PHOENIX_S3CMD}"
+    fi
+}
+
 # Get + set-up uv
 function get_uv() {
   # If all we're doing is updating the checksum, we don't care if the environment is prepared
@@ -421,10 +461,15 @@ function get_uv() {
   fi
 }
 
+# These need to run before we get s3cmd
 if [ "${PHOENIX_GET_SOURCE_PYTHON}" == 1 ]; then
   get_python
 fi
 
 if [ "${PHOENIX_GET_SOURCE_UV}" == 1 ]; then
   get_uv
+fi
+
+if [ "${PHOENIX_GET_SOURCE_S3CMD}" == 1 ]; then
+  get_s3cmd
 fi
