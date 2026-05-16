@@ -69,10 +69,6 @@ export PHOENIX_DOWNLOADS
 readonly PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
 export PHOENIX_TEMP
 
-# Build resources directory
-readonly PHOENIX_BUILD_RESOURCES="${PHOENIX_ROOT}/build-resources"
-export PHOENIX_BUILD_RESOURCES
-
 # Specialized config directory
 readonly PHOENIX_SPECS="${PHOENIX_ROOT}/specs"
 export PHOENIX_SPECS

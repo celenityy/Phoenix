@@ -7,7 +7,7 @@
 </p>
 
 <!-- https://colorhunt.co/palette/272a34221d25b23232fd4747 -->
-![Phoenix](build-resources/assets/phoenix_wide.png)
+![Phoenix](assets/phoenix_wide.png)
 
 # [Phoenix](https://phoenix.celenity.dev)
 
