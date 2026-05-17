@@ -354,7 +354,14 @@ function build_phoenix() {
     fi
 
     # Copy our parsed phoenix.cfg
-    cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_output_dir}/phoenix.cfg"
+    if [ "${phoenix_platform}" == 'osx-silicon' ]; then
+        # To ensure installs continue working as expected, this must be placed in the `macos` directory
+        local readonly phoenix_cfg_output_dir="${phoenix_output_dir}/macos"
+    else
+        local readonly phoenix_cfg_output_dir="${phoenix_output_dir}"
+    fi
+    mkdir -p "${phoenix_cfg_output_dir}"
+    cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
     # Copy icon
     cp -r "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
