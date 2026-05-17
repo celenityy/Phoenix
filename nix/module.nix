@@ -33,8 +33,7 @@
 
       environment.etc."firefox/defaults/pref/phoenix.js".source = "${pkgs.phoenix}/pref/phoenix.js";
       environment.etc."firefox/phoenix.cfg".source = "${pkgs.phoenix}/phoenix.cfg";
-      environment.etc."firefox/phoenix/userjs".source = "${pkgs.phoenix}/userjs";
-      environment.etc."firefox/phoenix/configs".source = "${pkgs.phoenix}/configs";
+      environment.etc."firefox/phoenix/specs".source = "${pkgs.phoenix}/specs";
       environment.etc."firefox/phoenix/assets".source = "${pkgs.phoenix}/assets";
 
       environment.variables = {
