@@ -1,9 +1,4 @@
-[attr]lfs filter=lfs diff=lfs merge=lfs -text
-
 * text=auto eol=lf
-
-*.png lfs
-*.zip lfs
 
 # lowercase only
 *.cfg            gitlab-language=javascript
