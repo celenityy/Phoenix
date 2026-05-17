@@ -307,6 +307,7 @@ function build_phoenix_common() {
 
     # If necessary, apply overrides for Phoenix-specific preferences
     if [ "${PHOENIX_OVERRIDES_CFG}" != 'undefined' ]; then
+        echo '' >>"${PHOENIX_TEMP}/phoenix-preferences.cfg"
         combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-preferences.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
     else
         combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-preferences.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -335,7 +336,7 @@ function build_phoenix_common() {
         fi
 
         # If necessary, append the contents of an additional policies.json file
-        maybe_combine_files "${PHOENIX_BUILD}/policies/phoenix-all-platforms.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-no-mail-if-specified.json" "${PHOENIX_EXTRA_POLICIES}"
+        maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-no-mail-if-specified.json" "${PHOENIX_EXTRA_POLICIES}"
     fi
 }
 
@@ -432,7 +433,7 @@ function build_phoenix_js() {
     if [ "${phoenix_js_platform}" == 'android' ]; then
         local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
     else
-        local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-static.js"
+        local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
     fi
 
     # Convert phoenix.cfg
@@ -529,21 +530,21 @@ function build_policies() {
 
     # If we're not targetting Android, create policies that always apply everywhere EXCEPT Android
     if [ "${phoenix_policies_platform}" != 'android' ]; then
-        cp -f "${PHOENIX_BUILD}/policies/phoenix-all-platforms.json" "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
+        cp -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
     else
-        combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json"
+        combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json"
 
         # If we're not targetting Thunderbird, then create policies that apply everywhere EXCEPT Android AND Thunderbird
         if [ "${PHOENIX_MAIL}" == 1 ]; then
-            cp -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
+            cp -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
         else
-            combine_files "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json"
+            combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json"
         fi
     fi
 
     # Handle generic platform policies
     if [ "${phoenix_policies_platform}" == 'linux-nonflatpak' ] || [ "${phoenix_policies_platform}" == 'linux-flatpak' ]; then
-        combine_files "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-linux.json"
+        combine_files "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-linux.json"
 
         # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
         if [ "${PHOENIX_MAIL}" == 1 ]; then
@@ -553,9 +554,9 @@ function build_policies() {
         fi
 
         # If necessary, append the contents of an additional policies.json file
-        maybe_combine_files "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_LINUX}"
+        maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_LINUX}"
     elif [ "${phoenix_policies_platform}" == 'osx-silicon' ] || [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
-        combine_files "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
+        combine_files "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
 
         # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
         if [ "${PHOENIX_MAIL}" == 1 ]; then
@@ -565,19 +566,19 @@ function build_policies() {
         fi
 
         # If necessary, append the contents of an additional policies.json file
-        maybe_combine_files "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_OSX}"
+        maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_OSX}"
     else
-        cp -f "${PHOENIX_BUILD}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json"
+        cp -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json"
     fi
 
     # Handle platform-specific policies
-    maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}-without-no-mail-if-necessary.json" "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-${phoenix_policies_platform}.json"
+    maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}-without-no-mail-if-necessary.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-${phoenix_policies_platform}.json"
 
     # If we're not targeting Thunderbird, handle platform-specific policies that do NOT apply to it
     if [ "${PHOENIX_MAIL}" == 1 ]; then
-        cp -f "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
+        cp -f "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
     else
-        maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_BUILD}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-${phoenix_policies_platform}-no-mail.json"
+        maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-${phoenix_policies_platform}-no-mail.json"
     fi
 
     # Set our final policies.json output directory
