@@ -31,8 +31,8 @@ elif [ "${target}" == 'uv' ]; then
   # Get + set-up uv
   PHOENIX_GET_SOURCE_UV=1
 elif [ "${target}" == 'all' ]; then
-  # If no argument is specified (or argument is set to "all"), just get everything, except S3
-  ## (We don't need to bother getting S3 here since it's only used in certain scenarios)
+  # If no argument is specified (or argument is set to "all"), just get everything, except s3cmd
+  ## (We don't need to bother getting s3cmd here since it's only used in certain scenarios)
   PHOENIX_GET_SOURCE_PYTHON=1
   PHOENIX_GET_SOURCE_UV=1
 else
