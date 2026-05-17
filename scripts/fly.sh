@@ -656,7 +656,7 @@ if [ "${PHOENIX_OSX}" == 1 ]; then
     build_phoenix 'osx-silicon'
 fi
 
-# Build Phoenix for OSX (Intel)
+# Build Phoenix for OS X (Intel)
 if [ "${PHOENIX_OSX_INTEL}" == 1 ]; then
     build_phoenix 'osx-intel'
 fi
