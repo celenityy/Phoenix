@@ -261,12 +261,10 @@ function push_phoenix() {
 
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
 
-    # For Android, also push phoenix.js
+    # For Android, also push phoenix.js and phoenix-extended.js
     if [ "${phoenix_platform}" == 'android' ]; then
-        mkdir -p "${PHOENIX_TEMP}"
-        cp "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix.js" "${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js"
-        push_and_add_sha512sum "${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
-        rm -rf "${PHOENIX_TEMP}"
+        push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+        push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
     fi
 }
 

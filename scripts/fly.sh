@@ -420,11 +420,10 @@ function build_phoenix() {
 
 function build_phoenix_js() {
     local readonly phoenix_js_platform="$1"
-    local readonly phoenix_js_output_dir="${phoenix_output_dir}"
 
     # First, set the designated location for our file
     if [ "${phoenix_js_platform}" == 'android' ]; then
-        local readonly phoenix_js_file="${phoenix_output_dir}/phoenix.js"
+        local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
     else
         local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-static.js"
     fi
@@ -442,18 +441,11 @@ function build_phoenix_js() {
         cp "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js"
     fi
 
-    # Handle logic for Phoenix Extended
-    if [ "${PHOENIX_EXTENDED}" == 1 ] || [ "${PHOENIX_MAIL}" == 1 ]; then
-        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" 'NO-EXTENDED'
-    else
-        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" 'EXTENDED-ONLY'
-    fi
-
     # Handle generic platform logic
     if [ "${phoenix_js_platform}" == 'linux-nonflatpak' ] || [ "${phoenix_js_platform}" == 'linux-flatpak' ]; then
-        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'NO-LINUX'
+        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'NO-LINUX'
     else
-        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY'
+        parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY'
     fi
     if [ "${phoenix_js_platform}" == 'osx-silicon' ] || [ "${phoenix_js_platform}" == 'osx-intel' ]; then
         parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX'
@@ -504,9 +496,23 @@ function build_phoenix_js() {
     else
         parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'WINDOWS-ONLY'
     fi
- 
+    
+    # Handle logic for Phoenix Extended
+    if [ "${PHOENIX_EXTENDED}" == 1 ] || [ "${PHOENIX_MAIL}" == 1 ]; then
+        if [ "${phoenix_platform}" == 'android' ]; then
+            local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+        else
+            local readonly phoenix_extended_js_file="${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js"
+        fi
+        parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_extended_js_file}" 'NO-EXTENDED'
+    fi
+
+    if [ "${PHOENIX_EXTENDED}" != 1 ] || [ "${phoenix_js_platform}" == 'android' ]; then
+        parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" 'EXTENDED-ONLY'
+    fi
+
     # Finally, copy our final output file to its designated location
-    cp "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}"
+    cp "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}"
 }
 
 # Platform-specific policies build logic
