@@ -355,7 +355,7 @@ function build_phoenix() {
     fi
 
     # Copy our parsed phoenix.cfg
-    if [ "${phoenix_platform}" == 'osx-silicon' ]; then
+    if [ "${phoenix_platform}" == 'osx' ]; then
         # To ensure installs continue working as expected, this must be placed in the `macos` directory
         local readonly phoenix_cfg_output_dir="${phoenix_output_dir}/macos"
     else
@@ -384,14 +384,20 @@ function build_phoenix() {
         cp -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
     fi
 
+    # Copy generic platform files
+    if [ "${phoenix_platform}" == 'osx' ] || [ "${phoenix_platform}" == 'osx-intel' ]; then
+        cp -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/"
+    fi
+
     # Copy platform-specific files
     if [ "${phoenix_platform}" == 'android' ]; then
         cp "${PHOENIX_ROOT}/android/phoenix-unextend.js" "${phoenix_output_dir}/"
-    elif [ "${phoenix_platform}" == 'linux-nonflatpak' ]; then
+    elif [ "${phoenix_platform}" == 'linux' ]; then
         cp -r "${PHOENIX_ROOT}/linux/etc" "${phoenix_output_dir}/"
-    elif [ "${phoenix_platform}" == 'osx-silicon' ] || [ "${phoenix_platform}" == 'osx-intel' ]; then
-        cp -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/"
-        cp -r "${PHOENIX_ROOT}/osx/${phoenix_platform}/Library/" "${phoenix_output_dir}/Library/"
+    elif [ "${phoenix_platform}" == 'osx' ]; then
+        cp -r "${PHOENIX_ROOT}/osx/osx-silicon/Library/" "${phoenix_output_dir}/Library/"
+    elif [ "${phoenix_platform}" == 'osx-intel' ]; then
+        cp -r "${PHOENIX_ROOT}/osx/osx-intel/Library/" "${phoenix_output_dir}/Library/"
     fi
 
     # If necessary, create enterprise policies
@@ -450,12 +456,12 @@ function build_phoenix_js() {
     fi
 
     # Handle generic platform logic
-    if [ "${phoenix_js_platform}" == 'linux-nonflatpak' ] || [ "${phoenix_js_platform}" == 'linux-flatpak' ]; then
+    if [ "${phoenix_js_platform}" == 'linux' ] || [ "${phoenix_js_platform}" == 'linux-flatpak' ]; then
         parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'NO-LINUX'
     else
         parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY'
     fi
-    if [ "${phoenix_js_platform}" == 'osx-silicon' ] || [ "${phoenix_js_platform}" == 'osx-intel' ]; then
+    if [ "${phoenix_js_platform}" == 'osx' ] || [ "${phoenix_js_platform}" == 'osx-intel' ]; then
         parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX'
     else
         parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'OSX-ONLY'
@@ -471,7 +477,7 @@ function build_phoenix_js() {
     fi
 
     ## Linux (non-Flatpak)
-    if [ "${phoenix_js_platform}" == 'linux-nonflatpak' ]; then
+    if [ "${phoenix_js_platform}" == 'linux' ]; then
         parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'NO-NON-FLATPAK-LINUX'
     else
         parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'LINUX-NON-FLATPAK-ONLY'
@@ -485,7 +491,7 @@ function build_phoenix_js() {
     fi
 
     ## OS X (Silicon)
-    if [ "${phoenix_js_platform}" == 'osx-silicon' ]; then
+    if [ "${phoenix_js_platform}" == 'osx' ]; then
         parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'NO-SILICON-OSX'
     else
         parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'SILICON-OSX-ONLY'
@@ -543,7 +549,7 @@ function build_policies() {
     fi
 
     # Handle generic platform policies
-    if [ "${phoenix_policies_platform}" == 'linux-nonflatpak' ] || [ "${phoenix_policies_platform}" == 'linux-flatpak' ]; then
+    if [ "${phoenix_policies_platform}" == 'linux' ] || [ "${phoenix_policies_platform}" == 'linux-flatpak' ]; then
         combine_files "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-linux.json"
 
         # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
@@ -555,7 +561,7 @@ function build_policies() {
 
         # If necessary, append the contents of an additional policies.json file
         maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_LINUX}"
-    elif [ "${phoenix_policies_platform}" == 'osx-silicon' ] || [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
+    elif [ "${phoenix_policies_platform}" == 'osx' ] || [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
         combine_files "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
 
         # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
@@ -584,10 +590,10 @@ function build_policies() {
     # Set our final policies.json output directory
     if [ "${phoenix_policies_platform}" == 'android' ]; then
         local readonly policies_output_path="${phoenix_policies_output_dir}"
-    elif [ "${phoenix_policies_platform}" == 'linux-nonflatpak' ] ||
+    elif [ "${phoenix_policies_platform}" == 'linux' ] ||
      [ "${phoenix_policies_platform}" == 'linux-flatpak' ]; then
         local readonly policies_output_path="${phoenix_policies_output_dir}/policies"
-    elif [ "${phoenix_policies_platform}" == 'osx-silicon' ] ||
+    elif [ "${phoenix_policies_platform}" == 'osx' ] ||
      [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
         local readonly policies_output_path="${phoenix_policies_output_dir}/unused"
     elif [ "${phoenix_policies_platform}" == 'windows' ]; then
@@ -598,11 +604,11 @@ function build_policies() {
     # Finally, handle platform-specific extra policies if necessary
     if [ "${phoenix_policies_platform}" == 'android' ]; then
         local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_ANDROID}"
-    elif [ "${phoenix_policies_platform}" == 'linux-nonflatpak' ]; then
+    elif [ "${phoenix_policies_platform}" == 'linux' ]; then
         local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}"
     elif [ "${phoenix_policies_platform}" == 'linux-flatpak' ]; then
         local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}"
-    elif [ "${phoenix_policies_platform}" == 'osx-silicon' ]; then
+    elif [ "${phoenix_policies_platform}" == 'osx' ]; then
         local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_SILICON}"
     elif [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
         local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_INTEL}"
@@ -612,7 +618,7 @@ function build_policies() {
     maybe_combine_files "${policies_output_path}/policies.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${extra_policies_file}"
 
     # For OS X, we also need to convert policies to the plist format
-    if [ "${phoenix_policies_platform}" == 'osx-silicon' ]; then
+    if [ "${phoenix_policies_platform}" == 'osx' ]; then
         # To ensure installs continue working as expected, this must be placed in the `macos` directory
         ## (See osx/osx-silicon/Library/celenity/Phoenix/phoenix-apply.sh)
         local readonly policies_plist_output_path="${phoenix_policies_output_dir}/macos"
@@ -620,7 +626,7 @@ function build_policies() {
         local readonly policies_plist_output_path="${phoenix_policies_output_dir}"
     fi
 
-    if [ "${phoenix_policies_platform}" == 'osx-silicon' ] ||
+    if [ "${phoenix_policies_platform}" == 'osx' ] ||
      [ "${phoenix_policies_platform}" == 'osx-intel' ]; then
         mkdir -p "${policies_plist_output_path}"
         "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${policies_output_path}/policies.json" "${policies_plist_output_path}/org.mozilla.firefox.plist"
@@ -644,7 +650,7 @@ fi
 
 # Build Phoenix for Linux (non-Flatpak)
 if [ "${PHOENIX_LINUX}" == 1 ]; then
-    build_phoenix 'linux-nonflatpak'
+    build_phoenix 'linux'
 fi
 
 # Build Phoenix for Linux (Flatpak)
@@ -654,7 +660,7 @@ fi
 
 # Build Phoenix for OS X (Silicon)
 if [ "${PHOENIX_OSX}" == 1 ]; then
-    build_phoenix 'osx-silicon'
+    build_phoenix 'osx'
 fi
 
 # Build Phoenix for OS X (Intel)

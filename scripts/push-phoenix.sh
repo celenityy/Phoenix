@@ -97,13 +97,13 @@ PHOENIX_PUSH_WINDOWS=0
 if [ "${target}" == 'android' ]; then
     # Push Phoenix for Android
     PHOENIX_PUSH_ANDROID=1
-elif [ "${target}" == 'linux-nonflatpak' ]; then
+elif [ "${target}" == 'linux' ]; then
     # Push Phoenix for Linux (non-Flatpak)
     PHOENIX_PUSH_LINUX=1
 elif [ "${target}" == 'linux-flatpak' ]; then
     # Push Phoenix for Linux (Flatpak)
     PHOENIX_PUSH_LINUX_FLATPAK=1
-elif [ "${target}" == 'osx-silicon' ]; then
+elif [ "${target}" == 'osx' ]; then
     # Push Phoenix for OS X (Silicon)
     PHOENIX_PUSH_OSX=1
 elif [ "${target}" == 'osx-intel' ]; then
@@ -126,7 +126,7 @@ else
     echo 'Android:                          android'
     echo 'Linux (non-Flatpak):              linux'
     echo 'Linux (Flatpak):                  linux-flatpak'
-    echo 'OS X (Silicon):                   osx-silicon'
+    echo 'OS X (Silicon):                   osx'
     echo 'OS X (Intel):                     osx-intel'
     echo 'Windows:                          windows'
     exit 1
@@ -273,7 +273,7 @@ if [ "${PHOENIX_PUSH_ANDROID}" == 1 ]; then
 fi
 
 if [ "${PHOENIX_PUSH_LINUX}" == 1 ]; then
-    push_phoenix 'linux-nonflatpak'
+    push_phoenix 'linux'
 fi
 
 if [ "${PHOENIX_PUSH_LINUX_FLATPAK}" == 1 ]; then
@@ -281,7 +281,7 @@ if [ "${PHOENIX_PUSH_LINUX_FLATPAK}" == 1 ]; then
 fi
 
 if [ "${PHOENIX_PUSH_OSX}" == 1 ]; then
-    push_phoenix 'osx-silicon'
+    push_phoenix 'osx'
 fi
 
 if [ "${PHOENIX_PUSH_OSX_INTEL}" == 1 ]; then

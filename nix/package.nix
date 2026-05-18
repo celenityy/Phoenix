@@ -31,13 +31,13 @@ stdenvNoCC.mkDerivation {
     ${
       if stdenvNoCC.isDarwin then
         ''
-          cp outputs/osx-silicon/* $out/
-          cp -r outputs/osx-silicon/assets $out/assets
-          cp -r outputs/osx-silicon/specs $out/specs
+          cp outputs/osx/* $out/
+          cp -r outputs/osx/assets $out/assets
+          cp -r outputs/osx/specs $out/specs
         ''
       else
         ''
-          cp -r outputs/linux-nonflatpak/assets outputs/linux-nonflatpak/policies/policies.json outputs/linux-nonflatpak/phoenix.cfg outputs/linux-nonflatpak/defaults/pref outputs/linux-nonflatpak/specs $out/
+          cp -r outputs/linux/assets outputs/linux/policies/policies.json outputs/linux/phoenix.cfg outputs/linux/defaults/pref outputs/linux/specs $out/
         ''
     }
     install -Dm644 COPYING.txt $out/share/doc/phoenix/COPYING.txt
