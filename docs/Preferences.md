@@ -10,7 +10,6 @@ Additionally, these preferences do **NOT** function on Phoenix for Android, **wi
 
 ## Preferences
 
-- [`browser.phoenix.enableNativeMessaging`](#browser-phoenix-enablenativemessaging)
 - [`browser.phoenix.extended`](#browser-phoenix-extended)
 - [`browser.phoenix.FFUIFix`](#browser-phoenix-ffuifix)
 - [`browser.phoenix.fingerprintingProtection.global.userOverrides`](#browser-phoenix-fingerprintingprotection-global-useroverrides)
@@ -25,20 +24,6 @@ Additionally, these preferences do **NOT** function on Phoenix for Android, **wi
 - [`browser.phoenix.reset.xpinstall.enabled`](#browser-phoenix-reset-xpinstall-enabled)
 - [`browser.phoenix.trr.autoBootstrap`](#browser-phoenix-trr-autobootstrap)
   - [`browser.phoenix.trr.autoBootstrap.useFallback`](#browser-phoenix-trr-autobootstrap-usefallback)
-
-### browser.phoenix.enableNativeMessaging
-
-```
-browser.phoenix.enableNativeMessaging
-```
-
-**Type**: `Boolean`
-
-Default - **Desktop**: `false`
-
-Default - **Android**: `true`
-
-If `true`, Phoenix enables support for [Native messaging](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Native_messaging). This allows extensions that you [give permission](https://support.mozilla.org/kb/permission-request-messages-firefox-extensions?as=u#w_exchange-messages-with-programs-other-than-firefox) to communicate with external programs on your device.
 
 ### browser.phoenix.extended
 
