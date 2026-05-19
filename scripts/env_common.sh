@@ -516,7 +516,7 @@ export PHOENIX_MAIL
 ### For Phoenix in the .cfg format, the pref to enable Phoenix Extended is true by default
 ### For Phoenix in the .js format, the pref files are parsed to include preferences/values for
 #### Phoenix Extended at build-time
-readonly PHOENIX_EXTENDED_DEFAULT=1
+readonly PHOENIX_EXTENDED_DEFAULT=0
 if [ "${PHOENIX_MAIL}" == 1 ]; then
   # Mail always uses Extended
   PHOENIX_EXTENDED=1
