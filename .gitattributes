@@ -6,7 +6,6 @@
 *.plist          gitlab-language=xml
 *.yml            gitlab-language=yaml
 flake.lock       gitlab-language=json
-permissions      gitlab-language=shell
 _redirects       gitlab-language=shell
 
 # SHELL -> Shell, json -> JSON
@@ -15,7 +14,6 @@ _redirects       gitlab-language=shell
 *.plist          linguist-language=XML
 *.yml            linguist-language=YAML
 flake.lock       linguist-language=JSON
-permissions      linguist-language=Shell
 _redirects       linguist-language=Shell
 
 *.json           linguist-detectable
