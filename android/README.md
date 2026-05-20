@@ -69,34 +69,28 @@ var pref = function(pref, val, locked, sticky) {
   }
 }
 
-// Paste the contents of phoenix.js below:
+// Paste the contents of your .js file below:
 
 ```
 
 *Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case.*
 
-**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to the **Android** [`phoenix.js`](https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix.js) file. It can be found at the following link:
+**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to the **Android** `phoenix.js` file. It can be found at the following link below *(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)*. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
-```sh
-https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix.js
-```
+- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-{PHOENIX_VERSION}-android.js`
 
-**13:** Copy the contents of the file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of phoenix-android.js below:` line. **Now press enter.**
+If you'd like to use Phoenix's `Extended` Hardening config, you should **instead** use the link below:
 
-**14:** If you'd also like to use Phoenix's `Extended` Hardening config, you'll first need to navigate to the `about:config` on your Android device & set `devtools.debugger.remote-enabled` to `true`.
+- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-extended-{PHOENIX_VERSION}-android.js`
 
-**15:** You should then reconnect to your mobile device from `about:debugging` on your computer. You can now **repeat** Steps `11` and `12`, but replace `https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix.js` with `https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix-extended.js`:
+**13:** Copy the contents of your desired file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of your .js file below:` line. **Now press enter.**
 
-```sh
-https://gitlab.com/celenityy/Phoenix/-/raw/pages/android/phoenix-extended.js
-```
+**14:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
 
-**16:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
+**15:** Back on your Android device, within Firefox, navigate to `Settings`, scroll down to the bottom, and **disable** `Remote debugging via USB`.
 
-**17:** Back on your Android device, within Firefox, navigate to `Settings`, scroll down to the bottom, and **disable** `Remote debugging via USB`.
+**16:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` *(via the same way you accessed it in Step `3`)*, and **disable** `USB debugging`.
 
-**18:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` *(via the same way you accessed it in Step `3`)*, and **disable** `USB debugging`.
+**17:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
 
-**19:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
-
-**20:** You're done, enjoy :).
+**18:** You're done, enjoy :).
