@@ -483,6 +483,15 @@ fi
 readonly PHOENIX_ANDROID_POLICIES
 export PHOENIX_ANDROID_POLICIES
 
+# Whether we should hardcode/set Phoenix's target platform directly in the output phoenix.cfg file
+## Setting this to 0 means that Phoenix will instead determine the OS automatically
+readonly PHOENIX_HARDCODE_PLATFORM_DEFAULT=1
+if [[ -z "${PHOENIX_HARDCODE_PLATFORM+x}" ]]; then
+  PHOENIX_HARDCODE_PLATFORM="${PHOENIX_HARDCODE_PLATFORM_DEFAULT}"
+fi
+readonly PHOENIX_HARDCODE_PLATFORM
+export PHOENIX_HARDCODE_PLATFORM
+
 # Whether we should build Phoenix for desktop (non-Android) platforms in the static .js prefs format
 ## This is not recommended in favor of the .cfg format, and will likely be removed entirely in the near future
 readonly PHOENIX_STATIC_JS_DEFAULT=0

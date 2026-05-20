@@ -364,6 +364,33 @@ function build_phoenix() {
     mkdir -p "${phoenix_cfg_output_dir}"
     cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
+    # If necessary, set our platform (for phoenix.cfg)
+    if [ "${PHOENIX_HARDCODE_PLATFORM}" == 1 ]; then
+        if [ "${phoenix_platform}" == 'osx-intel' ]; then
+            local readonly phoenix_platform_to_hardcode='osx'
+        elif [ "${phoenix_platform}" == 'linux-flatpak' ]; then
+            local readonly phoenix_platform_to_hardcode='linux'
+        else
+            local readonly phoenix_platform_to_hardcode="${phoenix_platform}"
+        fi
+        "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+
+        # For OS X, we also need to set whether we're targetting Apple Silicon or Intel
+        if [ "${phoenix_platform}" == 'osx' ] || [ "${phoenix_platform}" == 'osx-intel' ]; then
+            if [ "${phoenix_platform}" == 'osx-intel' ]; then
+                local readonly phoenix_osx_variant_to_hardcode='intel'
+            else
+                local readonly phoenix_osx_variant_to_hardcode='silicon'
+            fi
+            "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|${phoenix_osx_variant_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+        else
+            "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|not-osx|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+        fi
+    else
+         "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+         "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    fi
+
     # Copy icon
     cp -r "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
 
