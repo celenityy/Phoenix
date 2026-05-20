@@ -392,7 +392,7 @@ function build_phoenix() {
     fi
 
     # Copy icon
-    cp -r "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
+    cp "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
 
     # Copy license
     cp "${PHOENIX_ROOT}/COPYING.txt" "${phoenix_output_dir}/COPYING.txt"
