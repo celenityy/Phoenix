@@ -22,10 +22,12 @@ You can see for a
 [list of known sites that have issues or quirks](https://phoenix.celenity.dev/compat#extended)
 with Phoenix **Extended**, and what you need to toggle to fix them.
 
-**To enable Phoenix Extended**, simply set the **`browser.phoenix.extended`** preference to **`true`** from [`about:config`](about:config), and restart the browser.
+**To enable Phoenix Extended**, simply set the **`browser.phoenix.extended`**
+preference to **`true`** from [`about:config`](about:config),
+and restart the browser.
 
 If preferred, you can also enable Phoenix Extended with a `user.js` file:
 
-```
+```js
 user_pref(“browser.phoenix.extended”, true);
 ```

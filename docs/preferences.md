@@ -1,12 +1,11 @@
 # Phoenix Preferences
 
-The following page is meant to serve as documentation for preferences introduced by Phoenix.
-
-**NOTE**: For any preferences introduced by Phoenix to take effect, you **MUST** restart the browser.
-
-Additionally, these preferences do **NOT** function on Phoenix for Android, **with the exception of IronFox**.
-
-</div>
+The following page is meant to serve as documentation
+for preferences introduced by Phoenix.
+**NOTE**: For any preferences introduced by Phoenix to take effect,
+you **MUST** restart the browser.
+Additionally, these preferences do **NOT** function on Phoenix for Android,
+**with the exception of IronFox**.
 
 ## Preferences
 
@@ -27,7 +26,7 @@ Additionally, these preferences do **NOT** function on Phoenix for Android, **wi
 
 ### browser.phoenix.extended
 
-```
+```javascript
 browser.phoenix.extended
 ```
 
@@ -41,7 +40,7 @@ Preferences configured by `browser.phoenix.extended` can still be individually o
 
 ### browser.phoenix.FFUIFix
 
-```
+```javascript
 browser.phoenix.FFUIFix
 ```
 
@@ -55,7 +54,7 @@ If `true`, Phoenix configures preferences to support the [`Firefox-UI-Fix`](http
 
 ### browser.phoenix.fingerprintingProtection.global.userOverrides
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.global.userOverrides
 ```
 
@@ -69,13 +68,13 @@ A list of possible targets to override can be found [here](https://searchfox.org
 
 For an example of how this preference's value should be formatted:
 
-```
+```javascript
 +ProtectionIWantToEnableGlobally,-ProtectionIWantToDisableGlobally
 ```
 
 ### browser.phoenix.fingerprintingProtection.granular.enabled
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.granular.enabled
 ```
 
@@ -89,7 +88,7 @@ If `false`, Phoenix will disable **all** default granular _(per-site)_ fingerpri
 
 ### browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled
 ```
 
@@ -105,7 +104,7 @@ If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`
 
 ### browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled
 ```
 
@@ -121,7 +120,7 @@ If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`
 
 ### browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled
 ```
 
@@ -137,7 +136,7 @@ If `browser.phoenix.fingerprintingProtection.granular.enabled` is set to `false`
 
 ### browser.phoenix.fingerprintingProtection.granular.userOverrides
 
-```
+```javascript
 browser.phoenix.fingerprintingProtection.granular.userOverrides
 ```
 
@@ -151,13 +150,13 @@ A list of possible targets to override can be found [here](https://searchfox.org
 
 For an example of how this preference's value should be formatted:
 
-```
+```javascript
 {"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"firstPartyDomain":"*","thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedToo"}
 ```
 
 ### browser.phoenix.reset.javascript.options.wasm
 
-```
+```javascript
 browser.phoenix.reset.javascript.options.wasm
 ```
 
@@ -165,11 +164,11 @@ browser.phoenix.reset.javascript.options.wasm
 
 **Default**: `false`
 
-If `true`, Phoenix will reset the preference to enable WebAssembly *(`javascript.options.wasm`)* per-session.
+If `true`, Phoenix will reset the preference to enable WebAssembly _(`javascript.options.wasm`)_ per-session.
 
 ### browser.phoenix.reset.network.http.referer.XOriginPolicy
 
-```
+```javascript
 browser.phoenix.reset.network.http.referer.XOriginPolicy
 ```
 
@@ -177,11 +176,11 @@ browser.phoenix.reset.network.http.referer.XOriginPolicy
 
 **Default**: `false`
 
-If `true`, Phoenix will reset the preference to control the cross-origin referer policy *(`network.http.referer.XOriginPolicy`)* per-session.
+If `true`, Phoenix will reset the preference to control the cross-origin referer policy _(`network.http.referer.XOriginPolicy`)_ per-session.
 
 ### browser.phoenix.reset.webgl.disabled
 
-```
+```javascript
 browser.phoenix.reset.webgl.disabled
 ```
 
@@ -189,11 +188,11 @@ browser.phoenix.reset.webgl.disabled
 
 **Default**: `false`
 
-If `true`, Phoenix will reset the preference to disable WebGL *(`webgl.disabled`)* per-session.
+If `true`, Phoenix will reset the preference to disable WebGL _(`webgl.disabled`)_ per-session.
 
 ### browser.phoenix.reset.xpinstall.enabled
 
-```
+```javascript
 browser.phoenix.reset.xpinstall.enabled
 ```
 
@@ -203,11 +202,11 @@ Default - **Desktop**: `true`
 
 Default - **Android**: `false`
 
-If `true`, Phoenix will reset the preference to enable add-on installation *(`xpinstall.enabled`)* per-session.
+If `true`, Phoenix will reset the preference to enable add-on installation _(`xpinstall.enabled`)_ per-session.
 
 ### browser.phoenix.trr.autoBootstrap
 
-```
+```javascript
 browser.phoenix.trr.autoBootstrap
 ```
 
@@ -221,7 +220,7 @@ If `true`, Phoenix will automatically configure the bootstrap address for DNS ov
 
 ### browser.phoenix.trr.autoBootstrap.useFallback
 
-```
+```javascript
 browser.phoenix.trr.autoBootstrap.useFallback
 ```
 

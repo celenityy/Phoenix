@@ -7,7 +7,7 @@
 </p>
 
 <!-- https://colorhunt.co/palette/272a34221d25b23232fd4747 -->
-![Phoenix](assets/phoenix_wide.png)
+![Phoenix](./assets/phoenix_wide.png)
 
 # [Phoenix](https://phoenix.celenity.dev)
 
@@ -132,7 +132,7 @@ Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 > ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first
 > run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
 
-See: [docs/Install](docs/Install.md)
+See: [docs/install](docs/install.md)
 
 ### 🔥 Extended
 
@@ -141,7 +141,7 @@ privacy & security, at the cost of occasional breakage, Phoenix offers an
 **Extended** configuration. **For a list of features specific to [Phoenix Extended,
 please see here](https://phoenix.celenity.dev/extended)**.
 
-See: [docs/Extended](docs/Extended.md)
+See: [docs/extended](docs/extended.md)
 
 ### 💡 Specialized Configs
 
@@ -151,7 +151,7 @@ It should also be noted that Phoenix contains specialized configurations for
 Firefox profile, and provide means to safely and easily use these services, like
 you would any other app on your device.
 
-See: [docs/Specialized Configs](docs/SpecializedConfigs.md)
+See: [docs/specialized-configs](docs/specialized-configs.md)
 
 ### 📛 Manual Installation
 
@@ -166,7 +166,7 @@ However, if this is not desirable for you & your situation, or you would simply
 like to use Phoenix on an unsupported operating system, you can follow this
 tutorial:
 
-See: [docs/Manual Installation](docs/ManualInstallation.md)
+See: [docs/install](docs/install.md)
 
 #### 🤔 Using Extended or a Specialized Config Manually
 
@@ -174,7 +174,7 @@ With a manual installation of Phoenix, if you would like to use Phoenix's
 [extended](#-extended) config, or one of our
 [specialized configs](#-specialized-configs), you'll need to follow:
 
-See: [docs/Using Extended or a Specialized Config Manually](docs/ManualInstallation.md)
+See: [docs/specialized-configs](docs/specialized-configs.md)
 
 ## Contributing
 

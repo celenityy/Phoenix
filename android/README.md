@@ -1,6 +1,9 @@
 # Phoenix for Android
 
-This directory contains specialized Phoenix config files, specifically designed for Firefox on Android. These configs should **NOT** be used on Desktop Firefox releases, & you should **NOT** use our desktop configs on Android.
+This directory contains specialized Phoenix config files,
+specifically designed for Firefox on Android.
+These configs should **NOT** be used on Desktop Firefox releases,
+& you should **NOT** use our desktop configs on Android.
 
 **The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox)**, a fully free & open source fork of the now discontinued [Mull](https://codeberg.org/divested-mobile/mull-fenix) browser. *(Disclaimer: I am a maintainer of IronFox...)*.
 
@@ -15,14 +18,11 @@ However, you may also manually install these configs on:
 * **Iceraven**
 * & basically **any other Firefox-based Android web browser via the following steps**.
 
-___
-
 ## Manual Installation Steps
 
 *This guide has been adapted from the incredible work of [ndv92](https://voz.vn/u/ndv92.790519/) (see their original forum post [here](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740)), and [Gunir](https://github.com/gunir) (see their on GitHub [here](https://github.com/yokoffing/Betterfox/issues/240)).* **Thank you to them for making this possible!**
 
 **1:** You're first going to need to install ADB on your computer. You can see a guide to do this [here](https://www.xda-developers.com/install-adb-windows-macos-linux/). You also need to make sure you have Firefox's desktop application installed, and you'll need a USB (C) cable to connect your mobile device to your computer.
-
 **2:** In your Firefox-based web browser **on your Android device**, navigate to `Settings`, scroll down to the bottom, and **enable** `Remote debugging via USB`.
 
 > [!IMPORTANT]
@@ -77,11 +77,11 @@ var pref = function(pref, val, locked, sticky) {
 
 **12:** Open up a separate tab on your desktop installation of Firefox, and navigate to the **Android** `phoenix.js` file. It can be found at the following link below *(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)*. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
-- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-{PHOENIX_VERSION}-android.js`
+* `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-{PHOENIX_VERSION}-android.js`
 
 If you'd like to use Phoenix's `Extended` Hardening config, you should **instead** use the link below:
 
-- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-extended-{PHOENIX_VERSION}-android.js`
+* `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-extended-{PHOENIX_VERSION}-android.js`
 
 **13:** Copy the contents of your desired file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of your .js file below:` line. **Now press enter.**
 

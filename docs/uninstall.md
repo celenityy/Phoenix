@@ -55,4 +55,5 @@ sudo dnf makecache
 
 ## Notes
 
-Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out, so we can improve for the future!
+Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out,
+so we can improve for the future!

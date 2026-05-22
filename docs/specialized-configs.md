@@ -21,285 +21,177 @@ exception being the location of the `user.js` file.
 
 - [Specialized Configs](#-specialized-configs)
   - [Table of Contents](#table-of-contents)
+  - [Notes](#notes)
   - [Linux](#linux)
-    - [Apple Maps](#apple-maps)
-    - [Discord](#discord)
-    - [Element](#element)
-    - [Google Maps](#google-maps)
-    - [Twitter](#twitter)
-    - [YouTube](#youtube)
+    - [Linux: Apple Maps](#linux-apple-maps)
+    - [Linux: Discord](#linux-discord)
+    - [Linux: Element](#linux-element)
+    - [Linux: Google Maps](#linux-google-maps)
+    - [Linux: Twitter](#linux-twitter)
+    - [Linux: YouTube](#linux-youtube)
   - [macOS](#macos)
-    - [Apple Maps](#apple-maps)
-    - [Discord](#discord)
-    - [Element](#element)
-    - [Google Maps](#google-maps)
-    - [Twitter](#twitter)
-    - [YouTube](#youtube)
+    - [macOS: Apple Maps](#macos-apple-maps)
+    - [macOS: Discord](#macos-discord)
+    - [macOS: Element](#macos-element)
+    - [macOS: Google Maps](#macos-google-maps)
+    - [macOS: Twitter](#macos-twitter)
+    - [macOS: YouTube](#macos-youtube)
+
+## Notes
+
+> [!NOTE]
+> Linux:
+> System - `/etc/*`
+> Flatpak - `/var/*`
+>
+> macOS:
+> Silicon - `/opt/*`
+> Intel - `/usr/*`
 
 ## Linux
 
-### Apple Maps
+### Linux: Apple Maps
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/apple-maps/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/apple-maps/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/apple-maps/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/apple-maps/user.js
 ```
 
-### Discord
+### Linux: Discord
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/discord/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/discord/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/discord/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/discord/user.js
 ```
 
-### Element
+### Linux: Element
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/element/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/element/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/element/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/element/user.js
 ```
 
-### Google Maps
+### Linux: Google Maps
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/google-maps/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/google-maps/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/google-maps/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/google-maps/user.js
 ```
 
-### Twitter
+### Linux: Twitter
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/twitter/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/twitter/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/twitter/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/twitter/user.js
 ```
 
-### YouTube
+### Linux: YouTube
 
-#### Default
-
-```sh
-# System
+```bash
+# Default
 /etc/firefox/phoenix/userjs/youtube/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/youtube/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# System
+# Firefox-UI-Fix
 /etc/firefox/phoenix/userjs/ui-fix/youtube/user.js
-
-# Flatpak
 /var/lib/flatpak/app/org.mozilla.firefox/current/active/files/etc/firefox/phoenix/userjs/ui-fix/youtube/user.js
 ```
 
 ## macOS
 
-### Apple Maps
+### macOS: Apple Maps
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/apple-maps/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/apple-maps/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/apple-maps/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/apple-maps/user.js
 ```
 
-### Discord
+### macOS: Discord
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/discord/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/discord/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/discord/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/discord/user.js
 ```
 
-### Element
+### macOS: Element
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/element/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/element/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/element/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/element/user.js
 ```
 
-### Google Maps
+### macOS: Google Maps
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/google-maps/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/google-maps/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/google-maps/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/google-maps/user.js
 ```
 
-### Twitter
+### macOS: Twitter
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/twitter/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/twitter/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/twitter/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/twitter/user.js
 ```
 
-### YouTube
+### macOS: YouTube
 
-#### Default
-
-```sh
-# Apple Silicon
+```bash
+# Default
 /opt/homebrew/opt/phoenix-osx/userjs/youtube/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/youtube/user.js
-```
 
-#### Firefox-UI-Fix
-
-```sh
-# Apple Silicon
+# Firefox-UI-Fix
 /opt/homebrew/opt/phoenix-osx/userjs/ui-fix/youtube/user.js
-
-# Intel
 /usr/local/opt/phoenix-osx/userjs/ui-fix/youtube/user.js
 ```

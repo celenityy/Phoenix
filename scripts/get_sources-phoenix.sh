@@ -361,35 +361,35 @@ function get_python() {
 
 # Get s3cmd
 function get_s3cmd() {
-    # If all we're doing is updating the checksum, we don't care if the environment is prepared
-    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
-        if  [ ! -d "${PHOENIX_UV_DIR}" ] || [ ! -f "${PHOENIX_PYENV}" ]; then
-            echo_red_text "ERROR: You tried to download s3cmd, but you don't have a uv environment set-up yet."
-            exit 1
-        fi
-
-        if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
-            echo_red_text "s3cmd is already installed at ${PHOENIX_PYENV_DIR}/bin/s3cmd"
-            read -p "Do you want to re-download it? [y/N] " -n 1 -r
-            echo
-            if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
-                return 0
-            else
-                source "${PHOENIX_PYENV}"
-                "${PHOENIX_UV}" pip uninstall s3cmd
-            fi
-        fi
+  # If all we're doing is updating the checksum, we don't care if the environment is prepared
+  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+    if [ ! -d "${PHOENIX_UV_DIR}" ] || [ ! -f "${PHOENIX_PYENV}" ]; then
+      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a uv environment set-up yet."
+      exit 1
     fi
 
-    echo_red_text "Downloading s3cmd..."
-    download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${S3CMD_SHA512SUM}"
-
-    if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+    if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
+      echo_red_text "s3cmd is already installed at ${PHOENIX_PYENV_DIR}/bin/s3cmd"
+      read -p "Do you want to re-download it? [y/N] " -n 1 -r
+      echo
+      if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
+        return 0
+      else
         source "${PHOENIX_PYENV}"
-        echo_red_text 'Installing s3cmd...'
-        "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
-        echo_green_text "SUCCESS: Set-up s3cmd at ${PHOENIX_S3CMD}"
+        "${PHOENIX_UV}" pip uninstall s3cmd
+      fi
     fi
+  fi
+
+  echo_red_text "Downloading s3cmd..."
+  download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${S3CMD_SHA512SUM}"
+
+  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+    source "${PHOENIX_PYENV}"
+    echo_red_text 'Installing s3cmd...'
+    "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
+    echo_green_text "SUCCESS: Set-up s3cmd at ${PHOENIX_S3CMD}"
+  fi
 }
 
 # Get + set-up uv
