@@ -1,4 +1,4 @@
-readonly PHOENIX_VERSION='2026.05.21.1'
+readonly PHOENIX_VERSION='2026.05.21.2'
 
 ## Python
 ### Version: 20260510 (3.14.5)
