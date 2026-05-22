@@ -181,7 +181,7 @@ See: [docs/specialized-configs](docs/specialized-configs.md)
 You can help by contributing code or by telling others about Phoenix. Reach out
 to us and let us know how you want to help.
 
-- Build instructions: [wiki/Build](https://codeberg.org/celenity/Phoenix/wiki/Build)
+- Build instructions: [docs/build](docs/build.md)
 
 ## ⚖️ Licensing
 
