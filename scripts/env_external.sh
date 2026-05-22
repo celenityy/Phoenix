@@ -36,20 +36,26 @@ export S3CMD_PACKAGING
 ## https://docs.astral.sh/uv/reference/environment/
 
 ## Cache directory
-export UV_CACHE_DIR="${PHOENIX_UV_LOCAL}/cache"
+readonly UV_CACHE_DIR="${PHOENIX_UV_LOCAL}/cache"
+export UV_CACHE_DIR
 
 ## Disable cache
-export UV_NO_CACHE=1
+readonly UV_NO_CACHE=1
+export UV_NO_CACHE
 
 ## Disable the system CA root store
-export UV_SYSTEM_CERTS='false'
+readonly UV_SYSTEM_CERTS='false'
+export UV_SYSTEM_CERTS
 
 ## Exclude development dependencies
-export UV_NO_DEV=1
+readonly UV_NO_DEV=1
+export UV_NO_DEV
 
 ## Executables directory
-export UV_PYTHON_BIN_DIR="${PHOENIX_UV_LOCAL}/bin"
-export UV_PYTHON_INSTALL_BIN=1
+readonly UV_PYTHON_BIN_DIR="${PHOENIX_UV_LOCAL}/bin"
+readonly UV_PYTHON_INSTALL_BIN=1
+export UV_PYTHON_BIN_DIR
+export UV_PYTHON_INSTALL_BIN
 
 ## Ignore configuration files
 readonly UV_NO_CONFIG=1
@@ -58,40 +64,58 @@ export UV_NO_CONFIG
 export UV_NO_SYSTEM_CONFIG
 
 ## Ignore env files
-export UV_NO_ENV_FILE=1
+readonly UV_NO_ENV_FILE=1
+export UV_NO_ENV_FILE
 
 ## Location
-export UV_INSTALL_DIR="${PHOENIX_UV_DIR}"
+readonly UV_INSTALL_DIR="${PHOENIX_UV_DIR}"
+export UV_INSTALL_DIR
 
 ## Prevent automatic downloads/updates
-export UV_DISABLE_UPDATE=1
-export UV_PYTHON_DOWNLOADS='manual'
+readonly UV_DISABLE_UPDATE=1
+readonly UV_PYTHON_DOWNLOADS='manual'
+export UV_DISABLE_UPDATE
+export UV_PYTHON_DOWNLOADS
 
 ## Prevent modifying the system PATH
-export INSTALLER_NO_MODIFY_PATH=1
-export UV_NO_MODIFY_PATH=1
-export UV_UNMANAGED_INSTALL="${PHOENIX_UV_DIR}"
+readonly INSTALLER_NO_MODIFY_PATH=1
+readonly UV_NO_MODIFY_PATH=1
+readonly UV_UNMANAGED_INSTALL="${PHOENIX_UV_DIR}"
+export INSTALLER_NO_MODIFY_PATH
+export UV_NO_MODIFY_PATH
+export UV_UNMANAGED_INSTALL
 
 ## Prevent using the system Python
-export UV_MANAGED_PYTHON=1
-export UV_PYTHON_NO_REGISTRY=1
-export UV_SYSTEM_PYTHON='false'
+readonly UV_MANAGED_PYTHON=1
+readonly UV_PYTHON_NO_REGISTRY=1
+readonly UV_SYSTEM_PYTHON='false'
+export UV_MANAGED_PYTHON
+export UV_PYTHON_NO_REGISTRY
+export UV_SYSTEM_PYTHON
 
 ## Python
-export UV_PYTHON_CACHE_DIR="${PHOENIX_UV_LOCAL}/python-cache"
-export UV_PYTHON_INSTALL_MIRROR="file://${PHOENIX_PYTHON_DIR}"
-export UV_PYTHON_INSTALL_DIR="${PHOENIX_UV_LOCAL}/python"
+readonly UV_PYTHON_CACHE_DIR="${PHOENIX_UV_LOCAL}/python-cache"
+readonly UV_PYTHON_INSTALL_MIRROR="file://${PHOENIX_PYTHON_DIR}"
+readonly UV_PYTHON_INSTALL_DIR="${PHOENIX_UV_LOCAL}/python"
+export UV_PYTHON_CACHE_DIR
+export UV_PYTHON_INSTALL_MIRROR
+export UV_PYTHON_INSTALL_DIR
 
 ## Python environment
-export UV_PROJECT_ENVIRONMENT="${PHOENIX_PYENV_DIR}"
-export VIRTUAL_ENV="${PHOENIX_PYENV_DIR}"
+readonly UV_PROJECT_ENVIRONMENT="${PHOENIX_PYENV_DIR}"
+VIRTUAL_ENV="${PHOENIX_PYENV_DIR}"
+export UV_PROJECT_ENVIRONMENT
+export VIRTUAL_ENV
 
 ## Tools directory
-export UV_TOOL_BIN_DIR="${PHOENIX_UV_LOCAL}/tools/bin"
-export UV_TOOL_DIR="${PHOENIX_UV_LOCAL}/tools"
+readonly UV_TOOL_BIN_DIR="${PHOENIX_UV_LOCAL}/tools/bin"
+readonly UV_TOOL_DIR="${PHOENIX_UV_LOCAL}/tools"
+export UV_TOOL_BIN_DIR
+export UV_TOOL_DIR
 
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
 ## Pin Python version
-export UV_PYTHON_CPYTHON_BUILD="${PYTHON_GIT_RELEASE}"
+readonly UV_PYTHON_CPYTHON_BUILD="${PYTHON_GIT_RELEASE}"
+export UV_PYTHON_CPYTHON_BUILD
