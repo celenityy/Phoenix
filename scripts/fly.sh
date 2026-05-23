@@ -345,6 +345,35 @@ function build_phoenix() {
     local readonly phoenix_platform="$1"
     local readonly phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
 
+    if [ "${phoenix_platform}" == 'android' ]; then
+        local readonly phoenix_platform_pretty='Android'
+    elif [ "${phoenix_platform}" == 'linux' ]; then
+        local readonly phoenix_platform_pretty='Linux'
+    elif [ "${phoenix_platform}" == 'linux-flatpak' ]; then
+        local readonly phoenix_platform_pretty='Linux (Flatpak)'
+    elif [ "${phoenix_platform}" == 'osx' ]; then
+        local readonly phoenix_platform_pretty='OS X'
+    elif [ "${phoenix_platform}" == 'osx-intel' ]; then
+        local readonly phoenix_platform_pretty='OS X (Intel)'
+    elif [ "${phoenix_platform}" == 'windows' ]; then
+        local readonly phoenix_platform_pretty='Windows'
+    else
+        echo_red_text "ERROR: Unknown platform: ${phoenix_platform}"
+        exit 1
+    fi
+
+    # First, check if our output directory already exists
+    if [[ -d "${phoenix_output_dir}" ]]; then
+      echo_red_text "The output directory for ${phoenix_platform_pretty} already exists at ${phoenix_output_dir}"
+      read -p "Do you want to re-create it? [y/N] " -n 1 -r
+      echo
+      if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+        rm -rf "${phoenix_output_dir}"
+      fi
+    fi
+
+    echo_red_text "Building Phoenix for ${phoenix_platform_pretty}..."
+
     # Create our output directory
     mkdir -p "${phoenix_output_dir}/assets"
 
@@ -457,6 +486,8 @@ function build_phoenix() {
         "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz" *
     fi
     popd
+
+    echo_green_text "SUCCESS: Built Phoenix for ${phoenix_platform_pretty}"
 }
 
 function build_phoenix_js() {
@@ -665,6 +696,9 @@ function build_policies() {
 check_extra_files
 
 # Create our temporary file directory
+if [[ -d "${PHOENIX_TEMP}" ]]; then
+    rm -rf "${PHOENIX_TEMP}"
+fi
 mkdir -p "${PHOENIX_TEMP}"
 
 # Build Phoenix (platform-generic logic)
