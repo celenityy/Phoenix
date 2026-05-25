@@ -1,27 +1,58 @@
 # Build Phoenix
 
-## Libs
+## Dependencies
 
-```bash
-# Fedora Linux
-dnf install jq python uv bash
+To build Phoenix, you'll first want to ensure you've installed the necessary dependencies for your system:
 
-# Gentoo GNU/Linux
-emerge -av app-misc/jq dev-lang/python dev-python/uv app-shells/bash
+### Fedora
+
+```sh
+dnf install bash curl jq
+```
+
+### Gentoo
+
+```sh
+emerge -av app-shells/bash app-misc/jq
+```
+
+### macOS
+
+**NOTE**: [Homebrew](https://brew.sh/) **must** be installed *(if is not already installed)* before following the steps below.
+
+```sh
+/usr/bin/xcode-select --install
+brew install gawk gnu-sed gnu-tar jq
+```
+
+## Get Phoenix
+
+Now, you'll want to get the Phoenix repository.
+
+With `git`, you can use:
+
+```sh
+git clone --depth=1 git@codeberg.org:celenity/Phoenix.git Phoenix
+```
+
+**For the following steps, ensure you have navigated to the root of the repository**:
+
+```sh
+cd Phoenix
+```
+
+## Sources
+
+**From the root of the repository**, download Phoenix's sources:
+
+```sh
+bash -x scripts/get_sources.sh
 ```
 
 ## Build
 
-```bash
-#!/bin/bash
+Finally, **from the root of the repository**, build Phoenix!:
 
-set -euo pipefail
-
-git clone https://codeberg.org/celenity/Phoenix.git --depth=1
-cd Phoenix
-uv python install 3.14
-uv venv build/pyenv --python 3.14 --seed
-source build/pyenv/bin/activate
-./scripts/build.sh
-deactivate
+```sh
+bash -x scripts/build.sh
 ```
