@@ -207,7 +207,7 @@ function extract() {
   local readonly target_path="$2"
   local readonly temp_repo_name="$3"
 
-  if ! [[ -f "${archive_path}" ]]; then
+  if [[ ! -f "${archive_path}" ]]; then
     echo_red_text "ERROR: Archive '${archive_path}' does not exist!"
   fi
 
