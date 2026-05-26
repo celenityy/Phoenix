@@ -47,7 +47,7 @@ export PHOENIX_ARCHIVES
 # Build directory
 readonly PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
 if [[ -z "${PHOENIX_BUILD+x}" ]]; then
-  if [ "${PHOENIX_NIX}" == 1 ]; then
+  if [[ "${PHOENIX_NIX}" == 1 ]]; then
     # Nix needs to use /tmp here, see https://codeberg.org/celenity/Dove/issues/59
     PHOENIX_BUILD='/tmp/phoenix/build'
   else
@@ -313,7 +313,7 @@ if [[ -z "${PHOENIX_ANDROID_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_ANDROID_ONLY
 export PHOENIX_ANDROID_ONLY
-if [ "${PHOENIX_ANDROID_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]]; then
   PHOENIX_ANDROID=1
   PHOENIX_LINUX=0
   PHOENIX_LINUX_FLATPAK=0
@@ -324,7 +324,7 @@ fi
 
 # Whether we're ONLY building Phoenix for Linux
 readonly PHOENIX_LINUX_ONLY_DEFAULT=0
-if [ "${PHOENIX_NIX}" == 1 ] && [ "${PHOENIX_OS}" != 'osx' ]; then
+if [[ "${PHOENIX_NIX}" == 1 ]] && [[ "${PHOENIX_OS}" != 'osx' ]]; then
   # Nix flakes should only build their respective platform
   PHOENIX_LINUX_ONLY=1
 elif [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
@@ -332,7 +332,7 @@ elif [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_LINUX_ONLY
 export PHOENIX_LINUX_ONLY
-if [ "${PHOENIX_LINUX_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_LINUX_ONLY}" == 1 ]]; then
   PHOENIX_LINUX=1
   PHOENIX_ANDROID=0
   PHOENIX_LINUX_FLATPAK=0
@@ -348,7 +348,7 @@ if [[ -z "${PHOENIX_LINUX_FLATPAK_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_LINUX_FLATPAK_ONLY
 export PHOENIX_LINUX_FLATPAK_ONLY
-if [ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]]; then
   PHOENIX_LINUX_FLATPAK=1
   PHOENIX_ANDROID=0
   PHOENIX_LINUX=0
@@ -359,7 +359,7 @@ fi
 
 # Whether we're ONLY building Phoenix for OS X
 readonly PHOENIX_OSX_ONLY_DEFAULT=0
-if [ "${PHOENIX_NIX}" == 1 ] && [ "${PHOENIX_OS}" == 'osx' ]; then
+if [[ "${PHOENIX_NIX}" == 1 ]] && [[ "${PHOENIX_OS}" == 'osx' ]]; then
   # Nix flakes should only build their respective platform
   PHOENIX_OSX_ONLY=1
 elif [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
@@ -367,7 +367,7 @@ elif [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_OSX_ONLY
 export PHOENIX_OSX_ONLY
-if [ "${PHOENIX_OSX_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_OSX_ONLY}" == 1 ]]; then
   PHOENIX_OSX=1
   PHOENIX_ANDROID=0
   PHOENIX_LINUX=0
@@ -383,7 +383,7 @@ if [[ -z "${PHOENIX_OSX_INTEL_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_OSX_INTEL_ONLY
 export PHOENIX_OSX_INTEL_ONLY
-if [ "${PHOENIX_OSX_INTEL_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_OSX_INTEL_ONLY}" == 1 ]]; then
   PHOENIX_OSX_INTEL=1
   PHOENIX_ANDROID=0
   PHOENIX_LINUX=0
@@ -399,7 +399,7 @@ if [[ -z "${PHOENIX_WINDOWS_ONLY+x}" ]]; then
 fi
 readonly PHOENIX_WINDOWS_ONLY
 export PHOENIX_WINDOWS_ONLY
-if [ "${PHOENIX_WINDOWS_ONLY}" == 1 ]; then
+if [[ "${PHOENIX_WINDOWS_ONLY}" == 1 ]]; then
   PHOENIX_WINDOWS=1
   PHOENIX_ANDROID=0
   PHOENIX_LINUX=0
@@ -410,7 +410,7 @@ fi
 
 # Whether we're building Phoenix for Android (Default)
 readonly PHOENIX_ANDROID_DEFAULT=1
-if [ "${PHOENIX_NIX}" == 1 ]; then
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
   # This makes absolutely no sense for Nix - ensure we never try to build Android there
   PHOENIX_ANDROID=0
 elif [[ -z "${PHOENIX_ANDROID+x}" ]]; then
@@ -453,7 +453,7 @@ export PHOENIX_OSX_INTEL
 
 # Whether we're building Phoenix for Windows (Default)
 readonly PHOENIX_WINDOWS_DEFAULT=1
-if [ "${PHOENIX_NIX}" == 1 ]; then
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
   # This makes absolutely no sense for Nix - ensure we never try to build Windows there
   PHOENIX_WINDOWS=0
 elif [[ -z "${PHOENIX_WINDOWS+x}" ]]; then
@@ -526,7 +526,7 @@ export PHOENIX_MAIL
 ### For Phoenix in the .js format, the pref files are parsed to include preferences/values for
 #### Phoenix Extended at build-time
 readonly PHOENIX_EXTENDED_DEFAULT=0
-if [ "${PHOENIX_MAIL}" == 1 ]; then
+if [[ "${PHOENIX_MAIL}" == 1 ]]; then
   # Mail always uses Extended
   PHOENIX_EXTENDED=1
 elif [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
@@ -537,7 +537,7 @@ export PHOENIX_EXTENDED
 
 # Whether we should support Phoenix's specialized config functionality
 readonly PHOENIX_NO_SPEC_DEFAULT=0
-if [ "${PHOENIX_ANDROID_ONLY}" == 1 ] || [ "${PHOENIX_MAIL}" == 1 ]; then
+if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
   # Android and Mail never want or need specialized configs
   PHOENIX_NO_SPEC=1
 elif [[ -z "${PHOENIX_NO_SPEC+x}" ]]; then
@@ -550,7 +550,7 @@ export PHOENIX_NO_SPEC
 ## This is separate from the standard overrides file because these preferences must be set early in order to take effect
 ## May have other use cases as well
 readonly PHOENIX_OVERRIDES_CFG_DEFAULT='undefined'
-if [ -z "${PHOENIX_OVERRIDES_CFG+x}" ]; then
+if [[ -z "${PHOENIX_OVERRIDES_CFG+x}" ]]; then
   PHOENIX_OVERRIDES_CFG="${PHOENIX_OVERRIDES_CFG_DEFAULT}"
 fi
 readonly PHOENIX_OVERRIDES_CFG
@@ -560,7 +560,7 @@ export PHOENIX_OVERRIDES_CFG
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
 ## (ex. for overriding preferences that are not Phoenix-specific)
 readonly PHOENIX_EXTRA_CFG_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_CFG+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_CFG+x}" ]]; then
   PHOENIX_EXTRA_CFG="${PHOENIX_EXTRA_CFG_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_CFG
@@ -569,7 +569,7 @@ export PHOENIX_EXTRA_CFG
 # Where an additional .js file is located that should be appended to phoenix.cfg
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
 readonly PHOENIX_EXTRA_JS_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_JS+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_JS+x}" ]]; then
   PHOENIX_EXTRA_JS="${PHOENIX_EXTRA_JS_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_JS
@@ -578,7 +578,7 @@ export PHOENIX_EXTRA_JS
 # Where an additional policies.json file is located that should be applied to all platforms
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional policies
 readonly PHOENIX_EXTRA_POLICIES_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES+x}" ]]; then
   PHOENIX_EXTRA_POLICIES="${PHOENIX_EXTRA_POLICIES_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES
@@ -586,7 +586,7 @@ export PHOENIX_EXTRA_POLICIES
 
 # Where an additional policies.json file is located that should ONLY be applied to Android
 readonly PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_ANDROID="${PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_ANDROID
@@ -594,7 +594,7 @@ export PHOENIX_EXTRA_POLICIES_ANDROID
 
 # Where an additional policies.json file is located that should ONLY be applied to Linux
 readonly PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_LINUX="${PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX
@@ -602,7 +602,7 @@ export PHOENIX_EXTRA_POLICIES_LINUX
 
 # Where an additional policies.json file is located that should ONLY be applied to Linux (non-Flatpak)
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
@@ -610,7 +610,7 @@ export PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
 
 # Where an additional policies.json file is located that should ONLY be applied to Linux (Flatpak)
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
@@ -618,7 +618,7 @@ export PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X
 readonly PHOENIX_EXTRA_POLICIES_OSX_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_OSX="${PHOENIX_EXTRA_POLICIES_OSX_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX
@@ -626,7 +626,7 @@ export PHOENIX_EXTRA_POLICIES_OSX
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X (Apple Silicon)
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON
@@ -634,7 +634,7 @@ export PHOENIX_EXTRA_POLICIES_OSX_SILICON
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X (Intel)
 readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL
@@ -642,7 +642,7 @@ export PHOENIX_EXTRA_POLICIES_OSX_INTEL
 
 # Where an additional policies.json file is located that should ONLY be applied to Windows
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT='undefined'
-if [ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]]; then
   PHOENIX_EXTRA_POLICIES_WINDOWS="${PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS

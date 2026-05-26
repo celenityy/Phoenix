@@ -16,11 +16,11 @@ pushd "${PHOENIX_ROOT}"
 # Build Phoenix
 readonly PHOENIX_FROM_BUILD=1
 export PHOENIX_FROM_BUILD
-if [ "${PHOENIX_LOG_BUILD}" == 1 ]; then
+if [[ "${PHOENIX_LOG_BUILD}" == 1 ]]; then
   readonly BUILD_LOG_FILE="${PHOENIX_LOG_DIR}/build.log"
 
   # If the log file already exists, remove it
-  if [ -f "${BUILD_LOG_FILE}" ]; then
+  if [[ -f "${BUILD_LOG_FILE}" ]]; then
     rm "${BUILD_LOG_FILE}"
   fi
 

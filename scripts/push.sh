@@ -21,11 +21,11 @@ fi
 # Push Phoenix
 readonly PHOENIX_FROM_PUSH=1
 export PHOENIX_FROM_PUSH
-if [ "${PHOENIX_LOG_PUSH}" == 1 ]; then
+if [[ "${PHOENIX_LOG_PUSH}" == 1 ]]; then
   readonly PUSH_LOG_FILE="${PHOENIX_LOG_DIR}/push-${target}.log"
 
   # If the log file already exists, remove it
-  if [ -f "${PUSH_LOG_FILE}" ]; then
+  if [[ -f "${PUSH_LOG_FILE}" ]]; then
     rm "${PUSH_LOG_FILE}"
   fi
 

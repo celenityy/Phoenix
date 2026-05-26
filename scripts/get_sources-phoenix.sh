@@ -21,16 +21,16 @@ PHOENIX_GET_SOURCE_PYTHON=0
 PHOENIX_GET_SOURCE_S3CMD=0
 PHOENIX_GET_SOURCE_UV=0
 
-if [ "${target}" == 'python' ]; then
+if [[ "${target}" == 'python' ]]; then
   # Get Python
   PHOENIX_GET_SOURCE_PYTHON=1
-elif [ "${target}" == 's3cmd' ]; then
+elif [[ "${target}" == 's3cmd' ]]; then
   # Get s3cmd
   PHOENIX_GET_SOURCE_S3CMD=1
-elif [ "${target}" == 'uv' ]; then
+elif [[ "${target}" == 'uv' ]]; then
   # Get + set-up uv
   PHOENIX_GET_SOURCE_UV=1
-elif [ "${target}" == 'all' ]; then
+elif [[ "${target}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), just get everything, except s3cmd
   ## (We don't need to bother getting s3cmd here since it's only used in certain scenarios)
   PHOENIX_GET_SOURCE_PYTHON=1
@@ -50,9 +50,9 @@ readonly PHOENIX_GET_SOURCE_UV
 # If the 'checksum-update' argument is specified, in addition to downloading the dependencies as usual,
 ## we're also updating their checksums
 PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=0
-if [ "${mode}" == 'checksum-update' ]; then
+if [[ "${mode}" == 'checksum-update' ]]; then
   PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=1
-elif [ "${mode}" != 'download' ]; then
+elif [[ "${mode}" != 'download' ]]; then
   echo_red_text "ERROR: Invalid mode: ${mode}\n You must enter one of the following:"
   echo 'Download:                     download (Default)'
   echo 'Download + update checksums:  checksum-update'
@@ -69,39 +69,39 @@ function update_sha512sum() {
   local readonly new_sha512sum="$2"
   local readonly file="$3"
 
-  if [ "${old_sha512sum}" == "${PYTHON_SHA512SUM_LINUX_ARM64}" ]; then
+  if [[ "${old_sha512sum}" == "${PYTHON_SHA512SUM_LINUX_ARM64}" ]]; then
     echo_red_text 'Updating SHA512sum for Python (Linux - ARM64)...'
     "${PHOENIX_SED}" -i -e "s|PYTHON_SHA512SUM_LINUX_ARM64='.*'|PYTHON_SHA512SUM_LINUX_ARM64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for Python (Linux - ARM64)'
-  elif [ "${old_sha512sum}" == "${PYTHON_SHA512SUM_LINUX_X86_64}" ]; then
+  elif [[ "${old_sha512sum}" == "${PYTHON_SHA512SUM_LINUX_X86_64}" ]]; then
     echo_red_text 'Updating SHA512sum for Python (Linux - x86_64)...'
     "${PHOENIX_SED}" -i -e "s|PYTHON_SHA512SUM_LINUX_X86_64='.*'|PYTHON_SHA512SUM_LINUX_X86_64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for Python (Linux - x86_64)'
-  elif [ "${old_sha512sum}" == "${PYTHON_SHA512SUM_OSX_ARM64}" ]; then
+  elif [[ "${old_sha512sum}" == "${PYTHON_SHA512SUM_OSX_ARM64}" ]]; then
     echo_red_text 'Updating SHA512sum for Python (OS X - ARM64)...'
     "${PHOENIX_SED}" -i -e "s|PYTHON_SHA512SUM_OSX_ARM64='.*'|PYTHON_SHA512SUM_OSX_ARM64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for Python (OS X - ARM64)'
-  elif [ "${old_sha512sum}" == "${PYTHON_SHA512SUM_OSX_X86_64}" ]; then
+  elif [[ "${old_sha512sum}" == "${PYTHON_SHA512SUM_OSX_X86_64}" ]]; then
     echo_red_text 'Updating SHA512sum for Python (OS X - x86_64)...'
     "${PHOENIX_SED}" -i -e "s|PYTHON_SHA512SUM_OSX_X86_64='.*'|PYTHON_SHA512SUM_OSX_X86_64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for Python (OS X - x86_64)'
-  elif [ "${old_sha512sum}" == "${S3CMD_SHA512SUM}" ]; then
+  elif [[ "${old_sha512sum}" == "${S3CMD_SHA512SUM}" ]]; then
     echo_red_text 'Updating SHA512sum for s3cmd...'
     "${PHOENIX_SED}" -i -e "s|S3CMD_SHA512SUM='.*'|S3CMD_SHA512SUM='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for s3cmd'
-  elif [ "${old_sha512sum}" == "${UV_SHA512SUM_LINUX_ARM64}" ]; then
+  elif [[ "${old_sha512sum}" == "${UV_SHA512SUM_LINUX_ARM64}" ]]; then
     echo_red_text 'Updating SHA512sum for uv (Linux - ARM64)...'
     "${PHOENIX_SED}" -i -e "s|UV_SHA512SUM_LINUX_ARM64='.*'|UV_SHA512SUM_LINUX_ARM64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for uv (Linux - ARM64)'
-  elif [ "${old_sha512sum}" == "${UV_SHA512SUM_LINUX_X86_64}" ]; then
+  elif [[ "${old_sha512sum}" == "${UV_SHA512SUM_LINUX_X86_64}" ]]; then
     echo_red_text 'Updating SHA512sum for uv (Linux - x86_64)...'
     "${PHOENIX_SED}" -i -e "s|UV_SHA512SUM_LINUX_X86_64='.*'|UV_SHA512SUM_LINUX_X86_64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for uv (Linux - x86_64)'
-  elif [ "${old_sha512sum}" == "${UV_SHA512SUM_OSX_ARM64}" ]; then
+  elif [[ "${old_sha512sum}" == "${UV_SHA512SUM_OSX_ARM64}" ]]; then
     echo_red_text 'Updating SHA512sum for uv (OS X - ARM64)...'
     "${PHOENIX_SED}" -i -e "s|UV_SHA512SUM_OSX_ARM64='.*'|UV_SHA512SUM_OSX_ARM64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for uv (OS X - ARM64)'
-  elif [ "${old_sha512sum}" == "${UV_SHA512SUM_OSX_X86_64}" ]; then
+  elif [[ "${old_sha512sum}" == "${UV_SHA512SUM_OSX_X86_64}" ]]; then
     echo_red_text 'Updating SHA512sum for uv (OS X - x86_64)...'
     "${PHOENIX_SED}" -i -e "s|UV_SHA512SUM_OSX_X86_64='.*'|UV_SHA512SUM_OSX_X86_64='"${new_sha512sum}"'|g" "${PHOENIX_VERSIONS}"
     echo_green_text 'SUCCESS: Updated SHA512sum for uv (OS X - x86_64)'
@@ -116,9 +116,9 @@ function validate_sha512sum() {
 
   local readonly local_sha512sum=$(sha512sum "${file}" | "${PHOENIX_AWK}" '{print $1}')
 
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     update_sha512sum "${expected_sha512sum}" "${local_sha512sum}" "${file}"
-  elif [ "${local_sha512sum}" != "${expected_sha512sum}" ]; then
+  elif [[ "${local_sha512sum}" != "${expected_sha512sum}" ]]; then
     echo_red_text 'ERROR: Checksum validation failed.'
     echo "Expected SHA512sum:   ${expected_sha512sum}"
     echo "Actual SHA512sum:     ${local_sha512sum}"
@@ -183,7 +183,7 @@ function download() {
     exit 1
   fi
 
-  if [ -f "${filepath}" ]; then
+  if [[ -f "${filepath}" ]]; then
     echo_red_text "${filepath} already exists."
     read -p "Do you want to re-download? [y/N] " -n 1 -r
     echo
@@ -278,7 +278,7 @@ function download_and_extract() {
 
   download "${url}" "${repo_archive}"
 
-  if [ ! -f "${repo_archive}" ]; then
+  if [[ ! -f "${repo_archive}" ]]; then
     echo_red_text "ERROR: Source archive for ${repo_name} does not exist."
     exit 1
   fi
@@ -286,7 +286,7 @@ function download_and_extract() {
   # Before extracting, verify SHA512sum...
   validate_sha512sum "${expected_sha512sum}" "${repo_archive}"
 
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     echo_red_text "Extracting ${repo_archive}..."
     extract "${repo_archive}" "${path}" "${repo_name}"
     echo
@@ -296,35 +296,35 @@ function download_and_extract() {
 # Get Python
 function get_python() {
   # Set our platform
-  if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+  if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
     local readonly PYTHON_PLATFORM='apple-darwin'
   else
     local readonly PYTHON_PLATFORM='unknown-linux-gnu'
   fi
 
   # Set our platform architecture
-  if [ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]; then
+  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
     local readonly PYTHON_ARCH='aarch64'
   else
     local readonly PYTHON_ARCH='x86_64'
   fi
 
   # Set our checksum to verify
-  if [ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]; then
-    if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
       local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_ARM64}"
     else
       local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_ARM64}"
     fi
   else
-    if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
       local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_X86_64}"
     else
       local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_X86_64}"
     fi
   fi
 
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading Python (Linux - ARM64)...'
     download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz"
 
@@ -362,8 +362,8 @@ function get_python() {
 # Get s3cmd
 function get_s3cmd() {
   # If all we're doing is updating the checksum, we don't care if the environment is prepared
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
-    if [ ! -d "${PHOENIX_UV_DIR}" ] || [ ! -f "${PHOENIX_PYENV}" ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+    if [[ ! -d "${PHOENIX_UV_DIR}" ]] || [[ ! -f "${PHOENIX_PYENV}" ]]; then
       echo_red_text "ERROR: You tried to download s3cmd, but you don't have a uv environment set-up yet."
       exit 1
     fi
@@ -384,7 +384,7 @@ function get_s3cmd() {
   echo_red_text "Downloading s3cmd..."
   download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${S3CMD_SHA512SUM}"
 
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     source "${PHOENIX_PYENV}"
     echo_red_text 'Installing s3cmd...'
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
@@ -395,8 +395,8 @@ function get_s3cmd() {
 # Get + set-up uv
 function get_uv() {
   # If all we're doing is updating the checksum, we don't care if the environment is prepared
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]; then
-    if [ ! -d "${PHOENIX_PYTHON_DIR}" ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+    if [[ ! -d "${PHOENIX_PYTHON_DIR}" ]]; then
       echo_red_text "ERROR: You tried to download uv, but you don't have Python downloaded yet."
       exit 1
     fi
@@ -412,35 +412,35 @@ function get_uv() {
   fi
 
   # Set our platform
-  if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+  if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
     local readonly UV_PLATFORM='apple-darwin'
   else
     local readonly UV_PLATFORM='unknown-linux-gnu'
   fi
 
   # Set our platform architecture
-  if [ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]; then
+  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
     local readonly UV_ARCH='aarch64'
   else
     local readonly UV_ARCH='x86_64'
   fi
 
   # Set our checksum to verify
-  if [ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]; then
-    if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
       local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_ARM64}"
     else
       local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_ARM64}"
     fi
   else
-    if [ "${PHOENIX_PLATFORM}" == 'darwin' ]; then
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
       local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_X86_64}"
     else
       local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_X86_64}"
     fi
   fi
 
-  if [ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]; then
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading uv (Linux - ARM64)...'
     download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_UV_DIR}" "${UV_SHA512SUM_LINUX_ARM64}"
 
@@ -466,14 +466,14 @@ function get_uv() {
 }
 
 # These need to run before we get s3cmd
-if [ "${PHOENIX_GET_SOURCE_PYTHON}" == 1 ]; then
+if [[ "${PHOENIX_GET_SOURCE_PYTHON}" == 1 ]]; then
   get_python
 fi
 
-if [ "${PHOENIX_GET_SOURCE_UV}" == 1 ]; then
+if [[ "${PHOENIX_GET_SOURCE_UV}" == 1 ]]; then
   get_uv
 fi
 
-if [ "${PHOENIX_GET_SOURCE_S3CMD}" == 1 ]; then
+if [[ "${PHOENIX_GET_SOURCE_S3CMD}" == 1 ]]; then
   get_s3cmd
 fi

@@ -94,25 +94,25 @@ PHOENIX_PUSH_OSX=0
 PHOENIX_PUSH_OSX_INTEL=0
 PHOENIX_PUSH_WINDOWS=0
 
-if [ "${target}" == 'android' ]; then
+if [[ "${target}" == 'android' ]]; then
   # Push Phoenix for Android
   PHOENIX_PUSH_ANDROID=1
-elif [ "${target}" == 'linux' ]; then
+elif [[ "${target}" == 'linux' ]]; then
   # Push Phoenix for Linux (non-Flatpak)
   PHOENIX_PUSH_LINUX=1
-elif [ "${target}" == 'linux-flatpak' ]; then
+elif [[ "${target}" == 'linux-flatpak' ]]; then
   # Push Phoenix for Linux (Flatpak)
   PHOENIX_PUSH_LINUX_FLATPAK=1
-elif [ "${target}" == 'osx' ]; then
+elif [[ "${target}" == 'osx' ]]; then
   # Push Phoenix for OS X (Silicon)
   PHOENIX_PUSH_OSX=1
-elif [ "${target}" == 'osx-intel' ]; then
+elif [[ "${target}" == 'osx-intel' ]]; then
   # Push Phoenix for OS X (Intel)
   PHOENIX_PUSH_OSX_INTEL=1
-elif [ "${target}" == 'windows' ]; then
+elif [[ "${target}" == 'windows' ]]; then
   # Push Phoenix for Windows
   PHOENIX_PUSH_WINDOWS=1
-elif [ "${target}" == 'all' ]; then
+elif [[ "${target}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), just push everything
   PHOENIX_PUSH_ANDROID=1
   PHOENIX_PUSH_LINUX=1
@@ -223,7 +223,7 @@ function add_sha512sum() {
   local readonly sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
 
   # If there's already a SHA512sum file, remove it
-  if [ -f "${sha512sum_file_out}" ]; then
+  if [[ -f "${sha512sum_file_out}" ]]; then
     rm -f "${sha512sum_file_out}"
   fi
 
@@ -253,7 +253,7 @@ function push_phoenix() {
   local readonly phoenix_platform="$1"
 
   # Set our archive type
-  if [ "${phoenix_platform}" == 'windows' ]; then
+  if [[ "${phoenix_platform}" == 'windows' ]]; then
     local readonly phoenix_archive_type='zip'
   else
     local readonly phoenix_archive_type='tar.xz'
@@ -262,32 +262,32 @@ function push_phoenix() {
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
 
   # For Android, also push phoenix.js and phoenix-extended.js
-  if [ "${phoenix_platform}" == 'android' ]; then
+  if [[ "${phoenix_platform}" == 'android' ]]; then
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
   fi
 }
 
-if [ "${PHOENIX_PUSH_ANDROID}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_ANDROID}" == 1 ]]; then
   push_phoenix 'android'
 fi
 
-if [ "${PHOENIX_PUSH_LINUX}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_LINUX}" == 1 ]]; then
   push_phoenix 'linux'
 fi
 
-if [ "${PHOENIX_PUSH_LINUX_FLATPAK}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_LINUX_FLATPAK}" == 1 ]]; then
   push_phoenix 'linux-flatpak'
 fi
 
-if [ "${PHOENIX_PUSH_OSX}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_OSX}" == 1 ]]; then
   push_phoenix 'osx'
 fi
 
-if [ "${PHOENIX_PUSH_OSX_INTEL}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_OSX_INTEL}" == 1 ]]; then
   push_phoenix 'osx-intel'
 fi
 
-if [ "${PHOENIX_PUSH_WINDOWS}" == 1 ]; then
+if [[ "${PHOENIX_PUSH_WINDOWS}" == 1 ]]; then
   push_phoenix 'windows'
 fi

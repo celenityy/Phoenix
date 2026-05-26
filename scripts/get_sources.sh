@@ -24,11 +24,11 @@ fi
 # Get sources
 readonly PHOENIX_FROM_SOURCES=1
 export PHOENIX_FROM_SOURCES
-if [ "${PHOENIX_LOG_SOURCES}" == 1 ]; then
+if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
   readonly SOURCES_LOG_FILE="${PHOENIX_LOG_DIR}/get_sources.log"
 
   # If the log file already exists, remove it
-  if [ -f "${SOURCES_LOG_FILE}" ]; then
+  if [[ -f "${SOURCES_LOG_FILE}" ]]; then
     rm "${SOURCES_LOG_FILE}"
   fi
 
