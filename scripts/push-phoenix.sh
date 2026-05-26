@@ -21,14 +21,14 @@ if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
   exit 1
 fi
 
-if ! [[ -f "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
+if [[ ! -f "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
   echo_red_text "ERROR: S3 access key file not found! (${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE})"
   echo_green_text "Please ensure the PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE environment variable is set to the correct path in which the key file is located."
   echo_red_text "Aborting..."
   exit 1
 fi
 
-if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
+if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
   echo_red_text "ERROR: S3 access key file ${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE} is empty!"
   exit 1
 fi
@@ -38,14 +38,14 @@ if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
   exit 1
 fi
 
-if ! [[ -f "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
+if [[ ! -f "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
   echo_red_text "ERROR: S3 bucket name file not found! (${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE})"
   echo_green_text "Please ensure the PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE environment variable is set to the correct path in which the bucket name file is located."
   echo_red_text "Aborting..."
   exit 1
 fi
 
-if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
+if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
   echo_red_text "ERROR: S3 bucket name file ${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE} is empty!"
   exit 1
 fi
@@ -55,14 +55,14 @@ if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
   exit 1
 fi
 
-if ! [[ -f "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
+if [[ ! -f "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
   echo_red_text "ERROR: S3 endpoint file not found! (${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE})"
   echo_green_text "Please ensure the PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE environment variable is set to the correct path in which the endpoint file is located."
   echo_red_text "Aborting..."
   exit 1
 fi
 
-if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
+if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
   echo_red_text "ERROR: S3 bucket name file ${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE} is empty!"
   exit 1
 fi
@@ -72,14 +72,14 @@ if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
   exit 1
 fi
 
-if ! [[ -f "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
+if [[ ! -f "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
   echo_red_text "ERROR: S3 secret key file not found! (${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE})"
   echo_green_text "Please ensure the PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE environment variable is set to the correct path in which the key file is located."
   echo_red_text "Aborting..."
   exit 1
 fi
 
-if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
+if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
   echo_red_text "ERROR: S3 secret key file ${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE} is empty!"
   exit 1
 fi
@@ -150,12 +150,12 @@ export TZ="UTC"
 function verify_file() {
   local readonly file_to_verify="$1"
 
-  if ! [[ -f "${file_to_verify}" ]]; then
+  if [[ ! -f "${file_to_verify}" ]]; then
     echo_red_text "ERROR: File ${file_to_verify} does not exist!"
     exit 1
   fi
 
-  if ! [[ -s "${file_to_verify}" ]]; then
+  if [[ ! -s "${file_to_verify}" ]]; then
     echo_red_text "ERROR: File ${file_to_verify} is empty!"
     exit 1
   fi
