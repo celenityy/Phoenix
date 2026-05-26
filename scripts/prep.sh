@@ -117,22 +117,22 @@ function prep_s3() {
   echo -n "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" >"${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
 
   # Ensure nothing went wrong...
-  if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
+  if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 access key file ${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE} is empty!"
     exit 1
   fi
 
-  if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
+  if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" ]]; then
     echo_red_text "ERROR: S3 bucket name file ${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE} is empty!"
     exit 1
   fi
 
-  if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
+  if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" ]]; then
     echo_red_text "ERROR: S3 endpoint file ${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE} is empty!"
     exit 1
   fi
 
-  if ! [[ -s "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
+  if [[ ! -s "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" ]]; then
     echo_red_text "ERROR: S3 secret key file ${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE} is empty!"
     exit 1
   fi
