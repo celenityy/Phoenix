@@ -2,8 +2,10 @@
 
 The following page is meant to serve as documentation
 for preferences introduced by Phoenix.
+
 **NOTE**: For any preferences introduced by Phoenix to take effect,
 you **MUST** restart the browser.
+
 Additionally, these preferences do **NOT** function on Phoenix for Android,
 **with the exception of IronFox**.
 
@@ -17,6 +19,10 @@ Additionally, these preferences do **NOT** function on Phoenix for Android,
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreakoverrides-enabled)
   - [`browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled`](#browser-phoenix-fingerprintingprotection-granular-unbreaktimezoneoverrides-enabled)
 - [`browser.phoenix.fingerprintingProtection.granular.userOverrides`](#browser-phoenix-fingerprintingprotection-granular-useroverrides)
+- [`browser.phoenix.query_stripping.allow_list.enabled`](#browser-phoenix-query_stripping-allow_list-enabled)
+- [`browser.phoenix.query_stripping.strip_list.enabled`](#browser-phoenix-query_stripping-strip_list-enabled)
+- [`browser.phoenix.query_stripping.user_allow_list`](#browser-phoenix-query_stripping-user_allow_list)
+- [`browser.phoenix.query_stripping.user_strip_list`](#browser-phoenix-query_stripping-user_strip_list)
 - [`browser.phoenix.reset.javascript.options.wasm`](#browser-phoenix-reset-javascript-options-wasm)
 - [`browser.phoenix.reset.network.http.referer.XOriginPolicy`](#browser-phoenix-reset-network-http-referer-xoriginpolicy)
 - [`browser.phoenix.reset.webgl.disabled`](#browser-phoenix-reset-webgl-disabled)
@@ -152,6 +158,70 @@ For an example of how this preference's value should be formatted:
 
 ```javascript
 {"firstPartyDomain":"example1.invalid","overrides":"+ProtectionIWantToEnableOnThisWebsite,-ProtectionIWantToDisableOnThisWebsite"},{"firstPartyDomain":"*","thirdPartyDomain":"example2.invalid","overrides":"+ThirdPartyDomainsAreSupportedToo"}
+```
+
+### browser.phoenix.query_stripping.allow_list.enabled
+
+```javascript
+browser.phoenix.query_stripping.allow_list.enabled
+```
+
+**Type**: `Boolean`
+
+**Default**: `true`
+
+If `true`, Phoenix exempts certain websites from URL query parameter stripping by default, in order to resolve breakage and unexpected behavior.
+
+**NOTE**: Setting this to `false` is **not** recommend, as it **will** cause breakage.
+
+### browser.phoenix.query_stripping.strip_list.enabled
+
+```javascript
+browser.phoenix.query_stripping.strip_list.enabled
+```
+
+**Type**: `Boolean`
+
+**Default**: `true`
+
+If `true`, Phoenix extends the list of parameters removed by URL query parameter stripping, in order to strengthen resistance against tracking.
+
+**NOTE**: Setting this preference to `false` is **not** recommend, as it **will** degrade your privacy.
+
+### browser.phoenix.query_stripping.user_allow_list
+
+```javascript
+browser.phoenix.query_stripping.user_allow_list
+```
+
+**Type**: `String`
+
+**Default**: ` `
+
+This preference contains a list of websites to exempt from URL query parameter stripping.
+
+For an example of how this preference's value should be formatted:
+
+```javascript
+example1.com,example2.net
+```
+
+### browser.phoenix.query_stripping.user_strip_list
+
+```javascript
+browser.phoenix.query_stripping.user_strip_list
+```
+
+**Type**: `String`
+
+**Default**: ` `
+
+This preference contains a list of parameters to remove with URL query parameter stripping.
+
+For an example of how this preference's value should be formatted:
+
+```javascript
+param1 param2
 ```
 
 ### browser.phoenix.reset.javascript.options.wasm
