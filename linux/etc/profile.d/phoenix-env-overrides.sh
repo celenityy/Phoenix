@@ -20,7 +20,7 @@ export PHOENIX_HOST_PLATFORM='linux'
 ## https://searchfox.org/firefox-main/rev/0989a082/gfx/thebes/gfxEnv.h#100
 ## https://searchfox.org/firefox-main/rev/0989a082/gfx/thebes/gfxPlatform.cpp#373
 export MOZ_GFX_CRASH_MOZ_CRASH=1
-export MOZ_GFX_CRASH_TELEMETRY=''
+unset MOZ_GFX_CRASH_TELEMETRY
 
 # Disable Mozilla's ASan Crash Reporter
 ## https://searchfox.org/firefox-main/rev/409e9501/toolkit/xre/nsEmbedFunctions.cpp#260
@@ -30,7 +30,7 @@ export MOZ_DISABLE_ASAN_REPORTER=1
 
 # Disable Mozilla's Crash Reporter
 ## https://firefox-source-docs.mozilla.org/toolkit/crashreporter/crashreporter/index.html#user-specified-environment-variables
-export MOZ_CRASHREPORTER=''
+unset MOZ_CRASHREPORTER
 export MOZ_CRASHREPORTER_DISABLE=1
 export MOZ_CRASHREPORTER_NO_REPORT=1
 export MOZ_CRASHREPORTER_URL='data;'
@@ -38,7 +38,7 @@ export MOZ_CRASHREPORTER_URL='data;'
 # Disable SSLKEYLOGGING
 ## https://bugzilla.mozilla.org/show_bug.cgi?id=1183318
 ## https://bugzilla.mozilla.org/show_bug.cgi?id=1915224
-export SSLKEYLOGFILE=''
+unset SSLKEYLOGFILE
 
 # Enable Wayland
 ## Credit to Rasmus: https://askubuntu.com/users/13884/rasmus

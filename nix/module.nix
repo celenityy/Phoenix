@@ -37,16 +37,16 @@
       environment.etc."firefox/phoenix/assets".source = "${pkgs.phoenix}/assets";
 
       environment.variables = {
-        MOZ_CRASHREPORTER = "";
+        MOZ_CRASHREPORTER = null;
         MOZ_CRASHREPORTER_DISABLE = 1;
         MOZ_CRASHREPORTER_NO_REPORT = 1;
         MOZ_CRASHREPORTER_URL = "data;";
         MOZ_DISABLE_ASAN_REPORTER = 1;
         MOZ_ENABLE_WAYLAND = 1;
         MOZ_GFX_CRASH_MOZ_CRASH = 1;
-        MOZ_GFX_CRASH_TELEMETRY = "";
+        MOZ_GFX_CRASH_TELEMETRY = null;
         PHOENIX_HOST_NIX = 1;
-        SSLKEYLOGFILE = "";
+        SSLKEYLOGFILE = null;
       };
 
       programs.firefox.policies =
