@@ -375,20 +375,19 @@ function build_phoenix() {
     fi
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
-    # For OS X, we also need to set whether we're targetting Apple Silicon or Intel
-    if [[ "${phoenix_platform}" == 'osx' ]] || [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-      if [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-        local readonly phoenix_osx_variant_to_hardcode='intel'
-      else
-        local readonly phoenix_osx_variant_to_hardcode='silicon'
-      fi
-      "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|${phoenix_osx_variant_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    # Set our platform *type*
+    if [[ "${phoenix_platform}" != 'osx' ]] && [[ "${phoenix_platform}" != 'osx-intel' ]]; then
+      # For now, this is only used on OS X distinguish between Silicon and Intel
+      local readonly phoenix_platform_type_to_hardcode='generic'
+    elif [[ "${phoenix_platform}" == 'osx-intel' ]]; then
+      local readonly phoenix_platform_type_to_hardcode='intel'
     else
-      "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|not-osx|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+      local readonly phoenix_platform_type_to_hardcode='silicon'
     fi
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
   else
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
-    "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_VARIANT_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
   fi
 
   # Copy icon
