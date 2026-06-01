@@ -340,24 +340,24 @@ You can navigate to the link above and download the archive
 directly from your web browser, or you can run the following
 command in your terminal:
 
-```sh
-curl -q --disable --no-netrc -j -e "" -A "" -S --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --ftp-create-dirs --ftp-ssl-control --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-proxy-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-allow-beast --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl --no-ssl-allow-beast --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer "" --remove-on-error --show-error --ssl-reqd --trace-time --user-agent "" --verbose -O -sSL https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/windows/phoenix-{PHOENIX_VERSION}-windows.zip
+```powershell
+Invoke-WebRequest -UserAgent '' -Uri 'https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/windows/phoenix-{PHOENIX_VERSION}-windows.zip' -OutFile 'phoenix-{PHOENIX_VERSION}-windows.zip'
 ```
 
 **2:** Extract your downloaded archive:
 
 First, create the directory where you'd like to extract Phoenix:
 
-```sh
-mkdir -p phoenix
+```powershell
+New-Item -ItemType 'Directory' -Name 'phoenix'
 ```
 
 Now, extract the downloaded archive:
 
-*(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `/path/to` with the path to your downloaded archive)*
+*(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `\Path\To` with the path to your downloaded archive)*
 
-```sh
-unzip -q /path/to/phoenix-{PHOENIX_VERSION}-windows.zip -d phoenix
+```powershell
+Expand-Archive -Path '\Path\To\phoenix-{PHOENIX_VERSION}-windows.zip' -DestinationPath 'phoenix'
 ```
 
 **4:** Locate your Firefox installation directory. This will vary depending on
@@ -370,8 +370,8 @@ checking the directory next to `Application Binary`.
 **5:** Copy `phoenix.cfg` to the **root** of your installation directory. You
 can either drag and drop it manually, or run the following command:
 
-```sh
-cp phoenix\phoenix.cfg C:\'Program Files'\'Mozilla Firefox'\phoenix.cfg
+```powershell
+Copy-Item -Path 'phoenix\phoenix.cfg' -Destination 'C:\Program Files\Mozilla Firefox\'
 ```
 
 **6:** If it does not already exist,
@@ -380,30 +380,30 @@ in the **root** of your installation directory, create a folder named
 `pref`. You can do this manually through your file explorer, or you can run the
 following command:
 
-```sh
-mkdir -p C:\'Program Files'\'Mozilla Firefox'\defaults\pref
+```powershell
+New-Item -Path 'C:\Program Files\Mozilla Firefox\' -ItemType 'Directory' -Name 'defaults\pref'
 ```
 
-**7:** Copy `defaults/pref/phoenix.js` to the
+**7:** Copy `defaults\pref\phoenix.js` to the
 `pref` folder that you just created. You can run the following command:
 
-```sh
-cp phoenix\defaults\pref\phoenix.js C:\'Program Files'\'Mozilla Firefox'\defaults\pref\phoenix.js
+```powershell
+Copy-Item -Path 'phoenix\defaults\pref\phoenix.js' -Destination 'C:\Program Files\Mozilla Firefox\defaults\pref\'
 ```
 
 **8:** In the **root** of your installation directory, create a
 folder named `distribution`. You can do this manually through your file
 explorer, or you can run the following command:
 
-```sh
-mkdir -p C:\'Program Files'\'Mozilla Firefox'\distribution
+```powershell
+New-Item -Path 'C:\Program Files\Mozilla Firefox\' -ItemType 'Directory' -Name 'distribution'
 ```
 
-**9:** Finally, copy `distribution/policies.json` to the
+**9:** Finally, copy `distribution\policies.json` to the
 `distribution` folder that you just created. You can run the following command:
 
-```sh
-cp phoenix\distribution\policies.json C:\'Program Files'\'Mozilla Firefox'\distribution\policies.json
+```powershell
+Copy-Item -Path 'phoenix\distribution\policies.json' -Destination 'C:\Program Files\Mozilla Firefox\distribution\'
 ```
 
 ## End
