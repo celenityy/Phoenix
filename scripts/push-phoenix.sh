@@ -260,6 +260,11 @@ function push_phoenix() {
   fi
 
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+  
+  # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.${phoenix_archive_type}
+  ## (Ex. for convenience/packaging)
+  cp -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
 
   # For Android, also push phoenix.js and phoenix-extended.js
   if [[ "${phoenix_platform}" == 'android' ]]; then
