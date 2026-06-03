@@ -271,35 +271,35 @@ function parse_js_file() {
 
 # Common Phoenix build logic
 function build_phoenix_common() {
-  cp "${PHOENIX_ROOT}/phoenix-preferences.cfg" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+  cp "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
   cp "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
   # Set PHOENIX_APPLY_EXTENDED
   if [[ "${PHOENIX_EXTENDED}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Set PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
   if [[ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Set PHOENIX_MAIL
   if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Set PHOENIX_NO_SPEC
   if [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Update the version
@@ -307,10 +307,10 @@ function build_phoenix_common() {
 
   # If necessary, apply overrides for Phoenix-specific preferences
   if [[ "${PHOENIX_OVERRIDES_CFG}" != 'undefined' ]]; then
-    echo '' >>"${PHOENIX_TEMP}/phoenix-preferences.cfg"
-    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-preferences.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+    echo '' >>"${PHOENIX_TEMP}/phoenix-core.cfg"
+    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
   else
-    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-preferences.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
   fi
 
   # If necessary, append the contents of an additional .cfg file
@@ -318,7 +318,7 @@ function build_phoenix_common() {
 
   # Clean-up files
   rm -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
-  rm -f "${PHOENIX_TEMP}/phoenix-preferences.cfg"
+  rm -f "${PHOENIX_TEMP}/phoenix-core.cfg"
   rm -f "${PHOENIX_TEMP}/phoenix.cfg"
 
   # Create enterprise policies
