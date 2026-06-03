@@ -1,12 +1,9 @@
 <div align="center">
 
-<p align="center">
-  <a href="https://codeberg.org/celenity/Phoenix">Project Intro</a> |
-  <a href="https://codeberg.org/celenity/Phoenix/wiki">Wiki</a> |
-  <a href="#contributing">Contribute</a>
-</p>
+[Homepage](https://phoenix.celenity.dev)
+| [Wiki](https://codeberg.org/celenity/Phoenix/Wiki)
+| [Contributing](#contributing)
 
-<!-- https://colorhunt.co/palette/272a34221d25b23232fd4747 -->
 ![Phoenix](./assets/phoenix_wide.png)
 
 # [Phoenix](https://phoenix.celenity.dev)

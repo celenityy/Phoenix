@@ -1,13 +1,16 @@
 # Phoenix for Android
 
-This directory contains specialized Phoenix config files,
+This directory contains specialized Phoenix configuration files,
 specifically designed for Firefox on Android.
-These configs should **NOT** be used on Desktop Firefox releases,
-& you should **NOT** use our desktop configs on Android.
+These configurations should **NOT** be used on Desktop Firefox releases,
+& you should **NOT** use our desktop configurations on Android.
 
-**The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox)**, a fully free & open source fork of the now discontinued [Mull](https://codeberg.org/divested-mobile/mull-fenix) browser. *(Disclaimer: I am a maintainer of IronFox...)*.
+**The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox)**,
+a fully free & open source fork of the now
+discontinued [Mull](https://codeberg.org/divested-mobile/mull-fenix) browser.
+*(Disclaimer: I am a maintainer of IronFox...)*.
 
-However, you may also manually install these configs on:
+However, you may also manually install these configurations on:
 
 * **Fennec F-Droid**
 * **Firefox**
