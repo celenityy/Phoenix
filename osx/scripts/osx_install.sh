@@ -198,8 +198,8 @@ echo_green_text "Creating /Library/celenity/Phoenix directory..."
 sudo mkdir -vp /Library/celenity/Phoenix || error_fn
 echo
 
-echo_green_text "Changing permissions of Library/celenity/Phoenix to 744..."
-sudo chmod -v 744 /Library/celenity/Phoenix || error_fn
+echo_green_text "Changing permissions of Library/celenity/Phoenix to 755..."
+sudo chmod -v 755 /Library/celenity/Phoenix || error_fn
 echo
 
 echo -e ""
