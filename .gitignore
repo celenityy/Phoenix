@@ -1,17 +1,12 @@
-# Build
+*.code-workspace
+.DS_Store
+result*
+/.vscode/
+
 /build/
+/outputs/
+
 /env_override.sh
 /external/
 /scripts/env_local.sh
 /wip/
-
-# IDE
-.DS_Store
-/.vscode/
-*.code-workspace
-
-# NixOS
-result*
-
-# Outputs
-/outputs/

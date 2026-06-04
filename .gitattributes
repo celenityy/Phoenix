@@ -1,21 +1,26 @@
 * text=auto eol=lf
 
+*.json           linguist-detectable
+*.yaml           linguist-detectable
+*.xml            linguist-detectable
+_redirects       linguist-detectable
+
 # lowercase only
 *.cfg            gitlab-language=javascript
 *.jsonc          gitlab-language=json
 *.plist          gitlab-language=xml
 *.yml            gitlab-language=yaml
+*permissions.txt gitlab-language=ini
+.git*            gitlab-language=shell
+.gitlab-ci.yml   gitlab-language=yaml
 flake.lock       gitlab-language=json
-_redirects       gitlab-language=shell
 
 # SHELL -> Shell, json -> JSON
 *.cfg            linguist-language=JavaScript
 *.jsonc          linguist-language=JSON
 *.plist          linguist-language=XML
 *.yml            linguist-language=YAML
+*permissions.txt linguist-language=INI
+.git*            linguist-language=Shell
+.gitlab-ci.yml   linguist-language=YAML
 flake.lock       linguist-language=JSON
-_redirects       linguist-language=Shell
-
-*.json           linguist-detectable
-*.yaml           linguist-detectable
-*.xml            linguist-detectable
