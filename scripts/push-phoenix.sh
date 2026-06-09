@@ -148,6 +148,16 @@ export TZ="UTC"
 
 # Verifies that a file exists and is not empty
 function verify_file() {
+  function print_usage() {
+    echo "Usage: verify_file '/path/to/file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    print_usage
+    exit 1
+  fi
+
   local readonly file_to_verify="$1"
 
   if [[ ! -f "${file_to_verify}" ]]; then
@@ -163,6 +173,22 @@ function verify_file() {
 
 # Pushes a file to S3
 function push_file() {
+  function print_usage() {
+    echo "Usage: push_file '/path/to/file' 'path/on/s3'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded'
+    print_usage
+    exit 1
+  fi
+
   local readonly push_file="$1"
   local readonly s3_path="$2"
   local readonly s3_full_path="${s3_path}/$(basename "${push_file}")"
@@ -207,6 +233,16 @@ function push_file() {
 
 # Creates and pushes a SHA512sum for a file to S3
 function add_sha512sum() {
+  function print_usage() {
+    echo "Usage: add_sha512sum '/path/to/file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file that a SHA512sum should be created for'
+    print_usage
+    exit 1
+  fi
+
   local readonly sha512sum_file_in="$1"
   local readonly sha512sum_file_name=$(basename "${sha512sum_file_in}")
   local readonly sha512sum_file_path=$(dirname "${sha512sum_file_in}")
@@ -235,6 +271,22 @@ function add_sha512sum() {
 
 # Creates a SHA512sum for and pushes a file to S3
 function push_and_add_sha512sum() {
+  function print_usage() {
+    echo "Usage: push_and_add_sha512sum '/path/to/file' 'path/on/s3'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded'
+    print_usage
+    exit 1
+  fi
+
   local readonly file_in="$1"
   local readonly s3_path_out="$2"
 
@@ -250,6 +302,16 @@ function push_and_add_sha512sum() {
 
 # Push Phoenix for a desired platform
 function push_phoenix() {
+  function print_usage() {
+    echo "Usage: push_phoenix 'platform'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the platform you wou would like to push Phoenix for'
+    print_usage
+    exit 1
+  fi
+
   local readonly phoenix_platform="$1"
 
   # Set our archive type
@@ -266,7 +328,7 @@ function push_phoenix() {
   cp -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
 
-  # For Android, also push phoenix.js and phoenix-extended.js
+  # For Android, also push phoenix.js and phoenix-extended.js directly
   if [[ "${phoenix_platform}" == 'android' ]]; then
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"

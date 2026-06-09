@@ -24,23 +24,91 @@ fi
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
+# Check if a file or directory already exists
+## If the file or directory already exists, prompt the user to remove it
+## If the user chooses not to remove it, we exit
+## If the file or directory doesn't already exist, we just do nothing
+function check_file_or_dir_exists() {
+  function print_usage() {
+    echo 'Usage: check_file_or_dir_exists /path/to/file_or_dir'
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file or directory to check'
+    print_usage
+    exit 1
+  fi
+
+  local readonly path="$1"
+
+  if [[ -d "${path}" ]] || [[ -f "${path}" ]]; then
+    echo_red_text "'${path}' already exists"
+    echo_red_text 'Continuing WILL remove this file/directory'
+    read -p "Are you sure you want to proceed? [y/N] " -n 1 -r
+    echo
+    if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+      echo_red_text "Removing ${path}..."
+      if [[ -d "${path}" ]]; then
+        rm -rf "${path}"
+      elif [[ -f "${path}" ]]; then
+        rm -f "${path}"
+      fi
+    else
+      exit 1
+    fi
+  fi
+}
+
 # Verify that a file (corresponding to an environment variable) exists and is not empty
 function verify_file() {
+  function print_usage() {
+    echo "Usage: verify_file /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the environment variable that corresponds to the file to verify'
+    print_usage
+    exit 1
+  fi
+
   local readonly verify_file="$1"
   local readonly verify_file_env="$2"
+
   if [[ ! -f "${verify_file}" ]]; then
-    echo_red_text "${verify_file_env} is set, but ${verify_file} does not exist! Aborting..."
+    echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} does not exist! Aborting..."
     exit 1
   fi
 
   if [[ ! -s "${verify_file}" ]]; then
-    echo_red_text "${verify_file_env} is set, but ${verify_file} is empty! Aborting..."
+    echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} is empty! Aborting..."
     exit 1
   fi
 }
 
 # Only verify that a file exists if a designated environment variable is actually set
 function maybe_verify_file() {
+  function print_usage() {
+    echo "Usage: maybe_verify_file /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file'
+    print_usage
+    exit 1
+  fi
+
   local readonly maybe_file="$1"
   local readonly maybe_file_env="$2"
 
@@ -128,11 +196,28 @@ function check_extra_files() {
 
 # Function for combining two or more files
 function combine_files() {
+  function print_usage() {
+    echo "Usage: combine_files /path/to/output_file /path/to/input_file_1 /path/to/input_file_2 ..."
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify a path for the output file'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the paths for each input file you would like to combine'
+    print_usage
+    exit 1
+  fi
+
   local readonly output_file="$1"
   local readonly initial_input_file="$2"
 
   if [[ -z "${3+x}" ]]; then
-    echo_red_text "ERROR: You must specify at least two or more files to combine"
+    echo_red_text "ERROR: You must specify the paths for at least two or more input files to combine"
+    print_usage
     exit 1
   fi
 
@@ -244,6 +329,28 @@ function combine_files() {
 # Function that only combines two files if the file to add actually exists
 ## If the file to add does not exist, the initial file is simply copied
 function maybe_combine_files() {
+  function print_usage() {
+    echo "Usage: maybe_combine_files /path/to/output_file /path/to/input_file_1 /path/to/input_file_2"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify a path for the output file'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path for the input file you would like to combine with an additional file'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path for the second input file you would like to combine with the first input file (if this file exists)'
+    print_usage
+    exit 1
+  fi
+
   local readonly output_file="$1"
   local readonly initial_file="$2"
   local readonly file_to_add="$3"
@@ -257,16 +364,38 @@ function maybe_combine_files() {
 
 # Parse a static prefs .js file
 function parse_js_file() {
-  local readonly target_js_file="$1"
-  local readonly output_js_file="$2"
-  local readonly tags_to_remove="$3"
+  function print_usage() {
+    echo "Usage: parse_js_file /path/to/input_js_file /path/to/output_js_file 'TAG_TO_REMOVE'"
+  }
 
-  if [[ ! -f "${target_js_file}" ]]; then
-    echo_red_text "ERROR: File does not exist: ${target_js_file}"
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path for the input prefs .js file you would like to parse'
+    print_usage
     exit 1
   fi
 
-  grep -vE "${tags_to_remove}" "${target_js_file}" >"${output_js_file}"
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify a path for the output (parsed) prefs .js file'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please specify a tag that should be removed from the input prefs .js file'
+    print_usage
+    exit 1
+  fi
+
+  local readonly input_js_file="$1"
+  local readonly output_js_file="$2"
+  local readonly tags_to_remove="$3"
+
+  if [[ ! -f "${input_js_file}" ]]; then
+    echo_red_text "ERROR: File does not exist: ${input_js_file}"
+    exit 1
+  fi
+
+  grep -vE "${tags_to_remove}" "${input_js_file}" >"${output_js_file}"
 }
 
 # Common Phoenix build logic
@@ -342,8 +471,28 @@ function build_phoenix_common() {
 
 # Platform-specific build logic
 function build_phoenix() {
+  function print_usage() {
+    echo "Usage: build_phoenix 'platform'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix for'
+    print_usage
+    exit 1
+  fi
+
   local readonly phoenix_platform="$1"
   local readonly phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
+
+  if [[ "${phoenix_platform}" == 'windows' ]]; then
+    local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip"
+  else
+   local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz"
+  fi
+
+  # Ensure existing outputs don't already exist
+  check_file_or_dir_exists "${phoenix_output_dir}"
+  check_file_or_dir_exists "${phoenix_output_archive}"
 
   # Create our output directory
   mkdir -p "${phoenix_output_dir}/assets"
@@ -451,21 +600,33 @@ function build_phoenix() {
 
   pushd "${phoenix_output_dir}"
   if [[ "${phoenix_platform}" == 'windows' ]]; then
-    zip -r "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip" * -x '.DS_Store'
+    zip -r "${phoenix_output_archive}" * -x '.DS_Store'
   else
-    "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz" *
+    "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${phoenix_output_archive}" *
   fi
   popd
 }
 
 function build_phoenix_js() {
+  function print_usage() {
+    echo "Usage: build_phoenix_js 'platform'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix (in the static prefs .js format) for'
+    print_usage
+    exit 1
+  fi
+
   local readonly phoenix_js_platform="$1"
 
   # First, set the designated location for our file
   if [[ "${phoenix_js_platform}" == 'android' ]]; then
     local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
   else
     local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
   fi
 
   # Convert phoenix.cfg
@@ -537,26 +698,33 @@ function build_phoenix_js() {
     parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'WINDOWS-ONLY'
   fi
 
-  # Handle logic for Phoenix Extended
-  if [[ "${PHOENIX_EXTENDED}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    if [[ "${phoenix_platform}" == 'android' ]]; then
-      local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
-    else
-      local readonly phoenix_extended_js_file="${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js"
-    fi
+  # Create our phoenix.js output file
+  parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}" 'EXTENDED-ONLY'
+
+  # If PHOENIX_EXTENDED is 1, we also need to create our phoenix-extended.js output file
+  if [[ "${PHOENIX_EXTENDED}" == 1 ]]; then
     parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_extended_js_file}" 'NO-EXTENDED'
   fi
-
-  if [[ "${PHOENIX_EXTENDED}" != 1 ]] || [[ "${phoenix_js_platform}" == 'android' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" 'EXTENDED-ONLY'
-  fi
-
-  # Finally, copy our final output file to its designated location
-  cp "${PHOENIX_TEMP}/phoenix-static-temp-with-extended-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}"
 }
 
 # Platform-specific policies build logic
 function build_policies() {
+  function print_usage() {
+    echo "Usage: build_policies 'platform' '/path/to/output_dir'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix policies for'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify an output directory for your Phoenix policies'
+    print_usage
+    exit 1
+  fi
+
   local readonly phoenix_policies_platform="$1"
   local readonly phoenix_policies_output_dir="$2"
 
