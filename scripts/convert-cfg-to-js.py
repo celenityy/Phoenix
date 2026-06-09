@@ -17,6 +17,10 @@ def process_file(input_file, output_file):
                 # Change defaultPref to pref
                 modified_line = line.replace("              defaultPref(", "pref(")
                 file.write(modified_line)
+            elif "            defaultPref(" in line and "[FN]" not in line:
+                # Change defaultPref to pref
+                modified_line = line.replace("            defaultPref(", "pref(")
+                file.write(modified_line)
             elif "          defaultPref(" in line and "[FN]" not in line:
                 # Change defaultPref to pref
                 modified_line = line.replace("          defaultPref(", "pref(")
@@ -46,9 +50,17 @@ def process_file(input_file, output_file):
                 # Change lockPref to pref and add ", locked)"
                 modified_line = line.replace("              lockPref(", "pref(").replace(")", ", locked)")
                 file.write(modified_line)
+            elif "            lockPref(" in line and "[FN]" not in line:
+                # Change lockPref to pref and add ", locked)"
+                modified_line = line.replace("            lockPref(", "pref(").replace(")", ", locked)")
+                file.write(modified_line)
             elif "          lockPref(" in line and "[FN]" not in line:
                 # Change lockPref to pref and add ", locked)"
                 modified_line = line.replace("          lockPref(", "pref(").replace(")", ", locked)")
+                file.write(modified_line)
+            elif "        lockPref(" in line and "[FN]" not in line:
+                # Change lockPref to pref and add ", locked)"
+                modified_line = line.replace("        lockPref(", "pref(").replace(")", ", locked)")
                 file.write(modified_line)
             elif "      lockPref(" in line and "[FN]" not in line:
                 # Change lockPref to pref and add ", locked)"
@@ -71,9 +83,17 @@ def process_file(input_file, output_file):
                 # Remove indent before pref
                 modified_line = line.replace("              pref(", "pref(")
                 file.write(modified_line)
+            elif "            pref(" in line and "[FN]" not in line:
+                # Remove indent before pref
+                modified_line = line.replace("            pref(", "pref(")
+                file.write(modified_line)
             elif "          pref(" in line and "[FN]" not in line:
                 # Remove indent before pref
                 modified_line = line.replace("          pref(", "pref(")
+                file.write(modified_line)
+            elif "        pref(" in line and "[FN]" not in line:
+                # Remove indent before pref
+                modified_line = line.replace("        pref(", "pref(")
                 file.write(modified_line)
             elif "      pref(" in line and "[FN]" not in line:
                 # Remove indent before pref
