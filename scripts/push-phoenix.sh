@@ -92,6 +92,7 @@ PHOENIX_PUSH_LINUX=0
 PHOENIX_PUSH_LINUX_FLATPAK=0
 PHOENIX_PUSH_OSX=0
 PHOENIX_PUSH_OSX_INTEL=0
+PHOENIX_PUSH_UNIVERSAL=0
 PHOENIX_PUSH_WINDOWS=0
 
 if [[ "${target}" == 'android' ]]; then
@@ -109,6 +110,9 @@ elif [[ "${target}" == 'osx' ]]; then
 elif [[ "${target}" == 'osx-intel' ]]; then
   # Push Phoenix for OS X (Intel)
   PHOENIX_PUSH_OSX_INTEL=1
+elif [[ "${target}" == 'universal' ]]; then
+  # Push Phoenix (Universal)
+  PHOENIX_PUSH_UNIVERSAL=1
 elif [[ "${target}" == 'windows' ]]; then
   # Push Phoenix for Windows
   PHOENIX_PUSH_WINDOWS=1
@@ -119,6 +123,7 @@ elif [[ "${target}" == 'all' ]]; then
   PHOENIX_PUSH_LINUX_FLATPAK=1
   PHOENIX_PUSH_OSX=1
   PHOENIX_PUSH_OSX_INTEL=1
+  PHOENIX_PUSH_UNIVERSAL=1
   PHOENIX_PUSH_WINDOWS=1
 else
   echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
@@ -128,6 +133,7 @@ else
   echo 'Linux (Flatpak):                  linux-flatpak'
   echo 'OS X (Silicon):                   osx'
   echo 'OS X (Intel):                     osx-intel'
+  echo 'Universal:                        universal'
   echo 'Windows:                          windows'
   exit 1
 fi
@@ -137,6 +143,7 @@ readonly PHOENIX_PUSH_LINUX
 readonly PHOENIX_PUSH_LINUX_FLATPAK
 readonly PHOENIX_PUSH_OSX
 readonly PHOENIX_PUSH_OSX_INTEL
+readonly PHOENIX_PUSH_UNIVERSAL
 readonly PHOENIX_PUSH_WINDOWS
 
 # Include version info
@@ -300,6 +307,16 @@ function push_and_add_sha512sum() {
   add_sha512sum "${file_in}" "${s3_path_out}"
 }
 
+# Push a universal Phoenix configuration file
+function push_phoenix_universal() {
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
+
+  # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.cfg
+  ## (Ex. for convenience/packaging)
+  cp -f "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-latest-universal.cfg"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/universal/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal"
+}
+
 # Push Phoenix for a desired platform
 function push_phoenix() {
   function print_usage() {
@@ -313,6 +330,12 @@ function push_phoenix() {
   fi
 
   local readonly phoenix_platform="$1"
+
+  # Universal logic is handled elsewhere...
+  if [[ "${phoenix_platform}" == 'universal' ]]; then
+    push_phoenix_universal
+    return 0
+  fi
 
   # Set our archive type
   if [[ "${phoenix_platform}" == 'windows' ]]; then
@@ -332,6 +355,15 @@ function push_phoenix() {
   if [[ "${phoenix_platform}" == 'android' ]]; then
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+
+    # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.js
+    ## (and https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-extended-latest-{phoenix_platform}.js)
+    ## (Ex. for convenience/packaging)
+    cp -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-latest-${phoenix_platform}.js"
+    push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
+
+    cp -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-latest-${phoenix_platform}.js"
+    push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
   fi
 }
 
@@ -353,6 +385,10 @@ fi
 
 if [[ "${PHOENIX_PUSH_OSX_INTEL}" == 1 ]]; then
   push_phoenix 'osx-intel'
+fi
+
+if [[ "${PHOENIX_PUSH_UNIVERSAL}" == 1 ]]; then
+  push_phoenix 'universal'
 fi
 
 if [[ "${PHOENIX_PUSH_WINDOWS}" == 1 ]]; then

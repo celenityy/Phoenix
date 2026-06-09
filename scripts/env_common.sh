@@ -425,6 +425,17 @@ if [[ "${PHOENIX_WINDOWS_ONLY}" == 1 ]]; then
   PHOENIX_OSX_INTEL=0
 fi
 
+# Whether we're building a universal Phoenix configuration file (Default)
+## If enabled (set to 1), we produce a standalone universal/generic Phoenix configuration file
+## (Ex. the platform will never be hardcoded, support for specs is disabled, etc)
+## (This is used to produce configuration files for projects that wish to implement Phoenix, without them needing to build Phoenix directly)
+readonly PHOENIX_UNIVERSAL_DEFAULT=1
+if [[ -z "${PHOENIX_UNIVERSAL+x}" ]]; then
+  PHOENIX_UNIVERSAL="${PHOENIX_UNIVERSAL_DEFAULT}"
+fi
+readonly PHOENIX_UNIVERSAL
+export PHOENIX_UNIVERSAL
+
 # Whether we're building Phoenix for Android (Default)
 readonly PHOENIX_ANDROID_DEFAULT=1
 if [[ "${PHOENIX_NIX}" == 1 ]]; then
@@ -518,7 +529,7 @@ fi
 readonly PHOENIX_STATIC_JS
 export PHOENIX_STATIC_JS
 
-# Whether we should build Phoenix for Android in the static .js prefs format
+# Whether we should build Phoenix for Android in the static .js prefs format (Default)
 ## This is the default for Android because its typically the only supported mechanism for applying prefs there
 ## But some (ex. IronFox) do patch/add support for using Phoenix in the .cfg format, so they may not want/need the static .js format
 readonly PHOENIX_STATIC_JS_ANDROID_DEFAULT=1
@@ -527,6 +538,17 @@ if [[ -z "${PHOENIX_STATIC_JS_ANDROID+x}" ]]; then
 fi
 readonly PHOENIX_STATIC_JS_ANDROID
 export PHOENIX_STATIC_JS_ANDROID
+
+# Whether we should build Phoenix Extended in the static .js prefs format (Default)
+## (This depends on PHOENIX_STATIC_JS/PHOENIX_STATIC_JS_ANDROID)
+## When this is enabled (set to 1), we create a separate pref file parsed to include preferences/values for
+## Phoenix Extended at build-time
+readonly PHOENIX_STATIC_JS_EXTENDED_DEFAULT=1
+if [[ -z "${PHOENIX_STATIC_JS_EXTENDED+x}" ]]; then
+  PHOENIX_STATIC_JS_EXTENDED="${PHOENIX_STATIC_JS_EXTENDED_DEFAULT}"
+fi
+readonly PHOENIX_STATIC_JS_EXTENDED
+export PHOENIX_STATIC_JS_EXTENDED
 
 # Whether we should exclude "NO-MAIL" preferences when building Phoenix
 ## (ex. for Dove)
@@ -537,11 +559,9 @@ fi
 readonly PHOENIX_MAIL
 export PHOENIX_MAIL
 
-# Whether we should use Phoenix Extended
-## When this is enabled:
-### For Phoenix in the .cfg format, the pref to enable Phoenix Extended is true by default
-### For Phoenix in the .js format, the pref files are parsed to include preferences/values for
-#### Phoenix Extended at build-time
+# Whether we should use Phoenix Extended by default
+## (Applies to the .cfg format)
+## When this is enabled (set to 1), the pref to enable Phoenix Extended is true by default
 readonly PHOENIX_EXTENDED_DEFAULT=0
 if [[ "${PHOENIX_MAIL}" == 1 ]]; then
   # Mail always uses Extended

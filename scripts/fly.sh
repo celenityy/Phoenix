@@ -51,7 +51,7 @@ function check_file_or_dir_exists() {
       if [[ -d "${path}" ]]; then
         rm -rf "${path}"
       elif [[ -f "${path}" ]]; then
-        rm -f "${path}"
+        rm -f "${path}" "${path}-sha512sum.txt"
       fi
     else
       exit 1
@@ -424,13 +424,6 @@ function build_phoenix_common() {
     "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
-  # Set PHOENIX_NO_SPEC
-  if [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
-  else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
-  fi
-
   # Update the version
   "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
@@ -444,6 +437,31 @@ function build_phoenix_common() {
 
   # If necessary, append the contents of an additional .cfg file
   maybe_combine_files "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_EXTRA_CFG}"
+  
+  # Handle PHOENIX_UNIVERSAL
+  if [[ "${PHOENIX_UNIVERSAL}" == 1 ]]; then
+    # Ensure an existing output doesn't already exist
+    check_file_or_dir_exists "${PHOENIX_OUTPUTS}/universal"
+
+    # Create our output directory
+    mkdir -p "${PHOENIX_OUTPUTS}/universal"
+
+    cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
+
+    # PHOENIX_UNIVERSAL configs do not support specs
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
+
+    # PHOENIX_UNIVERSAL configs should not try to hardcode the platform
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
+  fi
+
+  # Set PHOENIX_NO_SPEC
+  if [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_TEMP}/phoenix-parsed.cfg"
+  else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${PHOENIX_TEMP}/phoenix-parsed.cfg"
+  fi
 
   # Clean-up files
   rm -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -486,13 +504,16 @@ function build_phoenix() {
 
   if [[ "${phoenix_platform}" == 'windows' ]]; then
     local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip"
+    local readonly phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.zip"
   else
-   local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz"
+    local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz"
+    local readonly phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.tar.xz"
   fi
 
   # Ensure existing outputs don't already exist
   check_file_or_dir_exists "${phoenix_output_dir}"
   check_file_or_dir_exists "${phoenix_output_archive}"
+  check_file_or_dir_exists "${phoenix_output_archive_latest}"
 
   # Create our output directory
   mkdir -p "${phoenix_output_dir}/assets"
@@ -649,9 +670,9 @@ function build_phoenix_js() {
     parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY'
   fi
   if [[ "${phoenix_js_platform}" == 'osx' ]] || [[ "${phoenix_js_platform}" == 'osx-intel' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX'
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'OSX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'OSX-ONLY'
   fi
 
   # Finally, handle platform-specific logic
@@ -701,8 +722,8 @@ function build_phoenix_js() {
   # Create our phoenix.js output file
   parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}" 'EXTENDED-ONLY'
 
-  # If PHOENIX_EXTENDED is 1, we also need to create our phoenix-extended.js output file
-  if [[ "${PHOENIX_EXTENDED}" == 1 ]]; then
+  # If PHOENIX_STATIC_JS_EXTENDED is 1, we also need to create our phoenix-extended.js output file
+  if [[ "${PHOENIX_STATIC_JS_EXTENDED}" == 1 ]]; then
     parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_extended_js_file}" 'NO-EXTENDED'
   fi
 }
