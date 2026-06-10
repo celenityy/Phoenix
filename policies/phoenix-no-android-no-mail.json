@@ -17,6 +17,7 @@
                 "Folder": "🥚"
             }
         ],
+        "DefaultSerialGuardSetting": 3,
         "DisableProfileRefresh": true,
         "ExtensionSettings": {
             "uBlock0@raymondhill.net": {
