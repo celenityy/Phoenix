@@ -205,6 +205,9 @@ function push_file() {
 
   # Set our MIME type
   case "${push_file}" in
+  *.cfg)
+    local readonly mime_type='text/javascript'
+    ;;
   *.js)
     local readonly mime_type='text/javascript'
     ;;
