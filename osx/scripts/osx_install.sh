@@ -53,10 +53,13 @@ echo
 echo_red_text "Press enter to continue."
 read
 
-## Install Phoenix
+# Install Phoenix
 echo_green_text "Adding celenity's Tap to Homebrew..."
 brew tap celenity/tap https://gitlab.com/celenityy/tap || error_fn
 echo
+
+# "Trust" our tap...
+brew trust --tap celenity/tap
 
 echo_green_text "Updating Homebrew cache..."
 brew update --force || error_fn
@@ -211,7 +214,7 @@ read "DEVICETYPE?Please enter your selection: "
 case ${DEVICETYPE} in
 	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
 		echo_green_text "Installing phoenix-osx package..."
-		brew install phoenix-osx || error_fn
+		brew install celenity/tap/phoenix-osx || error_fn
 		echo
 
 		echo_green_text "Downloading phoenix-apply.sh..."
@@ -309,7 +312,7 @@ case ${DEVICETYPE} in
 
 	"intel" | "Intel" | "INTEL" | 2)
 		echo_green_text "Installing phoenix-osx-intel package..."
-		brew install phoenix-osx-intel || error_fn
+		brew install celenity/tap/phoenix-osx-intel || error_fn
 		echo
 
 		echo_green_text "Downloading phoenix-apply-intel.sh..."
