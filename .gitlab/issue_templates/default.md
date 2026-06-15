@@ -87,14 +87,6 @@ For your choice, modify the corresponding [ ] box to [x].
 - [ ] Yes
 - [ ] No
 
-### Distribution ID
-<!-- Please share your browser's distribution ID.
-
- Please copy the value beside `Distribution ID`, located under `Application Basics` at `about:support`. If the distribution ID is blank, simply leave this empty.
-
-Example: `mozilla-EMEfree`
--->
-
 ### Update Channel
 <!-- Please share your browser's update channel.
 

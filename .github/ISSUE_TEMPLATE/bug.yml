@@ -100,16 +100,6 @@ body:
       required: true
 
   - type: textarea
-    id: distributionid
-    attributes:
-      label: Please share your browser's distribution ID.
-      description: |
-        Please copy the value beside `Distribution ID`, located under `Application Basics` at `about:support`. If the distribution ID is blank, simply enter a space.
-        **Example**: `mozilla-EMEfree`
-    validations:
-      required: true
-
-  - type: textarea
     id: updatechannel
     attributes:
       label: Please share your browser's update channel.
