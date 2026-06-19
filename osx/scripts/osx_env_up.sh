@@ -4,19 +4,19 @@ set -euo pipefail
 
 # Functions
 echo_red_text() {
-	echo -e "\033[31m$1\033[0m"
+  echo -e "\033[31m$1\033[0m"
 }
 
 echo_green_text() {
-	echo -e "\033[32m$1\033[0m"
+  echo -e "\033[32m$1\033[0m"
 }
 
 error_fn() {
-	echo
-	echo_red_text "Something went wrong! The script failed."
-	echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
-	echo
-	exit 1
+  echo
+  echo_red_text "Something went wrong! The script failed."
+  echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
+  echo
+  exit 1
 }
 
 # cp

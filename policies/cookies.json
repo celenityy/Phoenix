@@ -1,32 +1,32 @@
 {
-    "policies": {
-        "Cookies": {
-            "Behavior": "reject-tracker-and-partition-foreign",
-            "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
-            "Block": [
-                "http://amazon-adsystem.com/",
-                "https://amazon-adsystem.com/",
-                "http://bit.ly/",
-                "https://bit.ly/",
-                "http://click.discord.com/",
-                "https://click.discord.com/",
-                "http://fonts.googleapis.com/",
-                "https://fonts.googleapis.com/",
-                "http://fonts.gstatic.com/",
-                "https://fonts.gstatic.com/",
-                "http://links.mozilla.org/",
-                "https://links.mozilla.org/",
-                "http://raw.githubusercontent.com/",
-                "https://raw.githubusercontent.com/",
-                "http://t.co/",
-                "https://t.co/",
-                "http://youtu.be/",
-                "https://youtu.be/",
-                "http://youtube-nocookie.com/",
-                "https://youtube-nocookie.com/"
-            ],
-            "Locked": false,
-            "RejectTracker": true
-        }
+  "policies": {
+    "Cookies": {
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
+      "Block": [
+        "http://amazon-adsystem.com/",
+        "https://amazon-adsystem.com/",
+        "http://bit.ly/",
+        "https://bit.ly/",
+        "http://click.discord.com/",
+        "https://click.discord.com/",
+        "http://fonts.googleapis.com/",
+        "https://fonts.googleapis.com/",
+        "http://fonts.gstatic.com/",
+        "https://fonts.gstatic.com/",
+        "http://links.mozilla.org/",
+        "https://links.mozilla.org/",
+        "http://raw.githubusercontent.com/",
+        "https://raw.githubusercontent.com/",
+        "http://t.co/",
+        "https://t.co/",
+        "http://youtu.be/",
+        "https://youtu.be/",
+        "http://youtube-nocookie.com/",
+        "https://youtube-nocookie.com/"
+      ],
+      "Locked": false,
+      "RejectTracker": true
     }
+  }
 }

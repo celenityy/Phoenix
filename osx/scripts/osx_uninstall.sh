@@ -4,19 +4,19 @@ set -euo pipefail
 
 # Functions
 echo_red_text() {
-	echo -e "\033[31m$1\033[0m"
+  echo -e "\033[31m$1\033[0m"
 }
 
 echo_green_text() {
-	echo -e "\033[32m$1\033[0m"
+  echo -e "\033[32m$1\033[0m"
 }
 
 error_fn() {
-	echo
-	echo_red_text "Something went wrong! The script failed."
-	echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
-	echo
-	exit 1
+  echo
+  echo_red_text "Something went wrong! The script failed."
+  echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
+  echo
+  exit 1
 }
 
 # launchctl
@@ -118,33 +118,33 @@ echo_red_text "1. Silicon";
 echo_green_text "2. Intel";
 read "DEVICETYPE?Please enter your selection: "
 case ${DEVICETYPE} in
-	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
-        echo_green_text "Uninstalling phoenix-osx..."
-        brew uninstall phoenix-osx || error_fn
-        echo
+  "apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
+    echo_green_text "Uninstalling phoenix-osx..."
+    brew uninstall phoenix-osx || error_fn
+    echo
 
-		echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_LAUNCHCTL}" unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-		echo
+	echo_green_text "Unloading dev.celenity.phoenix.apply.plist..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_LAUNCHCTL}" unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+	echo
 
-		echo_green_text "Removing dev.celenity.phoenix.apply.plist..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-		echo
-		;;
+	echo_green_text "Removing dev.celenity.phoenix.apply.plist..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+	echo
+	;;
 
-	"intel" | "Intel" | "INTEL" | 2)
-        echo_green_text "Uninstalling phoenix-osx-intel..."
-        brew uninstall phoenix-osx-intel || error_fn
-        echo
+  "intel" | "Intel" | "INTEL" | 2)
+    echo_green_text "Uninstalling phoenix-osx-intel..."
+    brew uninstall phoenix-osx-intel || error_fn
+    echo
 
-		echo_green_text "Unloading dev.celenity.phoenix.apply.intel.plist..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_LAUNCHCTL}" unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
-		echo
+	echo_green_text "Unloading dev.celenity.phoenix.apply.intel.plist..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_LAUNCHCTL}" unload -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+	echo
 
-		echo_green_text "Removing dev.celenity.phoenix.apply.intel.plist..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
-		echo
-		;;
+	echo_green_text "Removing dev.celenity.phoenix.apply.intel.plist..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+	echo
+	;;
 esac
 
 echo -e ""
@@ -154,43 +154,42 @@ echo_red_text "1. system - /Applications/Firefox.app";
 echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
 read "LOCATION?Please enter your selection: "
 case ${LOCATION} in
-	"system" | "System" | "SYSTEM" | 1)
-        echo_green_text "Removing phoenix.js..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
-		echo
+  "system" | "System" | "SYSTEM" | 1)
+    echo_green_text "Removing phoenix.js..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
+	echo
 
-		echo_green_text "Removing phoenix.cfg..."
-		"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
-		echo
-		;;
+	echo_green_text "Removing phoenix.cfg..."
+	"${PHOENIX_UNINSTALL_SUDO}" "${PHOENIX_UNINSTALL_RM}" /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
+	echo
+	;;
 
-	"user" | "User" | "USER" | 2)
-		echo_green_text "Removing phoenix.js..."
-		"${PHOENIX_UNINSTALL_RM}" "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
-		echo
+  "user" | "User" | "USER" | 2)
+	echo_green_text "Removing phoenix.js..."
+	"${PHOENIX_UNINSTALL_RM}" "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
+	echo
 
-		echo_green_text "Removing phoenix.cfg..."
-		"${PHOENIX_UNINSTALL_RM}" "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
-		echo
-		;;
+	echo_green_text "Removing phoenix.cfg..."
+	"${PHOENIX_UNINSTALL_RM}" "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
+	echo
+	;;
 esac
 
 read "RESULT?Would you also like to remove celenity's Homebrew Tap? [Y/n] "
 echo
 case ${RESULT} in
+  "y" | "yes" | "YES" | "Y")
+	echo_green_text "Removing celenity's Tap..."
+	brew untap celenity/tap || error_fn
+	echo
 
-		"y" | "yes" | "YES" | "Y")
-			echo_green_text "Removing celenity's Tap..."
-			brew untap celenity/tap || error_fn
-			echo
+	echo_green_text "Updating Homebrew cache..."
+	brew update --force && brew upgrade --greedy || error_fn
+	echo
+	;;
 
-			echo_green_text "Updating Homebrew cache..."
-			brew update --force && brew upgrade --greedy || error_fn
-			echo
-			;;
-
-		"n" | "no" | "N" | "NO")
-			;;
+  "n" | "no" | "N" | "NO")
+	;;
 esac
 
 popd

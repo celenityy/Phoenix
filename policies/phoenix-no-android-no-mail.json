@@ -1,48 +1,48 @@
 {
-    "policies": {
-        "3rdparty": {
-            "Extensions": {
-                "uBlock0@raymondhill.net": {
-                    "adminSettings": {
-                        "assetsBootstrapLocation": "https://assets.celenity.dev/ublock/phoenix/assets.json"
-                    }
-                }
-            }
-        },
-        "Bookmarks": [
-            {
-                "Title": "about:netscape",
-                "URL": "http://home.mcom.com",
-                "Placement": "menu",
-                "Folder": "🥚"
-            }
-        ],
-        "DefaultSerialGuardSetting": 3,
-        "DisableProfileRefresh": true,
-        "ExtensionSettings": {
-            "uBlock0@raymondhill.net": {
-                "default_area": "navbar",
-                "installation_mode": "normal_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
-                "private_browsing": true,
-                "temporarily_allow_weak_signatures": false
-            },
-            "@testpilot-containers": {
-                "default_area": "navbar",
-                "installation_mode": "normal_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi",
-                "temporarily_allow_weak_signatures": false
-            }
-        },
-        "FirefoxSuggest": {
-            "ImproveSuggest": false,
-            "SponsoredSuggestions": false,
-            "WebSuggestions": false
-        },
-        "HttpsOnlyMode": "force_enabled",
-        "SupportMenu": {
-            "Title": "Phoenix Issue Tracker",
-            "URL": "https://phoenix.celenity.dev/issues"
+  "policies": {
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "adminSettings": {
+            "assetsBootstrapLocation": "https://assets.celenity.dev/ublock/phoenix/assets.json"
+          }
         }
+      }
+    },
+    "Bookmarks": [
+      {
+        "Title": "about:netscape",
+        "URL": "http://home.mcom.com",
+        "Placement": "menu",
+        "Folder": "🥚"
+      }
+    ],
+    "DefaultSerialGuardSetting": 3,
+    "DisableProfileRefresh": true,
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "default_area": "navbar",
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
+        "private_browsing": true,
+        "temporarily_allow_weak_signatures": false
+      },
+      "@testpilot-containers": {
+        "default_area": "navbar",
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi",
+        "temporarily_allow_weak_signatures": false
+      }
+    },
+    "FirefoxSuggest": {
+      "ImproveSuggest": false,
+      "SponsoredSuggestions": false,
+      "WebSuggestions": false
+    },
+    "HttpsOnlyMode": "force_enabled",
+    "SupportMenu": {
+      "Title": "Phoenix Issue Tracker",
+      "URL": "https://phoenix.celenity.dev/issues"
     }
+  }
 }

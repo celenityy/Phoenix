@@ -4,19 +4,19 @@ set -euo pipefail
 
 # Functions
 echo_red_text() {
-	echo -e "\033[31m$1\033[0m"
+  echo -e "\033[31m$1\033[0m"
 }
 
 echo_green_text() {
-	echo -e "\033[32m$1\033[0m"
+  echo -e "\033[32m$1\033[0m"
 }
 
 error_fn() {
-	echo
-	echo_red_text "Something went wrong! The script failed."
-	echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
-	echo
-	exit 1
+  echo
+  echo_red_text "Something went wrong! The script failed."
+  echo_red_text "Please report this (with the output message) to https://phoenix.celenity.dev/issues"
+  echo
+  exit 1
 }
 
 # launchctl
@@ -212,201 +212,201 @@ echo_red_text "1. Silicon";
 echo_green_text "2. Intel";
 read "DEVICETYPE?Please enter your selection: "
 case ${DEVICETYPE} in
-	"apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
-		echo_green_text "Installing phoenix-osx package..."
-		brew install celenity/tap/phoenix-osx || error_fn
+  "apple" | "Apple" | "APPLE" | "silicon" | "Silicon" | "SILICON" | 1)
+    echo_green_text "Installing phoenix-osx package..."
+	brew install celenity/tap/phoenix-osx || error_fn
+	echo
+
+	echo_green_text "Downloading phoenix-apply.sh..."
+	curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/celenity/Phoenix/phoenix-apply.sh --output "${PHOENIX_INSTALL_TEMP}/phoenix-apply.sh" || error_fn
+	echo
+
+	echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
+	sudo chmod -v 744 phoenix-apply.sh || error_fn
+	echo
+
+	echo_green_text "Copying phoenix-apply.sh to /Library/celenity/Phoenix/phoenix-apply.sh..."
+	sudo cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+	echo
+
+	echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
+	curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.apply.plist" || error_fn
+	echo
+
+	echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
+	sudo chmod -v 644 dev.celenity.phoenix.apply.plist || error_fn
+	echo
+
+	echo_green_text "Copying dev.celenity.phoenix.apply.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist..."
+	sudo cp dev.celenity.phoenix.apply.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+	echo
+
+	echo_green_text "Loading dev.celenity.phoenix.apply.plist..."
+	sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
+	echo
+
+    echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
+    echo
+
+    echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
+    sudo chmod -v 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+    echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    sudo cp dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+    echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+	echo -e ""
+	echo_green_text "Where is your installation of Firefox located?";
+	echo_green_text "Your options are:";
+	echo_red_text "1. system - /Applications/Firefox.app";
+	echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
+	read "LOCATION?Please enter your selection: "
+	case ${LOCATION} in
+	  "system" | "System" | "SYSTEM" | 1)
+		## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_XATTR}" /Applications/Firefox.app
+
+		echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		sudo mkdir -vp /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 		echo
 
-		echo_green_text "Downloading phoenix-apply.sh..."
-		curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/celenity/Phoenix/phoenix-apply.sh --output "${PHOENIX_INSTALL_TEMP}/phoenix-apply.sh" || error_fn
+		echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
+		sudo chmod -v -R 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
 		echo
 
-		echo_green_text "Changing permissions of phoenix-apply.sh to 744..."
-		sudo chmod -v 744 phoenix-apply.sh || error_fn
+		echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
+		sudo ln -s /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
 		echo
 
-		echo_green_text "Copying phoenix-apply.sh to /Library/celenity/Phoenix/phoenix-apply.sh..."
-		sudo cp phoenix-apply.sh /Library/celenity/Phoenix/phoenix-apply.sh || error_fn
+		echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
+		sudo ln -s /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
 		echo
-
-		echo_green_text "Downloading dev.celenity.phoenix.apply.plist..."
-		curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/LaunchDaemons/dev.celenity.phoenix.apply.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.apply.plist" || error_fn
-		echo
-
-		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.plist to 644..."
-		sudo chmod -v 644 dev.celenity.phoenix.apply.plist || error_fn
-		echo
-
-		echo_green_text "Copying dev.celenity.phoenix.apply.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist..."
-		sudo cp dev.celenity.phoenix.apply.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-		echo
-
-		echo_green_text "Loading dev.celenity.phoenix.apply.plist..."
-		sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.plist || error_fn
-		echo
-
-        echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-silicon/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
-        echo
-
-        echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
-        sudo chmod -v 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-        echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        sudo cp dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-        echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-		echo -e ""
-		echo_green_text "Where is your installation of Firefox located?";
-		echo_green_text "Your options are:";
-		echo_red_text "1. system - /Applications/Firefox.app";
-		echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
-		read "LOCATION?Please enter your selection: "
-		case ${LOCATION} in
-			"system" | "System" | "SYSTEM" | 1)
-				## Ensure Firefox isn't quarantined so we don't break it...
-				# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-				"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_XATTR}" /Applications/Firefox.app
-
-				echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
-				sudo mkdir -vp /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
-				echo
-
-				echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
-				sudo chmod -v -R 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
-				sudo ln -s /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
-				sudo ln -s /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
-				echo
-				;;
-
-			"user" | "User" | "USER" | 2)
-				## Ensure Firefox isn't quarantined so we don't break it...
-				# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-				"${PHOENIX_INSTALL_XATTR}" "${HOME}/Applications/Firefox.app"
-
-				echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
-				mkdir -vp "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
-				ln -s /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
-				ln -s /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
-				echo
-				;;
-		esac
 		;;
 
-	"intel" | "Intel" | "INTEL" | 2)
-		echo_green_text "Installing phoenix-osx-intel package..."
-		brew install celenity/tap/phoenix-osx-intel || error_fn
+	  "user" | "User" | "USER" | 2)
+		## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		"${PHOENIX_INSTALL_XATTR}" "${HOME}/Applications/Firefox.app"
+
+		echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		mkdir -vp "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
 		echo
 
-		echo_green_text "Downloading phoenix-apply-intel.sh..."
-		curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/celenity/Phoenix/phoenix-apply-intel.sh --output "${PHOENIX_INSTALL_TEMP}/phoenix-apply-intel.sh" || error_fn
+		echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
+		ln -s /opt/homebrew/opt/phoenix-osx/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
 		echo
 
-		echo_green_text "Changing permissions of phoenix-apply-intel.sh to 744..."
-		sudo chmod -v 744 phoenix-apply-intel.sh || error_fn
+		echo_green_text "Creating a symlink from /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
+		ln -s /opt/homebrew/opt/phoenix-osx/macos/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
 		echo
-
-		echo_green_text "Copying phoenix-apply-intel.sh to /Library/celenity/Phoenix/phoenix-apply-intel.sh..."
-		sudo cp phoenix-apply-intel.sh /Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
-		echo
-
-		echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
-		curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.apply.intel.plist" || error_fn
-		echo
-
-		echo_green_text "Changing permissions of dev.celenity.phoenix.apply.intel.plist to 644..."
-		sudo chmod -v 644 dev.celenity.phoenix.apply.intel.plist || error_fn
-		echo
-
-		echo_green_text "Copying dev.celenity.phoenix.apply.intel.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist..."
-		sudo cp dev.celenity.phoenix.apply.intel.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
-		echo
-
-		echo_green_text "Loading dev.celenity.phoenix.apply.intel.plist..."
-		sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
-		echo
-
-        echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
-        echo
-
-        echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
-        sudo chmod -v 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-        echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        sudo cp dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-        echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
-        "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
-        echo
-
-		echo -e ""
-		echo_green_text "Where is your installation of Firefox located?";
-		echo_green_text "Your options are:";
-		echo_red_text "1. system - /Applications/Firefox.app";
-		echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
-		read "LOCATION?Please enter your selection: "
-		case ${LOCATION} in
-			"system" | "System" | "SYSTEM" | 1)
-				## Ensure Firefox isn't quarantined so we don't break it...
-				# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-				"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_XATTR}" /Applications/Firefox.app
-
-				echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
-				sudo mkdir -vp /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
-				echo
-
-				echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
-				sudo chmod -v -R 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
-				sudo ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
-				sudo ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
-				echo
-				;;
-
-			"user" | "User" | "USER" | 2)
-				## Ensure Firefox isn't quarantined so we don't break it...
-				# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
-				"${PHOENIX_INSTALL_XATTR}" "${HOME}/Applications/Firefox.app"
-
-				echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
-				mkdir -vp "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
-				ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
-				echo
-
-				echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
-				ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
-				echo
-				;;
-		esac
 		;;
+	esac
+	;;
+
+  "intel" | "Intel" | "INTEL" | 2)
+    echo_green_text "Installing phoenix-osx-intel package..."
+	brew install celenity/tap/phoenix-osx-intel || error_fn
+	echo
+
+	echo_green_text "Downloading phoenix-apply-intel.sh..."
+	curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/celenity/Phoenix/phoenix-apply-intel.sh --output "${PHOENIX_INSTALL_TEMP}/phoenix-apply-intel.sh" || error_fn
+	echo
+
+	echo_green_text "Changing permissions of phoenix-apply-intel.sh to 744..."
+	sudo chmod -v 744 phoenix-apply-intel.sh || error_fn
+	echo
+
+	echo_green_text "Copying phoenix-apply-intel.sh to /Library/celenity/Phoenix/phoenix-apply-intel.sh..."
+	sudo cp phoenix-apply-intel.sh /Library/celenity/Phoenix/phoenix-apply-intel.sh || error_fn
+	echo
+
+	echo_green_text "Downloading dev.celenity.phoenix.apply.intel.plist..."
+	curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.apply.intel.plist" || error_fn
+	echo
+
+	echo_green_text "Changing permissions of dev.celenity.phoenix.apply.intel.plist to 644..."
+	sudo chmod -v 644 dev.celenity.phoenix.apply.intel.plist || error_fn
+	echo
+
+	echo_green_text "Copying dev.celenity.phoenix.apply.intel.plist to /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist..."
+	sudo cp dev.celenity.phoenix.apply.intel.plist /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+	echo
+
+	echo_green_text "Loading dev.celenity.phoenix.apply.intel.plist..."
+	sudo "${PHOENIX_INSTALL_LAUNCHCTL}" load -w /Library/LaunchDaemons/dev.celenity.phoenix.apply.intel.plist || error_fn
+	echo
+
+    echo_green_text "Downloading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/osx-intel/Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist --output "${PHOENIX_INSTALL_TEMP}/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist" || error_fn
+    echo
+
+    echo_green_text "Changing permissions of dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to 644..."
+    sudo chmod -v 644 dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+    echo_green_text "Copying dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist to /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    sudo cp dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+    echo_green_text "Loading dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist..."
+    "${PHOENIX_INSTALL_LAUNCHCTL}" load /Library/LaunchAgents/dev.celenity.phoenix.env.PHOENIX_HOST_PLATFORM.plist || error_fn
+    echo
+
+	echo -e ""
+	echo_green_text "Where is your installation of Firefox located?";
+	echo_green_text "Your options are:";
+	echo_red_text "1. system - /Applications/Firefox.app";
+	echo_green_text "2. user - ${HOME}/Applications/Firefox.app";
+	read "LOCATION?Please enter your selection: "
+	case ${LOCATION} in
+	  "system" | "System" | "SYSTEM" | 1)
+	    ## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		"${PHOENIX_INSTALL_SUDO}" "${PHOENIX_INSTALL_XATTR}" /Applications/Firefox.app
+
+		echo_green_text "Creating /Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		sudo mkdir -vp /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+		echo
+
+		echo_green_text "Changing permissions of /Applications/Firefox.app/Contents/Resources/defaults/pref to 755..."
+		sudo chmod -v -R 755 /Applications/Firefox.app/Contents/Resources/defaults/pref || error_fn
+		echo
+
+		echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js..."
+		sudo ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js /Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js || error_fn
+		echo
+
+		echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to /Applications/Firefox.app/Contents/Resources/phoenix.cfg.."
+		sudo ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg /Applications/Firefox.app/Contents/Resources/phoenix.cfg || error_fn
+		echo
+		;;
+
+	  "user" | "User" | "USER" | 2)
+		## Ensure Firefox isn't quarantined so we don't break it...
+		# https://support.mozilla.org/kb/deploying-firefox-customizations-macos
+		"${PHOENIX_INSTALL_XATTR}" "${HOME}/Applications/Firefox.app"
+
+		echo_green_text "Creating ${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref directory..."
+		mkdir -vp "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref" || error_fn
+		echo
+
+		echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js to "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js"..."
+		ln -s /usr/local/opt/phoenix-osx-intel/defaults/pref/phoenix.js "${HOME}/Applications/Firefox.app/Contents/Resources/defaults/pref/phoenix.js" || error_fn
+		echo
+
+		echo_green_text "Creating a symlink from /usr/local/opt/phoenix-osx-intel/phoenix.cfg to "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg".."
+		ln -s /usr/local/opt/phoenix-osx-intel/phoenix.cfg "${HOME}/Applications/Firefox.app/Contents/Resources/phoenix.cfg" || error_fn
+		echo
+		;;
+	esac
+	;;
 esac
 
 popd
