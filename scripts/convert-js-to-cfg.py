@@ -19,11 +19,11 @@ def process_file(input_file, output_file):
           # Change pref to defaultPref
           modified_line = line.replace("pref(", "defaultPref(")
 
-          # Write the modified line
-          file.write(modified_line)
+        # Write the modified line
+        file.write(modified_line)
       else:
-          # Leave the line unchanged (ex. for comments)
-          file.write(line)
+        # Leave the line unchanged (ex. for comments)
+        file.write(line)
 
 # Check if the correct number of arguments is provided
 if len(sys.argv) != 3:
