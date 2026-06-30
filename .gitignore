@@ -1,3 +1,5 @@
+# .gitignore
+
 *.code-workspace
 .DS_Store
 result*
