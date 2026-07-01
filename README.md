@@ -104,7 +104,7 @@ It doesn't have to be this way.
 
 ### Want to join Phoenix Community?
 
-We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) *(Recommended)* and [Discord](https://discord.gg/TsADPVDerv)!
+We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) _(Recommended)_ and [Discord](https://discord.gg/TsADPVDerv)!
 
 ## 🚀 Installation
 
@@ -124,8 +124,8 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.o
 
 Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
-1. *Flatpak targets `org.mozilla.firefox` package.*
-2. *Gentoo GNU/Linux supports stable and ESR builds via both binary and source compilation.*
+1. _Flatpak targets `org.mozilla.firefox` package._
+2. _Gentoo GNU/Linux supports stable and ESR builds via both binary and source compilation._
 
 Other platforms have unfortunately proven difficult to support, though progress
 is being made. Contributions are always welcome and appreciated.
@@ -160,7 +160,7 @@ See: [docs/specialized-configs](docs/specialized-configs.md)
 ### 📛 Manual Installation
 
 > [!CAUTION]
->**This is NOT recommended for most users.**
+> **This is NOT recommended for most users.**
 
 By default, Phoenix is installed & updated via your operating system's package
 manager. This allows for fast, easy updates & fixes as needed, right with the
@@ -191,7 +191,7 @@ to us and let us know how you want to help.
 
 Phoenix is licensed under the
 [GNU General Public License v3.0 or later](https://spdx.org/licenses/GPL-3.0-or-later.html)
-*(`GPL-3.0-or-later`)* where applicable.
+_(`GPL-3.0-or-later`)_ where applicable.
 
 ## 🏛️ Notices
 
@@ -206,8 +206,8 @@ Huge thank you to the following projects & individuals for making Phoenix
 possible. Please show them support!
 
 | Projects & Names                                                                                                                                                                                                                                                                                                                                                                       | Notes                                                                                                                                                                                                                                                                     | License                                                                          | Donate                                              |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------|
-| [Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)                                                                                                                                                                                                                                                                                                                               | Designed Phoenix's icon *(derived from Xonotic, see below)*, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions. | -                                                                                | -                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [Seyed Mohamad Amin Modaresi](https://codeberg.org/gnu1)                                                                                                                                                                                                                                                                                                                               | Designed Phoenix's icon _(derived from Xonotic, see below)_, created the install & uninstall scripts, helped with maintenance/packaging, assisted with README formatting, provided general advice & support, and responsible for various other significant contributions. | -                                                                                | -                                                   |
 | [GW72](https://codeberg.org/GW72)                                                                                                                                                                                                                                                                                                                                                      | Invaluable feedback and support of the project.                                                                                                                                                                                                                           | -                                                                                | -                                                   |
 | [Xonotic](https://xonotic.org): [Severin Meyer](https://sev.dev)                                                                                                                                                                                                                                                                                                                       | [Designed Phoenix's icon](https://gitlab.com/xonotic/xonotic/-/commit/9f43d6b9ffbed8b4e19b11e99afe98ea40df1814)                                                                                                                                                           | [GPLv3 or later](https://gitlab.com/xonotic/xonotic/-/blob/master/COPYING)       | -                                                   |
 | [Arkenfox](https://github.com/arkenfox/user.js): [Thorin-Oakenpants](https://github.com/thorin-Oakenpants), [earthlng](https://github.com/earthlng), [claustromaniac](https://github.com/claustromaniac)                                                                                                                                                                               | -                                                                                                                                                                                                                                                                         | [MIT](https://github.com/arkenfox/user.js/blob/master/LICENSE.txt)               | -                                                   |

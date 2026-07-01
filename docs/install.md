@@ -1,4 +1,4 @@
-# Install
+# Phoenix: Install
 
 > [!IMPORTANT]
 > ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first
@@ -22,8 +22,8 @@
 
 Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
-1. *Flatpak targets `org.mozilla.firefox` package.*
-2. *Gentoo GNU/Linux supports stable and ESR builds via both binary and source compilation.*
+1. _Flatpak targets `org.mozilla.firefox` package._
+2. _Gentoo GNU/Linux supports stable and ESR builds via both binary and source compilation._
 
 Other platforms have unfortunately proven difficult to support, though progress
 is being made. Contributions are always welcome and appreciated.
@@ -47,17 +47,17 @@ is being made. Contributions are always welcome and appreciated.
 ## Install: Auto
 
 > [!NOTE]
-> ⚠️ **Flatpak *(User)* & Snap packages of Firefox are currently not supported.**
+> ⚠️ **Flatpak _(User)_ & Snap packages of Firefox are currently not supported.**
 
 > [!IMPORTANT]
 > **Android users are recommended to install
-> [IronFox](https://gitlab.com/ironfox-oss/IronFox) *(Recommended)*, which uses
+> [IronFox](https://gitlab.com/ironfox-oss/IronFox) _(Recommended)_, which uses
 > Phoenix for its configs. Android users can also manually install Phoenix for
 > any Firefox-based browser on Android via [directions](https://phoenix.celenity.dev/android).**
 
 ### Arch Linux
 
-```sh
+```bash
 # You can use `paru` instead of `yay` with the same options.
 
 # Pacman:
@@ -69,25 +69,25 @@ yay -S phoenix-flatpak
 
 ### Debian/Ubuntu and derivatives
 
- Before installing Phoenix, you'll first need to add [celenity's OBS repo](https://build.opensuse.org/project/show/home:celenity):
+Before installing Phoenix, you'll first need to add [celenity's OBS repo](https://build.opensuse.org/project/show/home:celenity):
 
 > [!NOTE]
 > You may see a warning, such as the following, when updating your `apt` cache.
 >
-> ```sh
+> ```bash
 > Warning: https://download.opensuse.org/repositories/home:/celenity/Debian_Unstable/InRelease: Policy will reject signature within a year, see --audit for details
 > ```
 >
 > This is because `apt` will not support V3 GPG keys after `2026-02-01`, and
 > currently the OBS uses a V3 GPG key. For now, there shouldn't be any issues.
 
- ```sh
- echo 'deb https://download.opensuse.org/repositories/home:/celenity/Debian_Unstable/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
- wget -O- https://download.opensuse.org/repositories/home:celenity/Debian_Unstable/Release.key 2>/dev/null | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
- sudo apt update
- ```
+```bash
+echo 'deb https://download.opensuse.org/repositories/home:/celenity/Debian_Unstable/ /' | sudo tee /etc/apt/sources.list.d/home:celenity.list
+wget -O- https://download.opensuse.org/repositories/home:celenity/Debian_Unstable/Release.key 2>/dev/null | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_celenity.gpg > /dev/null
+sudo apt update
+```
 
-```sh
+```bash
 # APT:
 sudo apt install phoenix
 
@@ -99,7 +99,7 @@ sudo apt install phoenix-flatpak
 
 Before installing Phoenix, you'll first need to add [celenity's COPR repo](https://copr.fedorainfracloud.org/coprs/celenity/copr):
 
- ```sh
+```bash
 sudo dnf copr enable celenity/copr && sudo dnf makecache
 
 # RPM:
@@ -114,7 +114,7 @@ sudo dnf install phoenix-flatpak
 > [!IMPORTANT]
 > ⚠️ **Before proceeding, you must have [Homebrew](https://brew.sh) installed.**
 
-```sh
+```zsh
 /bin/zsh -c "$(curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/scripts/osx_install.sh)"
 ```
 
@@ -174,8 +174,8 @@ Phoenix with the following steps:
 
 **1:** Download the archive for your desired Phoenix release:
 
-This can be found at the link below *(replacing `{PHOENIX_VERSION}`
-with the version of Phoenix you'd like to download)*.
+This can be found at the link below _(replacing `{PHOENIX_VERSION}`
+with the version of Phoenix you'd like to download)_.
 For reference, the latest version of Phoenix can always be
 found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
@@ -187,7 +187,7 @@ command in your terminal:
 https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/linux/phoenix-{PHOENIX_VERSION}-linux.tar.xz
 ```
 
-```sh
+```bash
 curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --remote-name --location https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/linux/phoenix-{PHOENIX_VERSION}-linux.tar.xz
 ```
 
@@ -195,7 +195,7 @@ curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-u
 
 First, create the directory where you'd like to extract Phoenix:
 
-```sh
+```bash
 cd ~/Downloads # or where you downloaded the archive
 mkdir -p phoenix && tar -xvf phoenix-{PHOENIX_VERSION}-linux.tar.xz -C phoenix
 ```
@@ -204,7 +204,7 @@ mkdir -p phoenix && tar -xvf phoenix-{PHOENIX_VERSION}-linux.tar.xz -C phoenix
 create a folder named `firefox` located in your system's `etc` directory.
 This will work **regardless of your distribution** - even Snaps are supported.
 
-```sh
+```bash
 sudo mkdir -p /etc/firefox && sudo chmod 655 /etc/firefox
 ```
 
@@ -212,10 +212,10 @@ sudo mkdir -p /etc/firefox && sudo chmod 655 /etc/firefox
 You can either drag and drop it manually, or run the following command:
 
 **NOTE**: If you have previously installed `phoenix.cfg` to a different location
-*(such as Firefox's installation directory)*,
+_(such as Firefox's installation directory)_,
 **please REMOVE it** to ensure any conflicts are avoided.
 
-```sh
+```bash
 sudo cp phoenix/phoenix.cfg /etc/firefox/phoenix.cfg
 ```
 
@@ -224,7 +224,7 @@ create a new folder named `defaults`, and inside this new `defaults` folder,
 create another folder titled `pref`. This will work
 **regardless of your distribution** - even Snaps are supported.
 
-```sh
+```bash
 sudo mkdir -p /etc/firefox/defaults/pref && sudo chmod 655 /etc/firefox/defaults/pref
 ```
 
@@ -234,7 +234,7 @@ sudo mkdir -p /etc/firefox/defaults/pref && sudo chmod 655 /etc/firefox/defaults
 **NOTE**: If you have a `phoenix-desktop.js` in this directory,
 **please REMOVE it** to ensure any conflicts are avoided.
 
-```sh
+```bash
 sudo cp phoenix/defaults/pref/phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
 
@@ -242,14 +242,14 @@ sudo cp phoenix/defaults/pref/phoenix.js /etc/firefox/defaults/pref/phoenix.js
 inside of the `firefox` folder located in `/etc`. This will work **regardless**
 of your distribution, and even for Snaps.
 
-```sh
+```bash
 sudo mkdir -p /etc/firefox/policies && sudo chmod 655 /etc/firefox/policies
 ```
 
 **8:** Finally, copy `policies.json` to your
 `/etc/firefox/policies` folder you just created.
 
-```sh
+```bash
 sudo cp phoenix/policies/policies.json /etc/firefox/policies/policies.json
 ```
 
@@ -257,7 +257,7 @@ sudo cp phoenix/policies/policies.json /etc/firefox/policies/policies.json
 
 **1:** Download the archive for your desired Phoenix release:
 
-This can be found at the link below *(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)*. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
+This can be found at the link below _(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)_. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
 - `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/osx/phoenix-{PHOENIX_VERSION}-osx.tar.xz`
 
@@ -265,7 +265,7 @@ You can navigate to the link above and download the archive
 directly from your web browser, or you can run the following
 command in your terminal:
 
-```sh
+```zsh
 curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --remote-name --location https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/osx/phoenix-{PHOENIX_VERSION}-osx.tar.xz
 ```
 
@@ -273,15 +273,15 @@ curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-u
 
 First, create the directory where you'd like to extract Phoenix:
 
-```sh
+```zsh
 mkdir -p phoenix
 ```
 
 Now, extract the downloaded archive:
 
-*(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `/path/to` with the path to your downloaded archive)*
+_(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `/path/to` with the path to your downloaded archive)_
 
-```sh
+```zsh
 tar xJf /path/to/phoenix-{PHOENIX_VERSION}-osx.tar.xz -C phoenix
 ```
 
@@ -296,39 +296,39 @@ my installation directory would be: **`/Users/${USER}/Applications/Firefox.app`*
 
 **4:** Copy `macos/phoenix.cfg` to the **`Resources`** folder within your installation directory.
 You can either drag and drop it manually, or run the following command:
-*assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory*
+_assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory_
 
-```sh
+```zsh
 sudo cp phoenix/macos/phoenix.cfg /Users/${USER}/Applications/Firefox.app/Resources/phoenix.cfg
 ```
 
 **5:** If it does not already exist, inside the `Resources` directory, create a new folder named `defaults`,
 and inside this new `defaults` folder, create another folder titled `pref`.
 You can do this manually through your file explorer, or you can run the following command:
-*assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory*
+_assuming `/Users/${USER}/Applications/Firefox.app` is your installation directory_
 
-```sh
+```zsh
 sudo mkdir -p /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref
 ```
 
 You'll also want to ensure that the folder you created has proper permissions:
 
-```sh
+```zsh
 sudo chmod 744 /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref
 ```
 
 **6:** Copy `defaults/pref/phoenix.js` to the
 `pref` folder that you just created. You can run the following command:
-*Assuming your installation directory is `/Users/${USER}/Applications/Firefox.app`*
+_Assuming your installation directory is `/Users/${USER}/Applications/Firefox.app`_
 
-```sh
+```zsh
 sudo cp phoenix/defaults/pref/phoenix.js /Users/${USER}/Applications/Firefox.app/Resources/defaults/pref/phoenix.js
 ```
 
 **7:** Finally, copy `macos/org.mozilla.firefox.plist` to
 `/Library/Preferences`, and **reboot** your device once finished:
 
-```sh
+```zsh
 sudo cp phoenix/macos/org.mozilla.firefox.plist /Library/Preferences/org.mozilla.firefox.plist
 ```
 
@@ -336,7 +336,7 @@ sudo cp phoenix/macos/org.mozilla.firefox.plist /Library/Preferences/org.mozilla
 
 **1:** Download the archive for your desired Phoenix release:
 
-This can be found at the link below *(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)*. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
+This can be found at the link below _(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)_. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
 - `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/windows/phoenix-{PHOENIX_VERSION}-windows.zip`
 
@@ -358,7 +358,7 @@ New-Item -ItemType 'Directory' -Name 'phoenix'
 
 Now, extract the downloaded archive:
 
-*(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `\Path\To` with the path to your downloaded archive)*
+_(Replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download, and `\Path\To` with the path to your downloaded archive)_
 
 ```powershell
 Expand-Archive -Path '\Path\To\phoenix-{PHOENIX_VERSION}-windows.zip' -DestinationPath 'phoenix'

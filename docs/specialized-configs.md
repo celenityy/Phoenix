@@ -1,4 +1,4 @@
-# 💡 Specialized Configs
+# 💡 Phoenix: Specialized Configs
 
 It should also be noted that Phoenix contains specialized configurations for
 **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and

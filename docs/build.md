@@ -1,58 +1,57 @@
-# Build Phoenix
+# Phoenix: Build
 
 ## Dependencies
 
-To build Phoenix, you'll first want to ensure you've installed the necessary dependencies for your system:
+To build Phoenix, you'll first want to ensure you've installed the necessary
+dependencies for your system:
 
-### Fedora
+### Linux
 
-```sh
+#### Fedora
+
+```bash
 dnf install bash curl jq
 ```
 
-### Gentoo
+#### Gentoo
 
-```sh
-emerge -av app-shells/bash app-misc/jq
+```bash
+emerge -av app-shells/bash net-misc/curl app-misc/jq
 ```
 
 ### macOS
 
-**NOTE**: [Homebrew](https://brew.sh/) **must** be installed *(if is not already installed)* before following the steps below.
+**NOTE**: [Homebrew](https://brew.sh) **must** be installed
+_(if is not already installed)_ before following the steps below.
 
-```sh
+```zsh
 /usr/bin/xcode-select --install
 brew install gawk gnu-sed gnu-tar jq
 ```
 
-## Get Phoenix
+### Windows
 
-Now, you'll want to get the Phoenix repository.
-
-With `git`, you can use:
-
-```sh
-git clone --depth=1 git@codeberg.org:celenity/Phoenix.git Phoenix
-```
-
-**For the following steps, ensure you have navigated to the root of the repository**:
-
-```sh
-cd Phoenix
-```
-
-## Sources
-
-**From the root of the repository**, download Phoenix's sources:
-
-```sh
-bash -x scripts/get_sources.sh
+```powershell
+?
 ```
 
 ## Build
 
+Now, you'll want to get the Phoenix repository.
+With `git`, you can use:
+
+```bash
+git clone --depth=1 git@codeberg.org:celenity/Phoenix.git && cd Phoenix
+```
+
+**From the root of the repository**, download Phoenix's sources:
+
+```bash
+bash -x scripts/get_sources.sh
+```
+
 Finally, **from the root of the repository**, build Phoenix!:
 
-```sh
+```bash
 bash -x scripts/build.sh
 ```

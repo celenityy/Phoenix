@@ -1,4 +1,4 @@
-# 🔥 Extended
+# 🔥 Phoenix: Extended Configs
 
 For advanced users who would like to go above & beyond when protecting their
 privacy & security, at the cost of occasional breakage, Phoenix offers an

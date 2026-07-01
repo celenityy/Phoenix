@@ -1,6 +1,6 @@
-# Phoenix for Android
+# Phoenix: Android
 
-This directory contains specialized Phoenix configuration files,
+`android/` directory contains specialized Phoenix configuration files,
 specifically designed for Firefox on Android.
 These configurations should **NOT** be used on Desktop Firefox releases,
 & you should **NOT** use our desktop configurations on Android.
@@ -8,22 +8,22 @@ These configurations should **NOT** be used on Desktop Firefox releases,
 **The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox)**,
 a fully free & open source fork of the now
 discontinued [Mull](https://codeberg.org/divested-mobile/mull-fenix) browser.
-*(Disclaimer: I am a maintainer of IronFox...)*.
+_(Disclaimer: I am a maintainer of IronFox...)_.
 
 However, you may also manually install these configurations on:
 
-* **Fennec F-Droid**
-* **Firefox**
-* **Firefox Beta**
-* **Firefox Focus**
-* **Firefox Klar**
-* **Firefox Nightly**
-* **Iceraven**
-* & basically **any other Firefox-based Android web browser via the following steps**.
+- **Fennec F-Droid**
+- **Firefox**
+- **Firefox Beta**
+- **Firefox Focus**
+- **Firefox Klar**
+- **Firefox Nightly**
+- **Iceraven**
+- & basically **any other Firefox-based Android web browser via the following steps**.
 
 ## Manual Installation Steps
 
-*This guide has been adapted from the incredible work of [ndv92](https://voz.vn/u/ndv92.790519/) (see their original forum post [here](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740)), and [Gunir](https://github.com/gunir) (see their on GitHub [here](https://github.com/yokoffing/Betterfox/issues/240)).* **Thank you to them for making this possible!**
+_This guide has been adapted from the incredible work of [ndv92](https://voz.vn/u/ndv92.790519/) (see their original forum post [here](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740)), and [Gunir](https://github.com/gunir) (see their on GitHub [here](https://github.com/yokoffing/Betterfox/issues/240))._ **Thank you to them for making this possible!**
 
 **1:** You're first going to need to install ADB on your computer. You can see a guide to do this [here](https://www.xda-developers.com/install-adb-windows-macos-linux/). You also need to make sure you have Firefox's desktop application installed, and you'll need a USB (C) cable to connect your mobile device to your computer.
 **2:** In your Firefox-based web browser **on your Android device**, navigate to `Settings`, scroll down to the bottom, and **enable** `Remote debugging via USB`.
@@ -34,28 +34,21 @@ However, you may also manually install these configurations on:
 **3:** On your Android device, you now need to enable ADB debugging. The steps will vary depending on your device's manufacturer, but for AOSP, you can enable it via opening your `Settings` app, and navigating to `System` -> `Developer options` -> `USB debugging`. **Make sure you have Developer options enabled!**
 
 > [!TIP]
-> If you don't already have Developer options enabled on your device, the steps will again vary depending on your device's manufacturer, but for AOSP, you can activate it via opening your `Settings` app, navigating to `About phone` *(It may also say `About tablet`, depending on your device...)*, scrolling down to the very bottom, and repeatedly tapping `Build number`, until you see a confirmation screen asking for your device's passcode.
+> If you don't already have Developer options enabled on your device, the steps will again vary depending on your device's manufacturer, but for AOSP, you can activate it via opening your `Settings` app, navigating to `About phone` _(It may also say `About tablet`, depending on your device...)_, scrolling down to the very bottom, and repeatedly tapping `Build number`, until you see a confirmation screen asking for your device's passcode.
 
 > [!IMPORTANT]
 > **Please remember to disable ADB when you're done, due to security concerns...**
 
 **4:** Open Firefox back up on your mobile device, and navigate to `about:support`.
-
-**5:** Ensure ADB is running on your computer *(An easy way to tell is simply via running `adb devices`)*, and connect your mobile device to your computer.
-
+**5:** Ensure ADB is running on your computer _(An easy way to tell is simply via running `adb devices`)_, and connect your mobile device to your computer.
 **6:** You'll now see a prompt on your device asking to `Allow USB debugging?`. Select **Allow**.
-
 **7:** Run `adb devices` & confirm your device is attached. If it is attached, proceed to the next steps.
-
 **8:** On your computer, launch Firefox's desktop installation, and navigate to `about:debugging`. Towards the bottom left, you should see your device's name/model, with an option to `Connect`. Select **Connect**. If you don't see it, you should try selecting the `Refresh devices` option, and unplugging + plugging back in your device to your computer.
-
 **9:** Select your device's name/model towards the bottom left. Under the `Tabs` section, you should see an entry titled `Troubleshooting Information`, with the text `about:support` below it. Choose **Inspect** to the right of this text.
-
 **10:** If not already selected, navigate to the Web Console via selecting the **Console** tab; it can be found in between the `Inspector` & `Debugger` options.
-
 **11:** Paste the following content into your Web Console, but do **NOT** enter it yet:
 
-```sh
+```bash
 var locked = "ignore";
 var sticky = "ignore";
 var pref = function(pref, val, locked, sticky) {
@@ -73,27 +66,21 @@ var pref = function(pref, val, locked, sticky) {
 }
 
 // Paste the contents of your .js file below:
-
 ```
 
-*Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case.*
+_Credit to [ndv92](https://voz.vn/u/ndv92.790519/) for [the creation of the code above](https://voz.vn/t/tong-hop-nhung-addon-chat-cho-firefox-chromium.682181/page-292#post-27739740); I've just slightly tweaked it for our use case._
 
-**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to the **Android** `phoenix.js` file. It can be found at the following link below *(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)*. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
+**12:** Open up a separate tab on your desktop installation of Firefox, and navigate to the **Android** `phoenix.js` file. It can be found at the following link below _(replacing `{PHOENIX_VERSION}` with the version of Phoenix you'd like to download)_. For reference, the latest version of Phoenix can always be found at the top of [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
 
-* `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-{PHOENIX_VERSION}-android.js`
+- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-{PHOENIX_VERSION}-android.js`
 
 If you'd like to use Phoenix's `Extended` Hardening config, you should **instead** use the link below:
 
-* `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-extended-{PHOENIX_VERSION}-android.js`
+- `https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/android/phoenix-extended-{PHOENIX_VERSION}-android.js`
 
-**13:** Copy the contents of your desired file *(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)*, then navigate back to your Web console, & paste the contents below the `// Paste the contents of your .js file below:` line. **Now press enter.**
-
+**13:** Copy the contents of your desired file _(Easiest way to select everything is via `Ctrl` + `a`, then `Ctrl` + `c` to copy)_, then navigate back to your Web console, & paste the contents below the `// Paste the contents of your .js file below:` line. **Now press enter.**
 **14:** Unplug your Android device from your computer, and stop ADB via running `adb kill-server` on your computer.
-
 **15:** Back on your Android device, within Firefox, navigate to `Settings`, scroll down to the bottom, and **disable** `Remote debugging via USB`.
-
-**16:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` *(via the same way you accessed it in Step `3`)*, and **disable** `USB debugging`.
-
+**16:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` _(via the same way you accessed it in Step `3`)_, and **disable** `USB debugging`.
 **17:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
-
 **18:** You're done, enjoy :).

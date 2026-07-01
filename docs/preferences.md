@@ -1,4 +1,4 @@
-# Phoenix Preferences
+# Phoenix: Preferences
 
 The following page is meant to serve as documentation
 for preferences introduced by Phoenix.
