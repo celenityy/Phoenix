@@ -1,5 +1,7 @@
 * text=auto eol=lf
 
+/docs/**         linguist-documentation
+
 *.json           linguist-detectable
 *.yaml           linguist-detectable
 *.xml            linguist-detectable
@@ -23,4 +25,4 @@ flake.lock       gitlab-language=json
 *permissions.txt linguist-language=INI
 .git*            linguist-language=Shell
 .gitlab-ci.yml   linguist-language=YAML
-flake.lock       linguist-language=JSON
+flake.lock       linguist-language=JSON linguist-generated
