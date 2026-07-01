@@ -25,11 +25,11 @@ flake.lock       gitlab-language=json
 # For a list of supported languages, see:
 # Forgejo (Codeberg): https://github.com/go-enry/go-enry/blob/master/data/languageInfo.go
 # GitHub: https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
-*.cfg            linguist-language=JavaScript
+*.cfg            linguist-language=JAVASCRIPT
 *.jsonc          linguist-language=JSON
 *.plist          linguist-language=XML
 *.yml            linguist-language=YAML
 *permissions.txt linguist-language=INI
-.git*            linguist-language=Shell
+.git*            linguist-language=SHELL
 .gitlab-ci.yml   linguist-language=YAML
 flake.lock       linguist-language=JSON linguist-generated
