@@ -335,23 +335,23 @@ function extract() {
 
   # Extract based on file extension
   case "${archive_path}" in
-  *.zip)
-    unzip -q "${archive_path}" -d "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-    ;;
-  *.tar.gz)
-    "${PHOENIX_TAR}" xzf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-    ;;
-  *.tar.xz)
-    "${PHOENIX_TAR}" xJf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-    ;;
-  *.tar.zst)
-    "${PHOENIX_TAR}" --zstd -xvf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-    ;;
-  *)
-    echo_red_text "ERROR: Unsupported archive format: ${archive_path}"
-    rm -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-    exit 1
-    ;;
+    *.zip)
+      unzip -q "${archive_path}" -d "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
+      ;;
+    *.tar.gz)
+      "${PHOENIX_TAR}" xzf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
+      ;;
+    *.tar.xz)
+      "${PHOENIX_TAR}" xJf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
+      ;;
+    *.tar.zst)
+      "${PHOENIX_TAR}" --zstd -xvf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
+      ;;
+    *)
+      echo_red_text "ERROR: Unsupported archive format: ${archive_path}"
+      rm -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
+      exit 1
+      ;;
   esac
 
   local readonly top_input_dir=$(ls "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}")
@@ -464,35 +464,6 @@ function get_python() {
     fi
   fi
 
-  # Set our platform
-  if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-    local readonly PYTHON_PLATFORM='apple-darwin'
-  else
-    local readonly PYTHON_PLATFORM='unknown-linux-gnu'
-  fi
-
-  # Set our platform architecture
-  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
-    local readonly PYTHON_ARCH='aarch64'
-  else
-    local readonly PYTHON_ARCH='x86_64'
-  fi
-
-  # Set our checksum to verify
-  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
-    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-      local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_ARM64}"
-    else
-      local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_ARM64}"
-    fi
-  else
-    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-      local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_X86_64}"
-    else
-      local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_X86_64}"
-    fi
-  fi
-
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading Python (Linux - ARM64)...'
     download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PYTHON_SHA512SUM_LINUX_ARM64}"
@@ -506,6 +477,35 @@ function get_python() {
     echo_red_text 'Downloading Python (OS X - x86_64)...'
     download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PYTHON_SHA512SUM_OSX_X86_64}"
   else
+    # Set our platform
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+      local readonly PYTHON_PLATFORM='apple-darwin'
+    else
+      local readonly PYTHON_PLATFORM='unknown-linux-gnu'
+    fi
+
+    # Set our platform architecture
+    if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+      local readonly PYTHON_ARCH='aarch64'
+    else
+      local readonly PYTHON_ARCH='x86_64'
+    fi
+
+    # Set our checksum to verify
+    if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+      if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+        local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_ARM64}"
+      else
+        local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_ARM64}"
+      fi
+    else
+      if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+        local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_OSX_X86_64}"
+      else
+        local readonly PYTHON_SHA512SUM="${PYTHON_SHA512SUM_LINUX_X86_64}"
+      fi
+    fi
+
     # Tell `download` to return instead of exit upon an error
     PHOENIX_DOWNLOAD_EXIT=0
 
@@ -517,10 +517,6 @@ function get_python() {
     echo_red_text 'Downloading Python...'
     download "https://github.com/astral-sh/python-build-standalone/releases/download/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PYTHON_SHA512SUM}" || local PHOENIX_DOWNLOAD_FAILED=1
 
-    if [[ "${PHOENIX_DOWNLOAD_FAILED}" != 1 ]]; then
-      echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
-    fi
-
     # If the download failed, restore our back-ups, clean-up, and exit
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
       restore_dir "${PHOENIX_PYENV_DIR}"
@@ -530,6 +526,8 @@ function get_python() {
       restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
       rm -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
+    else
+      echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
     fi
 
     echo_red_text 'Installing Python...'
@@ -611,35 +609,6 @@ function get_uv() {
     fi
   fi
 
-  # Set our platform
-  if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-    local readonly UV_PLATFORM='apple-darwin'
-  else
-    local readonly UV_PLATFORM='unknown-linux-gnu'
-  fi
-
-  # Set our platform architecture
-  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
-    local readonly UV_ARCH='aarch64'
-  else
-    local readonly UV_ARCH='x86_64'
-  fi
-
-  # Set our checksum to verify
-  if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
-    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-      local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_ARM64}"
-    else
-      local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_ARM64}"
-    fi
-  else
-    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-      local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_X86_64}"
-    else
-      local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_X86_64}"
-    fi
-  fi
-
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading uv (Linux - ARM64)...'
     download "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm64.tar.gz" "${UV_SHA512SUM_LINUX_ARM64}"
@@ -653,6 +622,35 @@ function get_uv() {
     echo_red_text 'Downloading uv (OS X - x86_64)...'
     download "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-x86_64.tar.gz" "${UV_SHA512SUM_OSX_X86_64}"
   else
+    # Set our platform
+    if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+      local readonly UV_PLATFORM='apple-darwin'
+    else
+      local readonly UV_PLATFORM='unknown-linux-gnu'
+    fi
+
+    # Set our platform architecture
+    if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+      local readonly UV_ARCH='aarch64'
+    else
+      local readonly UV_ARCH='x86_64'
+    fi
+
+    # Set our checksum to verify
+    if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
+      if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+        local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_ARM64}"
+      else
+        local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_ARM64}"
+      fi
+    else
+      if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+        local readonly UV_SHA512SUM="${UV_SHA512SUM_OSX_X86_64}"
+      else
+        local readonly UV_SHA512SUM="${UV_SHA512SUM_LINUX_X86_64}"
+      fi
+    fi
+
     # Tell `download` to return instead of exit upon an error
     PHOENIX_DOWNLOAD_EXIT=0
 
