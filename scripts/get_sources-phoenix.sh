@@ -316,18 +316,19 @@ function download() {
     fi
   fi
 
-  # If the download failed, restore our back-up
-  if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
+  # If the download (or checksum validation) failed, restore our back-up
+  if [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]] || [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
     if [[ -f "${PHOENIX_EXTERNAL}/temp/backup/${file_name}" ]]; then
       restore_file "${file}"
     fi
   fi
 
   # Clean-up
+  rm -f "${PHOENIX_EXTERNAL}/temp/backup/${file_name}"
   rm -rf "${PHOENIX_EXTERNAL}/temp/chksm"
 
-  # If the download failed, exit
-  if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
+  # If the download (or checksum validation) failed, exit
+  if [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]] || [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
     # If a directory was created just for this download, remove it
     if [[ "${CREATED_DIR_FOR_DL}" == 1 ]]; then
       rm -rf "$(dirname "${file}")"
@@ -461,6 +462,9 @@ function download_and_extract() {
 
   echo_red_text "Extracting ${repo_archive}..."
   extract "${repo_archive}" "${path}" "${repo_name}"
+
+  # Clean-up
+  rm -rf "${PHOENIX_EXTERNAL}/temp/backup/${repo_name}"
 }
 
 # Get Python
