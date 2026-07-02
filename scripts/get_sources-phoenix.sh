@@ -241,8 +241,20 @@ function download() {
     PHOENIX_DOWNLOAD_EXIT=1
   fi
 
+  # By default, we want to perform post-download actions for sources
+  ## (this includes things like ex. installing a dependency or creating/setting-up an environment)
+  ## This isn't desired in some cases, like if we're updating checksums, or a user just cancels the download
+  unset PHOENIX_PERFORM_POST_DOWNLOAD
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
+    ## If we're just updating a checksum, we should never perform post-download actions
+    PHOENIX_PERFORM_POST_DOWNLOAD=0
+  else
+    PHOENIX_PERFORM_POST_DOWNLOAD=1
+  fi
+
   if [[ "${url}" == "" ]]; then
     echo_red_text "ERROR: URL is required (file: '${file_in}')"
+    PHOENIX_PERFORM_POST_DOWNLOAD=0
     if [[ "${PHOENIX_DOWNLOAD_EXIT}" != 1 ]]; then
       unset PHOENIX_DOWNLOAD_EXIT
       return 1
@@ -269,11 +281,13 @@ function download() {
       backup_file "${file}"
     else
       unset PHOENIX_DOWNLOAD_EXIT
+      PHOENIX_PERFORM_POST_DOWNLOAD=0
       return 0
     fi
   fi
 
-  # By default, we know the download hasn't failed...
+  # By default, we know nothing has failed...
+  local PHOENIX_CHECKSUM_FAILED=0
   local PHOENIX_DOWNLOAD_FAILED=0
 
   if [[ ! -d "$(dirname "${file}")" ]]; then
@@ -287,7 +301,20 @@ function download() {
   curl ${PHOENIX_CURL_FLAGS} --location "${url}" --output "${file}" || local PHOENIX_DOWNLOAD_FAILED=1
 
   # Verify (or update) SHA512sum
-  validate_checksum "${expected_sha512sum}" "${file}" 'sha512sum' || local PHOENIX_DOWNLOAD_FAILED=1
+  validate_checksum "${expected_sha512sum}" "${file}" 'sha512sum' || local PHOENIX_CHECKSUM_FAILED=1
+
+  # If we're just updating the checksum, we're done, so go ahead and exit
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
+    if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
+      echo_red_text 'ERROR: Download failed! Exiting...'
+      exit 1
+    elif [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]]; then
+      echo_red_text 'ERROR: Failed to update checksum! Exiting...'
+      exit 1
+    else
+      return 0
+    fi
+  fi
 
   # If the download failed, restore our back-up
   if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
@@ -365,6 +392,17 @@ function download_and_extract() {
   local readonly path="$3"
   local readonly expected_sha512sum="$4"
 
+  # By default, we want to perform post-download actions for sources
+  ## (this includes things like ex. installing a dependency or creating/setting-up an environment)
+  ## This isn't desired in some cases, like if we're updating checksums, or a user just cancels the download
+  unset PHOENIX_PERFORM_POST_DOWNLOAD
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
+    ## If we're just updating a checksum, we should never perform post-download actions
+    PHOENIX_PERFORM_POST_DOWNLOAD=0
+  else
+    PHOENIX_PERFORM_POST_DOWNLOAD=1
+  fi
+
   if [[ -d "${path}" ]] && [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     echo_red_text "'${path}' already exists"
     read -p "Do you want to re-download? [y/N] " -n 1 -r
@@ -374,6 +412,7 @@ function download_and_extract() {
       echo_red_text "Removing ${path}..."
       backup_dir "${path}"
     else
+      PHOENIX_PERFORM_POST_DOWNLOAD=0
       return 0
     fi
   fi
@@ -408,14 +447,11 @@ function download_and_extract() {
     fi
   fi
 
-  # If the download failed, restore our back-up
+  # If the download failed, restore our back-up (if possible) and exit
   if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
     restore_dir "${path}"
-  fi
-
-  # If the download failed, exit
-  if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
     if [[ "${repo_name}" == 'uv' ]]; then
+      PHOENIX_PERFORM_POST_DOWNLOAD=0
       return 1
     else
       echo_red_text 'ERROR: Download failed! Exiting...'
@@ -526,35 +562,35 @@ function get_python() {
       restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
       rm -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
-    else
+    elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PYTHON_GIT_RELEASE}/cpython-${PYTHON_VERSION}+${PYTHON_GIT_RELEASE}-${PYTHON_ARCH}-${PYTHON_PLATFORM}-install_only_stripped.tar.gz"
-    fi
 
-    echo_red_text 'Installing Python...'
-    "${PHOENIX_UV}" python install "${PYTHON_VERSION}" || local PHOENIX_PYTHON_INSTALL_FAILED=1
+      echo_red_text 'Installing Python...'
+      "${PHOENIX_UV}" python install "${PYTHON_VERSION}" || local PHOENIX_PYTHON_INSTALL_FAILED=1
 
-    # If the install failed, restore our back-ups, clean-up, and exit
-    if [[ "${PHOENIX_PYTHON_INSTALL_FAILED}" == 1 ]]; then
-      restore_dir "${PHOENIX_PYENV_DIR}"
-      restore_dir "${PHOENIX_PYTHON_DIR}"
-      restore_dir "${PHOENIX_UV_CACHE}"
-      restore_dir "${PHOENIX_UV_PYTHON}"
-      restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
-      rm -rf "${PHOENIX_EXTERNAL}/temp"
-      exit 1
-    fi
+      # If the install failed, restore our back-ups, clean-up, and exit
+      if [[ "${PHOENIX_PYTHON_INSTALL_FAILED}" == 1 ]]; then
+        restore_dir "${PHOENIX_PYENV_DIR}"
+        restore_dir "${PHOENIX_PYTHON_DIR}"
+        restore_dir "${PHOENIX_UV_CACHE}"
+        restore_dir "${PHOENIX_UV_PYTHON}"
+        restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
+        rm -rf "${PHOENIX_EXTERNAL}/temp"
+        exit 1
+      fi
 
-    echo_red_text 'Creating Python environment...'
-    "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}" || local PHOENIX_PYENV_FAILED=1
+      echo_red_text 'Creating Python environment...'
+      "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}" || local PHOENIX_PYENV_FAILED=1
 
-    # If the Python env set-up failed, restore our back-up, clean-up, and exit
-    if [[ "${PHOENIX_PYENV_FAILED}" == 1 ]]; then
-      echo_red_text 'ERROR: Download failed! Exiting...'
-      restore_dir "${PHOENIX_PYENV_DIR}"
-      rm -rf "${PHOENIX_EXTERNAL}/temp"
-      exit 1
-    else
-      echo_green_text "SUCCESS: Set-up Python environment at ${PHOENIX_PYENV_DIR}"
+      # If the Python env set-up failed, restore our back-up, clean-up, and exit
+      if [[ "${PHOENIX_PYENV_FAILED}" == 1 ]]; then
+        echo_red_text 'ERROR: Download failed! Exiting...'
+        restore_dir "${PHOENIX_PYENV_DIR}"
+        rm -rf "${PHOENIX_EXTERNAL}/temp"
+        exit 1
+      else
+        echo_green_text "SUCCESS: Set-up Python environment at ${PHOENIX_PYENV_DIR}"
+      fi
     fi
   fi
 }
@@ -584,7 +620,7 @@ function get_s3cmd() {
   echo_red_text "Downloading s3cmd..."
   download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${S3CMD_SHA512SUM}"
 
-  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+  if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
     source "${PHOENIX_PYENV}"
     echo_red_text 'Installing s3cmd...'
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
@@ -667,7 +703,7 @@ function get_uv() {
       restore_dir "${PHOENIX_UV_LOCAL}"
       rm -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
-    else
+    elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       echo_green_text "SUCCESS: Set-up uv at ${PHOENIX_UV}"
     fi
   fi
