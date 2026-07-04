@@ -141,8 +141,8 @@ function update_checksum() {
 
   if [[ "${old_checksum}" == "${new_checksum}" ]]; then
     echo_red_text 'Checksums match. Skipping...'
-    echo "Old checksum:  ${old_checksum}"
-    echo "New checksum:  ${new_checksum}"
+    echo "Old checksum: ${old_checksum}"
+    echo "New checksum: ${new_checksum}"
   else
     echo_red_text "Updating ${checksum_type_pretty} for ${file}..."
     "${PHOENIX_SED}" -i "s|'${old_checksum}'|'${new_checksum}'|" "${PHOENIX_VERSIONS}"
