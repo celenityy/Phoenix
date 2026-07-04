@@ -604,7 +604,7 @@ function get_s3cmd() {
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     if [[ ! -d "${PHOENIX_UV_DIR}" ]] || [[ ! -f "${PHOENIX_PYENV}" ]]; then
-      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a uv environment set-up yet."
+      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a Python environment set-up yet."
       exit 1
     fi
 
