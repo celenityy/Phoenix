@@ -139,9 +139,9 @@ export PHOENIX_LOG_DIR
 
 # GNU awk
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_AWK_DEFAULT='gawk'
+  readonly PHOENIX_AWK_DEFAULT='/opt/homebrew/bin/gawk'
 else
-  readonly PHOENIX_AWK_DEFAULT='awk'
+  readonly PHOENIX_AWK_DEFAULT='/bin/awk'
 fi
 if [[ -z "${PHOENIX_AWK+x}" ]]; then
   PHOENIX_AWK="${PHOENIX_AWK_DEFAULT}"
@@ -151,9 +151,9 @@ export PHOENIX_AWK
 
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_SED_DEFAULT='gsed'
+  readonly PHOENIX_SED_DEFAULT='/opt/homebrew/bin/gsed'
 else
-  readonly PHOENIX_SED_DEFAULT='sed'
+  readonly PHOENIX_SED_DEFAULT='/bin/sed'
 fi
 if [[ -z "${PHOENIX_SED+x}" ]]; then
   PHOENIX_SED="${PHOENIX_SED_DEFAULT}"
@@ -163,9 +163,9 @@ export PHOENIX_SED
 
 # GNU tar
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_TAR_DEFAULT='gtar'
+  readonly PHOENIX_TAR_DEFAULT='/opt/homebrew/bin/gtar'
 else
-  readonly PHOENIX_TAR_DEFAULT='tar'
+  readonly PHOENIX_TAR_DEFAULT='/bin/tar'
 fi
 if [[ -z "${PHOENIX_TAR+x}" ]]; then
   PHOENIX_TAR="${PHOENIX_TAR_DEFAULT}"
