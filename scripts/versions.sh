@@ -1,4 +1,5 @@
-readonly PHOENIX_VERSION='2026.06.10.1'
+readonly PHOENIX_VERSION_DATE='2026.06.10'
+readonly PHOENIX_VERSION="${PHOENIX_VERSION_DATE}.1"
 
 ## Python
 ### Version: 20260623 (3.14.6)

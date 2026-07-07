@@ -24,6 +24,103 @@ fi
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
+# Set timezone to UTC for consistency
+unset TZ
+export TZ="UTC"
+
+# Produce a (reproducible) archive from a directory
+## For reference/details on this process, see...
+## https://codeberg.org/celenity/Phoenix/issues/314
+## https://www.gnu.org/software/tar/manual/html_node/Reproducibility.html
+## https://wiki.debian.org/ReproducibleBuilds/TimestampsInZip
+## https://stackoverflow.com/questions/52668432/tar-package-has-different-checksum-for-exactly-the-same-content
+function create_archive() {
+  function print_usage() {
+    echo 'Usage: create_archive type /path/to/dir /path/to/output_archive'
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the desired archive type'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a directory'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the desired output archive'
+    print_usage
+    exit 1
+  fi
+
+  local readonly archive_type="$1"
+  local readonly target_dir="$2"
+  local readonly output_archive="$3"
+
+  if [[ "${archive_type}" != 'tar' ]] && [[ "${archive_type}" != 'zip' ]]; then
+    echo_red_text "ERROR: Invalid archive type (${archive_type})! Aborting..."
+    exit 1
+  fi
+
+  if [[ ! -d "${target_dir}" ]]; then
+    echo_red_text "ERROR: Target directory (${target_dir}) does not exist! Aborting..."
+    exit 1
+  fi
+
+  # Check if the output archive already exists
+  if [[ -f "${output_archive}" ]]; then
+    echo_red_text "'${output_archive}' already exists"
+    echo_red_text 'Continuing WILL override this archive'
+    read -p "Are you sure you want to proceed? [y/N] " -n 1 -r
+    echo
+    if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+      echo_red_text "Removing ${output_archive}..."
+      rm -f "${output_archive}"
+    else
+      exit 1
+    fi
+  fi
+
+  # If the directory for our output archive doesn't exist, create it
+  local readonly output_archive_dir="$(dirname "${output_archive}")"
+  if [[ ! -d "${output_archive_dir}" ]]; then
+    mkdir -p "${output_archive_dir}"
+  fi
+
+  # If we're on OS X, clean the target directory
+  if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+    /usr/sbin/dot_clean -mv "${target_dir}"
+  fi
+
+  # Set the file timestamp
+  ## (This is derived from PHOENIX_VERSION_DATE at `env_common.sh`)
+  local readonly PHOENIX_STAMP="${PHOENIX_VERSION_DATE//./-}"
+  local readonly PHOENIX_FIND_STAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%a, %d %b %Y %T %z")"
+  local readonly PHOENIX_TIMESTAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%Y-%m-%dT%H:%M:%SZ")"
+
+  # Override the timestamps for each file to match our stamp above
+  find "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 | \
+    xargs -0r touch -h -d "${PHOENIX_TIMESTAMP}"
+
+  # Override the timestamps for each directory to match our stamp above
+  for dir in $(find "${target_dir}" -type d); do
+    touch -r "${dir}/$(ls -At "${dir}" | head -n 1)" "${dir}"
+  done
+
+  # Finally create our archive
+  pushd "${target_dir}"
+  if [[ "${archive_type}" == 'zip' ]]; then
+    "${PHOENIX_ZIP}" -X -r "${output_archive}" * -x '.DS_Store'
+  else
+    "${PHOENIX_TAR}" -cJv --exclude-vcs --group=0 --mode='go+u,go-w' --no-acls --no-selinux --no-xattrs --numeric-owner --owner=0 --pax-option='delete=atime,delete=ctime' --pax-option='exthdr.name=%d/PaxHeaders/%f' --restrict --sort=name --utc --clamp-mtime --mtime="${PHOENIX_TIMESTAMP}" --exclude ".DS_Store" -f "${output_archive}" *
+  fi
+  popd
+}
+
 # Check if a file or directory already exists
 ## If the file or directory already exists, prompt the user to remove it
 ## If the user chooses not to remove it, we exit
@@ -615,17 +712,12 @@ function build_phoenix() {
   fi
 
   # Finally, create our platform-specific archives
-  if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    /usr/sbin/dot_clean -mv "${phoenix_output_dir}"
-  fi
-
-  pushd "${phoenix_output_dir}"
   if [[ "${phoenix_platform}" == 'windows' ]]; then
-    zip -r "${phoenix_output_archive}" * -x '.DS_Store'
+    local readonly archive_type='zip'
   else
-    "${PHOENIX_TAR}" -cJv --no-xattrs --exclude ".DS_Store" -f "${phoenix_output_archive}" *
+    local readonly archive_type='tar'
   fi
-  popd
+  create_archive "${archive_type}" "${phoenix_output_dir}" "${phoenix_output_archive}"
 }
 
 function build_phoenix_js() {

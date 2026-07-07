@@ -149,6 +149,18 @@ fi
 readonly PHOENIX_AWK
 export PHOENIX_AWK
 
+# GNU date
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+  readonly PHOENIX_DATE_DEFAULT='/opt/homebrew/bin/gdate'
+else
+  readonly PHOENIX_DATE_DEFAULT='/bin/date'
+fi
+if [[ -z "${PHOENIX_DATE+x}" ]]; then
+  PHOENIX_DATE="${PHOENIX_DATE_DEFAULT}"
+fi
+readonly PHOENIX_DATE
+export PHOENIX_DATE
+
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_SED_DEFAULT='/opt/homebrew/bin/gsed'
@@ -172,6 +184,14 @@ if [[ -z "${PHOENIX_TAR+x}" ]]; then
 fi
 readonly PHOENIX_TAR
 export PHOENIX_TAR
+
+# zip
+readonly PHOENIX_ZIP_DEFAULT='/usr/bin/zip'
+if [[ -z "${PHOENIX_ZIP+x}" ]]; then
+  PHOENIX_ZIP="${PHOENIX_ZIP_DEFAULT}"
+fi
+readonly PHOENIX_ZIP
+export PHOENIX_ZIP
 
 # Python
 readonly PHOENIX_PYTHON_DIR_DEFAULT="${PHOENIX_EXTERNAL}/python"
