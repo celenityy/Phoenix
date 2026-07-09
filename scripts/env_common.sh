@@ -162,7 +162,10 @@ readonly PHOENIX_DATE
 export PHOENIX_DATE
 
 # GNU sed
-if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  # https://codeberg.org/celenity/Phoenix/issues/335
+  readonly PHOENIX_SED_DEFAULT='sed'
+elif [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_SED_DEFAULT='/opt/homebrew/bin/gsed'
 else
   readonly PHOENIX_SED_DEFAULT='/bin/sed'
