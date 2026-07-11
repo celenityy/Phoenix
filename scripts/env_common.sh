@@ -36,6 +36,20 @@ fi
 readonly PHOENIX_NIX
 export PHOENIX_NIX
 
+# Whether we should produce an output archive (Default)
+## This is unnecessary/undesirable in some cases, such as Nix
+## (for some background, see: https://codeberg.org/celenity/Phoenix/pulls/337)
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  readonly PHOENIX_PRODUCE_ARCHIVES_DEFAULT=0
+else
+  readonly PHOENIX_PRODUCE_ARCHIVES_DEFAULT=1
+fi
+if [[ -z "${PHOENIX_PRODUCE_ARCHIVES+x}" ]]; then
+  PHOENIX_PRODUCE_ARCHIVES="${PHOENIX_PRODUCE_ARCHIVES_DEFAULT}"
+fi
+readonly PHOENIX_PRODUCE_ARCHIVES
+export PHOENIX_PRODUCE_ARCHIVES
+
 # Version info
 readonly PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
 export PHOENIX_VERSIONS

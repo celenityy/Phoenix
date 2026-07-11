@@ -712,12 +712,14 @@ function build_phoenix() {
   fi
 
   # Finally, create our platform-specific archives
-  if [[ "${phoenix_platform}" == 'windows' ]]; then
-    local readonly archive_type='zip'
-  else
-    local readonly archive_type='tar'
+  if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]]; then
+    if [[ "${phoenix_platform}" == 'windows' ]]; then
+      local readonly archive_type='zip'
+    else
+      local readonly archive_type='tar'
+    fi
+    create_archive "${archive_type}" "${phoenix_output_dir}" "${phoenix_output_archive}"
   fi
-  create_archive "${archive_type}" "${phoenix_output_dir}" "${phoenix_output_archive}"
 }
 
 function build_phoenix_js() {
