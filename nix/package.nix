@@ -2,7 +2,6 @@
   stdenvNoCC,
   jq,
   gawk,
-  coreutils, # to provide `date`
   gnused,
   gnutar,
   python3,
@@ -14,7 +13,6 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [
     jq
     gawk
-    coreutils # to provide `date`
     gnused
     gnutar
     python3
@@ -24,7 +22,6 @@ stdenvNoCC.mkDerivation {
 
     export PHOENIX_NIX=1
     export PHOENIX_AWK="${gawk}/bin/awk"
-    export PHOENIX_DATE="${coreutils}/bin/date"
     export PHOENIX_SED="${gnused}/bin/sed"
     export PHOENIX_TAR="${gnutar}/bin/tar"
     export PHOENIX_PYTHON="${python3}/bin/python"
