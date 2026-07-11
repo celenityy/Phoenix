@@ -3,7 +3,6 @@
   jq,
   gawk,
   gnused,
-  gnutar,
   python3,
   ...
 }:
@@ -14,7 +13,6 @@ stdenvNoCC.mkDerivation {
     jq
     gawk
     gnused
-    gnutar
     python3
   ];
   buildPhase = ''
@@ -23,7 +21,6 @@ stdenvNoCC.mkDerivation {
     export PHOENIX_NIX=1
     export PHOENIX_AWK="${gawk}/bin/awk"
     export PHOENIX_SED="${gnused}/bin/sed"
-    export PHOENIX_TAR="${gnutar}/bin/tar"
     export PHOENIX_PYTHON="${python3}/bin/python"
 
     patchShebangs ./scripts/*.sh
