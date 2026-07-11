@@ -162,10 +162,7 @@ readonly PHOENIX_DATE
 export PHOENIX_DATE
 
 # GNU sed
-if [[ "${PHOENIX_NIX}" == 1 ]]; then
-  # https://codeberg.org/celenity/Phoenix/issues/335
-  readonly PHOENIX_SED_DEFAULT='sed'
-elif [[ "${PHOENIX_OS}" == 'osx' ]]; then
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_SED_DEFAULT='/opt/homebrew/bin/gsed'
 else
   readonly PHOENIX_SED_DEFAULT='/bin/sed'
@@ -214,13 +211,7 @@ readonly PHOENIX_PYENV="${PHOENIX_PYENV_DIR}/bin/activate"
 export PHOENIX_PYENV
 export PHOENIX_PYENV_DIR
 
-if [[ "${PHOENIX_NIX}" == 1 ]]; then
-  ## Nix doesn't want/need to set a specific Python path, see discussion at https://codeberg.org/celenity/Dove/issues/59
-  ## and https://codeberg.org/celenity/Phoenix/issues/252
-  readonly PHOENIX_PYTHON_DEFAULT='python'
-else
-  readonly PHOENIX_PYTHON_DEFAULT="${PHOENIX_PYENV_DIR}/bin/python"
-fi
+readonly PHOENIX_PYTHON_DEFAULT="${PHOENIX_PYENV_DIR}/bin/python"
 if [[ -z "${PHOENIX_PYTHON+x}" ]]; then
   PHOENIX_PYTHON="${PHOENIX_PYTHON_DEFAULT}"
 fi

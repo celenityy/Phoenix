@@ -1,25 +1,35 @@
 {
   stdenvNoCC,
-  python3,
   jq,
-  zip,
+  gawk,
+  coreutils, # to provide `date`
+  gnused,
+  gnutar,
+  python3,
   ...
 }:
 stdenvNoCC.mkDerivation {
   name = "phoenix";
   src = ./..;
   nativeBuildInputs = [
-    python3
     jq
-    zip
+    gawk
+    coreutils # to provide `date`
+    gnused
+    gnutar
+    python3
   ];
   buildPhase = ''
     runHook preBuild
 
     export PHOENIX_NIX=1
+    export PHOENIX_AWK="${gawk}/bin/awk"
+    export PHOENIX_DATE="${coreutils}/bin/date"
+    export PHOENIX_SED="${gnused}/bin/sed"
+    export PHOENIX_TAR="${gnutar}/bin/tar"
+    export PHOENIX_PYTHON="${python3}/bin/python"
 
     patchShebangs ./scripts/*.sh
-    sed -i '/general.config.filename/d' phoenix-unified.cfg
     ./scripts/build.sh
 
     runHook postBuild
