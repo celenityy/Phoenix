@@ -20,6 +20,7 @@ stdenvNoCC.mkDerivation {
 
     export PHOENIX_NIX=1
     export PHOENIX_AWK="${gawk}/bin/awk"
+    export PHOENIX_JQ="${jq}/bin/jq"
     export PHOENIX_SED="${gnused}/bin/sed"
     export PHOENIX_PYTHON="${python3}/bin/python"
 
