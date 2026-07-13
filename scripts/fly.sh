@@ -16,8 +16,13 @@ if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   exit 1
 fi
 
-# Set-up Python venv
+# Set-up Python environment
 if [[ "${PHOENIX_NIX}" != 1 ]]; then
+  # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
+  # doesn't use `get_sources.sh`), so if it doesn't exist then create it
+  if [[ ! -f "${PHOENIX_PYENV}" ]]; then
+    "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
+  fi
   source "${PHOENIX_PYENV}"
 fi
 
