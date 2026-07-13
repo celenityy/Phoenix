@@ -364,6 +364,7 @@ if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]]; then
   PHOENIX_LINUX_FLATPAK=0
   PHOENIX_OSX=0
   PHOENIX_OSX_INTEL=0
+  PHOENIX_UNIVERSAL=0
   PHOENIX_WINDOWS=0
 fi
 
@@ -383,6 +384,7 @@ if [[ "${PHOENIX_LINUX_ONLY}" == 1 ]]; then
   PHOENIX_LINUX_FLATPAK=0
   PHOENIX_OSX=0
   PHOENIX_OSX_INTEL=0
+  PHOENIX_UNIVERSAL=0
   PHOENIX_WINDOWS=0
 fi
 
@@ -399,6 +401,7 @@ if [[ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]]; then
   PHOENIX_LINUX=0
   PHOENIX_OSX=0
   PHOENIX_OSX_INTEL=0
+  PHOENIX_UNIVERSAL=0
   PHOENIX_WINDOWS=0
 fi
 
@@ -418,6 +421,7 @@ if [[ "${PHOENIX_OSX_ONLY}" == 1 ]]; then
   PHOENIX_LINUX=0
   PHOENIX_LINUX_FLATPAK=0
   PHOENIX_OSX_INTEL=0
+  PHOENIX_UNIVERSAL=0
   PHOENIX_WINDOWS=0
 fi
 
@@ -434,6 +438,7 @@ if [[ "${PHOENIX_OSX_INTEL_ONLY}" == 1 ]]; then
   PHOENIX_LINUX=0
   PHOENIX_LINUX_FLATPAK=0
   PHOENIX_OSX=0
+  PHOENIX_UNIVERSAL=0
   PHOENIX_WINDOWS=0
 fi
 
@@ -451,13 +456,19 @@ if [[ "${PHOENIX_WINDOWS_ONLY}" == 1 ]]; then
   PHOENIX_LINUX_FLATPAK=0
   PHOENIX_OSX=0
   PHOENIX_OSX_INTEL=0
+  PHOENIX_UNIVERSAL=0
 fi
 
 # Whether we're building a universal Phoenix configuration file (Default)
 ## If enabled (set to 1), we produce a standalone universal/generic Phoenix configuration file
 ## (Ex. the platform will never be hardcoded, support for specs is disabled, etc)
 ## (This is used to produce configuration files for projects that wish to implement Phoenix, without them needing to build Phoenix directly)
-readonly PHOENIX_UNIVERSAL_DEFAULT=1
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  # This is unused/unnecessary for Nix
+  readonly PHOENIX_UNIVERSAL_DEFAULT=0
+else
+  readonly PHOENIX_UNIVERSAL_DEFAULT=1
+fi
 if [[ -z "${PHOENIX_UNIVERSAL+x}" ]]; then
   PHOENIX_UNIVERSAL="${PHOENIX_UNIVERSAL_DEFAULT}"
 fi
@@ -465,11 +476,13 @@ readonly PHOENIX_UNIVERSAL
 export PHOENIX_UNIVERSAL
 
 # Whether we're building Phoenix for Android (Default)
-readonly PHOENIX_ANDROID_DEFAULT=1
 if [[ "${PHOENIX_NIX}" == 1 ]]; then
   # This makes absolutely no sense for Nix - ensure we never try to build Android there
-  PHOENIX_ANDROID=0
-elif [[ -z "${PHOENIX_ANDROID+x}" ]]; then
+  readonly PHOENIX_ANDROID_DEFAULT=0
+else
+  readonly PHOENIX_ANDROID_DEFAULT=1
+fi
+if [[ -z "${PHOENIX_ANDROID+x}" ]]; then
   PHOENIX_ANDROID="${PHOENIX_ANDROID_DEFAULT}"
 fi
 readonly PHOENIX_ANDROID
@@ -508,11 +521,13 @@ readonly PHOENIX_OSX_INTEL
 export PHOENIX_OSX_INTEL
 
 # Whether we're building Phoenix for Windows (Default)
-readonly PHOENIX_WINDOWS_DEFAULT=1
 if [[ "${PHOENIX_NIX}" == 1 ]]; then
   # This makes absolutely no sense for Nix - ensure we never try to build Windows there
-  PHOENIX_WINDOWS=0
-elif [[ -z "${PHOENIX_WINDOWS+x}" ]]; then
+  readonly PHOENIX_WINDOWS_DEFAULT=0
+else
+  readonly PHOENIX_WINDOWS_DEFAULT=1
+fi
+if [[ -z "${PHOENIX_WINDOWS+x}" ]]; then
   PHOENIX_WINDOWS="${PHOENIX_WINDOWS_DEFAULT}"
 fi
 readonly PHOENIX_WINDOWS
@@ -590,22 +605,26 @@ export PHOENIX_MAIL
 # Whether we should use Phoenix Extended by default
 ## (Applies to the .cfg format)
 ## When this is enabled (set to 1), the pref to enable Phoenix Extended is true by default
-readonly PHOENIX_EXTENDED_DEFAULT=0
 if [[ "${PHOENIX_MAIL}" == 1 ]]; then
   # Mail always uses Extended
-  PHOENIX_EXTENDED=1
-elif [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
+  readonly PHOENIX_EXTENDED_DEFAULT=1
+else
+  readonly PHOENIX_EXTENDED_DEFAULT=0
+fi
+if [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
   PHOENIX_EXTENDED="${PHOENIX_EXTENDED_DEFAULT}"
 fi
 readonly PHOENIX_EXTENDED
 export PHOENIX_EXTENDED
 
 # Whether we should support Phoenix's specialized config functionality
-readonly PHOENIX_NO_SPEC_DEFAULT=0
 if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
   # Android and Mail never want or need specialized configs
-  PHOENIX_NO_SPEC=1
-elif [[ -z "${PHOENIX_NO_SPEC+x}" ]]; then
+  readonly PHOENIX_NO_SPEC_DEFAULT=1
+else
+  readonly PHOENIX_NO_SPEC_DEFAULT=0
+fi
+if [[ -z "${PHOENIX_NO_SPEC+x}" ]]; then
   PHOENIX_NO_SPEC="${PHOENIX_NO_SPEC_DEFAULT}"
 fi
 readonly PHOENIX_NO_SPEC
