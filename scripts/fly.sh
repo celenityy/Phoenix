@@ -84,21 +84,21 @@ function create_archive() {
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       echo_red_text "Removing ${output_archive}..."
-      rm -f "${output_archive}"
+      "${PHOENIX_RM}" -f "${output_archive}"
     else
       exit 1
     fi
   fi
 
   # If the directory for our output archive doesn't exist, create it
-  local readonly output_archive_dir="$(dirname "${output_archive}")"
+  local readonly output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
   if [[ ! -d "${output_archive_dir}" ]]; then
-    mkdir -p "${output_archive_dir}"
+    "${PHOENIX_MKDIR}" -p "${output_archive_dir}"
   fi
 
   # If we're on OS X, clean the target directory
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    /usr/sbin/dot_clean -mv "${target_dir}"
+    "${PHOENIX_DOT_CLEAN}" -mv "${target_dir}"
   fi
 
   # Set the file timestamp
@@ -108,12 +108,12 @@ function create_archive() {
   local readonly PHOENIX_TIMESTAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%Y-%m-%dT%H:%M:%SZ")"
 
   # Override the timestamps for each file to match our stamp above
-  find "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 | \
-    xargs -0r touch -h -d "${PHOENIX_TIMESTAMP}"
+  "${PHOENIX_FIND}" "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 | \
+    "${PHOENIX_XARGS}" -0r "${PHOENIX_TOUCH}" -h -d "${PHOENIX_TIMESTAMP}"
 
   # Override the timestamps for each directory to match our stamp above
-  for dir in $(find "${target_dir}" -type d); do
-    touch -r "${dir}/$(ls -At "${dir}" | head -n 1)" "${dir}"
+  for dir in $("${PHOENIX_FIND}" "${target_dir}" -type d); do
+    "${PHOENIX_TOUCH}" -r "${dir}/$("${PHOENIX_LS}" -At "${dir}" | "${PHOENIX_HEAD}" -n 1)" "${dir}"
   done
 
   # Finally create our archive
@@ -151,9 +151,9 @@ function check_file_or_dir_exists() {
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       echo_red_text "Removing ${path}..."
       if [[ -d "${path}" ]]; then
-        rm -rf "${path}"
+        "${PHOENIX_RM}" -rf "${path}"
       elif [[ -f "${path}" ]]; then
-        rm -f "${path}" "${path}-sha512sum.txt"
+        "${PHOENIX_RM}" -f "${path}" "${path}-sha512sum.txt"
       fi
     else
       exit 1
@@ -337,22 +337,22 @@ function combine_files() {
 
   # Determine our initial input file type
   case "${initial_input_file}" in
-  *.cfg)
-    local readonly initial_input_file_type='cfg'
-    ;;
-  *.js)
-    local readonly initial_input_file_type='js'
-    ;;
-  *.json)
-    local readonly initial_input_file_type='json'
-    ;;
-  *.txt)
-    local readonly initial_input_file_type='txt'
-    ;;
-  *)
-    echo_red_text "ERROR: Unsupported file type: ${initial_input_file}"
-    exit 1
-    ;;
+    *.cfg)
+      local readonly initial_input_file_type='cfg'
+      ;;
+    *.js)
+      local readonly initial_input_file_type='js'
+      ;;
+    *.json)
+      local readonly initial_input_file_type='json'
+      ;;
+    *.txt)
+      local readonly initial_input_file_type='txt'
+      ;;
+    *)
+      echo_red_text "ERROR: Unsupported file type: ${initial_input_file}"
+      exit 1
+      ;;
   esac
 
   # Now, handle additional specified files
@@ -366,22 +366,22 @@ function combine_files() {
 
       # Determine the file type
       case "${file}" in
-      *.cfg)
-        local file_type='cfg'
-        ;;
-      *.js)
-        local file_type='js'
-        ;;
-      *.json)
-        local file_type='json'
-        ;;
-      *.txt)
-        local file_type='txt'
-        ;;
-      *)
-        echo_red_text "ERROR: Unsupported file type: ${file}"
-        exit 1
-        ;;
+        *.cfg)
+          local file_type='cfg'
+          ;;
+        *.js)
+          local file_type='js'
+          ;;
+        *.json)
+          local file_type='json'
+          ;;
+        *.txt)
+          local file_type='txt'
+          ;;
+        *)
+          echo_red_text "ERROR: Unsupported file type: ${file}"
+          exit 1
+          ;;
       esac
 
       # To combine files, we must ensure the file types match
@@ -399,12 +399,12 @@ function combine_files() {
   ## (It's fine to use initial_file here because we verified it matches the files to combine above)
   if [[ "${initial_input_file_type}" == 'json' ]]; then
     # First, always combine the first two files
-    jq -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" >"${PHOENIX_TEMP}/tempy--1.json"
+    "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" >"${PHOENIX_TEMP}/tempy--1.json"
 
     if [[ "${number_of_files}" == 2 ]]; then
       # We're done :)
-      cp -f "${PHOENIX_TEMP}/tempy--1.json" "${output_file}"
-      rm -f "${PHOENIX_TEMP}/tempy--1.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy--1.json" "${output_file}"
+      "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy--1.json"
     else
       # We now need to iterate through and combine additional files...
       local files_combined=2
@@ -413,18 +413,18 @@ function combine_files() {
       until [[ "${files_combined}" == "${number_of_files}" ]]; do
         local old_file_temp_count=$((${file_temp_count} - 1))
         local file_to_combine_with="${files_to_combine[$file_index]}"
-        jq -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" >"${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
-        rm -f "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json"
+        "${PHOENIX_JQ}" -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" >"${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
+        "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json"
         file_temp_count=$((${file_temp_count} + 1))
         files_combined=$((${files_combined} + 1))
         file_index=$((${file_index} + 1))
       done
       file_temp_count=$((${file_temp_count} - 1))
-      cp -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" "${output_file}"
-      rm -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" "${output_file}"
+      "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
     fi
   else
-    cat "${files_to_combine[@]}" >"${output_file}"
+    "${PHOENIX_CAT}" "${files_to_combine[@]}" >"${output_file}"
   fi
 }
 
@@ -460,7 +460,7 @@ function maybe_combine_files() {
   if [[ -f "${file_to_add}" ]]; then
     combine_files "${output_file}" "${initial_file}" "${file_to_add}"
   else
-    cp -f "${initial_file}" "${output_file}"
+    "${PHOENIX_CP}" -f "${initial_file}" "${output_file}"
   fi
 }
 
@@ -497,13 +497,13 @@ function parse_js_file() {
     exit 1
   fi
 
-  grep -vE "${tags_to_remove}" "${input_js_file}" >"${output_js_file}"
+  "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" >"${output_js_file}"
 }
 
 # Common Phoenix build logic
 function build_phoenix_common() {
-  cp "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
-  cp "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
   # Set PHOENIX_APPLY_EXTENDED
   if [[ "${PHOENIX_EXTENDED}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
@@ -546,9 +546,9 @@ function build_phoenix_common() {
     check_file_or_dir_exists "${PHOENIX_OUTPUTS}/universal"
 
     # Create our output directory
-    mkdir -p "${PHOENIX_OUTPUTS}/universal"
+    "${PHOENIX_MKDIR}" -p "${PHOENIX_OUTPUTS}/universal"
 
-    cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
+    "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
 
     # PHOENIX_UNIVERSAL configs do not support specs
     "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
@@ -566,20 +566,20 @@ function build_phoenix_common() {
   fi
 
   # Clean-up files
-  rm -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
-  rm -f "${PHOENIX_TEMP}/phoenix-core.cfg"
-  rm -f "${PHOENIX_TEMP}/phoenix.cfg"
+  "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
+  "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix-core.cfg"
+  "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix.cfg"
 
   # Create enterprise policies
   if [[ "${PHOENIX_ANDROID_ONLY}" != 1 ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     # Create our directory
-    mkdir -p "${PHOENIX_TEMP}/policies"
+    "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}/policies"
     # First, create policies that always apply everywhere, regardless of platform
     combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms-without-extra-policies-if-specified.json" "${PHOENIX_ROOT}/policies/blocklist.json" "${PHOENIX_ROOT}/policies/cookies.json" "${PHOENIX_ROOT}/policies/phoenix-core.json"
 
     # If we're not targetting Thunderbird, create policies that always apply everywhere EXCEPT Thunderbird
     if [[ "${PHOENIX_ANDROID_ONLY}" != 1 ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      cp -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-without-extra-policies-if-specified.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-no-mail-if-specified.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-without-extra-policies-if-specified.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-no-mail-if-specified.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms-no-mail-if-specified.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-without-extra-policies-if-specified.json" "${PHOENIX_ROOT}/policies/phoenix-no-mail.json"
     fi
@@ -618,12 +618,12 @@ function build_phoenix() {
   check_file_or_dir_exists "${phoenix_output_archive_latest}"
 
   # Create our output directory
-  mkdir -p "${phoenix_output_dir}/assets"
+  "${PHOENIX_MKDIR}" -p "${phoenix_output_dir}/assets"
 
   # Copy our bootstrap phoenix.js
   if [[ "${phoenix_platform}" != 'android' ]]; then
-    mkdir -p "${phoenix_output_dir}/defaults/pref"
-    cp "${PHOENIX_ROOT}/phoenix.js" "${phoenix_output_dir}/defaults/pref/phoenix.js"
+    "${PHOENIX_MKDIR}" -p "${phoenix_output_dir}/defaults/pref"
+    "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix.js" "${phoenix_output_dir}/defaults/pref/phoenix.js"
   fi
 
   # Copy our parsed phoenix.cfg
@@ -633,8 +633,8 @@ function build_phoenix() {
   else
     local readonly phoenix_cfg_output_dir="${phoenix_output_dir}"
   fi
-  mkdir -p "${phoenix_cfg_output_dir}"
-  cp "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
+  "${PHOENIX_MKDIR}" -p "${phoenix_cfg_output_dir}"
+  "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
   # If necessary, set our platform (for phoenix.cfg)
   if [[ "${PHOENIX_HARDCODE_PLATFORM}" == 1 ]]; then
@@ -663,39 +663,39 @@ function build_phoenix() {
   fi
 
   # Copy icon
-  cp "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
 
   # Copy license
-  cp "${PHOENIX_ROOT}/COPYING.txt" "${phoenix_output_dir}/COPYING.txt"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/COPYING.txt" "${phoenix_output_dir}/COPYING.txt"
 
   # Copy README
-  cp "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md"
 
   # Copy resources for specialized configs
   if [[ "${phoenix_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" != 1 ]] &&
     [[ "${PHOENIX_NO_SPEC}" != 1 ]]; then
-    cp -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
   fi
 
   # Copy assets for Phoenix's custom `about:` pages
   if [[ "${phoenix_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" != 1 ]]; then
-    cp -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
   fi
 
   # Copy generic platform files
   if [[ "${phoenix_platform}" == 'osx' ]] || [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-    cp -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/"
   fi
 
   # Copy platform-specific files
   if [[ "${phoenix_platform}" == 'android' ]]; then
-    cp "${PHOENIX_ROOT}/android/phoenix-unextend.js" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" "${PHOENIX_ROOT}/android/phoenix-unextend.js" "${phoenix_output_dir}/"
   elif [[ "${phoenix_platform}" == 'linux' ]]; then
-    cp -r "${PHOENIX_ROOT}/linux/etc" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/linux/etc" "${phoenix_output_dir}/"
   elif [[ "${phoenix_platform}" == 'osx' ]]; then
-    cp -r "${PHOENIX_ROOT}/osx/osx-silicon/Library/" "${phoenix_output_dir}/Library/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-silicon/Library/" "${phoenix_output_dir}/Library/"
   elif [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-    cp -r "${PHOENIX_ROOT}/osx/osx-intel/Library/" "${phoenix_output_dir}/Library/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-intel/Library/" "${phoenix_output_dir}/Library/"
   fi
 
   # If necessary, create enterprise policies
@@ -759,7 +759,7 @@ function build_phoenix_js() {
   if [[ "${phoenix_js_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
     parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" 'NO-MAIL'
   else
-    cp "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js"
+    "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js"
   fi
 
   # Handle generic platform logic
@@ -850,13 +850,13 @@ function build_policies() {
 
   # If we're not targetting Android, create policies that always apply everywhere EXCEPT Android
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
-    cp -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
   else
     combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json"
 
     # If we're not targetting Thunderbird, then create policies that apply everywhere EXCEPT Android AND Thunderbird
     if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      cp -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-without-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json"
     fi
@@ -868,7 +868,7 @@ function build_policies() {
 
     # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
     if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      cp -f "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-linux-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-linux-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-linux-no-mail.json"
     fi
@@ -880,7 +880,7 @@ function build_policies() {
 
     # If we're not targetting Thunderbird, create generic policies that do NOT apply to it
     if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      cp -f "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-without-extra-policies-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx-no-mail.json"
     fi
@@ -888,7 +888,7 @@ function build_policies() {
     # If necessary, append the contents of an additional policies.json file
     maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-osx-generic-no-mail-if-specified-${phoenix_policies_platform}.json" "${PHOENIX_EXTRA_POLICIES_OSX}"
   else
-    cp -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json"
   fi
 
   # Handle platform-specific policies
@@ -896,7 +896,7 @@ function build_policies() {
 
   # If we're not targeting Thunderbird, handle platform-specific policies that do NOT apply to it
   if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    cp -f "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
   else
     maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-with-generic-if-necessary-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-${phoenix_policies_platform}-no-mail.json"
   fi
@@ -913,7 +913,7 @@ function build_policies() {
   elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
     local readonly policies_output_path="${phoenix_policies_output_dir}/distribution"
   fi
-  mkdir -p "${policies_output_path}"
+  "${PHOENIX_MKDIR}" -p "${policies_output_path}"
 
   # Finally, handle platform-specific extra policies if necessary
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
@@ -942,7 +942,7 @@ function build_policies() {
 
   if [[ "${phoenix_policies_platform}" == 'osx' ]] ||
     [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    mkdir -p "${policies_plist_output_path}"
+    "${PHOENIX_MKDIR}" -p "${policies_plist_output_path}"
     "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${policies_output_path}/policies.json" "${policies_plist_output_path}/org.mozilla.firefox.plist"
   fi
 }
@@ -953,9 +953,9 @@ check_extra_files
 
 # Create our temporary file directory
 if [[ -d "${PHOENIX_TEMP}" ]]; then
-    rm -rf "${PHOENIX_TEMP}"
+  "${PHOENIX_RM}" -rf "${PHOENIX_TEMP}"
 fi
-mkdir -p "${PHOENIX_TEMP}"
+"${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}"
 
 # Build Phoenix (platform-generic logic)
 build_phoenix_common
@@ -991,4 +991,4 @@ if [[ "${PHOENIX_WINDOWS}" == 1 ]]; then
 fi
 
 # Clean-up temporary files
-rm -rf "${PHOENIX_TEMP}"
+"${PHOENIX_RM}" -rf "${PHOENIX_TEMP}"

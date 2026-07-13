@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  bash -x $(dirname $0)/env.sh
+  /bin/bash -x $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -26,13 +26,13 @@ if [[ "${PHOENIX_LOG_PUSH}" == 1 ]]; then
 
   # If the log file already exists, remove it
   if [[ -f "${PUSH_LOG_FILE}" ]]; then
-    rm "${PUSH_LOG_FILE}"
+    "${PHOENIX_RM}" "${PUSH_LOG_FILE}"
   fi
 
   # Ensure our log directory exists
-  mkdir -vp "${PHOENIX_LOG_DIR}"
+  "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  bash "${PHOENIX_SCRIPTS}/push-phoenix.sh" "${target}" > >(tee -a "${PUSH_LOG_FILE}") 2>&1
+  /bin/bash "${PHOENIX_SCRIPTS}/push-phoenix.sh" "${target}" > >("${PHOENIX_TEE}" -a "${PUSH_LOG_FILE}") 2>&1
 else
-  bash "${PHOENIX_SCRIPTS}/push-phoenix.sh" "${target}"
+  /bin/bash "${PHOENIX_SCRIPTS}/push-phoenix.sh" "${target}"
 fi

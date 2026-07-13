@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  bash -x $(dirname $0)/env.sh
+  /bin/bash -x $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -29,13 +29,13 @@ if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
 
   # If the log file already exists, remove it
   if [[ -f "${SOURCES_LOG_FILE}" ]]; then
-    rm "${SOURCES_LOG_FILE}"
+    "${PHOENIX_RM}" "${SOURCES_LOG_FILE}"
   fi
 
   # Ensure our log directory exists
-  mkdir -vp "${PHOENIX_LOG_DIR}"
+  "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  bash -x "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" > >(tee -a "${SOURCES_LOG_FILE}") 2>&1
+  /bin/bash -x "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1
 else
-  bash -x "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}"
+  /bin/bash -x "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}"
 fi

@@ -198,7 +198,7 @@ function push_file() {
 
   local readonly push_file="$1"
   local readonly s3_path="$2"
-  local readonly s3_full_path="${s3_path}/$(basename "${push_file}")"
+  local readonly s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
 
   # Ensure our file to push is valid
   verify_file "${push_file}"
@@ -226,10 +226,10 @@ function push_file() {
     ;;
   esac
 
-  local readonly s3_access_key=$(cat "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | xargs)
-  local readonly s3_bucket_name=$(cat "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" | xargs)
-  local readonly s3_endpoint=$(cat "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | xargs)
-  local readonly s3_secret_key=$(cat "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | xargs)
+  local readonly s3_access_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | "${PHOENIX_XARGS}")
+  local readonly s3_bucket_name=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" | "${PHOENIX_XARGS}")
+  local readonly s3_endpoint=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | "${PHOENIX_XARGS}")
+  local readonly s3_secret_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | "${PHOENIX_XARGS}")
 
   echo_red_text "Pushing ${push_file} to S3..."
   source "${PHOENIX_PYENV}"
@@ -254,11 +254,11 @@ function add_sha512sum() {
   fi
 
   local readonly sha512sum_file_in="$1"
-  local readonly sha512sum_file_name=$(basename "${sha512sum_file_in}")
-  local readonly sha512sum_file_path=$(dirname "${sha512sum_file_in}")
+  local readonly sha512sum_file_name=$("${PHOENIX_BASENAME}" "${sha512sum_file_in}")
+  local readonly sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
 
   if [[ -z "${2+x}" ]]; then
-    local readonly sha512sum_s3path=$(basename "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
+    local readonly sha512sum_s3path=$("${PHOENIX_BASENAME}" "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
   else
     local readonly sha512sum_s3path="$2"
   fi
@@ -270,10 +270,10 @@ function add_sha512sum() {
 
   # If there's already a SHA512sum file, remove it
   if [[ -f "${sha512sum_file_out}" ]]; then
-    rm -f "${sha512sum_file_out}"
+    "${PHOENIX_RM}" -f "${sha512sum_file_out}"
   fi
 
-  local readonly local_sha512sum=$(sha512sum "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
+  local readonly local_sha512sum=$("${PHOENIX_SHA512SUM}" "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
   echo -n "${local_sha512sum}" >"${sha512sum_file_out}"
 
   push_file "${sha512sum_file_out}" "${sha512sum_s3path}"
@@ -316,7 +316,7 @@ function push_phoenix_universal() {
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.cfg
   ## (Ex. for convenience/packaging)
-  cp -f "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-latest-universal.cfg"
+  "${PHOENIX_CP}" -f "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-latest-universal.cfg"
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/universal/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal"
 }
 
@@ -351,7 +351,7 @@ function push_phoenix() {
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.${phoenix_archive_type}
   ## (Ex. for convenience/packaging)
-  cp -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
+  "${PHOENIX_CP}" -f "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
 
   # For Android, also push phoenix.js and phoenix-extended.js directly
@@ -362,10 +362,10 @@ function push_phoenix() {
     # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.js
     ## (and https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-extended-latest-{phoenix_platform}.js)
     ## (Ex. for convenience/packaging)
-    cp -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-latest-${phoenix_platform}.js"
+    "${PHOENIX_CP}" -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-latest-${phoenix_platform}.js"
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
 
-    cp -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-latest-${phoenix_platform}.js"
+    "${PHOENIX_CP}" -f "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-latest-${phoenix_platform}.js"
     push_and_add_sha512sum "${PHOENIX_OUTPUTS}/${phoenix_platform}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
   fi
 }
