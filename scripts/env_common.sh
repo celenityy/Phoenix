@@ -369,11 +369,13 @@ if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]]; then
 fi
 
 # Whether we're ONLY building Phoenix for Linux
-readonly PHOENIX_LINUX_ONLY_DEFAULT=0
 if [[ "${PHOENIX_NIX}" == 1 ]] && [[ "${PHOENIX_OS}" != 'osx' ]]; then
   # Nix flakes should only build their respective platform
-  PHOENIX_LINUX_ONLY=1
-elif [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
+  readonly PHOENIX_LINUX_ONLY_DEFAULT=1
+else
+  readonly PHOENIX_LINUX_ONLY_DEFAULT=0
+fi
+if [[ -z "${PHOENIX_LINUX_ONLY+x}" ]]; then
   PHOENIX_LINUX_ONLY="${PHOENIX_LINUX_ONLY_DEFAULT}"
 fi
 readonly PHOENIX_LINUX_ONLY
@@ -406,11 +408,13 @@ if [[ "${PHOENIX_LINUX_FLATPAK_ONLY}" == 1 ]]; then
 fi
 
 # Whether we're ONLY building Phoenix for OS X
-readonly PHOENIX_OSX_ONLY_DEFAULT=0
 if [[ "${PHOENIX_NIX}" == 1 ]] && [[ "${PHOENIX_OS}" == 'osx' ]]; then
   # Nix flakes should only build their respective platform
-  PHOENIX_OSX_ONLY=1
-elif [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
+  readonly PHOENIX_OSX_ONLY_DEFAULT=1
+else
+  readonly PHOENIX_OSX_ONLY_DEFAULT=0
+fi
+if [[ -z "${PHOENIX_OSX_ONLY+x}" ]]; then
   PHOENIX_OSX_ONLY="${PHOENIX_OSX_ONLY_DEFAULT}"
 fi
 readonly PHOENIX_OSX_ONLY
