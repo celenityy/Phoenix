@@ -59,14 +59,14 @@ readonly PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
 export PHOENIX_ARCHIVES
 
 # Build directory
-readonly PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  # Nix needs to use /tmp here, see: https://codeberg.org/celenity/Dove/issues/59
+  readonly PHOENIX_BUILD_DEFAULT='/tmp/phoenix/build'
+else
+  readonly PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
+fi
 if [[ -z "${PHOENIX_BUILD+x}" ]]; then
-  if [[ "${PHOENIX_NIX}" == 1 ]]; then
-    # Nix needs to use /tmp here, see https://codeberg.org/celenity/Dove/issues/59
-    PHOENIX_BUILD='/tmp/phoenix/build'
-  else
-    PHOENIX_BUILD="${PHOENIX_BUILD_DEFAULT}"
-  fi
+  PHOENIX_BUILD="${PHOENIX_BUILD_DEFAULT}"
 fi
 readonly PHOENIX_BUILD
 export PHOENIX_BUILD
