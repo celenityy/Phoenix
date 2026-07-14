@@ -74,6 +74,10 @@ fi
 readonly PHOENIX_BUILD
 export PHOENIX_BUILD
 
+# Temporary build directory
+readonly PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
+export PHOENIX_TEMP
+
 # Phoenix PATH
 readonly PHOENIX_PATH="${PHOENIX_BUILD}/path"
 export PHOENIX_PATH
@@ -85,10 +89,6 @@ export PHOENIX_EXTERNAL
 # External downloads/resources directory
 readonly PHOENIX_DOWNLOADS="${PHOENIX_EXTERNAL}/downloads"
 export PHOENIX_DOWNLOADS
-
-# Temporary build directory
-readonly PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
-export PHOENIX_TEMP
 
 # Specialized config directory
 readonly PHOENIX_SPECS="${PHOENIX_ROOT}/specs"
@@ -449,6 +449,18 @@ if [[ -z "${PHOENIX_TOUCH+x}" ]]; then
 fi
 readonly PHOENIX_TOUCH
 export PHOENIX_TOUCH
+
+# uname
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+  readonly PHOENIX_UNAME_DEFAULT='/usr/bin/uname'
+else
+  readonly PHOENIX_UNAME_DEFAULT='/bin/uname'
+fi
+if [[ -z "${PHOENIX_UNAME+x}" ]]; then
+  PHOENIX_UNAME="${PHOENIX_UNAME_DEFAULT}"
+fi
+readonly PHOENIX_UNAME
+export PHOENIX_UNAME
 
 # unzip
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then

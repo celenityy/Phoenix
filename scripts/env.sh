@@ -58,6 +58,7 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   "${PHOENIX_LN}" -sf "${PHOENIX_TAR}"        "${PHOENIX_PATH}/tar"
   "${PHOENIX_LN}" -sf "${PHOENIX_TEE}"        "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_TOUCH}"      "${PHOENIX_PATH}/"
+  "${PHOENIX_LN}" -sf "${PHOENIX_UNAME}"      "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_UNZIP}"      "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_UV}"         "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_XARGS}"      "${PHOENIX_PATH}/"
