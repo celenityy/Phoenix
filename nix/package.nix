@@ -1,7 +1,9 @@
 {
   stdenvNoCC,
+  lib,
+  bashNonInteractive,
+  coreutils,
   jq,
-  gawk,
   gnused,
   python3,
   ...
@@ -10,19 +12,34 @@ stdenvNoCC.mkDerivation {
   name = "phoenix";
   src = ./..;
   nativeBuildInputs = [
+    bashNonInteractive
+    coreutils
     jq
-    gawk
     gnused
-    python3
-  ];
+  ]
+  ++ lib.optionals stdenvNoCC.isDarwin [ python3 ];
+
+  patchPhase = ''
+    sed -i 's|/bin/bash|${bashNonInteractive}/bin/bash|g' ./scripts/build.sh
+  '';
+
   buildPhase = ''
     runHook preBuild
 
     export PHOENIX_NIX=1
-    export PHOENIX_AWK="${gawk}/bin/awk"
-    export PHOENIX_JQ="${jq}/bin/jq"
+
+    # external tools used during build
+    export PHOENIX_RM="${coreutils}/bin/rm"
+    export PHOENIX_MKDIR="${coreutils}/bin/mkdir"
+    export PHOENIX_LN="${coreutils}/bin/ln"
+    export PHOENIX_TEE="${coreutils}/bin/tee"
+    export PHOENIX_DIRNAME="${coreutils}/bin/dirname"
+    export PHOENIX_CP="${coreutils}/bin/cp"
     export PHOENIX_SED="${gnused}/bin/sed"
-    export PHOENIX_PYTHON="${python3}/bin/python"
+    export PHOENIX_CAT="${coreutils}/bin/cat"
+    export PHOENIX_JQ="${jq}/bin/jq"
+    export PHOENIX_UNAME="${coreutils}/bin/uname"
+    ${lib.optionalString stdenvNoCC.isDarwin ''export PHOENIX_PYTHON="${python3}/bin/python"''}
 
     patchShebangs ./scripts/*.sh
     ./scripts/build.sh
