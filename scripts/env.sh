@@ -35,7 +35,6 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   "${PHOENIX_LN}" -sf "${PHOENIX_DATE}"       "${PHOENIX_PATH}/date"
   "${PHOENIX_LN}" -sf "${PHOENIX_DATE}"       "${PHOENIX_PATH}/gdate"
   "${PHOENIX_LN}" -sf "${PHOENIX_DIRNAME}"    "${PHOENIX_PATH}/"
-  "${PHOENIX_LN}" -sf "${PHOENIX_DOT_CLEAN}"  "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_FIND}"       "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_GIT}"        "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_GREP}"       "${PHOENIX_PATH}/"
@@ -64,6 +63,11 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   "${PHOENIX_LN}" -sf "${PHOENIX_XARGS}"      "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_XZ}"         "${PHOENIX_PATH}/"
   "${PHOENIX_LN}" -sf "${PHOENIX_ZIP}"        "${PHOENIX_PATH}/"
+
+  # OS X-specific
+  if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
+    "${PHOENIX_LN}" -sf "${PHOENIX_DOT_CLEAN}"  "${PHOENIX_PATH}/"
+  fi
 
   readonly PATH="${PHOENIX_PATH}"
   export PATH
