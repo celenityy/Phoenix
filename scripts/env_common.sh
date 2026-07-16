@@ -337,6 +337,8 @@ export PHOENIX_HEAD
 # jq
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_JQ_DEFAULT='/opt/homebrew/bin/jq'
+elif [[ "${PHOENIX_OS}" == 'secureblue' ]]; then
+  readonly PHOENIX_JQ_DEFAULT='/home/linuxbrew/.linuxbrew/bin/jq'
 else
   readonly PHOENIX_JQ_DEFAULT='/bin/jq'
 fi
