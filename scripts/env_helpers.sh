@@ -26,7 +26,7 @@ fi
 export PHOENIX_OS
 
 # Set architecture
-readonly PLATFORM_ARCH=$("${PHOENIX_UNAME}" -m)
+readonly PLATFORM_ARCH=$(uname -m)
 if [[ "${PLATFORM_ARCH}" == 'arm64' ]]; then
   readonly PHOENIX_PLATFORM_ARCH='arm64'
 else
