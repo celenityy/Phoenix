@@ -516,7 +516,7 @@ fi
 readonly PHOENIX_PYTHON_DIR
 export PHOENIX_PYTHON_DIR
 
-# Python (UV) environment
+# Python (uv) environment
 readonly PHOENIX_PYENV_DIR_DEFAULT="${PHOENIX_BUILD}/pyenv"
 if [[ -z "${PHOENIX_PYENV_DIR+x}" ]]; then
   PHOENIX_PYENV_DIR="${PHOENIX_PYENV_DIR_DEFAULT}"
@@ -543,7 +543,7 @@ readonly PHOENIX_S3CMD="${PHOENIX_PYENV_DIR}/bin/s3cmd"
 export PHOENIX_S3CMD
 export PHOENIX_S3CMD_DIR
 
-# UV
+# uv
 readonly PHOENIX_UV_DIR_DEFAULT="${PHOENIX_EXTERNAL}/uv"
 if [[ -z "${PHOENIX_UV_DIR+x}" ]]; then
   PHOENIX_UV_DIR="${PHOENIX_UV_DIR_DEFAULT}"
@@ -553,7 +553,7 @@ readonly PHOENIX_UV="${PHOENIX_UV_DIR}/uv"
 export PHOENIX_UV
 export PHOENIX_UV_DIR
 
-# UV (local directory)
+# uv (local directory)
 readonly PHOENIX_UV_LOCAL_DEFAULT="${PHOENIX_BUILD}/uv"
 if [[ -z "${PHOENIX_UV_LOCAL+x}" ]]; then
   PHOENIX_UV_LOCAL="${PHOENIX_UV_LOCAL_DEFAULT}"
@@ -561,7 +561,7 @@ fi
 readonly PHOENIX_UV_LOCAL
 export PHOENIX_UV_LOCAL
 
-# UV cache
+# uv cache
 readonly PHOENIX_UV_CACHE_DEFAULT="${PHOENIX_UV_LOCAL}/cache"
 if [[ -z "${PHOENIX_UV_CACHE+x}" ]]; then
   PHOENIX_UV_CACHE="${PHOENIX_UV_CACHE_DEFAULT}"
@@ -569,7 +569,7 @@ fi
 readonly PHOENIX_UV_CACHE
 export PHOENIX_UV_CACHE
 
-# UV Python directory
+# uv Python directory
 readonly PHOENIX_UV_PYTHON_DEFAULT="${PHOENIX_UV_LOCAL}/python"
 if [[ -z "${PHOENIX_UV_PYTHON+x}" ]]; then
   PHOENIX_UV_PYTHON="${PHOENIX_UV_PYTHON_DEFAULT}"
@@ -577,7 +577,7 @@ fi
 readonly PHOENIX_UV_PYTHON
 export PHOENIX_UV_PYTHON
 
-# UV tools
+# uv tools
 readonly PHOENIX_UV_TOOLS_DEFAULT="${PHOENIX_UV_LOCAL}/tools"
 if [[ -z "${PHOENIX_UV_TOOLS+x}" ]]; then
   PHOENIX_UV_TOOLS="${PHOENIX_UV_TOOLS_DEFAULT}"
