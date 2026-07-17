@@ -713,7 +713,7 @@ function get_uv() {
 }
 
 # Clean-up
-"${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/downloads"
+"${PHOENIX_RM}" -rf "${PHOENIX_DOWNLOADS}"
 "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
 
 # These need to run before we get s3cmd
