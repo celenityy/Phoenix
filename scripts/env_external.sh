@@ -32,7 +32,7 @@ export PYTHONOPTIMIZE
 readonly S3CMD_PACKAGING='yes'
 export S3CMD_PACKAGING
 
-# UV
+# uv
 ## https://docs.astral.sh/uv/reference/environment/
 
 ## Cache directory

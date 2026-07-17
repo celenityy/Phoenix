@@ -46,6 +46,7 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   "${PHOENIX_LN}" -sf "${PHOENIX_MD5SUM}"     "${PHOENIX_PATH}/md5sum"
   "${PHOENIX_LN}" -sf "${PHOENIX_MKDIR}"      "${PHOENIX_PATH}/mkdir"
   "${PHOENIX_LN}" -sf "${PHOENIX_PYTHON}"     "${PHOENIX_PATH}/python"
+  "${PHOENIX_LN}" -sf "${PHOENIX_PYTHON}"     "${PHOENIX_PATH}/python3"
   "${PHOENIX_LN}" -sf "${PHOENIX_RM}"         "${PHOENIX_PATH}/rm"
   "${PHOENIX_LN}" -sf "${PHOENIX_S3CMD}"      "${PHOENIX_PATH}/s3cmd"
   "${PHOENIX_LN}" -sf "${PHOENIX_SED}"        "${PHOENIX_PATH}/gsed"
