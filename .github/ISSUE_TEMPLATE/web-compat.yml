@@ -65,6 +65,7 @@ body:
         - Debian (Flatpak)
         - Fedora Linux
         - Fedora Linux (Flatpak)
+        - Gentoo Linux
         - macOS (Apple Silicon)
         - macOS (Intel)
         - NixOS
