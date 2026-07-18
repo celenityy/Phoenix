@@ -382,7 +382,7 @@ function extract() {
       ;;
   esac
 
-  local readonly top_input_dir=$(ls "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}")
+  local readonly top_input_dir=$("${PHOENIX_LS}" "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}")
   "${PHOENIX_CP}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}/${top_input_dir}/" "${target_path}"
   "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
 }
