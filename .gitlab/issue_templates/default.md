@@ -54,7 +54,7 @@ If your operating system is not listed, please select "Other" and enter its name
 - [ ] Debian (Flatpak)
 - [ ] Fedora Linux
 - [ ] Fedora Linux (Flatpak)
-- [ ] Gentoo
+- [ ] Gentoo Linux
 - [ ] macOS (Apple Silicon)
 - [ ] macOS (Intel)
 - [ ] NixOS
