@@ -42,7 +42,16 @@ stdenvNoCC.mkDerivation {
     ${lib.optionalString stdenvNoCC.isDarwin ''export PHOENIX_PYTHON="${python3}/bin/python"''}
 
     patchShebangs ./scripts/*.sh
-    ./scripts/build.sh
+    ${
+      if stdenvNoCC.isDarwin then
+        ''
+          ./scripts/build.sh 'osx'
+        ''
+      else
+        ''
+          ./scripts/build.sh 'linux'
+        ''
+    }
 
     runHook postBuild
   '';

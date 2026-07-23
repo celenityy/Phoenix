@@ -8,6 +8,13 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
 fi
 source $(dirname $0)/env.sh
 
+# Set-up target parameters
+if [[ -z "${1+x}" ]]; then
+  readonly target='all'
+else
+  readonly target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
+fi
+
 # Include utilities
 source "${PHOENIX_UTILS}"
 
@@ -27,9 +34,9 @@ if [[ "${PHOENIX_LOG_BUILD}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1
+  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh" "${target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1
 else
-  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh"
+  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh" "${target}"
 fi
 
 popd
