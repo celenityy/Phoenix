@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash -x $(dirname $0)/env.sh
+  /bin/bash $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 
@@ -34,9 +34,9 @@ if [[ "${PHOENIX_LOG_BUILD}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh" "${target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1
+  /bin/bash "${PHOENIX_SCRIPTS}/fly.sh" "${target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1
 else
-  /bin/bash -x "${PHOENIX_SCRIPTS}/fly.sh" "${target}"
+  /bin/bash "${PHOENIX_SCRIPTS}/fly.sh" "${target}"
 fi
 
 popd

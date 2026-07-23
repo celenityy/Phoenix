@@ -158,6 +158,14 @@ fi
 readonly PHOENIX_LOG_DIR
 export PHOENIX_LOG_DIR
 
+# Whether we should display verbose build output
+readonly PHOENIX_VERBOSE_DEFAULT=0
+if [[ -z "${PHOENIX_VERBOSE+x}" ]]; then
+  PHOENIX_VERBOSE="${PHOENIX_VERBOSE_DEFAULT}"
+fi
+readonly PHOENIX_VERBOSE
+export PHOENIX_VERBOSE
+
 # basename
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_BASENAME_DEFAULT='/usr/bin/basename'

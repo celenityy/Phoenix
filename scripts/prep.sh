@@ -7,7 +7,7 @@ set +x
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash -x $(dirname $0)/env.sh
+  /bin/bash $(dirname $0)/env.sh
 fi
 source $(dirname $0)/env.sh
 

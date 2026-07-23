@@ -13,6 +13,13 @@ if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
   exit 1
 fi
 
+# Set verbosity
+if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
+  set -x
+else
+  set +x
+fi
+
 readonly target="$1"
 readonly mode="$2"
 
