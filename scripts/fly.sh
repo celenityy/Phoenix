@@ -908,14 +908,14 @@ function build_policies() {
       "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
       "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
 
-      combine_files "${PHOENIX_TEMP}/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
+      combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
     fi
   fi
 
   if [[ "${phoenix_policies_platform}" == 'osx' ]] || [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
+    combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
   else
-    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
   fi
 
   # Set our final policies.json output directory
