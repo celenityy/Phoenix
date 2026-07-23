@@ -50,13 +50,17 @@ elif [[ "${target}" == 'windows' ]]; then
   PHOENIX_WINDOWS=1
 elif [[ "${target}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), build everything
-  PHOENIX_ANDROID=1
   PHOENIX_LINUX=1
   PHOENIX_LINUX_FLATPAK=1
   PHOENIX_OSX=1
   PHOENIX_OSX_INTEL=1
-  PHOENIX_UNIVERSAL=1
   PHOENIX_WINDOWS=1
+
+  # Mail shouldn't build Android or the universal cfg...
+  if [[ "${PHOENIX_MAIL}" != 1 ]]; then
+    PHOENIX_ANDROID=1
+    PHOENIX_UNIVERSAL=1
+  fi
 else
   echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
   echo 'All:                  all (Default)'
