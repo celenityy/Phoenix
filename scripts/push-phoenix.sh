@@ -231,9 +231,15 @@ function push_file() {
   local readonly s3_endpoint=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | "${PHOENIX_XARGS}")
   local readonly s3_secret_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | "${PHOENIX_XARGS}")
 
+  if [[ "${s3_path}" == 'root' ]]; then
+    local readonly s3_target_path="s3://${s3_bucket_name}"
+  else
+    local readonly s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
+  fi
+
   echo_red_text "Pushing ${push_file} to S3..."
   source "${PHOENIX_PYENV}"
-  "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "s3://${s3_bucket_name}/${s3_full_path}" \
+  "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "${s3_target_path}" \
     --access_key="${s3_access_key}" \
     --secret_key="${s3_secret_key}" \
     --host="${s3_endpoint}" \
