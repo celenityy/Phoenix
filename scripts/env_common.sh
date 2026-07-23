@@ -981,14 +981,6 @@ fi
 readonly PHOENIX_EXTRA_POLICIES_ANDROID
 export PHOENIX_EXTRA_POLICIES_ANDROID
 
-# Where an additional policies.json file is located that should ONLY be applied to Linux
-readonly PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT='undefined'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX+x}" ]]; then
-  PHOENIX_EXTRA_POLICIES_LINUX="${PHOENIX_EXTRA_POLICIES_LINUX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_LINUX
-export PHOENIX_EXTRA_POLICIES_LINUX
-
 # Where an additional policies.json file is located that should ONLY be applied to Linux (non-Flatpak)
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT='undefined'
 if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]]; then
@@ -1004,14 +996,6 @@ if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]]; then
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
 export PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
-
-# Where an additional policies.json file is located that should ONLY be applied to OS X
-readonly PHOENIX_EXTRA_POLICIES_OSX_DEFAULT='undefined'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX+x}" ]]; then
-  PHOENIX_EXTRA_POLICIES_OSX="${PHOENIX_EXTRA_POLICIES_OSX_DEFAULT}"
-fi
-readonly PHOENIX_EXTRA_POLICIES_OSX
-export PHOENIX_EXTRA_POLICIES_OSX
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X (Apple Silicon)
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT='undefined'
