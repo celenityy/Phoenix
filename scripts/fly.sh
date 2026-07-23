@@ -16,6 +16,67 @@ if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   exit 1
 fi
 
+readonly target="$1"
+
+# Set-up target parameters
+PHOENIX_ANDROID=0
+PHOENIX_LINUX=0
+PHOENIX_LINUX_FLATPAK=0
+PHOENIX_OSX=0
+PHOENIX_OSX_INTEL=0
+PHOENIX_UNIVERSAL=0
+PHOENIX_WINDOWS=0
+
+if [[ "${target}" == 'android' ]]; then
+  # Android
+  PHOENIX_ANDROID=1
+elif [[ "${target}" == 'linux' ]]; then
+  # Linux (non-Flatpak)
+  PHOENIX_LINUX=1
+elif [[ "${target}" == 'linux-flatpak' ]]; then
+  # Linux (Flatpak)
+  PHOENIX_LINUX_FLATPAK=1
+elif [[ "${target}" == 'osx' ]]; then
+  # OS X (Silicon)
+  PHOENIX_OSX=1
+elif [[ "${target}" == 'osx-intel' ]]; then
+  # OS X (Intel)
+  PHOENIX_OSX_INTEL=1
+elif [[ "${target}" == 'universal' ]]; then
+  # Universal cfg
+  PHOENIX_UNIVERSAL=1
+elif [[ "${target}" == 'windows' ]]; then
+  # Windows
+  PHOENIX_WINDOWS=1
+elif [[ "${target}" == 'all' ]]; then
+  # If no argument is specified (or argument is set to "all"), build everything
+  PHOENIX_ANDROID=1
+  PHOENIX_LINUX=1
+  PHOENIX_LINUX_FLATPAK=1
+  PHOENIX_OSX=1
+  PHOENIX_OSX_INTEL=1
+  PHOENIX_UNIVERSAL=1
+  PHOENIX_WINDOWS=1
+else
+  echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
+  echo 'All:                  all (Default)'
+  echo 'Android:              android'
+  echo 'Linux (non-Flatpak):  linux'
+  echo 'Linux (Flatpak):      linux-flatpak'
+  echo 'OS X (Silicon):       osx'
+  echo 'OS X (Intel):         osx-intel'
+  echo 'Universal cfg:        universal'
+  echo 'Windows:              windows'
+  exit 1
+fi
+readonly PHOENIX_ANDROID
+readonly PHOENIX_LINUX
+readonly PHOENIX_LINUX_FLATPAK
+readonly PHOENIX_OSX
+readonly PHOENIX_OSX_INTEL
+readonly PHOENIX_UNIVERSAL
+readonly PHOENIX_WINDOWS
+
 # Set-up Python environment
 if [[ "${PHOENIX_NIX}" != 1 ]]; then
   # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
@@ -264,12 +325,12 @@ function check_extra_files() {
   maybe_verify_file "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG'
 
   # Check policies
-  if [[ "${PHOENIX_ANDROID_ONLY}" != 1 ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
+  if [[ "${target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     check_extra_policies
   fi
 
   # Check for a static prefs file to append and override/set additional preferences
-  if [[ "${PHOENIX_ANDROID_ONLY}" == 1 ]]; then
+  if [[ "${target}" == 'android' ]]; then
     if [[ "${PHOENIX_STATIC_JS_ANDROID}" != 1 ]]; then
       local readonly check_static_prefs_js=0
     else
@@ -529,31 +590,6 @@ function build_phoenix_common() {
 
   # If necessary, append the contents of an additional .cfg file
   maybe_combine_files "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_EXTRA_CFG}"
-  
-  # Handle PHOENIX_UNIVERSAL
-  if [[ "${PHOENIX_UNIVERSAL}" == 1 ]]; then
-    # Ensure an existing output doesn't already exist
-    check_file_or_dir_exists "${PHOENIX_OUTPUTS}/universal"
-
-    # Create our output directory
-    "${PHOENIX_MKDIR}" -p "${PHOENIX_OUTPUTS}/universal"
-
-    "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
-
-    # PHOENIX_UNIVERSAL configs do not support specs
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
-
-    # PHOENIX_UNIVERSAL configs should not try to hardcode the platform
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
-  fi
-
-  # Set PHOENIX_NO_SPEC
-  if [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${PHOENIX_TEMP}/phoenix-parsed.cfg"
-  else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${PHOENIX_TEMP}/phoenix-parsed.cfg"
-  fi
 
   # Clean-up files
   "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -561,12 +597,12 @@ function build_phoenix_common() {
   "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix.cfg"
 
   # Create enterprise policies
-  if [[ "${PHOENIX_ANDROID_ONLY}" != 1 ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
+  if [[ "${target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     # Create our directory
     "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}/policies"
 
     # If we're not targetting Thunderbird, create policies that always apply everywhere EXCEPT Thunderbird
-    if [[ "${PHOENIX_ANDROID_ONLY}" != 1 ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
+    if [[ "${target}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
       "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_ROOT}/policies/phoenix-no-mail.json"
@@ -625,7 +661,8 @@ function build_phoenix() {
   "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
   # If necessary, set our platform (for phoenix.cfg)
-  if [[ "${PHOENIX_HARDCODE_PLATFORM}" == 1 ]]; then
+  ## (Universal cfgs should never try to hardcode the platform...)
+  if [[ "${PHOENIX_HARDCODE_PLATFORM}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
     if [[ "${phoenix_platform}" == 'osx-intel' ]]; then
       local readonly phoenix_platform_to_hardcode='osx'
     elif [[ "${phoenix_platform}" == 'linux-flatpak' ]]; then
@@ -659,14 +696,18 @@ function build_phoenix() {
   # Copy README
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md"
 
-  # Copy resources for specialized configs
-  if [[ "${phoenix_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" != 1 ]] &&
-    [[ "${PHOENIX_NO_SPEC}" != 1 ]]; then
+  # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
+  if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
+   [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+  else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${phoenix_cfg_output_dir}/phoenix.cfg"
     "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
   fi
 
   # Copy assets for Phoenix's custom `about:` pages
-  if [[ "${phoenix_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" != 1 ]]; then
+  if [[ "${phoenix_platform}" != 'android' ]] && [[ "${phoenix_platform}" != 'universal' ]] &&
+   [[ "${PHOENIX_MAIL}" != 1 ]]; then
     "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
   fi
 
@@ -688,7 +729,10 @@ function build_phoenix() {
 
   # If necessary, create enterprise policies
   if [[ "${phoenix_platform}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
-    build_policies "${phoenix_platform}" "${phoenix_output_dir}"
+    if [[ "${phoenix_platform}" != 'universal' ]]; then
+      # Universal cfgs shouldn't bother creating policies
+      build_policies "${phoenix_platform}" "${phoenix_output_dir}"
+    fi
   fi
 
   # If necessary, create platform-specific static .js files
@@ -705,7 +749,8 @@ function build_phoenix() {
   fi
 
   # Finally, create our platform-specific archives
-  if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]]; then
+  ## (Universal cfgs don't need to create archives)
+  if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
     if [[ "${phoenix_platform}" == 'windows' ]]; then
       local readonly archive_type='zip'
     else
@@ -955,6 +1000,11 @@ fi
 # Build Phoenix for OS X (Intel)
 if [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
   build_phoenix 'osx-intel'
+fi
+
+# Build a Phoenix universal cfg
+if [[ "${PHOENIX_UNIVERSAL}" == 1 ]]; then
+  build_phoenix 'universal'
 fi
 
 # Build Phoenix for Windows
