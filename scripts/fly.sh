@@ -226,46 +226,46 @@ function check_file_or_dir_exists() {
 # Verify that extra policies files are set correctly
 function check_extra_policies() {
   # All platforms
-  maybe_verify_file "${PHOENIX_EXTRA_POLICIES}" 'PHOENIX_EXTRA_POLICIES'
+  maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES}" 'PHOENIX_EXTRA_POLICIES'
 
   # Android - Policies
   if [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_ANDROID}" 'PHOENIX_EXTRA_POLICIES_ANDROID'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_ANDROID}" 'PHOENIX_EXTRA_POLICIES_ANDROID'
   fi
 
   # Linux (non-Flatpak) - Policies
   if [[ "${PHOENIX_LINUX}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK'
   fi
 
   # Linux (Flatpak) - Policies
   if [[ "${PHOENIX_LINUX_FLATPAK}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK'
   fi
 
   # OS X (Silicon) - Policies
   if [[ "${PHOENIX_OSX}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" 'PHOENIX_EXTRA_POLICIES_OSX_SILICON'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" 'PHOENIX_EXTRA_POLICIES_OSX_SILICON'
   fi
 
   # OS X (Intel) - Policies
   if [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" 'PHOENIX_EXTRA_POLICIES_OSX_INTEL'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" 'PHOENIX_EXTRA_POLICIES_OSX_INTEL'
   fi
 
   # Windows - Policies
   if [[ "${PHOENIX_WINDOWS}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_POLICIES_WINDOWS}" 'PHOENIX_EXTRA_POLICIES_WINDOWS'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_WINDOWS}" 'PHOENIX_EXTRA_POLICIES_WINDOWS'
   fi
 }
 
 # If we're adding extra policies or static pref files, ensure the variables are set correctly
 function check_extra_files() {
   # Check for a file to override Phoenix-specific preferences
-  maybe_verify_file "${PHOENIX_OVERRIDES_CFG}" 'PHOENIX_OVERRIDES_CFG'
+  maybe_verify_file_with_env "${PHOENIX_OVERRIDES_CFG}" 'PHOENIX_OVERRIDES_CFG'
 
   # Check for a file to append and override/set additional preferences
-  maybe_verify_file "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG'
+  maybe_verify_file_with_env "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG'
 
   # Check policies
   if [[ "${target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
@@ -286,7 +286,7 @@ function check_extra_files() {
   fi
 
   if [[ "${check_static_prefs_js}" == 1 ]]; then
-    maybe_verify_file "${PHOENIX_EXTRA_JS}" 'PHOENIX_EXTRA_JS'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_JS}" 'PHOENIX_EXTRA_JS'
   fi
 }
 
