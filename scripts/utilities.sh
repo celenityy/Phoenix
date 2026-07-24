@@ -66,10 +66,35 @@ function verify_exec() {
   fi
 }
 
-# Verify that a file (corresponding to an environment variable) exists and is not empty
+# Verify that a file exists and is not empty
 function verify_file() {
   function print_usage() {
-    echo "Usage: verify_file /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
+    echo "Usage: verify_file /path/to/file"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    print_usage
+    exit 1
+  fi
+
+  local readonly verify_file="$1"
+
+  if [[ ! -f "${verify_file}" ]]; then
+    echo_red_text "ERROR: ${verify_file} does not exist! Aborting..."
+    exit 1
+  fi
+
+  if [[ ! -s "${verify_file}" ]]; then
+    echo_red_text "ERROR: ${verify_file} is empty! Aborting..."
+    exit 1
+  fi
+}
+
+# Verify that a file (corresponding to an environment variable) exists and is not empty
+function verify_file_with_env() {
+  function print_usage() {
+    echo "Usage: verify_file_with_env /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
   }
 
   if [[ -z "${1+x}" ]]; then
@@ -87,6 +112,11 @@ function verify_file() {
   local readonly verify_file="$1"
   local readonly verify_file_env="$2"
 
+  if [[ -z "${verify_file_env+x}" ]]; then
+    echo_red_text "ERROR: Environment variable is missing!: ${verify_file_env}"
+    exit 1
+  fi
+
   if [[ ! -f "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} does not exist! Aborting..."
     exit 1
@@ -99,9 +129,9 @@ function verify_file() {
 }
 
 # Only verify that a file exists if a designated environment variable is actually set
-function maybe_verify_file() {
+function maybe_verify_fil_with_env() {
   function print_usage() {
-    echo "Usage: maybe_verify_file /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
+    echo "Usage: maybe_verify_file_with_env /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
   }
 
   if [[ -z "${1+x}" ]]; then
@@ -120,6 +150,6 @@ function maybe_verify_file() {
   local readonly maybe_file_env="$2"
 
   if [[ "${maybe_file}" != 'undefined' ]]; then
-    verify_file "${maybe_file}" "${maybe_file_env}"
+    verify_file_with_env "${maybe_file}" "${maybe_file_env}"
   fi
 }
