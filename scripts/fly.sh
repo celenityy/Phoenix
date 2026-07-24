@@ -88,27 +88,6 @@ readonly PHOENIX_OSX_INTEL
 readonly PHOENIX_UNIVERSAL
 readonly PHOENIX_WINDOWS
 
-# Set-up Python environment
-if [[ "${PHOENIX_NIX}" == 1 ]]; then
-  readonly phoenix_py=0
-elif [[ "${PHOENIX_OSX}" == 1 ]] || [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
-  readonly phoenix_py=1
-elif [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_STATIC_JS_ANDROID}" == 1 ]]; then
-  readonly phoenix_py=1
-elif [[ "${target}" != 'android' ]] && [[ "${target}" != 'universal' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
-  readonly phoenix_py=1
-else
-  readonly phoenix_py=0
-fi
-if [[ "${phoenix_py}" == 1 ]]; then
-  # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
-  # doesn't use `get_sources.sh`), so if it doesn't exist then create it
-  if [[ ! -f "${PHOENIX_PYENV}" ]]; then
-    "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
-  fi
-  source "${PHOENIX_PYENV}"
-fi
-
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
@@ -241,6 +220,51 @@ function check_file_or_dir_exists() {
     else
       exit 1
     fi
+  fi
+}
+
+# Verify that an executable (corresponding to an environment variable) exists and is properly set-up
+function verify_exec() {
+  function print_usage() {
+    echo "Usage: verify_exec /path/to/executable 'ENVIRONMENT_VARIABLE_FOR_EXECUTABLE'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify an executable!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify an environment variable that corresponds to an executable!'
+    print_usage
+    exit 1
+  fi
+
+  local readonly exec="$1"
+  local readonly exec_env="$2"
+
+  if [[ -z "${exec_env+x}" ]]; then
+    echo_red_text "ERROR: Environment variable is missing!: ${exec_env}"
+    exit 1
+  fi
+
+  if [[ ! -f "${exec}" ]]; then
+    echo_red_text "ERROR: ${exec} is missing!"
+    echo_green_text "Please ensure that environment variable is set to a valid executable: ${exec_env}"
+    return 1
+  fi
+
+  if [[ ! -s "${exec}" ]]; then
+    echo_red_text "ERROR: ${exec} is empty!"
+    echo_green_text "Please ensure that environment variable is set to a valid executable: ${exec_env}"
+    return 1
+  fi
+
+  if [[ ! -x "${exec}" ]]; then
+    echo_red_text "ERROR: ${exec} is not executable!"
+    echo_green_text "Please ensure that environment variable is set to a valid executable: ${exec_env}"
+    return 1
   fi
 }
 
@@ -995,6 +1019,42 @@ if [[ -d "${PHOENIX_TEMP}" ]]; then
   "${PHOENIX_RM}" -rf "${PHOENIX_TEMP}"
 fi
 "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}"
+
+# Set-up Python environment
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  readonly phoenix_py=0
+elif [[ "${PHOENIX_OSX}" == 1 ]] || [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
+  readonly phoenix_py=1
+elif [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_STATIC_JS_ANDROID}" == 1 ]]; then
+  readonly phoenix_py=1
+elif [[ "${target}" != 'android' ]] && [[ "${target}" != 'universal' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
+  readonly phoenix_py=1
+else
+  readonly phoenix_py=0
+fi
+if [[ "${phoenix_py}" == 1 ]]; then
+  # Ensure Python is properly set-up
+  verify_exec "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' || exit 1
+
+  # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
+  # doesn't use `get_sources.sh`), so if it doesn't exist then create it
+  if [[ ! -f "${PHOENIX_PYENV}" ]]; then
+    # Preferably, we want to use uv, but if uv is unavailable, we can try falling back to Python's built-in venv module
+    PHOENIX_UV_AVAILABLE=1
+    verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || PHOENIX_UV_AVAILABLE=0
+    if [[ "${PHOENIX_UV_AVAILABLE}" == 1 ]]; then
+      echo_red_text 'Creating Python environment with uv...'
+      "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
+    else
+      echo_red_text 'Creating Python environment with Python...'
+      "${PHOENIX_PYTHON}" -m venv "${PHOENIX_PYENV_DIR}"
+    fi
+    echo_green_text "Created Python environment: ${PHOENIX_PYENV}"
+  fi
+  echo_red_text 'Sourcing Python environment...'
+  source "${PHOENIX_PYENV}"
+  echo_green_text "Sourced Python environment: ${PHOENIX_PYENV}"
+fi
 
 # Build Phoenix (platform-generic logic)
 build_phoenix_common
