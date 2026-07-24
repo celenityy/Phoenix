@@ -114,25 +114,25 @@ function push_file() {
 
   # Set our MIME type
   case "${push_file}" in
-  *.cfg)
-    local readonly mime_type='text/javascript'
-    ;;
-  *.js)
-    local readonly mime_type='text/javascript'
-    ;;
-  *.tar.xz)
-    local readonly mime_type='application/x-gtar'
-    ;;
-  *.txt)
-    local readonly mime_type='text/plain'
-    ;;
-  *.zip)
-    local readonly mime_type='application/zip'
-    ;;
-  *)
-    echo_red_text "ERROR: Unsupported file type: ${push_file}"
-    exit 1
-    ;;
+    *.cfg)
+      local readonly mime_type='text/javascript'
+      ;;
+    *.js)
+      local readonly mime_type='text/javascript'
+      ;;
+    *.tar.xz)
+      local readonly mime_type='application/x-gtar'
+      ;;
+    *.txt)
+      local readonly mime_type='text/plain'
+      ;;
+    *.zip)
+      local readonly mime_type='application/zip'
+      ;;
+    *)
+      echo_red_text "ERROR: Unsupported file type: ${push_file}"
+      exit 1
+      ;;
   esac
 
   local readonly s3_access_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | "${PHOENIX_XARGS}")
