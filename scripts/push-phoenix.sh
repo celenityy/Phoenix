@@ -149,10 +149,6 @@ readonly PHOENIX_PUSH_WINDOWS
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
-# Set timezone to UTC for consistency
-unset TZ
-export TZ="UTC"
-
 # Verifies that a file exists and is not empty
 function verify_file() {
   function print_usage() {
