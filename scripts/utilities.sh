@@ -117,6 +117,11 @@ function verify_file_with_env() {
     exit 1
   fi
 
+  if [[ "${verify_file}" == 'null' ]]; then
+    echo_red_text "ERROR: Environment variable: ${verify_file_env} has not been specified! Aborting..."
+    exit 1
+  fi
+
   if [[ ! -f "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} does not exist! Aborting..."
     exit 1
