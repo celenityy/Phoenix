@@ -89,7 +89,18 @@ readonly PHOENIX_UNIVERSAL
 readonly PHOENIX_WINDOWS
 
 # Set-up Python environment
-if [[ "${PHOENIX_NIX}" != 1 ]]; then
+if [[ "${PHOENIX_NIX}" == 1 ]]; then
+  readonly phoenix_py=0
+elif [[ "${PHOENIX_OSX}" == 1 ]] || [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
+  readonly phoenix_py=1
+elif [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_STATIC_JS_ANDROID}" == 1 ]]; then
+  readonly phoenix_py=1
+elif [[ "${target}" != 'android' ]] && [[ "${target}" != 'universal' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
+  readonly phoenix_py=1
+else
+  readonly phoenix_py=0
+fi
+if [[ "${phoenix_py}" == 1 ]]; then
   # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
   # doesn't use `get_sources.sh`), so if it doesn't exist then create it
   if [[ ! -f "${PHOENIX_PYENV}" ]]; then
