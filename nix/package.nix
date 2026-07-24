@@ -5,6 +5,7 @@
   coreutils,
   jq,
   gnused,
+  gawk,
   python3,
   ...
 }:
@@ -16,6 +17,7 @@ stdenvNoCC.mkDerivation {
     coreutils
     jq
     gnused
+    gawk
   ]
   ++ lib.optionals stdenvNoCC.isDarwin [ python3 ];
 
@@ -36,6 +38,7 @@ stdenvNoCC.mkDerivation {
     export PHOENIX_DIRNAME="${coreutils}/bin/dirname"
     export PHOENIX_CP="${coreutils}/bin/cp"
     export PHOENIX_SED="${gnused}/bin/sed"
+    export PHOENIX_AWK="${gawk}/bin/awk"
     export PHOENIX_CAT="${coreutils}/bin/cat"
     export PHOENIX_JQ="${jq}/bin/jq"
     export PHOENIX_UNAME="${coreutils}/bin/uname"
