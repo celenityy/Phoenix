@@ -227,6 +227,7 @@ function push_and_add_sha512sum() {
 
 # Push a universal Phoenix configuration file
 function push_phoenix_universal() {
+  "${PHOENIX_CP}" -f "${PHOENIX_OUTPUTS}/universal/phoenix.cfg" "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
   push_and_add_sha512sum "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.cfg
