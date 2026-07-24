@@ -82,12 +82,12 @@ function verify_file() {
 
   if [[ ! -f "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file} does not exist! Aborting..."
-    exit 1
+    return 1
   fi
 
   if [[ ! -s "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file} is empty! Aborting..."
-    exit 1
+    return 1
   fi
 }
 
@@ -119,42 +119,16 @@ function verify_file_with_env() {
 
   if [[ "${verify_file}" == 'null' ]]; then
     echo_red_text "ERROR: Environment variable: ${verify_file_env} has not been specified! Aborting..."
-    exit 1
+    return 1
   fi
 
   if [[ ! -f "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} does not exist! Aborting..."
-    exit 1
+    return 1
   fi
 
   if [[ ! -s "${verify_file}" ]]; then
     echo_red_text "ERROR: ${verify_file_env} is set, but ${verify_file} is empty! Aborting..."
-    exit 1
-  fi
-}
-
-# Only verify that a file exists if a designated environment variable is actually set
-function maybe_verify_fil_with_env() {
-  function print_usage() {
-    echo "Usage: maybe_verify_file_with_env /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
-  }
-
-  if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file to verify'
-    print_usage
-    exit 1
-  fi
-
-  if [[ -z "${2+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file'
-    print_usage
-    exit 1
-  fi
-
-  local readonly maybe_file="$1"
-  local readonly maybe_file_env="$2"
-
-  if [[ "${maybe_file}" != 'undefined' ]]; then
-    verify_file_with_env "${maybe_file}" "${maybe_file_env}"
+    return 1
   fi
 }

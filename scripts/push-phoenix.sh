@@ -17,10 +17,10 @@ if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
 fi
 
 # Verify secrets
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE'
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE'
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE'
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE'
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || exit 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
 
 readonly target="$1"
 
@@ -110,7 +110,7 @@ function push_file() {
   local readonly s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
 
   # Ensure our file to push is valid
-  verify_file "${push_file}"
+  verify_file "${push_file}" || exit 1
 
   # Set our MIME type
   case "${push_file}" in
@@ -179,7 +179,7 @@ function add_sha512sum() {
   fi
 
   # Ensure our file to create a SHA512sum for is valid
-  verify_file "${sha512sum_file_in}"
+  verify_file "${sha512sum_file_in}" || exit 1
 
   local readonly sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
 
@@ -216,7 +216,7 @@ function push_and_add_sha512sum() {
   local readonly s3_path_out="$2"
 
   # Ensure our file to create a SHA512sum for and push is valid
-  verify_file "${file_in}"
+  verify_file "${file_in}" || exit 1
 
   # Push our file to S3
   push_file "${file_in}" "${s3_path_out}"

@@ -223,6 +223,32 @@ function check_file_or_dir_exists() {
   fi
 }
 
+# Only verify that a file exists if a designated environment variable is actually set
+function maybe_verify_file_with_env() {
+  function print_usage() {
+    echo "Usage: maybe_verify_file_with_env /path/to/file 'ENVIRONMENT_VARIABLE_FOR_FILE'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file'
+    print_usage
+    exit 1
+  fi
+
+  local readonly maybe_file="$1"
+  local readonly maybe_file_env="$2"
+
+  if [[ "${maybe_file}" != 'undefined' ]]; then
+    verify_file_with_env "${maybe_file}" "${maybe_file_env}"
+  fi
+}
+
 # Verify that extra policies files are set correctly
 function check_extra_policies() {
   # All platforms
