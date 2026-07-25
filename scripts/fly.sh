@@ -852,7 +852,7 @@ function build_policies() {
 
   # Handle platform-specific policies
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
-    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-if-necessary-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json"
   else
     # If we're not targetting Android, create policies that always apply everywhere EXCEPT Android
     combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json"
