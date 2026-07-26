@@ -48,6 +48,7 @@
     "DisableFirefoxStudies": true,
     "DisablePrivateBrowsing": false,
     "DisableRemoteImprovements": true,
+    "DisableRemoteSettingsAndAcceptSecurityConsequences": false,
     "DNSOverHTTPS": {
       "Enabled": true,
       "Fallback": false
