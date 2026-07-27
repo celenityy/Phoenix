@@ -658,8 +658,7 @@ function build_phoenix() {
 
   if [[ "${phoenix_platform}" == 'universal' ]]; then
     # Standalone universal configs use different naming
-    "${PHOENIX_CP}" "${phoenix_cfg_output_dir}/phoenix.cfg" "${phoenix_cfg_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg"
-    "${PHOENIX_RM}" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_CP}" -f "${phoenix_cfg_output_dir}/phoenix.cfg" "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg"
   fi
 
   # Copy icon
