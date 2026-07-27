@@ -1,0 +1,7 @@
+- [Removed the `DefaultSerialGuardSetting` policy](https://codeberg.org/celenity/Phoenix/commit/88fa0775e259d6b49ced3fd2b7f8ae00c16fe25b) and [set `dom.webserial.enabled` to `false`](https://codeberg.org/celenity/Phoenix/commit/e90edd158fd8a0cbb2a4c6cb24de21eb8de07764) by default to work-around [an upstream issue that prevented the Web Serial API from being properly disabled](https://codeberg.org/librewolf/issues/issues/3079#issuecomment-19177550).
+- [Enforced display of a warning banner on error pages when `SSLKEYLOGFILE` is active](https://codeberg.org/celenity/Phoenix/commit/6936b3f4800758875f5d65150679e111dee9725c) *(Currently on Nightly)*.
+- [Disabled promotions for Mozilla's new `about:pdf` page](https://codeberg.org/celenity/Phoenix/commit/635bc6c8b16186f4b79a3b844b15b277fea4126d).
+- [Updated the default list of quarantined/restricted domains for add-ons](https://codeberg.org/celenity/Phoenix/commit/24a760460841a54f660d8ef0a4770f2c4e77355c).
+- [Cleaned up and removed old pref migration logic](https://codeberg.org/celenity/Phoenix/commit/242b41033669e1fea67027934616c104430f4090).
+- [Removed some redundant/unnecessary captive portal/connectivity check-related prefs](https://codeberg.org/celenity/Phoenix/commit/d6853e2a8a43ba2d5b5c18381a6513d904c43746), to reduce friction and make it easier for users to re-enable captive portal detection/connectivity checks if they wish to do so.
+- Tweaks/enhancements to Phoenix's build system.
