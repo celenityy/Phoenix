@@ -71,9 +71,6 @@ publish-release:
     - saas-linux-2xlarge-amd64
   variables:
     <<: *common_variables
-  before_script:
-    - sudo dnf update -y --refresh
-    - sudo dnf install -y curl jq
   script:
     - set -euo pipefail
     - /bin/bash scripts/ci-publish-release.sh
