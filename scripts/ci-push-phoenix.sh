@@ -624,6 +624,9 @@ function push_file() {
     *.js)
       local readonly mime_type='text/javascript'
       ;;
+    *.md)
+      local readonly mime_type='text/markdown'
+      ;;
     *.tar.xz)
       local readonly mime_type='application/x-gtar'
       ;;
