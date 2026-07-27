@@ -31,6 +31,10 @@ fi
 readonly PHOENIX_UTILS="${PHOENIX_SCRIPTS}/utilities.sh"
 export PHOENIX_UTILS
 
+# Tools
+readonly PHOENIX_TOOLS="${PHOENIX_ROOT}/tools"
+export PHOENIX_TOOLS
+
 # Templates
 readonly PHOENIX_TEMPLATES="${PHOENIX_ROOT}/templates"
 export PHOENIX_TEMPLATES
@@ -273,6 +277,14 @@ if [[ -z "${PHOENIX_DOT_CLEAN+x}" ]]; then
 fi
 readonly PHOENIX_DOT_CLEAN
 export PHOENIX_DOT_CLEAN
+
+# echo
+readonly PHOENIX_ECHO_DEFAULT="${PHOENIX_TOOLS}/echo.sh"
+if [[ -z "${PHOENIX_ECHO+x}" ]]; then
+  PHOENIX_ECHO="${PHOENIX_ECHO_DEFAULT}"
+fi
+readonly PHOENIX_ECHO
+export PHOENIX_ECHO
 
 # find
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
