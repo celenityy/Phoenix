@@ -3,6 +3,7 @@
 result*
 /.vscode/
 
+/artifacts/
 /build/
 /outputs/
 
