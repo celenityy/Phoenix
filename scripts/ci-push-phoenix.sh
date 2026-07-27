@@ -15,7 +15,7 @@ source $(dirname $0)/env.sh
 source "${PHOENIX_UTILS}"
 
 if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
-  echo_red_text 'ERROR: Do not call push-phoenix.sh directly. Instead, use push.sh.' >&1
+  echo_red_text 'ERROR: Do not call ci-push-phoenix.sh directly. Instead, use ci-push.sh.' >&1
   exit 1
 fi
 
