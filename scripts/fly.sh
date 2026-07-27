@@ -656,6 +656,12 @@ function build_phoenix() {
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
   fi
 
+  if [[ "${phoenix_platform}" == 'universal' ]]; then
+    # Standalone universal configs use different naming
+    "${PHOENIX_CP}" "${phoenix_cfg_output_dir}/phoenix.cfg" "${phoenix_cfg_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg"
+    "${PHOENIX_RM}" "${phoenix_cfg_output_dir}/phoenix.cfg"
+  fi
+
   # Copy icon
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
 
