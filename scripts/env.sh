@@ -35,6 +35,7 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   "${PHOENIX_LN}" -sf "${PHOENIX_DATE}"       "${PHOENIX_PATH}/date"
   "${PHOENIX_LN}" -sf "${PHOENIX_DATE}"       "${PHOENIX_PATH}/gdate"
   "${PHOENIX_LN}" -sf "${PHOENIX_DIRNAME}"    "${PHOENIX_PATH}/dirname"
+  "${PHOENIX_LN}" -sf "${PHOENIX_ECHO}"       "${PHOENIX_PATH}/echo"
   "${PHOENIX_LN}" -sf "${PHOENIX_FIND}"       "${PHOENIX_PATH}/find"
   "${PHOENIX_LN}" -sf "${PHOENIX_GIT}"        "${PHOENIX_PATH}/git"
   "${PHOENIX_LN}" -sf "${PHOENIX_GREP}"       "${PHOENIX_PATH}/grep"
