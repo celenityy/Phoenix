@@ -296,5 +296,5 @@ fi
 
 # phoenix-{PHOENIX_VERSION}-universal.cfg
 if [[ "${PHOENIX_AR_UP_UNIVERSAL_CFG}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${CI_PIPELINE_ID}"
 fi
