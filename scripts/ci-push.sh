@@ -28,7 +28,7 @@ if [[ "${PHOENIX_LOG_PUSH}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  /bin/bash "${PHOENIX_SCRIPTS}/push-phoenix.sh" > >("${PHOENIX_TEE}" -a "${PUSH_LOG_FILE}") 2>&1
+  /bin/bash "${PHOENIX_SCRIPTS}/ci-push-phoenix.sh" > >("${PHOENIX_TEE}" -a "${PUSH_LOG_FILE}") 2>&1
 else
-  /bin/bash "${PHOENIX_SCRIPTS}/push-phoenix.sh"
+  /bin/bash "${PHOENIX_SCRIPTS}/ci-push-phoenix.sh"
 fi
