@@ -232,7 +232,7 @@ function add_asset_to_forgejo_release() {
 
 # Publish a release to Forgejo (Codeberg)
 function publish_to_forgejo() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
@@ -312,7 +312,7 @@ function publish_to_forgejo() {
 
 # Publish a release to GitHub
 function publish_to_github() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
@@ -352,7 +352,7 @@ function publish_to_github() {
 
 # Publish a release to GitLab
 function publish_to_gitlab() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
