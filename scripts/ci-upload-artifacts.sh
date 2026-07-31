@@ -40,6 +40,7 @@ else
   echo_red_text "ERRROR: Unknown CI type!: ${PHOENIX_CI_TYPE}"
   exit 1
 fi
+export PHOENIX_CI_ID
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
