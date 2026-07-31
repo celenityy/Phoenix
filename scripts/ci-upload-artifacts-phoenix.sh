@@ -22,8 +22,8 @@ if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
   exit 1
 fi
 
-if [[ -z "${CI_PIPELINE_ID+x}" ]]; then
-  echo_red_text 'ERROR: Missing pipeline ID! Please set CI_PIPELINE_ID.'
+if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
+  echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
   exit 1
 fi
 
@@ -256,45 +256,45 @@ function push_and_add_sha512sum() {
 
 # phoenix-{PHOENIX_VERSION}-android.tar.xz
 if [[ "${PHOENIX_AR_UP_ANDROID_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_UP_ANDROID_JS}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/android/phoenix-${PHOENIX_VERSION}-android.js" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/android/phoenix-${PHOENIX_VERSION}-android.js" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-extended-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_UP_ANDROID_JS_EXTENDED}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/android/phoenix-extended-${PHOENIX_VERSION}-android.js" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/android/phoenix-extended-${PHOENIX_VERSION}-android.js" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux.tar.xz
 if [[ "${PHOENIX_AR_UP_LINUX_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
 if [[ "${PHOENIX_AR_UP_LINUX_FLATPAK_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx.tar.xz
 if [[ "${PHOENIX_AR_UP_OSX_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
 if [[ "${PHOENIX_AR_UP_OSX_INTEL_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-windows.zip
 if [[ "${PHOENIX_AR_UP_WINDOWS_ARCHIVE}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-windows.zip" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-windows.zip" "${PHOENIX_CI_ID}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-universal.cfg
 if [[ "${PHOENIX_AR_UP_UNIVERSAL_CFG}" == 1 ]]; then
-  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${CI_PIPELINE_ID}"
+  push_and_add_sha512sum "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_CI_ID}"
 fi

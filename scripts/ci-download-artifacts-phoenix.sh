@@ -19,8 +19,8 @@ if [[ -z "${PHOENIX_FROM_AR_DOWN+x}" ]]; then
   exit 1
 fi
 
-if [[ -z "${CI_PIPELINE_ID+x}" ]]; then
-  echo_red_text 'ERROR: Missing pipeline ID! Please set CI_PIPELINE_ID.'
+if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
+  echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
   exit 1
 fi
 
@@ -166,45 +166,45 @@ function download_artifact() {
 
 # phoenix-{PHOENIX_VERSION}-android.tar.xz
 if [[ "${PHOENIX_AR_DOWN_ANDROID_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'android' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_DOWN_ANDROID_JS}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'android-js' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android-js' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-extended-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_DOWN_ANDROID_JS_EXTENDED}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'android-js-extended' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android-js-extended' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux.tar.xz
 if [[ "${PHOENIX_AR_DOWN_LINUX_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'linux' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'linux' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
 if [[ "${PHOENIX_AR_DOWN_LINUX_FLATPAK_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'linux-flatpak' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'linux-flatpak' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx.tar.xz
 if [[ "${PHOENIX_AR_DOWN_OSX_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'osx' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'osx' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
 if [[ "${PHOENIX_AR_DOWN_OSX_INTEL_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'osx-intel' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'osx-intel' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-windows.zip
 if [[ "${PHOENIX_AR_DOWN_WINDOWS_ARCHIVE}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'windows' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'windows' "${PHOENIX_ARTIFACTS}"
 fi
 
 # phoenix-{PHOENIX_VERSION}-universal.cfg
 if [[ "${PHOENIX_AR_DOWN_UNIVERSAL_CFG}" == 1 ]]; then
-  download_artifact "${CI_PIPELINE_ID}" 'universal-cfg' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'universal-cfg' "${PHOENIX_ARTIFACTS}"
 fi

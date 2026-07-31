@@ -19,6 +19,7 @@ variables: &common_variables
   CACHE_COMPRESSION_LEVEL: 'slowest'
   FF_USE_FASTZIP: '1'
   PHOENIX_CI: 1
+  PHOENIX_CI_TYPE: 'gitlab'
   PRODUCTION_BRANCH: 'pages'
   TRANSFER_METER_FREQUENCY: '2s'
 
