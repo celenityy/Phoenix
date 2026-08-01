@@ -1,8 +1,8 @@
 <div align="center">
 
-[Homepage](https://phoenix.celenity.dev)
-| [Wiki](https://codeberg.org/celenity/Phoenix/Wiki)
-| [Contributing](#contributing)
+[Homepage](https://phoenix.celenity.dev) |
+[Wiki](https://codeberg.org/celenity/Phoenix/Wiki) |
+[Contributing](#contributing)
 
 ![Phoenix](./assets/phoenix_wide.png)
 
@@ -10,12 +10,13 @@
 
 **Phoenix is a suite of configurations & advanced modifications for Mozilla
 Firefox, designed to put the user first - with a focus on privacy, security,
-freedom, functionality, & usability.** [Here a detailed list of Phoenix's
-features & enhancements](https://phoenix.celenity.dev/features).
+freedom, functionality, & usability.**
+[Here a detailed list of Phoenix's features & enhancements](https://phoenix.celenity.dev/features).
 
 </div>
 
 > [!NOTE]
+>
 > **Thunderbird users should consider taking a look at
 > [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
 
@@ -48,10 +49,9 @@ Phoenix works by leveraging Firefox's
 functionality, and is installed on top of your standard, official Firefox
 installation. **This allows us to go above and beyond what a simple `user.js`
 file can offer, without the security risks a fork can introduce**. For example,
-forks often fall behind on Firefox updates,
-**which can leave users open to severe, detrimental vulnerabilities.** Phoenix's
-approach allows users to continue receiving immediate updates, directly from
-Mozilla.
+forks often fall behind on Firefox updates, **which can leave users open to
+severe, detrimental vulnerabilities.** Phoenix's approach allows users to
+continue receiving immediate updates, directly from Mozilla.
 
 Phoenix's approach also provides users with a seamless experience that is
 accessible and easy to use. Gone are the days of creating `override` files,
@@ -66,9 +66,10 @@ maintain website compatibility and to avoid breakage as much as possible, while
 still substantially improving privacy & security compared to vanilla Firefox &
 most other web browsers.** For users who **are** fine with breakage and want to
 go even further in enhancing their privacy & security, Phoenix also offers an
-**Extended** configuration. This is completely optional and primarily recommended
-for advanced users. For more information on Phoenix's compatibility with websites
-and known issues, please [see here](https://phoenix.celenity.dev/compat).
+**Extended** configuration. This is completely optional and primarily
+recommended for advanced users. For more information on Phoenix's compatibility
+with websites and known issues, please
+[see here](https://phoenix.celenity.dev/compat).
 
 Additionally, **Phoenix disables various anti-features & strives to put the user
 back in control of their browsing experience.** Phoenix also includes quality of
@@ -80,9 +81,11 @@ At the end of the day, above all else:
 **Phoenix is designed from the ground up to always put the user first.**
 
 > [!IMPORTANT]
-> **⚠️ All users MUST read the [Wiki](https://phoenix.celenity.dev/wiki)
-> before proceeding. The [Important](https://phoenix.celenity.dev/important) &
-> [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra importance!!**
+>
+> **⚠️ All users MUST read the [Wiki](https://phoenix.celenity.dev/wiki) before
+> proceeding. The [Important](https://phoenix.celenity.dev/important) &
+> [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra
+> importance!!**
 
 ### 💪 Motivation
 
@@ -104,7 +107,9 @@ It doesn't have to be this way.
 
 ### Want to join Phoenix Community?
 
-We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.org) _(Recommended)_ and [Discord](https://discord.gg/TsADPVDerv)!
+We'd love to see you over on
+[Matrix](https://matrix.to/#/#celenity:unredacted.org) _(Recommended)_ and
+[Discord](https://discord.gg/TsADPVDerv)!
 
 ## 🚀 Installation
 
@@ -125,7 +130,8 @@ We'd love to see you over on [Matrix](https://matrix.to/#/#celenity:unredacted.o
 Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
 1. _Flatpak targets `org.mozilla.firefox` package._
-2. _Gentoo GNU/Linux supports stable and ESR builds via both binary and source compilation._
+2. _Gentoo GNU/Linux supports stable and ESR builds via both binary and source
+   compilation._
 
 Other platforms have unfortunately proven difficult to support, though progress
 is being made. Contributions are always welcome and appreciated.
@@ -133,8 +139,10 @@ is being made. Contributions are always welcome and appreciated.
 ### Install
 
 > [!IMPORTANT]
+>
 > ⚠️ After Phoenix is installed, you **MUST** restart Firefox after its first
-> run with Phoenix installed. **This ensures all of Phoenix's changes are applied...**
+> run with Phoenix installed. **This ensures all of Phoenix's changes are
+> applied...**
 
 See: [docs/install](docs/install.md)
 
@@ -142,8 +150,8 @@ See: [docs/install](docs/install.md)
 
 For advanced users who would like to go above & beyond when protecting their
 privacy & security, at the cost of occasional breakage, Phoenix offers an
-**Extended** configuration. **For a list of features specific to [Phoenix Extended,
-please see here](https://phoenix.celenity.dev/extended)**.
+**Extended** configuration. **For a list of features specific to
+[Phoenix Extended, please see here](https://phoenix.celenity.dev/extended)**.
 
 See: [docs/extended](docs/extended.md)
 
@@ -160,6 +168,7 @@ See: [docs/specialized-configs](docs/specialized-configs.md)
 ### 📛 Manual Installation
 
 > [!CAUTION]
+>
 > **This is NOT recommended for most users.**
 
 By default, Phoenix is installed & updated via your operating system's package
