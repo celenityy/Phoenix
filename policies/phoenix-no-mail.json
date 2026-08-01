@@ -32,7 +32,7 @@
         },
         "DragAndDrop": {
           "Enabled": false
-          },
+        },
         "FileUpload": {
           "Enabled": false
         },

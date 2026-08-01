@@ -215,7 +215,7 @@
         "blocked_install_message": "OneSearch, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "jid1-G80Ec8LLEbK5fQ@jetpack": {
-         "installation_mode": "blocked",
+        "installation_mode": "blocked",
         "blocked_install_message": "New Tab, by Yahoo. Please don't use Yahoo... but if you insist, extension is unnecessary, just set it in either about:preferences#search or from the Omnibox."
       },
       "active_eue_enteprise@bmc.com": {
@@ -582,7 +582,7 @@
         "installation_mode": "blocked",
         "blocked_install_message": "Ezy Photo Tab & Custom Web Search, by EzyPhotoTab. Hijacks search engine to Yahoo without user consent/knowledge."
       },
-    "Ezy_Alarm_Clock___Custom_Web_Search_aGDLGGilLT@ezyalarmclock.com": {
+      "Ezy_Alarm_Clock___Custom_Web_Search_aGDLGGilLT@ezyalarmclock.com": {
         "installation_mode": "blocked",
         "blocked_install_message": "Ezy Alarm Clock & Custom Web Search, by Ezy Alarm Clock & Custom Web Search. Hijacks search engine to Yahoo without user consent/knowledge."
       },
@@ -678,7 +678,7 @@
         "installation_mode": "blocked",
         "blocked_install_message": "search-kytary.cz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
-    "search-thomann--cz@jirka-justra.cz": {
+      "search-thomann--cz@jirka-justra.cz": {
         "installation_mode": "blocked",
         "blocked_install_message": "search-thomann--cz, by Jirka Justra. Extension is unnecessary, just add it in either about:preferences#search or from the Omnibox."
       },
