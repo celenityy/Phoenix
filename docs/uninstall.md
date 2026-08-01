@@ -41,6 +41,12 @@ sudo dnf copr remove celenity/copr
 sudo dnf makecache
 ```
 
+## Gentoo Linux
+
+```bash
+emerge --depclean firefox-phoenix
+```
+
 ## NixOS
 
 ```nix
