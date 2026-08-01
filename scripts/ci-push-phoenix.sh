@@ -57,7 +57,7 @@ readonly PHOENIX_GITLAB_GENERIC_PACKAGES_URL="${PHOENIX_GITLAB_API_URL}/projects
 # Create release notes
 function create_release_notes() {
   # Ensure our changelog (for release-specific changes) exists
-  local readonly PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/changelog.md"
+  local readonly PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/CHANGELOG.md"
   verify_file "${PHOENIX_CHANGELOG_FILE}" || exit 1
 
   # Ensure our release template exists
@@ -125,7 +125,7 @@ function create_release_notes() {
     echo ''
     echo '## Changes'
     echo ''
-    "${PHOENIX_CAT}" "${PHOENIX_ROOT}/changelog.md"
+    "${PHOENIX_CAT}" "${PHOENIX_ROOT}/CHANGELOG.md"
     echo ''
     "${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES_TEMP}"
   } >> "${PHOENIX_RELEASE_NOTES}"
