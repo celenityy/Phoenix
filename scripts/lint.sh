@@ -52,7 +52,7 @@ if [[ "${mode}" == 'staged' ]]; then
 else
   while IFS= read -r file; do
     targets+=("${file}")
-  done < <("${PHOENIX_GIT}" ls-files 'scripts/*.sh')
+  done < <("${PHOENIX_LS}" 'scripts/*.sh')
 fi
 
 if [[ ${#targets[@]} -eq 0 ]]; then
