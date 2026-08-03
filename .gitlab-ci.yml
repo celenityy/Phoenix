@@ -24,8 +24,22 @@ variables: &common_variables
   TRANSFER_METER_FREQUENCY: '2s'
 
 stages:
+  - lint
   - build_phoenix
   - release_phoenix
+
+# Fast, lightweight gate: shellcheck + shfmt over the shell scripts.
+# Runs first so a lint failure stops the pipeline before the multi-hour builds.
+# Uses a minimal image and is NOT namespace-gated, so it also runs for forks / contributor pipelines.
+lint-scripts:
+  image: fedora:43
+  stage: lint
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH
+  script:
+    - set -euo pipefail
+    - /bin/bash scripts/ci-lint.sh
 
 build:
   image: fedora:43

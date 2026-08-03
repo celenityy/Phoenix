@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Phoenix CI environment variables
 
 # Log directory

@@ -113,31 +113,31 @@ readonly PHOENIX_CEL_ARTIFACTS_URL='https://artifacts.celenity.dev/phoenix'
 
 # Function to download and verify the SHA512sum of an artifact
 function download_artifact() {
-  local readonly pipeline_id="$1"
-  local readonly target="$2"
-  local readonly output_dir="$3"
+  local -r pipeline_id="$1"
+  local -r target="$2"
+  local -r output_dir="$3"
 
   if [[ "${target}" == 'windows' ]]; then
-    local readonly target_archive_ext='zip'
+    local -r target_archive_ext='zip'
   else
-    local readonly target_archive_ext='tar.xz'
+    local -r target_archive_ext='tar.xz'
   fi
 
   if [[ "${target}" == 'android-js' ]]; then
-    local readonly target_file="phoenix-${PHOENIX_VERSION}-android.js"
+    local -r target_file="phoenix-${PHOENIX_VERSION}-android.js"
   elif [[ "${target}" == 'android-js-extended' ]]; then
-    local readonly target_file="phoenix-extended-${PHOENIX_VERSION}-android.js"
+    local -r target_file="phoenix-extended-${PHOENIX_VERSION}-android.js"
   elif [[ "${target}" == 'universal-cfg' ]]; then
-    local readonly target_file="phoenix-${PHOENIX_VERSION}-universal.cfg"
+    local -r target_file="phoenix-${PHOENIX_VERSION}-universal.cfg"
   else
-    local readonly target_file="phoenix-${PHOENIX_VERSION}-${target}.${target_archive_ext}"
+    local -r target_file="phoenix-${PHOENIX_VERSION}-${target}.${target_archive_ext}"
   fi
 
-  local readonly target_expected_sha512sum="${target_file}-sha512sum.txt"
-  local readonly target_expected_sha512sum_url="${PHOENIX_CEL_ARTIFACTS_URL}/${pipeline_id}/${target_expected_sha512sum}"
-  local readonly target_file_url="${PHOENIX_CEL_ARTIFACTS_URL}/${pipeline_id}/${target_file}"
-  local readonly output_file="${output_dir}/${target_file}"
-  local readonly output_expected_sha512sum="${output_dir}/${target_expected_sha512sum}"
+  local -r target_expected_sha512sum="${target_file}-sha512sum.txt"
+  local -r target_expected_sha512sum_url="${PHOENIX_CEL_ARTIFACTS_URL}/${pipeline_id}/${target_expected_sha512sum}"
+  local -r target_file_url="${PHOENIX_CEL_ARTIFACTS_URL}/${pipeline_id}/${target_file}"
+  local -r output_file="${output_dir}/${target_file}"
+  local -r output_expected_sha512sum="${output_dir}/${target_expected_sha512sum}"
 
   # Download the artifact
   "${PHOENIX_MKDIR}" -p "${output_dir}"
@@ -148,8 +148,8 @@ function download_artifact() {
   # Check the SHA512sum
   echo_red_text "Validating SHA512sum for ${target_file}.."
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${target_expected_sha512sum_url}" --output "${output_expected_sha512sum}"
-  local readonly expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
-  local readonly local_sha512sum=$("${PHOENIX_SHA512SUM}" "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
+  local -r expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
+  local -r local_sha512sum=$("${PHOENIX_SHA512SUM}" "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
   if [[ "${local_sha512sum}" != "${expected_sha512sum}" ]]; then
     echo_red_text 'ERROR: Checksum validation failed.'
     echo "Expected SHA512sum: ${expected_sha512sum}"

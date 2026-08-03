@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Phoenix common environment variables
 
 ## CAUTION: Do NOT source this directly!
@@ -109,6 +110,10 @@ export PHOENIX_TEMP
 # Phoenix PATH
 readonly PHOENIX_PATH="${PHOENIX_BUILD}/path"
 export PHOENIX_PATH
+
+# Minimal Phoenix PATH for linting
+readonly PHOENIX_LINT_PATH="${PHOENIX_BUILD}/lint-path"
+export PHOENIX_LINT_PATH
 
 # External sources directory
 readonly PHOENIX_EXTERNAL="${PHOENIX_ROOT}/external"
@@ -488,6 +493,26 @@ fi
 readonly PHOENIX_SHA512SUM
 export PHOENIX_SHA512SUM
 
+# -shellcheck
+readonly PHOENIX_SHELLCHECK_DIR_DEFAULT="${PHOENIX_EXTERNAL}/shellcheck"
+if [[ -z "${PHOENIX_SHELLCHECK_DIR+x}" ]]; then
+  PHOENIX_SHELLCHECK_DIR="${PHOENIX_SHELLCHECK_DIR_DEFAULT}"
+fi
+readonly PHOENIX_SHELLCHECK_DIR
+readonly PHOENIX_SHELLCHECK="${PHOENIX_SHELLCHECK_DIR}/shellcheck"
+export PHOENIX_SHELLCHECK
+export PHOENIX_SHELLCHECK_DIR
+
+# shfmt
+readonly PHOENIX_SHFMT_DIR_DEFAULT="${PHOENIX_EXTERNAL}/shfmt"
+if [[ -z "${PHOENIX_SHFMT_DIR+x}" ]]; then
+  PHOENIX_SHFMT_DIR="${PHOENIX_SHFMT_DIR_DEFAULT}"
+fi
+readonly PHOENIX_SHFMT_DIR
+readonly PHOENIX_SHFMT="${PHOENIX_SHFMT_DIR}/shfmt"
+export PHOENIX_SHFMT
+export PHOENIX_SHFMT_DIR
+
 # tee
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_TEE_DEFAULT='/usr/bin/tee'
@@ -681,6 +706,7 @@ readonly PHOENIX_CURL_FLAGS_OVERRIDE
 export PHOENIX_CURL_FLAGS_OVERRIDE
 
 # curl flags
+# shellcheck disable=SC2089
 readonly PHOENIX_CURL_FLAGS_DEFAULT="--disable --no-netrc --ciphers ${PHOENIX_NONTLS13_CIPHERS} --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --proxy-ciphers ${PHOENIX_NONTLS13_CIPHERS} --proxy-tls13-ciphers ${PHOENIX_TLS13_CIPHERS} --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tls13-ciphers ${PHOENIX_TLS13_CIPHERS} --tlsv1.2 --trace-time --user-agent '' --verbose"
 if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]]; then
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT}"
@@ -689,6 +715,7 @@ elif [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == 1 ]]; then
 else
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT} ${PHOENIX_CURL_FLAGS}"
 fi
+# shellcheck disable=SC2090
 export PHOENIX_CURL_FLAGS
 
 # If s3cmd flags are added, this determines whether they should be appended to our default flags (default),

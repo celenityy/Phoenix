@@ -57,15 +57,15 @@ readonly PHOENIX_GITLAB_GENERIC_PACKAGES_URL="${PHOENIX_GITLAB_API_URL}/projects
 # Create release notes
 function create_release_notes() {
   # Ensure our changelog (for release-specific changes) exists
-  local readonly PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/CHANGELOG.md"
+  local -r PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/CHANGELOG.md"
   verify_file "${PHOENIX_CHANGELOG_FILE}" || exit 1
 
   # Ensure our release template exists
-  local readonly PHOENIX_RELEASE_TEMPLATE="${PHOENIX_TEMPLATES}/release-notes.md"
+  local -r PHOENIX_RELEASE_TEMPLATE="${PHOENIX_TEMPLATES}/release-notes.md"
   verify_file "${PHOENIX_RELEASE_TEMPLATE}" || exit 1
 
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
-  local readonly PHOENIX_RELEASE_NOTES_TEMP="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes-temp.md"
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local -r PHOENIX_RELEASE_NOTES_TEMP="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes-temp.md"
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES}" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   "${PHOENIX_MKDIR}" -p "${PHOENIX_ARTIFACTS}" "${PHOENIX_TEMP}"
@@ -76,49 +76,49 @@ function create_release_notes() {
 
   # Set the previous (current) version
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${PHOENIX_CEL_RELEASES_URL}/phoenix/releases/latest_release.txt" --output "${PHOENIX_TEMP}/previous_release.txt"
-  local readonly PHOENIX_PREVIOUS_VERSION=$("${PHOENIX_CAT}" "${PHOENIX_TEMP}/previous_release.txt" | "${PHOENIX_XARGS}")
+  local -r PHOENIX_PREVIOUS_VERSION=$("${PHOENIX_CAT}" "${PHOENIX_TEMP}/previous_release.txt" | "${PHOENIX_XARGS}")
   "${PHOENIX_SED}" -i "s|{PHOENIX_PREVIOUS_VERSION}|${PHOENIX_PREVIOUS_VERSION}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # Set our SHA512sums
 
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
-  local readonly PHOENIX_ANDROID_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|${PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-android.js
-  local readonly PHOENIX_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_JS_SHA512SUM}|${PHOENIX_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
-  local readonly PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
-  local readonly PHOENIX_LINUX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
-  local readonly PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
-  local readonly PHOENIX_OSX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_OSX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
-  local readonly PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
-  local readonly PHOENIX_WINDOWS_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-windows.zip" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-windows.zip" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
-  local readonly PHOENIX_UNIVERSAL_CFG_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_UNIVERSAL_CFG_SHA512SUM}|${PHOENIX_UNIVERSAL_CFG_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # Add release-specific changes
-  local readonly PHOENIX_CHANGELOG=$("${PHOENIX_CAT}" "${PHOENIX_CHANGELOG_FILE}")
+  local -r PHOENIX_CHANGELOG=$("${PHOENIX_CAT}" "${PHOENIX_CHANGELOG_FILE}")
   {
     echo "# Phoenix ${PHOENIX_VERSION}"
     echo '____'
@@ -153,8 +153,8 @@ function upload_to_forgejo_package_registry() {
     exit 1
   fi
 
-  local readonly upload_file="$1"
-  local readonly upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
+  local -r upload_file="$1"
+  local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
 
   # Ensure our file to upload is valid
   verify_file "${upload_file}" || exit 1
@@ -182,8 +182,8 @@ function upload_to_gitlab_package_registry() {
     exit 1
   fi
 
-  local readonly upload_file="$1"
-  local readonly upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
+  local -r upload_file="$1"
+  local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
 
   # Ensure our file to upload is valid
   verify_file "${upload_file}" || exit 1
@@ -217,9 +217,9 @@ function add_asset_to_forgejo_release() {
     exit 1
   fi
 
-  local readonly release_id="$1"
-  local readonly asset_url="$2"
-  local readonly asset=$("${PHOENIX_BASENAME}" "${asset_url}")
+  local -r release_id="$1"
+  local -r asset_url="$2"
+  local -r asset=$("${PHOENIX_BASENAME}" "${asset_url}")
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'accept: application/json' \
     --header "Authorization: token ${PHOENIX_FORGEJO_CI_API_TOKEN}" \
@@ -232,7 +232,7 @@ function add_asset_to_forgejo_release() {
 
 # Publish a release to Forgejo (Codeberg)
 function publish_to_forgejo() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
@@ -245,9 +245,9 @@ function publish_to_forgejo() {
     exit 1
   fi
 
-  local readonly phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
+  local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
-  local readonly phoenix_codeberg_release_data="$(
+  local -r phoenix_codeberg_release_data="$(
     "${PHOENIX_JQ}" -Rs --arg name "${PHOENIX_VERSION}" --arg ref "${PHOENIX_FORGEJO_BRANCH}" --arg tag "${PHOENIX_VERSION}" '{
       name: $name,
       tag_name: $tag,
@@ -258,7 +258,7 @@ function publish_to_forgejo() {
       }' <<< "${phoenix_release_desc}"
   )"
 
-  local readonly phoenix_codeberg_release=$("${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'Content-Type: application/json' \
+  local -r phoenix_codeberg_release=$("${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'Content-Type: application/json' \
     --header 'accept: application/json' \
     --header "Authorization: token ${PHOENIX_FORGEJO_CI_API_TOKEN}" \
     --data "${phoenix_codeberg_release_data}" \
@@ -266,7 +266,7 @@ function publish_to_forgejo() {
     "${PHOENIX_FORGEJO_API_URL}/v1/repos/${PHOENIX_FORGEJO_REPO}/releases")
 
   # Get our release ID
-  local readonly phoenix_codeberg_release_id=$(echo "${phoenix_codeberg_release}" | "${PHOENIX_JQ}" -r '.id')
+  local -r phoenix_codeberg_release_id=$(echo "${phoenix_codeberg_release}" | "${PHOENIX_JQ}" -r '.id')
 
   # Attach our assets
 
@@ -312,7 +312,7 @@ function publish_to_forgejo() {
 
 # Publish a release to GitHub
 function publish_to_github() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
@@ -325,9 +325,9 @@ function publish_to_github() {
     exit 1
   fi
 
-  local readonly phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
+  local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
-  local readonly phoenix_github_release_data="$(
+  local -r phoenix_github_release_data="$(
     "${PHOENIX_JQ}" -Rs --arg name "${PHOENIX_VERSION}" --arg ref "${PHOENIX_GITHUB_BRANCH}" --arg tag "${PHOENIX_VERSION}" '{
       name: $name,
       tag_name: $tag,
@@ -352,7 +352,7 @@ function publish_to_github() {
 
 # Publish a release to GitLab
 function publish_to_gitlab() {
-  local readonly PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
 
   if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
     echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
@@ -365,121 +365,121 @@ function publish_to_gitlab() {
     exit 1
   fi
 
-  local readonly phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
+  local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
   # Attach our assets
 
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
-  local readonly PHOENIX_ANDROID_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-android.tar.xz"
-  local readonly PHOENIX_ANDROID_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_ARCHIVE_NAME}"
-  local readonly PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME="${PHOENIX_ANDROID_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_ANDROID_ARCHIVE_SHA512SUM_URL="${PHOENIX_ANDROID_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_ANDROID_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-android.tar.xz"
+  local -r PHOENIX_ANDROID_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_ARCHIVE_NAME}"
+  local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME="${PHOENIX_ANDROID_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM_URL="${PHOENIX_ANDROID_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-android.js
-  local readonly PHOENIX_ANDROID_JS_NAME="phoenix-${PHOENIX_VERSION}-android.js"
-  local readonly PHOENIX_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_JS_NAME}"
-  local readonly PHOENIX_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_ANDROID_JS_NAME}-sha512sum.txt"
-  local readonly PHOENIX_ANDROID_JS_SHA512SUM_URL="${PHOENIX_ANDROID_JS_URL}-sha512sum.txt"
+  local -r PHOENIX_ANDROID_JS_NAME="phoenix-${PHOENIX_VERSION}-android.js"
+  local -r PHOENIX_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_JS_NAME}"
+  local -r PHOENIX_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_ANDROID_JS_NAME}-sha512sum.txt"
+  local -r PHOENIX_ANDROID_JS_SHA512SUM_URL="${PHOENIX_ANDROID_JS_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_SHA512SUM_NAME}"
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
-  local readonly PHOENIX_EXTENDED_ANDROID_JS_NAME="phoenix-extended-${PHOENIX_VERSION}-android.js"
-  local readonly PHOENIX_EXTENDED_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_EXTENDED_ANDROID_JS_NAME}"
-  local readonly PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_EXTENDED_ANDROID_JS_NAME}-sha512sum.txt"
-  local readonly PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_URL="${PHOENIX_EXTENDED_ANDROID_JS_URL}-sha512sum.txt"
+  local -r PHOENIX_EXTENDED_ANDROID_JS_NAME="phoenix-extended-${PHOENIX_VERSION}-android.js"
+  local -r PHOENIX_EXTENDED_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_EXTENDED_ANDROID_JS_NAME}"
+  local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_EXTENDED_ANDROID_JS_NAME}-sha512sum.txt"
+  local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_URL="${PHOENIX_EXTENDED_ANDROID_JS_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
-  local readonly PHOENIX_LINUX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux.tar.xz"
-  local readonly PHOENIX_LINUX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux/${PHOENIX_LINUX_ARCHIVE_NAME}"
-  local readonly PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_LINUX_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_LINUX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux.tar.xz"
+  local -r PHOENIX_LINUX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux/${PHOENIX_LINUX_ARCHIVE_NAME}"
+  local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
-  local readonly PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz"
-  local readonly PHOENIX_LINUX_FLATPAK_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}"
-  local readonly PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_FLATPAK_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz"
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}"
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_FLATPAK_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
-  local readonly PHOENIX_OSX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx.tar.xz"
-  local readonly PHOENIX_OSX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx/${PHOENIX_OSX_ARCHIVE_NAME}"
-  local readonly PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_OSX_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_OSX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx.tar.xz"
+  local -r PHOENIX_OSX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx/${PHOENIX_OSX_ARCHIVE_NAME}"
+  local -r PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_OSX_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
-  local readonly PHOENIX_OSX_INTEL_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz"
-  local readonly PHOENIX_OSX_INTEL_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx-intel/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}"
-  local readonly PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_INTEL_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_INTEL_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz"
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx-intel/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}"
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_INTEL_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_INTEL_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
-  local readonly PHOENIX_WINDOWS_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-windows.zip"
-  local readonly PHOENIX_WINDOWS_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/windows/${PHOENIX_WINDOWS_ARCHIVE_NAME}"
-  local readonly PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME="${PHOENIX_WINDOWS_ARCHIVE_NAME}-sha512sum.txt"
-  local readonly PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_URL="${PHOENIX_WINDOWS_ARCHIVE_URL}-sha512sum.txt"
+  local -r PHOENIX_WINDOWS_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-windows.zip"
+  local -r PHOENIX_WINDOWS_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/windows/${PHOENIX_WINDOWS_ARCHIVE_NAME}"
+  local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME="${PHOENIX_WINDOWS_ARCHIVE_NAME}-sha512sum.txt"
+  local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_URL="${PHOENIX_WINDOWS_ARCHIVE_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME}"
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
-  local readonly PHOENIX_UNIVERSAL_CFG_NAME="phoenix-${PHOENIX_VERSION}-universal.cfg"
-  local readonly PHOENIX_UNIVERSAL_CFG_URL="${PHOENIX_RELEASES_BASE_URL}/universal/${PHOENIX_UNIVERSAL_CFG_NAME}"
-  local readonly PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME="${PHOENIX_UNIVERSAL_CFG_NAME}-sha512sum.txt"
-  local readonly PHOENIX_UNIVERSAL_CFG_SHA512SUM_URL="${PHOENIX_UNIVERSAL_CFG_URL}-sha512sum.txt"
+  local -r PHOENIX_UNIVERSAL_CFG_NAME="phoenix-${PHOENIX_VERSION}-universal.cfg"
+  local -r PHOENIX_UNIVERSAL_CFG_URL="${PHOENIX_RELEASES_BASE_URL}/universal/${PHOENIX_UNIVERSAL_CFG_NAME}"
+  local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME="${PHOENIX_UNIVERSAL_CFG_NAME}-sha512sum.txt"
+  local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM_URL="${PHOENIX_UNIVERSAL_CFG_URL}-sha512sum.txt"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_NAME}"
   upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME}"
 
-  local readonly phoenix_gitlab_release_data="$(
+  local -r phoenix_gitlab_release_data="$(
     "${PHOENIX_JQ}" -Rs --arg name "${PHOENIX_VERSION}" --arg ref "${PHOENIX_GITLAB_BRANCH}" --arg tag "${PHOENIX_VERSION}" --arg version "${PHOENIX_VERSION}" \
-    --arg android_archive_name "${PHOENIX_ANDROID_ARCHIVE_NAME}" \
-    --arg android_archive_url "${PHOENIX_ANDROID_ARCHIVE_URL}" \
-    --arg android_archive_sha512sum_name "${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME}" \
-    --arg android_archive_sha512sum_url "${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_URL}" \
-    --arg android_js_name "${PHOENIX_ANDROID_JS_NAME}" \
-    --arg android_js_url "${PHOENIX_ANDROID_JS_URL}" \
-    --arg android_js_sha512sum_name "${PHOENIX_ANDROID_JS_SHA512SUM_NAME}" \
-    --arg android_js_sha512sum_url "${PHOENIX_ANDROID_JS_SHA512SUM_URL}" \
-    --arg extended_android_js_name "${PHOENIX_EXTENDED_ANDROID_JS_NAME}" \
-    --arg extended_android_js_url "${PHOENIX_EXTENDED_ANDROID_JS_URL}" \
-    --arg extended_android_js_sha512sum_name "${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME}" \
-    --arg extended_android_js_sha512sum_url "${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_URL}" \
-    --arg linux_archive_name "${PHOENIX_LINUX_ARCHIVE_NAME}" \
-    --arg linux_archive_url "${PHOENIX_LINUX_ARCHIVE_URL}" \
-    --arg linux_archive_sha512sum_name "${PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME}" \
-    --arg linux_archive_sha512sum_url "${PHOENIX_LINUX_ARCHIVE_SHA512SUM_URL}" \
-    --arg linux_flatpak_archive_name "${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}" \
-    --arg linux_flatpak_archive_url "${PHOENIX_LINUX_FLATPAK_ARCHIVE_URL}" \
-    --arg linux_flatpak_archive_sha512sum_name "${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME}" \
-    --arg linux_flatpak_archive_sha512sum_url "${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_URL}" \
-    --arg osx_archive_name "${PHOENIX_OSX_ARCHIVE_NAME}" \
-    --arg osx_archive_url "${PHOENIX_OSX_ARCHIVE_URL}" \
-    --arg osx_archive_sha512sum_name "${PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME}" \
-    --arg osx_archive_sha512sum_url "${PHOENIX_OSX_ARCHIVE_SHA512SUM_URL}" \
-    --arg osx_intel_archive_name "${PHOENIX_OSX_INTEL_ARCHIVE_NAME}" \
-    --arg osx_intel_archive_url "${PHOENIX_OSX_INTEL_ARCHIVE_URL}" \
-    --arg osx_intel_archive_sha512sum_name "${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME}" \
-    --arg osx_intel_archive_sha512sum_url "${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_URL}" \
-    --arg windows_archive_name "${PHOENIX_WINDOWS_ARCHIVE_NAME}" \
-    --arg windows_archive_url "${PHOENIX_WINDOWS_ARCHIVE_URL}" \
-    --arg windows_archive_sha512sum_name "${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME}" \
-    --arg windows_archive_sha512sum_url "${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_URL}" \
-    --arg universal_cfg_name "${PHOENIX_UNIVERSAL_CFG_NAME}" \
-    --arg universal_cfg_url "${PHOENIX_UNIVERSAL_CFG_URL}" \
-    --arg universal_cfg_sha512sum_name "${PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME}" \
-    --arg universal_cfg_sha512sum_url "${PHOENIX_UNIVERSAL_CFG_SHA512SUM_URL}" \
-    '{
+      --arg android_archive_name "${PHOENIX_ANDROID_ARCHIVE_NAME}" \
+      --arg android_archive_url "${PHOENIX_ANDROID_ARCHIVE_URL}" \
+      --arg android_archive_sha512sum_name "${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME}" \
+      --arg android_archive_sha512sum_url "${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_URL}" \
+      --arg android_js_name "${PHOENIX_ANDROID_JS_NAME}" \
+      --arg android_js_url "${PHOENIX_ANDROID_JS_URL}" \
+      --arg android_js_sha512sum_name "${PHOENIX_ANDROID_JS_SHA512SUM_NAME}" \
+      --arg android_js_sha512sum_url "${PHOENIX_ANDROID_JS_SHA512SUM_URL}" \
+      --arg extended_android_js_name "${PHOENIX_EXTENDED_ANDROID_JS_NAME}" \
+      --arg extended_android_js_url "${PHOENIX_EXTENDED_ANDROID_JS_URL}" \
+      --arg extended_android_js_sha512sum_name "${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME}" \
+      --arg extended_android_js_sha512sum_url "${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_URL}" \
+      --arg linux_archive_name "${PHOENIX_LINUX_ARCHIVE_NAME}" \
+      --arg linux_archive_url "${PHOENIX_LINUX_ARCHIVE_URL}" \
+      --arg linux_archive_sha512sum_name "${PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME}" \
+      --arg linux_archive_sha512sum_url "${PHOENIX_LINUX_ARCHIVE_SHA512SUM_URL}" \
+      --arg linux_flatpak_archive_name "${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}" \
+      --arg linux_flatpak_archive_url "${PHOENIX_LINUX_FLATPAK_ARCHIVE_URL}" \
+      --arg linux_flatpak_archive_sha512sum_name "${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME}" \
+      --arg linux_flatpak_archive_sha512sum_url "${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_URL}" \
+      --arg osx_archive_name "${PHOENIX_OSX_ARCHIVE_NAME}" \
+      --arg osx_archive_url "${PHOENIX_OSX_ARCHIVE_URL}" \
+      --arg osx_archive_sha512sum_name "${PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME}" \
+      --arg osx_archive_sha512sum_url "${PHOENIX_OSX_ARCHIVE_SHA512SUM_URL}" \
+      --arg osx_intel_archive_name "${PHOENIX_OSX_INTEL_ARCHIVE_NAME}" \
+      --arg osx_intel_archive_url "${PHOENIX_OSX_INTEL_ARCHIVE_URL}" \
+      --arg osx_intel_archive_sha512sum_name "${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME}" \
+      --arg osx_intel_archive_sha512sum_url "${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_URL}" \
+      --arg windows_archive_name "${PHOENIX_WINDOWS_ARCHIVE_NAME}" \
+      --arg windows_archive_url "${PHOENIX_WINDOWS_ARCHIVE_URL}" \
+      --arg windows_archive_sha512sum_name "${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME}" \
+      --arg windows_archive_sha512sum_url "${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_URL}" \
+      --arg universal_cfg_name "${PHOENIX_UNIVERSAL_CFG_NAME}" \
+      --arg universal_cfg_url "${PHOENIX_UNIVERSAL_CFG_URL}" \
+      --arg universal_cfg_sha512sum_name "${PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME}" \
+      --arg universal_cfg_sha512sum_url "${PHOENIX_UNIVERSAL_CFG_SHA512SUM_URL}" \
+      '{
       name: $name,
       ref: $ref,
       tag_name: $tag,
@@ -609,9 +609,9 @@ function push_file() {
     exit 1
   fi
 
-  local readonly push_file="$1"
-  local readonly s3_path="$2"
-  local readonly s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
+  local -r push_file="$1"
+  local -r s3_path="$2"
+  local -r s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
 
   # Ensure our file to push is valid
   verify_file "${push_file}" || exit 1
@@ -619,22 +619,22 @@ function push_file() {
   # Set our MIME type
   case "${push_file}" in
     *.cfg)
-      local readonly mime_type='text/javascript'
+      local -r mime_type='text/javascript'
       ;;
     *.js)
-      local readonly mime_type='text/javascript'
+      local -r mime_type='text/javascript'
       ;;
     *.md)
-      local readonly mime_type='text/markdown'
+      local -r mime_type='text/markdown'
       ;;
     *.tar.xz)
-      local readonly mime_type='application/x-gtar'
+      local -r mime_type='application/x-gtar'
       ;;
     *.txt)
-      local readonly mime_type='text/plain'
+      local -r mime_type='text/plain'
       ;;
     *.zip)
-      local readonly mime_type='application/zip'
+      local -r mime_type='application/zip'
       ;;
     *)
       echo_red_text "ERROR: Unsupported file type: ${push_file}"
@@ -642,15 +642,15 @@ function push_file() {
       ;;
   esac
 
-  local readonly s3_access_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | "${PHOENIX_XARGS}")
-  local readonly s3_bucket_name=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" | "${PHOENIX_XARGS}")
-  local readonly s3_endpoint=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | "${PHOENIX_XARGS}")
-  local readonly s3_secret_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | "${PHOENIX_XARGS}")
+  local -r s3_access_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | "${PHOENIX_XARGS}")
+  local -r s3_bucket_name=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" | "${PHOENIX_XARGS}")
+  local -r s3_endpoint=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | "${PHOENIX_XARGS}")
+  local -r s3_secret_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | "${PHOENIX_XARGS}")
 
   if [[ "${s3_path}" == 'root' ]]; then
-    local readonly s3_target_path="s3://${s3_bucket_name}"
+    local -r s3_target_path="s3://${s3_bucket_name}"
   else
-    local readonly s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
+    local -r s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
   fi
 
   echo_red_text "Pushing ${push_file} to S3..."
@@ -675,28 +675,28 @@ function add_sha512sum() {
     exit 1
   fi
 
-  local readonly sha512sum_file_in="$1"
-  local readonly sha512sum_file_name=$("${PHOENIX_BASENAME}" "${sha512sum_file_in}")
-  local readonly sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
+  local -r sha512sum_file_in="$1"
+  local -r sha512sum_file_name=$("${PHOENIX_BASENAME}" "${sha512sum_file_in}")
+  local -r sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
 
   if [[ -z "${2+x}" ]]; then
-    local readonly sha512sum_s3path=$("${PHOENIX_BASENAME}" "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
+    local -r sha512sum_s3path=$("${PHOENIX_BASENAME}" "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
   else
-    local readonly sha512sum_s3path="$2"
+    local -r sha512sum_s3path="$2"
   fi
 
   # Ensure our file to create a SHA512sum for is valid
   verify_file "${sha512sum_file_in}" || exit 1
 
-  local readonly sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
+  local -r sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
 
   # If there's already a SHA512sum file, remove it
   if [[ -f "${sha512sum_file_out}" ]]; then
     "${PHOENIX_RM}" -f "${sha512sum_file_out}"
   fi
 
-  local readonly local_sha512sum=$("${PHOENIX_SHA512SUM}" "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
-  echo -n "${local_sha512sum}" >"${sha512sum_file_out}"
+  local -r local_sha512sum=$("${PHOENIX_SHA512SUM}" "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
+  echo -n "${local_sha512sum}" > "${sha512sum_file_out}"
 
   push_file "${sha512sum_file_out}" "${sha512sum_s3path}"
 }
@@ -719,8 +719,8 @@ function push_and_add_sha512sum() {
     exit 1
   fi
 
-  local readonly file_in="$1"
-  local readonly s3_path_out="$2"
+  local -r file_in="$1"
+  local -r s3_path_out="$2"
 
   # Ensure our file to create a SHA512sum for and push is valid
   verify_file "${file_in}" || exit 1
@@ -754,7 +754,7 @@ function _push_phoenix() {
     exit 1
   fi
 
-  local readonly phoenix_platform="$1"
+  local -r phoenix_platform="$1"
 
   # Universal logic is handled elsewhere...
   if [[ "${phoenix_platform}" == 'universal' ]]; then
@@ -764,9 +764,9 @@ function _push_phoenix() {
 
   # Set our archive type
   if [[ "${phoenix_platform}" == 'windows' ]]; then
-    local readonly phoenix_archive_type='zip'
+    local -r phoenix_archive_type='zip'
   else
-    local readonly phoenix_archive_type='tar.xz'
+    local -r phoenix_archive_type='tar.xz'
   fi
 
   push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"

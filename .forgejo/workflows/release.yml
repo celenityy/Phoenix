@@ -11,7 +11,27 @@ env:
   PHOENIX_CI_TYPE: 'forgejo'
 
 jobs:
+  lint-scripts:
+    runs-on: codeberg-medium
+    container:
+      image: fedora:43
+    steps:
+      - name: Get dependencies
+        run: |
+          set -euo pipefail
+          /bin/sudo /bin/dnf update -y --refresh
+          /bin/sudo /bin/dnf install -y node
+
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Lint
+        run: |
+          set -euo pipefail
+          /bin/bash scripts/ci-lint.sh
+
   build:
+    needs: [lint-scripts]
     runs-on: codeberg-medium
     container:
       image: fedora:43
