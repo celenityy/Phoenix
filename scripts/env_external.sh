@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Phoenix external environment variables
 
 ## This is used for converting Phoenix-specific environment variables to ones used in external projects.

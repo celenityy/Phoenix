@@ -120,9 +120,9 @@ function create_archive() {
     exit 1
   fi
 
-  local readonly archive_type="$1"
-  local readonly target_dir="$2"
-  local readonly output_archive="$3"
+  local -r archive_type="$1"
+  local -r target_dir="$2"
+  local -r output_archive="$3"
 
   if [[ "${archive_type}" != 'tar' ]] && [[ "${archive_type}" != 'zip' ]]; then
     echo_red_text "ERROR: Invalid archive type (${archive_type})! Aborting..."
@@ -153,7 +153,7 @@ function create_archive() {
   export TZ='UTC'
 
   # If the directory for our output archive doesn't exist, create it
-  local readonly output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
+  local -r output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
   if [[ ! -d "${output_archive_dir}" ]]; then
     "${PHOENIX_MKDIR}" -p "${output_archive_dir}"
   fi
@@ -165,12 +165,12 @@ function create_archive() {
 
   # Set the file timestamp
   ## (This is derived from PHOENIX_VERSION_DATE at `env_common.sh`)
-  local readonly PHOENIX_STAMP="${PHOENIX_VERSION_DATE//./-}"
-  local readonly PHOENIX_FIND_STAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%a, %d %b %Y %T %z")"
-  local readonly PHOENIX_TIMESTAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%Y-%m-%dT%H:%M:%SZ")"
+  local -r PHOENIX_STAMP="${PHOENIX_VERSION_DATE//./-}"
+  local -r PHOENIX_FIND_STAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%a, %d %b %Y %T %z")"
+  local -r PHOENIX_TIMESTAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%Y-%m-%dT%H:%M:%SZ")"
 
   # Override the timestamps for each file to match our stamp above
-  "${PHOENIX_FIND}" "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 | \
+  "${PHOENIX_FIND}" "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 |
     "${PHOENIX_XARGS}" -0r "${PHOENIX_TOUCH}" -h -d "${PHOENIX_TIMESTAMP}"
 
   # Override the timestamps for each directory to match our stamp above
@@ -181,8 +181,10 @@ function create_archive() {
   # Finally create our archive
   pushd "${target_dir}"
   if [[ "${archive_type}" == 'zip' ]]; then
+    # shellcheck disable=SC2035
     "${PHOENIX_ZIP}" -X -r "${output_archive}" * -x '.DS_Store'
   else
+    # shellcheck disable=SC2035
     "${PHOENIX_TAR}" -cJv --exclude-vcs --group=0 --mode='go+u,go-w' --no-acls --no-selinux --no-xattrs --numeric-owner --owner=0 --pax-option='delete=atime,delete=ctime' --pax-option='exthdr.name=%d/PaxHeaders/%f' --restrict --sort=name --utc --clamp-mtime --mtime="${PHOENIX_TIMESTAMP}" --exclude ".DS_Store" -f "${output_archive}" *
   fi
   popd
@@ -203,7 +205,7 @@ function check_file_or_dir_exists() {
     exit 1
   fi
 
-  local readonly path="$1"
+  local -r path="$1"
 
   if [[ -d "${path}" ]] || [[ -f "${path}" ]]; then
     echo_red_text "'${path}' already exists"
@@ -241,8 +243,8 @@ function maybe_verify_file_with_env() {
     exit 1
   fi
 
-  local readonly maybe_file="$1"
-  local readonly maybe_file_env="$2"
+  local -r maybe_file="$1"
+  local -r maybe_file_env="$2"
 
   if [[ "${maybe_file}" != 'undefined' ]]; then
     verify_file_with_env "${maybe_file}" "${maybe_file_env}"
@@ -301,14 +303,14 @@ function check_extra_files() {
   # Check for a static prefs file to append and override/set additional preferences
   if [[ "${target}" == 'android' ]]; then
     if [[ "${PHOENIX_STATIC_JS_ANDROID}" != 1 ]]; then
-      local readonly check_static_prefs_js=0
+      local -r check_static_prefs_js=0
     else
-      local readonly check_static_prefs_js=1
+      local -r check_static_prefs_js=1
     fi
   elif [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
-    local readonly check_static_prefs_js=1
+    local -r check_static_prefs_js=1
   else
-    local readonly check_static_prefs_js=0
+    local -r check_static_prefs_js=0
   fi
 
   if [[ "${check_static_prefs_js}" == 1 ]]; then
@@ -334,8 +336,8 @@ function combine_files() {
     exit 1
   fi
 
-  local readonly output_file="$1"
-  local readonly initial_input_file="$2"
+  local -r output_file="$1"
+  local -r initial_input_file="$2"
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text "ERROR: You must specify the paths for at least two or more input files to combine"
@@ -352,22 +354,22 @@ function combine_files() {
     exit 1
   else
     files_to_combine+=("${initial_input_file}")
-    number_of_files=$((${number_of_files} + 1))
+    number_of_files=$((number_of_files + 1))
   fi
 
   # Determine our initial input file type
   case "${initial_input_file}" in
     *.cfg)
-      local readonly initial_input_file_type='cfg'
+      local -r initial_input_file_type='cfg'
       ;;
     *.js)
-      local readonly initial_input_file_type='js'
+      local -r initial_input_file_type='js'
       ;;
     *.json)
-      local readonly initial_input_file_type='json'
+      local -r initial_input_file_type='json'
       ;;
     *.txt)
-      local readonly initial_input_file_type='txt'
+      local -r initial_input_file_type='txt'
       ;;
     *)
       echo_red_text "ERROR: Unsupported file type: ${initial_input_file}"
@@ -410,7 +412,7 @@ function combine_files() {
         exit 1
       else
         files_to_combine+=("${file}")
-        number_of_files=$((${number_of_files} + 1))
+        number_of_files=$((number_of_files + 1))
       fi
     fi
   done
@@ -419,7 +421,7 @@ function combine_files() {
   ## (It's fine to use initial_file here because we verified it matches the files to combine above)
   if [[ "${initial_input_file_type}" == 'json' ]]; then
     # First, always combine the first two files
-    "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" >"${PHOENIX_TEMP}/tempy--1.json"
+    "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json"
 
     if [[ "${number_of_files}" == 2 ]]; then
       # We're done :)
@@ -431,20 +433,20 @@ function combine_files() {
       local file_index=2
       local file_temp_count=0
       until [[ "${files_combined}" == "${number_of_files}" ]]; do
-        local old_file_temp_count=$((${file_temp_count} - 1))
+        local old_file_temp_count=$((file_temp_count - 1))
         local file_to_combine_with="${files_to_combine[$file_index]}"
-        "${PHOENIX_JQ}" -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" >"${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
+        "${PHOENIX_JQ}" -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" > "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
         "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json"
-        file_temp_count=$((${file_temp_count} + 1))
-        files_combined=$((${files_combined} + 1))
-        file_index=$((${file_index} + 1))
+        file_temp_count=$((file_temp_count + 1))
+        files_combined=$((files_combined + 1))
+        file_index=$((file_index + 1))
       done
-      file_temp_count=$((${file_temp_count} - 1))
+      file_temp_count=$((file_temp_count - 1))
       "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" "${output_file}"
       "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
     fi
   else
-    "${PHOENIX_CAT}" "${files_to_combine[@]}" >"${output_file}"
+    "${PHOENIX_CAT}" "${files_to_combine[@]}" > "${output_file}"
   fi
 }
 
@@ -473,9 +475,9 @@ function maybe_combine_files() {
     exit 1
   fi
 
-  local readonly output_file="$1"
-  local readonly initial_file="$2"
-  local readonly file_to_add="$3"
+  local -r output_file="$1"
+  local -r initial_file="$2"
+  local -r file_to_add="$3"
 
   if [[ -f "${file_to_add}" ]]; then
     combine_files "${output_file}" "${initial_file}" "${file_to_add}"
@@ -508,16 +510,16 @@ function parse_js_file() {
     exit 1
   fi
 
-  local readonly input_js_file="$1"
-  local readonly output_js_file="$2"
-  local readonly tags_to_remove="$3"
+  local -r input_js_file="$1"
+  local -r output_js_file="$2"
+  local -r tags_to_remove="$3"
 
   if [[ ! -f "${input_js_file}" ]]; then
     echo_red_text "ERROR: File does not exist: ${input_js_file}"
     exit 1
   fi
 
-  "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" >"${output_js_file}"
+  "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" > "${output_js_file}"
 }
 
 # Common Phoenix build logic
@@ -551,7 +553,7 @@ function build_phoenix_common() {
 
   # If necessary, apply overrides for Phoenix-specific preferences
   if [[ "${PHOENIX_OVERRIDES_CFG}" != 'undefined' ]]; then
-    echo '' >>"${PHOENIX_TEMP}/phoenix-core.cfg"
+    echo '' >> "${PHOENIX_TEMP}/phoenix-core.cfg"
     combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
   else
     combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -594,15 +596,15 @@ function build_phoenix() {
     exit 1
   fi
 
-  local readonly phoenix_platform="$1"
-  local readonly phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
+  local -r phoenix_platform="$1"
+  local -r phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
 
   if [[ "${phoenix_platform}" == 'windows' ]]; then
-    local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip"
-    local readonly phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.zip"
+    local -r phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.zip"
+    local -r phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.zip"
   else
-    local readonly phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz"
-    local readonly phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.tar.xz"
+    local -r phoenix_output_archive="${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.tar.xz"
+    local -r phoenix_output_archive_latest="${PHOENIX_OUTPUTS}/phoenix-latest-${phoenix_platform}.tar.xz"
   fi
 
   # Ensure existing outputs don't already exist
@@ -622,9 +624,9 @@ function build_phoenix() {
   # Copy our parsed phoenix.cfg
   if [[ "${phoenix_platform}" == 'osx' ]]; then
     # To ensure installs continue working as expected, this must be placed in the `macos` directory
-    local readonly phoenix_cfg_output_dir="${phoenix_output_dir}/macos"
+    local -r phoenix_cfg_output_dir="${phoenix_output_dir}/macos"
   else
-    local readonly phoenix_cfg_output_dir="${phoenix_output_dir}"
+    local -r phoenix_cfg_output_dir="${phoenix_output_dir}"
   fi
   "${PHOENIX_MKDIR}" -p "${phoenix_cfg_output_dir}"
   "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${phoenix_cfg_output_dir}/phoenix.cfg"
@@ -633,22 +635,22 @@ function build_phoenix() {
   ## (Universal cfgs should never try to hardcode the platform...)
   if [[ "${PHOENIX_HARDCODE_PLATFORM}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
     if [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-      local readonly phoenix_platform_to_hardcode='osx'
+      local -r phoenix_platform_to_hardcode='osx'
     elif [[ "${phoenix_platform}" == 'linux-flatpak' ]]; then
-      local readonly phoenix_platform_to_hardcode='linux'
+      local -r phoenix_platform_to_hardcode='linux'
     else
-      local readonly phoenix_platform_to_hardcode="${phoenix_platform}"
+      local -r phoenix_platform_to_hardcode="${phoenix_platform}"
     fi
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
     # Set our platform *type*
     if [[ "${phoenix_platform}" != 'osx' ]] && [[ "${phoenix_platform}" != 'osx-intel' ]]; then
       # For now, this is only used on OS X distinguish between Silicon and Intel
-      local readonly phoenix_platform_type_to_hardcode='generic'
+      local -r phoenix_platform_type_to_hardcode='generic'
     elif [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-      local readonly phoenix_platform_type_to_hardcode='intel'
+      local -r phoenix_platform_type_to_hardcode='intel'
     else
-      local readonly phoenix_platform_type_to_hardcode='silicon'
+      local -r phoenix_platform_type_to_hardcode='silicon'
     fi
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
   else
@@ -672,7 +674,7 @@ function build_phoenix() {
 
   # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
   if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
-   [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
+    [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
     "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${phoenix_cfg_output_dir}/phoenix.cfg"
   else
     "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${phoenix_cfg_output_dir}/phoenix.cfg"
@@ -681,7 +683,7 @@ function build_phoenix() {
 
   # Copy assets for Phoenix's custom `about:` pages
   if [[ "${phoenix_platform}" != 'android' ]] && [[ "${phoenix_platform}" != 'universal' ]] &&
-   [[ "${PHOENIX_MAIL}" != 1 ]]; then
+    [[ "${PHOENIX_MAIL}" != 1 ]]; then
     "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
   fi
 
@@ -711,11 +713,11 @@ function build_phoenix() {
 
   # If necessary, create platform-specific static .js files
   if [[ "${phoenix_platform}" == 'android' ]] && [[ "${PHOENIX_STATIC_JS_ANDROID}" == 1 ]]; then
-    local readonly phoenix_build_js=1
+    local -r phoenix_build_js=1
   elif [[ "${phoenix_platform}" != 'android' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
-    local readonly phoenix_build_js=1
+    local -r phoenix_build_js=1
   else
-    local readonly phoenix_build_js=0
+    local -r phoenix_build_js=0
   fi
 
   if [[ "${phoenix_build_js}" == 1 ]]; then
@@ -726,9 +728,9 @@ function build_phoenix() {
   ## (Universal cfgs don't need to create archives)
   if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
     if [[ "${phoenix_platform}" == 'windows' ]]; then
-      local readonly archive_type='zip'
+      local -r archive_type='zip'
     else
-      local readonly archive_type='tar'
+      local -r archive_type='tar'
     fi
     create_archive "${archive_type}" "${phoenix_output_dir}" "${phoenix_output_archive}"
   fi
@@ -745,15 +747,15 @@ function build_phoenix_js() {
     exit 1
   fi
 
-  local readonly phoenix_js_platform="$1"
+  local -r phoenix_js_platform="$1"
 
   # First, set the designated location for our file
   if [[ "${phoenix_js_platform}" == 'android' ]]; then
-    local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
-    local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local -r phoenix_js_file="${phoenix_output_dir}/phoenix-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local -r phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
   else
-    local readonly phoenix_js_file="${phoenix_output_dir}/phoenix-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
-    local readonly phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local -r phoenix_js_file="${phoenix_output_dir}/phoenix-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
+    local -r phoenix_extended_js_file="${phoenix_output_dir}/phoenix-extended-static-${PHOENIX_VERSION}-${phoenix_js_platform}.js"
   fi
 
   # Convert phoenix.cfg
@@ -852,8 +854,8 @@ function build_policies() {
     exit 1
   fi
 
-  local readonly phoenix_policies_platform="$1"
-  local readonly phoenix_policies_output_dir="$2"
+  local -r phoenix_policies_platform="$1"
+  local -r phoenix_policies_output_dir="$2"
 
   # Handle platform-specific policies
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
@@ -869,15 +871,15 @@ function build_policies() {
       # Set our Phoenix directory
       ## (Currently used for ex. custom bookmarks/assets)
       if [[ "${phoenix_policies_platform}" == 'linux' ]]; then
-        local readonly PHOENIX_DIR='/etc/firefox/phoenix'
+        local -r PHOENIX_DIR='/etc/firefox/phoenix'
       elif [[ "${phoenix_policies_platform}" == 'linux-flatpak' ]]; then
-        local readonly PHOENIX_DIR='/app/etc/firefox/phoenix'
+        local -r PHOENIX_DIR='/app/etc/firefox/phoenix'
       elif [[ "${phoenix_policies_platform}" == 'osx' ]]; then
-        local readonly PHOENIX_DIR='/opt/homebrew/opt/phoenix-osx'
+        local -r PHOENIX_DIR='/opt/homebrew/opt/phoenix-osx'
       elif [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-        local readonly PHOENIX_DIR='/usr/local/opt/phoenix-intel'
+        local -r PHOENIX_DIR='/usr/local/opt/phoenix-intel'
       elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
-        local readonly PHOENIX_DIR='/C:/phoenix'
+        local -r PHOENIX_DIR='/C:/phoenix'
       fi
       "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
       "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
@@ -894,31 +896,31 @@ function build_policies() {
 
   # Set our final policies.json output directory
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
-    local readonly policies_output_path="${phoenix_policies_output_dir}"
+    local -r policies_output_path="${phoenix_policies_output_dir}"
   elif [[ "${phoenix_policies_platform}" == 'linux' ]] ||
     [[ "${phoenix_policies_platform}" == 'linux-flatpak' ]]; then
-    local readonly policies_output_path="${phoenix_policies_output_dir}/policies"
+    local -r policies_output_path="${phoenix_policies_output_dir}/policies"
   elif [[ "${phoenix_policies_platform}" == 'osx' ]] ||
     [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    local readonly policies_output_path="${phoenix_policies_output_dir}/unused"
+    local -r policies_output_path="${phoenix_policies_output_dir}/unused"
   elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
-    local readonly policies_output_path="${phoenix_policies_output_dir}/distribution"
+    local -r policies_output_path="${phoenix_policies_output_dir}/distribution"
   fi
   "${PHOENIX_MKDIR}" -p "${policies_output_path}"
 
   # Finally, handle platform-specific extra policies if necessary
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_ANDROID}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_ANDROID}"
   elif [[ "${phoenix_policies_platform}" == 'linux' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}"
   elif [[ "${phoenix_policies_platform}" == 'linux-flatpak' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}"
   elif [[ "${phoenix_policies_platform}" == 'osx' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_SILICON}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_SILICON}"
   elif [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_INTEL}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_OSX_INTEL}"
   elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
-    local readonly extra_policies_file="${PHOENIX_EXTRA_POLICIES_WINDOWS}"
+    local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_WINDOWS}"
   fi
   maybe_combine_files "${policies_output_path}/policies.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${extra_policies_file}"
 
@@ -926,9 +928,9 @@ function build_policies() {
   if [[ "${phoenix_policies_platform}" == 'osx' ]]; then
     # To ensure installs continue working as expected, this must be placed in the `macos` directory
     ## (See osx/osx-silicon/Library/celenity/Phoenix/phoenix-apply.sh)
-    local readonly policies_plist_output_path="${phoenix_policies_output_dir}/macos"
+    local -r policies_plist_output_path="${phoenix_policies_output_dir}/macos"
   elif [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    local readonly policies_plist_output_path="${phoenix_policies_output_dir}"
+    local -r policies_plist_output_path="${phoenix_policies_output_dir}"
   fi
 
   if [[ "${phoenix_policies_platform}" == 'osx' ]] ||
