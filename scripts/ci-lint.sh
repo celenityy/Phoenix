@@ -21,7 +21,7 @@ fi
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh
-/bin/sudo /bin/dnf install -y bash curl git tar
+/bin/sudo /bin/dnf install -y bash curl tar
 /bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 'shellcheck'
 /bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 'shfmt'
 echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
