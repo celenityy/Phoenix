@@ -24,7 +24,6 @@ unset MOZ_GFX_CRASH_TELEMETRY
 
 # Disable Mozilla's ASan Crash Reporter
 ## https://searchfox.org/firefox-main/rev/409e9501/toolkit/xre/nsEmbedFunctions.cpp#260
-## https://firefox-source-docs.mozilla.org/tools/sanitizer/asan_nightly.html
 ## https://github.com/choller/firefox-asan-reporter
 export MOZ_DISABLE_ASAN_REPORTER=1
 
