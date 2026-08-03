@@ -84,7 +84,7 @@ echo 'lint: shfmt formatting check...'
 if ! "${PHOENIX_SHFMT}" -d "${targets[@]}"; then
   echo >&2
   echo "lint: formatting issues found above. Fix with:" >&2
-  echo "        git ls-files 'scripts/*.sh' | xargs shfmt -w" >&2
+  echo "        ls 'scripts/*.sh' | xargs shfmt -w" >&2
   status=1
 fi
 
