@@ -457,41 +457,19 @@ fi
 readonly PHOENIX_RM
 export PHOENIX_RM
 
-# sha1sum
+# shasum
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_SHA1SUM_DEFAULT='/sbin/sha1sum'
+  readonly PHOENIX_SHASUM_DEFAULT='/opt/homebrew/bin/shasum'
+elif [[ "${PHOENIX_OS}" == 'secureblue' ]]; then
+  readonly PHOENIX_SHASUM_DEFAULT='/home/linuxbrew/.linuxbrew/bin/shasum'
 else
-  readonly PHOENIX_SHA1SUM_DEFAULT='/bin/sha1sum'
+  readonly PHOENIX_SHASUM_DEFAULT='/bin/shasum'
 fi
-if [[ -z "${PHOENIX_SHA1SUM+x}" ]]; then
-  PHOENIX_SHA1SUM="${PHOENIX_SHA1SUM_DEFAULT}"
+if [[ -z "${PHOENIX_SHASUM+x}" ]]; then
+  PHOENIX_SHASUM="${PHOENIX_SHASUM_DEFAULT}"
 fi
-readonly PHOENIX_SHA1SUM
-export PHOENIX_SHA1SUM
-
-# sha256sum
-if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_SHA256SUM_DEFAULT='/sbin/sha256sum'
-else
-  readonly PHOENIX_SHA256SUM_DEFAULT='/bin/sha256sum'
-fi
-if [[ -z "${PHOENIX_SHA256SUM+x}" ]]; then
-  PHOENIX_SHA256SUM="${PHOENIX_SHA256SUM_DEFAULT}"
-fi
-readonly PHOENIX_SHA256SUM
-export PHOENIX_SHA256SUM
-
-# sha512sum
-if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-  readonly PHOENIX_SHA512SUM_DEFAULT='/sbin/sha512sum'
-else
-  readonly PHOENIX_SHA512SUM_DEFAULT='/bin/sha512sum'
-fi
-if [[ -z "${PHOENIX_SHA512SUM+x}" ]]; then
-  PHOENIX_SHA512SUM="${PHOENIX_SHA512SUM_DEFAULT}"
-fi
-readonly PHOENIX_SHA512SUM
-export PHOENIX_SHA512SUM
+readonly PHOENIX_SHASUM
+export PHOENIX_SHASUM
 
 # -shellcheck
 readonly PHOENIX_SHELLCHECK_DIR_DEFAULT="${PHOENIX_EXTERNAL}/shellcheck"
