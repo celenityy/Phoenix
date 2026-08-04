@@ -82,39 +82,39 @@ function create_release_notes() {
   # Set our SHA512sums
 
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
-  local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|${PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-android.js
-  local -r PHOENIX_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_JS_SHA512SUM}|${PHOENIX_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
-  local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
-  local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
-  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
-  local -r PHOENIX_OSX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_OSX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
-  local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
-  local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-windows.zip" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-windows.zip" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
-  local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM=$("${PHOENIX_SHA512SUM}" "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" | "${PHOENIX_AWK}" '{print $1}')
+  local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" | "${PHOENIX_AWK}" '{print $1}')
   "${PHOENIX_SED}" -i "s|{PHOENIX_UNIVERSAL_CFG_SHA512SUM}|${PHOENIX_UNIVERSAL_CFG_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # Add release-specific changes
@@ -695,7 +695,7 @@ function add_sha512sum() {
     "${PHOENIX_RM}" -f "${sha512sum_file_out}"
   fi
 
-  local -r local_sha512sum=$("${PHOENIX_SHA512SUM}" "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
+  local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
   echo -n "${local_sha512sum}" > "${sha512sum_file_out}"
 
   push_file "${sha512sum_file_out}" "${sha512sum_s3path}"

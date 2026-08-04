@@ -149,7 +149,7 @@ function download_artifact() {
   echo_red_text "Validating SHA512sum for ${target_file}.."
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${target_expected_sha512sum_url}" --output "${output_expected_sha512sum}"
   local -r expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
-  local -r local_sha512sum=$("${PHOENIX_SHA512SUM}" "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
+  local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
   if [[ "${local_sha512sum}" != "${expected_sha512sum}" ]]; then
     echo_red_text 'ERROR: Checksum validation failed.'
     echo "Expected SHA512sum: ${expected_sha512sum}"
