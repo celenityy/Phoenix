@@ -1,35 +1,21 @@
 * text=auto eol=lf
 
-/docs/**            linguist-documentation
-
-*.json              linguist-detectable
-*.yaml              linguist-detectable
-*.xml               linguist-detectable
-_redirects          linguist-detectable
-
-# GitLab
-# (These language names must be lowercase)
-# For a list of supported languages, see:
+# GitHub/Forgejo (linguist-language): Exact canonical case (Shell, JSON, JavaScript). UPPER or lower only do not work.
+# GitLab (gitlab-language): lowercase only (shell, json).
+#
 # https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
-*.cfg               gitlab-language=javascript
-*.jsonc             gitlab-language=json
-*.plist             gitlab-language=xml
-*.yml               gitlab-language=yaml
-*permissions.txt    gitlab-language=ini
-.git*               gitlab-language=shell
-.gitlab-ci.yml      gitlab-language=yaml
-flake.lock          gitlab-language=json
+# https://github.com/go-enry/go-enry/blob/master/data/languageInfo.go
 
-# Forgejo (Codeberg)/GitHub
-# (These language names must be uppercase)
-# For a list of supported languages, see:
-# Forgejo (Codeberg): https://github.com/go-enry/go-enry/blob/master/data/languageInfo.go
-# GitHub: https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
-*.cfg               linguist-language=JAVASCRIPT
-*.jsonc             linguist-language=JSON
-*.plist             linguist-language=XML
-*.yml               linguist-language=YAML
-*permissions.txt    linguist-language=INI
-.git*               linguist-language=SHELL
-.gitlab-ci.yml      linguist-language=YAML
-flake.lock          linguist-language=JSON  linguist-generated
+*.json           linguist-detectable
+*.yaml           linguist-detectable
+*.xml            linguist-detectable
+_redirects       linguist-detectable
+*.cfg            linguist-language=JavaScript gitlab-language=javascript
+*.jsonc          linguist-language=JSON       gitlab-language=json
+*.plist          linguist-language=XML        gitlab-language=xml
+*.yml            linguist-language=YAML       gitlab-language=yaml
+*permissions.txt linguist-language=CSV        gitlab-language=csv
+.git*            linguist-language=Shell      gitlab-language=shell
+.gitlab-ci.yml   linguist-language=YAML       gitlab-language=yaml
+.shellcheckrc    linguist-language=Shell      gitlab-language=shell
+flake.lock       linguist-language=JSON       gitlab-language=json linguist-generated
