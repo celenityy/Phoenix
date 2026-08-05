@@ -86,10 +86,6 @@ fi
 readonly PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
 export PHOENIX_VERSIONS
 
-# Archives directory
-readonly PHOENIX_ARCHIVES="${PHOENIX_ROOT}/archives"
-export PHOENIX_ARCHIVES
-
 # Build directory
 if [[ "${PHOENIX_NIX}" == 1 ]]; then
   # Nix needs to use /tmp here, see: https://codeberg.org/celenity/Dove/issues/59
