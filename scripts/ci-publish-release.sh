@@ -27,7 +27,7 @@ fi
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh
-/bin/sudo /bin/dnf install -y curl jq shasum tar zip
+/bin/sudo /bin/dnf install -y bash curl jq shasum tar zip
 /bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 'all'
 /bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd'
 echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
