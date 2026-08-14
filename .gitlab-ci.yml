@@ -37,6 +37,8 @@ lint-scripts:
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH
+  variables:
+    <<: *common_variables
   before_script:
     - set -euo pipefail
     - /bin/sudo /bin/dnf update -y --refresh
