@@ -370,6 +370,14 @@
         "installation_mode": "blocked",
         "blocked_install_message": "Baidu - Poor privacy practices, unnecessary, the search engine can/should be added directly instead."
       },
+      "bark.us@bark.fi": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Bark for Firefox: https://addons.mozilla.org/addon/bark.us@bark.fi - Monitoring/MDM."
+      },
+      "bark.us@watchdog.fi": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Bark Watchdog for Firefox: https://addons.mozilla.org/addon/bark.us@watchdog.fi - Monitoring/MDM."
+      },
       "bing@search.mozilla.org": {
         "installation_mode": "blocked",
         "blocked_install_message": "Bing - Poor privacy practices, unnecessary, the search engine can/should be added directly instead."
