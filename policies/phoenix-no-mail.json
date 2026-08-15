@@ -89,8 +89,8 @@
     },
     "LocalNetworkAccess": {
       "BlockTrackers": true,
-      "Enabled": true,
-      "EnablePrompting": true
+      "EnablePrompting": true,
+      "Enabled": true
     },
     "NoDefaultBookmarks": true,
     "OverridePostUpdatePage": "",
