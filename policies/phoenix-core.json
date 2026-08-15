@@ -500,7 +500,7 @@
       },
       "jid1-93CWPmRbVPjRQA@jetpack": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Honey: https://addons.mozilla.org/addon/jid1-93CWPmRbVPjRQA@jetpack - Scam, poor privacy practices."
+        "blocked_install_message": "Honey: https://addons.mozilla.org/addon/jid1-93CWPmRbVPjRQA@jetpack - Poor privacy practices, scam."
       },
       "jid1-G80Ec8LLEbK5fQ@jetpack": {
         "installation_mode": "blocked",
@@ -510,13 +510,13 @@
         "installation_mode": "blocked",
         "blocked_install_message": "I don't care about cookies: https://addons.mozilla.org/addon/jid1-KKzOGWgsW3Ao4Q@jetpack - Highly sketchy, poor privacy practices, useless/redundant with uBlock Origin and Firefox's Cookie Banner Reduction."
       },
-      "jid1-n8wH2cBfc2QaUj@jetpack": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Flash Block (Plus): https://addons.mozilla.org/addon/jid1-n8wH2cBfc2QaUj@jetpack - Highly sketchy (Flash is a dead technology, but for some reason this was updated as recent as 2024?)."
-      },
       "jid1-NIfFY2CA8fy1tg@jetpack": {
         "installation_mode": "blocked",
         "blocked_install_message": "AdBlock for Firefox: https://addons.mozilla.org/addon/jid1-NIfFY2CA8fy1tg@jetpack - Highly sketchy, useless/redundant with uBlock Origin."
+      },
+      "jid1-n8wH2cBfc2QaUj@jetpack": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Flash Block (Plus): https://addons.mozilla.org/addon/jid1-n8wH2cBfc2QaUj@jetpack - Highly sketchy (Flash is a dead technology, but for some reason this was updated as recent as 2024?)."
       },
       "kagi@celenity.dev": {
         "installation_mode": "blocked",
