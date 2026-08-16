@@ -157,9 +157,9 @@ NixOS is supported for
 ```nix
 {
   inputs = {
-    # Note that this assumes you have a flake-input called nixpkgs,
-    # which is often the case. If you've named it something else,
-    # you'll need to change the `nixpkgs` below.
+    # Note that this assumes you have a flake-input called nixpkgs, which is
+    # often the case. If you've named it something else, you'll need to change
+    # the `nixpkgs` below.
     phoenix = {
       url = "git+https://gitlab.com/celenityy/Phoenix?ref=pages";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -167,15 +167,15 @@ NixOS is supported for
   };
   # Add the `phoenix` argument to your output function, as below:
   outputs = {nixpkgs, phoenix, ...}: {
- # The configuration here is an example; it will look slightly different
- # based on your machine name and architecture.
+  # The configuration here is an example; it will look slightly different
+  # based on your machine name and architecture.
     nixosConfigurations.your-box = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # This is the important part -- add this line to your module list!
+        # This is the important part, add this line to your module list!
         phoenix.nixosModules.default
       ];
- };
+    };
   };
 }
 ```
@@ -189,7 +189,7 @@ repository using your tool of choice (e.g. niv, npins, flakes) and then include
 
 > [!CAUTION]
 >
-> **This is NOT recommended for most users.**
+> This is NOT recommended for most users.
 
 By default, Phoenix is installed and updated via your operating system's package
 manager. This allows for fast, easy updates & fixes as needed, right with the
@@ -201,84 +201,115 @@ install Phoenix with the following steps:
 
 ### Manual: Linux
 
+By default, Phoenix is installed and updated via your operating system's package
+manager.
+
+> [!IMPORTANT]
+>
+> Flatpak Firefox is sandboxed and cannot read `/etc/firefox/`. The
+> `/etc/firefox/` steps below do **not** work for Flatpak.
+
+#### Linux and Snap
+
 **1:** Download the archive for your desired Phoenix release:
 
-This can be found at the link below _(replacing `{PHOENIX_VERSION}` with the
-version of Phoenix you'd like to download)_. For reference, the latest version
-of Phoenix can always be found at the top of
-[the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
-
-You can navigate to the link and download the archive directly from your web
-browser, or you can run the following command in your terminal:
-
-```bash
-https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/linux/phoenix-{PHOENIX_VERSION}-linux.tar.xz
-```
+Replace `{PHOENIX_VERSION}` with the version you'd like to download. The latest
+version is always at the top of
+[the `Releases` page](https://codeberg.org/celenity/Phoenix/releases) or run:
 
 ```bash
 curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --remote-name --location https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/linux/phoenix-{PHOENIX_VERSION}-linux.tar.xz
 ```
 
-**2:** Extract your downloaded archive:
-
-First, create the directory where you'd like to extract Phoenix:
+**2:** Extract the archive:
 
 ```bash
-cd ~/Downloads # or where you downloaded the archive
+cd ~/Downloads # or wherever you downloaded the archive
 mkdir -p phoenix && tar -xvf phoenix-{PHOENIX_VERSION}-linux.tar.xz -C phoenix
 ```
 
-**3:** If it does not already exist, you will want to create a folder named
-`firefox` located in your system's `etc` directory. This will work **regardless
-of your distribution** - even Snaps are supported.
+**3:** Create the `/etc/firefox` directory tree.
 
 ```bash
-sudo mkdir -p /etc/firefox && sudo chmod 655 /etc/firefox
+sudo mkdir -p /etc/firefox/defaults/pref /etc/firefox/policies && sudo chmod 655 /etc/firefox /etc/firefox/defaults/pref /etc/firefox/policies
 ```
 
-**4:** Copy `phoenix.cfg` to the `/etc/firefox` directory you just created. You
-can either drag and drop it manually, or run the following command:
+**4:** Copy `phoenix.cfg` into `/etc/firefox/`.
 
-**NOTE**: If you have previously installed `phoenix.cfg` to a different location
-_(such as Firefox's installation directory)_, **please REMOVE it** to ensure any
-conflicts are avoided.
+> [!NOTE]
+>
+> If you previously installed `phoenix.cfg` somewhere else (e.g. Firefox's
+> installation directory), **remove it** to avoid conflicts.
 
 ```bash
 sudo cp phoenix/phoenix.cfg /etc/firefox/phoenix.cfg
 ```
 
-**5:** If it does not already exist, inside the `/etc/firefox` directory, create
-a new folder named `defaults`, and inside this new `defaults` folder, create
-another folder titled `pref`. This will work **regardless of your
-distribution** - even Snaps are supported.
+**5:** Copy `phoenix.js` into `/etc/firefox/defaults/pref/`.
 
-```bash
-sudo mkdir -p /etc/firefox/defaults/pref && sudo chmod 655 /etc/firefox/defaults/pref
-```
-
-**6:** Copy `phoenix.js` to the `pref` folder that you just created. You can run
-the following command:
-
-**NOTE**: If you have a `phoenix-desktop.js` in this directory, **please REMOVE
-it** to ensure any conflicts are avoided.
+> [!NOTE]
+>
+> If `phoenix-desktop.js` exists in this directory, **remove it** to avoid
+> conflicts.
 
 ```bash
 sudo cp phoenix/defaults/pref/phoenix.js /etc/firefox/defaults/pref/phoenix.js
 ```
 
-**7:** Non-Flatpak GNU/Linux users should **instead** create a `policies` folder
-inside of the `firefox` folder located in `/etc`. This will work **regardless**
-of your distribution, and even for Snaps.
-
-```bash
-sudo mkdir -p /etc/firefox/policies && sudo chmod 655 /etc/firefox/policies
-```
-
-**8:** Finally, copy `policies.json` to your `/etc/firefox/policies` folder you
-just created.
+**6:** Copy `policies.json` into `/etc/firefox/policies/`.
 
 ```bash
 sudo cp phoenix/policies/policies.json /etc/firefox/policies/policies.json
+```
+
+#### Flatpak
+
+**1:** Determine your extension root.
+
+For a **system** Flatpak install:
+
+```bash
+EXT_ROOT="/var/lib/flatpak/extension/org.mozilla.firefox.systemconfig/$(flatpak --default-arch)/stable"
+```
+
+For a **user** Flatpak install (`flatpak install --user`):
+
+```bash
+EXT_ROOT="$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$(flatpak --default-arch)/stable"
+```
+
+**2:** Download the Flatpak-specific Phoenix archive.
+
+The Flatpak build ships `phoenix-desktop.js` instead of `phoenix.js`, also
+per-config `user.js` files under `flatpak/`. Replace `{PHOENIX_VERSION}` with
+your desired version:
+
+```bash
+curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --remote-name --location https://releases.celenity.dev/phoenix/releases/{PHOENIX_VERSION}/linux-flatpak/phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
+```
+
+**3:** Extract the archive:
+
+```bash
+mkdir -p phoenix-flatpak && tar -xvf phoenix-{PHOENIX_VERSION}-flatpak.zip -C phoenix-flatpak
+```
+
+**4:** Create the extension directory tree.
+
+```bash
+sudo mkdir -p "$EXT_ROOT/defaults/pref" "$EXT_ROOT/policies"
+```
+
+> [!NOTE]
+>
+> For a **user** Flatpak, drop `sudo`.
+
+**5:** Install the core Phoenix files into the extension root.
+
+```bash
+sudo install -Dm644 phoenix-flatpak/phoenix.cfg "$EXT_ROOT/phoenix.cfg"
+sudo install -Dm644 phoenix-flatpak/defaults/pref/phoenix-desktop.js "$EXT_ROOT/defaults/pref/phoenix-desktop.js"
+sudo install -Dm644 phoenix-flatpak/policies/policies.json "$EXT_ROOT/policies/policies.json"
 ```
 
 ### Manual: macOS
