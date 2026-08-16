@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation {
     gnused
     gawk
   ]
-  ++ lib.optionals stdenvNoCC.isDarwin [ python3 ];
+  ++ lib.optionals stdenvNoCC.hostPlatform.isDarwin [ python3 ];
 
   patchPhase = ''
     sed -i 's|/bin/bash|${bashNonInteractive}/bin/bash|g' ./scripts/build.sh
@@ -42,11 +42,11 @@ stdenvNoCC.mkDerivation {
     export PHOENIX_CAT="${coreutils}/bin/cat"
     export PHOENIX_JQ="${jq}/bin/jq"
     export PHOENIX_UNAME="${coreutils}/bin/uname"
-    ${lib.optionalString stdenvNoCC.isDarwin ''export PHOENIX_PYTHON="${python3}/bin/python"''}
+    ${lib.optionalString stdenvNoCC.hostPlatform.isDarwin ''export PHOENIX_PYTHON="${python3}/bin/python"''}
 
     patchShebangs ./scripts/*.sh
     ${
-      if stdenvNoCC.isDarwin then
+      if stdenvNoCC.hostPlatform.isDarwin then
         ''
           ./scripts/build.sh 'osx'
         ''
@@ -63,7 +63,7 @@ stdenvNoCC.mkDerivation {
 
     mkdir $out
     ${
-      if stdenvNoCC.isDarwin then
+      if stdenvNoCC.hostPlatform.isDarwin then
         ''
           cp outputs/osx/* $out/
           cp -r outputs/osx/assets $out/assets

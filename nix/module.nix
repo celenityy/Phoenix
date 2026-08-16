@@ -26,7 +26,7 @@
     lib.mkIf cfg.enable {
       assertions = [
         {
-          assertion = !pkgs.stdenv.isDarwin;
+          assertion = !pkgs.stdenv.hostPlatform.isDarwin;
           message = "Phoenix module has not been ported to nix-darwin yet. Contributions welcomed.";
         }
       ];
