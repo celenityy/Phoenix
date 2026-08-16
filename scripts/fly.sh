@@ -529,27 +529,27 @@ function build_phoenix_common() {
 
   # Set PHOENIX_APPLY_EXTENDED
   if [[ "${PHOENIX_EXTENDED}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Set PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
   if [[ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Set PHOENIX_MAIL
   if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
   fi
 
   # Update the version
-  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
   # If necessary, apply overrides for Phoenix-specific preferences
   if [[ "${PHOENIX_OVERRIDES_CFG}" != 'undefined' ]]; then
@@ -641,7 +641,7 @@ function build_phoenix() {
     else
       local -r phoenix_platform_to_hardcode="${phoenix_platform}"
     fi
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
 
     # Set our platform *type*
     if [[ "${phoenix_platform}" != 'osx' ]] && [[ "${phoenix_platform}" != 'osx-intel' ]]; then
@@ -652,10 +652,10 @@ function build_phoenix() {
     else
       local -r phoenix_platform_type_to_hardcode='silicon'
     fi
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
   fi
 
   if [[ "${phoenix_platform}" == 'universal' ]]; then
@@ -675,9 +675,9 @@ function build_phoenix() {
   # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
   if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
     [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
     "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
   fi
 
@@ -882,7 +882,7 @@ function build_policies() {
         local -r PHOENIX_DIR='/C:/phoenix'
       fi
       "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
-      "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
+      "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|g" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
 
       combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
     fi
