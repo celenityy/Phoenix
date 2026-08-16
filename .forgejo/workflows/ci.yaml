@@ -1,17 +1,18 @@
-name: Build Phoenix
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+name: CI
 
 on:
   push:
     paths:
-      - 'scripts/**/*'
-      - '.forgejo/workflows/**/*'
+      - "scripts/**/*"
+      - ".forgejo/workflows/**/*"
 
 env:
   PHOENIX_CI: 1
-  PHOENIX_CI_TYPE: 'forgejo'
+  PHOENIX_CI_TYPE: "forgejo"
 
 jobs:
-  lint-scripts:
+  lint:
     runs-on: codeberg-medium
     container:
       image: fedora:43
@@ -23,7 +24,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
       - name: Lint
         run: |
@@ -35,19 +36,19 @@ jobs:
           /bin/bash scripts/lint.sh
 
   build:
-    needs: [lint-scripts]
+    needs: [lint]
     runs-on: codeberg-medium
     container:
       image: fedora:43
     steps:
-      - name: Get dependencies
+      - name: Get Dependencies
         run: |
           set -euo pipefail
           /bin/sudo /bin/dnf update -y --refresh
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
       - name: Build
         env:
@@ -59,7 +60,7 @@ jobs:
           set -euo pipefail
           /bin/bash scripts/ci-build.sh
 
-  publish-release:
+  release:
     if: forgejo.ref == 'refs/heads/pages' && forgejo.repository == 'celenity/Phoenix'
     needs: [build]
     runs-on: codeberg-medium
@@ -73,7 +74,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
       - name: Publish release
         env:
