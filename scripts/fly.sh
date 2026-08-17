@@ -658,6 +658,15 @@ function build_phoenix() {
     "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
   fi
 
+  # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
+  if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
+    [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+  else
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
+  fi
+
   if [[ "${phoenix_platform}" == 'universal' ]]; then
     # Standalone universal configs use different naming
     "${PHOENIX_CP}" -f "${phoenix_cfg_output_dir}/phoenix.cfg" "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg"
@@ -671,15 +680,6 @@ function build_phoenix() {
 
   # Copy README
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md"
-
-  # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
-  if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
-    [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
-  else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
-    "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
-  fi
 
   # Copy assets for Phoenix's custom `about:` pages
   if [[ "${phoenix_platform}" != 'android' ]] && [[ "${phoenix_platform}" != 'universal' ]] &&
