@@ -41,7 +41,7 @@ jobs:
     container:
       image: fedora:43
     steps:
-      - name: Get Dependencies
+      - name: Get dependencies
         run: |
           set -euo pipefail
           /bin/sudo /bin/dnf update -y --refresh
