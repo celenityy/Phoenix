@@ -15,13 +15,13 @@ default:
       - unknown_failure
 
 variables: &common_variables
-  ARTIFACT_COMPRESSION_LEVEL: 'slowest'
-  CACHE_COMPRESSION_LEVEL: 'slowest'
-  FF_USE_FASTZIP: '1'
+  ARTIFACT_COMPRESSION_LEVEL: "slowest"
+  CACHE_COMPRESSION_LEVEL: "slowest"
+  FF_USE_FASTZIP: "1"
   PHOENIX_CI: 1
-  PHOENIX_CI_TYPE: 'gitlab'
-  PRODUCTION_BRANCH: 'pages'
-  TRANSFER_METER_FREQUENCY: '2s'
+  PHOENIX_CI_TYPE: "gitlab"
+  PRODUCTION_BRANCH: "pages"
+  TRANSFER_METER_FREQUENCY: "2s"
 
 stages:
   - lint
@@ -80,7 +80,7 @@ publish-release:
   stage: release_phoenix
   interruptible: true
   needs:
-    - job: 'build'
+    - job: "build"
       optional: false
   rules:
     - if: $CI_PROJECT_NAMESPACE != 'celenityy'
