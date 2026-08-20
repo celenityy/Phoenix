@@ -4,18 +4,59 @@ name: CI
 on:
   push:
     paths:
+      - "docs/**"
       - "scripts/**/*"
       - ".forgejo/workflows/**/*"
 
 env:
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "forgejo"
+  REPO: ${{ forgejo.repository }}
+  USER: "Wiki Author"
+  EMAIL: "wiki_author@noreply.codeberg.org"
+  URL: "codeberg.org"
 
 jobs:
+  wiki:
+    name: Wiki
+    if: forgejo.ref == 'refs/heads/dev'
+    runs-on: codeberg-tiny-lazy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+
+      - name: Pull
+        env:
+          PHOENIX_FORGEJO_CI_API_TOKEN: ${{ secrets.PHOENIX_FORGEJO_CI_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir wikidir
+          cd wikidir
+          git config --global user.name ${{ env.USER }}
+          git config --global user.email ${{ env.EMAIL }}
+          git init -b 'main'
+          set +x
+          git pull https://$PHOENIX_FORGEJO_CI_API_TOKEN@${{ env.URL }}/${{ env.REPO }}.wiki.git
+
+      - name: Push
+        env:
+          PHOENIX_FORGEJO_CI_API_TOKEN: ${{ secrets.PHOENIX_FORGEJO_CI_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          apt-get update
+          apt-get install -y rsync
+          rsync -av --delete docs/ wikidir/ --exclude .git
+          cd wikidir/
+          git add .
+          git diff --cached --quiet || git commit -m 'Update wiki'
+          set +x
+          git push -f --set-upstream https://$PHOENIX_FORGEJO_CI_API_TOKEN@${{ env.URL }}/${{ env.REPO }}.wiki.git main
+
   lint:
+    name: Lint
     runs-on: codeberg-medium
     container:
-      image: fedora:43
+      image: fedora:44
     steps:
       - name: Get dependencies
         run: |
@@ -36,10 +77,11 @@ jobs:
           /bin/bash scripts/lint.sh
 
   build:
+    name: Build
     needs: [lint]
     runs-on: codeberg-medium
     container:
-      image: fedora:43
+      image: fedora:44
     steps:
       - name: Get dependencies
         run: |
@@ -61,11 +103,12 @@ jobs:
           /bin/bash scripts/ci-build.sh
 
   release:
+    name: Release
     if: forgejo.ref == 'refs/heads/pages' && forgejo.repository == 'celenity/Phoenix'
     needs: [build]
     runs-on: codeberg-medium
     container:
-      image: fedora:43
+      image: fedora:44
     steps:
       - name: Get dependencies
         run: |
