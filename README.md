@@ -115,11 +115,11 @@ We'd love to see you over on
 
 | Platform | Derivatives | Stable | ESR | Forks / Other                     | Support Status                                            |
 | -------- | ----------- | ------ | --- | --------------------------------- | --------------------------------------------------------- |
-| Android  | -           | ✅     | ❌  | [IronFox](https://ironfoxoss.org) | Official                                                  |
+| Android  | Yes         | ✅     | ❌  | [IronFox](https://ironfoxoss.org) | Official                                                  |
 | Arch     | Partial     | ✅     | ❌  | -                                 | Official + Community                                      |
 | Debian   | Yes         | ✅     | ✅  | -                                 | Official                                                  |
-| Fedora   | No          | ✅     | ❌  | -                                 | Official                                                  |
-| Flatpak  | -           | ✅     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)  |
+| Fedora   | Yes         | ✅     | ❌  | -                                 | Official                                                  |
+| Flatpak  | -           | ❌     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)  |
 | Gentoo   | Yes         | ✅     | ✅  | -                                 | Community                                                 |
 | macOS    | -           | ✅     | ❌  | -                                 | Official                                                  |
 | NixOS    | Yes         | ✅     | ❌  | -                                 | Official + Community                                      |
@@ -194,7 +194,7 @@ See: [docs/specialized-configs](docs/specialized-configs.md)
 You can help by contributing code or by telling others about Phoenix. Reach out
 to us and let us know how you want to help.
 
-- Build instructions: [docs/build](docs/build.md)
+- Build instructions: [Wiki: Building](https://codeberg.org/celenity/Phoenix/wiki/building.md)
 
 ## ⚖️ Licensing
 

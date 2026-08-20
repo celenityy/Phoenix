@@ -1,4 +1,4 @@
-# 👋 Phoenix: Uninstall
+# 👋 Uninstall
 
 ## Arch Linux
 

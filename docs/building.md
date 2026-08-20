@@ -1,4 +1,4 @@
-# Phoenix: Build
+# 🔨 Building
 
 ## Dependencies
 
@@ -40,18 +40,19 @@ brew install gawk gnu-sed gnu-tar jq
 Now, you'll want to get the Phoenix repository.
 With `git`, you can use:
 
-```bash
+```sh
 git clone --depth=1 git@codeberg.org:celenity/Phoenix.git && cd Phoenix
 ```
 
 **From the root of the repository**, download Phoenix's sources:
 
-```bash
+```sh
 bash -x scripts/get_sources.sh
 ```
 
 Finally, **from the root of the repository**, build Phoenix!:
 
-```bash
+```sh
 bash -x scripts/build.sh
 ```
+

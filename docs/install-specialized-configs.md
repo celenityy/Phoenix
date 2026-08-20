@@ -1,4 +1,4 @@
-# 💡 Phoenix: Specialized Configs
+# 💡 Specialized Configs
 
 It should also be noted that Phoenix contains specialized configurations for
 **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and
@@ -126,7 +126,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: Apple Maps
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/apple-maps/user.js
 /usr/local/opt/phoenix-osx/userjs/apple-maps/user.js
@@ -138,7 +138,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: Discord
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/discord/user.js
 /usr/local/opt/phoenix-osx/userjs/discord/user.js
@@ -150,7 +150,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: Element
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/element/user.js
 /usr/local/opt/phoenix-osx/userjs/element/user.js
@@ -162,7 +162,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: Google Maps
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/google-maps/user.js
 /usr/local/opt/phoenix-osx/userjs/google-maps/user.js
@@ -174,7 +174,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: Twitter
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/twitter/user.js
 /usr/local/opt/phoenix-osx/userjs/twitter/user.js
@@ -186,7 +186,7 @@ exception being the location of the `user.js` file.
 
 ### macOS: YouTube
 
-```bash
+```zsh
 # Default
 /opt/homebrew/opt/phoenix-osx/userjs/youtube/user.js
 /usr/local/opt/phoenix-osx/userjs/youtube/user.js

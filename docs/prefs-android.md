@@ -1,4 +1,4 @@
-# Phoenix: Android
+# 📑 Android Preferences
 
 `android/` directory contains specialized Phoenix configuration files,
 specifically designed for Firefox on Android.
@@ -84,3 +84,4 @@ If you'd like to use Phoenix's `Extended` Hardening config, you should **instead
 **16:** Close Firefox on your Android device, open up your `Settings` app, navigate back to `Developer options` _(via the same way you accessed it in Step `3`)_, and **disable** `USB debugging`.
 **17:** Below `USB debugging`, select **Revoke USB debugging authorizations**, and choose `OK`.
 **18:** You're done, enjoy :).
+
