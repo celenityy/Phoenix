@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - 'dev'
+    paths:
+      - 'docs/**'
+
+  workflow_dispatch:
+
+env:
+  WIKI_KEY: ${{ secrets.WIKI_SECRET }}
+  REPO: ${{ forgejo.repository }}
+  USER: 'Wiki Author'
+  EMAIL: 'wiki_author@noreply.codeberg.org'
+  URL: 'codeberg.org'
+
+jobs:
+  generate-wiki:
+    runs-on: codeberg-tiny-lazy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Pull wiki
+        run: |
+          mkdir wikidir
+          cd wikidir
+          git config --global user.name ${{ env.USER }}
+          git config --global user.email ${{ env.EMAIL }}
+          git init -b 'main'
+          git pull https://${{ env.WIKI_KEY }}@${{ env.URL }}/${{ env.REPO }}.wiki.git
+
+      - name: Push content
+        run: |
+          apt-get update
+          apt-get install -y rsync
+          rsync -av --delete docs/ wikidir/ --exclude .git
+          cd wikidir/
+          git add .
+          git commit -m 'Update wiki'
+          git push -f --set-upstream https://${{ env.WIKI_KEY }}@${{ env.URL }}/${{ env.REPO }}.wiki.git main

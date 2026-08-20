@@ -1,0 +1,344 @@
+# ⭐ Features
+
+Note that this list is not exhaustive...
+
+**For features specific to `Extended` configurations of Phoenix, please see [here](./features-extended.md)**.
+
+**For features specific to `Android` configurations of Phoenix, please see [here](./features-android.md)**.
+
+## 🔒 Privacy
+
+- Blocks cookie banners using Firefox's built-in [Cookie Banner Reduction](https://support.mozilla.org/kb/cookie-banner-reduction) & [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
+- Blocks known tracking resources using Firefox's built-in [Tracking Protection](https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track) *([with the `strict` *(level 2)* list](https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804))* & [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
+- Blocks websites from prompting to access geolocation by default
+- Clears active logins *(sessions)* on exit by default
+- Clears browsing history on exit by default
+- Clears cache on exit by default
+- Clears download history on exit by default
+- Clears form data on exit by default
+- Disables [Address Bar speculative connections](https://bugzilla.mozilla.org/show_bug.cgi?id=1348275)
+- Disables autofill/autocompletion of URLs by default
+- Disables automatic authentication on Microsoft websites via [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-single-sign-on) & [Windows SSO](https://support.mozilla.org/kb/windows-sso)
+- Disables [automatic failover from the proxy *(if configured)* to direct connections when certain system requests fail](https://bugzilla.mozilla.org/show_bug.cgi?id=1720221)
+- Disables the [Beacon API](https://developer.mozilla.org/docs/Web/API/Beacon_API) *([`Navigator.sendBeacon`](https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon))*
+- Disables bypassing the proxy *(if configured)* [for system connections that include the `bypassProxy` flag](https://bugzilla.mozilla.org/show_bug.cgi?id=1732792)
+- Disables [Captive Portal Detection](https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy)
+- Disables collection and generation of background thumbnails
+- Disables coloring of visited links
+- Disables disk caching
+- Disables [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https) Connectivity Checks
+- Disables [DNS Prefetching](https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html)
+- Disables [Early Hints](https://developer.mozilla.org/docs/Web/HTTP/Status/103)
+- Disables favicons in shortcuts *(as the `.ico` files persist after deletion...)*
+- Disables [GIO](https://wikipedia.org/wiki/GIO_(software)) to [prevent proxy bypasses](https://bugzilla.mozilla.org/1433507)
+- Disables [interaction measurements](https://searchfox.org/mozilla-central/source/browser/components/places/Interactions.sys.mjs)
+- Disables [LaterRun](https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41568)
+- Disables [Link Prefetching](https://developer.mozilla.org/docs/Glossary/Prefetch)
+- Disables logging [domains blocked as part of Firefox's Enhanced Tracking Protection](https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_what-enhanced-tracking-protection-blocks) in `about:protections`
+- Disables Menu and Toolbar speculative connections
+- Disables [Network Connectivity Checks](https://bugzilla.mozilla.org/1460537)
+- Disables the Network Predictor
+- Disables [Preconnect](https://developer.mozilla.org/docs/Web/HTML/Attributes/rel/preconnect)
+- Disables [search and form history](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html)
+- Disables [search suggestions](https://support.mozilla.org/kb/search-suggestions-firefox)
+- Disables [sending metadata of downloaded files to Google](https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work#w_how-does-phishing-and-malware-protection-work-in-firefox) as part of Google Safe Browsing
+- Disables [speculative pre-connections](https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections#w_speculative-pre-connections)
+- Disables storing unnecessary, extra session data
+- Disables [Uniform Naming Conventions (UNC)](https://networkencyclopedia.com/universal-naming-convention-unc/) file paths to [prevent proxy bypasses](https://bugzilla.mozilla.org/1413868)
+- Disables [Windows Location Service](https://support.microsoft.com/windows/windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088) for geolocation
+- Disables writing media cache to disk in private windows
+- Enables [Bounce Tracking Protection](https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_bounce-tracking-protection)
+- Enables [Containers](https://support.mozilla.org/kb/how-use-firefox-containers) + isolates permissions per-container by default
+- Enables [Cookies Having Independent Partitioned State *(CHIPS)*](https://developer.mozilla.org/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies)
+- Enables [Do Not Track](https://wikipedia.org/wiki/Do_Not_Track)
+- Enables [Global Privacy Control](https://globalprivacycontrol.org/)
+- Enables global toggles for controlling the camera/microphone in WebRTC
+- Enables [SmartBlock](https://blog.mozilla.org/security/2021/03/23/introducing-smartblock/), with support for embeds/placeholders to make certain resources click to load
+- Enables [State Partitioning](https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning)
+- Enables [Strict Enhanced Tracking Protection *(ETP Strict)*](https://support.mozilla.org/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection)
+- Enables [Total Cookie Protection (dFPI)](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/)
+- Explicitly disables [EDNS Client Subnet (ECS)](https://wikipedia.org/wiki/EDNS_Client_Subnet) for [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https)
+- Explicitly disables [Hyperlink Auditing *(Click Tracking)*](https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/)
+- Explicitly disables logging URLs in Reader Mode by default
+- Explicitly disables [Negotiate Authentication](https://people.redhat.com/mikeb/negotiate/) by default
+- Explicitly disables [Network Error Logging](https://w3c.github.io/network-error-logging/)
+- Explicitly disables the [Reporting API](https://w3c.github.io/reporting/)
+- Explicitly disables saving clipboard history/contents to the cloud
+- Explicitly disables [sharing reports with Google](https://bugzilla.mozilla.org/show_bug.cgi?id=1351147) as part of Google Safe Browsing
+- Explicitly disables [Wi-Fi Scanning](https://searchfox.org/mozilla-central/source/toolkit/modules/Region.sys.mjs#20) as part of Geolocation/Region requests
+- Explicitly enables [EncryptedClientHello](https://blog.cloudflare.com/announcing-encrypted-client-hello)
+- Explicitly enables [mDNS Host Obfuscation for WebRTC]((https://bugzilla.mozilla.org/show_bug.cgi?id=1588817))
+- Explicitly sets Firefox's homepage to Firefox Home *(`about:home`)*
+- Ignores referer policies that are less restricted than the default
+- Installs [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin) by default, using an [enhanced configuration](https://phoenix.celenity.dev/content-blocking)
+- Prevents exposing content in the title of Private Browsing windows
+- Prevents Firefox [from automatically guessing which container to open external links in](https://bugzilla.mozilla.org/show_bug.cgi?id=1874599#c8)...
+- Prevents Firefox from automatically starting & restoring session after reboot on Windows
+- Prevents middle mouse clicks from automatically pasting clipboard contents by default
+- Prevents middle mouse clicks on the new tab button from automatically opening URLs/searches from the clipboard by default
+- Prevents WebRTC from bypassing the proxy *(if configured)*
+- Proxies connections made as part of [Google Safe Browsing](https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/)
+- Removes [cached files from browser windows opened with external applications](https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574)
+- Removes files deleted in Firefox from session list & history
+- Removes privacy-invasive [AI Chatbot providers](https://support.mozilla.org/kb/ai-chatbot#w_learn-about-chatbot-providers) - `Anthropic Claude`, `ChatGPT`, `Google Gemini`, `Le Chat Mistral`, and `Microsoft Copilot`
+- Restricts tracking referers
+- Sets the default AI Chatbot *(if enabled)* to [DuckDuckGo](https://duckduckgo.com/duckduckgo-help-pages/aichat/)
+- Sets the default network Geolocation provider to [BeaconDB](https://beacondb.net/) *(instead of [Google](https://www.google.com/intl/en/privacy/lsf.html))*
+- Sets the default search engine to [DuckDuckGo](https://duckduckgo.com/) *(instead of Google)*
+- Strips URL tracking parameters using Firefox's built-in [Query Stripping](https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html) *(with an extended list of parameters to match Brave and LibreWolf)* & [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
+- Trims [cross-origin referers](https://wiki.mozilla.org/Security/Referrer) *(Like Safari)*
+- Uses the proxy *(if configured)* for remote DNS lookups
+- Warns users when attempting to switch tabs in a window being shared over WebRTC
+- When reporting false positives found in Google Safe Browsing, sends the URL *only* to Google instead of sending the URL to both Google *and* Mozilla + your locale to Mozilla
+
+### 🫆 Fingerprinting
+
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./Limitations#fingerprinting) when it comes to fingerprinting protection, to better understand what we can/can not protect against**.
+
+In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerprinters Protection (FPP)](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters). **However:** Phoenix modifies the set of protections *([targets](https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc))* covered by FPP to match that of [Resist Fingerprinting (RFP)](https://support.mozilla.org/kb/resist-fingerprinting) *(`+AllTargets`)*, **with the following exceptions**:
+
+- Rather than automatically denying prompts for permission to extract canvas data, Phoenix always alerts the user. **Canvas data extraction is still prevented unless the user grants permission** *(`-CanvasExtractionBeforeUserInputIsBlocked`)*
+- CSS [`prefers-color-scheme`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme) is not spoofed, meaning users can enable Dark mode if desired *(`-CSSPrefersColorScheme`)*
+- Display of content over 60FPS is permitted *(`-FrameRate`)*
+- The timezone is not spoofed to `UTC-0` by default *(`-JSDateTimeUTC`)*
+- The locale reported by the [Internationalization API](https://hacks.mozilla.org/2014/12/introducing-the-javascript-internationalization-api/) is not spoofed to `en-US` by default *(`-JSLocale`)*
+
+**Additionally**, Phoenix:
+
+- [Blocks known fingerprinting resources](https://blog.mozilla.org/security/2020/01/07/firefox-72-fingerprinting/)
+- Disables use of system accent colors
+- Disables use of system colors
+- Disables [WebGPU](https://browserleaks.com/webgpu)
+- Enables [`fdlibm` for `Math.sin`, `Math.cos`, and `Math.tan`](https://groups.google.com/a/mozilla.org/g/dev-platform/c/0dxAO-JsoXI/m/eEhjM9VsAgAJ)
+- Enables light mode by default
+- Rounds window sizes
+
+## 🛡️ Security
+
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./Limitations#security) when it comes to security, so that you can make an informed descision on what is best for you**.
+
+- Alerts users of browser updates as soon as they are available *(instead of waiting 4 days)* via a badge on the hamburger menu
+- Alerts users on major browser upgrades via a pop-up/dialog
+- Alerts users when updates are being downloaded via a message in the hamburger menu
+- Blocks access to the [system's shell](https://www.stigviewer.com/stig/mozilla_firefox/2019-12-12/finding/V-15771)
+- Blocks [AutoConfig](https://support.mozilla.org/kb/customizing-firefox-using-autoconfig) files from [gaining privileged browser access](https://www.mozilla.org/firefox/62.0/releasenotes/) *(if configured)*
+- Blocks [Content Analysis *(Data Loss Prevention agents)*](https://github.com/chromium/content_analysis_sdk)
+- Blocks cross-origin sub-resources from opening `HTTP` authentication credentials dialogs *([meaning dialogs for embedded items are only presented when originating from the same site](https://support.mozilla.org/questions/1245144))* to protect against phishing
+- Blocks execution of scripts loaded via `file://` with improper `MIME` types
+- Blocks extensions signed with weak signature algorithms
+- Blocks insecure mixed active content on secure websites
+- Blocks insecure mixed display content on secure websites
+- Blocks insecure mixed object subrequests on secure websites
+- Blocks `remoteTypes` from triggering process switches they shouldn't be able to
+- Checks for extension updates `hourly` *(instead of once every `24 hours`...)*
+- Disables [Accessibility Services](https://web.archive.org/web/20240608190300/support.mozilla.org/en-US/kb/accessibility-services) by default
+- Disables Address Bar URL trimming
+- Disables autofill of [form data](https://wiki.mozilla.org/Firefox/Features/Form_Autofill) & [log-in credentials](https://support.mozilla.org/kb/autofill-logins-firefox) by default
+- Disables [automatic installation/enablement of third party extensions in Firefox's `installation` directory](https://support.mozilla.org/kb/deploying-firefox-with-extensions)
+- Disables [Basic authentication over HTTP](https://chromeenterprise.google/policies/#BasicAuthOverHttpEnabled) by default
+- Disables Firefox's [built-in Password Manager](https://support.mozilla.org/kb/manage-your-logins-firefox-password-manager) by default
+- Disables [formless capture of log-in credentials](https://bugzilla.mozilla.org/show_bug.cgi?id=1166947)
+- Disables [GNOME Shell Integration](https://searchfox.org/mozilla-central/source/browser/components/shell/nsGNOMEShellService.cpp)
+- Disables [Graphite](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+graphite) and [OpenType SVG](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+svg) fonts
+- Disables [insecure background requests in HTTPS-Only Mode](https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945)
+- Disables JavaScript in [PDF.js](https://mozilla.github.io/pdf.js/)
+- Disables JavaScript [Just-in-time Compilation (JIT)](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/)
+- Disables [MathML](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=mathml)
+- Disables [SharedArrayBuffer](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) using [`window.postMessage`](https://developer.mozilla.org/docs/Web/API/Window/postMessage)
+- Disables third-party/OS-level root certificates
+- Disables TLS 1.3 [0-RTT](https://github.com/tlswg/tls13-spec/issues/1001)
+- Disables [UITour](https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/index.html)
+- Disables [WebXR](https://developer.mozilla.org/docs/Web/API/WebXR_Device_API) by default
+- Disables [XFA](https://insert-script.blogspot.com/2019/01/adobe-reader-pdf-callback-via-xslt.html) in [PDF.js](https://mozilla.github.io/pdf.js/)
+- Displays hidden extensions in `about:debugging`
+- Displays URLs in [punycode](https://wikipedia.org/wiki/Punycode) for protection against [IDN homograph attacks](https://wikipedia.org/wiki/IDN_homograph_attack)
+- Displays URLs instead of [search terms](https://support.mozilla.org/kb/change-your-default-search-settings-firefox#w_default-search-engine) in the Address Bar on search results
+- Enables [Certificate Transparency](https://wiki.mozilla.org/SecurityEngineering/Certificate_Transparency)
+- Enables the `credentialless` Cross-Origin-Embedder-Policy (COEP) header
+- Enables [CRLite](https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/) revocation checks *([without deferral to OCSP](https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071))*
+- Enables [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https) with [Max Protection](https://support.mozilla.org/kb/dns-over-https#w_max-protection) *(without fallback)* by default, via [Mullvad *(Base)*](https://mullvad.net/help/dns-over-https-and-dns-over-tls)
+- Enables an [enhanced blocklist of malicious/undesirable extensions](https://codeberg.org/celenity/Phoenix/src/branch/pages/build/policies/blocklist-spec.json) *(in addition to [Mozilla's Add-on Blocklist](https://support.mozilla.org/kb/add-ons-cause-issues-are-on-blocklist))*
+- Explicitly enables [Fission](https://wiki.mozilla.org/Project_Fission) *(Per-site process isolation)*
+- Enables [GPU sandboxing](https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/)
+- Enables [HTTPS-First](https://support.mozilla.org/kb/https-first)
+- Enables [HTTPS-Only Mode](https://support.mozilla.org/kb/https-only-prefs)
+- Enables [Post-Quantum Key Agreement](https://ncsa.github.io/pqc/)
+- Enables [protection against CSRF Attacks](https://groups.google.com/a/mozilla.org/g/dev-platform/c/6PZtLH7c6JQ) *(Like Chromium)*
+- Enables Spectre mitigations for isolated content
+- Enforces [prompting the user if a website requests a certificate, rather than automatically selecting one](https://www.stigviewer.com/stig/mozilla_firefox/2023-06-05/finding/V-251547)...
+- Enforces [Strict Certificate Pinning](https://wiki.mozilla.org/SecurityEngineering/Public_Key_Pinning#How_to_use_pinning)
+- Explicitly blocks insecure downloads
+- Explicitly enables [Google Safe Browsing](https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work) by default
+- Explicitly enables [Opaque Response Blocking](https://github.com/annevk/orb)
+- Explicitly enables [Quarantined Domains](https://support.mozilla.org/kb/quarantined-domains)
+- Explicitly excludes JavaScript URLs from Address Bar results
+- Forces [Remote Debugging](https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html) *(if enabled)* to **always** prompt users before connecting
+- Forces [Remote Debugging](https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html) *(if enabled)* to **only** work locally
+- Limits [add-on scopes](https://archive.is/DYjAM) to *only* allow installation from `profile` & `application` directories
+- Limits the use of [Remote Debugging](https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html) to per-session
+- Only allows installation of [signed](https://support.mozilla.org/kb/add-on-signing-in-firefox) extensions
+- Prevents marking JIT code pages as both writable *and* executable *(only one or the other)*
+- Prevents unprivileged extensions from using [Experimental APIs](https://searchfox.org/mozilla-central/source/toolkit/components/extensions/docs/basics.rst#142)
+- Prevents websites from bypassing prompts to install extensions
+- Prompts the user before downloading/saving files
+- Requires the use of Firefox's built-in certificates for installation and updates of extensions
+- Sets certificate error overrides to be per-session rather than permanent by default
+- Sets the delay between browser update prompts to `1 hour` *(instead of 192 hours...)*
+- Requires [safe renegotiations](https://wiki.mozilla.org/Security:Renegotiation)
+- Upgrades insecure mixed display content on secure websites
+- Warns users for external `mailto:` URLs
+
+## 💡 Enhancements
+
+- Adds support for syncing more preferences with [Firefox Sync](https://www.mozilla.org/firefox/features/sync/) *(if enabled)*
+- Adds various privacy-respecting search engines - `DuckDuckGo (HTML)`, `DuckDuckGo (Lite)`, `DuckDuckGo (No AI)`, `Marginalia`, `Mojeek`, `Startpage`, and `Startpage (EU)`.
+- Allows `LocalCDN` *(if installed)* to run on [quarantined domains](https://support.mozilla.org/kb/quarantined-domains) by default
+- Allows `Mullvad Browser Extension` *(if installed)* to run on [quarantined domains](https://support.mozilla.org/kb/quarantined-domains) by default
+- Always displays the [Bookmarks Toolbar](https://support.mozilla.org/kb/bookmarks-toolbar-display-favorite-websites) by default
+- Always displays a `reveal password` button in [`password` `<input>` types](https://developer.mozilla.org/docs/Web/HTML/Element/input/password)
+- Automatically exports bookmarks to `HTML` on exit by default
+- Blocks [media autoplay](https://support.mozilla.org/kb/block-autoplay) by default
+- Blocks web notifications by default
+- Cleans up the default UI/customization state
+- Customizes the list of built-in [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https) resolvers
+- Disables Address Bar clipboard suggestions
+- Disables Address Bar history suggestions
+- Disables Address Bar recent search suggestions
+- Disables Address Bar search engine suggestions
+- Disables annoying Web Speech API errors
+- Disables automatic browser console log clearing upon page reloads/navigations
+- Disables checking if Firefox is the default PDF viewer
+- Disables checking if Firefox is the default web browser
+- Disables delays when switching to full screen
+- Disables [DRM](https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next)
+- Disables `Highlights` from appearing on Firefox Home by default
+- Disables [password truncation](https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues)
+- Disables prompts to `refresh`/`reset` Firefox
+- Disables [Quick Actions](https://support.mozilla.org/kb/quick-actions-firefox-search-bar)
+- Disables `Recent activity` from appearing on Firefox Home by default
+- Disables the site protections info message
+- Disables warning the user when accessing the `about:config` by default
+- Displays advanced information on Insecure Connection warning pages
+- Displays more details on Safe Browsing warning pages
+- Displays the option to [add a separate search bar](https://support.mozilla.org/kb/add-search-bar-firefox-toolbar) in Firefox's [Customize](https://support.mozilla.org/kb/customize-firefox-controls-buttons-and-toolbars) menu
+- Displays the option to enable [Compact mode](https://support.mozilla.org/kb/compact-mode-workaround-firefox) in Firefox's [Customize](https://support.mozilla.org/kb/customize-firefox-controls-buttons-and-toolbars) menu
+- Displays timestamps in the web console by default
+- Enables the ability to add custom search engines in `about:preferences#search`
+- Enables the ability to specify a different search engine for use in Private Windows vs. Normal Windows in `about:preferences#search`
+- Enables Address Bar calculator suggestions
+- Enables an Address Bar suggestion to use Private Browsing
+- Enables Address Bar unit conversion suggestions
+- Enables autoscrolling by default
+- Enables a cursor spinning animation when websites are loading by default
+- Enables debugging `chrome` by default
+- Enables debugging `DOM` by default
+- Enables an experimental UI for managing profiles
+- Enables a fire button in Private Browsing Windows to reset session
+- Enables Firefox Home [Wallpapers](https://support.mozilla.org/kb/customize-your-wallpapers)
+- Enables Firefox's newer `Felt privacy` design for Certificate Errors and Private Browsing windows
+- Enables [long line wrapping in developer tools](https://discourse.mozilla.org/t/long-line-wrapping-in-developer-tools-css-editor-and-debugger-code-views/47058) by default
+- Enables long line wrapping in `view-source:` by default
+- Enables a `Measure` button in debugging
+- Enables a `Rulers` button in debugging
+- Enables a `Screenshot` button in debugging
+- Enables a sidebar/table of contents when viewing `PDF`s by default
+- Enables smooth scrolling by default
+- Enables [Spellcheck for both `multi-line` *and* `single-line` boxes](https://codeberg.org/celenity/Phoenix/issues/33) by default
+- Enables a subset of performance optimizations from [Betterfox](https://github.com/yokoffing/Betterfox) by default
+- Enables suggestions when a HTTPS-page can't be found in HTTPS-Only Mode
+- Enables support for custom CSS by default
+- Enables the `Unload Tab` context menu item
+- Enables the `View Image Info` context menu item
+- Exposes the ability to disable UI animations (`ui.prefersReducedMotion`) in the `about:config` by default
+- Exposes the ability to enable [dynamic rounding of content dimensions](https://bugzilla.mozilla.org/show_bug.cgi?id=1407366) (`privacy.resistFingerprinting.letterboxing`) in the `about:config` by default
+- Exposes the ability to log geolocation requests (`geo.provider.network.logging.enabled`) in the `about:config` by default
+- Exposes the ability to log policies (`browser.policies.loglevel`) in the `about:config` by default
+- Exposes the ability to prevent the Permission Manager from writing to disk (`permissions.memory_only`) in the `about:config` by default
+- Fixes [IPv6 connectivity when DNS over HTTPS is enabled](https://codeberg.org/divested/brace/pulls/5)
+- Forces pop-ups to open in new tabs instead of windows by default
+- Highlights all Findbar *(Ctrl + F)* results by default
+- Highlights syntax in `view-source:` by default
+- Includes a set of granular overrides to unbreak websites with [FPP](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters) *(via `privacy.fingerprintingProtection.granularOverrides`)* by default
+- Installs [Firefox Multi-Account Containers](https://addons.mozilla.org/firefox/addon/multi-account-containers/) by default
+- Leaves the `Bookmarks` menu open after selecting a website by default
+- Limits what events can cause pop-ups by default
+- Opens bookmarks in new tabs by default
+- Prevents private windows from appearing as separate icons in the taskbar on Windows
+- Prevents scripts from moving, resizing, and messing with windows
+- Prevents websites from [dictating whether autofilling credentials is allowed](https://blog.0xbadc0de.be/archives/124)
+- Sets the default time-range when manually clearing browser data to `everything`
+
+## 🦖 Mozilla
+
+- Allows extensions to run on specific Mozilla domains by default
+- Clears Firefox's [default top sites](https://searchfox.org/mozilla-central/source/browser/components/topsites/TopSites.sys.mjs#67)
+- Disables `about:welcome`
+- Disables [Activity Stream (Firefox Home)](https://wiki.mozilla.org/Firefox/Activity_Stream_1.0) Telemetry
+- Disables [Activity Stream (Firefox Home)](https://wiki.mozilla.org/Firefox/Activity_Stream_1.0) [Content Recommendations](https://support.mozilla.org/kb/new-tab)
+- Disables Address Bar add-on suggestions
+- Disables Address Bar Fakespot suggestions
+- Disables Address Bar MDN suggestions
+- Disables Address Bar Pocket suggestions
+- Disables Address Bar trending suggestions
+- Disables Address Bar weather suggestions
+- Disables Address Bar Yelp suggestions
+- Disables [AI Chatbot](https://support.mozilla.org/kb/ai-chatbot) functionality by default
+- Disables the [Background Hang Monitor](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/backgroundhangmonitor-ping.html)
+- Disables [CAPTCHA Detection pings](https://searchfox.org/mozilla-central/source/toolkit/components/captchadetection)
+- Disables [Daily Usage Ping Data Collection](https://support.mozilla.org/kb/usage-ping-settings)
+- Disables [Data Reporting](https://bugzilla.mozilla.org/show_bug.cgi?id=1195552)
+- Disables the [Default Browser Agent](https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html)
+- Disables [Discovery Stream](https://bugzilla.mozilla.org/show_bug.cgi?id=1551273)
+- Disables [DNS Over HTTPS/Trusted Recursive Resolver (TRR)](https://firefox-source-docs.mozilla.org/networking/dns/dns-over-https-trr.html) Automatic Rollout
+- Disables [DNS Over HTTPS/Trusted Recursive Resolver (TRR)](https://firefox-source-docs.mozilla.org/networking/dns/dns-over-https-trr.html) Confirmation Request Telemetry
+- Disables [Fakespot](https://www.fakespot.com/)
+- Disables feedback prompts
+- Disables Firefox Focus promotions
+- Disables Firefox mobile promotions
+- Disables [Firefox Relay](https://relay.firefox.com/) by default
+- Disables [Firefox Relay](https://relay.firefox.com/) promotions
+- Disables [Firefox Suggest](https://blog.mozilla.org/products/firefox/firefox-news/firefox-suggest/)
+- Disables [Firefox Suggest Telemetry](https://searchfox.org/mozilla-central/source/browser/components/urlbar/docs/firefox-suggest-telemetry.rst)
+- Disables [Firefox Sync](https://www.mozilla.org/firefox/features/sync/) promotions
+- Disables the Firefox View feature tour
+- Disables [`health` pings](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/health-ping.html)
+- Disables [Interest-based content relevance ranking]( https://bugzilla.mozilla.org/show_bug.cgi?id=1886207)
+- Disables list recommendations in `about:addons`
+- Disables `More from Mozilla` in `about:preferences`
+- Disables the [Mozilla Ad Routing Service *(MARS)*](https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#797)
+- Disables Mozilla Monitor promotions
+- Disables Mozilla VPN promotions
+- Disables [Network Traffic Categories Telemetry](https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#13407)
+- Disables [`new-profile` pings](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/new-profile-ping.html)
+- Disables [Origin Trials](https://wiki.mozilla.org/Origin_Trials)
+- Disables the `PDF.js` feature tour
+- Disables [personalized extension recommendations](https://support.mozilla.org/kb/personalized-extension-recommendations)
+- Disables the [Ping Sender](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/pingsender.html)
+- Disables [Pocket](https://support.mozilla.org/kb/what-is-pocket)
+- Disables [Privacy-Preserving Attribution](https://support.mozilla.org/kb/privacy-preserving-attribution)
+- Disables [Recommendations from Firefox](https://support.mozilla.org/kb/recommendations-firefox)
+- Disables [Region Updates](https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html)
+- Disables the [Remote Settings Experiment Loader](https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs)
+- Disables the sending of crash reports
+- Disables the sending of technical and interaction data *([Health Reports](https://blog.mozilla.org/metrics/fhr-faq/))* to Mozilla *([Glean](https://firefox-source-docs.mozilla.org/toolkit/components/glean/dev/preferences.html))*
+- Disables the [Shield Recipe Client *(Normandy)*](https://firefox-source-docs.mozilla.org/toolkit/components/normandy/normandy/)
+- Disables [`shutdown` pings](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html#preferences)
+- Disables [Snippets](https://abouthome-snippets-service.readthedocs.io/en/latest/index.html)
+- Disables [Sponsored Tiles (Contile)](https://mozilla-services.github.io/contile/)
+- Disables [Sponsored Shortcuts](https://support.mozilla.org/kb/sponsor-privacy)
+- Disables [Studies](https://support.mozilla.org/kb/shield)
+- Disables [Targeting Context Telemetry](https://searchfox.org/mozilla-release/source/toolkit/components/messaging-system/targeting/Targeting.sys.mjs)
+- Disables [Telemetry Archiving](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/concepts/archiving.html)
+- Disables [Telemetry Coverage](https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/)
+- Disables the [Telemetry module](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html)
+- Disables [third party email tracking telemetry](https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#15106)
+- Disables [Top Site Previews *(Tippy Top)*](https://searchfox.org/mozilla-central/source/browser/components/topsites/docs/tippytop.md)
+- Disables [Unexpected Privileged System Loads Telemetry](https://searchfox.org/mozilla-central/source/dom/security/test/gtest/TestUnexpectedPrivilegedLoads.cpp#39)
+- Disables [Unified Telemetry](https://bugzilla.mozilla.org/show_bug.cgi?id=1406390#c2)
+- Disables [`update` pings](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/update-ping.html)
+- Disables [user characteristic data collection](https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#3088)
+- Disables [user interactions with search engine result pages (SERP) telemetry](https://docs.telemetry.mozilla.org/datasets/other/serp_events/reference)
+- Disables Weather on Firefox Home by default
+- Disables the [Web Compatibility Reporter](https://support.mozilla.org/kb/report-breakage-due-blocking)
+- Removes [special privileges](https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#privileged-mozilla-content) from Mozilla domains
+- Removes tracking parameters from various Mozilla URLs
