@@ -19,7 +19,7 @@ jobs:
     runs-on: codeberg-tiny-lazy
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
 
       - name: Pull wiki
         env:
