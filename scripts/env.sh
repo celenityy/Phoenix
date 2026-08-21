@@ -64,6 +64,11 @@ function setup_path() {
   "${PHOENIX_LN}" -sf "${PHOENIX_XZ}" "${PHOENIX_PATH}/xz"
   "${PHOENIX_LN}" -sf "${PHOENIX_ZIP}" "${PHOENIX_PATH}/zip"
 
+  # CI-specific
+  if [[ "${PHOENIX_CI}" == 1 ]]; then
+    "${PHOENIX_LN}" -sf "${PHOENIX_RSYNC}" "${PHOENIX_PATH}/rsync"
+  fi
+
   # OS X-specific
   if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
     "${PHOENIX_LN}" -sf "${PHOENIX_DOT_CLEAN}" "${PHOENIX_PATH}/dot_clean"
