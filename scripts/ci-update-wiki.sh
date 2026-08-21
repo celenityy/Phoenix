@@ -62,6 +62,7 @@ function configure_git() {
   echo_red_text 'Configuring Git...'
   "${PHOENIX_GIT}" config --global user.email "${PHOENIX_WIKI_GIT_EMAIL}"
   "${PHOENIX_GIT}" config --global user.name "${PHOENIX_WIKI_GIT_NAME}"
+  "${PHOENIX_GIT}" config --global url."https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/".insteadOf "https://${PHOENIX_FORGEJO_URL}/"
   echo_green_text 'SUCCESS: Configured Git.'
 }
 
@@ -76,20 +77,9 @@ function clone_wiki_repo() {
   # Ensure we have git
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
 
-  # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
-
-  # Create the wiki repo directory
+  # Clone the wiki repo
   echo_red_text 'Cloning wiki repository...'
-  "${PHOENIX_MKDIR}" -p "${PHOENIX_WIKI_REPO}"
-
-  pushd "${PHOENIX_WIKI_REPO}"
-  # Initialize the wiki repo
-  "${PHOENIX_GIT}" init -b "${PHOENIX_WIKI_BRANCH}"
-
-  # Pull the wiki repo
-  "${PHOENIX_GIT}" pull "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git"
-  popd
+  "${PHOENIX_GIT}" clone "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git" "${PHOENIX_WIKI_REPO}" --depth=1
   echo_green_text 'SUCCESS: Cloned wiki repository.'
 }
 
@@ -123,7 +113,7 @@ function update_wiki_repo() {
   pushd "${PHOENIX_WIKI_REPO}"
   "${PHOENIX_GIT}" add .
   "${PHOENIX_GIT}" diff --cached --quiet || "${PHOENIX_GIT}" commit -m 'Update wiki'
-  "${PHOENIX_GIT}" push -f --set-upstream "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git" "${PHOENIX_WIKI_BRANCH}"
+  "${PHOENIX_GIT}" push origin "HEAD:${PHOENIX_WIKI_BRANCH}"
   popd
   echo_green_text 'Updated wiki repository.'
 }
