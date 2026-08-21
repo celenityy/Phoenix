@@ -11,6 +11,8 @@ on:
 env:
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "forgejo"
+  PHOENIX_DEV_BRANCH: "dev"
+  PHOENIX_PROD_BRANCH: "pages"
   REPO: ${{ forgejo.repository }}
   USER: "Wiki Author"
   EMAIL: "wiki_author@noreply.codeberg.org"

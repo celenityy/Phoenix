@@ -3,9 +3,6 @@
 set -euo pipefail
 
 # Set-up our environment
-if [[ -z "${PHOENIX_CI+x}" ]]; then
-  export PHOENIX_CI=1
-fi
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
   /bin/bash $(dirname $0)/env.sh
 fi
@@ -13,6 +10,11 @@ source $(dirname $0)/env.sh
 
 # Include utilities
 source "${PHOENIX_UTILS}"
+
+if [[ "${PHOENIX_CI}" != 1 ]]; then
+  echo_red_text "ERROR: $0 should only be called from CI!"
+  exit 1
+fi
 
 # Push Phoenix
 readonly PHOENIX_FROM_PUSH=1

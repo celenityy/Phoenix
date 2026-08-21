@@ -3,9 +3,6 @@
 set -euo pipefail
 
 # Set-up our environment
-if [[ -z "${PHOENIX_CI+x}" ]]; then
-  export PHOENIX_CI=1
-fi
 source $(dirname $0)/env.sh
 
 # Include utilities
@@ -19,16 +16,21 @@ if [[ -z "${PHOENIX_FROM_AR_DOWN+x}" ]]; then
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
-  echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
-  exit 1
-fi
-
 # Set verbosity
 if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
   set -x
 else
   set +x
+fi
+
+if [[ "${PHOENIX_CI}" != 1 ]]; then
+  echo_red_text "ERROR: $0 should only be called from CI!"
+  exit 1
+fi
+
+if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
+  echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
+  exit 1
 fi
 
 readonly down_artifact="$1"

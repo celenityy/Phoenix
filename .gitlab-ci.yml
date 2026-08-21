@@ -20,7 +20,8 @@ variables: &common_variables
   FF_USE_FASTZIP: "1"
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "gitlab"
-  PRODUCTION_BRANCH: "pages"
+  PHOENIX_DEV_BRANCH: "dev"
+  PHOENIX_PROD_BRANCH: "pages"
   TRANSFER_METER_FREQUENCY: "2s"
 
 stages:
@@ -87,9 +88,9 @@ publish-release:
       when: never
     - if: $CI_COMMIT_TAG
       when: never
-    - if: $CI_COMMIT_BRANCH == $PRODUCTION_BRANCH && $CI_COMMIT_MESSAGE =~ /\[skip-release\]/
+    - if: $CI_COMMIT_BRANCH == $PHOENIX_PROD_BRANCH && $CI_COMMIT_MESSAGE =~ /\[skip-release\]/
       when: never
-    - if: $CI_COMMIT_BRANCH == $PRODUCTION_BRANCH
+    - if: $CI_COMMIT_BRANCH == $PHOENIX_PROD_BRANCH
   tags:
     - saas-linux-2xlarge-amd64
   variables:

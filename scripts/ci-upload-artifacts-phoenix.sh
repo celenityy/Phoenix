@@ -6,19 +6,18 @@ set -euo pipefail
 set +x
 
 # Set-up our environment
-if [[ -z "${PHOENIX_CI+x}" ]]; then
-  export PHOENIX_CI=1
-fi
 source $(dirname $0)/env.sh
 
 # Include utilities
 source "${PHOENIX_UTILS}"
 
-# Include version info
-source "${PHOENIX_VERSIONS}"
-
 if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
   echo_red_text 'ERROR: Do not call ci-upload-artifacts-phoenix.sh directly. Instead, use ci-upload-artifacts.sh.' >&1
+  exit 1
+fi
+
+if [[ "${PHOENIX_CI}" != 1 ]]; then
+  echo_red_text "ERROR: $0 should only be called from CI!"
   exit 1
 fi
 
@@ -26,6 +25,9 @@ if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
   echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
   exit 1
 fi
+
+# Include version info
+source "${PHOENIX_VERSIONS}"
 
 # Verify secrets
 verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1
