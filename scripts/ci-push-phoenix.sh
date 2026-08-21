@@ -11,6 +11,9 @@ source $(dirname $0)/env.sh
 # Include utilities
 source "${PHOENIX_UTILS}"
 
+# Include S3 utilities
+source "${PHOENIX_S3_UTILS}"
+
 if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
   echo_red_text 'ERROR: Do not call ci-push-phoenix.sh directly. Instead, use ci-push.sh.' >&1
   exit 1
@@ -55,6 +58,39 @@ readonly PHOENIX_GITLAB_BRANCH='pages'
 readonly PHOENIX_GITLAB_PACKAGE_NAME='phoenix'
 readonly PHOENIX_GITLAB_PROJECT_ID='65954487'
 readonly PHOENIX_GITLAB_GENERIC_PACKAGES_URL="${PHOENIX_GITLAB_API_URL}/projects/${PHOENIX_GITLAB_PROJECT_ID}/packages/generic"
+
+# Push a file with a SHA512sum to S3 storage
+function push_to_s3() {
+  function print_usage() {
+    echo "Usage: push_to_s3 '/path/to/file' 'path/on/s3'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded!'
+    print_usage
+    exit 1
+  fi
+
+  local -r push_file="$1"
+  local -r s3_path="$2"
+
+  local -r s3_access_key_file="${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}"
+  local -r s3_bucket_name_file="${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}"
+  local -r s3_endpoint_file="${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}"
+  local -r s3_secret_key_file="${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
+
+  # Ensure our file to push is valid
+  verify_file "${push_file}" || exit 1
+
+  # Create and push a SHA512sum for our file to S3 storage
+  push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}"
+}
 
 # Create release notes
 function create_release_notes() {
@@ -593,155 +629,14 @@ function publish_to_gitlab() {
   echo_green_text "SUCCESS: Published Phoenix: ${PHOENIX_VERSION} to GitLab"
 }
 
-# Pushes a file to S3
-function push_file() {
-  function print_usage() {
-    echo "Usage: push_file '/path/to/file' 'path/on/s3'"
-  }
-
-  if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage'
-    print_usage
-    exit 1
-  fi
-
-  if [[ -z "${2+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded'
-    print_usage
-    exit 1
-  fi
-
-  local -r push_file="$1"
-  local -r s3_path="$2"
-  local -r s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
-
-  # Ensure our file to push is valid
-  verify_file "${push_file}" || exit 1
-
-  # Set our MIME type
-  case "${push_file}" in
-    *.cfg)
-      local -r mime_type='text/javascript'
-      ;;
-    *.js)
-      local -r mime_type='text/javascript'
-      ;;
-    *.md)
-      local -r mime_type='text/markdown'
-      ;;
-    *.tar.xz)
-      local -r mime_type='application/x-gtar'
-      ;;
-    *.txt)
-      local -r mime_type='text/plain'
-      ;;
-    *.zip)
-      local -r mime_type='application/zip'
-      ;;
-    *)
-      echo_red_text "ERROR: Unsupported file type: ${push_file}"
-      exit 1
-      ;;
-  esac
-
-  local -r s3_access_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" | "${PHOENIX_XARGS}")
-  local -r s3_bucket_name=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" | "${PHOENIX_XARGS}")
-  local -r s3_endpoint=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" | "${PHOENIX_XARGS}")
-  local -r s3_secret_key=$("${PHOENIX_CAT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" | "${PHOENIX_XARGS}")
-
-  if [[ "${s3_path}" == 'root' ]]; then
-    local -r s3_target_path="s3://${s3_bucket_name}"
-  else
-    local -r s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
-  fi
-
-  echo_red_text "Pushing ${push_file} to S3..."
-  source "${PHOENIX_PYENV}"
-  "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "${s3_target_path}" \
-    --access_key="${s3_access_key}" \
-    --secret_key="${s3_secret_key}" \
-    --host="${s3_endpoint}" \
-    --host-bucket="${s3_endpoint}"
-  echo_green_text "SUCCESS: Pushed ${push_file} to S3"
-}
-
-# Creates and pushes a SHA512sum for a file to S3
-function add_sha512sum() {
-  function print_usage() {
-    echo "Usage: add_sha512sum '/path/to/file'"
-  }
-
-  if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file that a SHA512sum should be created for'
-    print_usage
-    exit 1
-  fi
-
-  local -r sha512sum_file_in="$1"
-  local -r sha512sum_file_name=$("${PHOENIX_BASENAME}" "${sha512sum_file_in}")
-  local -r sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
-
-  if [[ -z "${2+x}" ]]; then
-    local -r sha512sum_s3path=$("${PHOENIX_BASENAME}" "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
-  else
-    local -r sha512sum_s3path="$2"
-  fi
-
-  # Ensure our file to create a SHA512sum for is valid
-  verify_file "${sha512sum_file_in}" || exit 1
-
-  local -r sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
-
-  # If there's already a SHA512sum file, remove it
-  if [[ -f "${sha512sum_file_out}" ]]; then
-    "${PHOENIX_RM}" -f "${sha512sum_file_out}"
-  fi
-
-  local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${sha512sum_file_in}" | "${PHOENIX_AWK}" '{print $1}')
-  echo -n "${local_sha512sum}" > "${sha512sum_file_out}"
-
-  push_file "${sha512sum_file_out}" "${sha512sum_s3path}"
-}
-
-# Creates a SHA512sum for and pushes a file to S3
-function push_and_add_sha512sum() {
-  function print_usage() {
-    echo "Usage: push_and_add_sha512sum '/path/to/file' 'path/on/s3'"
-  }
-
-  if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage'
-    print_usage
-    exit 1
-  fi
-
-  if [[ -z "${2+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded'
-    print_usage
-    exit 1
-  fi
-
-  local -r file_in="$1"
-  local -r s3_path_out="$2"
-
-  # Ensure our file to create a SHA512sum for and push is valid
-  verify_file "${file_in}" || exit 1
-
-  # Push our file to S3
-  push_file "${file_in}" "${s3_path_out}"
-
-  # Create and push a SHA512sum for our file to S3
-  add_sha512sum "${file_in}" "${s3_path_out}"
-}
-
 # Push a universal Phoenix configuration file
 function push_phoenix_universal() {
-  push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.cfg
   ## (Ex. for convenience/packaging)
   "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg"
-  push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal"
 }
 
 # Push Phoenix for a desired platform
@@ -771,26 +666,26 @@ function _push_phoenix() {
     local -r phoenix_archive_type='tar.xz'
   fi
 
-  push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.${phoenix_archive_type}
   ## (Ex. for convenience/packaging)
   "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
-  push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
 
   # For Android, also push phoenix.js and phoenix-extended.js directly
   if [[ "${phoenix_platform}" == 'android' ]]; then
-    push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
-    push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
 
     # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.js
     ## (and https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-extended-latest-{phoenix_platform}.js)
     ## (Ex. for convenience/packaging)
     "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js"
-    push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
 
     "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js"
-    push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
   fi
 }
 
@@ -821,10 +716,10 @@ function push_phoenix() {
   "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}"
   "${PHOENIX_TOUCH}" "${PHOENIX_TEMP}/latest_release.txt"
   echo -n "${PHOENIX_VERSION}" > "${PHOENIX_TEMP}/latest_release.txt"
-  push_and_add_sha512sum "${PHOENIX_TEMP}/latest_release.txt" 'phoenix/releases'
+  push_to_s3 "${PHOENIX_TEMP}/latest_release.txt" 'phoenix/releases'
 
   # Add release notes
-  push_and_add_sha512sum "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md" "phoenix/releases/${PHOENIX_VERSION}"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md" "phoenix/releases/${PHOENIX_VERSION}"
 
   echo_green_text "SUCCESS: Pushed Phoenix: ${PHOENIX_VERSION} to ${PHOENIX_CEL_RELEASES_URL}"
 }
@@ -832,7 +727,7 @@ function push_phoenix() {
 # First, create our release notes
 create_release_notes
 
-# Push Phoenix to S3
+# Push Phoenix to S3 storage
 push_phoenix
 
 # Create a Forgejo (Codeberg) release
