@@ -41,7 +41,7 @@ jobs:
 
   wiki:
     name: Wiki
-    if: forgejo.ref == 'refs/heads/dev'
+    if: forgejo.ref_name == env.PHOENIX_DEV_BRANCH
     runs-on: codeberg-tiny-lazy
     container:
       image: fedora:44
@@ -90,7 +90,7 @@ jobs:
 
   release:
     name: Release
-    if: forgejo.ref == 'refs/heads/pages' && forgejo.repository == 'celenity/Phoenix'
+    if: forgejo.ref_name == env.PHOENIX_PROD_BRANCH && forgejo.repository == 'celenity/Phoenix'
     needs: [build]
     runs-on: codeberg-medium
     container:
