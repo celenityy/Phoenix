@@ -86,13 +86,38 @@ function setup_lint_path() {
   export PATH
 }
 
+# For CI, ensure external environment variables are set
+function setup_ci() {
+  # Ensure our CI type is set
+  if [[ -z "${PHOENIX_CI_TYPE+x}" ]]; then
+    echo_red_text 'ERROR: Missing CI type! Please set PHOENIX_CI_TYPE.'
+    exit 1
+  fi
+
+  # Ensure our branches are set
+  if [[ -z "${PHOENIX_DEV_BRANCH+x}" ]]; then
+    echo_red_text 'ERROR: Missing developer branch! Please set PHOENIX_DEV_BRANCH.'
+    exit 1
+  fi
+
+  if [[ -z "${PHOENIX_PROD_BRANCH+x}" ]]; then
+    echo_red_text 'ERROR: Missing production branch! Please set PHOENIX_PROD_BRANCH.'
+    exit 1
+  fi
+}
+
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
+  # Handle CI-specific logic
+  if [[ -n "${PHOENIX_CI+x}" ]]; then
+    setup_ci
+  fi
+
   source "$(dirname $0)/env_local.sh"
 
   # Set-up our PATH
-  if [[ -z "${PHOENIX_LINTING+x}" ]]; then
-    setup_path
-  else
+  if [[ -n "${PHOENIX_LINTING+x}" ]]; then
     setup_lint_path
+  else
+    setup_path
   fi
 fi

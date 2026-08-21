@@ -3,13 +3,30 @@
 set -euo pipefail
 
 # Set-up our environment
-if [[ -z "${PHOENIX_CI+x}" ]]; then
-  export PHOENIX_CI=1
-fi
 source $(dirname $0)/env.sh
 
 # Include utilities
 source "${PHOENIX_UTILS}"
+
+# Set verbosity
+if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
+  set -x
+else
+  set +x
+fi
+
+if [[ "${PHOENIX_CI}" != 1 ]]; then
+  echo_red_text "ERROR: $0 should only be called from CI!"
+  exit 1
+fi
+
+# Get dependencies
+echo_red_text 'CI - Downloading dependencies...'
+/bin/sudo /bin/dnf update -y --refresh
+/bin/sudo /bin/dnf install -y bash curl jq shasum tar zip
+/bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 'all'
+/bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd'
+echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
 
 # Get secrets
 echo_red_text 'CI - Preparing secrets...'
@@ -23,14 +40,6 @@ if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
 else
   set +x
 fi
-
-# Get dependencies
-echo_red_text 'CI - Downloading dependencies...'
-/bin/sudo /bin/dnf update -y --refresh
-/bin/sudo /bin/dnf install -y bash curl jq shasum tar zip
-/bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 'all'
-/bin/bash "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd'
-echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
 
 # Build Phoenix
 echo_red_text 'CI - Building Phoenix...'
