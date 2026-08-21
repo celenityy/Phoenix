@@ -26,13 +26,14 @@ variables: &common_variables
 
 stages:
   - lint
-  - build_phoenix
-  - release_phoenix
+  - wiki
+  - build
+  - release
 
 # Fast, lightweight gate: shellcheck + shfmt over the shell scripts.
 # Runs first so a lint failure stops the pipeline before the multi-hour builds.
 # Uses a minimal image and is NOT namespace-gated, so it also runs for forks / contributor pipelines.
-lint-scripts:
+lint:
   image: fedora:44
   stage: lint
   rules:
@@ -50,9 +51,22 @@ lint-scripts:
     - set -euo pipefail
     - /bin/bash scripts/lint.sh
 
+wiki:
+  image: fedora:44
+  stage: wiki
+  tags:
+    - saas-linux-2xlarge-amd64
+  variables:
+    <<: *common_variables
+  script:
+    - set -euo pipefail
+    - /bin/bash scripts/ci-update-wiki.sh
+  rules:
+    - if: $CI_COMMIT_BRANCH == $PHOENIX_DEV_BRANCH
+
 build:
   image: fedora:44
-  stage: build_phoenix
+  stage: build
   tags:
     - saas-linux-2xlarge-amd64
   variables:
@@ -76,9 +90,9 @@ build:
     - if: $CI_COMMIT_TAG
       when: never
 
-publish-release:
+release:
   image: fedora:44
-  stage: release_phoenix
+  stage: release
   interruptible: true
   needs:
     - job: "build"

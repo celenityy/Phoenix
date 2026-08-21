@@ -453,6 +453,19 @@ fi
 readonly PHOENIX_RM
 export PHOENIX_RM
 
+# rsync
+## (For CI - ex. to update the wiki)
+if [[ "${PHOENIX_OS}" == 'osx' ]]; then
+  readonly PHOENIX_RSYNC_DEFAULT='/usr/bin/rsync'
+else
+  readonly PHOENIX_RSYNC_DEFAULT='/bin/rsync'
+fi
+if [[ -z "${PHOENIX_RSYNC+x}" ]]; then
+  PHOENIX_RSYNC="${PHOENIX_RSYNC_DEFAULT}"
+fi
+readonly PHOENIX_RSYNC
+export PHOENIX_RSYNC
+
 # shasum
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
   readonly PHOENIX_SHASUM_DEFAULT='/opt/homebrew/bin/shasum'
