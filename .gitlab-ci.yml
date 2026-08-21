@@ -33,7 +33,7 @@ stages:
 # Runs first so a lint failure stops the pipeline before the multi-hour builds.
 # Uses a minimal image and is NOT namespace-gated, so it also runs for forks / contributor pipelines.
 lint-scripts:
-  image: fedora:43
+  image: fedora:44
   stage: lint
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
@@ -51,7 +51,7 @@ lint-scripts:
     - /bin/bash scripts/lint.sh
 
 build:
-  image: fedora:43
+  image: fedora:44
   stage: build_phoenix
   tags:
     - saas-linux-2xlarge-amd64
@@ -77,7 +77,7 @@ build:
       when: never
 
 publish-release:
-  image: fedora:43
+  image: fedora:44
   stage: release_phoenix
   interruptible: true
   needs:
