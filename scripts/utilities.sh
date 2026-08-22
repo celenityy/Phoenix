@@ -21,6 +21,21 @@ function error_fn() {
   exit 1
 }
 
+# Set the verbosity of a script
+## (From the value of the `PHOENIX_VERBOSE` environment variable)
+function set_verbosity() {
+  if [[ -z "${PHOENIX_VERBOSE+x}" ]]; then
+    echo_red_text 'ERROR: PHOENIX_VERBOSE is missing!'
+    exit 1
+  fi
+
+  if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
+    set -x
+  else
+    set +x
+  fi
+}
+
 # Verify that an executable (corresponding to an environment variable) exists and is properly set-up
 function verify_exec() {
   function print_usage() {
