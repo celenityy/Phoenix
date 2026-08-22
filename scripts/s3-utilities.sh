@@ -206,18 +206,13 @@ function push_sha512sum() {
   verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
 
   local -r sha512sum_file_in="$1"
-  local -r s3_access_key_file="$2"
-  local -r s3_bucket_name_file="$3"
-  local -r s3_endpoint_file="$4"
-  local -r s3_secret_key_file="$5"
+  local -r sha512sum_s3path="$2"
+  local -r s3_access_key_file="$3"
+  local -r s3_bucket_name_file="$4"
+  local -r s3_endpoint_file="$5"
+  local -r s3_secret_key_file="$6"
   local -r sha512sum_file_name=$("${PHOENIX_BASENAME}" "${sha512sum_file_in}")
   local -r sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
-
-  if [[ -z "${6+x}" ]]; then
-    local -r sha512sum_s3path=$("${PHOENIX_BASENAME}" "${sha512sum_file_path}" | "${PHOENIX_AWK}" '{print tolower($0)}')
-  else
-    local -r sha512sum_s3path="$6"
-  fi
 
   # Ensure our file to create a SHA512sum for is valid
   verify_file "${sha512sum_file_in}" || exit 1
