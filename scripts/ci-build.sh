@@ -9,11 +9,7 @@ source $(dirname $0)/env.sh
 source "${PHOENIX_UTILS}"
 
 # Set verbosity
-if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
-  set -x
-else
-  set +x
-fi
+set_verbosity
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: $0 should only be called from CI!"
@@ -35,11 +31,7 @@ set +x
 echo_green_text 'CI - SUCCESS: Prepared secrets.'
 
 # Set verbosity
-if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
-  set -x
-else
-  set +x
-fi
+set_verbosity
 
 # Build Phoenix
 echo_red_text 'CI - Building Phoenix...'

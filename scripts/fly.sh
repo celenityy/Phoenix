@@ -11,16 +11,12 @@ source $(dirname $0)/env.sh
 # Include utilities
 source "${PHOENIX_UTILS}"
 
+# Set verbosity
+set_verbosity
+
 if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   echo_red_text 'ERROR: Do not call fly.sh directly. Instead, use build.sh.' >&1
   exit 1
-fi
-
-# Set verbosity
-if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
-  set -x
-else
-  set +x
 fi
 
 readonly target="$1"
