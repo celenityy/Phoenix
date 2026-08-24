@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://www.schemastore.org/gitea-issue-forms.json
+name: "4: Other"
+about: Anything else not already covered by other categories.
+title: "other: "
+labels: ["other"]
+assignees:
+  - celenity
+body:
+  - type: textarea
+    id: reason
+    attributes:
+      label: Please explain your inquiry.
+    validations:
+      required: true

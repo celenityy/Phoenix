@@ -1,0 +1,145 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
+name: Web Compat
+description: For reporting breakage or unexpected/unintended behavior with specific websites.
+title: "[WEB COMPAT] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
+labels: ["web compat"]
+assignees:
+  - celenity
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Confirmation Checklist
+      options:
+        - label: I confirm that this issue occurs on the **latest release** of Phoenix. You can check what the latest version is on [the `Releases` page](https://codeberg.org/celenity/Phoenix/releases).
+          required: true
+        - label: I confirm that this issue is **NOT** already listed on [the Website Compatibility wiki page](https://phoenix.celenity.dev/compat).
+          required: true
+        - label: I confirm that this issue has **NOT** already been reported on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
+          required: true
+  - type: textarea
+    id: domains
+    attributes:
+      label: Which domain(s) are you experiencing this issue on?
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: What web browser(s) are you using with Phoenix?
+      description: |
+        If your browser is not listed, please select `Other` and enter its name in the comment field below. Note that browsers besides Firefox (Release channel) and IronFox are not officially supported or recommended by Phoenix, and may or may not work as expected (though, we make an effort to support other browsers when it's feasible to do so).
+      multiple: true
+      options:
+        - Firefox
+        - IronFox
+        - Fennec F-Droid
+        - Firefox Beta
+        - Firefox Developer Edition
+        - Firefox ESR
+        - Firefox Nightly
+        - LibreWolf
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: other-browser
+    attributes:
+      label: Other
+    validations:
+      required: false
+  - type: dropdown
+    id: platform
+    attributes:
+      label: What operating system(s) are you experiencing this issue on?
+      description: |
+        If your operating system is not listed, please select `Other` and enter its name in the comment field below.
+      multiple: true
+      options:
+        - Android
+        - Arch Linux
+        - Arch Linux (Flatpak)
+        - Debian
+        - Debian (Flatpak)
+        - Fedora Linux
+        - Fedora Linux (Flatpak)
+        - Gentoo Linux
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - NixOS
+        - Ubuntu
+        - Ubuntu (Flatpak)
+        - Windows
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: other-os
+    attributes:
+      label: Other
+    validations:
+      required: false
+  - type: textarea
+    id: version
+    attributes:
+      label: What version of Firefox/Gecko and Phoenix are you using?
+      description: |
+        Please copy the value beside `Version`, located under `Application Basics` at `about:support`.
+        **Example**: `143.0.4 (Phoenix - Extended: 2025.10.03.1)`
+    validations:
+      required: true
+  - type: textarea
+    id: first-version
+    attributes:
+      label: If you remember, what version of Firefox/Gecko and Phoenix did you first notice the issue on?
+    validations:
+      required: false
+  - type: checkboxes
+    id: newprofile
+    attributes:
+      label: Does the issue occur on a new browser profile?
+      options:
+        - label: Yes
+        - label: No
+  - type: textarea
+    id: distributionid
+    attributes:
+      label: Please share your browser's distribution ID.
+      description: |
+        Please copy the value beside `Distribution ID`, located under `Application Basics` at `about:support`. If the distribution ID is blank, simply enter a space.
+        **Example**: `mozilla-EMEfree`
+    validations:
+      required: true
+  - type: textarea
+    id: updatechannel
+    attributes:
+      label: Please share your browser's update channel.
+      description: |
+        Please copy the value beside `Update Channel`, located under `Application Basics` at `about:support`. If there is no `Update Channel` specified, simply enter a space.
+        **Example**: `release-cck-mozilla-EMEfree`
+    validations:
+      required: true
+  - type: textarea
+    id: addons
+    attributes:
+      label: Please share a list of your currently installed browser add-ons/extensions, as well as the versions you have installed.
+      description: |
+        You can find (and copy or screenshot) this information from the `Add-ons` section of `about:support`.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Please explain the issue you are experiencing.
+      description: |
+        Be sure to include as many relevant details as possible! :)
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Please provide detailed steps to reproduce the issue.
+      description: |
+        Please be as specific as possible. For example, don't just say that an issue occurs on "all websites", provide specific websites where you encounter the problem.
+    validations:
+      required: true
