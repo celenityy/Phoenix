@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
 name: Bug
 description: For any general issues or unexpected/unintended behavior you come across while using Phoenix.
 title: "[BUG] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
@@ -14,7 +15,6 @@ body:
           required: true
         - label: I confirm that this issue has **NOT** already been reported on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
           required: true
-
   - type: dropdown
     id: browser
     attributes:
@@ -40,7 +40,6 @@ body:
       label: Other
     validations:
       required: false
-
   - type: dropdown
     id: platform
     attributes:
@@ -72,7 +71,6 @@ body:
       label: Other
     validations:
       required: false
-
   - type: textarea
     id: version
     attributes:
@@ -82,14 +80,12 @@ body:
         **Example**: `143.0.4 (Phoenix - Extended: 2025.10.03.1)`
     validations:
       required: true
-
   - type: textarea
     id: first-version
     attributes:
       label: If you remember, what version of Firefox/Gecko and Phoenix did you first notice the issue on?
     validations:
       required: false
-
   - type: checkboxes
     id: newprofile
     attributes:
@@ -97,9 +93,6 @@ body:
       options:
         - label: Yes
         - label: No
-    validations:
-      required: true
-
   - type: textarea
     id: updatechannel
     attributes:
@@ -109,7 +102,6 @@ body:
         **Example**: `release-cck-mozilla-EMEfree`
     validations:
       required: true
-
   - type: textarea
     id: addons
     attributes:
@@ -118,7 +110,6 @@ body:
         You can find (and copy or screenshot) this information from the `Add-ons` section of `about:support`.
     validations:
       required: true
-
   - type: textarea
     id: reason
     attributes:
@@ -127,7 +118,6 @@ body:
         Be sure to include as many relevant details as possible! :)
     validations:
       required: true
-
   - type: textarea
     id: reproduce
     attributes:

@@ -1,6 +1,7 @@
-name: Enhancement
-description: Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
-title: "[ENHANCEMENT] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR SUGGESTION..."
+# yaml-language-server: $schema=https://www.schemastore.org/gitea-issue-forms.json
+name: "2: Enhancement"
+about: Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
+title: "fr: "
 labels: ["enhancement"]
 assignees:
   - celenity
@@ -14,7 +15,6 @@ body:
           required: true
         - label: I confirm that this feature has **NOT** already been suggested on [the Codeberg issue tracker](https://codeberg.org/celenity/Phoenix/issues), [the GitLab issue tracker](https://gitlab.com/celenityy/Phoenix/-/issues), **and/or** [the GitHub issue tracker](https://github.com/celenityy/Phoenix/issues).
           required: true
-
   - type: textarea
     id: reason
     attributes:
