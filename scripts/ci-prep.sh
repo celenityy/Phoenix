@@ -48,9 +48,23 @@ fi
 readonly PHOENIX_CI_PREP_S3_ARTIFACTS
 readonly PHOENIX_CI_PREP_S3_RELEASES
 
-# Prepare secrets for S3 storage - Artifacts
-function prep_s3_artifacts() {
-  echo_red_text 'Preparing S3 storage - Artifacts...'
+# Create a secret key file
+function create_key_file() {
+  function print_usage() {
+    echo "Usage: create_key_file 'key' 'path/to/key_file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the secret key!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the key file!'
+    print_usage
+    exit 1
+  fi
 
   # Ensure we have chmod
   verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || exit 1
@@ -61,8 +75,133 @@ function prep_s3_artifacts() {
   # Ensure we have mkdir
   verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
 
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   # Ensure we have touch
   verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+
+  # Ensure we're not running with xtrace at this point...
+  set +x
+
+  local -r key="$1"
+  local -r key_file="$2"
+
+  echo_red_text "Creating key file: '${key_file}'..."
+
+  # Ensure the key file doesn't already exist
+  "${PHOENIX_RM}" -f "${key_file}"
+
+  # By default, we know the key file creation has not failed...
+  local file_creation_failed=0
+
+  # Create the key file directory
+  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${key_file}") || local file_creation_failed=1
+
+  # Create the key file
+  "${PHOENIX_TOUCH}" "${key_file}" || local file_creation_failed=1
+  "${PHOENIX_CHMOD}" 600 "${key_file}" || local file_creation_failed=1
+  echo -n "${key}" > "${key_file}" || local file_creation_failed=1
+
+  # Ensure nothing went wrong...
+  if [[ "${file_creation_failed}" != 1 ]]; then
+    verify_file "${key_file}" || local file_creation_failed=1
+  fi
+
+  if [[ "${file_creation_failed}" == 1 ]]; then
+    echo_red_text "ERROR: Unable to create key file: '${key_file}'!"
+    exit 1
+  else
+    echo_green_text "SUCCESS: Created key file: '${key_file}'!"
+  fi
+}
+
+# Prepare secrets for S3 storage
+function prep_s3() {
+  function print_usage() {
+    echo "Usage: prep_s3 's3_access_key' 's3_bucket_name' 's3_endpoint' 's3_secret_key' '/path/to/s3_access_key_file'
+      '/path/to/s3_bucket_name_file' '/path/to/s3_endpoint_file' '/path/to/s3_secret_key_file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the S3 access key!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the S3 bucket name!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the S3 endpoint!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${4+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the S3 secret key!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${5+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the S3 access key file!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${6+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the S3 bucket name file!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${7+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the S3 endpoint file!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${8+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to the S3 secret key file!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we're not running with xtrace at this point...
+  set +x
+
+  local -r s3_access_key="$1"
+  local -r s3_bucket_name="$2"
+  local -r s3_endpoint="$3"
+  local -r s3_secret_key="$4"
+  local -r s3_access_key_file="$5"
+  local -r s3_bucket_name_file="$6"
+  local -r s3_endpoint_file="$7"
+  local -r s3_secret_key_file="$8"
+
+  # Create the S3 access key file
+  create_key_file "${s3_access_key}" "${s3_access_key_file}"
+
+  # Create the S3 bucket name file
+  create_key_file "${s3_bucket_name}" "${s3_bucket_name_file}"
+
+  # Create the S3 endpoint file
+  create_key_file "${s3_endpoint}" "${s3_endpoint_file}"
+
+  # Create the S3 secret key file
+  create_key_file "${s3_secret_key}" "${s3_secret_key_file}"
+}
+
+# Prepare secrets for S3 storage - Artifacts
+function prep_s3_artifacts() {
+  echo_red_text 'Preparing S3 storage - Artifacts...'
+
+  # Ensure we're not running with xtrace at this point...
+  set +x
 
   # First, check environment variables specified externally (via CI)
 
@@ -124,37 +263,8 @@ function prep_s3_artifacts() {
     exit 1
   fi
 
-  # Create our directories
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}")
-
-  # Create the S3 access key file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}"
-  echo -n "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" > "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}"
-
-  # Create the S3 bucket name file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}"
-  echo -n "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" > "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}"
-
-  # Create the S3 endpoint file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}"
-  echo -n "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" > "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}"
-
-  # Create the S3 secret key file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
-  echo -n "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" > "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
-
-  # Ensure nothing went wrong...
-  verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' || exit 1
+  # Prepare our secrets
+  prep_s3 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
 
   echo_green_text 'SUCCESS: Prepared S3 storage - Artifacts'
 }
@@ -163,17 +273,8 @@ function prep_s3_artifacts() {
 function prep_s3_releases() {
   echo_red_text 'Preparing S3 storage - Releases...'
 
-  # Ensure we have chmod
-  verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || exit 1
-
-  # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
-
-  # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
-
-  # Ensure we have touch
-  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+  # Ensure we're not running with xtrace at this point...
+  set +x
 
   # First, check environment variables specified externally (via CI)
 
@@ -235,37 +336,8 @@ function prep_s3_releases() {
     exit 1
   fi
 
-  # Create our directories
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}")
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}")
-
-  # Create the S3 access key file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}"
-  echo -n "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" > "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}"
-
-  # Create the S3 bucket name file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}"
-  echo -n "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" > "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}"
-
-  # Create the S3 endpoint file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}"
-  echo -n "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" > "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}"
-
-  # Create the S3 secret key file
-  "${PHOENIX_TOUCH}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
-  "${PHOENIX_CHMOD}" 600 "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
-  echo -n "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" > "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
-
-  # Ensure nothing went wrong...
-  verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
-  verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
+  # Prepare our secrets
+  prep_s3 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
 
   echo_green_text 'SUCCESS: Prepared S3 storage - Releases'
 }
