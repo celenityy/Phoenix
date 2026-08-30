@@ -12,7 +12,7 @@ source $(dirname $0)/env.sh || exit 1
 source "${PHOENIX_UTILS}" || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
-  echo_red_text "ERROR: $0 should only be called from CI!"
+  echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 
@@ -24,20 +24,20 @@ verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 ## For GitLab, we use the pipeline ID
 if [[ "${PHOENIX_CI_TYPE}" == 'forgejo' ]]; then
   if [[ -z "${FORGEJO_RUN_ID+x}" ]]; then
-    echo_red_text 'ERROR: Missing Forgejo run ID! Please set FORGEJO_RUN_ID.'
+    echo_red_text "ERROR: Missing Forgejo run ID! Please set 'FORGEJO_RUN_ID'."
     exit 1
   else
     readonly PHOENIX_CI_ID="${FORGEJO_RUN_ID}"
   fi
 elif [[ "${PHOENIX_CI_TYPE}" == 'gitlab' ]]; then
   if [[ -z "${CI_PIPELINE_ID+x}" ]]; then
-    echo_red_text 'ERROR: Missing GitLab pipeline ID! Please set CI_PIPELINE_ID.'
+    echo_red_text "ERROR: Missing GitLab pipeline ID! Please set 'CI_PIPELINE_ID'."
     exit 1
   else
     readonly PHOENIX_CI_ID="${CI_PIPELINE_ID}"
   fi
 else
-  echo_red_text "ERRROR: Unknown CI type!: ${PHOENIX_CI_TYPE}"
+  echo_red_text "ERRROR: Unknown CI type: '${PHOENIX_CI_TYPE}'!"
   exit 1
 fi
 export PHOENIX_CI_ID
