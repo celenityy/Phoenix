@@ -55,6 +55,7 @@ function download() {
   local -r url="$1"
   local -r output_file="$2"
   local -r file_name=$("${PHOENIX_BASENAME}" "${output_file}")
+  local -r file_dir=$("${PHOENIX_DIRNAME}" "${output_file}")
 
   # Ensure the URL is valid
   if [[ "${url}" == "" ]]; then
@@ -89,8 +90,8 @@ function download() {
   local download_failed=0
 
   # If necessary, create the target file directory
-  if [[ ! -d "$("${PHOENIX_DIRNAME}" "${output_file}")" ]]; then
-    "${PHOENIX_MKDIR}" -vp "$("${PHOENIX_DIRNAME}" "${output_file}")"
+  if [[ ! -d "${file_dir}" ]]; then
+    "${PHOENIX_MKDIR}" -vp "${file_dir}"
     local -r created_dl_dir=1
   else
     local -r created_dl_dir=0
@@ -108,7 +109,7 @@ function download() {
   if [[ "${download_failed}" == 1 ]]; then
     # If a directory was created just for this download, remove it
     if [[ "${created_dl_dir}" == 1 ]]; then
-      "${PHOENIX_RM}" -rf "$("${PHOENIX_DIRNAME}" "${output_file}")"
+      "${PHOENIX_RM}" -rf "${file_dir}"
     fi
     echo_red_text "ERROR: Unable to download file: '${file_name}' from URL: '${url}' to destination: '${output_file}'!"
     return 1

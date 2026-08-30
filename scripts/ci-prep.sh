@@ -86,6 +86,7 @@ function create_key_file() {
 
   local -r key="$1"
   local -r key_file="$2"
+  local -r key_file_dir=$("${PHOENIX_DIRNAME}" "${key_file}")
 
   echo_red_text "Creating key file: '${key_file}'..."
 
@@ -95,8 +96,13 @@ function create_key_file() {
   # By default, we know the key file creation has not failed...
   local file_creation_failed=0
 
-  # Create the key file directory
-  "${PHOENIX_MKDIR}" -p $("${PHOENIX_DIRNAME}" "${key_file}") || local file_creation_failed=1
+  # If necessary, create the key file directory
+  if [[ ! -d "${key_file_dir}" ]]; then
+    "${PHOENIX_MKDIR}" -vp "${key_file_dir}" || local file_creation_failed=1
+    local -r created_key_file_dir=1
+  else
+    local -r created_key_file_dir=0
+  fi
 
   # Create the key file
   "${PHOENIX_TOUCH}" "${key_file}" || local file_creation_failed=1
@@ -109,6 +115,10 @@ function create_key_file() {
   fi
 
   if [[ "${file_creation_failed}" == 1 ]]; then
+    # If a directory was created just for this key file, remove it
+    if [[ "${created_key_file_dir}" == 1 ]]; then
+      "${PHOENIX_RM}" -rf "${key_file_dir}"
+    fi
     echo_red_text "ERROR: Unable to create key file: '${key_file}'!"
     exit 1
   else
