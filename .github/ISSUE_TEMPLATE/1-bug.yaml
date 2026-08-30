@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
-name: Bug
+name: "1: Bug"
 description: For any general issues or unexpected/unintended behavior you come across while using Phoenix.
-title: "[BUG] PLEASE REPLACE THIS TEXT WITH A SUMMARY OF YOUR ISSUE..."
+title: "bug: "
 labels: ["bug"]
 assignees:
   - celenity
