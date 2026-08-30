@@ -8,6 +8,12 @@ if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
 fi
 source $(dirname $0)/env.sh || exit 1
 
+# Include utilities
+source "${PHOENIX_UTILS}" || exit 1
+
+# Ensure we have GNU awk
+verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
   readonly target='all'
@@ -25,6 +31,15 @@ fi
 readonly PHOENIX_FROM_SOURCES=1
 export PHOENIX_FROM_SOURCES
 if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+  # Ensure we have tee
+  verify_exec "${PHOENIX_TEE}" 'PHOENIX_TEE' || exit 1
+
   readonly SOURCES_LOG_FILE="${PHOENIX_LOG_DIR}/get_sources.log"
 
   # If the log file already exists, remove it
