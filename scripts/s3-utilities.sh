@@ -6,15 +6,12 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh
+  /bin/bash $(dirname $0)/env.sh || exit 1
 fi
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
-
-# Set verbosity
-set_verbosity
+source "${PHOENIX_UTILS}" || exit 1
 
 # Push a file to S3 storage
 function push_file() {
@@ -127,7 +124,7 @@ function push_file() {
       local -r mime_type='application/zip'
       ;;
     *)
-      echo_red_text "ERROR: Unsupported file type: ${push_file}"
+      echo_red_text "ERROR: Unsupported file type: '${push_file}'!"
       exit 1
       ;;
   esac
@@ -146,14 +143,14 @@ function push_file() {
     local -r s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
   fi
 
-  echo_red_text "Pushing ${push_file} to S3..."
+  echo_red_text "Pushing '${push_file}' to S3..."
   source "${PHOENIX_PYENV}"
   "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "${s3_target_path}" \
     --access_key="${s3_access_key}" \
     --secret_key="${s3_secret_key}" \
     --host="${s3_endpoint}" \
     --host-bucket="${s3_endpoint}"
-  echo_green_text "SUCCESS: Pushed ${push_file} to S3"
+  echo_green_text "SUCCESS: Pushed '${push_file}' to S3!"
 
   # Set verbosity
   set_verbosity

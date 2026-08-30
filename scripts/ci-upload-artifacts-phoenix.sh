@@ -3,16 +3,16 @@
 set -euo pipefail
 
 # Ensure this is never ran with xtrace...
-set +x
+set +x || exit 1
 
 # Set-up our environment
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
+source "${PHOENIX_UTILS}" || exit 1
 
 # Include S3 utilities
-source "${PHOENIX_S3_UTILS}"
+source "${PHOENIX_S3_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
   echo_red_text 'ERROR: Do not call ci-upload-artifacts-phoenix.sh directly. Instead, use ci-upload-artifacts.sh.' >&1
@@ -30,7 +30,7 @@ if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
 fi
 
 # Include version info
-source "${PHOENIX_VERSIONS}"
+source "${PHOENIX_VERSIONS}" || exit 1
 
 # Verify secrets
 verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1

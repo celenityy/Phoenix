@@ -19,12 +19,12 @@ set -euo pipefail
 readonly PHOENIX_LINTING=1
 export PHOENIX_LINTING
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh
+  /bin/bash $(dirname $0)/env.sh || exit 1
 fi
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
+source "${PHOENIX_UTILS}" || exit 1
 
 # Set verbosity
 set_verbosity

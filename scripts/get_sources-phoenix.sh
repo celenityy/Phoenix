@@ -3,18 +3,27 @@
 set -euo pipefail
 
 # Set-up our environment
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
+source "${PHOENIX_UTILS}" || exit 1
 
 # Set verbosity
 set_verbosity
 
+# Include download utilities
+source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+
+# Include file utilities
+source "${PHOENIX_FILE_UTILS}" || exit 1
+
 if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
-  echo_red_text "ERROR: Do not call get_sources-phoenix.sh directly. Instead, use get_sources.sh." >&1
+  echo_red_text "ERROR: Do not call 'get_sources-phoenix.sh' directly. Instead, use 'get_sources.sh'." >&1
   exit 1
 fi
+
+# Ensure we have rm
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
 readonly target="$1"
 readonly mode="$2"
@@ -84,10 +93,35 @@ fi
 readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE
 
 # Include version info
-source "${PHOENIX_VERSIONS}"
+source "${PHOENIX_VERSIONS}" || exit 1
 
 # Back-up (and remove) a file if it exists
 function backup_file() {
+  function print_usage() {
+    echo "Usage: backup_file 'path/to/file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the file path!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have basename
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have dirname
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   local -r file="$1"
   local -r file_name="$("${PHOENIX_BASENAME}" "${file}")"
   local -r backup_file="${PHOENIX_EXTERNAL}/temp/backup/${file_name}"
@@ -102,6 +136,31 @@ function backup_file() {
 
 # Back-up (and remove) a directory if it exists
 function backup_dir() {
+  function print_usage() {
+    echo "Usage: backup_dir 'path/to/directory'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the directory path!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have basename
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have dirname
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   local -r dir="$1"
   local -r dir_name="$("${PHOENIX_BASENAME}" "${dir}")"
   local -r backup_dir="${PHOENIX_EXTERNAL}/temp/backup/${dir_name}"
@@ -116,6 +175,31 @@ function backup_dir() {
 
 # Restore a backed-up file
 function restore_file() {
+  function print_usage() {
+    echo "Usage: restore_file 'path/to/file'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the file path!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have basename
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have dirname
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   local -r file="$1"
   local -r file_name="$("${PHOENIX_BASENAME}" "${file}")"
   local -r backed_up_file="${PHOENIX_EXTERNAL}/temp/backup/${file_name}"
@@ -130,6 +214,31 @@ function restore_file() {
 
 # Restore a backed-up directory
 function restore_dir() {
+  function print_usage() {
+    echo "Usage: restore_dir 'path/to/directory'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the directory path!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have basename
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have dirname
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   local -r dir="$1"
   local -r dir_name="$("${PHOENIX_BASENAME}" "${dir}")"
   local -r backed_up_dir="${PHOENIX_EXTERNAL}/temp/backup/${dir_name}"
@@ -142,8 +251,42 @@ function restore_dir() {
   fi
 }
 
-# Function to automate updating checksums of dependencies
+# Update the checksum of a file
 function update_checksum() {
+  function print_usage() {
+    echo "Usage: update_checksum 'current_checksum' 'new_checksum' 'path/to/file' 'checksum_type'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text "ERROR: Please provide the file's current checksum!"
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text "ERROR: Please provide the file's new checksum!"
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the file path!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${4+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the checksum type!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have GNU sed
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+
+  # Ensure we can update `versions.sh`
+  verify_file "${PHOENIX_VERSIONS}" || exit 1
+
   local -r old_checksum="$1"
   local -r new_checksum="$2"
   local -r file="$3"
@@ -158,25 +301,65 @@ function update_checksum() {
   elif [[ "${checksum_type}" == 'sha512sum' ]]; then
     local -r checksum_type_pretty='SHA512sum'
   else
-    echo_red_text 'ERROR: Unknown checksum type.'
+    echo_red_text "ERROR: Unsupported checksum type: '${checksum_type}'!"
     exit 1
   fi
 
   if [[ "${old_checksum}" == "${new_checksum}" ]]; then
-    echo_red_text 'Checksums match. Skipping...'
-    echo "Old checksum: ${old_checksum}"
-    echo "New checksum: ${new_checksum}"
+    echo_red_text "Checksums for file: '${file}' already match! Skipping..."
+    echo "Old ${checksum_type_pretty}: '${old_checksum}'"
+    echo "New ${checksum_type_pretty}: '${new_checksum}'"
   else
-    echo_red_text "Updating ${checksum_type_pretty} for ${file}..."
-    "${PHOENIX_SED}" -i "s|'${old_checksum}'|'${new_checksum}'|" "${PHOENIX_VERSIONS}"
-    echo_green_text "SUCCESS: Updated ${checksum_type_pretty} for ${file}"
+    echo_red_text "Updating ${checksum_type_pretty} for file: '${file}'..."
+    "${PHOENIX_SED}" -i "s|'${old_checksum}'|'${new_checksum}'|g" "${PHOENIX_VERSIONS}"
+    echo_green_text "SUCCESS: Updated ${checksum_type_pretty} for file: '${file}'!"
   fi
 }
 
+# Validate the checksum of a file
 function validate_checksum() {
+  function print_usage() {
+    echo "Usage: validate_checksum 'expected_checksum' 'path/to/file' 'checksum_type'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text "ERROR: Please provide the file's expected checksum!"
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the file path!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the checksum type!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have GNU awk
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   local -r expected_checksum="$1"
   local -r file="$2"
   local -r checksum_type="$3"
+
+  if [[ "${checksum_type}" == 'md5sum' ]]; then
+    # Ensure we have md5sum
+    verify_exec "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' || exit 1
+  else
+    # Ensure we have shasum
+    verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+  fi
+
+  # Ensure our file to validate is valid
+  verify_file "${file}" || exit 1
 
   if [[ "${checksum_type}" == 'md5sum' ]]; then
     local -r checksum_type_pretty='MD5sum'
@@ -191,69 +374,57 @@ function validate_checksum() {
     local -r checksum_type_pretty='SHA512sum'
     local -r local_checksum=$("${PHOENIX_SHASUM}" -a 512 "${file}" | "${PHOENIX_AWK}" '{print $1}')
   else
-    echo_red_text 'ERROR: Unknown checksum type.'
-    return 1
+    echo_red_text "ERROR: Unsupported checksum type: '${checksum_type}'!"
+    exit 1
   fi
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     update_checksum "${expected_checksum}" "${local_checksum}" "${file}" "${checksum_type}"
   elif [[ "${local_checksum}" != "${expected_checksum}" ]]; then
-    echo_red_text 'ERROR: Checksum validation failed.'
-    echo "Expected ${checksum_type_pretty}:   ${expected_checksum}"
-    echo "Actual ${checksum_type_pretty}:     ${local_checksum}"
+    echo_red_text "ERROR: Checksum (${checksum_type_pretty}) validation for file failed: '${file}'!"
+    echo "Expected ${checksum_type_pretty}:   '${expected_checksum}'"
+    echo "Actual ${checksum_type_pretty}:     '${local_checksum}'"
 
     # If checksum validation fails, also just remove the file
     "${PHOENIX_RM}" -f "${file}"
 
-    return 1
+    exit 1
   else
-    echo_green_text 'SUCCESS: Checksum validated.'
-    echo "${checksum_type_pretty}: ${local_checksum}"
+    echo_green_text "SUCCESS: Validated checksum (${checksum_type_pretty}) for file: '${file}'!"
+    echo "${checksum_type_pretty}: '${local_checksum}'"
   fi
 }
 
-function clone_repo() {
-  local -r url="$1"
-  local -r path="$2"
-  local -r revision="$3"
+# Download and verify the SHA512sum of a file
+function download_file() {
+  function print_usage() {
+    echo "Usage: download_file 'https://totally.real.url/file' 'path/to/file' 'file_sha512sum'"
+  }
 
-  if [[ "${url}" == "" ]]; then
-    echo_red_text "ERROR: URL missing for clone"
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the URL for the file to download!'
+    print_usage
     exit 1
   fi
 
-  if [[ "${path}" == "" ]]; then
-    echo_red_text "ERROR: Path is required for cloning '${url}'"
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the output file path!'
+    print_usage
     exit 1
   fi
 
-  if [[ "${revision}" == "" ]]; then
-    echo_red_text "ERROR: Revision is required for cloning '${url}'"
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text "ERROR: Please provide the file's SHA512sum!"
+    print_usage
     exit 1
   fi
 
-  if [[ -f "${path}" ]]; then
-    echo_red_text "ERROR: '${path}' exists and is not a directory"
-    exit 1
-  fi
+  # Ensure we have basename
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
 
-  if [[ -d "${path}" ]]; then
-    echo_red_text "'${path}' already exists"
-    read -p "Do you want to re-clone this repository? [y/N] " -n 1 -r
-    echo
-    if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-      echo_red_text "Removing ${path}..."
-      "${PHOENIX_RM}" -rf "${path}"
-    else
-      return 0
-    fi
-  fi
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
-  echo_red_text "Cloning ${url}::${revision}..."
-  "${PHOENIX_GIT}" clone --revision="${revision}" --depth=1 "${url}" "${path}"
-}
-
-function download() {
   local -r url="$1"
   local -r file_in="$2"
   local -r file_name=$("${PHOENIX_BASENAME}" "${file_in}")
@@ -273,17 +444,6 @@ function download() {
     PHOENIX_PERFORM_POST_DOWNLOAD=0
   else
     PHOENIX_PERFORM_POST_DOWNLOAD=1
-  fi
-
-  if [[ "${url}" == "" ]]; then
-    echo_red_text "ERROR: URL is required (file: '${file_in}')"
-    PHOENIX_PERFORM_POST_DOWNLOAD=0
-    if [[ "${PHOENIX_DOWNLOAD_EXIT}" != 1 ]]; then
-      unset PHOENIX_DOWNLOAD_EXIT
-      return 1
-    else
-      exit 1
-    fi
   fi
 
   # If we're doing a checksum update, we download the file to a separate temporary directory, instead of our standard one
@@ -313,15 +473,8 @@ function download() {
   local PHOENIX_CHECKSUM_FAILED=0
   local PHOENIX_DOWNLOAD_FAILED=0
 
-  if [[ ! -d "$("${PHOENIX_DIRNAME}" "${file}")" ]]; then
-    "${PHOENIX_MKDIR}" -vp "$("${PHOENIX_DIRNAME}" "${file}")"
-    local -r CREATED_DIR_FOR_DL=1
-  else
-    local -r CREATED_DIR_FOR_DL=0
-  fi
-
-  echo_red_text "Downloading ${url}..."
-  "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${url}" --output "${file}" || local PHOENIX_DOWNLOAD_FAILED=1
+  # Download our file
+  download "${url}" "${file}" || local PHOENIX_DOWNLOAD_FAILED=1
 
   # Verify (or update) SHA512sum
   validate_checksum "${expected_sha512sum}" "${file}" 'sha512sum' || local PHOENIX_CHECKSUM_FAILED=1
@@ -352,10 +505,6 @@ function download() {
 
   # If the download (or checksum validation) failed, exit
   if [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]] || [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
-    # If a directory was created just for this download, remove it
-    if [[ "${CREATED_DIR_FOR_DL}" == 1 ]]; then
-      "${PHOENIX_RM}" -rf "$("${PHOENIX_DIRNAME}" "${file}")"
-    fi
     if [[ "${PHOENIX_DOWNLOAD_EXIT}" != 1 ]]; then
       unset PHOENIX_DOWNLOAD_EXIT
       return 1
@@ -366,55 +515,36 @@ function download() {
   fi
 }
 
-# Extract archives
-function extract() {
-  local -r archive_path="$1"
-  local -r target_path="$2"
-  local -r temp_repo_name="$3"
-
-  if [[ ! -f "${archive_path}" ]]; then
-    echo_red_text "ERROR: Archive '${archive_path}' does not exist!"
-  fi
-
-  # If our temporary directory for extraction already exists, delete it
-  if [[ -d "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}" ]]; then
-    "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-  fi
-
-  # Create temporary directory for extraction
-  "${PHOENIX_MKDIR}" -p "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-
-  # Extract based on file extension
-  case "${archive_path}" in
-    *.zip)
-      "${PHOENIX_UNZIP}" -q "${archive_path}" -d "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-      ;;
-    *.tar.gz)
-      "${PHOENIX_TAR}" xzf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-      ;;
-    *.tar.xz)
-      "${PHOENIX_TAR}" xJf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-      ;;
-    *.tar.zst)
-      "${PHOENIX_TAR}" --zstd -xvf "${archive_path}" -C "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-      ;;
-    *)
-      echo_red_text "ERROR: Unsupported archive format: ${archive_path}"
-      "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-      exit 1
-      ;;
-  esac
-
-  local -r top_input_dir=$("${PHOENIX_LS}" "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}")
-  "${PHOENIX_CP}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}/${top_input_dir}/" "${target_path}"
-  "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/${temp_repo_name}"
-}
-
+# Download and extract an archive
 function download_and_extract() {
-  local -r repo_name="$1"
-  local -r url="$2"
-  local -r path="$3"
-  local -r expected_sha512sum="$4"
+  function print_usage() {
+    echo "Usage: download_and_extract 'https://totally.real.url/archive' 'path/to/extract/archive/to' 'archive_sha512sum'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the URL for the archive to download!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the path that the archive should be extracted to!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text "ERROR: Please provide the archive's SHA512sum!"
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+  local -r url="$1"
+  local -r path="$2"
+  local -r expected_sha512sum="$3"
 
   # By default, we want to perform post-download actions for sources
   ## (this includes things like ex. installing a dependency or creating/setting-up an environment)
@@ -428,13 +558,14 @@ function download_and_extract() {
   fi
 
   if [[ -d "${path}" ]] && [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
-    echo_red_text "'${path}' already exists"
+    echo_red_text "Path already exists: '${path}'!"
     read -p "Do you want to re-download? [y/N] " -n 1 -r
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       # Back-up (in case something goes wrong - ex. checksum validation fails) and remove our directory
-      echo_red_text "Removing ${path}..."
+      echo_red_text "Removing '${path}'..."
       backup_dir "${path}"
+      echo_green_text "SUCCESS: Removed path: '${path}'!"
     else
       PHOENIX_PERFORM_POST_DOWNLOAD=0
       return 0
@@ -457,13 +588,17 @@ function download_and_extract() {
   # By default, we know the download hasn't failed...
   local PHOENIX_DOWNLOAD_FAILED=0
 
-  local -r repo_archive="${PHOENIX_DOWNLOADS}/${repo_name}${extension}"
-  download "${url}" "${repo_archive}" "${expected_sha512sum}" || local PHOENIX_DOWNLOAD_FAILED=1
+  # Set a temporary archive name
+  local -r temp_archive_path_name=$("${PHOENIX_BASENAME}" "${path}")
+  local -r temp_archive_path="${PHOENIX_DOWNLOADS}/${temp_archive_path_name}${extension}"
+
+  # Download the archive
+  download_file "${url}" "${temp_archive_path}" "${expected_sha512sum}" || local PHOENIX_DOWNLOAD_FAILED=1
 
   # If we're just updating the checksum, we're done, so go ahead and exit
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
-      echo_red_text 'ERROR: Download failed! Exiting...'
+      echo_red_text "ERROR: Download for archive failed: '${url}'!"
       exit 1
     else
       return 0
@@ -473,33 +608,49 @@ function download_and_extract() {
   # If the download failed, restore our back-up (if possible) and exit
   if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
     restore_dir "${path}"
-    if [[ "${repo_name}" == 'uv' ]]; then
+    if [[ "${temp_archive_path_name}" == 'uv' ]]; then
       PHOENIX_PERFORM_POST_DOWNLOAD=0
       return 1
     else
-      echo_red_text 'ERROR: Download failed! Exiting...'
+      echo_red_text "ERROR: Download for archive failed: '${url}'!"
       exit 1
     fi
   fi
 
-  echo_red_text "Extracting ${repo_archive}..."
-  extract "${repo_archive}" "${path}" "${repo_name}"
+  # Extract the archive
+  extract_archive "${temp_archive_path}" "${path}"
 
   # Clean-up
-  "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/backup/${repo_name}"
+  "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/backup/${temp_archive_path_name}"
 }
 
 # Get Python
 function get_python() {
+  # Ensure we have `PHOENIX_PYTHON_GIT_RELEASE`
+  if [[ -z "${PHOENIX_PYTHON_GIT_RELEASE+x}" ]] || [[ "${PHOENIX_PYTHON_GIT_RELEASE}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_PYTHON_GIT_RELEASE' is missing!"
+    exit 1
+  fi
+
+  # Ensure we have `PHOENIX_PYTHON_VERSION`
+  if [[ -z "${PHOENIX_PYTHON_VERSION+x}" ]] || [[ "${PHOENIX_PYTHON_VERSION}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_PYTHON_VERSION' is missing!"
+    exit 1
+  fi
+
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
-    if [[ ! -x "${PHOENIX_UV}" ]]; then
-      echo_red_text "ERROR: You tried to download Python, but you're missing uv!"
+    # Ensure we have rm
+    verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+    # Ensure we have uv
+    verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || {
+      echo_red_text "ERROR: Unable to download and install Python without uv!"
       exit 1
-    fi
+    }
 
     if [[ -d "${PHOENIX_PYENV_DIR}" ]]; then
-      echo_red_text "The Python environment is already set-up at ${PHOENIX_PYENV_DIR}"
+      echo_red_text "The Python environment is already set-up at path: '${PHOENIX_PYENV_DIR}'!"
       read -p "Do you want to re-create it? [y/N] " -n 1 -r
       echo
       if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
@@ -509,7 +660,7 @@ function get_python() {
     fi
 
     if [[ -d "${PHOENIX_PYTHON_DIR}" ]]; then
-      echo_red_text "Found existing installation at ${PHOENIX_PYTHON_DIR}"
+      echo_red_text "Found existing installation at path: '${PHOENIX_PYTHON_DIR}'!"
       echo 'Continuing will remove this installation and related data'
       read -p "Do you still want to continue? [y/N] " -n 1 -r
       echo
@@ -526,18 +677,24 @@ function get_python() {
     fi
   fi
 
+  # Base download URL
+  local -r base_url="https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}"
+
+  # Base output path
+  local -r base_output="${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}"
+
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading Python (Linux - ARM64)...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM64}"
 
     echo_red_text 'Downloading Python (Linux - x86_64)...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_X86_64}"
 
     echo_red_text 'Downloading Python (OS X - ARM64)...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_ARM64}"
 
     echo_red_text 'Downloading Python (OS X - x86_64)...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}"
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -576,11 +733,16 @@ function get_python() {
     local PHOENIX_PYENV_FAILED=0
     local PHOENIX_PYTHON_INSTALL_FAILED=0
 
+    local -r dl_archive="cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-${PHOENIX_PYTHON_ARCH}-${PHOENIX_PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+    local -r dl_output="${base_output}/${dl_archive}"
+    local -r dl_url="${base_url}/${dl_archive}"
+
     echo_red_text 'Downloading Python...'
-    download "https://github.com/astral-sh/python-build-standalone/releases/download/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-${PHOENIX_PYTHON_ARCH}-${PHOENIX_PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-${PHOENIX_PYTHON_ARCH}-${PHOENIX_PYTHON_PLATFORM}-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM}" || local PHOENIX_DOWNLOAD_FAILED=1
+    download_file "${dl_url}" "${dl_output}" "${PHOENIX_PYTHON_SHA512SUM}" || local PHOENIX_DOWNLOAD_FAILED=1
 
     # If the download failed, restore our back-ups, clean-up, and exit
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
+      echo_red_text "ERROR: Download for Python to path: '${dl_output}' failed!"
       restore_dir "${PHOENIX_PYENV_DIR}"
       restore_dir "${PHOENIX_PYTHON_DIR}"
       restore_dir "${PHOENIX_UV_CACHE}"
@@ -589,13 +751,14 @@ function get_python() {
       "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
     elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
-      echo_green_text "SUCCESS: Downloaded Python to ${PHOENIX_PYTHON_DIR}/${PHOENIX_PYTHON_GIT_RELEASE}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-${PHOENIX_PYTHON_ARCH}-${PHOENIX_PYTHON_PLATFORM}-install_only_stripped.tar.gz"
+      echo_green_text "SUCCESS: Downloaded Python to path: '${dl_output}'"
 
       echo_red_text 'Installing Python...'
       "${PHOENIX_UV}" python install "${PHOENIX_PYTHON_VERSION}" || local PHOENIX_PYTHON_INSTALL_FAILED=1
 
       # If the install failed, restore our back-ups, clean-up, and exit
       if [[ "${PHOENIX_PYTHON_INSTALL_FAILED}" == 1 ]]; then
+        echo_red_text "ERROR: Unable to install Python from path: '${dl_output}'!"
         restore_dir "${PHOENIX_PYENV_DIR}"
         restore_dir "${PHOENIX_PYTHON_DIR}"
         restore_dir "${PHOENIX_UV_CACHE}"
@@ -605,17 +768,17 @@ function get_python() {
         exit 1
       fi
 
-      echo_red_text 'Creating Python environment...'
+      echo_red_text "Creating Python environment at path: '${PHOENIX_PYENV_DIR}'..."
       "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}" || local PHOENIX_PYENV_FAILED=1
 
       # If the Python env set-up failed, restore our back-up, clean-up, and exit
       if [[ "${PHOENIX_PYENV_FAILED}" == 1 ]]; then
-        echo_red_text 'ERROR: Download failed! Exiting...'
+        echo_red_text "ERROR: Unable to set-up Python environment at path: '${PHOENIX_PYENV_DIR}'!"
         restore_dir "${PHOENIX_PYENV_DIR}"
         "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
         exit 1
       else
-        echo_green_text "SUCCESS: Set-up Python environment at ${PHOENIX_PYENV_DIR}"
+        echo_green_text "SUCCESS: Set-up Python environment at path: '${PHOENIX_PYENV_DIR}'!"
       fi
     fi
   fi
@@ -623,15 +786,33 @@ function get_python() {
 
 # Get s3cmd
 function get_s3cmd() {
+  # Ensure we have `PHOENIX_S3CMD_COMMIT`
+  if [[ -z "${PHOENIX_S3CMD_COMMIT+x}" ]] || [[ "${PHOENIX_S3CMD_COMMIT}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_S3CMD_COMMIT' is missing!"
+    exit 1
+  fi
+
+  # Ensure we have `PHOENIX_S3CMD_SHA512SUM`
+  if [[ -z "${PHOENIX_S3CMD_SHA512SUM+x}" ]] || [[ "${PHOENIX_S3CMD_SHA512SUM}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_S3CMD_SHA512SUM' is missing!"
+    exit 1
+  fi
+
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+    # Ensure we have uv
+    verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || {
+      echo_red_text "ERROR: Unable to download and install s3cmd without uv!"
+      exit 1
+    }
+
     if [[ ! -d "${PHOENIX_UV_DIR}" ]] || [[ ! -f "${PHOENIX_PYENV}" ]]; then
-      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a Python environment set-up yet."
+      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a Python environment set-up yet!"
       exit 1
     fi
 
     if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
-      echo_red_text "s3cmd is already installed at ${PHOENIX_PYENV_DIR}/bin/s3cmd"
+      echo_red_text "s3cmd is already installed at path: '${PHOENIX_PYENV_DIR}/bin/s3cmd'!"
       read -p "Do you want to re-download it? [y/N] " -n 1 -r
       echo
       if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
@@ -643,31 +824,40 @@ function get_s3cmd() {
     fi
   fi
 
-  echo_red_text "Downloading s3cmd..."
-  download_and_extract 's3cmd' "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}"
+  echo_red_text "Downloading s3cmd to path: '${PHOENIX_S3CMD_DIR}'..."
+  download_and_extract "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}"
 
   if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
     source "${PHOENIX_PYENV}"
     echo_red_text 'Installing s3cmd...'
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
-    echo_green_text "SUCCESS: Set-up s3cmd at ${PHOENIX_S3CMD}"
+    echo_green_text "SUCCESS: Set-up s3cmd at path: '${PHOENIX_S3CMD}'!"
   fi
 }
 
 # Get shellcheck
 function get_shellcheck() {
+  # Ensure we have `PHOENIX_SHELLCHECK_VERSION`
+  if [[ -z "${PHOENIX_SHELLCHECK_VERSION+x}" ]] || [[ "${PHOENIX_SHELLCHECK_VERSION}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_SHELLCHECK_VERSION' is missing!"
+    exit 1
+  fi
+
+  # Base download URL
+  local -r base_url="https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}"
+
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading shellcheck (Linux - ARM64)...'
-    download "https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_ARM64}"
 
     echo_red_text 'Downloading shellcheck (Linux - x86_64)...'
-    download "https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_X86_64}"
 
     echo_red_text 'Downloading shellcheck (OS X - ARM64)...'
-    download "https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_ARM64}"
 
     echo_red_text 'Downloading shellcheck (OS X - x86_64)...'
-    download "https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_X86_64}"
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -698,8 +888,8 @@ function get_shellcheck() {
       fi
     fi
 
-    echo_red_text 'Downloading shellcheck...'
-    download_and_extract 'shellcheck' "https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.${PHOENIX_SHELLCHECK_PLATFORM}.${PHOENIX_SHELLCHECK_ARCH}.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM}"
+    echo_red_text "Downloading shellcheck to path: '${PHOENIX_SHELLCHECK_DIR}'..."
+    download_and_extract "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.${PHOENIX_SHELLCHECK_PLATFORM}.${PHOENIX_SHELLCHECK_ARCH}.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM}"
 
     if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       # Set-up the linting pre-commit hook
@@ -707,25 +897,40 @@ function get_shellcheck() {
         /bin/bash "${PHOENIX_SCRIPTS}/lint-hook.sh"
       fi
 
-      echo_green_text "SUCCESS: Set-up shellcheck at ${PHOENIX_SHELLCHECK}"
+      echo_green_text "SUCCESS: Set-up shellcheck at path: '${PHOENIX_SHELLCHECK}'!"
     fi
   fi
 }
 
 # Get shfmt
 function get_shfmt() {
+  # Ensure we have `PHOENIX_SHFMT_VERSION`
+  if [[ -z "${PHOENIX_SHFMT_VERSION+x}" ]] || [[ "${PHOENIX_SHFMT_VERSION}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_SHFMT_VERSION' is missing!"
+    exit 1
+  fi
+
+  # If all we're doing is updating the checksum, we don't care about existing installations
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+    # Ensure we have chmod
+    verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || exit 1
+  fi
+
+  # Base download URL
+  local -r base_url="https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}"
+
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading shfmt (Linux - ARM64)...'
-    download "https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_ARM64}"
 
     echo_red_text 'Downloading shfmt (Linux - x86_64)...'
-    download "https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_X86_64}"
 
     echo_red_text 'Downloading shfmt (OS X - ARM64)...'
-    download "https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_ARM64}"
 
     echo_red_text 'Downloading shfmt (OS X - x86_64)...'
-    download "https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_X86_64}"
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -756,8 +961,8 @@ function get_shfmt() {
       fi
     fi
 
-    echo_red_text 'Downloading shfmt...'
-    download "https://github.com/mvdan/sh/releases/download/${PHOENIX_SHFMT_VERSION}/shfmt_${PHOENIX_SHFMT_VERSION}_${PHOENIX_SHFMT_PLATFORM}_${PHOENIX_SHFMT_ARCH}" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM}"
+    echo_red_text "Downloading shfmt to path: '${PHOENIX_SHFMT}'..."
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_${PHOENIX_SHFMT_PLATFORM}_${PHOENIX_SHFMT_ARCH}" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM}"
 
     if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       "${PHOENIX_CHMOD}" +x "${PHOENIX_SHFMT}"
@@ -767,40 +972,54 @@ function get_shfmt() {
         /bin/bash "${PHOENIX_SCRIPTS}/lint-hook.sh"
       fi
 
-      echo_green_text "SUCCESS: Set-up shfmt at ${PHOENIX_SHFMT}"
+      echo_green_text "SUCCESS: Set-up shfmt at path: '${PHOENIX_SHFMT}'!"
     fi
   fi
 }
 
 # Get + set-up uv
 function get_uv() {
+  # Ensure we have `PHOENIX_UV_VERSION`
+  if [[ -z "${PHOENIX_UV_VERSION+x}" ]] || [[ "${PHOENIX_UV_VERSION}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_UV_VERSION' is missing!"
+    exit 1
+  fi
+
   # If all we're doing is updating the checksum, we don't care about existing installations
-  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]] && [[ -d "${PHOENIX_UV_DIR}" ]]; then
-    echo_red_text "Found existing installation at ${PHOENIX_UV_DIR}"
-    echo 'Continuing will remove this installation and related data'
-    read -p "Do you still want to continue? [y/N] " -n 1 -r
-    echo
-    if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-      # Back-up (in case something goes wrong - ex. checksum validation fails) and remove our directories
-      backup_dir "${PHOENIX_UV_DIR}"
-      backup_dir "${PHOENIX_UV_LOCAL}"
-    else
-      return 0
+  if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
+    # Ensure we have rm
+    verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+    if [[ -d "${PHOENIX_UV_DIR}" ]]; then
+      echo_red_text "Found existing installation at path: '${PHOENIX_UV_DIR}'!"
+      echo 'Continuing will remove this installation and related data'
+      read -p "Do you still want to continue? [y/N] " -n 1 -r
+      echo
+      if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+        # Back-up (in case something goes wrong - ex. checksum validation fails) and remove our directories
+        backup_dir "${PHOENIX_UV_DIR}"
+        backup_dir "${PHOENIX_UV_LOCAL}"
+      else
+        return 0
+      fi
     fi
   fi
 
+  # Base download URL
+  local -r base_url="https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}"
+
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading uv (Linux - ARM64)...'
-    download "https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM64}"
 
     echo_red_text 'Downloading uv (Linux - x86_64)...'
-    download "https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/uv-x86_64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_X86_64}"
 
     echo_red_text 'Downloading uv (OS X - ARM64)...'
-    download "https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}/uv-aarch64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/uv-aarch64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_ARM64}"
 
     echo_red_text 'Downloading uv (OS X - x86_64)...'
-    download "https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_X86_64}"
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -837,18 +1056,18 @@ function get_uv() {
     # By default, we know the download hasn't failed...
     local PHOENIX_DOWNLOAD_FAILED=0
 
-    echo_red_text 'Downloading uv...'
-    download_and_extract 'uv' "https://github.com/astral-sh/uv/releases/download/${PHOENIX_UV_VERSION}/uv-${PHOENIX_UV_ARCH}-${PHOENIX_UV_PLATFORM}.tar.gz" "${PHOENIX_UV_DIR}" "${PHOENIX_UV_SHA512SUM}" || local PHOENIX_DOWNLOAD_FAILED=1
+    echo_red_text "Downloading uv to path: '${PHOENIX_UV_DIR}'..."
+    download_and_extract "${base_url}/uv-${PHOENIX_UV_ARCH}-${PHOENIX_UV_PLATFORM}.tar.gz" "${PHOENIX_UV_DIR}" "${PHOENIX_UV_SHA512SUM}" || local PHOENIX_DOWNLOAD_FAILED=1
 
     # If the download failed, restore our back-up, clean-up, and exit
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
-      echo_red_text 'ERROR: Download failed! Exiting...'
+      echo_red_text "ERROR: Download for uv to path: '${PHOENIX_UV_DIR}' failed!"
       restore_dir "${PHOENIX_UV_DIR}"
       restore_dir "${PHOENIX_UV_LOCAL}"
       "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
     elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
-      echo_green_text "SUCCESS: Set-up uv at ${PHOENIX_UV}"
+      echo_green_text "SUCCESS: Set-up uv at path: '${PHOENIX_UV}'!"
     fi
   fi
 }

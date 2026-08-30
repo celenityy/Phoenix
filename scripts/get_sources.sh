@@ -4,9 +4,9 @@ set -euo pipefail
 
 # Set-up our environment
 if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh
+  /bin/bash $(dirname $0)/env.sh || exit 1
 fi
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
@@ -35,7 +35,7 @@ if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  /bin/bash "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1
+  /bin/bash "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1 || exit 1
 else
-  /bin/bash "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}"
+  /bin/bash "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" || exit 1
 fi
