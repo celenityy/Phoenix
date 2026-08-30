@@ -81,9 +81,6 @@ function create_key_file() {
   # Ensure we have touch
   verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
 
-  # Ensure we're not running with xtrace at this point...
-  set +x
-
   local -r key="$1"
   local -r key_file="$2"
   local -r key_file_dir=$("${PHOENIX_DIRNAME}" "${key_file}")
@@ -181,9 +178,6 @@ function prep_s3() {
     exit 1
   fi
 
-  # Ensure we're not running with xtrace at this point...
-  set +x
-
   local -r s3_access_key="$1"
   local -r s3_bucket_name="$2"
   local -r s3_endpoint="$3"
@@ -209,9 +203,6 @@ function prep_s3() {
 # Prepare secrets for S3 storage - Artifacts
 function prep_s3_artifacts() {
   echo_red_text 'Preparing S3 storage - Artifacts...'
-
-  # Ensure we're not running with xtrace at this point...
-  set +x
 
   # First, check environment variables specified externally (via CI)
 
@@ -282,9 +273,6 @@ function prep_s3_artifacts() {
 # Prepare secrets for S3 storage - Releases
 function prep_s3_releases() {
   echo_red_text 'Preparing S3 storage - Releases...'
-
-  # Ensure we're not running with xtrace at this point...
-  set +x
 
   # First, check environment variables specified externally (via CI)
 
