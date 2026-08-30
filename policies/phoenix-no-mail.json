@@ -73,20 +73,6 @@
       "SponsoredTopSites": false,
       "Stories": false
     },
-    "Handlers": {
-      "extensions": {
-        "pdf": {
-          "action": "handleInternally",
-          "ask": true
-        }
-      },
-      "mimeTypes": {
-        "application/pdf": {
-          "action": "handleInternally",
-          "ask": true
-        }
-      }
-    },
     "LocalNetworkAccess": {
       "BlockTrackers": true,
       "EnablePrompting": true,
