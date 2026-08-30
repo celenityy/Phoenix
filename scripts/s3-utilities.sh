@@ -16,8 +16,8 @@ source "${PHOENIX_UTILS}" || exit 1
 # Push a file to S3 storage
 function push_file() {
   function print_usage() {
-    echo "Usage: push_file '/path/to/file' 'path/on/s3' '/path/to/s3_access_key_file' '/path/to/s3_bucket_name_file' '/path/to/s3_endpoint_file'
-      '/path/to/s3_secret_key_file'"
+    echo "Usage: push_file '/path/to/file' 'path/on/s3' '/path/to/s3_access_key_file' '/path/to/s3_bucket_name_file'
+      '/path/to/s3_endpoint_file' '/path/to/s3_secret_key_file'"
   }
 
   if [[ -z "${1+x}" ]]; then

@@ -21,7 +21,7 @@ source "${PHOENIX_UTILS}" || exit 1
 ## https://stackoverflow.com/questions/52668432/tar-package-has-different-checksum-for-exactly-the-same-content
 function create_archive() {
   function print_usage() {
-    echo 'Usage: create_archive '/path/to/dir' '/path/to/output_archive''
+    echo "Usage: create_archive '/path/to/dir' '/path/to/output_archive'"
   }
 
   if [[ -z "${1+x}" ]]; then
