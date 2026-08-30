@@ -6,10 +6,13 @@ set -euo pipefail
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 # Set-up our environment
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
+source "${PHOENIX_UTILS}" || exit 1
+
+# Include file utilities
+source "${PHOENIX_FILE_UTILS}" || exit 1
 
 # Set verbosity
 set_verbosity
@@ -87,105 +90,6 @@ readonly PHOENIX_WINDOWS
 # Include version info
 source "${PHOENIX_VERSIONS}"
 
-# Produce a (reproducible) archive from a directory
-## For reference/details on this process, see...
-## https://codeberg.org/celenity/Phoenix/issues/314
-## https://www.gnu.org/software/tar/manual/html_node/Reproducibility.html
-## https://wiki.debian.org/ReproducibleBuilds/TimestampsInZip
-## https://stackoverflow.com/questions/52668432/tar-package-has-different-checksum-for-exactly-the-same-content
-function create_archive() {
-  function print_usage() {
-    echo 'Usage: create_archive type /path/to/dir /path/to/output_archive'
-  }
-
-  if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the desired archive type'
-    print_usage
-    exit 1
-  fi
-
-  if [[ -z "${2+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a directory'
-    print_usage
-    exit 1
-  fi
-
-  if [[ -z "${3+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to the desired output archive'
-    print_usage
-    exit 1
-  fi
-
-  local -r archive_type="$1"
-  local -r target_dir="$2"
-  local -r output_archive="$3"
-
-  if [[ "${archive_type}" != 'tar' ]] && [[ "${archive_type}" != 'zip' ]]; then
-    echo_red_text "ERROR: Invalid archive type (${archive_type})! Aborting..."
-    exit 1
-  fi
-
-  if [[ ! -d "${target_dir}" ]]; then
-    echo_red_text "ERROR: Target directory (${target_dir}) does not exist! Aborting..."
-    exit 1
-  fi
-
-  # Check if the output archive already exists
-  if [[ -f "${output_archive}" ]]; then
-    echo_red_text "'${output_archive}' already exists"
-    echo_red_text 'Continuing WILL override this archive'
-    read -p "Are you sure you want to proceed? [y/N] " -n 1 -r
-    echo
-    if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-      echo_red_text "Removing ${output_archive}..."
-      "${PHOENIX_RM}" -f "${output_archive}"
-    else
-      exit 1
-    fi
-  fi
-
-  # Set timezone to UTC for consistency
-  unset TZ
-  export TZ='UTC'
-
-  # If the directory for our output archive doesn't exist, create it
-  local -r output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
-  if [[ ! -d "${output_archive_dir}" ]]; then
-    "${PHOENIX_MKDIR}" -p "${output_archive_dir}"
-  fi
-
-  # If we're on OS X, clean the target directory
-  if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    "${PHOENIX_DOT_CLEAN}" -mv "${target_dir}"
-  fi
-
-  # Set the file timestamp
-  ## (This is derived from PHOENIX_VERSION_DATE at `env_common.sh`)
-  local -r PHOENIX_STAMP="${PHOENIX_VERSION_DATE//./-}"
-  local -r PHOENIX_FIND_STAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%a, %d %b %Y %T %z")"
-  local -r PHOENIX_TIMESTAMP="$("${PHOENIX_DATE}" -d "${PHOENIX_STAMP}" +"%Y-%m-%dT%H:%M:%SZ")"
-
-  # Override the timestamps for each file to match our stamp above
-  "${PHOENIX_FIND}" "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 |
-    "${PHOENIX_XARGS}" -0r "${PHOENIX_TOUCH}" -h -d "${PHOENIX_TIMESTAMP}"
-
-  # Override the timestamps for each directory to match our stamp above
-  for dir in $("${PHOENIX_FIND}" "${target_dir}" -type d); do
-    "${PHOENIX_TOUCH}" -r "${dir}/$("${PHOENIX_LS}" -At "${dir}" | "${PHOENIX_HEAD}" -n 1)" "${dir}"
-  done
-
-  # Finally create our archive
-  pushd "${target_dir}"
-  if [[ "${archive_type}" == 'zip' ]]; then
-    # shellcheck disable=SC2035
-    "${PHOENIX_ZIP}" -X -r "${output_archive}" * -x '.DS_Store'
-  else
-    # shellcheck disable=SC2035
-    "${PHOENIX_TAR}" -cJv --exclude-vcs --group=0 --mode='go+u,go-w' --no-acls --no-selinux --no-xattrs --numeric-owner --owner=0 --pax-option='delete=atime,delete=ctime' --pax-option='exthdr.name=%d/PaxHeaders/%f' --restrict --sort=name --utc --clamp-mtime --mtime="${PHOENIX_TIMESTAMP}" --exclude ".DS_Store" -f "${output_archive}" *
-  fi
-  popd
-}
-
 # Check if a file or directory already exists
 ## If the file or directory already exists, prompt the user to remove it
 ## If the user chooses not to remove it, we exit
@@ -200,6 +104,9 @@ function check_file_or_dir_exists() {
     print_usage
     exit 1
   fi
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
   local -r path="$1"
 
@@ -416,6 +323,15 @@ function combine_files() {
   # Combine our files based on file type
   ## (It's fine to use initial_file here because we verified it matches the files to combine above)
   if [[ "${initial_input_file_type}" == 'json' ]]; then
+    # Ensure we have cp
+    verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+    # Ensure we have jq
+    verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+
+    # Ensure we have rm
+    verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
     # First, always combine the first two files
     "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json"
 
@@ -442,6 +358,9 @@ function combine_files() {
       "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
     fi
   else
+    # Ensure we have cat
+    verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+
     "${PHOENIX_CAT}" "${files_to_combine[@]}" > "${output_file}"
   fi
 }
@@ -470,6 +389,9 @@ function maybe_combine_files() {
     print_usage
     exit 1
   fi
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
 
   local -r output_file="$1"
   local -r initial_file="$2"
@@ -506,6 +428,9 @@ function parse_js_file() {
     exit 1
   fi
 
+  # Ensure we have grep
+  verify_exec "${PHOENIX_GREP}" 'PHOENIX_GREP' || exit 1
+
   local -r input_js_file="$1"
   local -r output_js_file="$2"
   local -r tags_to_remove="$3"
@@ -520,6 +445,18 @@ function parse_js_file() {
 
 # Common Phoenix build logic
 function build_phoenix_common() {
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have GNU sed
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
@@ -591,6 +528,15 @@ function build_phoenix() {
     print_usage
     exit 1
   fi
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have GNU sed
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
 
   local -r phoenix_platform="$1"
   local -r phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
@@ -728,7 +674,7 @@ function build_phoenix() {
     else
       local -r archive_type='tar'
     fi
-    create_archive "${archive_type}" "${phoenix_output_dir}" "${phoenix_output_archive}"
+    create_archive "${phoenix_output_dir}" "${phoenix_output_archive}"
   fi
 }
 
@@ -849,6 +795,15 @@ function build_policies() {
     print_usage
     exit 1
   fi
+
+  # Ensure we have cp
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+
+  # Ensure we have GNU sed
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+
+  # Ensure we have mkdir
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
 
   local -r phoenix_policies_platform="$1"
   local -r phoenix_policies_output_dir="$2"

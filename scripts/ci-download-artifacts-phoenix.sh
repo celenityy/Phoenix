@@ -3,16 +3,19 @@
 set -euo pipefail
 
 # Set-up our environment
-source $(dirname $0)/env.sh
+source $(dirname $0)/env.sh || exit 1
 
 # Include utilities
-source "${PHOENIX_UTILS}"
+source "${PHOENIX_UTILS}" || exit 1
 
 # Set verbosity
 set_verbosity
 
+# Include download utilities
+source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+
 # Include version info
-source "${PHOENIX_VERSIONS}"
+source "${PHOENIX_VERSIONS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_AR_DOWN+x}" ]]; then
   echo_red_text 'ERROR: Do not call ci-download-artifacts-phoenix.sh directly. Instead, use ci-download-artifacts.sh.' >&1
@@ -109,8 +112,57 @@ readonly PHOENIX_AR_DOWN_UNIVERSAL_CFG
 # Base artifacts URL
 readonly PHOENIX_CEL_ARTIFACTS_URL='https://artifacts.celenity.dev/phoenix'
 
-# Function to download and verify the SHA512sum of an artifact
+# Download and verify the SHA512sum of an artifact
 function download_artifact() {
+  function print_usage() {
+    echo "Usage: download_artifact 'pipeline_id' 'artifact_name' 'path/to/download/artifact/to'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the pipeline ID to download the artifact from!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the name of the artifact to download!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${3+x}" ]]; then
+    echo_red_text 'ERROR: Please provide the path to download the artifact to!'
+    print_usage
+    exit 1
+  fi
+
+  # Ensure we have cat
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+
+  # Ensure we have GNU awk
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+
+  # Ensure we have rm
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+  # Ensure we have shasum
+  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+
+  # Ensure we have xargs
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+
+  # Ensure we have `PHOENIX_VERSION`
+  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
+    exit 1
+  fi
+
+  # Ensure we have `PHOENIX_CEL_ARTIFACTS_URL`
+  if [[ -z "${PHOENIX_CEL_ARTIFACTS_URL+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "" ]]; then
+    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_URL' is missing!"
+    exit 1
+  fi
+
   local -r pipeline_id="$1"
   local -r target="$2"
   local -r output_dir="$3"
@@ -138,28 +190,25 @@ function download_artifact() {
   local -r output_expected_sha512sum="${output_dir}/${target_expected_sha512sum}"
 
   # Download the artifact
-  "${PHOENIX_MKDIR}" -p "${output_dir}"
-  echo_red_text "Downloading ${target_file} from ${target_file_url}..."
-  "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${target_file_url}" --output "${output_file}"
-  echo_green_text "SUCCESS: Downloaded ${target_file}"
+  download "${target_file_url}" "${output_file}"
 
   # Check the SHA512sum
-  echo_red_text "Validating SHA512sum for ${target_file}.."
-  "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --location "${target_expected_sha512sum_url}" --output "${output_expected_sha512sum}"
+  echo_red_text "Validating SHA512sum for file: '${target_file}'.."
+  download "${target_expected_sha512sum_url}" "${output_expected_sha512sum}"
   local -r expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
   local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
   if [[ "${local_sha512sum}" != "${expected_sha512sum}" ]]; then
-    echo_red_text 'ERROR: Checksum validation failed.'
-    echo "Expected SHA512sum: ${expected_sha512sum}"
-    echo "Actual SHA512sum:   ${local_sha512sum}"
+    echo_red_text "ERROR: Checksum validation for file failed: '${target_file}'!"
+    echo "Expected SHA512sum: '${expected_sha512sum}'"
+    echo "Actual SHA512sum:   '${local_sha512sum}'"
 
     # If checksum validation fails, also just clean-up the files
     "${PHOENIX_RM}" -f "${output_file}"
     "${PHOENIX_RM}" -f "${output_expected_sha512sum}"
     exit 1
   fi
-  echo_green_text "SUCCESS: Checksum validated for ${target_file}"
-  echo "SHA512sum: ${local_sha512sum}"
+  echo_green_text "SUCCESS: Validated checksum for file: '${target_file}'!"
+  echo "SHA512sum: '${local_sha512sum}'"
 }
 
 # phoenix-{PHOENIX_VERSION}-android.tar.xz

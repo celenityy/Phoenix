@@ -28,11 +28,19 @@ if [[ -f "${PHOENIX_ENV_OVERRIDE}" ]]; then
   source "${PHOENIX_ENV_OVERRIDE}"
 fi
 
-# Phoenix utilities
+# Utilities
 readonly PHOENIX_UTILS="${PHOENIX_SCRIPTS}/utilities.sh"
 export PHOENIX_UTILS
 
-# Phoenix S3 utilities
+# Download utilities
+readonly PHOENIX_DOWNLOAD_UTILS="${PHOENIX_SCRIPTS}/download-utilities.sh"
+export PHOENIX_DOWNLOAD_UTILS
+
+# File utilities
+readonly PHOENIX_FILE_UTILS="${PHOENIX_SCRIPTS}/file-utilities.sh"
+export PHOENIX_FILE_UTILS
+
+# S3 utilities
 # (For CI)
 readonly PHOENIX_S3_UTILS="${PHOENIX_SCRIPTS}/s3-utilities.sh"
 export PHOENIX_S3_UTILS
