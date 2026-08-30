@@ -23,7 +23,7 @@ if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
 fi
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
-  echo_red_text "ERROR: $0 should only be called from CI!"
+  echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 

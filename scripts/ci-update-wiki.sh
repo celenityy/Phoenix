@@ -23,7 +23,7 @@ source "${PHOENIX_UTILS}" || exit 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
-  echo_red_text "ERROR: $0 should only be called from CI!"
+  echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 
