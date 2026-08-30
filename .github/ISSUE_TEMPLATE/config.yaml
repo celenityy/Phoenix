@@ -1,2 +1,12 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-issue-config.json
 blank_issues_enabled: false
+contact_links:
+  - name: Matrix
+    url: https://matrix.to/#/%23celenity:unredacted.org
+    about: Matrix chat room for Phoenix, Dove and IronFox
+  - name: Discord
+    url: https://discord.gg/TsADPVDerv
+    about: Discord server for Phoenix, Dove and IronFox
+  - name: Docs
+    url: https://codeberg.org/celenity/Phoenix/wiki
+    about: Documentation
