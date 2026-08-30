@@ -5,8 +5,8 @@
     "BlockAboutProfiles": false,
     "BlockAboutSupport": false,
     "Cookies": {
-      "Behavior": "reject-tracker-and-partition-foreign",
-      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
+      "Behavior": "partition-foreign",
+      "BehaviorPrivateBrowsing": "partition-foreign",
       "Block": [
         "http://amazon-adsystem.com/",
         "https://amazon-adsystem.com/",
@@ -29,8 +29,7 @@
         "http://youtube-nocookie.com/",
         "https://youtube-nocookie.com/"
       ],
-      "Locked": false,
-      "RejectTracker": true
+      "Locked": false
     },
     "DisableTelemetry": true,
     "ExtensionSettings": {
