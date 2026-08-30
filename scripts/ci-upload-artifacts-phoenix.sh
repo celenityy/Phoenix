@@ -15,7 +15,7 @@ source "${PHOENIX_UTILS}" || exit 1
 source "${PHOENIX_S3_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
-  echo_red_text 'ERROR: Do not call ci-upload-artifacts-phoenix.sh directly. Instead, use ci-upload-artifacts.sh.' >&1
+  echo_red_text "ERROR: Do not call 'ci-upload-artifacts-phoenix.sh' directly! Instead, use 'ci-upload-artifacts.sh'." >&1
   exit 1
 fi
 
@@ -25,7 +25,7 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
 fi
 
 if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
-  echo_red_text 'ERROR: Missing CI ID! Please set PHOENIX_CI_ID.'
+  echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
   exit 1
 fi
 
