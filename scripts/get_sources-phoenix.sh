@@ -455,13 +455,14 @@ function download_file() {
   fi
 
   if [[ -f "${file}" ]]; then
-    echo_red_text "${file} already exists."
+    echo_red_text "File already exists: '${file}'!"
     read -p "Do you want to re-download? [y/N] " -n 1 -r
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       # Back-up (in case something goes wrong - ex. checksum validation fails) and remove our file
-      echo_red_text "Removing ${file}..."
+      echo_red_text "Removing file: '${file}'..."
       backup_file "${file}"
+      echo_green_text "SUCCESS: Removed file: '${file}'!"
     else
       unset PHOENIX_DOWNLOAD_EXIT
       PHOENIX_PERFORM_POST_DOWNLOAD=0
@@ -563,7 +564,7 @@ function download_and_extract() {
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
       # Back-up (in case something goes wrong - ex. checksum validation fails) and remove our directory
-      echo_red_text "Removing '${path}'..."
+      echo_red_text "Removing path: '${path}'..."
       backup_dir "${path}"
       echo_green_text "SUCCESS: Removed path: '${path}'!"
     else
