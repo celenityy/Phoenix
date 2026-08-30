@@ -96,12 +96,12 @@ function verify_file() {
   local -r verify_file="$1"
 
   if [[ ! -f "${verify_file}" ]]; then
-    echo_red_text "ERROR: '${verify_file}' does not exist!"
+    echo_red_text "ERROR: File does not exist: '${verify_file}'!"
     return 1
   fi
 
   if [[ ! -s "${verify_file}" ]]; then
-    echo_red_text "ERROR: '${verify_file}' is empty!"
+    echo_red_text "ERROR: File is empty: '${verify_file}'!"
     return 1
   fi
 }
