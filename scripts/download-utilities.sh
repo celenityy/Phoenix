@@ -121,7 +121,7 @@ function download() {
 # Clone a git repository
 function clone_git_repo() {
   function print_usage() {
-    echo "Usage: clone_git_repo 'https://codeberg.org/celenity/Phoenix.git' 'path/to/repo' 'revision'"
+    echo "Usage: clone_git_repo 'https://totally.legit.url/repo.git' 'path/to/repo' 'revision'"
   }
 
   if [[ -z "${1+x}" ]]; then
