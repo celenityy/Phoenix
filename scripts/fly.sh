@@ -18,7 +18,7 @@ source "${PHOENIX_FILE_UTILS}" || exit 1
 set_verbosity
 
 if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
-  echo_red_text 'ERROR: Do not call fly.sh directly. Instead, use build.sh.' >&1
+  echo_red_text "ERROR: Do not call 'fly.sh' directly! Instead, use 'build.sh'." >&1
   exit 1
 fi
 

@@ -18,7 +18,7 @@ source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
 source "${PHOENIX_FILE_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
-  echo_red_text "ERROR: Do not call 'get_sources-phoenix.sh' directly. Instead, use 'get_sources.sh'." >&1
+  echo_red_text "ERROR: Do not call 'get_sources-phoenix.sh' directly! Instead, use 'get_sources.sh'." >&1
   exit 1
 fi
 

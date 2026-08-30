@@ -18,7 +18,7 @@ source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
 source "${PHOENIX_S3_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
-  echo_red_text 'ERROR: Do not call ci-push-phoenix.sh directly. Instead, use ci-push.sh.' >&1
+  echo_red_text "ERROR: Do not call 'ci-push-phoenix.sh' directly! Instead, use 'ci-push.sh'." >&1
   exit 1
 fi
 
