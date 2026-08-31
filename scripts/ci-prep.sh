@@ -267,7 +267,7 @@ function prep_s3_artifacts() {
   # Prepare our secrets
   prep_s3 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
 
-  echo_green_text 'SUCCESS: Prepared S3 storage - Artifacts'
+  echo_green_text 'SUCCESS: Prepared S3 storage - Artifacts!'
 }
 
 # Prepare secrets for S3 storage - Releases
@@ -337,7 +337,7 @@ function prep_s3_releases() {
   # Prepare our secrets
   prep_s3 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
 
-  echo_green_text 'SUCCESS: Prepared S3 storage - Releases'
+  echo_green_text 'SUCCESS: Prepared S3 storage - Releases!'
 }
 
 # Prepare our secrets...
