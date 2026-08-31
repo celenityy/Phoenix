@@ -697,6 +697,9 @@ function get_python() {
     echo_red_text 'Downloading Python (OS X - x86_64)...'
     download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}"
   else
+    # Ensure we have rm
+    verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
       local -r PHOENIX_PYTHON_PLATFORM='apple-darwin'
@@ -752,7 +755,7 @@ function get_python() {
       "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
       exit 1
     elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
-      echo_green_text "SUCCESS: Downloaded Python to path: '${dl_output}'"
+      echo_green_text "SUCCESS: Downloaded Python to path: '${dl_output}'!"
 
       echo_red_text 'Installing Python...'
       "${PHOENIX_UV}" python install "${PHOENIX_PYTHON_VERSION}" || local PHOENIX_PYTHON_INSTALL_FAILED=1
@@ -830,7 +833,7 @@ function get_s3cmd() {
 
   if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
     source "${PHOENIX_PYENV}"
-    echo_red_text 'Installing s3cmd...'
+    echo_red_text "Installing s3cmd to path: '${PHOENIX_S3CMD}'..."
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
     echo_green_text "SUCCESS: Set-up s3cmd at path: '${PHOENIX_S3CMD}'!"
   fi
