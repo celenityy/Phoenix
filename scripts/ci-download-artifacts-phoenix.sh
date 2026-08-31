@@ -27,7 +27,7 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
+if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]]; then
   echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
   exit 1
 fi
@@ -193,7 +193,7 @@ function download_artifact() {
   download "${target_file_url}" "${output_file}"
 
   # Check the SHA512sum
-  echo_red_text "Validating SHA512sum for file: '${target_file}'.."
+  echo_red_text "Validating SHA512sum for file: '${target_file}'..."
   download "${target_expected_sha512sum_url}" "${output_expected_sha512sum}"
   local -r expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
   local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
