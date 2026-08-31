@@ -155,10 +155,13 @@ function clone_git_repo() {
   # Handle additional arguments
   local depth=1
   local silent=0
+  local submodules=0
 
   if [[ -n "${4+x}" ]]; then
     if [[ "${4}" == '--silent' ]]; then
       local silent=1
+    elif [[ "${4}" == '--submodules' ]]; then
+      local submodules=1
     elif [[ "${4}" == '--depth' ]]; then
       if [[ -n "${5+x}" ]] && [[ "${5}" != "" ]]; then
         local depth="$5"
@@ -175,6 +178,8 @@ function clone_git_repo() {
   if [[ -n "${5+x}" ]] && [[ "${4}" != '--depth' ]]; then
     if [[ "${5}" == '--silent' ]]; then
       local silent=1
+    elif [[ "${5}" == '--submodules' ]]; then
+      local submodules=1
     elif [[ "${5}" == '--depth' ]]; then
       if [[ -n "${6+x}" ]] && [[ "${6}" != "" ]]; then
         local depth="$6"
@@ -191,8 +196,21 @@ function clone_git_repo() {
   if [[ -n "${6+x}" ]] && [[ "${5}" != '--depth' ]]; then
     if [[ "${6}" == '--silent' ]]; then
       local silent=1
+    elif [[ "${6}" == '--submodules' ]]; then
+      local submodules=1
     else
       echo_red_text "ERROR: Unknown argument: '$6'!"
+      exit 1
+    fi
+  fi
+
+  if [[ -n "${7+x}" ]] && [[ "${6}" != '--depth' ]]; then
+    if [[ "${7}" == '--silent' ]]; then
+      local silent=1
+    elif [[ "${7}" == '--submodules' ]]; then
+      local submodules=1
+    else
+      echo_red_text "ERROR: Unknown argument: '$7'!"
       exit 1
     fi
   fi
@@ -276,9 +294,17 @@ function clone_git_repo() {
   # If `no-revision` is specified for the revision, we don't clone the repo with a specific revision
   # This is undocumented because it's *generally* not recommended/supported, though there are exceptions where it can be useful/necessary
   if [[ "${revision}" == 'no-revision' ]]; then
-    "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" || local clone_failed=1
+    if [[ "${submodules}" == 1 ]]; then
+      "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" --recurse-submodules || local clone_failed=1
+    else
+      "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" || local clone_failed=1
+    fi
   else
-    "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" --revision="${revision}" || local clone_failed=1
+    if [[ "${submodules}" == 1 ]]; then
+      "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" --revision="${revision}" --recurse-submodules || local clone_failed=1
+    else
+      "${PHOENIX_GIT}" clone "${url}" "${path}" --depth="${depth}" --revision="${revision}" || local clone_failed=1
+    fi
   fi
 
   # Ensure the repo we just cloned is valid
