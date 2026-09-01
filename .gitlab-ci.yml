@@ -22,6 +22,7 @@ variables: &common_variables
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "gitlab"
   PHOENIX_DEV_BRANCH: "dev"
+  PHOENIX_FEDORA_VERSION: "44"
   PHOENIX_PROD_BRANCH: "pages"
   TRANSFER_METER_FREQUENCY: "2s"
 
@@ -35,7 +36,7 @@ stages:
 # Runs first so a lint failure stops the pipeline before the multi-hour builds.
 # Uses a minimal image and is NOT namespace-gated, so it also runs for forks / contributor pipelines.
 lint:
-  image: fedora:44
+  image: fedora:$PHOENIX_FEDORA_VERSION
   stage: lint
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
@@ -53,7 +54,7 @@ lint:
     - /bin/bash scripts/lint.sh
 
 wiki:
-  image: fedora:44
+  image: fedora:$PHOENIX_FEDORA_VERSION
   stage: wiki
   tags:
     - saas-linux-2xlarge-amd64
@@ -66,7 +67,7 @@ wiki:
     - if: $CI_COMMIT_BRANCH == $PHOENIX_DEV_BRANCH
 
 build:
-  image: fedora:44
+  image: fedora:$PHOENIX_FEDORA_VERSION
   stage: build
   tags:
     - saas-linux-2xlarge-amd64
@@ -92,7 +93,7 @@ build:
       when: never
 
 release:
-  image: fedora:44
+  image: fedora:$PHOENIX_FEDORA_VERSION
   stage: release
   interruptible: true
   needs:

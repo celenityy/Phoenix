@@ -12,6 +12,7 @@ env:
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "forgejo"
   PHOENIX_DEV_BRANCH: "dev"
+  PHOENIX_FEDORA_VERSION: "44"
   PHOENIX_PROD_BRANCH: "pages"
 
 jobs:
@@ -19,7 +20,7 @@ jobs:
     name: Lint
     runs-on: codeberg-medium
     container:
-      image: fedora:44
+      image: fedora:${{ env.PHOENIX_FEDORA_VERSION }}
     steps:
       - name: Get dependencies
         run: |
@@ -44,7 +45,7 @@ jobs:
     if: forgejo.ref_name == env.PHOENIX_DEV_BRANCH
     runs-on: codeberg-tiny-lazy
     container:
-      image: fedora:44
+      image: fedora:${{ env.PHOENIX_FEDORA_VERSION }}
     steps:
       - name: Get dependencies
         run: |
@@ -67,7 +68,7 @@ jobs:
     needs: [lint]
     runs-on: codeberg-medium
     container:
-      image: fedora:44
+      image: fedora:${{ env.PHOENIX_FEDORA_VERSION }}
     steps:
       - name: Get dependencies
         run: |
@@ -94,7 +95,7 @@ jobs:
     needs: [build]
     runs-on: codeberg-medium
     container:
-      image: fedora:44
+      image: fedora:${{ env.PHOENIX_FEDORA_VERSION }}
     steps:
       - name: Get dependencies
         run: |
