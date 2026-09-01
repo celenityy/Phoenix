@@ -774,6 +774,18 @@
         "blocked_install_message": "Yahoo Search Addon: https://addons.mozilla.org/addon/@yset - Poor privacy practices, unnecessary, the search engine can/should be added directly instead."
       }
     },
+    "Handlers": {
+      "extensions": {
+        "pdf": {
+          "ask": true
+        }
+      },
+      "mimeTypes": {
+        "application/pdf": {
+          "ask": true
+        }
+      }
+    },
     "Preferences": {
       "browser.phoenix.applied.policies": {
         "Status": "locked",
