@@ -5,8 +5,8 @@
     "BlockAboutProfiles": false,
     "BlockAboutSupport": false,
     "Cookies": {
-      "Behavior": "partition-foreign",
-      "BehaviorPrivateBrowsing": "partition-foreign",
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
       "Block": [
         "http://amazon-adsystem.com/",
         "https://amazon-adsystem.com/",
