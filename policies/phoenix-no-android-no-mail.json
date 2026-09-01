@@ -47,6 +47,7 @@
     },
     "FirefoxSuggest": {
       "ImproveSuggest": false,
+      "OnlineEnabled": false,
       "SponsoredSuggestions": false,
       "WebSuggestions": false
     },
