@@ -11,6 +11,7 @@ on:
 env:
   PHOENIX_CI: 1
   PHOENIX_CI_TYPE: "forgejo"
+  PHOENIX_CHECKOUT_ACTION_COMMIT: "f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a" # v7.0.1
   PHOENIX_DEV_BRANCH: "dev"
   PHOENIX_FEDORA_VERSION: "44"
   PHOENIX_PROD_BRANCH: "pages"
@@ -29,7 +30,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+        uses: actions/checkout@${{ env.PHOENIX_CHECKOUT_ACTION_COMMIT }}
 
       - name: Lint
         run: |
@@ -54,7 +55,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+        uses: actions/checkout@${{ env.PHOENIX_CHECKOUT_ACTION_COMMIT }}
 
       - name: Update wiki
         env:
@@ -77,7 +78,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+        uses: actions/checkout@${{ env.PHOENIX_CHECKOUT_ACTION_COMMIT }}
 
       - name: Build
         env:
@@ -104,7 +105,7 @@ jobs:
           /bin/sudo /bin/dnf install -y node
 
       - name: Checkout repo
-        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+        uses: actions/checkout@${{ env.PHOENIX_CHECKOUT_ACTION_COMMIT }}
 
       - name: Publish release
         env:
