@@ -483,10 +483,10 @@ function download_file() {
   # If we're just updating the checksum, we're done, so go ahead and exit
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
-      echo_red_text 'ERROR: Download failed! Exiting...'
+      echo_red_text 'ERROR: Download failed!'
       exit 1
     elif [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]]; then
-      echo_red_text 'ERROR: Failed to update checksum! Exiting...'
+      echo_red_text 'ERROR: Failed to update checksum!'
       exit 1
     else
       return 0
@@ -510,7 +510,7 @@ function download_file() {
       unset PHOENIX_DOWNLOAD_EXIT
       return 1
     else
-      echo_red_text 'ERROR: Download failed! Exiting...'
+      echo_red_text 'ERROR: Download failed!'
       exit 1
     fi
   fi
@@ -662,7 +662,7 @@ function get_python() {
 
     if [[ -d "${PHOENIX_PYTHON_DIR}" ]]; then
       echo_red_text "Found existing installation at path: '${PHOENIX_PYTHON_DIR}'!"
-      echo 'Continuing will remove this installation and related data'
+      echo 'Continuing will remove this installation and related data.'
       read -p "Do you still want to continue? [y/N] " -n 1 -r
       echo
       if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
@@ -996,7 +996,7 @@ function get_uv() {
 
     if [[ -d "${PHOENIX_UV_DIR}" ]]; then
       echo_red_text "Found existing installation at path: '${PHOENIX_UV_DIR}'!"
-      echo 'Continuing will remove this installation and related data'
+      echo 'Continuing will remove this installation and related data.'
       read -p "Do you still want to continue? [y/N] " -n 1 -r
       echo
       if [[ "${REPLY}" =~ ^[Yy]$ ]]; then

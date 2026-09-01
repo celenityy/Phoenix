@@ -9,7 +9,7 @@ if [[ ! -f "$(dirname $0)/env_local.sh" ]]; then
   readonly ENV_LOCAL="${ROOT}/scripts/env_local.sh"
 
   # Write env_local.sh
-  echo "Writing ${ENV_LOCAL}..."
+  echo "Writing '${ENV_LOCAL}'..."
   cat > "${ENV_LOCAL}" << EOF
 # shellcheck shell=bash
 readonly PHOENIX_ROOT="${ROOT}"
@@ -94,19 +94,19 @@ function setup_lint_path() {
 # For CI, ensure external environment variables are set
 function setup_ci() {
   # Ensure our CI type is set
-  if [[ -z "${PHOENIX_CI_TYPE+x}" ]]; then
-    echo_red_text 'ERROR: Missing CI type! Please set PHOENIX_CI_TYPE.'
+  if [[ -z "${PHOENIX_CI_TYPE+x}" ]] || [[ "${PHOENIX_CI_TYPE}" == "" ]]; then
+    echo_red_text "ERROR: Missing CI type! Please set 'PHOENIX_CI_TYPE'."
     exit 1
   fi
 
   # Ensure our branches are set
-  if [[ -z "${PHOENIX_DEV_BRANCH+x}" ]]; then
-    echo_red_text 'ERROR: Missing developer branch! Please set PHOENIX_DEV_BRANCH.'
+  if [[ -z "${PHOENIX_DEV_BRANCH+x}" ]] || [[ "${PHOENIX_DEV_BRANCH}" == "" ]]; then
+    echo_red_text "ERROR: Missing developer branch! Please set 'PHOENIX_DEV_BRANCH'."
     exit 1
   fi
 
-  if [[ -z "${PHOENIX_PROD_BRANCH+x}" ]]; then
-    echo_red_text 'ERROR: Missing production branch! Please set PHOENIX_PROD_BRANCH.'
+  if [[ -z "${PHOENIX_PROD_BRANCH+x}" ]] || [[ "${PHOENIX_PROD_BRANCH}" == "" ]]; then
+    echo_red_text "ERROR: Missing production branch! Please set 'PHOENIX_PROD_BRANCH'."
     exit 1
   fi
 }

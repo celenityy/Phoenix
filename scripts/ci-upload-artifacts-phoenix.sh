@@ -24,7 +24,7 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]]; then
+if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]]; then
   echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
   exit 1
 fi

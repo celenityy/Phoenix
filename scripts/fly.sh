@@ -88,7 +88,7 @@ readonly PHOENIX_UNIVERSAL
 readonly PHOENIX_WINDOWS
 
 # Include version info
-source "${PHOENIX_VERSIONS}"
+source "${PHOENIX_VERSIONS}" || exit 1
 
 # Check if a file or directory already exists
 ## If the file or directory already exists, prompt the user to remove it
@@ -96,11 +96,11 @@ source "${PHOENIX_VERSIONS}"
 ## If the file or directory doesn't already exist, we just do nothing
 function check_file_or_dir_exists() {
   function print_usage() {
-    echo 'Usage: check_file_or_dir_exists /path/to/file_or_dir'
+    echo "Usage: check_file_or_dir_exists '/path/to/file_or_dir'"
   }
 
   if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file or directory to check'
+    echo_red_text 'ERROR: Please specify the path to a file or directory to check!'
     print_usage
     exit 1
   fi
@@ -111,12 +111,12 @@ function check_file_or_dir_exists() {
   local -r path="$1"
 
   if [[ -d "${path}" ]] || [[ -f "${path}" ]]; then
-    echo_red_text "'${path}' already exists"
-    echo_red_text 'Continuing WILL remove this file/directory'
+    echo_red_text "Path already exists: '${path}'!"
+    echo_red_text 'Continuing WILL remove this file/directory.'
     read -p "Are you sure you want to proceed? [y/N] " -n 1 -r
     echo
     if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-      echo_red_text "Removing ${path}..."
+      echo_red_text "Removing path: '${path}'..."
       if [[ -d "${path}" ]]; then
         "${PHOENIX_RM}" -rf "${path}"
       elif [[ -f "${path}" ]]; then
@@ -135,13 +135,13 @@ function maybe_verify_file_with_env() {
   }
 
   if [[ -z "${1+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file to verify'
+    echo_red_text 'ERROR: Please specify the path to a file to verify!'
     print_usage
     exit 1
   fi
 
   if [[ -z "${2+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file'
+    echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file!'
     print_usage
     exit 1
   fi
@@ -565,7 +565,8 @@ function build_phoenix() {
 
   # Copy our parsed phoenix.cfg
   if [[ "${phoenix_platform}" == 'osx' ]]; then
-    # To ensure installs continue working as expected, this must be placed in the `macos` directory
+    # To ensure installs continue working as expected, this must be placed in (and copied from)
+    ## the `macos` directory
     local -r phoenix_cfg_output_dir="${phoenix_output_dir}/macos"
   else
     local -r phoenix_cfg_output_dir="${phoenix_output_dir}"
@@ -669,11 +670,6 @@ function build_phoenix() {
   # Finally, create our platform-specific archives
   ## (Universal cfgs don't need to create archives)
   if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
-    if [[ "${phoenix_platform}" == 'windows' ]]; then
-      local -r archive_type='zip'
-    else
-      local -r archive_type='tar'
-    fi
     create_archive "${phoenix_output_dir}" "${phoenix_output_archive}"
   fi
 }
