@@ -44,6 +44,8 @@ Phoenix and Dove currently include the following providers, as they meet the abo
   * [Privacy Policy](https://www.joindns4.eu/privacy-policy)
 * **DNS4EU - `Unfiltered`**
   * [Privacy Policy](https://www.joindns4.eu/privacy-policy)
+* **DNSBunker`**
+  * [Privacy Policy](https://dnsbunker.org/privacy.html)
 * **Mullvad - `Base`**
   * [Privacy Policy](https://mullvad.net/help/privacy-policy)
 * **Mullvad - `Unfiltered`**
