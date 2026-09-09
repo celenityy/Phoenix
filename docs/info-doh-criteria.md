@@ -19,6 +19,7 @@ The following page outlines requirements that **must** be met for a DNS over HTT
 * The provider's domain(s) **MUST** be signed with [DNSSEC](https://wikipedia.org/wiki/Domain_Name_System_Security_Extensions).
 * The provider **MUST** not block/filter domains for reasons that fall outside of the following categories:
   * Advertising
+  * Data collection
   * Malware
   * Phishing
   * Scam
