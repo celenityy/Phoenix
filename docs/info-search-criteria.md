@@ -25,6 +25,7 @@ The following page outlines requirements that **must** be met for a search engin
 * The search engine **MUST** have high availability/reliability.
 * The search engine **MUST** be free to use.
   * Optional paid features are acceptable, but core functionality **MUST** work without payment.
+* The search engine **SHOULD** provide relevant, high-quality results.
 * The search engine **SHOULD** be reasonably fast/performant.
 
 ## Current Search Engines
