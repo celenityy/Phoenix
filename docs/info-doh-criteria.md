@@ -19,6 +19,7 @@ The following page outlines requirements that **must** be met for a DNS over HTT
 * The provider's domain(s) **MUST** be signed with [DNSSEC](https://wikipedia.org/wiki/Domain_Name_System_Security_Extensions).
 * The provider **MUST** not block/filter domains for reasons that fall outside of the following categories:
   * Advertising
+  * CSAM
   * Data collection
   * Malware
   * Phishing
@@ -34,17 +35,17 @@ The following page outlines requirements that **must** be met for a DNS over HTT
 
 Phoenix and Dove currently include the following providers, as they meet the above criteria:
 
+* **Cloudflare** 
+  * [Privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/cloudflare-resolver-firefox/)
 * **Cloudflare - `Malware Protection`**
   * [Privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/)
-* **Cloudflare - `Unfiltered`** 
-  * [Privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/cloudflare-resolver-firefox/)
 * **DNS4EU - `Ad Blocking`**
   * [Privacy Policy](https://www.joindns4.eu/privacy-policy)
 * **DNS4EU - `Protective`**
   * [Privacy Policy](https://www.joindns4.eu/privacy-policy)
 * **DNS4EU - `Unfiltered`**
   * [Privacy Policy](https://www.joindns4.eu/privacy-policy)
-* **DNSBunker`**
+* **DNSBunker**
   * [Privacy Policy](https://dnsbunker.org/privacy.html)
 * **dnsforge.de - `Blank`**
   * [Privacy Policy](https://adminforge.de/datenschutz/)
