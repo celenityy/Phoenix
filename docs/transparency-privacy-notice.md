@@ -1,6 +1,6 @@
 # 👁️ Privacy Notice
 
-*Also see [Network Connections](./Transparency-Network-Connections.md) for more details*.
+*Also see [Network Connections](./transparency-network-connections.md) for more details*.
 
 Privacy Considerations when using Phoenix
 
@@ -75,16 +75,13 @@ Phoenix enables DNS over HTTPS (without Fallback), with [Mullvad *(Base)*](https
 
 DNS over HTTPS provides a substantial improvement to privacy and security over standard DNS resolution *(especially when compared to the default DNS servers operated by ISPs...)*, so we believe that it's in the best interest of our users to enable in this manner.
 
-Mullvad *(Base)* was chosen as our default resolver due to their strict privacy policy, strong track record, support for DNSSEC validation, and protection under Swedish jurisdiction. You can check out their privacy policy for more details [here](https://mullvad.net/help/privacy-policy).
+Mullvad *(Base)* was chosen as our default resolver due to their strict privacy policy, strong track record, support for DNSSEC validation, and protection under Swedish jurisdiction, in addition [to meeting our strong criteria](./info-doh-criteria.md#requirements). You can check out their privacy policy for more details [here](https://mullvad.net/help/privacy-policy).
 
 Additionally, **Mullvad *(Base)* provides protection against domains used for advertising, tracking, and malware.** This provides our users with enhanced protection and online safety.
 
-**In addition to Mullvad *(Base)***, we also include the following carefully considered DNS providers as built-in options to choose from:
+See [here](./info-doh-criteria.md#current-providers) for a list of additional included DNS over HTTPS providers, as well as their relevant privacy policies.
 
-* **Cloudflare** - [`Unfiltered` privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/cloudflare-resolver-firefox/), [`Malware Protection` privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/)
-* **DNS4EU** - [Privacy Policy](https://www.joindns4.eu/privacy-policy)
-
-You can disable this functionality or change providers via the `DNS over HTTPS` section found at `about:preferences#privacy`.
+You can disable this functionality or change providers if desired with the steps provided [here](./transparency-network-connections.md#dns-over-https).
 
 ### Geolocation
 
