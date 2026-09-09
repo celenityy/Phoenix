@@ -25,5 +25,6 @@ Welcome to Phoenix! Grab yourself a cup of coffee & stay awhile. ☕
 - [🌐 Website Compatibility](./info-web-compat.md)
 - [➕ Extensions](./info-extensions.md)
 - [🛡️ DNS over HTTPS Provider Inclusion Criteria](./info-doh-criteria.md)
+- [🔎 Search Engine Inclusion Criteria](./info-search-criteria.md)
 - [🤔 Why Firefox?](./info-why-firefox.md)
 - [🔨 Building](./building.md)

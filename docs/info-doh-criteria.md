@@ -35,7 +35,7 @@ The following page outlines requirements that **must** be met for a DNS over HTT
 
 Phoenix and Dove currently include the following providers, as they meet the above criteria:
 
-* **Cloudflare** 
+* **Cloudflare**
   * [Privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/cloudflare-resolver-firefox/)
 * **Cloudflare - `Malware Protection`**
   * [Privacy policy](https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/)
