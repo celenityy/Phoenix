@@ -86,6 +86,7 @@ Note that disabling this feature is **NOT** recommended.
 - **DNS4EU (Ad Blocking)** - `https://noads.joindns4.eu/dns-query` - *[Privacy policy](https://www.joindns4.eu/privacy-policy)*
 - **DNS4EU (Protective)** - `https://protective.joindns4.eu/dns-query` - *[Privacy policy](https://www.joindns4.eu/privacy-policy)*
 - **DNS4EU (Unfiltered)** - `https://unfiltered.joindns4.eu/dns-query` - *[Privacy policy](https://www.joindns4.eu/privacy-policy)*
+- **DNSBunker** - `https://dnsbunker.org/dns-query` - *[Privacy policy](https://dnsbunker.org/privacy.html)*
 - **Mullvad (Unfiltered)** - `https://dns.mullvad.net/dns-query` - *[Privacy policy](https://mullvad.net/help/privacy-policy)*
 
 **Or** you can add your own provider by selecting `Custom`, and entering your desired URL.
