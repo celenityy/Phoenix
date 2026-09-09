@@ -1,4 +1,4 @@
-# 📑 Android Preferences
+# 📑 Android Installation
 
 `android/` directory contains specialized Phoenix configuration files,
 specifically designed for Firefox on Android.
