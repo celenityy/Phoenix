@@ -48,12 +48,7 @@ Phoenix's default search engine is [DuckDuckGo](https://duckduckgo.com/), due to
 
 See DuckDuckGo's privacy policy [here](https://duckduckgo.com/privacy) for information on what data they collect & how they handle it.
 
-**In addition to DuckDuckGo & Firefox's built-in search engines, Phoenix also adds the following for you to choose from**:
-
-* DuckDuckGo (HTML) - [Privacy Policy](https://duckduckgo.com/privacy)
-* DuckDuckGo (Lite) - [Privacy Policy](https://duckduckgo.com/privacy)
-* Mojeek - [Privacy Policy](https://www.mojeek.com/about/privacy/)
-* Startpage - [Privacy Policy](https://www.startpage.com/en/privacy-policy/)
+See [here](./info-search-criteria.md#current-search-engines) for a list of additional included search engines, as well as their relevant privacy policies.
 
 Phoenix even gives you the option to use no search engine at all!
 

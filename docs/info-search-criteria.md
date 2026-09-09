@@ -13,10 +13,12 @@ The following page outlines requirements that **must** be met for a search engin
   * The data **MUST** have adequate protection against data/security breaches.
   * The data **MUST** be kept to a minimum, and retained for the minimum amount of time necessary.
 * The search engine **SHOULD** not include advertising.
+* The search engine **MUST** not connect to third-parties without user consent.
 * The search engine **MUST** support [`HTTPS`](https://wikipedia.org/wiki/HTTPS).
 * The search engine **MUST** support [`POST`](https://wikipedia.org/wiki/POST_(HTTP)).
 * The search engine's domain(s) **SHOULD** be signed with [DNSSEC](https://wikipedia.org/wiki/Domain_Name_System_Security_Extensions).
 * The search engine **SHOULD** not require JavaScript.
+* The search engine **SHOULD** not enable search suggestions by default.
 * The search engine **MUST** not censor or delist results solely due to personal beliefs/biases/political affiliations/etc.
 * The search engine **SHOULD** be based out of a region with strong privacy laws.
 * The search engine **MUST** have a decent, upstanding reputation.
