@@ -15,6 +15,7 @@ The following page outlines requirements that **must** be met for a DNS over HTT
 * The provider **SHOULD** be part of [Mozilla's Trusted Recursive Resolver Program](https://wiki.mozilla.org/Security/DOH-resolver-policy).
 * The provider **MUST** support [DNS Query Name Minimisation](https://datatracker.ietf.org/doc/html/rfc9156).
 * The provider **MUST** not support [EDNS Client Subnet *(ECS)*](https://wikipedia.org/wiki/EDNS_Client_Subnet).
+* The provider **MUST** support [Encrypted Client Hello *(ECH)*](https://blog.cloudflare.com/encrypted-client-hello/).
 * The provider **MUST** enforce [DNSSEC](https://wikipedia.org/wiki/Domain_Name_System_Security_Extensions) for supported domains.
 * The provider's domain(s) **MUST** be signed with [DNSSEC](https://wikipedia.org/wiki/Domain_Name_System_Security_Extensions).
 * The provider **MUST** not block/filter domains for reasons that fall outside of the following categories:
