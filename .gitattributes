@@ -7,8 +7,8 @@
 # https://github.com/go-enry/go-enry/blob/master/data/languageInfo.go
 
 *.json           linguist-detectable
-*.yaml           linguist-detectable
 *.xml            linguist-detectable
+*.yaml           linguist-detectable
 _redirects       linguist-detectable
 *.cfg            linguist-language=JavaScript gitlab-language=javascript
 *.jsonc          linguist-language=JSON       gitlab-language=json
