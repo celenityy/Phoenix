@@ -167,7 +167,7 @@ repository using your tool of choice (e.g. niv, npins, flakes) and then include
 ### Windows
 
 > [!IMPORTANT]
-> **Windows users must follow the steps in the [Manual Installation](./install-manual#windows) wiki page.**
+> **Windows users must follow the steps in the [Manual Installation](./install-manual.md#windows) wiki page.**
 
 ## End
 
