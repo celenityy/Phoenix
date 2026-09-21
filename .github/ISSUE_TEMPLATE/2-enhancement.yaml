@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
 name: "2: Enhancement"
 description: Have any new features you want to see or any ideas to make Phoenix better? Here's your place ;)
-title: "fr: "
+title: "[FR] "
 labels: ["enhancement"]
 assignees:
   - celenity
