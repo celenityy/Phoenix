@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
 name: "3: Web Compat"
 description: For reporting breakage or unexpected/unintended behavior with specific websites.
-title: "wc: "
+title: "[WC] "
 labels: ["web compat"]
 assignees:
   - celenity
