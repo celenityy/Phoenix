@@ -1,7 +1,7 @@
 <div align="center">
 
 [Homepage](https://phoenix.celenity.dev) |
-[Wiki](https://codeberg.org/celenity/Phoenix/Wiki) |
+[Wiki](https://codeberg.org/celenity/Phoenix/wiki) |
 [Contributing](#contributing)
 
 ![Phoenix](./assets/phoenix_wide.png)
@@ -11,7 +11,7 @@
 **Phoenix is a suite of configurations & advanced modifications for Mozilla
 Firefox, designed to put the user first - with a focus on privacy, security,
 freedom, functionality, & usability.**
-[Here a detailed list of Phoenix's features & enhancements](https://phoenix.celenity.dev/features).
+[Here a detailed list of Phoenix's features & enhancements](https://codeberg.org/celenity/Phoenix/wiki/features.md).
 
 </div>
 
@@ -82,10 +82,9 @@ At the end of the day, above all else:
 
 > [!IMPORTANT]
 >
-> **⚠️ All users MUST read the [Wiki](https://phoenix.celenity.dev/wiki) before
-> proceeding. The [Important](https://phoenix.celenity.dev/important) &
-> [Limitations](https://phoenix.celenity.dev/limitations) pages are of extra
-> importance!!**
+> **⚠️ All users MUST read the [Wiki](https://codeberg.org/celenity/Phoenix/wiki/) before
+> proceeding. The [Limitations](https://codeberg.org/celenity/Phoenix/wiki/transparency-limitations.md)
+> page is of extra importance!!**
 
 ### 💪 Motivation
 
@@ -144,16 +143,16 @@ is being made. Contributions are always welcome and appreciated.
 > run with Phoenix installed. **This ensures all of Phoenix's changes are
 > applied...**
 
-See: [docs/install](docs/install.md)
+See: [Installation](https://codeberg.org/celenity/Phoenix/wiki/install.md)
 
 ### 🔥 Extended
 
 For advanced users who would like to go above & beyond when protecting their
 privacy & security, at the cost of occasional breakage, Phoenix offers an
 **Extended** configuration. **For a list of features specific to
-[Phoenix Extended, please see here](https://phoenix.celenity.dev/extended)**.
+[Phoenix Extended, please see here](https://codeberg.org/celenity/Phoenix/wiki/features-extended.md)**.
 
-See: [docs/extended](docs/extended.md)
+See: [Extended Config](https://codeberg.org/celenity/Phoenix/wiki/install-extended.md)
 
 ### 💡 Specialized Configs
 
@@ -163,7 +162,7 @@ It should also be noted that Phoenix contains specialized configurations for
 Firefox profile, and provide means to safely and easily use these services, like
 you would any other app on your device.
 
-See: [docs/specialized-configs](docs/specialized-configs.md)
+See: [Specialized Configs](https://codeberg.org/celenity/Phoenix/wiki/install-specialized-configs.md)
 
 ### 📛 Manual Installation
 
@@ -179,22 +178,23 @@ However, if this is not desirable for you & your situation, or you would simply
 like to use Phoenix on an unsupported operating system, you can follow this
 tutorial:
 
-See: [docs/install](docs/install.md)
+See: [Manual Installation](https://codeberg.org/celenity/Phoenix/wiki/install-manual.md)
 
 #### 🤔 Using Extended or a Specialized Config Manually
 
 With a manual installation of Phoenix, if you would like to use Phoenix's
-[extended](#-extended) config, or one of our
-[specialized configs](#-specialized-configs), you'll need to follow:
+[extended](#extended) config, or one of our
+[specialized configs](#specialized-configs), you'll need to follow:
 
-See: [docs/specialized-configs](docs/specialized-configs.md)
+- [Extended Config](https://codeberg.org/celenity/Phoenix/wiki/install-extended.md)
+- [Specialized Configs](https://codeberg.org/celenity/Phoenix/wiki/install-specialized-configs.md)
 
 ## Contributing
 
 You can help by contributing code or by telling others about Phoenix. Reach out
 to us and let us know how you want to help.
 
-- Build instructions: [Wiki: Building](https://codeberg.org/celenity/Phoenix/wiki/building.md)
+- Build instructions: [Building](https://codeberg.org/celenity/Phoenix/wiki/building.md)
 
 ## ⚖️ Licensing
 
