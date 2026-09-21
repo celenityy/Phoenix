@@ -15,6 +15,9 @@ freedom, functionality, & usability.**
 
 </div>
 
+> [!TIP]
+> Find a bug? Encounter an annoying problem? Have a tip, idea, or suggestion you'd like to share? **Please file any issues, bug reports, and suggestions over at [our unified issue tracker](https://codeberg.org/celenity/bugs/issues)!**
+
 > [!NOTE]
 >
 > **Thunderbird users should consider taking a look at
@@ -118,13 +121,13 @@ We'd love to see you over on
 | Arch     | Partial     | ✅     | ❌  | -                                 | Official + Community                                      |
 | Debian   | Yes         | ✅     | ✅  | -                                 | Official                                                  |
 | Fedora   | Yes         | ✅     | ❌  | -                                 | Official                                                  |
-| Flatpak  | -           | ❌     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)  |
+| Flatpak  | -           | ❌     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/bugs/issues/565)  |
 | Gentoo   | Yes         | ✅     | ✅  | -                                 | Community                                                 |
 | macOS    | -           | ✅     | ❌  | -                                 | Official                                                  |
 | NixOS    | Yes         | ✅     | ❌  | -                                 | Official + Community                                      |
-| Snap     | -           | ❌     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/Phoenix/issues/5)  |
+| Snap     | -           | ❌     | ❌  | -                                 | [Broken](https://codeberg.org/celenity/bugs/issues/565)  |
 | Ubuntu   | Yes         | ✅     | ✅  | -                                 | Official                                                  |
-| Windows  | -           | ✅     | ❌  | Zen Browser                       | [Partial](https://codeberg.org/celenity/Phoenix/issues/3) |
+| Windows  | -           | ✅     | ❌  | Zen Browser                       | [Partial](https://codeberg.org/celenity/bugs/issues/566) |
 
 Also see: [Repology](https://repology.org/project/phoenix-firefox/versions).
 
