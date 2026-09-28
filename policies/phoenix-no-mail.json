@@ -19,6 +19,9 @@
       "SmartWindow": {
         "Value": "blocked"
       },
+      "SpeechRecognition": {
+        "Value": "blocked"
+      },
       "Translations": {
         "Value": "available"
       }
