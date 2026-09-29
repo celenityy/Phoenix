@@ -1,5 +1,7 @@
 **IMPORTANT**: We've officially migrated our issue tracker [to a new, unified one on Codeberg](https://codeberg.org/celenity/bugs/issues). **Please note that issues will no longer be accepted on GitHub, GitLab or in any repo outside of [the new unified Codeberg issue tracking repo](https://codeberg.org/celenity/bugs/issues))**.
 
+**NOTE**: For those who saw `2026.09.29.1`, this release fixes a bug from that release [that prevented Phoenix's list of DNS over HTTPS providers from applying properly](https://codeberg.org/celenity/Phoenix/commit/a3907897c458f54660a0ea1d68b13c0a0df1bb36).
+
 - [Disabled AI Speech Recognition](https://codeberg.org/celenity/Phoenix/commit/7f3aea6198b35e373bb5494f8b4d30c31c44e1f5) by default.
 - [Enabled the `ML-DSA` post-quantum signature scheme](https://codeberg.org/celenity/Phoenix/commit/7c57de37695fa83d33887e880510ca9b9ad25e66) by default.
 - [Enforced Safe Browsing in all contexts](https://codeberg.org/celenity/Phoenix/commit/d75940bcad7fcd1ed74ec7eb7290199ff92ea916) by default *(so that checks are also applied to iframes, in addition to top-level channels)*.
