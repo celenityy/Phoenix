@@ -6,21 +6,52 @@ set -euo pipefail
 set +x || exit 1
 
 # Set-up our environment
-source $(dirname $0)/env.sh || exit 1
+function setup_env() {
+  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
+    # Find dirname
+    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
+      local -r dirname="${PHOENIX_DIRNAME}"
+    elif [[ -x '/bin/dirname' ]]; then
+      local -r dirname='/bin/dirname'
+    elif [[ -x '/usr/bin/dirname' ]]; then
+      local -r dirname='/usr/bin/dirname'
+    else
+      if ! command -v dirname > /dev/null 2>&1; then
+        echo "ERROR: Missing dirname!" >&2
+        exit 1
+      fi
+      # It isn't a known location, so we sadly have to just fall-back to the PATH
+      local -r dirname="$(dirname)"
+    fi
 
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
+    # Set-up our environment
+    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
+    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
+      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
+      exit 1
+    fi
+    source "${PHOENIX_ENV_SH}" || exit 1
+  fi
+}
+
+# Set-up our environment
+setup_env
 
 # Include download utilities
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
 
 # Include S3 utilities
+verify_file_with_env "${PHOENIX_S3_UTILS}" 'PHOENIX_S3_UTILS' || exit 1
 source "${PHOENIX_S3_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
   echo_red_text "ERROR: Do not call 'ci-push-phoenix.sh' directly! Instead, use 'ci-push.sh'." >&1
   exit 1
 fi
+
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
@@ -32,9 +63,6 @@ verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_R
 verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
 verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
 verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
-
-# Include version info
-source "${PHOENIX_VERSIONS}" || exit 1
 
 # Constants
 
@@ -122,18 +150,16 @@ function create_release_notes() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_URL`
-  if [[ -z "${PHOENIX_CEL_RELEASES_URL+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_URL}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || exit 1
+
+  # Ensure we have `PHOENIX_TEMPLATES`
+  verify_env "${PHOENIX_TEMPLATES}" 'PHOENIX_TEMPLATES' || exit 1
 
   # Ensure our changelog (for release-specific changes) exists
   local -r PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/CHANGELOG.md"
@@ -211,6 +237,9 @@ function create_release_notes() {
 
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES_TEMP}"
 
+  # Ensure our release notes were successfully created
+  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
+
   echo_green_text "SUCCESS: Created release notes for Phoenix: '${PHOENIX_VERSION}'!"
 }
 
@@ -227,11 +256,7 @@ function upload_to_forgejo_package_registry() {
   fi
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have basename
   verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
@@ -240,39 +265,19 @@ function upload_to_forgejo_package_registry() {
   verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_GENERIC_PACKAGES_URL`
-  if [[ -z "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_GENERIC_PACKAGES_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}" 'PHOENIX_FORGEJO_GENERIC_PACKAGES_URL' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_PACKAGE_NAME`
-  if [[ -z "${PHOENIX_FORGEJO_PACKAGE_NAME+x}" ]] || [[ "${PHOENIX_FORGEJO_PACKAGE_NAME}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_PACKAGE_NAME}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_PACKAGE_NAME' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_PACKAGE_NAME}" 'PHOENIX_FORGEJO_PACKAGE_NAME' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_USER`
-  if [[ -z "${PHOENIX_FORGEJO_USER+x}" ]] || [[ "${PHOENIX_FORGEJO_USER}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_USER}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_USER' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_USER}" 'PHOENIX_FORGEJO_USER' || exit 1
 
   local -r upload_file="$1"
   local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
@@ -298,11 +303,7 @@ function upload_to_gitlab_package_registry() {
   fi
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_GITLAB_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_GITLAB_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing GitLab CI API Token! Please set 'PHOENIX_GITLAB_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || exit 1
 
   # Ensure we have basename
   verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
@@ -311,32 +312,16 @@ function upload_to_gitlab_package_registry() {
   verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
 
   # Ensure we have `PHOENIX_GITLAB_GENERIC_PACKAGES_URL`
-  if [[ -z "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL+x}" ]] || [[ "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITLAB_GENERIC_PACKAGES_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}" 'PHOENIX_GITLAB_GENERIC_PACKAGES_URL' || exit 1
 
   # Ensure we have `PHOENIX_GITLAB_PACKAGE_NAME`
-  if [[ -z "${PHOENIX_GITLAB_PACKAGE_NAME+x}" ]] || [[ "${PHOENIX_GITLAB_PACKAGE_NAME}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_PACKAGE_NAME}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITLAB_PACKAGE_NAME' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_PACKAGE_NAME}" 'PHOENIX_GITLAB_PACKAGE_NAME' || exit 1
 
   local -r upload_file="$1"
   local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
@@ -368,11 +353,7 @@ function add_asset_to_forgejo_release() {
   fi
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have basename
   verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
@@ -384,25 +365,13 @@ function add_asset_to_forgejo_release() {
   verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_API_URL`
-  if [[ -z "${PHOENIX_FORGEJO_API_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_API_URL}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_API_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_API_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_REPO`
-  if [[ -z "${PHOENIX_FORGEJO_REPO+x}" ]] || [[ "${PHOENIX_FORGEJO_REPO}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_REPO}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_REPO' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || exit 1
 
   local -r release_id="$1"
   local -r asset_url="$2"
@@ -419,19 +388,18 @@ function add_asset_to_forgejo_release() {
 
 # Publish a release to Forgejo (Codeberg)
 function publish_to_forgejo() {
-  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
 
-  if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
-    echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
-    exit 1
-  fi
+  # Ensure we have `PHOENIX_VERSION`
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+  # Ensure we have our release notes
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have cat
   verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
@@ -443,46 +411,19 @@ function publish_to_forgejo() {
   verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
-
-  # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_RELEASES_BASE_URL`
-  if [[ -z "${PHOENIX_RELEASES_BASE_URL+x}" ]] || [[ "${PHOENIX_RELEASES_BASE_URL}" == "" ]] ||
-    [[ "${PHOENIX_RELEASES_BASE_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_RELEASES_BASE_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_RELEASES_BASE_URL}" 'PHOENIX_RELEASES_BASE_URL' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_API_URL`
-  if [[ -z "${PHOENIX_FORGEJO_API_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_API_URL}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_API_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_API_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_BRANCH`
-  if [[ -z "${PHOENIX_FORGEJO_BRANCH+x}" ]] || [[ "${PHOENIX_FORGEJO_BRANCH}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_BRANCH}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_BRANCH' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_BRANCH}" 'PHOENIX_FORGEJO_BRANCH' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_REPO`
-  if [[ -z "${PHOENIX_FORGEJO_REPO+x}" ]] || [[ "${PHOENIX_FORGEJO_REPO}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_REPO}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_REPO' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || exit 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -551,19 +492,18 @@ function publish_to_forgejo() {
 
 # Publish a release to GitHub
 function publish_to_github() {
-  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
 
-  if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
-    echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
-    exit 1
-  fi
+  # Ensure we have `PHOENIX_VERSION`
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+  # Ensure we have our release notes
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_GITHUB_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_GITHUB_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_GITHUB_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing GitHub CI API Token! Please set 'PHOENIX_GITHUB_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITHUB_CI_API_TOKEN}" 'PHOENIX_GITHUB_CI_API_TOKEN' || exit 1
 
   # Ensure we have cat
   verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
@@ -575,39 +515,16 @@ function publish_to_github() {
   verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
-
-  # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_GITHUB_API_URL`
-  if [[ -z "${PHOENIX_GITHUB_API_URL+x}" ]] || [[ "${PHOENIX_GITHUB_API_URL}" == "" ]] ||
-    [[ "${PHOENIX_GITHUB_API_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITHUB_API_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITHUB_API_URL}" 'PHOENIX_GITHUB_API_URL' || exit 1
 
   # Ensure we have `PHOENIX_GITHUB_BRANCH`
-  if [[ -z "${PHOENIX_GITHUB_BRANCH+x}" ]] || [[ "${PHOENIX_GITHUB_BRANCH}" == "" ]] ||
-    [[ "${PHOENIX_GITHUB_BRANCH}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITHUB_BRANCH' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITHUB_BRANCH}" 'PHOENIX_GITHUB_BRANCH' || exit 1
 
   # Ensure we have `PHOENIX_GITHUB_REPO`
-  if [[ -z "${PHOENIX_GITHUB_REPO+x}" ]] || [[ "${PHOENIX_GITHUB_REPO}" == "" ]] ||
-    [[ "${PHOENIX_GITHUB_REPO}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITHUB_REPO' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITHUB_REPO}" 'PHOENIX_GITHUB_REPO' || exit 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -636,19 +553,18 @@ function publish_to_github() {
 
 # Publish a release to GitLab
 function publish_to_gitlab() {
-  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
 
-  if [[ ! -f "${PHOENIX_RELEASE_NOTES}" ]]; then
-    echo_red_text "ERROR: Missing release notes! (${PHOENIX_RELEASE_NOTES})"
-    exit 1
-  fi
+  # Ensure we have `PHOENIX_VERSION`
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+  # Ensure we have our release notes
+  local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
+  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
 
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_GITLAB_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_GITLAB_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing GitLab CI API Token! Please set 'PHOENIX_GITLAB_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || exit 1
 
   # Ensure we have cat
   verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
@@ -660,39 +576,16 @@ function publish_to_gitlab() {
   verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
-
-  # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   # Ensure we have `PHOENIX_GITLAB_API_URL`
-  if [[ -z "${PHOENIX_GITLAB_API_URL+x}" ]] || [[ "${PHOENIX_GITLAB_API_URL}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_API_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITLAB_API_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_API_URL}" 'PHOENIX_GITLAB_API_URL' || exit 1
 
   # Ensure we have `PHOENIX_GITLAB_BRANCH`
-  if [[ -z "${PHOENIX_GITLAB_BRANCH+x}" ]] || [[ "${PHOENIX_GITLAB_BRANCH}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_BRANCH}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITLAB_BRANCH' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_BRANCH}" 'PHOENIX_GITLAB_BRANCH' || exit 1
 
   # Ensure we have `PHOENIX_GITLAB_PROJECT_ID`
-  if [[ -z "${PHOENIX_GITLAB_PROJECT_ID+x}" ]] || [[ "${PHOENIX_GITLAB_PROJECT_ID}" == "" ]] ||
-    [[ "${PHOENIX_GITLAB_PROJECT_ID}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_GITLAB_PROJECT_ID' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_GITLAB_PROJECT_ID}" 'PHOENIX_GITLAB_PROJECT_ID' || exit 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -925,12 +818,11 @@ function push_phoenix_universal() {
   # Ensure we have cp
   verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
 
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
 
   push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
 
@@ -956,11 +848,7 @@ function _push_phoenix() {
   verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
 
   local -r phoenix_platform="$1"
 
@@ -969,6 +857,9 @@ function _push_phoenix() {
     push_phoenix_universal
     return 0
   fi
+
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
 
   # Set our archive type
   if [[ "${phoenix_platform}" == 'windows' ]]; then
@@ -1007,6 +898,15 @@ function push_phoenix() {
 
   # Ensure we have touch
   verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+
+  # Ensure we have `PHOENIX_ARTIFACTS`
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+
+  # Ensure we have `PHOENIX_CEL_RELEASES_URL`
+  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || exit 1
+
+  # Ensure we have `PHOENIX_TEMP`
+  verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || exit 1
 
   # Android
   _push_phoenix 'android'

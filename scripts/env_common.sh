@@ -11,61 +11,51 @@
 
 # Scripts directory
 readonly PHOENIX_SCRIPTS="${PHOENIX_ROOT}/scripts"
-export PHOENIX_SCRIPTS
 
 # Set our platform, OS, and architecture
 readonly PHOENIX_ENV_HELPERS="${PHOENIX_SCRIPTS}/env_helpers.sh"
-export PHOENIX_ENV_HELPERS
-source "${PHOENIX_ENV_HELPERS}"
+source "${PHOENIX_ENV_HELPERS}" || exit 1
 
-# Do not use the system PATH
-unset PATH
+# Set version info
+readonly PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
+source "${PHOENIX_VERSIONS}" || exit 1
 
 # If variables are defined with a custom `env_override.sh` file (located at the root project directory), let's use those
 ## These need to be set first, to ensure that they don't interfere with certain variables
 readonly PHOENIX_ENV_OVERRIDE="${PHOENIX_ROOT}/env_override.sh"
 if [[ -f "${PHOENIX_ENV_OVERRIDE}" ]]; then
-  source "${PHOENIX_ENV_OVERRIDE}"
+  source "${PHOENIX_ENV_OVERRIDE}" || exit 1
 fi
 
 # Utilities
 readonly PHOENIX_UTILS="${PHOENIX_SCRIPTS}/utilities.sh"
-export PHOENIX_UTILS
 
 # Download utilities
 readonly PHOENIX_DOWNLOAD_UTILS="${PHOENIX_SCRIPTS}/download-utilities.sh"
-export PHOENIX_DOWNLOAD_UTILS
 
 # File utilities
 readonly PHOENIX_FILE_UTILS="${PHOENIX_SCRIPTS}/file-utilities.sh"
-export PHOENIX_FILE_UTILS
 
 # S3 utilities
 # (For CI)
 readonly PHOENIX_S3_UTILS="${PHOENIX_SCRIPTS}/s3-utilities.sh"
-export PHOENIX_S3_UTILS
 
 # Tools
 readonly PHOENIX_TOOLS="${PHOENIX_ROOT}/tools"
-export PHOENIX_TOOLS
 
 # Templates
 readonly PHOENIX_TEMPLATES="${PHOENIX_ROOT}/templates"
-export PHOENIX_TEMPLATES
 
 # CI artifacts
 readonly PHOENIX_ARTIFACTS="${PHOENIX_ROOT}/artifacts"
 readonly PHOENIX_LOG_ARTIFACTS="${PHOENIX_ARTIFACTS}/logs"
-export PHOENIX_ARTIFACTS
-export PHOENIX_LOG_ARTIFACTS
 
 # Whether we're being invoked from a Nix flake
 readonly PHOENIX_NIX_DEFAULT=0
-if [[ -z "${PHOENIX_NIX+x}" ]]; then
+if [[ -z "${PHOENIX_NIX+x}" ]] || [[ "${PHOENIX_NIX}" == "" ]] || [[ "${PHOENIX_NIX}" == "null" ]]; then
   PHOENIX_NIX="${PHOENIX_NIX_DEFAULT}"
 fi
 readonly PHOENIX_NIX
-export PHOENIX_NIX
 
 # Whether we should produce an output archive (Default)
 ## This is unnecessary/undesirable in some cases, such as Nix
@@ -75,29 +65,24 @@ if [[ "${PHOENIX_NIX}" == 1 ]]; then
 else
   readonly PHOENIX_PRODUCE_ARCHIVES_DEFAULT=1
 fi
-if [[ -z "${PHOENIX_PRODUCE_ARCHIVES+x}" ]]; then
+if [[ -z "${PHOENIX_PRODUCE_ARCHIVES+x}" ]] || [[ "${PHOENIX_PRODUCE_ARCHIVES}" == "" ]] ||
+  [[ "${PHOENIX_PRODUCE_ARCHIVES}" == "null" ]]; then
   PHOENIX_PRODUCE_ARCHIVES="${PHOENIX_PRODUCE_ARCHIVES_DEFAULT}"
 fi
 readonly PHOENIX_PRODUCE_ARCHIVES
-export PHOENIX_PRODUCE_ARCHIVES
 
 # Are we in a CI environment?
 readonly PHOENIX_CI_DEFAULT=0
-if [[ -z "${PHOENIX_CI+x}" ]]; then
+if [[ -z "${PHOENIX_CI+x}" ]] || [[ "${PHOENIX_CI}" == "" ]] || [[ "${PHOENIX_CI}" == "null" ]]; then
   PHOENIX_CI="${PHOENIX_CI_DEFAULT}"
 fi
 readonly PHOENIX_CI
-export PHOENIX_CI
 
 ## If so, set our CI environment variables
 readonly PHOENIX_ENV_CI="${PHOENIX_SCRIPTS}/env_ci.sh"
 if [[ "${PHOENIX_CI}" == 1 ]]; then
-  source "${PHOENIX_ENV_CI}"
+  source "${PHOENIX_ENV_CI}" || exit 1
 fi
-
-# Version info
-readonly PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
-export PHOENIX_VERSIONS
 
 # Build directory
 if [[ "${PHOENIX_NIX}" == 1 ]]; then
@@ -106,123 +91,102 @@ if [[ "${PHOENIX_NIX}" == 1 ]]; then
 else
   readonly PHOENIX_BUILD_DEFAULT="${PHOENIX_ROOT}/build"
 fi
-if [[ -z "${PHOENIX_BUILD+x}" ]]; then
+if [[ -z "${PHOENIX_BUILD+x}" ]] || [[ "${PHOENIX_BUILD}" == "" ]] || [[ "${PHOENIX_BUILD}" == "null" ]]; then
   PHOENIX_BUILD="${PHOENIX_BUILD_DEFAULT}"
 fi
 readonly PHOENIX_BUILD
-export PHOENIX_BUILD
 
 # Temporary build directory
 readonly PHOENIX_TEMP="${PHOENIX_BUILD}/tmp"
-export PHOENIX_TEMP
 
 # Phoenix PATH
 readonly PHOENIX_PATH="${PHOENIX_BUILD}/path"
-export PHOENIX_PATH
 
 # Minimal Phoenix PATH for linting
 readonly PHOENIX_LINT_PATH="${PHOENIX_BUILD}/lint-path"
-export PHOENIX_LINT_PATH
 
 # External sources directory
 readonly PHOENIX_EXTERNAL="${PHOENIX_ROOT}/external"
-export PHOENIX_EXTERNAL
 
 # External downloads/resources directory
 readonly PHOENIX_DOWNLOADS="${PHOENIX_EXTERNAL}/downloads"
-export PHOENIX_DOWNLOADS
 
 # Specialized config directory
 readonly PHOENIX_SPECS="${PHOENIX_ROOT}/specs"
-export PHOENIX_SPECS
 
 # Phoenix outputs directory
 readonly PHOENIX_OUTPUTS_DEFAULT="${PHOENIX_ROOT}/outputs"
-if [[ -z "${PHOENIX_OUTPUTS+x}" ]]; then
+if [[ -z "${PHOENIX_OUTPUTS+x}" ]] || [[ "${PHOENIX_OUTPUTS}" == "" ]] || [[ "${PHOENIX_OUTPUTS}" == "null" ]]; then
   PHOENIX_OUTPUTS="${PHOENIX_OUTPUTS_DEFAULT}"
 fi
 readonly PHOENIX_OUTPUTS
-export PHOENIX_OUTPUTS
 
 # Android outputs directory
 readonly PHOENIX_ANDROID_OUTPUTS="${PHOENIX_OUTPUTS}/android"
-export PHOENIX_ANDROID_OUTPUTS
 
 # Linux outputs directory
 readonly PHOENIX_LINUX_OUTPUTS="${PHOENIX_OUTPUTS}/linux"
-export PHOENIX_LINUX_OUTPUTS
 
 ## Linux (Flatpak) outputs directory
 readonly PHOENIX_LINUX_FLATPAK_OUTPUTS="${PHOENIX_OUTPUTS}/linux-flatpak"
-export PHOENIX_LINUX_FLATPAK_OUTPUTS
 
 # OS X outputs directory
 readonly PHOENIX_OSX_OUTPUTS="${PHOENIX_OUTPUTS}/osx"
-export PHOENIX_OSX_OUTPUTS
 
 ## OS X (Intel) outputs directory
 readonly PHOENIX_OSX_INTEL_OUTPUTS="${PHOENIX_OUTPUTS}/osx-intel"
-export PHOENIX_OSX_INTEL_OUTPUTS
 
 # Windows outputs directory
 readonly PHOENIX_WINDOWS_OUTPUTS="${PHOENIX_OUTPUTS}/windows"
-export PHOENIX_WINDOWS_OUTPUTS
 
 # Should we create a log file for build.sh? (Default)
 readonly PHOENIX_LOG_BUILD_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_BUILD+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_BUILD+x}" ]] || [[ "${PHOENIX_LOG_BUILD}" == "" ]] || [[ "${PHOENIX_LOG_BUILD}" == "null" ]]; then
   PHOENIX_LOG_BUILD="${PHOENIX_LOG_BUILD_DEFAULT}"
 fi
 readonly PHOENIX_LOG_BUILD
-export PHOENIX_LOG_BUILD
 
 # Should we create a log file for ci-download-artifacts.sh? (Default)
 readonly PHOENIX_LOG_AR_DOWN_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_AR_DOWN+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_AR_DOWN+x}" ]] || [[ "${PHOENIX_LOG_AR_DOWN}" == "" ]] || [[ "${PHOENIX_LOG_AR_DOWN}" == "null" ]]; then
   PHOENIX_LOG_AR_DOWN="${PHOENIX_LOG_AR_DOWN_DEFAULT}"
 fi
 readonly PHOENIX_LOG_AR_DOWN
-export PHOENIX_LOG_AR_DOWN
 
 # Should we create a log file for ci-upload-artifacts.sh? (Default)
 readonly PHOENIX_LOG_AR_UP_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_AR_UP+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_AR_UP+x}" ]] || [[ "${PHOENIX_LOG_AR_UP}" == "" ]] || [[ "${PHOENIX_LOG_AR_UP}" == "null" ]]; then
   PHOENIX_LOG_AR_UP="${PHOENIX_LOG_AR_UP_DEFAULT}"
 fi
 readonly PHOENIX_LOG_AR_UP
-export PHOENIX_LOG_AR_UP
 
 # Should we create a log file for get_sources.sh? (Default)
 readonly PHOENIX_LOG_SOURCES_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_SOURCES+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_SOURCES+x}" ]] || [[ "${PHOENIX_LOG_SOURCES}" == "" ]] || [[ "${PHOENIX_LOG_SOURCES}" == "null" ]]; then
   PHOENIX_LOG_SOURCES="${PHOENIX_LOG_SOURCES_DEFAULT}"
 fi
 readonly PHOENIX_LOG_SOURCES
-export PHOENIX_LOG_SOURCES
 
 # Should we create a log file for push.sh? (Default)
 readonly PHOENIX_LOG_PUSH_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_PUSH+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_PUSH+x}" ]] || [[ "${PHOENIX_LOG_PUSH}" == "" ]] || [[ "${PHOENIX_LOG_PUSH}" == "null" ]]; then
   PHOENIX_LOG_PUSH="${PHOENIX_LOG_PUSH_DEFAULT}"
 fi
 readonly PHOENIX_LOG_PUSH
-export PHOENIX_LOG_PUSH
 
 # Directory where we should store log files (if logging is desired)
 readonly PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
-if [[ -z "${PHOENIX_LOG_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_LOG_DIR+x}" ]] || [[ "${PHOENIX_LOG_DIR}" == "" ]] || [[ "${PHOENIX_LOG_DIR}" == "null" ]]; then
   PHOENIX_LOG_DIR="${PHOENIX_LOG_DIR_DEFAULT}"
 fi
 readonly PHOENIX_LOG_DIR
-export PHOENIX_LOG_DIR
 
 # Whether we should display verbose build output
 readonly PHOENIX_VERBOSE_DEFAULT=0
-if [[ -z "${PHOENIX_VERBOSE+x}" ]]; then
+if [[ -z "${PHOENIX_VERBOSE+x}" ]] || [[ "${PHOENIX_VERBOSE}" == "" ]] || [[ "${PHOENIX_VERBOSE}" == "null" ]]; then
   PHOENIX_VERBOSE="${PHOENIX_VERBOSE_DEFAULT}"
 fi
 readonly PHOENIX_VERBOSE
-export PHOENIX_VERBOSE
 
 # basename
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -230,35 +194,31 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_BASENAME_DEFAULT='/bin/basename'
 fi
-if [[ -z "${PHOENIX_BASENAME+x}" ]]; then
+if [[ -z "${PHOENIX_BASENAME+x}" ]] || [[ "${PHOENIX_BASENAME}" == "" ]] || [[ "${PHOENIX_BASENAME}" == "null" ]]; then
   PHOENIX_BASENAME="${PHOENIX_BASENAME_DEFAULT}"
 fi
 readonly PHOENIX_BASENAME
-export PHOENIX_BASENAME
 
 # cat
 readonly PHOENIX_CAT_DEFAULT='/bin/cat'
-if [[ -z "${PHOENIX_CAT+x}" ]]; then
+if [[ -z "${PHOENIX_CAT+x}" ]] || [[ "${PHOENIX_CAT}" == "" ]] || [[ "${PHOENIX_CAT}" == "null" ]]; then
   PHOENIX_CAT="${PHOENIX_CAT_DEFAULT}"
 fi
 readonly PHOENIX_CAT
-export PHOENIX_CAT
 
 # chmod
 readonly PHOENIX_CHMOD_DEFAULT='/bin/chmod'
-if [[ -z "${PHOENIX_CHMOD+x}" ]]; then
+if [[ -z "${PHOENIX_CHMOD+x}" ]] || [[ "${PHOENIX_CHMOD}" == "" ]] || [[ "${PHOENIX_CHMOD}" == "null" ]]; then
   PHOENIX_CHMOD="${PHOENIX_CHMOD_DEFAULT}"
 fi
 readonly PHOENIX_CHMOD
-export PHOENIX_CHMOD
 
 # cp
 readonly PHOENIX_CP_DEFAULT='/bin/cp'
-if [[ -z "${PHOENIX_CP+x}" ]]; then
+if [[ -z "${PHOENIX_CP+x}" ]] || [[ "${PHOENIX_CP}" == "" ]] || [[ "${PHOENIX_CP}" == "null" ]]; then
   PHOENIX_CP="${PHOENIX_CP_DEFAULT}"
 fi
 readonly PHOENIX_CP
-export PHOENIX_CP
 
 # curl
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -266,11 +226,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_CURL_DEFAULT='/bin/curl'
 fi
-if [[ -z "${PHOENIX_CURL+x}" ]]; then
+if [[ -z "${PHOENIX_CURL+x}" ]] || [[ "${PHOENIX_CURL}" == "" ]] || [[ "${PHOENIX_CURL}" == "null" ]]; then
   PHOENIX_CURL="${PHOENIX_CURL_DEFAULT}"
 fi
 readonly PHOENIX_CURL
-export PHOENIX_CURL
 
 # dirname
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -278,27 +237,24 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_DIRNAME_DEFAULT='/bin/dirname'
 fi
-if [[ -z "${PHOENIX_DIRNAME+x}" ]]; then
+if [[ -z "${PHOENIX_DIRNAME+x}" ]] || [[ "${PHOENIX_DIRNAME}" == "" ]] || [[ "${PHOENIX_DIRNAME}" == "null" ]]; then
   PHOENIX_DIRNAME="${PHOENIX_DIRNAME_DEFAULT}"
 fi
 readonly PHOENIX_DIRNAME
-export PHOENIX_DIRNAME
 
 # dot_clean
 readonly PHOENIX_DOT_CLEAN_DEFAULT='/usr/sbin/dot_clean'
-if [[ -z "${PHOENIX_DOT_CLEAN+x}" ]]; then
+if [[ -z "${PHOENIX_DOT_CLEAN+x}" ]] || [[ "${PHOENIX_DOT_CLEAN}" == "" ]] || [[ "${PHOENIX_DOT_CLEAN}" == "null" ]]; then
   PHOENIX_DOT_CLEAN="${PHOENIX_DOT_CLEAN_DEFAULT}"
 fi
 readonly PHOENIX_DOT_CLEAN
-export PHOENIX_DOT_CLEAN
 
 # echo
 readonly PHOENIX_ECHO_DEFAULT="${PHOENIX_TOOLS}/echo.sh"
-if [[ -z "${PHOENIX_ECHO+x}" ]]; then
+if [[ -z "${PHOENIX_ECHO+x}" ]] || [[ "${PHOENIX_ECHO}" == "" ]] || [[ "${PHOENIX_ECHO}" == "null" ]]; then
   PHOENIX_ECHO="${PHOENIX_ECHO_DEFAULT}"
 fi
 readonly PHOENIX_ECHO
-export PHOENIX_ECHO
 
 # find
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -306,11 +262,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_FIND_DEFAULT='/bin/find'
 fi
-if [[ -z "${PHOENIX_FIND+x}" ]]; then
+if [[ -z "${PHOENIX_FIND+x}" ]] || [[ "${PHOENIX_FIND}" == "" ]] || [[ "${PHOENIX_FIND}" == "null" ]]; then
   PHOENIX_FIND="${PHOENIX_FIND_DEFAULT}"
 fi
 readonly PHOENIX_FIND
-export PHOENIX_FIND
 
 # git
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -318,11 +273,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_GIT_DEFAULT='/bin/git'
 fi
-if [[ -z "${PHOENIX_GIT+x}" ]]; then
+if [[ -z "${PHOENIX_GIT+x}" ]] || [[ "${PHOENIX_GIT}" == "" ]] || [[ "${PHOENIX_GIT}" == "null" ]]; then
   PHOENIX_GIT="${PHOENIX_GIT_DEFAULT}"
 fi
 readonly PHOENIX_GIT
-export PHOENIX_GIT
 
 # GNU awk
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -330,11 +284,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_AWK_DEFAULT='/bin/awk'
 fi
-if [[ -z "${PHOENIX_AWK+x}" ]]; then
+if [[ -z "${PHOENIX_AWK+x}" ]] || [[ "${PHOENIX_AWK}" == "" ]] || [[ "${PHOENIX_AWK}" == "null" ]]; then
   PHOENIX_AWK="${PHOENIX_AWK_DEFAULT}"
 fi
 readonly PHOENIX_AWK
-export PHOENIX_AWK
 
 # GNU date
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -342,11 +295,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_DATE_DEFAULT='/bin/date'
 fi
-if [[ -z "${PHOENIX_DATE+x}" ]]; then
+if [[ -z "${PHOENIX_DATE+x}" ]] || [[ "${PHOENIX_DATE}" == "" ]] || [[ "${PHOENIX_DATE}" == "null" ]]; then
   PHOENIX_DATE="${PHOENIX_DATE_DEFAULT}"
 fi
 readonly PHOENIX_DATE
-export PHOENIX_DATE
 
 # GNU sed
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -354,11 +306,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_SED_DEFAULT='/bin/sed'
 fi
-if [[ -z "${PHOENIX_SED+x}" ]]; then
+if [[ -z "${PHOENIX_SED+x}" ]] || [[ "${PHOENIX_SED}" == "" ]] || [[ "${PHOENIX_SED}" == "null" ]]; then
   PHOENIX_SED="${PHOENIX_SED_DEFAULT}"
 fi
 readonly PHOENIX_SED
-export PHOENIX_SED
 
 # GNU tar
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -366,11 +317,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_TAR_DEFAULT='/bin/tar'
 fi
-if [[ -z "${PHOENIX_TAR+x}" ]]; then
+if [[ -z "${PHOENIX_TAR+x}" ]] || [[ "${PHOENIX_TAR}" == "" ]] || [[ "${PHOENIX_TAR}" == "null" ]]; then
   PHOENIX_TAR="${PHOENIX_TAR_DEFAULT}"
 fi
 readonly PHOENIX_TAR
-export PHOENIX_TAR
 
 # grep
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -378,11 +328,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_GREP_DEFAULT='/bin/grep'
 fi
-if [[ -z "${PHOENIX_GREP+x}" ]]; then
+if [[ -z "${PHOENIX_GREP+x}" ]] || [[ "${PHOENIX_GREP}" == "" ]] || [[ "${PHOENIX_GREP}" == "null" ]]; then
   PHOENIX_GREP="${PHOENIX_GREP_DEFAULT}"
 fi
 readonly PHOENIX_GREP
-export PHOENIX_GREP
 
 # gzip
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -390,11 +339,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_GZIP_DEFAULT='/bin/gzip'
 fi
-if [[ -z "${PHOENIX_GZIP+x}" ]]; then
+if [[ -z "${PHOENIX_GZIP+x}" ]] || [[ "${PHOENIX_GZIP}" == "" ]] || [[ "${PHOENIX_GZIP}" == "null" ]]; then
   PHOENIX_GZIP="${PHOENIX_GZIP_DEFAULT}"
 fi
 readonly PHOENIX_GZIP
-export PHOENIX_GZIP
 
 # head
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -402,11 +350,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_HEAD_DEFAULT='/bin/head'
 fi
-if [[ -z "${PHOENIX_HEAD+x}" ]]; then
+if [[ -z "${PHOENIX_HEAD+x}" ]] || [[ "${PHOENIX_HEAD}" == "" ]] || [[ "${PHOENIX_HEAD}" == "null" ]]; then
   PHOENIX_HEAD="${PHOENIX_HEAD_DEFAULT}"
 fi
 readonly PHOENIX_HEAD
-export PHOENIX_HEAD
 
 # jq
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -416,27 +363,24 @@ elif [[ "${PHOENIX_OS}" == 'secureblue' ]]; then
 else
   readonly PHOENIX_JQ_DEFAULT='/bin/jq'
 fi
-if [[ -z "${PHOENIX_JQ+x}" ]]; then
+if [[ -z "${PHOENIX_JQ+x}" ]] || [[ "${PHOENIX_JQ}" == "" ]] || [[ "${PHOENIX_JQ}" == "null" ]]; then
   PHOENIX_JQ="${PHOENIX_JQ_DEFAULT}"
 fi
 readonly PHOENIX_JQ
-export PHOENIX_JQ
 
 # ln
 readonly PHOENIX_LN_DEFAULT='/bin/ln'
-if [[ -z "${PHOENIX_LN+x}" ]]; then
+if [[ -z "${PHOENIX_LN+x}" ]] || [[ "${PHOENIX_LN}" == "" ]] || [[ "${PHOENIX_LN}" == "null" ]]; then
   PHOENIX_LN="${PHOENIX_LN_DEFAULT}"
 fi
 readonly PHOENIX_LN
-export PHOENIX_LN
 
 # ls
 readonly PHOENIX_LS_DEFAULT='/bin/ls'
-if [[ -z "${PHOENIX_LS+x}" ]]; then
+if [[ -z "${PHOENIX_LS+x}" ]] || [[ "${PHOENIX_LS}" == "" ]] || [[ "${PHOENIX_LS}" == "null" ]]; then
   PHOENIX_LS="${PHOENIX_LS_DEFAULT}"
 fi
 readonly PHOENIX_LS
-export PHOENIX_LS
 
 # md5sum
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -444,27 +388,24 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_MD5SUM_DEFAULT='/bin/md5sum'
 fi
-if [[ -z "${PHOENIX_MD5SUM+x}" ]]; then
+if [[ -z "${PHOENIX_MD5SUM+x}" ]] || [[ "${PHOENIX_MD5SUM}" == "" ]] || [[ "${PHOENIX_MD5SUM}" == "null" ]]; then
   PHOENIX_MD5SUM="${PHOENIX_MD5SUM_DEFAULT}"
 fi
 readonly PHOENIX_MD5SUM
-export PHOENIX_MD5SUM
 
 # mkdir
 readonly PHOENIX_MKDIR_DEFAULT='/bin/mkdir'
-if [[ -z "${PHOENIX_MKDIR+x}" ]]; then
+if [[ -z "${PHOENIX_MKDIR+x}" ]] || [[ "${PHOENIX_MKDIR}" == "" ]] || [[ "${PHOENIX_MKDIR}" == "null" ]]; then
   PHOENIX_MKDIR="${PHOENIX_MKDIR_DEFAULT}"
 fi
 readonly PHOENIX_MKDIR
-export PHOENIX_MKDIR
 
 # rm
 readonly PHOENIX_RM_DEFAULT='/bin/rm'
-if [[ -z "${PHOENIX_RM+x}" ]]; then
+if [[ -z "${PHOENIX_RM+x}" ]] || [[ "${PHOENIX_RM}" == "" ]] || [[ "${PHOENIX_RM}" == "null" ]]; then
   PHOENIX_RM="${PHOENIX_RM_DEFAULT}"
 fi
 readonly PHOENIX_RM
-export PHOENIX_RM
 
 # rsync
 ## (For CI - ex. to update the wiki)
@@ -473,11 +414,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_RSYNC_DEFAULT='/bin/rsync'
 fi
-if [[ -z "${PHOENIX_RSYNC+x}" ]]; then
+if [[ -z "${PHOENIX_RSYNC+x}" ]] || [[ "${PHOENIX_RSYNC}" == "" ]] || [[ "${PHOENIX_RSYNC}" == "null" ]]; then
   PHOENIX_RSYNC="${PHOENIX_RSYNC_DEFAULT}"
 fi
 readonly PHOENIX_RSYNC
-export PHOENIX_RSYNC
 
 # shasum
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -487,31 +427,26 @@ elif [[ "${PHOENIX_OS}" == 'secureblue' ]]; then
 else
   readonly PHOENIX_SHASUM_DEFAULT='/bin/shasum'
 fi
-if [[ -z "${PHOENIX_SHASUM+x}" ]]; then
+if [[ -z "${PHOENIX_SHASUM+x}" ]] || [[ "${PHOENIX_SHASUM}" == "" ]] || [[ "${PHOENIX_SHASUM}" == "null" ]]; then
   PHOENIX_SHASUM="${PHOENIX_SHASUM_DEFAULT}"
 fi
 readonly PHOENIX_SHASUM
-export PHOENIX_SHASUM
 
 # -shellcheck
 readonly PHOENIX_SHELLCHECK_DIR_DEFAULT="${PHOENIX_EXTERNAL}/shellcheck"
-if [[ -z "${PHOENIX_SHELLCHECK_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_SHELLCHECK_DIR+x}" ]] || [[ "${PHOENIX_SHELLCHECK_DIR}" == "" ]] || [[ "${PHOENIX_SHELLCHECK_DIR}" == "null" ]]; then
   PHOENIX_SHELLCHECK_DIR="${PHOENIX_SHELLCHECK_DIR_DEFAULT}"
 fi
 readonly PHOENIX_SHELLCHECK_DIR
 readonly PHOENIX_SHELLCHECK="${PHOENIX_SHELLCHECK_DIR}/shellcheck"
-export PHOENIX_SHELLCHECK
-export PHOENIX_SHELLCHECK_DIR
 
 # shfmt
 readonly PHOENIX_SHFMT_DIR_DEFAULT="${PHOENIX_EXTERNAL}/shfmt"
-if [[ -z "${PHOENIX_SHFMT_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_SHFMT_DIR+x}" ]] || [[ "${PHOENIX_SHFMT_DIR}" == "" ]] || [[ "${PHOENIX_SHFMT_DIR}" == "null" ]]; then
   PHOENIX_SHFMT_DIR="${PHOENIX_SHFMT_DIR_DEFAULT}"
 fi
 readonly PHOENIX_SHFMT_DIR
 readonly PHOENIX_SHFMT="${PHOENIX_SHFMT_DIR}/shfmt"
-export PHOENIX_SHFMT
-export PHOENIX_SHFMT_DIR
 
 # tee
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -519,11 +454,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_TEE_DEFAULT='/bin/tee'
 fi
-if [[ -z "${PHOENIX_TEE+x}" ]]; then
+if [[ -z "${PHOENIX_TEE+x}" ]] || [[ "${PHOENIX_TEE}" == "" ]] || [[ "${PHOENIX_TEE}" == "null" ]]; then
   PHOENIX_TEE="${PHOENIX_TEE_DEFAULT}"
 fi
 readonly PHOENIX_TEE
-export PHOENIX_TEE
 
 # touch
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -531,11 +465,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_TOUCH_DEFAULT='/bin/touch'
 fi
-if [[ -z "${PHOENIX_TOUCH+x}" ]]; then
+if [[ -z "${PHOENIX_TOUCH+x}" ]] || [[ "${PHOENIX_TOUCH}" == "" ]] || [[ "${PHOENIX_TOUCH}" == "null" ]]; then
   PHOENIX_TOUCH="${PHOENIX_TOUCH_DEFAULT}"
 fi
 readonly PHOENIX_TOUCH
-export PHOENIX_TOUCH
 
 # uname
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -543,11 +476,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_UNAME_DEFAULT='/bin/uname'
 fi
-if [[ -z "${PHOENIX_UNAME+x}" ]]; then
+if [[ -z "${PHOENIX_UNAME+x}" ]] || [[ "${PHOENIX_UNAME}" == "" ]] || [[ "${PHOENIX_UNAME}" == "null" ]]; then
   PHOENIX_UNAME="${PHOENIX_UNAME_DEFAULT}"
 fi
 readonly PHOENIX_UNAME
-export PHOENIX_UNAME
 
 # unzip
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -555,11 +487,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_UNZIP_DEFAULT='/bin/unzip'
 fi
-if [[ -z "${PHOENIX_UNZIP+x}" ]]; then
+if [[ -z "${PHOENIX_UNZIP+x}" ]] || [[ "${PHOENIX_UNZIP}" == "" ]] || [[ "${PHOENIX_UNZIP}" == "null" ]]; then
   PHOENIX_UNZIP="${PHOENIX_UNZIP_DEFAULT}"
 fi
 readonly PHOENIX_UNZIP
-export PHOENIX_UNZIP
 
 # xargs
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -567,11 +498,10 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_XARGS_DEFAULT='/bin/xargs'
 fi
-if [[ -z "${PHOENIX_XARGS+x}" ]]; then
+if [[ -z "${PHOENIX_XARGS+x}" ]] || [[ "${PHOENIX_XARGS}" == "" ]] || [[ "${PHOENIX_XARGS}" == "null" ]]; then
   PHOENIX_XARGS="${PHOENIX_XARGS_DEFAULT}"
 fi
 readonly PHOENIX_XARGS
-export PHOENIX_XARGS
 
 # xz
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -579,96 +509,82 @@ if [[ "${PHOENIX_OS}" == 'osx' ]]; then
 else
   readonly PHOENIX_XZ_DEFAULT='/bin/xz'
 fi
-if [[ -z "${PHOENIX_XZ+x}" ]]; then
+if [[ -z "${PHOENIX_XZ+x}" ]] || [[ "${PHOENIX_XZ}" == "" ]] || [[ "${PHOENIX_XZ}" == "null" ]]; then
   PHOENIX_XZ="${PHOENIX_XZ_DEFAULT}"
 fi
 readonly PHOENIX_XZ
-export PHOENIX_XZ
 
 # zip
 readonly PHOENIX_ZIP_DEFAULT='/usr/bin/zip'
-if [[ -z "${PHOENIX_ZIP+x}" ]]; then
+if [[ -z "${PHOENIX_ZIP+x}" ]] || [[ "${PHOENIX_ZIP}" == "" ]] || [[ "${PHOENIX_ZIP}" == "null" ]]; then
   PHOENIX_ZIP="${PHOENIX_ZIP_DEFAULT}"
 fi
 readonly PHOENIX_ZIP
-export PHOENIX_ZIP
 
 # Python
 readonly PHOENIX_PYTHON_DIR_DEFAULT="${PHOENIX_EXTERNAL}/python"
-if [[ -z "${PHOENIX_PYTHON_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_PYTHON_DIR+x}" ]] || [[ "${PHOENIX_PYTHON_DIR}" == "" ]] || [[ "${PHOENIX_PYTHON_DIR}" == "null" ]]; then
   PHOENIX_PYTHON_DIR="${PHOENIX_PYTHON_DIR_DEFAULT}"
 fi
 readonly PHOENIX_PYTHON_DIR
-export PHOENIX_PYTHON_DIR
 
 # Python (uv) environment
 readonly PHOENIX_PYENV_DIR_DEFAULT="${PHOENIX_BUILD}/pyenv"
-if [[ -z "${PHOENIX_PYENV_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_PYENV_DIR+x}" ]] || [[ "${PHOENIX_PYENV_DIR}" == "" ]] || [[ "${PHOENIX_PYENV_DIR}" == "null" ]]; then
   PHOENIX_PYENV_DIR="${PHOENIX_PYENV_DIR_DEFAULT}"
 fi
 readonly PHOENIX_PYENV_DIR
 readonly PHOENIX_PYENV="${PHOENIX_PYENV_DIR}/bin/activate"
-export PHOENIX_PYENV
-export PHOENIX_PYENV_DIR
 
 readonly PHOENIX_PYTHON_DEFAULT="${PHOENIX_PYENV_DIR}/bin/python"
-if [[ -z "${PHOENIX_PYTHON+x}" ]]; then
+if [[ -z "${PHOENIX_PYTHON+x}" ]] || [[ "${PHOENIX_PYTHON}" == "" ]] || [[ "${PHOENIX_PYTHON}" == "null" ]]; then
   PHOENIX_PYTHON="${PHOENIX_PYTHON_DEFAULT}"
 fi
 readonly PHOENIX_PYTHON
-export PHOENIX_PYTHON
 
 # s3cmd
 readonly PHOENIX_S3CMD_DIR_DEFAULT="${PHOENIX_EXTERNAL}/s3cmd"
-if [[ -z "${PHOENIX_S3CMD_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_S3CMD_DIR+x}" ]] || [[ "${PHOENIX_S3CMD_DIR}" == "" ]] || [[ "${PHOENIX_S3CMD_DIR}" == "null" ]]; then
   PHOENIX_S3CMD_DIR="${PHOENIX_S3CMD_DIR_DEFAULT}"
 fi
 readonly PHOENIX_S3CMD_DIR
 readonly PHOENIX_S3CMD="${PHOENIX_PYENV_DIR}/bin/s3cmd"
-export PHOENIX_S3CMD
-export PHOENIX_S3CMD_DIR
 
 # uv
 readonly PHOENIX_UV_DIR_DEFAULT="${PHOENIX_EXTERNAL}/uv"
-if [[ -z "${PHOENIX_UV_DIR+x}" ]]; then
+if [[ -z "${PHOENIX_UV_DIR+x}" ]] || [[ "${PHOENIX_UV_DIR}" == "" ]] || [[ "${PHOENIX_UV_DIR}" == "null" ]]; then
   PHOENIX_UV_DIR="${PHOENIX_UV_DIR_DEFAULT}"
 fi
 readonly PHOENIX_UV_DIR
 readonly PHOENIX_UV="${PHOENIX_UV_DIR}/uv"
-export PHOENIX_UV
-export PHOENIX_UV_DIR
 
 # uv (local directory)
 readonly PHOENIX_UV_LOCAL_DEFAULT="${PHOENIX_BUILD}/uv"
-if [[ -z "${PHOENIX_UV_LOCAL+x}" ]]; then
+if [[ -z "${PHOENIX_UV_LOCAL+x}" ]] || [[ "${PHOENIX_UV_LOCAL}" == "" ]] || [[ "${PHOENIX_UV_LOCAL}" == "null" ]]; then
   PHOENIX_UV_LOCAL="${PHOENIX_UV_LOCAL_DEFAULT}"
 fi
 readonly PHOENIX_UV_LOCAL
-export PHOENIX_UV_LOCAL
 
 # uv cache
 readonly PHOENIX_UV_CACHE_DEFAULT="${PHOENIX_UV_LOCAL}/cache"
-if [[ -z "${PHOENIX_UV_CACHE+x}" ]]; then
+if [[ -z "${PHOENIX_UV_CACHE+x}" ]] || [[ "${PHOENIX_UV_CACHE}" == "" ]] || [[ "${PHOENIX_UV_CACHE}" == "null" ]]; then
   PHOENIX_UV_CACHE="${PHOENIX_UV_CACHE_DEFAULT}"
 fi
 readonly PHOENIX_UV_CACHE
-export PHOENIX_UV_CACHE
 
 # uv Python directory
 readonly PHOENIX_UV_PYTHON_DEFAULT="${PHOENIX_UV_LOCAL}/python"
-if [[ -z "${PHOENIX_UV_PYTHON+x}" ]]; then
+if [[ -z "${PHOENIX_UV_PYTHON+x}" ]] || [[ "${PHOENIX_UV_PYTHON}" == "" ]] || [[ "${PHOENIX_UV_PYTHON}" == "null" ]]; then
   PHOENIX_UV_PYTHON="${PHOENIX_UV_PYTHON_DEFAULT}"
 fi
 readonly PHOENIX_UV_PYTHON
-export PHOENIX_UV_PYTHON
 
 # uv tools
 readonly PHOENIX_UV_TOOLS_DEFAULT="${PHOENIX_UV_LOCAL}/tools"
-if [[ -z "${PHOENIX_UV_TOOLS+x}" ]]; then
+if [[ -z "${PHOENIX_UV_TOOLS+x}" ]] || [[ "${PHOENIX_UV_TOOLS}" == "" ]] || [[ "${PHOENIX_UV_TOOLS}" == "null" ]]; then
   PHOENIX_UV_TOOLS="${PHOENIX_UV_TOOLS_DEFAULT}"
 fi
 readonly PHOENIX_UV_TOOLS
-export PHOENIX_UV_TOOLS
 
 # Cipher suites
 ## (These enforce strong cipher suites - see ex. https://browserleaks.com/tls)
@@ -676,60 +592,55 @@ export PHOENIX_UV_TOOLS
 ## For TLS 1.3 connections
 ### https://curl.se/docs/manpage.html#--tls13-ciphers
 readonly PHOENIX_TLS13_CIPHERS_DEFAULT='TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384'
-if [[ -z "${PHOENIX_TLS13_CIPHERS+x}" ]]; then
+if [[ -z "${PHOENIX_TLS13_CIPHERS+x}" ]] || [[ "${PHOENIX_TLS13_CIPHERS}" == "" ]] || [[ "${PHOENIX_TLS13_CIPHERS}" == "null" ]]; then
   PHOENIX_TLS13_CIPHERS="${PHOENIX_TLS13_CIPHERS_DEFAULT}"
 fi
 readonly PHOENIX_TLS13_CIPHERS
-export PHOENIX_TLS13_CIPHERS
 
 ## For non-TLS 1.3 connections
 ### https://curl.se/docs/manpage.html#--ciphers
 readonly PHOENIX_NONTLS13_CIPHERS_DEFAULT='ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384'
-if [[ -z "${PHOENIX_NONTLS13_CIPHERS+x}" ]]; then
+if [[ -z "${PHOENIX_NONTLS13_CIPHERS+x}" ]] || [[ "${PHOENIX_NONTLS13_CIPHERS}" == "" ]] || [[ "${PHOENIX_NONTLS13_CIPHERS}" == "null" ]]; then
   PHOENIX_NONTLS13_CIPHERS="${PHOENIX_NONTLS13_CIPHERS_DEFAULT}"
 fi
 readonly PHOENIX_NONTLS13_CIPHERS
-export PHOENIX_NONTLS13_CIPHERS
 
 # This includes all ciphers (combining PHOENIX_TLS13_CIPHERS + PHOENIX_NONTLS13_CIPHERS)
 ## Useful because many programs do not require specifying a separate set of ciphers for TLS 1.3 like curl does
 readonly PHOENIX_CIPHERS="${PHOENIX_TLS13_CIPHERS}:${PHOENIX_NONTLS13_CIPHERS}"
-export PHOENIX_CIPHERS
 
 # If curl flags are added, this determines whether they should be appended to our default flags (default),
 ## or if they should override them entirely
 readonly PHOENIX_CURL_FLAGS_OVERRIDE_DEFAULT=0
-if [[ -z "${PHOENIX_CURL_FLAGS_OVERRIDE+x}" ]]; then
+if [[ -z "${PHOENIX_CURL_FLAGS_OVERRIDE+x}" ]] || [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == "" ]] ||
+  [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == "null" ]]; then
   PHOENIX_CURL_FLAGS_OVERRIDE="${PHOENIX_CURL_FLAGS_OVERRIDE_DEFAULT}"
 fi
 readonly PHOENIX_CURL_FLAGS_OVERRIDE
-export PHOENIX_CURL_FLAGS_OVERRIDE
 
 # curl flags
 # shellcheck disable=SC2089
 readonly PHOENIX_CURL_FLAGS_DEFAULT="--disable --no-netrc --ciphers ${PHOENIX_NONTLS13_CIPHERS} --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --proxy-ciphers ${PHOENIX_NONTLS13_CIPHERS} --proxy-tls13-ciphers ${PHOENIX_TLS13_CIPHERS} --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tls13-ciphers ${PHOENIX_TLS13_CIPHERS} --tlsv1.2 --trace-time --user-agent '' --verbose"
-if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]]; then
+if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT}"
 elif [[ "${PHOENIX_CURL_FLAGS_OVERRIDE}" == 1 ]]; then
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS}"
 else
   readonly PHOENIX_CURL_FLAGS="${PHOENIX_CURL_FLAGS_DEFAULT} ${PHOENIX_CURL_FLAGS}"
 fi
-# shellcheck disable=SC2090
-export PHOENIX_CURL_FLAGS
 
 # If s3cmd flags are added, this determines whether they should be appended to our default flags (default),
 ## or if they should override them entirely
 readonly PHOENIX_S3CMD_FLAGS_OVERRIDE_DEFAULT=0
-if [[ -z "${PHOENIX_S3CMD_FLAGS_OVERRIDE+x}" ]]; then
+if [[ -z "${PHOENIX_S3CMD_FLAGS_OVERRIDE+x}" ]] || [[ "${PHOENIX_S3CMD_FLAGS_OVERRIDE}" == "" ]] ||
+  [[ "${PHOENIX_S3CMD_FLAGS_OVERRIDE}" == "null" ]]; then
   PHOENIX_S3CMD_FLAGS_OVERRIDE="${PHOENIX_S3CMD_FLAGS_OVERRIDE_DEFAULT}"
 fi
 readonly PHOENIX_S3CMD_FLAGS_OVERRIDE
-export PHOENIX_S3CMD_FLAGS_OVERRIDE
 
 # s3cmd flags
 readonly PHOENIX_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --no-guess-mime-type --no-mime-magic --progress --ssl'
-if [[ -z "${PHOENIX_S3CMD_FLAGS+x}" ]]; then
+if [[ -z "${PHOENIX_S3CMD_FLAGS+x}" ]] || [[ "${PHOENIX_S3CMD_FLAGS}" == "" ]] || [[ "${PHOENIX_S3CMD_FLAGS}" == "null" ]]; then
   PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT}"
 elif [[ "${PHOENIX_S3CMD_FLAGS_OVERRIDE}" == 1 ]]; then
   PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS}"
@@ -737,7 +648,6 @@ else
   PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT} ${PHOENIX_S3CMD_FLAGS}"
 fi
 readonly PHOENIX_S3CMD_FLAGS
-export PHOENIX_S3CMD_FLAGS
 
 # Whether we should allow users to control whether Remote Debugging (`devtools.debugger.remote-enabled`) is reset per-session via a preference
 ## If PHOENIX_FORCE_RESET_REMOTE_DEBUGGING is set to 1 (Default), `devtools.debugger.remote-enabled` is ALWAYS reset per-session
@@ -745,68 +655,65 @@ export PHOENIX_S3CMD_FLAGS
 ## `browser.phoenix.reset.devtools.debugger.remote-enabled` is set to `true`
 ## (Useful because some like IronFox handle this with their own mechanisms instead)
 readonly PHOENIX_FORCE_RESET_REMOTE_DEBUGGING_DEFAULT=1
-if [[ -z "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING+x}" ]]; then
+if [[ -z "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING+x}" ]] || [[ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == "" ]] ||
+  [[ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == "null" ]]; then
   PHOENIX_FORCE_RESET_REMOTE_DEBUGGING="${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING_DEFAULT}"
 fi
 readonly PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
-export PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
 
 # Whether we should build enterprise policies for Android
 ## This is usually not supported/possible to apply on Android, but some (ex. IronFox) do patch/add support to apply them
 readonly PHOENIX_ANDROID_POLICIES_DEFAULT=0
-if [[ -z "${PHOENIX_ANDROID_POLICIES+x}" ]]; then
+if [[ -z "${PHOENIX_ANDROID_POLICIES+x}" ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == "" ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == "null" ]]; then
   PHOENIX_ANDROID_POLICIES="${PHOENIX_ANDROID_POLICIES_DEFAULT}"
 fi
 readonly PHOENIX_ANDROID_POLICIES
-export PHOENIX_ANDROID_POLICIES
 
 # Whether we should hardcode/set Phoenix's target platform directly in the output phoenix.cfg file
 ## Setting this to 0 means that Phoenix will instead determine the OS automatically
 readonly PHOENIX_HARDCODE_PLATFORM_DEFAULT=1
-if [[ -z "${PHOENIX_HARDCODE_PLATFORM+x}" ]]; then
+if [[ -z "${PHOENIX_HARDCODE_PLATFORM+x}" ]] || [[ "${PHOENIX_HARDCODE_PLATFORM}" == "" ]] ||
+  [[ "${PHOENIX_HARDCODE_PLATFORM}" == "null" ]]; then
   PHOENIX_HARDCODE_PLATFORM="${PHOENIX_HARDCODE_PLATFORM_DEFAULT}"
 fi
 readonly PHOENIX_HARDCODE_PLATFORM
-export PHOENIX_HARDCODE_PLATFORM
 
 # Whether we should build Phoenix for desktop (non-Android) platforms in the static .js prefs format
 ## This is not recommended in favor of the .cfg format, and will likely be removed entirely in the near future
 readonly PHOENIX_STATIC_JS_DEFAULT=0
-if [[ -z "${PHOENIX_STATIC_JS+x}" ]]; then
+if [[ -z "${PHOENIX_STATIC_JS+x}" ]] || [[ "${PHOENIX_STATIC_JS}" == "" ]] || [[ "${PHOENIX_STATIC_JS}" == "null" ]]; then
   PHOENIX_STATIC_JS="${PHOENIX_STATIC_JS_DEFAULT}"
 fi
 readonly PHOENIX_STATIC_JS
-export PHOENIX_STATIC_JS
 
 # Whether we should build Phoenix for Android in the static .js prefs format (Default)
 ## This is the default for Android because its typically the only supported mechanism for applying prefs there
 ## But some (ex. IronFox) do patch/add support for using Phoenix in the .cfg format, so they may not want/need the static .js format
 readonly PHOENIX_STATIC_JS_ANDROID_DEFAULT=1
-if [[ -z "${PHOENIX_STATIC_JS_ANDROID+x}" ]]; then
+if [[ -z "${PHOENIX_STATIC_JS_ANDROID+x}" ]] || [[ "${PHOENIX_STATIC_JS_ANDROID}" == "" ]] ||
+  [[ "${PHOENIX_STATIC_JS_ANDROID}" == "null" ]]; then
   PHOENIX_STATIC_JS_ANDROID="${PHOENIX_STATIC_JS_ANDROID_DEFAULT}"
 fi
 readonly PHOENIX_STATIC_JS_ANDROID
-export PHOENIX_STATIC_JS_ANDROID
 
 # Whether we should build Phoenix Extended in the static .js prefs format (Default)
 ## (This depends on PHOENIX_STATIC_JS/PHOENIX_STATIC_JS_ANDROID)
 ## When this is enabled (set to 1), we create a separate pref file parsed to include preferences/values for
 ## Phoenix Extended at build-time
 readonly PHOENIX_STATIC_JS_EXTENDED_DEFAULT=1
-if [[ -z "${PHOENIX_STATIC_JS_EXTENDED+x}" ]]; then
+if [[ -z "${PHOENIX_STATIC_JS_EXTENDED+x}" ]] || [[ "${PHOENIX_STATIC_JS_EXTENDED}" == "" ]] ||
+  [[ "${PHOENIX_STATIC_JS_EXTENDED}" == "null" ]]; then
   PHOENIX_STATIC_JS_EXTENDED="${PHOENIX_STATIC_JS_EXTENDED_DEFAULT}"
 fi
 readonly PHOENIX_STATIC_JS_EXTENDED
-export PHOENIX_STATIC_JS_EXTENDED
 
 # Whether we should exclude "NO-MAIL" preferences when building Phoenix
 ## (ex. for Dove)
 readonly PHOENIX_MAIL_DEFAULT=0
-if [[ -z "${PHOENIX_MAIL+x}" ]]; then
+if [[ -z "${PHOENIX_MAIL+x}" ]] || [[ "${PHOENIX_MAIL}" == "" ]] || [[ "${PHOENIX_MAIL}" == "null" ]]; then
   PHOENIX_MAIL="${PHOENIX_MAIL_DEFAULT}"
 fi
 readonly PHOENIX_MAIL
-export PHOENIX_MAIL
 
 # Whether we should use Phoenix Extended by default
 ## (Applies to the .cfg format)
@@ -817,11 +724,10 @@ if [[ "${PHOENIX_MAIL}" == 1 ]]; then
 else
   readonly PHOENIX_EXTENDED_DEFAULT=0
 fi
-if [[ -z "${PHOENIX_EXTENDED+x}" ]]; then
+if [[ -z "${PHOENIX_EXTENDED+x}" ]] || [[ "${PHOENIX_EXTENDED}" == "" ]] || [[ "${PHOENIX_EXTENDED}" == "null" ]]; then
   PHOENIX_EXTENDED="${PHOENIX_EXTENDED_DEFAULT}"
 fi
 readonly PHOENIX_EXTENDED
-export PHOENIX_EXTENDED
 
 # Whether we should support Phoenix's specialized config functionality
 if [[ "${PHOENIX_MAIL}" == 1 ]]; then
@@ -830,97 +736,92 @@ if [[ "${PHOENIX_MAIL}" == 1 ]]; then
 else
   readonly PHOENIX_NO_SPEC_DEFAULT=0
 fi
-if [[ -z "${PHOENIX_NO_SPEC+x}" ]]; then
+if [[ -z "${PHOENIX_NO_SPEC+x}" ]] || [[ "${PHOENIX_NO_SPEC}" == "" ]] || [[ "${PHOENIX_NO_SPEC}" == "null" ]]; then
   PHOENIX_NO_SPEC="${PHOENIX_NO_SPEC_DEFAULT}"
 fi
 readonly PHOENIX_NO_SPEC
-export PHOENIX_NO_SPEC
 
 # Where a .cfg file containing overrides for Phoenix-specific preferences is located
 ## This is separate from the standard overrides file because these preferences must be set early in order to take effect
 ## May have other use cases as well
 readonly PHOENIX_OVERRIDES_CFG_DEFAULT='null'
-if [[ -z "${PHOENIX_OVERRIDES_CFG+x}" ]]; then
+if [[ -z "${PHOENIX_OVERRIDES_CFG+x}" ]] || [[ "${PHOENIX_OVERRIDES_CFG}" == "" ]] || [[ "${PHOENIX_OVERRIDES_CFG}" == "null" ]]; then
   PHOENIX_OVERRIDES_CFG="${PHOENIX_OVERRIDES_CFG_DEFAULT}"
 fi
 readonly PHOENIX_OVERRIDES_CFG
-export PHOENIX_OVERRIDES_CFG
 
 # Where an additional .cfg file is located that should be appended to phoenix.cfg
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
 ## (ex. for overriding preferences that are not Phoenix-specific)
 readonly PHOENIX_EXTRA_CFG_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_CFG+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_CFG+x}" ]] || [[ "${PHOENIX_EXTRA_CFG}" == "" ]] || [[ "${PHOENIX_EXTRA_CFG}" == "null" ]]; then
   PHOENIX_EXTRA_CFG="${PHOENIX_EXTRA_CFG_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_CFG
-export PHOENIX_EXTRA_CFG
 
 # Where an additional .js file is located that should be appended to phoenix.cfg
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional preferences
 readonly PHOENIX_EXTRA_JS_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_JS+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_JS+x}" ]] || [[ "${PHOENIX_EXTRA_JS}" == "" ]] || [[ "${PHOENIX_EXTRA_JS}" == "null" ]]; then
   PHOENIX_EXTRA_JS="${PHOENIX_EXTRA_JS_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_JS
-export PHOENIX_EXTRA_JS
 
 # Where an additional policies.json file is located that should be applied to all platforms
 ## Meant for downstream projects (ex. Dove, IronFox, LibreWolf) to simplify the process of overriding/setting additional policies
 readonly PHOENIX_EXTRA_POLICIES_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES}" == "" ]] || [[ "${PHOENIX_EXTRA_POLICIES}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES="${PHOENIX_EXTRA_POLICIES_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES
-export PHOENIX_EXTRA_POLICIES
 
 # Where an additional policies.json file is located that should ONLY be applied to Android
 readonly PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_ANDROID+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_ANDROID}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_ANDROID}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_ANDROID="${PHOENIX_EXTRA_POLICIES_ANDROID_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_ANDROID
-export PHOENIX_EXTRA_POLICIES_ANDROID
 
 # Where an additional policies.json file is located that should ONLY be applied to Linux (non-Flatpak)
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
-export PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK
 
 # Where an additional policies.json file is located that should ONLY be applied to Linux (Flatpak)
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK="${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
-export PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X (Apple Silicon)
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_SILICON+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_OSX_SILICON="${PHOENIX_EXTRA_POLICIES_OSX_SILICON_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_SILICON
-export PHOENIX_EXTRA_POLICIES_OSX_SILICON
 
 # Where an additional policies.json file is located that should ONLY be applied to OS X (Intel)
 readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_OSX_INTEL+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_OSX_INTEL="${PHOENIX_EXTRA_POLICIES_OSX_INTEL_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_OSX_INTEL
-export PHOENIX_EXTRA_POLICIES_OSX_INTEL
 
 # Where an additional policies.json file is located that should ONLY be applied to Windows
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT='null'
-if [[ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]]; then
+if [[ -z "${PHOENIX_EXTRA_POLICIES_WINDOWS+x}" ]] || [[ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" == "" ]] ||
+  [[ "${PHOENIX_EXTRA_POLICIES_WINDOWS}" == "null" ]]; then
   PHOENIX_EXTRA_POLICIES_WINDOWS="${PHOENIX_EXTRA_POLICIES_WINDOWS_DEFAULT}"
 fi
 readonly PHOENIX_EXTRA_POLICIES_WINDOWS
-export PHOENIX_EXTRA_POLICIES_WINDOWS
 
 # S3
 
@@ -928,69 +829,69 @@ export PHOENIX_EXTRA_POLICIES_WINDOWS
 
 ### S3 access key
 readonly PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" == "null" ]]; then
   PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE="${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE
-export PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE
 
 ### S3 bucket name
 readonly PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" == "null" ]]; then
   PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE="${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE
-export PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE
 
 ### S3 endpoint
 readonly PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" == "null" ]]; then
   PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE="${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE
-export PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE
 
 ### S3 secret key
 readonly PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" == "null" ]]; then
   PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE="${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE
-export PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE
 
 ## Releases
 
 ### S3 access key
 readonly PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" == "null" ]]; then
   PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE="${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE
-export PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE
 
 ### S3 bucket name
 readonly PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" == "null" ]]; then
   PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE="${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE
-export PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE
 
 ### S3 endpoint
 readonly PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" == "null" ]]; then
   PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE="${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE
-export PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE
 
 ### S3 secret key
 readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE_DEFAULT='null'
-if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE+x}" ]]; then
+if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" == "" ]] ||
+  [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" == "null" ]]; then
   PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE="${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE_DEFAULT}"
 fi
 readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
-export PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
 
 # Set our external environment variables
 readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"
@@ -998,4 +899,3 @@ source "${PHOENIX_ENV_EXTERNAL}"
 
 # We've now set our environment variables...
 readonly PHOENIX_SET_ENVS=1
-export PHOENIX_SET_ENVS

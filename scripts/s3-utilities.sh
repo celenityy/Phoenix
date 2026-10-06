@@ -4,15 +4,6 @@ set -euo pipefail
 
 # S3 utility functions
 
-# Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Push a file to S3 storage
 function push_file() {
   function print_usage() {
@@ -69,7 +60,7 @@ function push_file() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we can source our Python environment
-  verify_file "${PHOENIX_PYENV}" || exit 1
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
 
   local -r push_file="$1"
   local -r s3_path="$2"
@@ -363,6 +354,9 @@ function push_dir() {
   # Ensure we have find
   verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || exit 1
 
+  # Ensure we have `PHOENIX_OS`
+  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || exit 1
+
   local -r push_dir="$1"
   local -r target_s3_path="$2"
   local -r s3_access_key_file="$3"
@@ -465,6 +459,9 @@ function push_dir_and_add_sha512sum() {
   # Ensure we have find
   verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || exit 1
 
+  # Ensure we have `PHOENIX_OS`
+  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || exit 1
+
   local -r push_dir="$1"
   local -r target_s3_path="$2"
   local -r s3_access_key_file="$3"
@@ -560,7 +557,7 @@ function delete_file() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we can source our Python environment
-  verify_file "${PHOENIX_PYENV}" || exit 1
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
 
   local -r s3_file="$1"
   local -r s3_access_key_file="$2"

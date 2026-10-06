@@ -5,13 +5,8 @@ set -euo pipefail
 # Ensure this is never ran with xtrace...
 set +x || exit 1
 
-# Set-up our environment
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Include S3 utilities
+verify_file_with_env "${PHOENIX_S3_UTILS}" 'PHOENIX_S3_UTILS' || exit 1
 source "${PHOENIX_S3_UTILS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
@@ -19,19 +14,16 @@ if [[ -z "${PHOENIX_FROM_AR_UP+x}" ]]; then
   exit 1
 fi
 
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
+
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]] ||
-  [[ "${PHOENIX_CI_ID}" == "null" ]]; then
-  echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
-  exit 1
-fi
-
-# Include version info
-source "${PHOENIX_VERSIONS}" || exit 1
+# Ensure we have `PHOENIX_CI_ID`
+verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || exit 1
 
 # Verify secrets
 verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1
@@ -39,7 +31,18 @@ verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL
 verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' || exit 1
 verify_file_with_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' || exit 1
 
-readonly up_artifact="$1"
+# Ensure we have `PHOENIX_OUTPUTS`
+verify_env "${PHOENIX_OUTPUTS}" 'PHOENIX_OUTPUTS' || exit 1
+
+# Ensure we have `PHOENIX_VERSION`
+verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+verify_env "${target_artifact}" 'target_artifact' || {
+  echo_red_text "ERROR: Missing target artifact!"
+  exit 1
+}
+
+readonly target_artifact="$1"
 
 # Set-up target parameters
 PHOENIX_AR_UP_ANDROID_ARCHIVE=0
@@ -52,34 +55,34 @@ PHOENIX_AR_UP_OSX_INTEL_ARCHIVE=0
 PHOENIX_AR_UP_WINDOWS_ARCHIVE=0
 PHOENIX_AR_UP_UNIVERSAL_CFG=0
 
-if [[ "${up_artifact}" == 'android-archive' ]]; then
+if [[ "${target_artifact}" == 'android-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
   PHOENIX_AR_UP_ANDROID_ARCHIVE=1
-elif [[ "${up_artifact}" == 'android-js' ]]; then
+elif [[ "${target_artifact}" == 'android-js' ]]; then
   # phoenix-{PHOENIX_VERSION}-android.js
   PHOENIX_AR_UP_ANDROID_JS=1
-elif [[ "${up_artifact}" == 'android-js-extended' ]]; then
+elif [[ "${target_artifact}" == 'android-js-extended' ]]; then
   # phoenix-extended-{PHOENIX_VERSION}-android.js
   PHOENIX_AR_UP_ANDROID_JS_EXTENDED=1
-elif [[ "${up_artifact}" == 'linux-archive' ]]; then
+elif [[ "${target_artifact}" == 'linux-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
   PHOENIX_AR_UP_LINUX_ARCHIVE=1
-elif [[ "${up_artifact}" == 'linux-flatpak-archive' ]]; then
+elif [[ "${target_artifact}" == 'linux-flatpak-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
   PHOENIX_AR_UP_LINUX_FLATPAK_ARCHIVE=1
-elif [[ "${up_artifact}" == 'osx-archive' ]]; then
+elif [[ "${target_artifact}" == 'osx-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
   PHOENIX_AR_UP_OSX_ARCHIVE=1
-elif [[ "${up_artifact}" == 'osx-intel-archive' ]]; then
+elif [[ "${target_artifact}" == 'osx-intel-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
   PHOENIX_AR_UP_OSX_INTEL_ARCHIVE=1
-elif [[ "${up_artifact}" == 'windows-archive' ]]; then
+elif [[ "${target_artifact}" == 'windows-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-windows.zip
   PHOENIX_AR_UP_WINDOWS_ARCHIVE=1
-elif [[ "${up_artifact}" == 'universal-cfg' ]]; then
+elif [[ "${target_artifact}" == 'universal-cfg' ]]; then
   # phoenix-{PHOENIX_VERSION}-universal.cfg
   PHOENIX_AR_UP_UNIVERSAL_CFG=1
-elif [[ "${up_artifact}" == 'all' ]]; then
+elif [[ "${target_artifact}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), just download everything
   PHOENIX_AR_UP_ANDROID_ARCHIVE=1
   PHOENIX_AR_UP_ANDROID_JS=1
@@ -91,7 +94,7 @@ elif [[ "${up_artifact}" == 'all' ]]; then
   PHOENIX_AR_UP_WINDOWS_ARCHIVE=1
   PHOENIX_AR_UP_UNIVERSAL_CFG=1
 else
-  echo_red_text "ERROR: Invalid target: ${up_artifact}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: ${target_artifact}\n You must enter one of the following:"
   echo 'All:                      all (Default)'
   echo 'Android archive:          android-archive'
   echo 'Android .js:              android-js'

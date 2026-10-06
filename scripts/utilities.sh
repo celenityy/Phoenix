@@ -21,14 +21,37 @@ function error_fn() {
   exit 1
 }
 
+# Verify that an environment variable exists
+function verify_env() {
+  function print_usage() {
+    echo "Usage: verify_env 'environment_variable' 'ENVIRONMENT_VARIABLE_AS_A_STRING'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify an environment variable!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify an environment variable as a string!'
+    print_usage
+    exit 1
+  fi
+
+  local -r env="$1"
+  local -r env_string="$2"
+
+  if [[ -z "${env_string+x}" ]] || [[ "${env}" == "" ]] || [[ "${env}" == "null" ]]; then
+    echo_red_text "ERROR: Environment variable is missing: '${env_string}'!"
+    return 1
+  fi
+}
+
 # Set the verbosity of a script
 ## (From the value of the `PHOENIX_VERBOSE` environment variable)
 function set_verbosity() {
-  if [[ -z "${PHOENIX_VERBOSE+x}" ]] || [[ "${PHOENIX_VERBOSE}" == "" ]] ||
-    [[ "${PHOENIX_VERBOSE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERBOSE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERBOSE}" 'PHOENIX_VERBOSE' || exit 1
 
   if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
     set -x
@@ -58,10 +81,7 @@ function verify_exec() {
   local -r exec="$1"
   local -r exec_env="$2"
 
-  if [[ -z "${exec_env+x}" ]] || [[ "${exec_env}" == "" ]] || [[ "${exec_env}" == "null" ]]; then
-    echo_red_text "ERROR: Environment variable is missing: '${exec_env}'!"
-    exit 1
-  fi
+  verify_env "${exec}" "${exec_env}" || exit 1
 
   if [[ ! -f "${exec}" ]]; then
     echo_red_text "ERROR: '${exec}' is missing!"
@@ -128,10 +148,7 @@ function verify_file_with_env() {
   local -r verify_file="$1"
   local -r verify_file_env="$2"
 
-  if [[ -z "${verify_file_env+x}" ]] || [[ "${verify_file_env}" == "" ]] || [[ "${verify_file_env}" == "null" ]]; then
-    echo_red_text "ERROR: Environment variable is missing: '${verify_file_env}'!"
-    exit 1
-  fi
+  verify_env "${verify_file}" "${verify_file_env}" || exit 1
 
   if [[ "${verify_file}" == 'null' ]]; then
     echo_red_text "ERROR: Environment variable has not been specified: '${verify_file_env}'!"

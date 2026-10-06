@@ -3,47 +3,60 @@
 set -euo pipefail
 
 # Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
+function setup_env() {
+  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
+    # Find dirname
+    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
+      local -r dirname="${PHOENIX_DIRNAME}"
+    elif [[ -x '/bin/dirname' ]]; then
+      local -r dirname='/bin/dirname'
+    elif [[ -x '/usr/bin/dirname' ]]; then
+      local -r dirname='/usr/bin/dirname'
+    else
+      if ! command -v dirname > /dev/null 2>&1; then
+        echo "ERROR: Missing dirname!" >&2
+        exit 1
+      fi
+      # It isn't a known location, so we sadly have to just fall-back to the PATH
+      local -r dirname="$(dirname)"
+    fi
 
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
+    # Set-up our environment
+    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
+    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
+      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
+      exit 1
+    fi
+    source "${PHOENIX_ENV_SH}" || exit 1
+  fi
+}
+
+# Set-up our environment
+setup_env
+
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_TYPE+x}" ]] || [[ "${PHOENIX_CI_TYPE}" == "" ]] ||
-  [[ "${PHOENIX_CI_TYPE}" == "null" ]]; then
-  echo_red_text "ERROR: Missing CI type! Please set 'PHOENIX_CI_TYPE'."
-  exit 1
-fi
-
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+
+# Ensure we have `PHOENIX_CI_TYPE`
+verify_env "${PHOENIX_CI_TYPE}" 'PHOENIX_CI_TYPE' || exit 1
 
 # Set our CI ID
 ## For Forgejo (Codeberg), we use the run ID
 ## For GitLab, we use the pipeline ID
 if [[ "${PHOENIX_CI_TYPE}" == 'forgejo' ]]; then
-  if [[ -z "${FORGEJO_RUN_ID+x}" ]] || [[ "${FORGEJO_RUN_ID}" == "" ]] ||
-    [[ "${FORGEJO_RUN_ID}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo run ID! Please set 'FORGEJO_RUN_ID'."
-    exit 1
-  else
-    readonly PHOENIX_CI_ID="${FORGEJO_RUN_ID}"
-  fi
+  verify_env "${FORGEJO_RUN_ID}" 'FORGEJO_RUN_ID' || exit 1
+  readonly PHOENIX_CI_ID="${FORGEJO_RUN_ID}"
 elif [[ "${PHOENIX_CI_TYPE}" == 'gitlab' ]]; then
-  if [[ -z "${CI_PIPELINE_ID+x}" ]] || [[ "${CI_PIPELINE_ID}" == "" ]] ||
-    [[ "${CI_PIPELINE_ID}" == "null" ]]; then
-    echo_red_text "ERROR: Missing GitLab pipeline ID! Please set 'CI_PIPELINE_ID'."
-    exit 1
-  else
-    readonly PHOENIX_CI_ID="${CI_PIPELINE_ID}"
-  fi
+  verify_env "${CI_PIPELINE_ID}" 'CI_PIPELINE_ID' || exit 1
+  readonly PHOENIX_CI_ID="${CI_PIPELINE_ID}"
 else
   echo_red_text "ERROR: Unknown CI type: '${PHOENIX_CI_TYPE}'!"
   exit 1
@@ -56,6 +69,8 @@ if [[ -z "${1+x}" ]]; then
 else
   readonly target_artifact=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
 fi
+
+pushd "${PHOENIX_ROOT}"
 
 # Download our artifacts
 readonly PHOENIX_FROM_AR_DOWN=1
@@ -70,6 +85,9 @@ if [[ "${PHOENIX_LOG_AR_DOWN}" == 1 ]]; then
   # Ensure we have tee
   verify_exec "${PHOENIX_TEE}" 'PHOENIX_TEE' || exit 1
 
+  # Ensure we have `PHOENIX_LOG_DIR`
+  verify_env "${PHOENIX_LOG_DIR}" 'PHOENIX_LOG_DIR' || exit 1
+
   readonly AR_DOWN_LOG_FILE="${PHOENIX_LOG_DIR}/download-artifacts-${PHOENIX_CI_ID}-${target_artifact}.log"
 
   # If the log file already exists, remove it
@@ -80,7 +98,9 @@ if [[ "${PHOENIX_LOG_AR_DOWN}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  /bin/bash "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" > >("${PHOENIX_TEE}" -a "${AR_DOWN_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" > >("${PHOENIX_TEE}" -a "${AR_DOWN_LOG_FILE}") 2>&1 || exit 1
 else
-  /bin/bash "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" || exit 1
+  source "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" || exit 1
 fi
+
+popd

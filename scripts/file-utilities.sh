@@ -4,15 +4,6 @@ set -euo pipefail
 
 # File utility functions
 
-# Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Produce a (reproducible) archive from a directory
 ## For reference/details on this process, see...
 ## https://codeberg.org/celenity/bugs/issues/360
@@ -69,11 +60,7 @@ function create_archive() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION_DATE`
-  if [[ -z "${PHOENIX_VERSION_DATE+x}" ]] || [[ "${PHOENIX_VERSION_DATE}" == "" ]] ||
-    [[ "${PHOENIX_VERSION_DATE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION_DATE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION_DATE}" 'PHOENIX_VERSION_DATE' || exit 1
 
   local -r target_dir="$1"
   local -r output_archive="$2"
@@ -215,10 +202,8 @@ function extract_archive() {
   local -r archive_path="$1"
   local -r target_path="$2"
 
-  if [[ ! -f "${archive_path}" ]]; then
-    echo_red_text "ERROR: Archive does not exist: '${archive_path}'!"
-    exit 1
-  fi
+  # Ensure the archive exists
+  verify_file "${archive_path}" || exit 1
 
   # Set a temporary archive name
   local -r temp_archive_path_name=$("${PHOENIX_BASENAME}" "${target_path}")

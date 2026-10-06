@@ -7,5 +7,5 @@ result*
 /env_override.sh
 /external/
 /outputs/
-/scripts/env_local.sh
+/scripts/root.txt
 /wip/

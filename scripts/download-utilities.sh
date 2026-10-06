@@ -4,15 +4,6 @@ set -euo pipefail
 
 # Download utility functions
 
-# Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Download a file
 function download() {
   function print_usage() {
@@ -47,11 +38,7 @@ function download() {
   verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
-    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
 
   local -r url="$1"
   local -r output_file="$2"
@@ -59,7 +46,7 @@ function download() {
   local -r file_dir=$("${PHOENIX_DIRNAME}" "${output_file}")
 
   # Ensure the URL is valid
-  if [[ "${url}" == "" ]]; then
+  if [[ "${url}" == "" ]] || [[ "${url}" == "null" ]]; then
     echo_red_text "ERROR: URL is required (file: '${output_file}')!"
     exit 1
   fi

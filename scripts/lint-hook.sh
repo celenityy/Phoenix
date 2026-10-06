@@ -5,16 +5,54 @@
 set -euo pipefail
 
 # Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
+function setup_env() {
+  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
+    # Find dirname
+    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
+      local -r dirname="${PHOENIX_DIRNAME}"
+    elif [[ -x '/bin/dirname' ]]; then
+      local -r dirname='/bin/dirname'
+    elif [[ -x '/usr/bin/dirname' ]]; then
+      local -r dirname='/usr/bin/dirname'
+    else
+      if ! command -v dirname > /dev/null 2>&1; then
+        echo "ERROR: Missing dirname!" >&2
+        exit 1
+      fi
+      # It isn't a known location, so we sadly have to just fall-back to the PATH
+      local -r dirname="$(dirname)"
+    fi
 
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
+    # Set-up our environment
+    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
+    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
+      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
+      exit 1
+    fi
+    source "${PHOENIX_ENV_SH}" || exit 1
+  fi
+}
+
+# Set-up our environment
+setup_env
 
 # Set verbosity
 set_verbosity
+
+# Ensure we have git
+verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
+
+# Ensure we have mkdir
+verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+# Ensure we have rm
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+# Ensure we have touch
+verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+
+# Ensure we have `PHOENIX_BUILD`
+verify_env "${PHOENIX_BUILD}" 'PHOENIX_BUILD' || exit 1
 
 # Check if the hook has already been set-up
 if [[ -f "${PHOENIX_BUILD}/set-hook" ]]; then
