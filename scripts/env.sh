@@ -277,10 +277,10 @@ function setup_path() {
 
 # Set-up a minimal PATH for linting
 function setup_lint_path() {
-  add_to_full_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
+  add_to_lint_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
   add_to_lint_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git'
   add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck'
-  add_to_full_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
+  add_to_lint_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
   add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt'
 
   readonly PATH="${PHOENIX_LINT_PATH}"
