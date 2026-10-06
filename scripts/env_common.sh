@@ -199,6 +199,13 @@ if [[ -z "${PHOENIX_BASENAME+x}" ]] || [[ "${PHOENIX_BASENAME}" == "" ]] || [[ "
 fi
 readonly PHOENIX_BASENAME
 
+# bash
+readonly PHOENIX_BASH_DEFAULT='/bin/bash'
+if [[ -z "${PHOENIX_BASH+x}" ]]; then
+  PHOENIX_BASH="${PHOENIX_BASH_DEFAULT}"
+fi
+readonly PHOENIX_BASH
+
 # cat
 readonly PHOENIX_CAT_DEFAULT='/bin/cat'
 if [[ -z "${PHOENIX_CAT+x}" ]] || [[ "${PHOENIX_CAT}" == "" ]] || [[ "${PHOENIX_CAT}" == "null" ]]; then
@@ -406,6 +413,13 @@ if [[ -z "${PHOENIX_RM+x}" ]] || [[ "${PHOENIX_RM}" == "" ]] || [[ "${PHOENIX_RM
   PHOENIX_RM="${PHOENIX_RM_DEFAULT}"
 fi
 readonly PHOENIX_RM
+
+# sh
+readonly PHOENIX_SH_DEFAULT='/bin/sh'
+if [[ -z "${PHOENIX_SH+x}" ]]; then
+  PHOENIX_SH="${PHOENIX_SH_DEFAULT}"
+fi
+readonly PHOENIX_SH
 
 # rsync
 ## (For CI - ex. to update the wiki)

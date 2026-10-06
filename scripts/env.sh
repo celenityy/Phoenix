@@ -222,6 +222,7 @@ function setup_path() {
   add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'awk'
   add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'gawk'
   add_to_full_path "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' 'basename'
+  add_to_full_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
   add_to_full_path "${PHOENIX_CAT}" 'PHOENIX_CAT' 'cat'
   add_to_full_path "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' 'chmod'
   add_to_full_path "${PHOENIX_CP}" 'PHOENIX_CP' 'cp'
@@ -247,6 +248,7 @@ function setup_path() {
   add_to_full_path "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' 's3cmd'
   add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'gsed'
   add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'sed'
+  add_to_full_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
   add_to_full_path "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' 'shasum'
   add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'gtar'
   add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'tar'
@@ -275,8 +277,10 @@ function setup_path() {
 
 # Set-up a minimal PATH for linting
 function setup_lint_path() {
+  add_to_full_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
   add_to_lint_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git'
   add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck'
+  add_to_full_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
   add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt'
 
   readonly PATH="${PHOENIX_LINT_PATH}"
