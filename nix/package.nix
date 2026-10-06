@@ -21,26 +21,23 @@ stdenvNoCC.mkDerivation {
   ]
   ++ lib.optionals stdenvNoCC.hostPlatform.isDarwin [ python3 ];
 
-  patchPhase = ''
-    sed -i 's|/bin/bash|${bashNonInteractive}/bin/bash|g' ./scripts/build.sh
-  '';
-
   buildPhase = ''
     runHook preBuild
 
     export PHOENIX_NIX=1
 
     # external tools used during build
-    export PHOENIX_RM="${coreutils}/bin/rm"
-    export PHOENIX_MKDIR="${coreutils}/bin/mkdir"
-    export PHOENIX_LN="${coreutils}/bin/ln"
-    export PHOENIX_TEE="${coreutils}/bin/tee"
-    export PHOENIX_DIRNAME="${coreutils}/bin/dirname"
-    export PHOENIX_CP="${coreutils}/bin/cp"
-    export PHOENIX_SED="${gnused}/bin/sed"
     export PHOENIX_AWK="${gawk}/bin/awk"
+    export PHOENIX_BASH="${bashNonInteractive}/bin/bash"
     export PHOENIX_CAT="${coreutils}/bin/cat"
+    export PHOENIX_CP="${coreutils}/bin/cp"
+    export PHOENIX_DIRNAME="${coreutils}/bin/dirname"
     export PHOENIX_JQ="${jq}/bin/jq"
+    export PHOENIX_LN="${coreutils}/bin/ln"
+    export PHOENIX_MKDIR="${coreutils}/bin/mkdir"
+    export PHOENIX_RM="${coreutils}/bin/rm"
+    export PHOENIX_SED="${gnused}/bin/sed"
+    export PHOENIX_TEE="${coreutils}/bin/tee"
     export PHOENIX_UNAME="${coreutils}/bin/uname"
     ${lib.optionalString stdenvNoCC.hostPlatform.isDarwin ''export PHOENIX_PYTHON="${python3}/bin/python"''}
 
