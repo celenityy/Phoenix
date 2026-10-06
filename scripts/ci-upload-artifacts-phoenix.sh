@@ -42,8 +42,6 @@ verify_env "${target_artifact}" 'target_artifact' || {
   exit 1
 }
 
-readonly target_artifact="$1"
-
 # Set-up target parameters
 PHOENIX_AR_UP_ANDROID_ARCHIVE=0
 PHOENIX_AR_UP_ANDROID_JS=0
