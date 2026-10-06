@@ -54,7 +54,8 @@ function get_deps() {
 # Configure Git
 function configure_git() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]]; then
+  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
+    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
     echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'!."
     exit 1
   fi
@@ -63,19 +64,22 @@ function configure_git() {
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]]; then
+  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]] ||
+    [[ "${PHOENIX_FORGEJO_URL}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_FORGEJO_URL' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_WIKI_GIT_EMAIL`
-  if [[ -z "${PHOENIX_WIKI_GIT_EMAIL+x}" ]] || [[ "${PHOENIX_WIKI_GIT_EMAIL}" == "" ]]; then
+  if [[ -z "${PHOENIX_WIKI_GIT_EMAIL+x}" ]] || [[ "${PHOENIX_WIKI_GIT_EMAIL}" == "" ]] ||
+    [[ "${PHOENIX_WIKI_GIT_EMAIL}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_WIKI_GIT_EMAIL' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_WIKI_GIT_NAME`
-  if [[ -z "${PHOENIX_WIKI_GIT_NAME+x}" ]] || [[ "${PHOENIX_WIKI_GIT_NAME}" == "" ]]; then
+  if [[ -z "${PHOENIX_WIKI_GIT_NAME+x}" ]] || [[ "${PHOENIX_WIKI_GIT_NAME}" == "" ]] ||
+    [[ "${PHOENIX_WIKI_GIT_NAME}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_WIKI_GIT_NAME' is missing!"
     exit 1
   fi
@@ -90,7 +94,8 @@ function configure_git() {
 # Clone the wiki repo
 function clone_wiki_repo() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]]; then
+  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
+    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
     echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
     exit 1
   fi
@@ -99,19 +104,22 @@ function clone_wiki_repo() {
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]]; then
+  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]] ||
+    [[ "${PHOENIX_FORGEJO_URL}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_FORGEJO_URL' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_REPO_PATH`
-  if [[ -z "${PHOENIX_REPO_PATH+x}" ]] || [[ "${PHOENIX_REPO_PATH}" == "" ]]; then
+  if [[ -z "${PHOENIX_REPO_PATH+x}" ]] || [[ "${PHOENIX_REPO_PATH}" == "" ]] ||
+    [[ "${PHOENIX_REPO_PATH}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_REPO_PATH' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]]; then
+  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]] ||
+    [[ "${PHOENIX_WIKI_REPO}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_WIKI_REPO' is missing!"
     exit 1
   fi
@@ -123,7 +131,8 @@ function clone_wiki_repo() {
 # Update the wiki repo
 function update_wiki_repo() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]]; then
+  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
+    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
     echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
     exit 1
   fi
@@ -135,13 +144,15 @@ function update_wiki_repo() {
   verify_exec "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_BRANCH`
-  if [[ -z "${PHOENIX_WIKI_BRANCH+x}" ]] || [[ "${PHOENIX_WIKI_BRANCH}" == "" ]]; then
+  if [[ -z "${PHOENIX_WIKI_BRANCH+x}" ]] || [[ "${PHOENIX_WIKI_BRANCH}" == "" ]] ||
+    [[ "${PHOENIX_WIKI_BRANCH}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_WIKI_BRANCH' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]]; then
+  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]] ||
+    [[ "${PHOENIX_WIKI_REPO}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_WIKI_REPO' is missing!"
     exit 1
   fi

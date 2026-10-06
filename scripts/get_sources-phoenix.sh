@@ -628,13 +628,15 @@ function download_and_extract() {
 # Get Python
 function get_python() {
   # Ensure we have `PHOENIX_PYTHON_GIT_RELEASE`
-  if [[ -z "${PHOENIX_PYTHON_GIT_RELEASE+x}" ]] || [[ "${PHOENIX_PYTHON_GIT_RELEASE}" == "" ]]; then
+  if [[ -z "${PHOENIX_PYTHON_GIT_RELEASE+x}" ]] || [[ "${PHOENIX_PYTHON_GIT_RELEASE}" == "" ]] ||
+    [[ "${PHOENIX_PYTHON_GIT_RELEASE}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_PYTHON_GIT_RELEASE' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_PYTHON_VERSION`
-  if [[ -z "${PHOENIX_PYTHON_VERSION+x}" ]] || [[ "${PHOENIX_PYTHON_VERSION}" == "" ]]; then
+  if [[ -z "${PHOENIX_PYTHON_VERSION+x}" ]] || [[ "${PHOENIX_PYTHON_VERSION}" == "" ]] ||
+    [[ "${PHOENIX_PYTHON_VERSION}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_PYTHON_VERSION' is missing!"
     exit 1
   fi
@@ -791,13 +793,15 @@ function get_python() {
 # Get s3cmd
 function get_s3cmd() {
   # Ensure we have `PHOENIX_S3CMD_COMMIT`
-  if [[ -z "${PHOENIX_S3CMD_COMMIT+x}" ]] || [[ "${PHOENIX_S3CMD_COMMIT}" == "" ]]; then
+  if [[ -z "${PHOENIX_S3CMD_COMMIT+x}" ]] || [[ "${PHOENIX_S3CMD_COMMIT}" == "" ]] ||
+    [[ "${PHOENIX_S3CMD_COMMIT}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_S3CMD_COMMIT' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_S3CMD_SHA512SUM`
-  if [[ -z "${PHOENIX_S3CMD_SHA512SUM+x}" ]] || [[ "${PHOENIX_S3CMD_SHA512SUM}" == "" ]]; then
+  if [[ -z "${PHOENIX_S3CMD_SHA512SUM+x}" ]] || [[ "${PHOENIX_S3CMD_SHA512SUM}" == "" ]] ||
+    [[ "${PHOENIX_S3CMD_SHA512SUM}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_S3CMD_SHA512SUM' is missing!"
     exit 1
   fi
@@ -842,7 +846,8 @@ function get_s3cmd() {
 # Get shellcheck
 function get_shellcheck() {
   # Ensure we have `PHOENIX_SHELLCHECK_VERSION`
-  if [[ -z "${PHOENIX_SHELLCHECK_VERSION+x}" ]] || [[ "${PHOENIX_SHELLCHECK_VERSION}" == "" ]]; then
+  if [[ -z "${PHOENIX_SHELLCHECK_VERSION+x}" ]] || [[ "${PHOENIX_SHELLCHECK_VERSION}" == "" ]] ||
+    [[ "${PHOENIX_SHELLCHECK_VERSION}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_SHELLCHECK_VERSION' is missing!"
     exit 1
   fi
@@ -909,7 +914,8 @@ function get_shellcheck() {
 # Get shfmt
 function get_shfmt() {
   # Ensure we have `PHOENIX_SHFMT_VERSION`
-  if [[ -z "${PHOENIX_SHFMT_VERSION+x}" ]] || [[ "${PHOENIX_SHFMT_VERSION}" == "" ]]; then
+  if [[ -z "${PHOENIX_SHFMT_VERSION+x}" ]] || [[ "${PHOENIX_SHFMT_VERSION}" == "" ]] ||
+    [[ "${PHOENIX_SHFMT_VERSION}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_SHFMT_VERSION' is missing!"
     exit 1
   fi
@@ -984,7 +990,8 @@ function get_shfmt() {
 # Get + set-up uv
 function get_uv() {
   # Ensure we have `PHOENIX_UV_VERSION`
-  if [[ -z "${PHOENIX_UV_VERSION+x}" ]] || [[ "${PHOENIX_UV_VERSION}" == "" ]]; then
+  if [[ -z "${PHOENIX_UV_VERSION+x}" ]] || [[ "${PHOENIX_UV_VERSION}" == "" ]] ||
+    [[ "${PHOENIX_UV_VERSION}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_UV_VERSION' is missing!"
     exit 1
   fi

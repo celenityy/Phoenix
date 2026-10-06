@@ -69,7 +69,8 @@ function create_archive() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION_DATE`
-  if [[ -z "${PHOENIX_VERSION_DATE+x}" ]] || [[ "${PHOENIX_VERSION_DATE}" == "" ]]; then
+  if [[ -z "${PHOENIX_VERSION_DATE+x}" ]] || [[ "${PHOENIX_VERSION_DATE}" == "" ]] ||
+    [[ "${PHOENIX_VERSION_DATE}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_VERSION_DATE' is missing!"
     exit 1
   fi

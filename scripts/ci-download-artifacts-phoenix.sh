@@ -27,7 +27,8 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]]; then
+if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]] ||
+  [[ "${PHOENIX_CI_ID}" == "null" ]]; then
   echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
   exit 1
 fi
@@ -152,13 +153,15 @@ function download_artifact() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]]; then
+  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
+    [[ "${PHOENIX_VERSION}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
     exit 1
   fi
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_URL`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_URL+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "" ]]; then
+  if [[ -z "${PHOENIX_CEL_ARTIFACTS_URL+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "" ]] ||
+    [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_URL' is missing!"
     exit 1
   fi

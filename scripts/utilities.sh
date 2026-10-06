@@ -24,7 +24,8 @@ function error_fn() {
 # Set the verbosity of a script
 ## (From the value of the `PHOENIX_VERBOSE` environment variable)
 function set_verbosity() {
-  if [[ -z "${PHOENIX_VERBOSE+x}" ]]; then
+  if [[ -z "${PHOENIX_VERBOSE+x}" ]] || [[ "${PHOENIX_VERBOSE}" == "" ]] ||
+    [[ "${PHOENIX_VERBOSE}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_VERBOSE' is missing!"
     exit 1
   fi
@@ -57,7 +58,7 @@ function verify_exec() {
   local -r exec="$1"
   local -r exec_env="$2"
 
-  if [[ -z "${exec_env+x}" ]]; then
+  if [[ -z "${exec_env+x}" ]] || [[ "${exec_env}" == "" ]] || [[ "${exec_env}" == "null" ]]; then
     echo_red_text "ERROR: Environment variable is missing: '${exec_env}'!"
     exit 1
   fi
@@ -127,7 +128,7 @@ function verify_file_with_env() {
   local -r verify_file="$1"
   local -r verify_file_env="$2"
 
-  if [[ -z "${verify_file_env+x}" ]]; then
+  if [[ -z "${verify_file_env+x}" ]] || [[ "${verify_file_env}" == "" ]] || [[ "${verify_file_env}" == "null" ]]; then
     echo_red_text "ERROR: Environment variable is missing: '${verify_file_env}'!"
     exit 1
   fi

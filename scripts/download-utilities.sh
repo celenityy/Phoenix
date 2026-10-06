@@ -47,7 +47,8 @@ function download() {
   verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
   # Ensure we have our curl flags
-  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]]; then
+  if [[ -z "${PHOENIX_CURL_FLAGS+x}" ]] || [[ "${PHOENIX_CURL_FLAGS}" == "" ]] ||
+    [[ "${PHOENIX_CURL_FLAGS}" == "null" ]]; then
     echo_red_text "ERROR: 'PHOENIX_CURL_FLAGS' is missing!"
     exit 1
   fi
