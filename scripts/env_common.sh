@@ -414,13 +414,6 @@ if [[ -z "${PHOENIX_RM+x}" ]] || [[ "${PHOENIX_RM}" == "" ]] || [[ "${PHOENIX_RM
 fi
 readonly PHOENIX_RM
 
-# sh
-readonly PHOENIX_SH_DEFAULT='/bin/sh'
-if [[ -z "${PHOENIX_SH+x}" ]]; then
-  PHOENIX_SH="${PHOENIX_SH_DEFAULT}"
-fi
-readonly PHOENIX_SH
-
 # rsync
 ## (For CI - ex. to update the wiki)
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -432,6 +425,13 @@ if [[ -z "${PHOENIX_RSYNC+x}" ]] || [[ "${PHOENIX_RSYNC}" == "" ]] || [[ "${PHOE
   PHOENIX_RSYNC="${PHOENIX_RSYNC_DEFAULT}"
 fi
 readonly PHOENIX_RSYNC
+
+# sh
+readonly PHOENIX_SH_DEFAULT='/bin/sh'
+if [[ -z "${PHOENIX_SH+x}" ]]; then
+  PHOENIX_SH="${PHOENIX_SH_DEFAULT}"
+fi
+readonly PHOENIX_SH
 
 # shasum
 if [[ "${PHOENIX_OS}" == 'osx' ]]; then
