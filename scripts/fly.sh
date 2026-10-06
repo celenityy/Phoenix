@@ -149,7 +149,7 @@ function maybe_verify_file_with_env() {
   local -r maybe_file="$1"
   local -r maybe_file_env="$2"
 
-  if [[ "${maybe_file}" != 'undefined' ]]; then
+  if [[ "${maybe_file}" != 'null' ]]; then
     verify_file_with_env "${maybe_file}" "${maybe_file_env}"
   fi
 }
@@ -485,7 +485,7 @@ function build_phoenix_common() {
   "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
   # If necessary, apply overrides for Phoenix-specific preferences
-  if [[ "${PHOENIX_OVERRIDES_CFG}" != 'undefined' ]]; then
+  if [[ "${PHOENIX_OVERRIDES_CFG}" != 'null' ]]; then
     echo '' >> "${PHOENIX_TEMP}/phoenix-core.cfg"
     combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
   else

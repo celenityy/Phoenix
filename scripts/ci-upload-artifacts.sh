@@ -16,7 +16,8 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_TYPE+x}" ]] || [[ "${PHOENIX_CI_TYPE}" == "" ]]; then
+if [[ -z "${PHOENIX_CI_TYPE+x}" ]] || [[ "${PHOENIX_CI_TYPE}" == "" ]] ||
+  [[ "${PHOENIX_CI_TYPE}" == "null" ]]; then
   echo_red_text "ERROR: Missing CI type! Please set 'PHOENIX_CI_TYPE'."
   exit 1
 fi
@@ -28,14 +29,16 @@ verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 ## For Forgejo (Codeberg), we use the run ID
 ## For GitLab, we use the pipeline ID
 if [[ "${PHOENIX_CI_TYPE}" == 'forgejo' ]]; then
-  if [[ -z "${FORGEJO_RUN_ID+x}" ]] || [[ "${FORGEJO_RUN_ID}" == "" ]]; then
+  if [[ -z "${FORGEJO_RUN_ID+x}" ]] || [[ "${FORGEJO_RUN_ID}" == "" ]] ||
+    [[ "${FORGEJO_RUN_ID}" == "null" ]]; then
     echo_red_text "ERROR: Missing Forgejo run ID! Please set 'FORGEJO_RUN_ID'."
     exit 1
   else
     readonly PHOENIX_CI_ID="${FORGEJO_RUN_ID}"
   fi
 elif [[ "${PHOENIX_CI_TYPE}" == 'gitlab' ]]; then
-  if [[ -z "${CI_PIPELINE_ID+x}" ]] || [[ "${CI_PIPELINE_ID}" == "" ]]; then
+  if [[ -z "${CI_PIPELINE_ID+x}" ]] || [[ "${CI_PIPELINE_ID}" == "" ]] ||
+    [[ "${CI_PIPELINE_ID}" == "null" ]]; then
     echo_red_text "ERROR: Missing GitLab pipeline ID! Please set 'CI_PIPELINE_ID'."
     exit 1
   else
