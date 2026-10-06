@@ -11,16 +11,43 @@ set -euo pipefail
 set +x || exit 1
 
 # Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
+function setup_env() {
+  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
+    # Find dirname
+    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
+      local -r dirname="${PHOENIX_DIRNAME}"
+    elif [[ -x '/bin/dirname' ]]; then
+      local -r dirname='/bin/dirname'
+    elif [[ -x '/usr/bin/dirname' ]]; then
+      local -r dirname='/usr/bin/dirname'
+    else
+      if ! command -v dirname > /dev/null 2>&1; then
+        echo "ERROR: Missing dirname!" >&2
+        exit 1
+      fi
+      # It isn't a known location, so we sadly have to just fall-back to the PATH
+      local -r dirname="$(dirname)"
+    fi
 
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
+    # Set-up our environment
+    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
+    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
+      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
+      exit 1
+    fi
+    source "${PHOENIX_ENV_SH}" || exit 1
+  fi
+}
+
+# Set-up our environment
+setup_env
 
 # Include download utilities
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
@@ -54,35 +81,19 @@ function get_deps() {
 # Configure Git
 function configure_git() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'!."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have git
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_GIT_EMAIL`
-  if [[ -z "${PHOENIX_WIKI_GIT_EMAIL+x}" ]] || [[ "${PHOENIX_WIKI_GIT_EMAIL}" == "" ]] ||
-    [[ "${PHOENIX_WIKI_GIT_EMAIL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_WIKI_GIT_EMAIL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_WIKI_GIT_EMAIL}" 'PHOENIX_WIKI_GIT_EMAIL' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_GIT_NAME`
-  if [[ -z "${PHOENIX_WIKI_GIT_NAME+x}" ]] || [[ "${PHOENIX_WIKI_GIT_NAME}" == "" ]] ||
-    [[ "${PHOENIX_WIKI_GIT_NAME}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_WIKI_GIT_NAME' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_WIKI_GIT_NAME}" 'PHOENIX_WIKI_GIT_NAME' || exit 1
 
   echo_red_text 'Configuring Git...'
   "${PHOENIX_GIT}" config --global user.email "${PHOENIX_WIKI_GIT_EMAIL}"
@@ -94,35 +105,19 @@ function configure_git() {
 # Clone the wiki repo
 function clone_wiki_repo() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have git
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  if [[ -z "${PHOENIX_FORGEJO_URL+x}" ]] || [[ "${PHOENIX_FORGEJO_URL}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_FORGEJO_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || exit 1
 
   # Ensure we have `PHOENIX_REPO_PATH`
-  if [[ -z "${PHOENIX_REPO_PATH+x}" ]] || [[ "${PHOENIX_REPO_PATH}" == "" ]] ||
-    [[ "${PHOENIX_REPO_PATH}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_REPO_PATH' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_REPO_PATH}" 'PHOENIX_REPO_PATH' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]] ||
-    [[ "${PHOENIX_WIKI_REPO}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_WIKI_REPO' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
 
   # Clone the wiki repo
   clone_git_repo "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git" "${PHOENIX_WIKI_REPO}" 'no-revision' --silent
@@ -131,11 +126,7 @@ function clone_wiki_repo() {
 # Update the wiki repo
 function update_wiki_repo() {
   # Ensure we have an API token...
-  if [[ -z "${PHOENIX_FORGEJO_CI_API_TOKEN+x}" ]] || [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "" ]] ||
-    [[ "${PHOENIX_FORGEJO_CI_API_TOKEN}" == "null" ]]; then
-    echo_red_text "ERROR: Missing Forgejo CI API Token! Please set 'PHOENIX_FORGEJO_CI_API_TOKEN'."
-    exit 1
-  fi
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
 
   # Ensure we have git
   verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
@@ -144,18 +135,10 @@ function update_wiki_repo() {
   verify_exec "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_BRANCH`
-  if [[ -z "${PHOENIX_WIKI_BRANCH+x}" ]] || [[ "${PHOENIX_WIKI_BRANCH}" == "" ]] ||
-    [[ "${PHOENIX_WIKI_BRANCH}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_WIKI_BRANCH' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_WIKI_BRANCH}" 'PHOENIX_WIKI_BRANCH' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  if [[ -z "${PHOENIX_WIKI_REPO+x}" ]] || [[ "${PHOENIX_WIKI_REPO}" == "" ]] ||
-    [[ "${PHOENIX_WIKI_REPO}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_WIKI_REPO' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
 
   # Ensure the wiki repo exists
   if [[ ! -d "${PHOENIX_WIKI_REPO}" ]]; then

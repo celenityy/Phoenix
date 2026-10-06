@@ -6,13 +6,39 @@ set -euo pipefail
 set +x || exit 1
 
 # Set-up our environment
-if [[ -z "${PHOENIX_SET_ENVS+x}" ]]; then
-  /bin/bash $(dirname $0)/env.sh || exit 1
-fi
-source $(dirname $0)/env.sh || exit 1
+function setup_env() {
+  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
+    # Find dirname
+    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
+      local -r dirname="${PHOENIX_DIRNAME}"
+    elif [[ -x '/bin/dirname' ]]; then
+      local -r dirname='/bin/dirname'
+    elif [[ -x '/usr/bin/dirname' ]]; then
+      local -r dirname='/usr/bin/dirname'
+    else
+      if ! command -v dirname > /dev/null 2>&1; then
+        echo "ERROR: Missing dirname!" >&2
+        exit 1
+      fi
+      # It isn't a known location, so we sadly have to just fall-back to the PATH
+      local -r dirname="$(dirname)"
+    fi
 
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
+    # Set-up our environment
+    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
+    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
+      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
+      exit 1
+    fi
+    source "${PHOENIX_ENV_SH}" || exit 1
+  fi
+}
+
+# Set-up our environment
+setup_env
+
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
@@ -207,62 +233,30 @@ function prep_s3_artifacts() {
   # First, check environment variables specified externally (via CI)
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY' || exit 1
 
   # Now, check environment variables specified directly (via `env_ci.sh`/`env_common.sh`)
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' || exit 1
 
   # Prepare our secrets
   prep_s3 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}"
@@ -277,62 +271,30 @@ function prep_s3_releases() {
   # First, check environment variables specified externally (via CI)
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ACCESS_KEY`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_BUCKET_NAME`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ENDPOINT`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_ENDPOINT' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_SECRET_KEY`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY' || exit 1
 
   # Now, check environment variables specified directly (via `env_ci.sh`/`env_common.sh`)
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE`
-  if [[ -z "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE+x}" ]] || [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" == "" ]] ||
-    [[ "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
 
   # Prepare our secrets
   prep_s3 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"

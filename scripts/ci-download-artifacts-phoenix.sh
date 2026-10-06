@@ -2,38 +2,33 @@
 
 set -euo pipefail
 
-# Set-up our environment
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Set verbosity
 set_verbosity
 
 # Include download utilities
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
-
-# Include version info
-source "${PHOENIX_VERSIONS}" || exit 1
 
 if [[ -z "${PHOENIX_FROM_AR_DOWN+x}" ]]; then
   echo_red_text "ERROR: Do not call 'ci-download-artifacts-phoenix.sh' directly! Instead, use 'ci-download-artifacts.sh'." >&1
   exit 1
 fi
 
+# Ensure we have `PHOENIX_CI`
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
+
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
   exit 1
 fi
 
-if [[ -z "${PHOENIX_CI_ID+x}" ]] || [[ "${PHOENIX_CI_ID}" == "" ]] ||
-  [[ "${PHOENIX_CI_ID}" == "null" ]]; then
-  echo_red_text "ERROR: Missing CI ID! Please set 'PHOENIX_CI_ID'."
-  exit 1
-fi
+# Ensure we have `PHOENIX_CI_ID`
+verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || exit 1
 
-readonly down_artifact="$1"
+verify_env "${target_artifact}" 'target_artifact' || {
+  echo_red_text "ERROR: Missing target artifact!"
+  exit 1
+}
 
 # Set-up target parameters
 PHOENIX_AR_DOWN_ANDROID_ARCHIVE=0
@@ -46,34 +41,34 @@ PHOENIX_AR_DOWN_OSX_INTEL_ARCHIVE=0
 PHOENIX_AR_DOWN_WINDOWS_ARCHIVE=0
 PHOENIX_AR_DOWN_UNIVERSAL_CFG=0
 
-if [[ "${down_artifact}" == 'android-archive' ]]; then
+if [[ "${target_artifact}" == 'android-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
   PHOENIX_AR_DOWN_ANDROID_ARCHIVE=1
-elif [[ "${down_artifact}" == 'android-js' ]]; then
+elif [[ "${target_artifact}" == 'android-js' ]]; then
   # phoenix-{PHOENIX_VERSION}-android.js
   PHOENIX_AR_DOWN_ANDROID_JS=1
-elif [[ "${down_artifact}" == 'android-js-extended' ]]; then
+elif [[ "${target_artifact}" == 'android-js-extended' ]]; then
   # phoenix-extended-{PHOENIX_VERSION}-android.js
   PHOENIX_AR_DOWN_ANDROID_JS_EXTENDED=1
-elif [[ "${down_artifact}" == 'linux-archive' ]]; then
+elif [[ "${target_artifact}" == 'linux-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
   PHOENIX_AR_DOWN_LINUX_ARCHIVE=1
-elif [[ "${down_artifact}" == 'linux-flatpak-archive' ]]; then
+elif [[ "${target_artifact}" == 'linux-flatpak-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
   PHOENIX_AR_DOWN_LINUX_FLATPAK_ARCHIVE=1
-elif [[ "${down_artifact}" == 'osx-archive' ]]; then
+elif [[ "${target_artifact}" == 'osx-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
   PHOENIX_AR_DOWN_OSX_ARCHIVE=1
-elif [[ "${down_artifact}" == 'osx-intel-archive' ]]; then
+elif [[ "${target_artifact}" == 'osx-intel-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
   PHOENIX_AR_DOWN_OSX_INTEL_ARCHIVE=1
-elif [[ "${down_artifact}" == 'windows-archive' ]]; then
+elif [[ "${target_artifact}" == 'windows-archive' ]]; then
   # phoenix-{PHOENIX_VERSION}-windows.zip
   PHOENIX_AR_DOWN_WINDOWS_ARCHIVE=1
-elif [[ "${down_artifact}" == 'universal-cfg' ]]; then
+elif [[ "${target_artifact}" == 'universal-cfg' ]]; then
   # phoenix-{PHOENIX_VERSION}-universal.cfg
   PHOENIX_AR_DOWN_UNIVERSAL_CFG=1
-elif [[ "${down_artifact}" == 'all' ]]; then
+elif [[ "${target_artifact}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), just download everything
   PHOENIX_AR_DOWN_ANDROID_ARCHIVE=1
   PHOENIX_AR_DOWN_ANDROID_JS=1
@@ -85,7 +80,7 @@ elif [[ "${down_artifact}" == 'all' ]]; then
   PHOENIX_AR_DOWN_WINDOWS_ARCHIVE=1
   PHOENIX_AR_DOWN_UNIVERSAL_CFG=1
 else
-  echo_red_text "ERROR: Invalid target: ${down_artifact}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: ${target_artifact}\n You must enter one of the following:"
   echo 'All:                      all (Default)'
   echo 'Android archive:          android-archive'
   echo 'Android .js:              android-js'
@@ -153,18 +148,10 @@ function download_artifact() {
   verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
 
   # Ensure we have `PHOENIX_VERSION`
-  if [[ -z "${PHOENIX_VERSION+x}" ]] || [[ "${PHOENIX_VERSION}" == "" ]] ||
-    [[ "${PHOENIX_VERSION}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_VERSION' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_URL`
-  if [[ -z "${PHOENIX_CEL_ARTIFACTS_URL+x}" ]] || [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "" ]] ||
-    [[ "${PHOENIX_CEL_ARTIFACTS_URL}" == "null" ]]; then
-    echo_red_text "ERROR: 'PHOENIX_CEL_ARTIFACTS_URL' is missing!"
-    exit 1
-  fi
+  verify_env "${PHOENIX_CEL_ARTIFACTS_URL}" 'PHOENIX_CEL_ARTIFACTS_URL' || exit 1
 
   local -r pipeline_id="$1"
   local -r target="$2"

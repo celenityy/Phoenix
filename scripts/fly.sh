@@ -5,13 +5,8 @@ set -euo pipefail
 # Welcome to the Phoenix Unified build script!
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
-# Set-up our environment
-source $(dirname $0)/env.sh || exit 1
-
-# Include utilities
-source "${PHOENIX_UTILS}" || exit 1
-
 # Include file utilities
+verify_file_with_env "${PHOENIX_FILE_UTILS}" 'PHOENIX_FILE_UTILS' || exit 1
 source "${PHOENIX_FILE_UTILS}" || exit 1
 
 # Set verbosity
@@ -22,7 +17,10 @@ if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   exit 1
 fi
 
-readonly target="$1"
+verify_env "${target}" 'target' || {
+  echo_red_text "ERROR: Missing target!"
+  exit 1
+}
 
 # Set-up target parameters
 PHOENIX_ANDROID=0
@@ -87,9 +85,6 @@ readonly PHOENIX_OSX_INTEL
 readonly PHOENIX_UNIVERSAL
 readonly PHOENIX_WINDOWS
 
-# Include version info
-source "${PHOENIX_VERSIONS}" || exit 1
-
 # Check if a file or directory already exists
 ## If the file or directory already exists, prompt the user to remove it
 ## If the user chooses not to remove it, we exit
@@ -104,9 +99,6 @@ function check_file_or_dir_exists() {
     print_usage
     exit 1
   fi
-
-  # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
   local -r path="$1"
 
@@ -275,7 +267,7 @@ function combine_files() {
       local -r initial_input_file_type='txt'
       ;;
     *)
-      echo_red_text "ERROR: Unsupported file type: ${initial_input_file}"
+      echo_red_text "ERROR: Unsupported file type: '${initial_input_file}'!"
       exit 1
       ;;
   esac
@@ -304,14 +296,14 @@ function combine_files() {
           local file_type='txt'
           ;;
         *)
-          echo_red_text "ERROR: Unsupported file type: ${file}"
+          echo_red_text "ERROR: Unsupported file type: '${file}'!"
           exit 1
           ;;
       esac
 
       # To combine files, we must ensure the file types match
       if [[ "${file_type}" != "${initial_input_file_type}" ]]; then
-        echo_red_text "ERROR: File type does not match: ${file}"
+        echo_red_text "ERROR: File type does not match: '${file}'!"
         exit 1
       else
         files_to_combine+=("${file}")
@@ -328,9 +320,6 @@ function combine_files() {
 
     # Ensure we have jq
     verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
-
-    # Ensure we have rm
-    verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
     # First, always combine the first two files
     "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json"
@@ -451,12 +440,6 @@ function build_phoenix_common() {
   # Ensure we have GNU sed
   verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
 
-  # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
-
-  # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
-
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
 
@@ -535,8 +518,11 @@ function build_phoenix() {
   # Ensure we have GNU sed
   verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
 
-  # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  # Ensure we have `PHOENIX_VERSION`
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
+  # Ensure we have `PHOENIX_OUTPUTS`
+  verify_env "${PHOENIX_OUTPUTS}" 'PHOENIX_OUTPUTS' || exit 1
 
   local -r phoenix_platform="$1"
   local -r phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
@@ -685,6 +671,12 @@ function build_phoenix_js() {
     exit 1
   fi
 
+  # Ensure we have `PHOENIX_SCRIPTS`
+  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
+  # Ensure we have `PHOENIX_VERSION`
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+
   local -r phoenix_js_platform="$1"
 
   # First, set the designated location for our file
@@ -798,8 +790,8 @@ function build_policies() {
   # Ensure we have GNU sed
   verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
 
-  # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  # Ensure we have `PHOENIX_SCRIPTS`
+  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
 
   local -r phoenix_policies_platform="$1"
   local -r phoenix_policies_output_dir="$2"
@@ -887,6 +879,15 @@ function build_policies() {
   fi
 }
 
+# Ensure we have mkdir
+verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+
+# Ensure we have rm
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+
+# Ensure we have `PHOENIX_TEMP`
+verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || exit 1
+
 # First, if necessary, verify that variables specifying additional configuration/policies files are configured correctly
 ## This is ran first because we want to run these checks early, and we don't need to run them repeatedly
 check_extra_files
@@ -926,11 +927,12 @@ if [[ "${phoenix_py}" == 1 ]]; then
       echo_red_text 'Creating Python environment with Python...'
       "${PHOENIX_PYTHON}" -m venv "${PHOENIX_PYENV_DIR}"
     fi
-    echo_green_text "Created Python environment: ${PHOENIX_PYENV}"
+    echo_green_text "Created Python environment: '${PHOENIX_PYENV}'"
   fi
-  echo_red_text 'Sourcing Python environment...'
+  echo_red_text "Sourcing Python environment: '${PHOENIX_PYENV}'..."
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
   source "${PHOENIX_PYENV}"
-  echo_green_text "Sourced Python environment: ${PHOENIX_PYENV}"
+  echo_green_text "SUCCESS: Sourced Python environment: '${PHOENIX_PYENV}'"
 fi
 
 # Build Phoenix (platform-generic logic)
