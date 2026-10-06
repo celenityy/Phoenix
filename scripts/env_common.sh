@@ -909,7 +909,7 @@ readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
 
 # Set our external environment variables
 readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"
-source "${PHOENIX_ENV_EXTERNAL}"
+source "${PHOENIX_ENV_EXTERNAL}" || exit 1
 
 # We've now set our environment variables...
 readonly PHOENIX_SET_ENVS=1
