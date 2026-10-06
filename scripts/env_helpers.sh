@@ -197,6 +197,8 @@ function set_arch() {
   elif [[ "${PHOENIX_PLATFORM_ARCH}" == 'i386' ]] || [[ "${PHOENIX_PLATFORM_ARCH}" == 'i486' ]] || [[ "${PHOENIX_PLATFORM_ARCH}" == 'i586' ]] ||
     [[ "${PHOENIX_PLATFORM_ARCH}" == 's390x' ]] || [[ "${PHOENIX_PLATFORM_ARCH}" == 'x86' ]] || [[ "${PHOENIX_PLATFORM_ARCH}" == 'x86_64' ]]; then
     readonly PHOENIX_PLATFORM_ARCH_PRETTY="${PHOENIX_PLATFORM_ARCH}"
+  elif [[ "${PHOENIX_PLATFORM_ARCH}" == 'unknown' ]]; then
+    readonly PHOENIX_PLATFORM_ARCH_PRETTY='Unknown'
   else
     echo "ERROR: Invalid architecture: '${PHOENIX_PLATFORM_ARCH}'!"
     exit 1
