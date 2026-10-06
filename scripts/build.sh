@@ -39,9 +39,9 @@ verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
-  readonly target='all'
+  readonly build_target='all'
 else
-  readonly target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
+  readonly build_target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
 fi
 
 pushd "${PHOENIX_ROOT}"
@@ -72,9 +72,9 @@ if [[ "${PHOENIX_LOG_BUILD}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/fly.sh" "${target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_SCRIPTS}/fly.sh" "${build_target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/fly.sh" "${target}" || exit 1
+  source "${PHOENIX_SCRIPTS}/fly.sh" "${build_target}" || exit 1
 fi
 
 popd

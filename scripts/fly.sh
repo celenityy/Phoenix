@@ -17,8 +17,8 @@ if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   exit 1
 fi
 
-verify_env "${target}" 'target' || {
-  echo_red_text "ERROR: Missing target!"
+verify_env "${build_target}" 'build_target' || {
+  echo_red_text "ERROR: Missing build target!"
   exit 1
 }
 
@@ -31,28 +31,28 @@ PHOENIX_OSX_INTEL=0
 PHOENIX_UNIVERSAL=0
 PHOENIX_WINDOWS=0
 
-if [[ "${target}" == 'android' ]]; then
+if [[ "${build_target}" == 'android' ]]; then
   # Android
   PHOENIX_ANDROID=1
-elif [[ "${target}" == 'linux' ]]; then
+elif [[ "${build_target}" == 'linux' ]]; then
   # Linux (non-Flatpak)
   PHOENIX_LINUX=1
-elif [[ "${target}" == 'linux-flatpak' ]]; then
+elif [[ "${build_target}" == 'linux-flatpak' ]]; then
   # Linux (Flatpak)
   PHOENIX_LINUX_FLATPAK=1
-elif [[ "${target}" == 'osx' ]]; then
+elif [[ "${build_target}" == 'osx' ]]; then
   # OS X (Silicon)
   PHOENIX_OSX=1
-elif [[ "${target}" == 'osx-intel' ]]; then
+elif [[ "${build_target}" == 'osx-intel' ]]; then
   # OS X (Intel)
   PHOENIX_OSX_INTEL=1
-elif [[ "${target}" == 'universal' ]]; then
+elif [[ "${build_target}" == 'universal' ]]; then
   # Universal cfg
   PHOENIX_UNIVERSAL=1
-elif [[ "${target}" == 'windows' ]]; then
+elif [[ "${build_target}" == 'windows' ]]; then
   # Windows
   PHOENIX_WINDOWS=1
-elif [[ "${target}" == 'all' ]]; then
+elif [[ "${build_target}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), build everything
   PHOENIX_LINUX=1
   PHOENIX_LINUX_FLATPAK=1
@@ -66,7 +66,7 @@ elif [[ "${target}" == 'all' ]]; then
     PHOENIX_UNIVERSAL=1
   fi
 else
-  echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: ${build_target}\n You must enter one of the following:"
   echo 'All:                  all (Default)'
   echo 'Android:              android'
   echo 'Linux (non-Flatpak):  linux'
@@ -191,12 +191,12 @@ function check_extra_files() {
   maybe_verify_file_with_env "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG'
 
   # Check policies
-  if [[ "${target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
+  if [[ "${build_target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     check_extra_policies
   fi
 
   # Check for a static prefs file to append and override/set additional preferences
-  if [[ "${target}" == 'android' ]]; then
+  if [[ "${build_target}" == 'android' ]]; then
     if [[ "${PHOENIX_STATIC_JS_ANDROID}" != 1 ]]; then
       local -r check_static_prefs_js=0
     else
@@ -484,12 +484,12 @@ function build_phoenix_common() {
   "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix.cfg"
 
   # Create enterprise policies
-  if [[ "${target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
+  if [[ "${build_target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     # Create our directory
     "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}/policies"
 
     # If we're not targetting Thunderbird, create policies that always apply everywhere EXCEPT Thunderbird
-    if [[ "${target}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
+    if [[ "${build_target}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
       "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json"
     else
       combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_ROOT}/policies/phoenix-no-mail.json"
@@ -905,7 +905,7 @@ elif [[ "${PHOENIX_OSX}" == 1 ]] || [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
   readonly phoenix_py=1
 elif [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_STATIC_JS_ANDROID}" == 1 ]]; then
   readonly phoenix_py=1
-elif [[ "${target}" != 'android' ]] && [[ "${target}" != 'universal' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
+elif [[ "${build_target}" != 'android' ]] && [[ "${build_target}" != 'universal' ]] && [[ "${PHOENIX_STATIC_JS}" == 1 ]]; then
   readonly phoenix_py=1
 else
   readonly phoenix_py=0

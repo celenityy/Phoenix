@@ -39,9 +39,9 @@ verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
-  readonly target='all'
+  readonly source_target='all'
 else
-  readonly target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
+  readonly source_target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
 fi
 
 if [[ -z "${2+x}" ]]; then
@@ -76,7 +76,7 @@ if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${source_target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${target}" "${mode}" || exit 1
+  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${source_target}" "${mode}" || exit 1
 fi

@@ -201,7 +201,7 @@ readonly PHOENIX_BASENAME
 
 # bash
 readonly PHOENIX_BASH_DEFAULT='/bin/bash'
-if [[ -z "${PHOENIX_BASH+x}" ]]; then
+if [[ -z "${PHOENIX_BASH+x}" ]] || [[ "${PHOENIX_BASH}" == "" ]] || [[ "${PHOENIX_BASH}" == "null" ]]; then
   PHOENIX_BASH="${PHOENIX_BASH_DEFAULT}"
 fi
 readonly PHOENIX_BASH
@@ -428,7 +428,7 @@ readonly PHOENIX_RSYNC
 
 # sh
 readonly PHOENIX_SH_DEFAULT='/bin/sh'
-if [[ -z "${PHOENIX_SH+x}" ]]; then
+if [[ -z "${PHOENIX_SH+x}" ]] || [[ "${PHOENIX_SH}" == "" ]] || [[ "${PHOENIX_SH}" == "null" ]]; then
   PHOENIX_SH="${PHOENIX_SH_DEFAULT}"
 fi
 readonly PHOENIX_SH
