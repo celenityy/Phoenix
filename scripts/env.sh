@@ -279,6 +279,7 @@ function setup_path() {
 function setup_lint_path() {
   add_to_lint_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
   add_to_lint_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git'
+  add_to_lint_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls'
   add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck'
   add_to_lint_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
   add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt'
