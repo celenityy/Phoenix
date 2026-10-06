@@ -21,7 +21,7 @@ fi
 # Ensure we have rm
 verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
 
-verify_env "${target}" 'target' || {
+verify_env "${source_target}" 'source_target' || {
   echo_red_text "ERROR: Missing target!"
   exit 1
 }
@@ -38,22 +38,22 @@ PHOENIX_GET_SOURCE_SHELLCHECK=0
 PHOENIX_GET_SOURCE_SHFMT=0
 PHOENIX_GET_SOURCE_UV=0
 
-if [[ "${target}" == 'python' ]]; then
+if [[ "${source_target}" == 'python' ]]; then
   # Get Python
   PHOENIX_GET_SOURCE_PYTHON=1
-elif [[ "${target}" == 's3cmd' ]]; then
+elif [[ "${source_target}" == 's3cmd' ]]; then
   # Get s3cmd
   PHOENIX_GET_SOURCE_S3CMD=1
-elif [[ "${target}" == 'shellcheck' ]]; then
+elif [[ "${source_target}" == 'shellcheck' ]]; then
   # Get shellcheck
   PHOENIX_GET_SOURCE_SHELLCHECK=1
-elif [[ "${target}" == 'shfmt' ]]; then
+elif [[ "${source_target}" == 'shfmt' ]]; then
   # Get shfmt
   PHOENIX_GET_SOURCE_SHFMT=1
-elif [[ "${target}" == 'uv' ]]; then
+elif [[ "${source_target}" == 'uv' ]]; then
   # Get + set-up uv
   PHOENIX_GET_SOURCE_UV=1
-elif [[ "${target}" == 'all' ]]; then
+elif [[ "${source_target}" == 'all' ]]; then
   # If no argument is specified (or argument is set to "all"), just get everything, except s3cmd
   ## (We don't need to bother getting s3cmd here since it's only used in certain scenarios)
   PHOENIX_GET_SOURCE_PYTHON=1
@@ -67,7 +67,7 @@ elif [[ "${target}" == 'all' ]]; then
     PHOENIX_GET_SOURCE_SHFMT=1
   fi
 else
-  echo_red_text "ERROR: Invalid target: ${target}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: ${source_target}\n You must enter one of the following:"
   echo 'All:        all (Default)'
   echo 'Python:     python'
   echo 's3cmd:      s3cmd'

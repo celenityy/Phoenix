@@ -49,14 +49,14 @@ fi
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh || exit 1
 /bin/sudo /bin/dnf install -y bash curl jq shasum tar zip || exit 1
-source "${PHOENIX_SCRIPTS}/get_sources.sh" 'all' || exit 1
-source "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/get_sources.sh" 'all' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd' || exit 1
 echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
 
 # Get secrets
 echo_red_text 'CI - Preparing secrets...'
 set +x || exit 1
-source "${PHOENIX_SCRIPTS}/ci-prep.sh" 's3-artifacts' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/ci-prep.sh" 's3-artifacts' || exit 1
 echo_green_text 'CI - SUCCESS: Prepared secrets.'
 
 # Set verbosity
@@ -64,11 +64,11 @@ set_verbosity
 
 # Build Phoenix
 echo_red_text 'CI - Building Phoenix...'
-source "${PHOENIX_SCRIPTS}/build.sh" 'all' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/build.sh" 'all' || exit 1
 echo_green_text 'CI - SUCCESS: Built Phoenix.'
 
 # Upload artifacts
 echo_red_text 'CI - Uploading artifacts...'
 set +x || exit 1
-source "${PHOENIX_SCRIPTS}/ci-upload-artifacts.sh" 'all' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/ci-upload-artifacts.sh" 'all' || exit 1
 echo_green_text 'CI - SUCCESS: Uploaded artifacts.'
