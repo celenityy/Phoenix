@@ -48,7 +48,7 @@ function set_platform() {
     readonly PHOENIX_PLATFORM_PRETTY='Unknown'
   else
     echo "ERROR: Invalid platform: '${PHOENIX_PLATFORM}'!"
-    exit 1
+    return 1
   fi
 
   # Set OS
@@ -102,7 +102,7 @@ function set_platform() {
     readonly PHOENIX_OS_PRETTY="${PHOENIX_OS}"
   else
     echo "ERROR: Invalid operating system: '${PHOENIX_OS}'!"
-    exit 1
+    return 1
   fi
 }
 
@@ -131,7 +131,7 @@ function set_arch() {
     else
       if ! command -v uname > /dev/null 2>&1; then
         echo "ERROR: Missing uname!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r uname="$(uname)"
@@ -201,15 +201,15 @@ function set_arch() {
     readonly PHOENIX_PLATFORM_ARCH_PRETTY='Unknown'
   else
     echo "ERROR: Invalid architecture: '${PHOENIX_PLATFORM_ARCH}'!"
-    exit 1
+    return 1
   fi
 }
 
 # Set our platform/OS
-set_platform || exit 1
+set_platform || return 1
 
 # Set our architecture
-set_arch || exit 1
+set_arch || return 1
 
 echo "Detected platform:         '${PHOENIX_PLATFORM_PRETTY}'"
 echo "Detected operating system: '${PHOENIX_OS_PRETTY}'"

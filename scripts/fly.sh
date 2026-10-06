@@ -6,20 +6,20 @@ set -euo pipefail
 # This script should be ran from inside the directory where you store Phoenix, not directly from the 'archives' or `build` folder...
 
 # Include file utilities
-verify_file_with_env "${PHOENIX_FILE_UTILS}" 'PHOENIX_FILE_UTILS' || exit 1
-source "${PHOENIX_FILE_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_FILE_UTILS}" 'PHOENIX_FILE_UTILS' || return 1
+source "${PHOENIX_FILE_UTILS}" || return 1
 
 # Set verbosity
 set_verbosity
 
 if [[ -z "${PHOENIX_FROM_BUILD+x}" ]]; then
   echo_red_text "ERROR: Do not call 'fly.sh' directly! Instead, use 'build.sh'." >&1
-  exit 1
+  return 1
 fi
 
 verify_env "${build_target}" 'build_target' || {
   echo_red_text "ERROR: Missing build target!"
-  exit 1
+  return 1
 }
 
 # Set-up target parameters
@@ -75,7 +75,7 @@ else
   echo 'OS X (Intel):         osx-intel'
   echo 'Universal cfg:        universal'
   echo 'Windows:              windows'
-  exit 1
+  return 1
 fi
 readonly PHOENIX_ANDROID
 readonly PHOENIX_LINUX
@@ -97,7 +97,7 @@ function check_file_or_dir_exists() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file or directory to check!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r path="$1"
@@ -115,7 +115,7 @@ function check_file_or_dir_exists() {
         "${PHOENIX_RM}" -f "${path}" "${path}-sha512sum.txt"
       fi
     else
-      exit 1
+      return 1
     fi
   fi
 }
@@ -129,13 +129,13 @@ function maybe_verify_file_with_env() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the environment variable that should be used to determine whether we should verify the file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r maybe_file="$1"
@@ -222,13 +222,13 @@ function combine_files() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify a path for the output file'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the paths for each input file you would like to combine'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r output_file="$1"
@@ -237,7 +237,7 @@ function combine_files() {
   if [[ -z "${3+x}" ]]; then
     echo_red_text "ERROR: You must specify the paths for at least two or more input files to combine"
     print_usage
-    exit 1
+    return 1
   fi
 
   local files_to_combine=()
@@ -246,7 +246,7 @@ function combine_files() {
   # First, ensure our initial input file exists
   if [[ ! -f "${initial_input_file}" ]]; then
     echo_red_text "ERROR: ${initial_input_file} does not exist!"
-    exit 1
+    return 1
   else
     files_to_combine+=("${initial_input_file}")
     number_of_files=$((number_of_files + 1))
@@ -268,7 +268,7 @@ function combine_files() {
       ;;
     *)
       echo_red_text "ERROR: Unsupported file type: '${initial_input_file}'!"
-      exit 1
+      return 1
       ;;
   esac
 
@@ -278,7 +278,7 @@ function combine_files() {
       # First, ensure each file exists
       if [[ ! -f "${file}" ]]; then
         echo_red_text "ERROR: ${file} does not exist!"
-        exit 1
+        return 1
       fi
 
       # Determine the file type
@@ -297,14 +297,14 @@ function combine_files() {
           ;;
         *)
           echo_red_text "ERROR: Unsupported file type: '${file}'!"
-          exit 1
+          return 1
           ;;
       esac
 
       # To combine files, we must ensure the file types match
       if [[ "${file_type}" != "${initial_input_file_type}" ]]; then
         echo_red_text "ERROR: File type does not match: '${file}'!"
-        exit 1
+        return 1
       else
         files_to_combine+=("${file}")
         number_of_files=$((number_of_files + 1))
@@ -316,10 +316,10 @@ function combine_files() {
   ## (It's fine to use initial_file here because we verified it matches the files to combine above)
   if [[ "${initial_input_file_type}" == 'json' ]]; then
     # Ensure we have cp
-    verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+    verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
     # Ensure we have jq
-    verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+    verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
     # First, always combine the first two files
     "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json"
@@ -348,7 +348,7 @@ function combine_files() {
     fi
   else
     # Ensure we have cat
-    verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+    verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
     "${PHOENIX_CAT}" "${files_to_combine[@]}" > "${output_file}"
   fi
@@ -364,23 +364,23 @@ function maybe_combine_files() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify a path for the output file'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path for the input file you would like to combine with an additional file'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path for the second input file you would like to combine with the first input file (if this file exists)'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   local -r output_file="$1"
   local -r initial_file="$2"
@@ -402,23 +402,23 @@ function parse_js_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path for the input prefs .js file you would like to parse'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify a path for the output (parsed) prefs .js file'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify a tag that should be removed from the input prefs .js file'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have grep
-  verify_exec "${PHOENIX_GREP}" 'PHOENIX_GREP' || exit 1
+  verify_exec "${PHOENIX_GREP}" 'PHOENIX_GREP' || return 1
 
   local -r input_js_file="$1"
   local -r output_js_file="$2"
@@ -426,7 +426,7 @@ function parse_js_file() {
 
   if [[ ! -f "${input_js_file}" ]]; then
     echo_red_text "ERROR: File does not exist: ${input_js_file}"
-    exit 1
+    return 1
   fi
 
   "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" > "${output_js_file}"
@@ -435,10 +435,10 @@ function parse_js_file() {
 # Common Phoenix build logic
 function build_phoenix_common() {
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have GNU sed
-  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
   "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -509,20 +509,20 @@ function build_phoenix() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix for'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have GNU sed
-  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have `PHOENIX_OUTPUTS`
-  verify_env "${PHOENIX_OUTPUTS}" 'PHOENIX_OUTPUTS' || exit 1
+  verify_env "${PHOENIX_OUTPUTS}" 'PHOENIX_OUTPUTS' || return 1
 
   local -r phoenix_platform="$1"
   local -r phoenix_output_dir="${PHOENIX_OUTPUTS}/${phoenix_platform}"
@@ -668,14 +668,14 @@ function build_phoenix_js() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix (in the static prefs .js format) for'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have `PHOENIX_SCRIPTS`
-  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   local -r phoenix_js_platform="$1"
 
@@ -775,23 +775,23 @@ function build_policies() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the platform you would like to build Phoenix policies for'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify an output directory for your Phoenix policies'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have GNU sed
-  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
   # Ensure we have `PHOENIX_SCRIPTS`
-  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+  verify_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || return 1
 
   local -r phoenix_policies_platform="$1"
   local -r phoenix_policies_output_dir="$2"
@@ -880,13 +880,13 @@ function build_policies() {
 }
 
 # Ensure we have mkdir
-verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
 # Ensure we have rm
-verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
 # Ensure we have `PHOENIX_TEMP`
-verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || exit 1
+verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || return 1
 
 # First, if necessary, verify that variables specifying additional configuration/policies files are configured correctly
 ## This is ran first because we want to run these checks early, and we don't need to run them repeatedly
@@ -912,7 +912,7 @@ else
 fi
 if [[ "${phoenix_py}" == 1 ]]; then
   # Ensure Python is properly set-up
-  verify_exec "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' || exit 1
+  verify_exec "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' || return 1
 
   # The Python environment *should* already be created by `get_sources.sh`, but it may not be (ex. if the user provides their own Python and/or
   # doesn't use `get_sources.sh`), so if it doesn't exist then create it
@@ -930,7 +930,7 @@ if [[ "${phoenix_py}" == 1 ]]; then
     echo_green_text "Created Python environment: '${PHOENIX_PYENV}'"
   fi
   echo_red_text "Sourcing Python environment: '${PHOENIX_PYENV}'..."
-  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
   source "${PHOENIX_PYENV}"
   echo_green_text "SUCCESS: Sourced Python environment: '${PHOENIX_PYENV}'"
 fi

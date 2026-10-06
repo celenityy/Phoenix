@@ -18,49 +18,49 @@ function create_archive() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a directory!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the desired output archive!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have dot_clean
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || exit 1
+    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || return 1
   fi
 
   # Ensure we have find
-  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || exit 1
+  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || return 1
 
   # Ensure we have GNU date
-  verify_exec "${PHOENIX_DATE}" 'PHOENIX_DATE' || exit 1
+  verify_exec "${PHOENIX_DATE}" 'PHOENIX_DATE' || return 1
 
   # Ensure we have head
-  verify_exec "${PHOENIX_HEAD}" 'PHOENIX_HEAD' || exit 1
+  verify_exec "${PHOENIX_HEAD}" 'PHOENIX_HEAD' || return 1
 
   # Ensure we have ls
-  verify_exec "${PHOENIX_LS}" 'PHOENIX_LS' || exit 1
+  verify_exec "${PHOENIX_LS}" 'PHOENIX_LS' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   # Ensure we have touch
-  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || return 1
 
   # Ensure we have xargs
-  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || return 1
 
   # Ensure we have `PHOENIX_VERSION_DATE`
-  verify_env "${PHOENIX_VERSION_DATE}" 'PHOENIX_VERSION_DATE' || exit 1
+  verify_env "${PHOENIX_VERSION_DATE}" 'PHOENIX_VERSION_DATE' || return 1
 
   local -r target_dir="$1"
   local -r output_archive="$2"
@@ -69,25 +69,25 @@ function create_archive() {
   case "${output_archive}" in
     *.zip)
       # Ensure we have zip
-      verify_exec "${PHOENIX_ZIP}" 'PHOENIX_ZIP' || exit 1
+      verify_exec "${PHOENIX_ZIP}" 'PHOENIX_ZIP' || return 1
 
       local -r archive_format='zip'
       ;;
     *.tar.xz)
       # Ensure we have GNU tar
-      verify_exec "${PHOENIX_TAR}" 'PHOENIX_TAR' || exit 1
+      verify_exec "${PHOENIX_TAR}" 'PHOENIX_TAR' || return 1
 
       local -r archive_format='tar'
       ;;
     *)
       echo_red_text "ERROR: Unsupported archive format: '${output_archive}'!"
-      exit 1
+      return 1
       ;;
   esac
 
   if [[ ! -d "${target_dir}" ]]; then
     echo_red_text "ERROR: Target directory ('${target_dir}') does not exist! Aborting..."
-    exit 1
+    return 1
   fi
 
   # Check if the output archive already exists
@@ -100,7 +100,7 @@ function create_archive() {
       echo_red_text "Removing '${output_archive}'..."
       "${PHOENIX_RM}" -f "${output_archive}"
     else
-      exit 1
+      return 1
     fi
   fi
 
@@ -148,7 +148,7 @@ function create_archive() {
     "${PHOENIX_TAR}" -cJv --exclude-vcs --group=0 --mode='go+u,go-w' --no-acls --no-selinux --no-xattrs --numeric-owner --owner=0 --pax-option='delete=atime,delete=ctime' --pax-option='exthdr.name=%d/PaxHeaders/%f' --restrict --sort=name --utc --clamp-mtime --mtime="${PHOENIX_TIMESTAMP}" --exclude ".DS_Store" -f "${output_archive}" * || local archive_failed=1
   else
     echo_red_text "ERROR: Invalid archive format: '${archive_format}'!"
-    exit 1
+    return 1
   fi
   popd
 
@@ -175,35 +175,35 @@ function extract_archive() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the path to an archive to extract!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please provide the path that the archive should be extracted to!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have ls
-  verify_exec "${PHOENIX_LS}" 'PHOENIX_LS' || exit 1
+  verify_exec "${PHOENIX_LS}" 'PHOENIX_LS' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   local -r archive_path="$1"
   local -r target_path="$2"
 
   # Ensure the archive exists
-  verify_file "${archive_path}" || exit 1
+  verify_file "${archive_path}" || return 1
 
   # Set a temporary archive name
   local -r temp_archive_path_name=$("${PHOENIX_BASENAME}" "${target_path}")
@@ -230,16 +230,16 @@ function extract_archive() {
       ;;
     *)
       echo_red_text "ERROR: Unsupported archive format: '${archive_path}'!"
-      exit 1
+      return 1
       ;;
   esac
 
   if [[ "${archive_format}" == 'zip' ]]; then
     # Ensure we have unzip
-    verify_exec "${PHOENIX_UNZIP}" 'PHOENIX_UNZIP' || exit 1
+    verify_exec "${PHOENIX_UNZIP}" 'PHOENIX_UNZIP' || return 1
   else
     # Ensure we have GNU tar
-    verify_exec "${PHOENIX_TAR}" 'PHOENIX_TAR' || exit 1
+    verify_exec "${PHOENIX_TAR}" 'PHOENIX_TAR' || return 1
   fi
 
   # Create temporary directory for extraction
@@ -260,7 +260,7 @@ function extract_archive() {
     "${PHOENIX_TAR}" --zstd -xvf "${archive_path}" -C "${temp_archive_path}" || local extraction_failed=1
   else
     echo_red_text "ERROR: Invalid archive format: '${archive_format}'!"
-    exit 1
+    return 1
   fi
 
   local -r top_input_dir=$("${PHOENIX_LS}" "${temp_archive_path}")

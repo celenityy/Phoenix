@@ -14,17 +14,17 @@ readonly PHOENIX_SCRIPTS="${PHOENIX_ROOT}/scripts"
 
 # Set our platform, OS, and architecture
 readonly PHOENIX_ENV_HELPERS="${PHOENIX_SCRIPTS}/env_helpers.sh"
-source "${PHOENIX_ENV_HELPERS}" || exit 1
+source "${PHOENIX_ENV_HELPERS}" || return 1
 
 # Set version info
 readonly PHOENIX_VERSIONS="${PHOENIX_SCRIPTS}/versions.sh"
-source "${PHOENIX_VERSIONS}" || exit 1
+source "${PHOENIX_VERSIONS}" || return 1
 
 # If variables are defined with a custom `env_override.sh` file (located at the root project directory), let's use those
 ## These need to be set first, to ensure that they don't interfere with certain variables
 readonly PHOENIX_ENV_OVERRIDE="${PHOENIX_ROOT}/env_override.sh"
 if [[ -f "${PHOENIX_ENV_OVERRIDE}" ]]; then
-  source "${PHOENIX_ENV_OVERRIDE}" || exit 1
+  source "${PHOENIX_ENV_OVERRIDE}" || return 1
 fi
 
 # Utilities
@@ -81,7 +81,7 @@ readonly PHOENIX_CI
 ## If so, set our CI environment variables
 readonly PHOENIX_ENV_CI="${PHOENIX_SCRIPTS}/env_ci.sh"
 if [[ "${PHOENIX_CI}" == 1 ]]; then
-  source "${PHOENIX_ENV_CI}" || exit 1
+  source "${PHOENIX_ENV_CI}" || return 1
 fi
 
 # Build directory
@@ -909,7 +909,7 @@ readonly PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE
 
 # Set our external environment variables
 readonly PHOENIX_ENV_EXTERNAL="${PHOENIX_SCRIPTS}/env_external.sh"
-source "${PHOENIX_ENV_EXTERNAL}" || exit 1
+source "${PHOENIX_ENV_EXTERNAL}" || return 1
 
 # We've now set our environment variables...
 readonly PHOENIX_SET_ENVS=1

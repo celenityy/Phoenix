@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Ensure this is never ran with xtrace...
-set +x || exit 1
+set +x || return 1
 
 # Set-up our environment
 function setup_env() {
@@ -18,7 +18,7 @@ function setup_env() {
     else
       if ! command -v dirname > /dev/null 2>&1; then
         echo "ERROR: Missing dirname!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r dirname="$(dirname)"
@@ -28,9 +28,9 @@ function setup_env() {
     readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
     if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
       echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
-      exit 1
+      return 1
     fi
-    source "${PHOENIX_ENV_SH}" || exit 1
+    source "${PHOENIX_ENV_SH}" || return 1
   fi
 }
 
@@ -38,31 +38,31 @@ function setup_env() {
 setup_env
 
 # Include download utilities
-verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
-source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || return 1
+source "${PHOENIX_DOWNLOAD_UTILS}" || return 1
 
 # Include S3 utilities
-verify_file_with_env "${PHOENIX_S3_UTILS}" 'PHOENIX_S3_UTILS' || exit 1
-source "${PHOENIX_S3_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_S3_UTILS}" 'PHOENIX_S3_UTILS' || return 1
+source "${PHOENIX_S3_UTILS}" || return 1
 
 if [[ -z "${PHOENIX_FROM_PUSH+x}" ]]; then
   echo_red_text "ERROR: Do not call 'ci-push-phoenix.sh' directly! Instead, use 'ci-push.sh'." >&1
-  exit 1
+  return 1
 fi
 
 # Ensure we have `PHOENIX_CI`
-verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || return 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
-  exit 1
+  return 1
 fi
 
 # Verify secrets
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || exit 1
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
-verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || return 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || return 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || return 1
+verify_file_with_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || return 1
 
 # Constants
 
@@ -99,13 +99,13 @@ function push_to_s3() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r push_file="$1"
@@ -117,7 +117,7 @@ function push_to_s3() {
   local -r s3_secret_key_file="${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}"
 
   # Ensure our file to push is valid
-  verify_file "${push_file}" || exit 1
+  verify_file "${push_file}" || return 1
 
   # Create and push a SHA512sum for our file to S3 storage
   push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}"
@@ -126,48 +126,48 @@ function push_to_s3() {
 # Create release notes
 function create_release_notes() {
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have GNU awk
-  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || return 1
 
   # Ensure we have GNU sed
-  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   # Ensure we have shasum
-  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || return 1
 
   # Ensure we have xargs
-  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_URL`
-  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || return 1
 
   # Ensure we have `PHOENIX_TEMPLATES`
-  verify_env "${PHOENIX_TEMPLATES}" 'PHOENIX_TEMPLATES' || exit 1
+  verify_env "${PHOENIX_TEMPLATES}" 'PHOENIX_TEMPLATES' || return 1
 
   # Ensure our changelog (for release-specific changes) exists
   local -r PHOENIX_CHANGELOG_FILE="${PHOENIX_ROOT}/CHANGELOG.md"
-  verify_file "${PHOENIX_CHANGELOG_FILE}" || exit 1
+  verify_file "${PHOENIX_CHANGELOG_FILE}" || return 1
 
   # Ensure our release template exists
   local -r PHOENIX_RELEASE_TEMPLATE="${PHOENIX_TEMPLATES}/release-notes.md"
-  verify_file "${PHOENIX_RELEASE_TEMPLATE}" || exit 1
+  verify_file "${PHOENIX_RELEASE_TEMPLATE}" || return 1
 
   local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
   local -r PHOENIX_RELEASE_NOTES_TEMP="${PHOENIX_TEMP}/phoenix-${PHOENIX_VERSION}-release-notes-temp.md"
@@ -238,7 +238,7 @@ function create_release_notes() {
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   # Ensure our release notes were successfully created
-  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
+  verify_file "${PHOENIX_RELEASE_NOTES}" || return 1
 
   echo_green_text "SUCCESS: Created release notes for Phoenix: '${PHOENIX_VERSION}'!"
 }
@@ -252,38 +252,38 @@ function upload_to_forgejo_package_registry() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to the Forgejo package registry!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_GENERIC_PACKAGES_URL`
-  verify_env "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}" 'PHOENIX_FORGEJO_GENERIC_PACKAGES_URL' || exit 1
+  verify_env "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}" 'PHOENIX_FORGEJO_GENERIC_PACKAGES_URL' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_PACKAGE_NAME`
-  verify_env "${PHOENIX_FORGEJO_PACKAGE_NAME}" 'PHOENIX_FORGEJO_PACKAGE_NAME' || exit 1
+  verify_env "${PHOENIX_FORGEJO_PACKAGE_NAME}" 'PHOENIX_FORGEJO_PACKAGE_NAME' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_USER`
-  verify_env "${PHOENIX_FORGEJO_USER}" 'PHOENIX_FORGEJO_USER' || exit 1
+  verify_env "${PHOENIX_FORGEJO_USER}" 'PHOENIX_FORGEJO_USER' || return 1
 
   local -r upload_file="$1"
   local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
 
   # Ensure our file to upload is valid
-  verify_file "${upload_file}" || exit 1
+  verify_file "${upload_file}" || return 1
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --user "${PHOENIX_FORGEJO_USER}:${PHOENIX_FORGEJO_CI_API_TOKEN}" \
     --upload-file "${upload_file}" \
@@ -299,35 +299,35 @@ function upload_to_gitlab_package_registry() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to the GitLab package registry!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || return 1
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have `PHOENIX_GITLAB_GENERIC_PACKAGES_URL`
-  verify_env "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}" 'PHOENIX_GITLAB_GENERIC_PACKAGES_URL' || exit 1
+  verify_env "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}" 'PHOENIX_GITLAB_GENERIC_PACKAGES_URL' || return 1
 
   # Ensure we have `PHOENIX_GITLAB_PACKAGE_NAME`
-  verify_env "${PHOENIX_GITLAB_PACKAGE_NAME}" 'PHOENIX_GITLAB_PACKAGE_NAME' || exit 1
+  verify_env "${PHOENIX_GITLAB_PACKAGE_NAME}" 'PHOENIX_GITLAB_PACKAGE_NAME' || return 1
 
   local -r upload_file="$1"
   local -r upload_file_name="$("${PHOENIX_BASENAME}" "${upload_file}")"
 
   # Ensure our file to upload is valid
-  verify_file "${upload_file}" || exit 1
+  verify_file "${upload_file}" || return 1
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header "PRIVATE-TOKEN: ${PHOENIX_GITLAB_CI_API_TOKEN}" \
     --upload-file "${upload_file}" \
@@ -343,35 +343,35 @@ function add_asset_to_forgejo_release() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the ID of the release we should attach the asset to!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the external URL of an asset to attach!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have jq
-  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_API_URL`
-  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || exit 1
+  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_REPO`
-  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || exit 1
+  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || return 1
 
   local -r release_id="$1"
   local -r asset_url="$2"
@@ -389,41 +389,41 @@ function add_asset_to_forgejo_release() {
 # Publish a release to Forgejo (Codeberg)
 function publish_to_forgejo() {
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have our release notes
   local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
-  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
+  verify_file "${PHOENIX_RELEASE_NOTES}" || return 1
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have jq
-  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_RELEASES_BASE_URL`
-  verify_env "${PHOENIX_RELEASES_BASE_URL}" 'PHOENIX_RELEASES_BASE_URL' || exit 1
+  verify_env "${PHOENIX_RELEASES_BASE_URL}" 'PHOENIX_RELEASES_BASE_URL' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_API_URL`
-  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || exit 1
+  verify_env "${PHOENIX_FORGEJO_API_URL}" 'PHOENIX_FORGEJO_API_URL' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_BRANCH`
-  verify_env "${PHOENIX_FORGEJO_BRANCH}" 'PHOENIX_FORGEJO_BRANCH' || exit 1
+  verify_env "${PHOENIX_FORGEJO_BRANCH}" 'PHOENIX_FORGEJO_BRANCH' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_REPO`
-  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || exit 1
+  verify_env "${PHOENIX_FORGEJO_REPO}" 'PHOENIX_FORGEJO_REPO' || return 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -493,38 +493,38 @@ function publish_to_forgejo() {
 # Publish a release to GitHub
 function publish_to_github() {
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have our release notes
   local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
-  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
+  verify_file "${PHOENIX_RELEASE_NOTES}" || return 1
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_GITHUB_CI_API_TOKEN}" 'PHOENIX_GITHUB_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_GITHUB_CI_API_TOKEN}" 'PHOENIX_GITHUB_CI_API_TOKEN' || return 1
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have jq
-  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_GITHUB_API_URL`
-  verify_env "${PHOENIX_GITHUB_API_URL}" 'PHOENIX_GITHUB_API_URL' || exit 1
+  verify_env "${PHOENIX_GITHUB_API_URL}" 'PHOENIX_GITHUB_API_URL' || return 1
 
   # Ensure we have `PHOENIX_GITHUB_BRANCH`
-  verify_env "${PHOENIX_GITHUB_BRANCH}" 'PHOENIX_GITHUB_BRANCH' || exit 1
+  verify_env "${PHOENIX_GITHUB_BRANCH}" 'PHOENIX_GITHUB_BRANCH' || return 1
 
   # Ensure we have `PHOENIX_GITHUB_REPO`
-  verify_env "${PHOENIX_GITHUB_REPO}" 'PHOENIX_GITHUB_REPO' || exit 1
+  verify_env "${PHOENIX_GITHUB_REPO}" 'PHOENIX_GITHUB_REPO' || return 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -554,38 +554,38 @@ function publish_to_github() {
 # Publish a release to GitLab
 function publish_to_gitlab() {
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have our release notes
   local -r PHOENIX_RELEASE_NOTES="${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md"
-  verify_file "${PHOENIX_RELEASE_NOTES}" || exit 1
+  verify_file "${PHOENIX_RELEASE_NOTES}" || return 1
 
   # Ensure we have an API token...
-  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_GITLAB_CI_API_TOKEN}" 'PHOENIX_GITLAB_CI_API_TOKEN' || return 1
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have curl
-  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || exit 1
+  verify_exec "${PHOENIX_CURL}" 'PHOENIX_CURL' || return 1
 
   # Ensure we have jq
-  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || exit 1
+  verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
   # Ensure we have our curl flags
-  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || exit 1
+  verify_env "${PHOENIX_CURL_FLAGS}" 'PHOENIX_CURL_FLAGS' || return 1
 
   # Ensure we have `PHOENIX_GITLAB_API_URL`
-  verify_env "${PHOENIX_GITLAB_API_URL}" 'PHOENIX_GITLAB_API_URL' || exit 1
+  verify_env "${PHOENIX_GITLAB_API_URL}" 'PHOENIX_GITLAB_API_URL' || return 1
 
   # Ensure we have `PHOENIX_GITLAB_BRANCH`
-  verify_env "${PHOENIX_GITLAB_BRANCH}" 'PHOENIX_GITLAB_BRANCH' || exit 1
+  verify_env "${PHOENIX_GITLAB_BRANCH}" 'PHOENIX_GITLAB_BRANCH' || return 1
 
   # Ensure we have `PHOENIX_GITLAB_PROJECT_ID`
-  verify_env "${PHOENIX_GITLAB_PROJECT_ID}" 'PHOENIX_GITLAB_PROJECT_ID' || exit 1
+  verify_env "${PHOENIX_GITLAB_PROJECT_ID}" 'PHOENIX_GITLAB_PROJECT_ID' || return 1
 
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
@@ -816,13 +816,13 @@ function publish_to_gitlab() {
 # Push a universal Phoenix configuration file
 function push_phoenix_universal() {
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
 
@@ -841,14 +841,14 @@ function _push_phoenix() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the platform you wou would like to push Phoenix for!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   local -r phoenix_platform="$1"
 
@@ -859,7 +859,7 @@ function _push_phoenix() {
   fi
 
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Set our archive type
   if [[ "${phoenix_platform}" == 'windows' ]]; then
@@ -894,19 +894,19 @@ function _push_phoenix() {
 # Push Phoenix to S3 storage
 function push_phoenix() {
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have touch
-  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || return 1
 
   # Ensure we have `PHOENIX_ARTIFACTS`
-  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || exit 1
+  verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_URL`
-  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_URL}" 'PHOENIX_CEL_RELEASES_URL' || return 1
 
   # Ensure we have `PHOENIX_TEMP`
-  verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || exit 1
+  verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || return 1
 
   # Android
   _push_phoenix 'android'

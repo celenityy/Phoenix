@@ -6,29 +6,29 @@ set -euo pipefail
 set_verbosity
 
 # Include download utilities
-verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
-source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || return 1
+source "${PHOENIX_DOWNLOAD_UTILS}" || return 1
 
 # Include file utilities
-verify_file_with_env "${PHOENIX_FILE_UTILS}" 'PHOENIX_FILE_UTILS' || exit 1
-source "${PHOENIX_FILE_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_FILE_UTILS}" 'PHOENIX_FILE_UTILS' || return 1
+source "${PHOENIX_FILE_UTILS}" || return 1
 
 if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
   echo_red_text "ERROR: Do not call 'get_sources-phoenix.sh' directly! Instead, use 'get_sources.sh'." >&1
-  exit 1
+  return 1
 fi
 
 # Ensure we have rm
-verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
 verify_env "${source_target}" 'source_target' || {
   echo_red_text "ERROR: Missing target!"
-  exit 1
+  return 1
 }
 
 verify_env "${mode}" 'mode' || {
   echo_red_text "ERROR: Missing mode!"
-  exit 1
+  return 1
 }
 
 # Set-up target parameters
@@ -74,7 +74,7 @@ else
   echo 'shellcheck: shellcheck'
   echo 'shfmt:      shfmt'
   echo 'uv:         uv'
-  exit 1
+  return 1
 fi
 readonly PHOENIX_GET_SOURCE_PYTHON
 readonly PHOENIX_GET_SOURCE_S3CMD
@@ -91,7 +91,7 @@ elif [[ "${mode}" != 'download' ]]; then
   echo_red_text "ERROR: Invalid mode: ${mode}\n You must enter one of the following:"
   echo 'Download:                     download (Default)'
   echo 'Download + update checksums:  checksum-update'
-  exit 1
+  return 1
 fi
 readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE
 
@@ -104,20 +104,20 @@ function backup_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the file path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   local -r file="$1"
   local -r file_name="$("${PHOENIX_BASENAME}" "${file}")"
@@ -140,20 +140,20 @@ function backup_dir() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the directory path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   local -r dir="$1"
   local -r dir_name="$("${PHOENIX_BASENAME}" "${dir}")"
@@ -176,20 +176,20 @@ function restore_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the file path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   local -r file="$1"
   local -r file_name="$("${PHOENIX_BASENAME}" "${file}")"
@@ -212,20 +212,20 @@ function restore_dir() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the directory path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cp
-  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || exit 1
+  verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   local -r dir="$1"
   local -r dir_name="$("${PHOENIX_BASENAME}" "${dir}")"
@@ -248,29 +248,29 @@ function update_checksum() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text "ERROR: Please provide the file's current checksum!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text "ERROR: Please provide the file's new checksum!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please provide the file path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please provide the checksum type!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have GNU sed
-  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || exit 1
+  verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
   local -r old_checksum="$1"
   local -r new_checksum="$2"
@@ -287,7 +287,7 @@ function update_checksum() {
     local -r checksum_type_pretty='SHA512sum'
   else
     echo_red_text "ERROR: Unsupported checksum type: '${checksum_type}'!"
-    exit 1
+    return 1
   fi
 
   if [[ "${old_checksum}" == "${new_checksum}" ]]; then
@@ -310,23 +310,23 @@ function validate_checksum() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text "ERROR: Please provide the file's expected checksum!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please provide the file path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please provide the checksum type!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have GNU awk
-  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || return 1
 
   local -r expected_checksum="$1"
   local -r file="$2"
@@ -334,14 +334,14 @@ function validate_checksum() {
 
   if [[ "${checksum_type}" == 'md5sum' ]]; then
     # Ensure we have md5sum
-    verify_exec "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' || exit 1
+    verify_exec "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' || return 1
   else
     # Ensure we have shasum
-    verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+    verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || return 1
   fi
 
   # Ensure our file to validate is valid
-  verify_file "${file}" || exit 1
+  verify_file "${file}" || return 1
 
   if [[ "${checksum_type}" == 'md5sum' ]]; then
     local -r checksum_type_pretty='MD5sum'
@@ -357,7 +357,7 @@ function validate_checksum() {
     local -r local_checksum=$("${PHOENIX_SHASUM}" -a 512 "${file}" | "${PHOENIX_AWK}" '{print $1}')
   else
     echo_red_text "ERROR: Unsupported checksum type: '${checksum_type}'!"
-    exit 1
+    return 1
   fi
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
@@ -370,7 +370,7 @@ function validate_checksum() {
     # If checksum validation fails, also just remove the file
     "${PHOENIX_RM}" -f "${file}"
 
-    exit 1
+    return 1
   else
     echo_green_text "SUCCESS: Validated checksum (${checksum_type_pretty}) for file: '${file}'!"
     echo "${checksum_type_pretty}: '${local_checksum}'"
@@ -386,26 +386,26 @@ function download_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the URL for the file to download!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please provide the output file path!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text "ERROR: Please provide the file's SHA512sum!"
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have `PHOENIX_EXTERNAL`
-  verify_env "${PHOENIX_EXTERNAL}" 'PHOENIX_EXTERNAL' || exit 1
+  verify_env "${PHOENIX_EXTERNAL}" 'PHOENIX_EXTERNAL' || return 1
 
   local -r url="$1"
   local -r file_in="$2"
@@ -466,10 +466,10 @@ function download_file() {
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
       echo_red_text 'ERROR: Download failed!'
-      exit 1
+      return 1
     elif [[ "${PHOENIX_CHECKSUM_FAILED}" == 1 ]]; then
       echo_red_text 'ERROR: Failed to update checksum!'
-      exit 1
+      return 1
     else
       return 0
     fi
@@ -493,7 +493,7 @@ function download_file() {
       return 1
     else
       echo_red_text 'ERROR: Download failed!'
-      exit 1
+      return 1
     fi
   fi
 }
@@ -507,26 +507,26 @@ function download_and_extract() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the URL for the archive to download!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please provide the path that the archive should be extracted to!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text "ERROR: Please provide the archive's SHA512sum!"
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have `PHOENIX_EXTERNAL`
-  verify_env "${PHOENIX_EXTERNAL}" 'PHOENIX_EXTERNAL' || exit 1
+  verify_env "${PHOENIX_EXTERNAL}" 'PHOENIX_EXTERNAL' || return 1
 
   # Ensure we have `PHOENIX_DOWNLOADS`
-  verify_env "${PHOENIX_DOWNLOADS}" 'PHOENIX_DOWNLOADS' || exit 1
+  verify_env "${PHOENIX_DOWNLOADS}" 'PHOENIX_DOWNLOADS' || return 1
 
   local -r url="$1"
   local -r path="$2"
@@ -585,7 +585,7 @@ function download_and_extract() {
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     if [[ "${PHOENIX_DOWNLOAD_FAILED}" == 1 ]]; then
       echo_red_text "ERROR: Download for archive failed: '${url}'!"
-      exit 1
+      return 1
     else
       return 0
     fi
@@ -599,7 +599,7 @@ function download_and_extract() {
       return 1
     else
       echo_red_text "ERROR: Download for archive failed: '${url}'!"
-      exit 1
+      return 1
     fi
   fi
 
@@ -613,33 +613,33 @@ function download_and_extract() {
 # Get Python
 function get_python() {
   # Ensure we have `PHOENIX_PYTHON_DIR`
-  verify_env "${PHOENIX_PYTHON_DIR}" 'PHOENIX_PYTHON_DIR' || exit 1
+  verify_env "${PHOENIX_PYTHON_DIR}" 'PHOENIX_PYTHON_DIR' || return 1
 
   # Ensure we have `PHOENIX_PYTHON_GIT_RELEASE`
-  verify_env "${PHOENIX_PYTHON_GIT_RELEASE}" 'PHOENIX_PYTHON_GIT_RELEASE' || exit 1
+  verify_env "${PHOENIX_PYTHON_GIT_RELEASE}" 'PHOENIX_PYTHON_GIT_RELEASE' || return 1
 
   # Ensure we have `PHOENIX_PYTHON_VERSION`
-  verify_env "${PHOENIX_PYTHON_VERSION}" 'PHOENIX_PYTHON_VERSION' || exit 1
+  verify_env "${PHOENIX_PYTHON_VERSION}" 'PHOENIX_PYTHON_VERSION' || return 1
 
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     # Ensure we have uv
     verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || {
       echo_red_text "ERROR: Unable to download and install Python without uv!"
-      exit 1
+      return 1
     }
 
     # Ensure we have `PHOENIX_PYENV_DIR`
-    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || exit 1
+    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
 
     # Ensure we have `PHOENIX_UV_CACHE`
-    verify_env "${PHOENIX_UV_CACHE}" 'PHOENIX_UV_CACHE' || exit 1
+    verify_env "${PHOENIX_UV_CACHE}" 'PHOENIX_UV_CACHE' || return 1
 
     # Ensure we have `PHOENIX_UV_LOCAL`
-    verify_env "${PHOENIX_UV_LOCAL}" 'PHOENIX_UV_LOCAL' || exit 1
+    verify_env "${PHOENIX_UV_LOCAL}" 'PHOENIX_UV_LOCAL' || return 1
 
     # Ensure we have `PHOENIX_UV_PYTHON`
-    verify_env "${PHOENIX_UV_PYTHON}" 'PHOENIX_UV_PYTHON' || exit 1
+    verify_env "${PHOENIX_UV_PYTHON}" 'PHOENIX_UV_PYTHON' || return 1
 
     if [[ -d "${PHOENIX_PYENV_DIR}" ]]; then
       echo_red_text "The Python environment is already set-up at path: '${PHOENIX_PYENV_DIR}'!"
@@ -711,7 +711,7 @@ function get_python() {
       fi
     else
       echo_red_text "ERROR: Unsupported platform for Python: '${PHOENIX_PLATFORM}'!"
-      exit 1
+      return 1
     fi
 
     # Set our platform architecture
@@ -729,7 +729,7 @@ function get_python() {
       local -r PHOENIX_PYTHON_ARCH='x86_64'
     else
       echo_red_text "ERROR: Unsupported architecture for Python: '${PHOENIX_PLATFORM_ARCH}'!"
-      exit 1
+      return 1
     fi
 
     # Set our checksum to verify
@@ -740,7 +740,7 @@ function get_python() {
         local -r PHOENIX_PYTHON_SHA512SUM="${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for Python on OS X: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     elif [[ "${PHOENIX_PLATFORM}" == 'linux' ]]; then
       if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm' ]]; then
@@ -757,7 +757,7 @@ function get_python() {
         local -r PHOENIX_PYTHON_SHA512SUM="${PHOENIX_PYTHON_SHA512SUM_LINUX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for Python on Linux: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     fi
 
@@ -785,7 +785,7 @@ function get_python() {
       restore_dir "${PHOENIX_UV_PYTHON}"
       restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
       "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
-      exit 1
+      return 1
     elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       echo_green_text "SUCCESS: Downloaded Python to path: '${dl_output}'!"
 
@@ -801,7 +801,7 @@ function get_python() {
         restore_dir "${PHOENIX_UV_PYTHON}"
         restore_dir "${PHOENIX_UV_LOCAL}/python-cache"
         "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
-        exit 1
+        return 1
       fi
 
       echo_red_text "Creating Python environment at path: '${PHOENIX_PYENV_DIR}'..."
@@ -812,7 +812,7 @@ function get_python() {
         echo_red_text "ERROR: Unable to set-up Python environment at path: '${PHOENIX_PYENV_DIR}'!"
         restore_dir "${PHOENIX_PYENV_DIR}"
         "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
-        exit 1
+        return 1
       else
         echo_green_text "SUCCESS: Set-up Python environment at path: '${PHOENIX_PYENV_DIR}'!"
       fi
@@ -823,37 +823,37 @@ function get_python() {
 # Get s3cmd
 function get_s3cmd() {
   # Ensure we have `PHOENIX_S3CMD_COMMIT`
-  verify_env "${PHOENIX_S3CMD_COMMIT}" 'PHOENIX_S3CMD_COMMIT' || exit 1
+  verify_env "${PHOENIX_S3CMD_COMMIT}" 'PHOENIX_S3CMD_COMMIT' || return 1
 
   # Ensure we have `PHOENIX_S3CMD_DIR`
-  verify_env "${PHOENIX_S3CMD_DIR}" 'PHOENIX_S3CMD_DIR' || exit 1
+  verify_env "${PHOENIX_S3CMD_DIR}" 'PHOENIX_S3CMD_DIR' || return 1
 
   # Ensure we have `PHOENIX_S3CMD_SHA512SUM`
-  verify_env "${PHOENIX_S3CMD_SHA512SUM}" 'PHOENIX_S3CMD_SHA512SUM' || exit 1
+  verify_env "${PHOENIX_S3CMD_SHA512SUM}" 'PHOENIX_S3CMD_SHA512SUM' || return 1
 
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     # Ensure we have uv
     verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || {
       echo_red_text "ERROR: Unable to download and install s3cmd without uv!"
-      exit 1
+      return 1
     }
 
     # Ensure we have `PHOENIX_PYENV_DIR`
-    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || exit 1
+    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
 
     # Ensure we have `PHOENIX_PYENV_DIR`
-    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || exit 1
+    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
 
     # Ensure we have `PHOENIX_PYENV`
-    verify_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
+    verify_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
 
     # Ensure we have `PHOENIX_UV_DIR`
-    verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || exit 1
+    verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || return 1
 
     if [[ ! -d "${PHOENIX_UV_DIR}" ]] || [[ ! -f "${PHOENIX_PYENV}" ]]; then
       echo_red_text "ERROR: You tried to download s3cmd, but you don't have a Python environment set-up yet!"
-      exit 1
+      return 1
     fi
 
     if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
@@ -882,10 +882,10 @@ function get_s3cmd() {
 # Get shellcheck
 function get_shellcheck() {
   # Ensure we have `PHOENIX_SHELLCHECK_DIR`
-  verify_env "${PHOENIX_SHELLCHECK_DIR}" 'PHOENIX_SHELLCHECK_DIR' || exit 1
+  verify_env "${PHOENIX_SHELLCHECK_DIR}" 'PHOENIX_SHELLCHECK_DIR' || return 1
 
   # Ensure we have `PHOENIX_SHELLCHECK_VERSION`
-  verify_env "${PHOENIX_SHELLCHECK_VERSION}" 'PHOENIX_SHELLCHECK_VERSION' || exit 1
+  verify_env "${PHOENIX_SHELLCHECK_VERSION}" 'PHOENIX_SHELLCHECK_VERSION' || return 1
 
   # Base download URL
   local -r base_url="https://github.com/koalaman/shellcheck/releases/download/${PHOENIX_SHELLCHECK_VERSION}"
@@ -910,7 +910,7 @@ function get_shellcheck() {
       local -r PHOENIX_SHELLCHECK_PLATFORM='linux'
     else
       echo_red_text "ERROR: Unsupported platform for shellcheck: '${PHOENIX_PLATFORM}'!"
-      exit 1
+      return 1
     fi
 
     # Set our platform architecture
@@ -920,7 +920,7 @@ function get_shellcheck() {
       local -r PHOENIX_SHELLCHECK_ARCH='x86_64'
     else
       echo_red_text "ERROR: Unsupported architecture for shellcheck: '${PHOENIX_PLATFORM_ARCH}'!"
-      exit 1
+      return 1
     fi
 
     # Set our checksum to verify
@@ -931,7 +931,7 @@ function get_shellcheck() {
         local -r PHOENIX_SHELLCHECK_SHA512SUM="${PHOENIX_SHELLCHECK_SHA512SUM_OSX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for shellcheck on OS X: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     elif [[ "${PHOENIX_PLATFORM}" == 'linux' ]]; then
       if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
@@ -940,7 +940,7 @@ function get_shellcheck() {
         local -r PHOENIX_SHELLCHECK_SHA512SUM="${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for shellcheck on Linux: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     fi
 
@@ -961,15 +961,15 @@ function get_shellcheck() {
 # Get shfmt
 function get_shfmt() {
   # Ensure we have `PHOENIX_SHFMT`
-  verify_env "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' || exit 1
+  verify_env "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' || return 1
 
   # Ensure we have `PHOENIX_SHFMT_VERSION`
-  verify_env "${PHOENIX_SHFMT_VERSION}" 'PHOENIX_SHFMT_VERSION' || exit 1
+  verify_env "${PHOENIX_SHFMT_VERSION}" 'PHOENIX_SHFMT_VERSION' || return 1
 
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     # Ensure we have chmod
-    verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || exit 1
+    verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || return 1
   fi
 
   # Base download URL
@@ -995,7 +995,7 @@ function get_shfmt() {
       local -r PHOENIX_SHFMT_PLATFORM='linux'
     else
       echo_red_text "ERROR: Unsupported platform for shfmt: '${PHOENIX_PLATFORM}'!"
-      exit 1
+      return 1
     fi
 
     # Set our platform architecture
@@ -1005,7 +1005,7 @@ function get_shfmt() {
       local -r PHOENIX_SHFMT_ARCH='amd64'
     else
       echo_red_text "ERROR: Unsupported architecture for shfmt: '${PHOENIX_PLATFORM_ARCH}'!"
-      exit 1
+      return 1
     fi
 
     # Set our checksum to verify
@@ -1016,7 +1016,7 @@ function get_shfmt() {
         local -r PHOENIX_SHFMT_SHA512SUM="${PHOENIX_SHFMT_SHA512SUM_OSX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for shfmt on OS X: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     elif [[ "${PHOENIX_PLATFORM}" == 'linux' ]]; then
       if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm64' ]]; then
@@ -1025,7 +1025,7 @@ function get_shfmt() {
         local -r PHOENIX_SHFMT_SHA512SUM="${PHOENIX_SHFMT_SHA512SUM_LINUX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for shfmt on Linux: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     fi
 
@@ -1048,15 +1048,15 @@ function get_shfmt() {
 # Get + set-up uv
 function get_uv() {
   # Ensure we have `PHOENIX_UV_DIR`
-  verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || exit 1
+  verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || return 1
 
   # Ensure we have `PHOENIX_UV_VERSION`
-  verify_env "${PHOENIX_UV_VERSION}" 'PHOENIX_UV_VERSION' || exit 1
+  verify_env "${PHOENIX_UV_VERSION}" 'PHOENIX_UV_VERSION' || return 1
 
   # If all we're doing is updating the checksum, we don't care about existing installations
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" != 1 ]]; then
     # Ensure we have `PHOENIX_UV_LOCAL`
-    verify_env "${PHOENIX_UV_LOCAL}" 'PHOENIX_UV_LOCAL' || exit 1
+    verify_env "${PHOENIX_UV_LOCAL}" 'PHOENIX_UV_LOCAL' || return 1
 
     if [[ -d "${PHOENIX_UV_DIR}" ]]; then
       echo_red_text "Found existing installation at path: '${PHOENIX_UV_DIR}'!"
@@ -1112,7 +1112,7 @@ function get_uv() {
       fi
     else
       echo_red_text "ERROR: Unsupported platform for uv: '${PHOENIX_PLATFORM}'!"
-      exit 1
+      return 1
     fi
 
     # Set our platform architecture
@@ -1130,7 +1130,7 @@ function get_uv() {
       local -r PHOENIX_UV_ARCH='x86_64'
     else
       echo_red_text "ERROR: Unsupported architecture for uv: '${PHOENIX_PLATFORM_ARCH}'!"
-      exit 1
+      return 1
     fi
 
     # Set our checksum to verify
@@ -1141,7 +1141,7 @@ function get_uv() {
         local -r PHOENIX_UV_SHA512SUM="${PHOENIX_UV_SHA512SUM_OSX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for uv on OS X: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     elif [[ "${PHOENIX_PLATFORM}" == 'linux' ]]; then
       if [[ "${PHOENIX_PLATFORM_ARCH}" == 'arm' ]]; then
@@ -1158,7 +1158,7 @@ function get_uv() {
         local -r PHOENIX_UV_SHA512SUM="${PHOENIX_UV_SHA512SUM_LINUX_X86_64}"
       else
         echo_red_text "ERROR: Unsupported architecture for uv on Linux: '${PHOENIX_PLATFORM_ARCH}'!"
-        exit 1
+        return 1
       fi
     fi
 
@@ -1177,7 +1177,7 @@ function get_uv() {
       restore_dir "${PHOENIX_UV_DIR}"
       restore_dir "${PHOENIX_UV_LOCAL}"
       "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp"
-      exit 1
+      return 1
     elif [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       echo_green_text "SUCCESS: Set-up uv at path: '${PHOENIX_UV}'!"
     fi
