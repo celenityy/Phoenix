@@ -6,28 +6,28 @@ set -euo pipefail
 set_verbosity
 
 # Include download utilities
-verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
-source "${PHOENIX_DOWNLOAD_UTILS}" || exit 1
+verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || return 1
+source "${PHOENIX_DOWNLOAD_UTILS}" || return 1
 
 if [[ -z "${PHOENIX_FROM_AR_DOWN+x}" ]]; then
   echo_red_text "ERROR: Do not call 'ci-download-artifacts-phoenix.sh' directly! Instead, use 'ci-download-artifacts.sh'." >&1
-  exit 1
+  return 1
 fi
 
 # Ensure we have `PHOENIX_CI`
-verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
+verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || return 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
-  exit 1
+  return 1
 fi
 
 # Ensure we have `PHOENIX_CI_ID`
-verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || exit 1
+verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || return 1
 
 verify_env "${target_artifact}" 'target_artifact' || {
   echo_red_text "ERROR: Missing target artifact!"
-  exit 1
+  return 1
 }
 
 # Set-up target parameters
@@ -91,7 +91,7 @@ else
   echo 'OS X (Intel) archive:     osx-intel-archive'
   echo 'Windows archive:          windows-archive'
   echo 'Universal .cfg:           universal-cfg'
-  exit 1
+  return 1
 fi
 readonly PHOENIX_AR_DOWN_ANDROID_ARCHIVE
 readonly PHOENIX_AR_DOWN_ANDROID_JS
@@ -117,41 +117,41 @@ function download_artifact() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please provide the pipeline ID to download the artifact from!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please provide the name of the artifact to download!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please provide the path to download the artifact to!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have GNU awk
-  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   # Ensure we have shasum
-  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || return 1
 
   # Ensure we have xargs
-  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || return 1
 
   # Ensure we have `PHOENIX_VERSION`
-  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || exit 1
+  verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_URL`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_URL}" 'PHOENIX_CEL_ARTIFACTS_URL' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_URL}" 'PHOENIX_CEL_ARTIFACTS_URL' || return 1
 
   local -r pipeline_id="$1"
   local -r target="$2"
@@ -195,7 +195,7 @@ function download_artifact() {
     # If checksum validation fails, also just clean-up the files
     "${PHOENIX_RM}" -f "${output_file}"
     "${PHOENIX_RM}" -f "${output_expected_sha512sum}"
-    exit 1
+    return 1
   fi
   echo_green_text "SUCCESS: Validated checksum for file: '${target_file}'!"
   echo "SHA512sum: '${local_sha512sum}'"

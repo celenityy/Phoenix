@@ -14,53 +14,53 @@ function push_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have s3cmd
-  verify_exec "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' || exit 1
+  verify_exec "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' || return 1
 
   # Ensure we have xargs
-  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || return 1
 
   # Ensure we can source our Python environment
-  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
 
   local -r push_file="$1"
   local -r s3_path="$2"
@@ -71,13 +71,13 @@ function push_file() {
   local -r s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
 
   # Ensure our file to push is valid
-  verify_file "${push_file}" || exit 1
+  verify_file "${push_file}" || return 1
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   # Set our MIME type
   case "${push_file}" in
@@ -116,7 +116,7 @@ function push_file() {
       ;;
     *)
       echo_red_text "ERROR: Unsupported file type: '${push_file}'!"
-      exit 1
+      return 1
       ;;
   esac
 
@@ -157,47 +157,47 @@ function push_sha512sum() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that a SHA512sum should be created for!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have awk
-  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
+  verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || return 1
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   # Ensure we have shasum
-  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || exit 1
+  verify_exec "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' || return 1
 
   local -r sha512sum_file_in="$1"
   local -r sha512sum_s3path="$2"
@@ -209,13 +209,13 @@ function push_sha512sum() {
   local -r sha512sum_file_path=$("${PHOENIX_DIRNAME}" "${sha512sum_file_in}")
 
   # Ensure our file to create a SHA512sum for is valid
-  verify_file "${sha512sum_file_in}" || exit 1
+  verify_file "${sha512sum_file_in}" || return 1
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   local -r sha512sum_file_out="${sha512sum_file_path}/${sha512sum_file_name}-sha512sum.txt"
 
@@ -241,37 +241,37 @@ function push_and_add_sha512sum() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file that should be uploaded to S3 storage!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for where the file should be uploaded!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r file_in="$1"
@@ -282,13 +282,13 @@ function push_and_add_sha512sum() {
   local -r s3_secret_key_file="$6"
 
   # Ensure our file to create a SHA512sum for and push is valid
-  verify_file "${file_in}" || exit 1
+  verify_file "${file_in}" || return 1
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   # Push our file to S3 storage
   push_file "${file_in}" "${s3_path_out}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}"
@@ -307,55 +307,55 @@ function push_dir() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a directory that should be uploaded to S3 storage!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for where the directory should be uploaded!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have dot_clean
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || exit 1
+    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || return 1
   fi
 
   # Ensure we have find
-  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || exit 1
+  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || return 1
 
   # Ensure we have `PHOENIX_OS`
-  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || exit 1
+  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || return 1
 
   local -r push_dir="$1"
   local -r target_s3_path="$2"
@@ -367,14 +367,14 @@ function push_dir() {
   # Ensure our directory to push is valid
   if [[ ! -d "${push_dir}" ]]; then
     echo_red_text "ERROR: Directory does not exist: '${push_dir}'!"
-    exit 1
+    return 1
   fi
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   # First, if necessary, clean our directory...
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -412,55 +412,55 @@ function push_dir_and_add_sha512sum() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a directory that should be uploaded to S3 storage!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for where the directory should be uploaded!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have dot_clean
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
-    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || exit 1
+    verify_exec "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' || return 1
   fi
 
   # Ensure we have find
-  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || exit 1
+  verify_exec "${PHOENIX_FIND}" 'PHOENIX_FIND' || return 1
 
   # Ensure we have `PHOENIX_OS`
-  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || exit 1
+  verify_env "${PHOENIX_OS}" 'PHOENIX_OS' || return 1
 
   local -r push_dir="$1"
   local -r target_s3_path="$2"
@@ -472,14 +472,14 @@ function push_dir_and_add_sha512sum() {
   # Ensure our directory to push is valid
   if [[ ! -d "${push_dir}" ]]; then
     echo_red_text "ERROR: Directory does not exist: '${push_dir}'!"
-    exit 1
+    return 1
   fi
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   # First, if necessary, clean our directory...
   if [[ "${PHOENIX_OS}" == 'osx' ]]; then
@@ -517,47 +517,47 @@ function delete_file() {
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the target path on S3 storage for the file to delete!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have basename
-  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || exit 1
+  verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
   # Ensure we have cat
-  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || exit 1
+  verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
   # Ensure we have s3cmd
-  verify_exec "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' || exit 1
+  verify_exec "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' || return 1
 
   # Ensure we have xargs
-  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || exit 1
+  verify_exec "${PHOENIX_XARGS}" 'PHOENIX_XARGS' || return 1
 
   # Ensure we can source our Python environment
-  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || exit 1
+  verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
 
   local -r s3_file="$1"
   local -r s3_access_key_file="$2"
@@ -567,10 +567,10 @@ function delete_file() {
   local -r s3_file_name="$("${PHOENIX_BASENAME}" "${s3_file}")"
 
   # Ensure our secrets are valid
-  verify_file "${s3_access_key_file}" || exit 1
-  verify_file "${s3_bucket_name_file}" || exit 1
-  verify_file "${s3_endpoint_file}" || exit 1
-  verify_file "${s3_secret_key_file}" || exit 1
+  verify_file "${s3_access_key_file}" || return 1
+  verify_file "${s3_bucket_name_file}" || return 1
+  verify_file "${s3_endpoint_file}" || return 1
+  verify_file "${s3_secret_key_file}" || return 1
 
   # Ensure we're not running with xtrace at this point...
   set +x

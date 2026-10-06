@@ -18,7 +18,7 @@ function error_fn() {
   echo_red_text 'Something went wrong! The script failed.'
   echo_red_text 'Please report this (with the output message) to https://phoenix.celenity.dev/issues'
   echo
-  exit 1
+  return 1
 }
 
 # Verify that an environment variable exists
@@ -30,13 +30,13 @@ function verify_env() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify an environment variable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify an environment variable as a string!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r env="$1"
@@ -51,7 +51,7 @@ function verify_env() {
 # Set the verbosity of a script
 ## (From the value of the `PHOENIX_VERBOSE` environment variable)
 function set_verbosity() {
-  verify_env "${PHOENIX_VERBOSE}" 'PHOENIX_VERBOSE' || exit 1
+  verify_env "${PHOENIX_VERBOSE}" 'PHOENIX_VERBOSE' || return 1
 
   if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
     set -x
@@ -69,19 +69,19 @@ function verify_exec() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify an executable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify an environment variable that corresponds to an executable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r exec="$1"
   local -r exec_env="$2"
 
-  verify_env "${exec}" "${exec_env}" || exit 1
+  verify_env "${exec}" "${exec_env}" || return 1
 
   if [[ ! -f "${exec}" ]]; then
     echo_red_text "ERROR: '${exec}' is missing!"
@@ -111,7 +111,7 @@ function verify_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r verify_file="$1"
@@ -136,19 +136,19 @@ function verify_file_with_env() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a file to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the environment variable that corresponds to the file to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r verify_file="$1"
   local -r verify_file_env="$2"
 
-  verify_env "${verify_file}" "${verify_file_env}" || exit 1
+  verify_env "${verify_file}" "${verify_file_env}" || return 1
 
   if [[ "${verify_file}" == 'null' ]]; then
     echo_red_text "ERROR: Environment variable has not been specified: '${verify_file_env}'!"
