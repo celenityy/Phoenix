@@ -345,13 +345,13 @@ function add_asset_to_forgejo_release() {
   local -r asset_url="$2"
   local -r asset=$("${PHOENIX_BASENAME}" "${asset_url}")
 
+  echo_red_text "Adding '${asset}' to release..."
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'accept: application/json' \
     --header "Authorization: token ${PHOENIX_FORGEJO_CI_API_TOKEN}" \
     -F "external_url=${asset_url}" \
     --request POST \
     "${PHOENIX_FORGEJO_API_URL}/v1/repos/${PHOENIX_FORGEJO_REPO}/releases/${release_id}/assets?name=$(printf '%s' "${asset}" | "${PHOENIX_JQ}" -sRr @uri)"
-
-  echo_green_text "SUCCESS: Added ${asset} to release: '${PHOENIX_VERSION}'!"
+  echo_green_text "SUCCESS: Added '${asset}' to release: '${PHOENIX_VERSION}'!"
 }
 
 # Publish a release to Forgejo (Codeberg)
