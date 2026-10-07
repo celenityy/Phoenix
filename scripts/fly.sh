@@ -66,7 +66,7 @@ elif [[ "${build_target}" == 'all' ]]; then
     PHOENIX_UNIVERSAL=1
   fi
 else
-  echo_red_text "ERROR: Invalid target: ${build_target}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: '${build_target}'\n You must enter one of the following:"
   echo 'All:                  all (Default)'
   echo 'Android:              android'
   echo 'Linux (non-Flatpak):  linux'
@@ -927,13 +927,16 @@ if [[ "${phoenix_py}" == 1 ]]; then
       echo_red_text 'Creating Python environment with Python...'
       "${PHOENIX_PYTHON}" -m venv "${PHOENIX_PYENV_DIR}"
     fi
-    echo_green_text "Created Python environment: '${PHOENIX_PYENV}'"
+    echo_green_text "SUCCESS: Created Python environment: '${PHOENIX_PYENV}'!"
   fi
   echo_red_text "Sourcing Python environment: '${PHOENIX_PYENV}'..."
   verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
-  source "${PHOENIX_PYENV}"
-  echo_green_text "SUCCESS: Sourced Python environment: '${PHOENIX_PYENV}'"
+  source "${PHOENIX_PYENV}" || exit 1
+  echo_green_text "SUCCESS: Sourced Python environment: '${PHOENIX_PYENV}'!"
 fi
+
+# Begin the build...
+echo_red_text "Building Phoenix '${PHOENIX_VERSION}'..."
 
 # Build Phoenix (platform-generic logic)
 build_phoenix_common
@@ -975,3 +978,5 @@ fi
 
 # Clean-up temporary files
 "${PHOENIX_RM}" -rf "${PHOENIX_TEMP}"
+
+echo_green_text "SUCCESS: Built Phoenix '${PHOENIX_VERSION}'!"
