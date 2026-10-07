@@ -5,38 +5,6 @@ set -euo pipefail
 # Ensure this is never ran with xtrace...
 set +x || return 1
 
-# Set-up our environment
-function setup_env() {
-  if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
-    # Find dirname
-    if [[ -n "${PHOENIX_DIRNAME+x}" ]] && [[ -x "${PHOENIX_DIRNAME}" ]]; then
-      local -r dirname="${PHOENIX_DIRNAME}"
-    elif [[ -x '/bin/dirname' ]]; then
-      local -r dirname='/bin/dirname'
-    elif [[ -x '/usr/bin/dirname' ]]; then
-      local -r dirname='/usr/bin/dirname'
-    else
-      if ! command -v dirname > /dev/null 2>&1; then
-        echo "ERROR: Missing dirname!" >&2
-        return 1
-      fi
-      # It isn't a known location, so we sadly have to just fall-back to the PATH
-      local -r dirname="$(dirname)"
-    fi
-
-    # Set-up our environment
-    readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
-    if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
-      echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
-      return 1
-    fi
-    source "${PHOENIX_ENV_SH}" || return 1
-  fi
-}
-
-# Set-up our environment
-setup_env
-
 # Include download utilities
 verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || return 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || return 1
