@@ -67,7 +67,7 @@ elif [[ "${source_target}" == 'all' ]]; then
     PHOENIX_GET_SOURCE_SHFMT=1
   fi
 else
-  echo_red_text "ERROR: Invalid target: ${source_target}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: '${source_target}'\n You must enter one of the following:"
   echo 'All:        all (Default)'
   echo 'Python:     python'
   echo 's3cmd:      s3cmd'
@@ -88,7 +88,7 @@ PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=0
 if [[ "${mode}" == 'checksum-update' ]]; then
   PHOENIX_GET_SOURCE_CHECKSUM_UPDATE=1
 elif [[ "${mode}" != 'download' ]]; then
-  echo_red_text "ERROR: Invalid mode: ${mode}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid mode: '${mode}'\n You must enter one of the following:"
   echo 'Download:                     download (Default)'
   echo 'Download + update checksums:  checksum-update'
   return 1
@@ -596,11 +596,10 @@ function download_and_extract() {
     restore_dir "${path}"
     if [[ "${temp_archive_path_name}" == 'uv' ]]; then
       PHOENIX_PERFORM_POST_DOWNLOAD=0
-      return 1
     else
       echo_red_text "ERROR: Download for archive failed: '${url}'!"
-      return 1
     fi
+    return 1
   fi
 
   # Extract the archive
@@ -842,9 +841,6 @@ function get_s3cmd() {
     # Ensure we have `PHOENIX_PYENV_DIR`
     verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
 
-    # Ensure we have `PHOENIX_PYENV_DIR`
-    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
-
     # Ensure we have `PHOENIX_PYENV`
     verify_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
 
@@ -872,7 +868,7 @@ function get_s3cmd() {
   download_and_extract "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}"
 
   if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
-    source "${PHOENIX_PYENV}"
+    source "${PHOENIX_PYENV}" || exit 1
     echo_red_text "Installing s3cmd to path: '${PHOENIX_S3CMD}'..."
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
     echo_green_text "SUCCESS: Set-up s3cmd at path: '${PHOENIX_S3CMD}'!"
