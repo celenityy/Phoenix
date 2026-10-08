@@ -85,10 +85,8 @@ function create_archive() {
       ;;
   esac
 
-  if [[ ! -d "${target_dir}" ]]; then
-    echo_red_text "ERROR: Target directory ('${target_dir}') does not exist! Aborting..."
-    return 1
-  fi
+  # Ensure our target directory is valid
+  verify_dir "${target_dir}" || return 1
 
   # Check if the output archive already exists
   if [[ -f "${output_archive}" ]]; then
@@ -138,7 +136,7 @@ function create_archive() {
   local archive_failed=0
 
   # Finally create our archive
-  echo_red_text "Creating archive: ${output_archive} from path: ${target_dir}..."
+  echo_red_text "Creating archive: '${output_archive}' from path: '${target_dir}'..."
   pushd "${target_dir}"
   if [[ "${archive_format}" == 'zip' ]]; then
     # shellcheck disable=SC2035

@@ -134,14 +134,14 @@ function push_file() {
     local -r s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
   fi
 
-  echo_red_text "Pushing '${push_file}' to S3..."
+  echo_red_text "Pushing file: '${push_file}' to S3 storage..."
   source "${PHOENIX_PYENV}"
   "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} --mime-type="${mime_type}" put "${push_file}" "${s3_target_path}" \
     --access_key="${s3_access_key}" \
     --secret_key="${s3_secret_key}" \
     --host="${s3_endpoint}" \
     --host-bucket="${s3_endpoint}"
-  echo_green_text "SUCCESS: Pushed '${push_file}' to S3!"
+  echo_green_text "SUCCESS: Pushed file: '${push_file}' to S3 storage!"
 
   # Set verbosity
   set_verbosity
@@ -365,10 +365,7 @@ function push_dir() {
   local -r s3_secret_key_file="$6"
 
   # Ensure our directory to push is valid
-  if [[ ! -d "${push_dir}" ]]; then
-    echo_red_text "ERROR: Directory does not exist: '${push_dir}'!"
-    return 1
-  fi
+  verify_dir "${push_dir}" || return 1
 
   # Ensure our secrets are valid
   verify_file "${s3_access_key_file}" || return 1
@@ -381,7 +378,7 @@ function push_dir() {
     "${PHOENIX_DOT_CLEAN}" -mv "${push_dir}"
   fi
 
-  echo_red_text "Pushing '${push_dir}' to S3..."
+  echo_red_text "Pushing directory: '${push_dir}' to S3 storage..."
   for file in $("${PHOENIX_FIND}" "${push_dir}" -type f); do
     local file_basename=$("${PHOENIX_BASENAME}" "${file}")
     if [[ "${file_basename}" != '.DS_Store' ]]; then
@@ -399,7 +396,7 @@ function push_dir() {
       echo "Skipping upload of file: '${file}'"
     fi
   done
-  echo_green_text "SUCCESS: Pushed '${push_dir}' to S3!"
+  echo_green_text "SUCCESS: Pushed directory: '${push_dir}' to S3 storage!"
 }
 
 # Push a directory to S3 storage and add SHA512sums for each of its files
@@ -470,10 +467,7 @@ function push_dir_and_add_sha512sum() {
   local -r s3_secret_key_file="$6"
 
   # Ensure our directory to push is valid
-  if [[ ! -d "${push_dir}" ]]; then
-    echo_red_text "ERROR: Directory does not exist: '${push_dir}'!"
-    return 1
-  fi
+  verify_dir "${push_dir}" || return 1
 
   # Ensure our secrets are valid
   verify_file "${s3_access_key_file}" || return 1
@@ -486,7 +480,7 @@ function push_dir_and_add_sha512sum() {
     "${PHOENIX_DOT_CLEAN}" -mv "${push_dir}"
   fi
 
-  echo_red_text "Pushing '${push_dir}' to S3..."
+  echo_red_text "Pushing directory: '${push_dir}' to S3 storage..."
   for file in $("${PHOENIX_FIND}" "${push_dir}" -type f); do
     local file_basename=$("${PHOENIX_BASENAME}" "${file}")
     if [[ "${file_basename}" != '.DS_Store' ]]; then
@@ -504,7 +498,7 @@ function push_dir_and_add_sha512sum() {
       echo "Skipping upload of file: '${file}'"
     fi
   done
-  echo_green_text "SUCCESS: Pushed '${push_dir}' to S3!"
+  echo_green_text "SUCCESS: Pushed directory: '${push_dir}' to S3 storage!"
 }
 
 # Delete a file from S3 storage
@@ -582,14 +576,14 @@ function delete_file() {
 
   local -r s3_target_path="s3://${s3_bucket_name}/${s3_file}"
 
-  echo_red_text "Deleting '${s3_file_name}' from S3..."
+  echo_red_text "Deleting file: '${s3_file_name}' from S3 storage..."
   source "${PHOENIX_PYENV}"
   "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} rm "${s3_file}" \
     --access_key="${s3_access_key}" \
     --secret_key="${s3_secret_key}" \
     --host="${s3_endpoint}" \
     --host-bucket="${s3_endpoint}"
-  echo_green_text "SUCCESS: Deleted '${s3_file_name}' from S3"
+  echo_green_text "SUCCESS: Deleted file: '${s3_file_name}' from S3 storage!"
 
   # Set verbosity
   set_verbosity

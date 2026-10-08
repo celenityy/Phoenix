@@ -138,13 +138,7 @@ function update_wiki_repo() {
   verify_env "${PHOENIX_WIKI_BRANCH}" 'PHOENIX_WIKI_BRANCH' || exit 1
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  verify_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
-
-  # Ensure the wiki repo exists
-  if [[ ! -d "${PHOENIX_WIKI_REPO}" ]]; then
-    echo_red_text "ERROR: Missing Phoenix wiki repo: '${PHOENIX_WIKI_REPO}'!"
-    exit 1
-  fi
+  verify_dir_with_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
 
   # Sync the docs and wiki repo directories
   echo_red_text 'Syncing docs and wiki repo...'
