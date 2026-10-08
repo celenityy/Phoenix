@@ -165,3 +165,57 @@ function verify_file_with_env() {
     return 1
   fi
 }
+
+# Verify that a directory exists
+function verify_dir() {
+  function print_usage() {
+    echo "Usage: verify_dir '/path/to/dir'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a directory to verify!'
+    print_usage
+    return 1
+  fi
+
+  local -r verify_dir="$1"
+
+  if [[ ! -d "${verify_dir}" ]]; then
+    echo_red_text "ERROR: Directory does not exist: '${verify_dir}'!"
+    return 1
+  fi
+}
+
+# Verify that a directory (corresponding to an environment variable) exists
+function verify_dir_with_env() {
+  function print_usage() {
+    echo "Usage: verify_dir_with_env '/path/to/dir' 'ENVIRONMENT_VARIABLE_FOR_DIR'"
+  }
+
+  if [[ -z "${1+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the path to a directory to verify!'
+    print_usage
+    exit 1
+  fi
+
+  if [[ -z "${2+x}" ]]; then
+    echo_red_text 'ERROR: Please specify the environment variable that corresponds to the directory to verify!'
+    print_usage
+    exit 1
+  fi
+
+  local -r verify_dir="$1"
+  local -r verify_dir_env="$2"
+
+  verify_env "${verify_dir}" "${verify_dir_env}" || return 1
+
+  if [[ "${verify_dir}" == 'null' ]]; then
+    echo_red_text "ERROR: Environment variable has not been specified: '${verify_dir_env}'!"
+    return 1
+  fi
+
+  if [[ ! -d "${verify_dir}" ]]; then
+    echo_red_text "ERROR: Environment variable: '${verify_dir_env}' is set, but directory: '${verify_dir}' does not exist!"
+    return 1
+  fi
+}

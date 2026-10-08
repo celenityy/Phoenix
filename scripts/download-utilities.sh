@@ -204,7 +204,7 @@ function clone_git_repo() {
   fi
 
   # Ensure the URL is valid
-  if [[ "${url}" == "" ]]; then
+  if [[ "${url}" == "" ]] || [[ "${url}" == "null" ]]; then
     echo_red_text "ERROR: Missing URL for repo to clone!"
     return 1
   fi
