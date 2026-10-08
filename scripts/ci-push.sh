@@ -42,6 +42,9 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
+# Ensure we have `PHOENIX_SCRIPTS`
+verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
 # Push Phoenix
 readonly PHOENIX_FROM_PUSH=1
 export PHOENIX_FROM_PUSH

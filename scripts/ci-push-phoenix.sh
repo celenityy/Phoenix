@@ -555,6 +555,9 @@ function publish_to_gitlab() {
   # Ensure we have `PHOENIX_GITLAB_PROJECT_ID`
   verify_env "${PHOENIX_GITLAB_PROJECT_ID}" 'PHOENIX_GITLAB_PROJECT_ID' || return 1
 
+  # Ensure we have `PHOENIX_RELEASES_BASE_URL`
+  verify_env "${PHOENIX_RELEASES_BASE_URL}" 'PHOENIX_RELEASES_BASE_URL' || return 1
+
   local -r phoenix_release_desc=$("${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES}")
 
   # Attach our assets

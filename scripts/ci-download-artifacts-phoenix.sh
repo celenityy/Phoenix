@@ -25,6 +25,9 @@ fi
 # Ensure we have `PHOENIX_CI_ID`
 verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || return 1
 
+# Ensure we have `PHOENIX_ARTIFACTS`
+verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_CI_ID' || return 1
+
 verify_env "${target_artifact}" 'target_artifact' || {
   echo_red_text "ERROR: Missing target artifact!"
   return 1
@@ -80,7 +83,7 @@ elif [[ "${target_artifact}" == 'all' ]]; then
   PHOENIX_AR_DOWN_WINDOWS_ARCHIVE=1
   PHOENIX_AR_DOWN_UNIVERSAL_CFG=1
 else
-  echo_red_text "ERROR: Invalid target: ${target_artifact}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: '${target_artifact}'\n You must enter one of the following:"
   echo 'All:                      all (Default)'
   echo 'Android archive:          android-archive'
   echo 'Android .js:              android-js'

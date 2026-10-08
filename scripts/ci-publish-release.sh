@@ -45,6 +45,12 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
+# Ensure we have bash
+verify_exec "${PHOENIX_BASH}" 'PHOENIX_BASH' || exit 1
+
+# Ensure we have `PHOENIX_SCRIPTS`
+verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh || exit 1

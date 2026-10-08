@@ -37,6 +37,9 @@ setup_env
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
+# Ensure we have `PHOENIX_SCRIPTS`
+verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
   readonly build_target='all'

@@ -48,6 +48,9 @@ verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 # Ensure we have `PHOENIX_CI_TYPE`
 verify_env "${PHOENIX_CI_TYPE}" 'PHOENIX_CI_TYPE' || exit 1
 
+# Ensure we have `PHOENIX_SCRIPTS`
+verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
 # Set our CI ID
 ## For Forgejo (Codeberg), we use the run ID
 ## For GitLab, we use the pipeline ID
