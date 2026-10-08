@@ -135,7 +135,7 @@ function create_archive() {
   # By default, we know the archive creation has not failed...
   local archive_failed=0
 
-  # Finally create our archive
+  # Finally, create our archive
   echo_red_text "Creating archive: '${output_archive}' from path: '${target_dir}'..."
   pushd "${target_dir}"
   if [[ "${archive_format}" == 'zip' ]]; then
