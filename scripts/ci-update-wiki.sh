@@ -54,6 +54,9 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
+# Ensure we have `PHOENIX_EXTERNAL`
+verify_env "${PHOENIX_EXTERNAL}" 'PHOENIX_EXTERNAL' || exit 1
+
 # Constants
 
 # Phoenix repo

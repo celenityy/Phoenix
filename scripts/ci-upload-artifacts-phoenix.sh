@@ -92,7 +92,7 @@ elif [[ "${target_artifact}" == 'all' ]]; then
   PHOENIX_AR_UP_WINDOWS_ARCHIVE=1
   PHOENIX_AR_UP_UNIVERSAL_CFG=1
 else
-  echo_red_text "ERROR: Invalid target: ${target_artifact}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: '${target_artifact}'\n You must enter one of the following:"
   echo 'All:                      all (Default)'
   echo 'Android archive:          android-archive'
   echo 'Android .js:              android-js'
