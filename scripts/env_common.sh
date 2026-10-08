@@ -913,3 +913,4 @@ source "${PHOENIX_ENV_EXTERNAL}" || return 1
 
 # We've now set our environment variables...
 readonly PHOENIX_SET_ENVS=1
+export PHOENIX_SET_ENVS
