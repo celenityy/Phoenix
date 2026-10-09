@@ -26,7 +26,7 @@ fi
 verify_env "${PHOENIX_CI_ID}" 'PHOENIX_CI_ID' || return 1
 
 # Ensure we have `PHOENIX_ARTIFACTS`
-verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_CI_ID' || return 1
+verify_env "${PHOENIX_ARTIFACTS}" 'PHOENIX_ARTIFACTS' || return 1
 
 verify_env "${target_artifact}" 'target_artifact' || {
   echo_red_text "ERROR: Missing target artifact!"
