@@ -45,11 +45,18 @@ fi
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
+# Ensure we have `PHOENIX_LOG_AR_DOWN`
+verify_env "${PHOENIX_LOG_AR_DOWN}" 'PHOENIX_LOG_AR_DOWN' || exit 1
+
 # Ensure we have `PHOENIX_CI_TYPE`
 verify_env "${PHOENIX_CI_TYPE}" 'PHOENIX_CI_TYPE' || exit 1
 
 # Ensure we have `PHOENIX_SCRIPTS`
 verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
+# Ensure we have our target script
+readonly PHOENIX_AR_DOWN_SH="${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh"
+verify_file "${PHOENIX_AR_DOWN_SH}" || exit 1
 
 # Set our CI ID
 ## For Forgejo (Codeberg), we use the run ID
@@ -101,9 +108,9 @@ if [[ "${PHOENIX_LOG_AR_DOWN}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" > >("${PHOENIX_TEE}" -a "${AR_DOWN_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_AR_DOWN_SH}" "${target_artifact}" > >("${PHOENIX_TEE}" -a "${AR_DOWN_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/ci-download-artifacts-phoenix.sh" "${target_artifact}" || exit 1
+  source "${PHOENIX_AR_DOWN_SH}" "${target_artifact}" || exit 1
 fi
 
 popd

@@ -37,8 +37,15 @@ setup_env
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
+# Ensure we have `PHOENIX_LOG_BUILD`
+verify_env "${PHOENIX_LOG_BUILD}" 'PHOENIX_LOG_BUILD' || exit 1
+
 # Ensure we have `PHOENIX_SCRIPTS`
 verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
+# Ensure we have our target script
+readonly PHOENIX_BUILD_SH="${PHOENIX_SCRIPTS}/fly.sh"
+verify_file "${PHOENIX_BUILD_SH}" || exit 1
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
@@ -75,9 +82,9 @@ if [[ "${PHOENIX_LOG_BUILD}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/fly.sh" "${build_target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_BUILD_SH}" "${build_target}" > >("${PHOENIX_TEE}" -a "${BUILD_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/fly.sh" "${build_target}" || exit 1
+  source "${PHOENIX_BUILD_SH}" "${build_target}" || exit 1
 fi
 
 popd
