@@ -42,8 +42,15 @@ if [[ "${PHOENIX_CI}" != 1 ]]; then
   exit 1
 fi
 
+# Ensure we have `PHOENIX_LOG_PUSH`
+verify_env "${PHOENIX_LOG_PUSH}" 'PHOENIX_LOG_PUSH' || exit 1
+
 # Ensure we have `PHOENIX_SCRIPTS`
 verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
+# Ensure we have our target script
+readonly PHOENIX_PUSH_SH="${PHOENIX_SCRIPTS}/ci-push-phoenix.sh"
+verify_file "${PHOENIX_PUSH_SH}" || exit 1
 
 # Push Phoenix
 readonly PHOENIX_FROM_PUSH=1
@@ -71,7 +78,7 @@ if [[ "${PHOENIX_LOG_PUSH}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/ci-push-phoenix.sh" > >("${PHOENIX_TEE}" -a "${PUSH_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_PUSH_SH}" > >("${PHOENIX_TEE}" -a "${PUSH_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/ci-push-phoenix.sh" || exit 1
+  source "${PHOENIX_PUSH_SH}" || exit 1
 fi

@@ -821,6 +821,9 @@ function get_python() {
 
 # Get s3cmd
 function get_s3cmd() {
+  # Ensure we have `PHOENIX_S3CMD`
+  verify_env "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' || return 1
+
   # Ensure we have `PHOENIX_S3CMD_COMMIT`
   verify_env "${PHOENIX_S3CMD_COMMIT}" 'PHOENIX_S3CMD_COMMIT' || return 1
 
@@ -839,18 +842,16 @@ function get_s3cmd() {
     }
 
     # Ensure we have `PHOENIX_PYENV_DIR`
-    verify_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
+    verify_dir_with_env "${PHOENIX_PYENV_DIR}" 'PHOENIX_PYENV_DIR' || return 1
 
     # Ensure we have `PHOENIX_PYENV`
-    verify_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
+    verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
 
     # Ensure we have `PHOENIX_UV_DIR`
-    verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || return 1
+    verify_dir_with_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || return 1
 
-    if [[ ! -d "${PHOENIX_UV_DIR}" ]] || [[ ! -f "${PHOENIX_PYENV}" ]]; then
-      echo_red_text "ERROR: You tried to download s3cmd, but you don't have a Python environment set-up yet!"
-      return 1
-    fi
+    # By default, we have not sourced the Python environment
+    local pyenv_sourced=0
 
     if [[ -d "${PHOENIX_PYENV_DIR}/bin/s3cmd" ]]; then
       echo_red_text "s3cmd is already installed at path: '${PHOENIX_PYENV_DIR}/bin/s3cmd'!"
@@ -859,6 +860,10 @@ function get_s3cmd() {
       if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
         return 0
       else
+        if [[ "${pyenv_sourced}" != 1 ]]; then
+          source "${PHOENIX_PYENV}" || return 1
+          local pyenv_sourced=1
+        fi
         "${PHOENIX_UV}" pip uninstall s3cmd
       fi
     fi
@@ -868,7 +873,10 @@ function get_s3cmd() {
   download_and_extract "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}"
 
   if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
-    source "${PHOENIX_PYENV}" || exit 1
+    if [[ "${pyenv_sourced}" != 1 ]]; then
+      source "${PHOENIX_PYENV}" || return 1
+      local pyenv_sourced=1
+    fi
     echo_red_text "Installing s3cmd to path: '${PHOENIX_S3CMD}'..."
     "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
     echo_green_text "SUCCESS: Set-up s3cmd at path: '${PHOENIX_S3CMD}'!"
@@ -877,6 +885,9 @@ function get_s3cmd() {
 
 # Get shellcheck
 function get_shellcheck() {
+  # Ensure we have `PHOENIX_SHELLCHECK`
+  verify_env "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' || return 1
+
   # Ensure we have `PHOENIX_SHELLCHECK_DIR`
   verify_env "${PHOENIX_SHELLCHECK_DIR}" 'PHOENIX_SHELLCHECK_DIR' || return 1
 
@@ -1043,6 +1054,9 @@ function get_shfmt() {
 
 # Get + set-up uv
 function get_uv() {
+  # Ensure we have `PHOENIX_UV`
+  verify_env "${PHOENIX_UV}" 'PHOENIX_UV' || return 1
+
   # Ensure we have `PHOENIX_UV_DIR`
   verify_env "${PHOENIX_UV_DIR}" 'PHOENIX_UV_DIR' || return 1
 

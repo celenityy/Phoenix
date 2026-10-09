@@ -37,8 +37,15 @@ setup_env
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
 
+# Ensure we have `PHOENIX_LOG_SOURCES`
+verify_env "${PHOENIX_LOG_SOURCES}" 'PHOENIX_LOG_SOURCES' || exit 1
+
 # Ensure we have `PHOENIX_SCRIPTS`
 verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
+
+# Ensure we have our target script
+readonly PHOENIX_SOURCES_SH="${PHOENIX_SCRIPTS}/get_sources-phoenix.sh"
+verify_file "${PHOENIX_SOURCES_SH}" || exit 1
 
 # Set-up target parameters
 if [[ -z "${1+x}" ]]; then
@@ -79,7 +86,7 @@ if [[ "${PHOENIX_LOG_SOURCES}" == 1 ]]; then
   # Ensure our log directory exists
   "${PHOENIX_MKDIR}" -vp "${PHOENIX_LOG_DIR}"
 
-  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${source_target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1 || exit 1
+  source "${PHOENIX_SOURCES_SH}" "${source_target}" "${mode}" > >("${PHOENIX_TEE}" -a "${SOURCES_LOG_FILE}") 2>&1 || exit 1
 else
-  source "${PHOENIX_SCRIPTS}/get_sources-phoenix.sh" "${source_target}" "${mode}" || exit 1
+  source "${PHOENIX_SOURCES_SH}" "${source_target}" "${mode}" || exit 1
 fi

@@ -51,18 +51,31 @@ verify_exec "${PHOENIX_BASH}" 'PHOENIX_BASH' || exit 1
 # Ensure we have `PHOENIX_SCRIPTS`
 verify_dir_with_env "${PHOENIX_SCRIPTS}" 'PHOENIX_SCRIPTS' || exit 1
 
+# Ensure we have our target scripts
+readonly PHOENIX_CI_DL_AR_SH="${PHOENIX_SCRIPTS}/ci-download-artifacts.sh"
+verify_file "${PHOENIX_CI_DL_AR_SH}" || exit 1
+
+readonly PHOENIX_CI_GET_SOURCES_SH="${PHOENIX_SCRIPTS}/get_sources.sh"
+verify_file "${PHOENIX_CI_GET_SOURCES_SH}" || exit 1
+
+readonly PHOENIX_CI_PREP_SH="${PHOENIX_SCRIPTS}/ci-prep.sh"
+verify_file "${PHOENIX_CI_PREP_SH}" || exit 1
+
+readonly PHOENIX_CI_PUBLISH_SH="${PHOENIX_SCRIPTS}/ci-push.sh"
+verify_file "${PHOENIX_CI_PUBLISH_SH}" || exit 1
+
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh || exit 1
 /bin/sudo /bin/dnf install -y bash curl jq shasum tar zip || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/get_sources.sh" 'all' || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/get_sources.sh" 's3cmd' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 'all' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 's3cmd' || exit 1
 echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
 
 # Get secrets
 echo_red_text 'CI - Preparing secrets...'
 set +x || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/ci-prep.sh" 's3-releases' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_CI_PREP_SH}" 's3-releases' || exit 1
 echo_green_text 'CI - SUCCESS: Prepared secrets.'
 
 # Set verbosity
@@ -70,11 +83,11 @@ set_verbosity
 
 # Get artifacts
 echo_red_text 'CI - Downloading artifacts...'
-"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/ci-download-artifacts.sh" 'all' || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_CI_DL_AR_SH}" 'all' || exit 1
 echo_green_text 'CI - SUCCESS: Downloaded artifacts.'
 
 # Publish our release
 echo_red_text 'CI - Publishing release...'
 set +x || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_SCRIPTS}/ci-push.sh" || exit 1
+"${PHOENIX_BASH}" "${PHOENIX_CI_PUBLISH_SH}" || exit 1
 echo_green_text 'CI - SUCCESS: Published release.'
