@@ -15,7 +15,7 @@ function setup_env() {
     else
       if ! command -v dirname > /dev/null 2>&1; then
         echo "ERROR: Missing dirname!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r dirname="$(dirname)"
@@ -25,14 +25,14 @@ function setup_env() {
     readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
     if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
       echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
-      exit 1
+      return 1
     fi
-    source "${PHOENIX_ENV_SH}" || exit 1
+    source "${PHOENIX_ENV_SH}" || return 1
   fi
 }
 
 # Set-up our environment
-setup_env
+setup_env || exit 1
 
 # Ensure we have GNU awk
 verify_exec "${PHOENIX_AWK}" 'PHOENIX_AWK' || exit 1
@@ -54,7 +54,7 @@ else
   readonly build_target=$(echo "${1}" | "${PHOENIX_AWK}" '{print tolower($0)}')
 fi
 
-pushd "${PHOENIX_ROOT}"
+pushd "${PHOENIX_ROOT}" || exit 1
 
 # Build Phoenix
 readonly PHOENIX_FROM_BUILD=1
@@ -87,4 +87,4 @@ else
   source "${PHOENIX_BUILD_SH}" "${build_target}" || exit 1
 fi
 
-popd
+popd || exit 1

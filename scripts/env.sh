@@ -22,7 +22,7 @@ function set_root() {
   else
     if ! command -v dirname > /dev/null 2>&1; then
       echo "ERROR: Missing dirname!" >&2
-      exit 1
+      return 1
     fi
     # It isn't a known location, so we sadly have to just fall-back to the PATH
     local -r dirname="$(dirname)"
@@ -33,10 +33,10 @@ function set_root() {
   if [[ ! -f "${root_txt}" ]]; then
     readonly PHOENIX_ROOT=$(cd "$("${dirname}" "${BASH_SOURCE[0]}")/.." && pwd)
     if [[ -d "${PHOENIX_ROOT}" ]]; then
-      echo -n "${PHOENIX_ROOT}" > "${root_txt}" || exit 1
+      echo -n "${PHOENIX_ROOT}" > "${root_txt}" || return 1
     else
       echo "ERROR: Unable to find a valid root directory: '${PHOENIX_ROOT}'!"
-      exit 1
+      return 1
     fi
   else
     # Find cat
@@ -49,7 +49,7 @@ function set_root() {
     else
       if ! command -v cat > /dev/null 2>&1; then
         echo "ERROR: Missing cat!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r cat="$(cat)"
@@ -65,7 +65,7 @@ function set_root() {
     else
       if ! command -v xargs > /dev/null 2>&1; then
         echo "ERROR: Missing xargs!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r xargs="$(xargs)"
@@ -75,7 +75,7 @@ function set_root() {
 
     if [[ ! -d "${PHOENIX_ROOT}" ]]; then
       echo "ERROR: Unable to find a valid root directory: '${PHOENIX_ROOT}'!"
-      exit 1
+      return 1
     fi
   fi
 }
@@ -90,35 +90,35 @@ function add_to_path() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text "ERROR: Please specify the PATH's path!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to an executable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text "ERROR: Please specify the executable's environment variable!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the executable name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have ln
-  verify_exec "${PHOENIX_LN}" 'PHOENIX_LN' || exit 1
+  verify_exec "${PHOENIX_LN}" 'PHOENIX_LN' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   local -r path="$1"
   local -r exec="$2"
@@ -135,7 +135,7 @@ function add_to_path() {
     if [[ -f "${path}/${exec_name}" ]]; then
       "${PHOENIX_RM}" -f "${path}/${exec_name}"
     fi
-    "${PHOENIX_LN}" -sf "${exec}" "${path}/${exec_name}"
+    "${PHOENIX_LN}" -sf "${exec}" "${path}/${exec_name}" || return 1
     echo_green_text "Added '${exec_name}' to PATH (from '${exec_env}')!"
   else
     echo_red_text "WARNING: Unable to add '${exec_name}' to PATH!"
@@ -152,29 +152,29 @@ function add_to_full_path() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to an executable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text "ERROR: Please specify the executable's environment variable!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the executable name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have `PHOENIX_PATH`
-  verify_env "${PHOENIX_PATH}" 'PHOENIX_PATH' || exit 1
+  verify_env "${PHOENIX_PATH}" 'PHOENIX_PATH' || return 1
 
   local -r exec="$1"
   local -r exec_env="$2"
   local -r exec_name="$3"
 
-  add_to_path "${PHOENIX_PATH}" "${exec}" "${exec_env}" "${exec_name}"
+  add_to_path "${PHOENIX_PATH}" "${exec}" "${exec_env}" "${exec_name}" || return 1
 }
 
 # Add an executable to Phoenix's lint PATH
@@ -186,106 +186,106 @@ function add_to_lint_path() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to an executable!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text "ERROR: Please specify the executable's environment variable!"
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the executable name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have `PHOENIX_LINT_PATH`
-  verify_env "${PHOENIX_LINT_PATH}" 'PHOENIX_LINT_PATH' || exit 1
+  verify_env "${PHOENIX_LINT_PATH}" 'PHOENIX_LINT_PATH' || return 1
 
   local -r exec="$1"
   local -r exec_env="$2"
   local -r exec_name="$3"
 
-  add_to_path "${PHOENIX_LINT_PATH}" "${exec}" "${exec_env}" "${exec_name}"
+  add_to_path "${PHOENIX_LINT_PATH}" "${exec}" "${exec_env}" "${exec_name}" || return 1
 }
 
 # Set-up the full Phoenix PATH
 function setup_path() {
   # Ensure we have `PHOENIX_CI`
-  verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
+  verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || return 1
 
   # Ensure we have `PHOENIX_PLATFORM`
-  verify_env "${PHOENIX_PLATFORM}" 'PHOENIX_PLATFORM' || exit 1
+  verify_env "${PHOENIX_PLATFORM}" 'PHOENIX_PLATFORM' || return 1
 
-  add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'awk'
-  add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'gawk'
-  add_to_full_path "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' 'basename'
-  add_to_full_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
-  add_to_full_path "${PHOENIX_CAT}" 'PHOENIX_CAT' 'cat'
-  add_to_full_path "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' 'chmod'
-  add_to_full_path "${PHOENIX_CP}" 'PHOENIX_CP' 'cp'
-  add_to_full_path "${PHOENIX_CURL}" 'PHOENIX_CURL' 'curl'
-  add_to_full_path "${PHOENIX_DATE}" 'PHOENIX_DATE' 'date'
-  add_to_full_path "${PHOENIX_DATE}" 'PHOENIX_DATE' 'gdate'
-  add_to_full_path "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' 'dirname'
-  add_to_full_path "${PHOENIX_ECHO}" 'PHOENIX_ECHO' 'echo'
-  add_to_full_path "${PHOENIX_FIND}" 'PHOENIX_FIND' 'find'
-  add_to_full_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git'
-  add_to_full_path "${PHOENIX_GREP}" 'PHOENIX_GREP' 'grep'
-  add_to_full_path "${PHOENIX_GZIP}" 'PHOENIX_GZIP' 'gzip'
-  add_to_full_path "${PHOENIX_HEAD}" 'PHOENIX_HEAD' 'head'
-  add_to_full_path "${PHOENIX_JQ}" 'PHOENIX_JQ' 'jq'
-  add_to_full_path "${PHOENIX_LN}" 'PHOENIX_LN' 'ln'
-  add_to_full_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls'
-  add_to_full_path "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' 'md5sum'
-  add_to_full_path "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' 'mkdir'
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python'
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3'
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3.14'
-  add_to_full_path "${PHOENIX_RM}" 'PHOENIX_RM' 'rm'
-  add_to_full_path "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' 's3cmd'
-  add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'gsed'
-  add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'sed'
-  add_to_full_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
-  add_to_full_path "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' 'shasum'
-  add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'gtar'
-  add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'tar'
-  add_to_full_path "${PHOENIX_TEE}" 'PHOENIX_TEE' 'tee'
-  add_to_full_path "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' 'touch'
-  add_to_full_path "${PHOENIX_UNAME}" 'PHOENIX_UNAME' 'uname'
-  add_to_full_path "${PHOENIX_UNZIP}" 'PHOENIX_UNZIP' 'unzip'
-  add_to_full_path "${PHOENIX_UV}" 'PHOENIX_UV' 'uv'
-  add_to_full_path "${PHOENIX_XARGS}" 'PHOENIX_XARGS' 'xargs'
-  add_to_full_path "${PHOENIX_XZ}" 'PHOENIX_XZ' 'xz'
-  add_to_full_path "${PHOENIX_ZIP}" 'PHOENIX_ZIP' 'zip'
+  add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'awk' || return 1
+  add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'gawk' || return 1
+  add_to_full_path "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' 'basename' || return 1
+  add_to_full_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash' || return 1
+  add_to_full_path "${PHOENIX_CAT}" 'PHOENIX_CAT' 'cat' || return 1
+  add_to_full_path "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' 'chmod' || return 1
+  add_to_full_path "${PHOENIX_CP}" 'PHOENIX_CP' 'cp' || return 1
+  add_to_full_path "${PHOENIX_CURL}" 'PHOENIX_CURL' 'curl' || return 1
+  add_to_full_path "${PHOENIX_DATE}" 'PHOENIX_DATE' 'date' || return 1
+  add_to_full_path "${PHOENIX_DATE}" 'PHOENIX_DATE' 'gdate' || return 1
+  add_to_full_path "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' 'dirname' || return 1
+  add_to_full_path "${PHOENIX_ECHO}" 'PHOENIX_ECHO' 'echo' || return 1
+  add_to_full_path "${PHOENIX_FIND}" 'PHOENIX_FIND' 'find' || return 1
+  add_to_full_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git' || return 1
+  add_to_full_path "${PHOENIX_GREP}" 'PHOENIX_GREP' 'grep' || return 1
+  add_to_full_path "${PHOENIX_GZIP}" 'PHOENIX_GZIP' 'gzip' || return 1
+  add_to_full_path "${PHOENIX_HEAD}" 'PHOENIX_HEAD' 'head' || return 1
+  add_to_full_path "${PHOENIX_JQ}" 'PHOENIX_JQ' 'jq' || return 1
+  add_to_full_path "${PHOENIX_LN}" 'PHOENIX_LN' 'ln' || return 1
+  add_to_full_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls' || return 1
+  add_to_full_path "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' 'md5sum' || return 1
+  add_to_full_path "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' 'mkdir' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3.14' || return 1
+  add_to_full_path "${PHOENIX_RM}" 'PHOENIX_RM' 'rm' || return 1
+  add_to_full_path "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' 's3cmd' || return 1
+  add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'gsed' || return 1
+  add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'sed' || return 1
+  add_to_full_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh' || return 1
+  add_to_full_path "${PHOENIX_SHASUM}" 'PHOENIX_SHASUM' 'shasum' || return 1
+  add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'gtar' || return 1
+  add_to_full_path "${PHOENIX_TAR}" 'PHOENIX_TAR' 'tar' || return 1
+  add_to_full_path "${PHOENIX_TEE}" 'PHOENIX_TEE' 'tee' || return 1
+  add_to_full_path "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' 'touch' || return 1
+  add_to_full_path "${PHOENIX_UNAME}" 'PHOENIX_UNAME' 'uname' || return 1
+  add_to_full_path "${PHOENIX_UNZIP}" 'PHOENIX_UNZIP' 'unzip' || return 1
+  add_to_full_path "${PHOENIX_UV}" 'PHOENIX_UV' 'uv' || return 1
+  add_to_full_path "${PHOENIX_XARGS}" 'PHOENIX_XARGS' 'xargs' || return 1
+  add_to_full_path "${PHOENIX_XZ}" 'PHOENIX_XZ' 'xz' || return 1
+  add_to_full_path "${PHOENIX_ZIP}" 'PHOENIX_ZIP' 'zip' || return 1
 
   # CI-specific
   if [[ "${PHOENIX_CI}" == 1 ]]; then
-    add_to_full_path "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' 'rsync'
+    add_to_full_path "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' 'rsync' || return 1
   fi
 
   # OS X-specific
   if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
-    add_to_full_path "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' 'dot_clean'
+    add_to_full_path "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' 'dot_clean' || return 1
   fi
 
-  PATH="${PHOENIX_PATH}"
-  export PATH
+  PATH="${PHOENIX_PATH}" || return 1
+  export PATH || return 1
 }
 
 # Set-up a minimal PATH for linting
 function setup_lint_path() {
-  add_to_lint_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash'
-  add_to_lint_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git'
-  add_to_lint_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls'
-  add_to_lint_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh'
-  add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck'
-  add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt'
+  add_to_lint_path "${PHOENIX_BASH}" 'PHOENIX_BASH' 'bash' || return 1
+  add_to_lint_path "${PHOENIX_GIT}" 'PHOENIX_GIT' 'git' || return 1
+  add_to_lint_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls' || return 1
+  add_to_lint_path "${PHOENIX_SH}" 'PHOENIX_SH' 'sh' || return 1
+  add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck' || return 1
+  add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt' || return 1
 
-  readonly PATH="${PHOENIX_LINT_PATH}"
-  export PATH
+  readonly PATH="${PHOENIX_LINT_PATH}" || return 1
+  export PATH || return 1
 }
 
 # For CI, ensure external environment variables are set
@@ -294,27 +294,27 @@ function setup_ci() {
   if [[ -z "${PHOENIX_CI_TYPE+x}" ]] || [[ "${PHOENIX_CI_TYPE}" == "" ]] ||
     [[ "${PHOENIX_CI_TYPE}" == "null" ]]; then
     echo "ERROR: Missing CI type! Please set 'PHOENIX_CI_TYPE'."
-    exit 1
+    return 1
   fi
 
   # Ensure our branches are set
   if [[ -z "${PHOENIX_DEV_BRANCH+x}" ]] || [[ "${PHOENIX_DEV_BRANCH}" == "" ]] ||
     [[ "${PHOENIX_DEV_BRANCH}" == "null" ]]; then
     echo "ERROR: Missing developer branch! Please set 'PHOENIX_DEV_BRANCH'."
-    exit 1
+    return 1
   fi
 
   if [[ -z "${PHOENIX_PROD_BRANCH+x}" ]] || [[ "${PHOENIX_PROD_BRANCH}" == "" ]] ||
     [[ "${PHOENIX_PROD_BRANCH}" == "null" ]]; then
     echo "ERROR: Missing production branch! Please set 'PHOENIX_PROD_BRANCH'."
-    exit 1
+    return 1
   fi
 }
 
 # Remove the legacy `env_local.sh`
 function clean_env_local() {
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   if [[ -f "$(dirname $0)/env_local.sh" ]]; then
     "${PHOENIX_RM}" -f "$(dirname $0)/env_local.sh"
@@ -325,37 +325,37 @@ function clean_env_local() {
 function set_env() {
   if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
     # Get our root directory
-    set_root || exit 1
+    set_root || return 1
 
     # Ensure we have `PHOENIX_ROOT`
     if [[ -z "${PHOENIX_ROOT+x}" ]] || [[ ! -d "${PHOENIX_ROOT}" ]]; then
       echo "ERROR: 'PHOENIX_ROOT' is missing or invalid!"
-      exit 1
+      return 1
     fi
 
     # Do not use the system PATH
-    unset PATH || exit 1
-    hash -r || exit 1
+    unset PATH || return 1
+    hash -r || return 1
 
     # Handle CI-specific logic
     if [[ -n "${PHOENIX_CI+x}" ]]; then
-      setup_ci || exit 1
+      setup_ci || return 1
     fi
 
-    source "${PHOENIX_ROOT}/scripts/env_common.sh" || exit 1
+    source "${PHOENIX_ROOT}/scripts/env_common.sh" || return 1
 
     # Include utilities
     if [[ -z "${PHOENIX_UTILS+x}" ]] || [[ ! -f "${PHOENIX_UTILS}" ]] || [[ ! -s "${PHOENIX_UTILS}" ]]; then
       echo "ERROR: 'PHOENIX_UTILS' is missing or invalid!"
-      exit 1
+      return 1
     fi
-    source "${PHOENIX_UTILS}" || exit 1
+    source "${PHOENIX_UTILS}" || return 1
 
     # Set-up our PATH
     if [[ -n "${PHOENIX_LINTING+x}" ]]; then
-      setup_lint_path || exit 1
+      setup_lint_path || return 1
     else
-      setup_path || exit 1
+      setup_path || return 1
     fi
 
     # Clean-up the old `env_local.sh` (if necessary)
@@ -364,4 +364,4 @@ function set_env() {
 }
 
 # Set-up our environment
-set_env
+set_env || exit 1

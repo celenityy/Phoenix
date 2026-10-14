@@ -296,7 +296,7 @@ function update_checksum() {
     echo "New ${checksum_type_pretty}: '${new_checksum}'"
   else
     echo_red_text "Updating ${checksum_type_pretty} for file: '${file}'..."
-    "${PHOENIX_SED}" -i "s|'${old_checksum}'|'${new_checksum}'|g" "${PHOENIX_VERSIONS}"
+    "${PHOENIX_SED}" -i "s|'${old_checksum}'|'${new_checksum}'|g" "${PHOENIX_VERSIONS}" || return 1
     echo_green_text "SUCCESS: Updated ${checksum_type_pretty} for file: '${file}'!"
   fi
 }
@@ -361,7 +361,7 @@ function validate_checksum() {
   fi
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
-    update_checksum "${expected_checksum}" "${local_checksum}" "${file}" "${checksum_type}"
+    update_checksum "${expected_checksum}" "${local_checksum}" "${file}" "${checksum_type}" || return 1
   elif [[ "${local_checksum}" != "${expected_checksum}" ]]; then
     echo_red_text "ERROR: Checksum (${checksum_type_pretty}) validation for file failed: '${file}'!"
     echo "Expected ${checksum_type_pretty}:   '${expected_checksum}'"
@@ -603,7 +603,7 @@ function download_and_extract() {
   fi
 
   # Extract the archive
-  extract_archive "${temp_archive_path}" "${path}"
+  extract_archive "${temp_archive_path}" "${path}" || return 1
 
   # Clean-up
   "${PHOENIX_RM}" -rf "${PHOENIX_EXTERNAL}/temp/backup/${temp_archive_path_name}"
@@ -676,28 +676,28 @@ function get_python() {
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading Python (Linux - ARM)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-armv7-unknown-linux-gnueabihf-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-armv7-unknown-linux-gnueabihf-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-armv7-unknown-linux-gnueabihf-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-armv7-unknown-linux-gnueabihf-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM}" || return 1
 
     echo_red_text 'Downloading Python (Linux - ARM64)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_ARM64}" || return 1
 
     echo_red_text 'Downloading Python (Linux - PPC64)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-ppc64le-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-ppc64le-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_PPC64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-ppc64le-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-ppc64le-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_PPC64}" || return 1
 
     echo_red_text 'Downloading Python (Linux - RISC-V)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-riscv64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-riscv64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_RISCV}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-riscv64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-riscv64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_RISCV}" || return 1
 
     echo_red_text 'Downloading Python (Linux - s390x)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-s390x-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-s390x-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_S390X}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-s390x-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-s390x-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_S390X}" || return 1
 
     echo_red_text 'Downloading Python (Linux - x86_64)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_LINUX_X86_64}" || return 1
 
     echo_red_text 'Downloading Python (OS X - ARM64)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-aarch64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_ARM64}" || return 1
 
     echo_red_text 'Downloading Python (OS X - x86_64)...'
-    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${base_output}/cpython-${PHOENIX_PYTHON_VERSION}+${PHOENIX_PYTHON_GIT_RELEASE}-x86_64-apple-darwin-install_only_stripped.tar.gz" "${PHOENIX_PYTHON_SHA512SUM_OSX_X86_64}" || return 1
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -870,7 +870,7 @@ function get_s3cmd() {
   fi
 
   echo_red_text "Downloading s3cmd to path: '${PHOENIX_S3CMD_DIR}'..."
-  download_and_extract "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}"
+  download_and_extract "https://github.com/s3tools/s3cmd/archive/${PHOENIX_S3CMD_COMMIT}.tar.gz" "${PHOENIX_S3CMD_DIR}" "${PHOENIX_S3CMD_SHA512SUM}" || return 1
 
   if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
     if [[ "${pyenv_sourced}" != 1 ]]; then
@@ -878,7 +878,7 @@ function get_s3cmd() {
       local pyenv_sourced=1
     fi
     echo_red_text "Installing s3cmd to path: '${PHOENIX_S3CMD}'..."
-    "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}"
+    "${PHOENIX_UV}" pip install --no-editable --strict "${PHOENIX_S3CMD_DIR}" || return 1
     echo_green_text "SUCCESS: Set-up s3cmd at path: '${PHOENIX_S3CMD}'!"
   fi
 }
@@ -899,16 +899,16 @@ function get_shellcheck() {
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading shellcheck (Linux - ARM64)...'
-    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_ARM64}" || return 1
 
     echo_red_text 'Downloading shellcheck (Linux - x86_64)...'
-    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.linux.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_LINUX_X86_64}" || return 1
 
     echo_red_text 'Downloading shellcheck (OS X - ARM64)...'
-    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.aarch64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_ARM64}" || return 1
 
     echo_red_text 'Downloading shellcheck (OS X - x86_64)...'
-    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.darwin.x86_64.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM_OSX_X86_64}" || return 1
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -952,12 +952,12 @@ function get_shellcheck() {
     fi
 
     echo_red_text "Downloading shellcheck to path: '${PHOENIX_SHELLCHECK_DIR}'..."
-    download_and_extract "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.${PHOENIX_SHELLCHECK_PLATFORM}.${PHOENIX_SHELLCHECK_ARCH}.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM}"
+    download_and_extract "${base_url}/shellcheck-${PHOENIX_SHELLCHECK_VERSION}.${PHOENIX_SHELLCHECK_PLATFORM}.${PHOENIX_SHELLCHECK_ARCH}.tar.xz" "${PHOENIX_SHELLCHECK_DIR}" "${PHOENIX_SHELLCHECK_SHA512SUM}" || return 1
 
     if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       # Set-up the linting pre-commit hook
       if [[ "${PHOENIX_CI}" != 1 ]] && [[ -x "${PHOENIX_GIT}" ]] && [[ ! -f "${PHOENIX_BUILD}/set-hook" ]]; then
-        source "${PHOENIX_SCRIPTS}/lint-hook.sh"
+        source "${PHOENIX_SCRIPTS}/lint-hook.sh" || return 1
       fi
 
       echo_green_text "SUCCESS: Set-up shellcheck at path: '${PHOENIX_SHELLCHECK}'!"
@@ -984,16 +984,16 @@ function get_shfmt() {
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading shfmt (Linux - ARM64)...'
-    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_ARM64}" || return 1
 
     echo_red_text 'Downloading shfmt (Linux - x86_64)...'
-    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_linux_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_LINUX_X86_64}" || return 1
 
     echo_red_text 'Downloading shfmt (OS X - ARM64)...'
-    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_arm64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_ARM64}" || return 1
 
     echo_red_text 'Downloading shfmt (OS X - x86_64)...'
-    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_darwin_amd64" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM_OSX_X86_64}" || return 1
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -1037,14 +1037,14 @@ function get_shfmt() {
     fi
 
     echo_red_text "Downloading shfmt to path: '${PHOENIX_SHFMT}'..."
-    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_${PHOENIX_SHFMT_PLATFORM}_${PHOENIX_SHFMT_ARCH}" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM}"
+    download_file "${base_url}/shfmt_${PHOENIX_SHFMT_VERSION}_${PHOENIX_SHFMT_PLATFORM}_${PHOENIX_SHFMT_ARCH}" "${PHOENIX_SHFMT}" "${PHOENIX_SHFMT_SHA512SUM}" || return 1
 
     if [[ "${PHOENIX_PERFORM_POST_DOWNLOAD}" == 1 ]]; then
       "${PHOENIX_CHMOD}" +x "${PHOENIX_SHFMT}"
 
       # Set-up the linting pre-commit hook
       if [[ "${PHOENIX_CI}" != 1 ]] && [[ -x "${PHOENIX_GIT}" ]] && [[ ! -f "${PHOENIX_BUILD}/set-hook" ]]; then
-        source "${PHOENIX_SCRIPTS}/lint-hook.sh"
+        source "${PHOENIX_SCRIPTS}/lint-hook.sh" || return 1
       fi
 
       echo_green_text "SUCCESS: Set-up shfmt at path: '${PHOENIX_SHFMT}'!"
@@ -1088,28 +1088,28 @@ function get_uv() {
 
   if [[ "${PHOENIX_GET_SOURCE_CHECKSUM_UPDATE}" == 1 ]]; then
     echo_red_text 'Downloading uv (Linux - ARM)...'
-    download_file "${base_url}/uv-armv7-unknown-linux-gnueabihf.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM}"
+    download_file "${base_url}/uv-armv7-unknown-linux-gnueabihf.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM}" || return 1
 
     echo_red_text 'Downloading uv (Linux - ARM64)...'
-    download_file "${base_url}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM64}"
+    download_file "${base_url}/uv-aarch64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_ARM64}" || return 1
 
     echo_red_text 'Downloading uv (Linux - PPC64)...'
-    download_file "${base_url}/uv-powerpc64le-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-ppc64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_PPC64}"
+    download_file "${base_url}/uv-powerpc64le-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-ppc64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_PPC64}" || return 1
 
     echo_red_text 'Downloading uv (Linux - RISC-V)...'
-    download_file "${base_url}/uv-riscv64gc-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-riscv.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_RISCV}"
+    download_file "${base_url}/uv-riscv64gc-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-riscv.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_RISCV}" || return 1
 
     echo_red_text 'Downloading uv (Linux - s390x)...'
-    download_file "${base_url}/uv-s390x-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-s390x.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_S390X}"
+    download_file "${base_url}/uv-s390x-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-s390x.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_S390X}" || return 1
 
     echo_red_text 'Downloading uv (Linux - x86_64)...'
-    download_file "${base_url}/uv-x86_64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_X86_64}"
+    download_file "${base_url}/uv-x86_64-unknown-linux-gnu.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-linux-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_LINUX_X86_64}" || return 1
 
     echo_red_text 'Downloading uv (OS X - ARM64)...'
-    download_file "${base_url}/uv-aarch64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_ARM64}"
+    download_file "${base_url}/uv-aarch64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-arm64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_ARM64}" || return 1
 
     echo_red_text 'Downloading uv (OS X - x86_64)...'
-    download_file "${base_url}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_X86_64}"
+    download_file "${base_url}/uv-x86_64-apple-darwin.tar.gz" "${PHOENIX_EXTERNAL}/temp/uv-checksum-update-osx-x86_64.tar.gz" "${PHOENIX_UV_SHA512SUM_OSX_X86_64}" || return 1
   else
     # Set our platform
     if [[ "${PHOENIX_PLATFORM}" == 'darwin' ]]; then
@@ -1200,21 +1200,21 @@ function get_uv() {
 
 # These need to run before we get s3cmd
 if [[ "${PHOENIX_GET_SOURCE_UV}" == 1 ]]; then
-  get_uv
+  get_uv || return 1
 fi
 
 if [[ "${PHOENIX_GET_SOURCE_PYTHON}" == 1 ]]; then
-  get_python
+  get_python || return 1
 fi
 
 if [[ "${PHOENIX_GET_SOURCE_S3CMD}" == 1 ]]; then
-  get_s3cmd
+  get_s3cmd || return 1
 fi
 
 if [[ "${PHOENIX_GET_SOURCE_SHELLCHECK}" == 1 ]]; then
-  get_shellcheck
+  get_shellcheck || return 1
 fi
 
 if [[ "${PHOENIX_GET_SOURCE_SHFMT}" == 1 ]]; then
-  get_shfmt
+  get_shfmt || return 1
 fi

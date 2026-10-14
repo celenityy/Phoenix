@@ -150,50 +150,50 @@ function push_to_s3() {
   verify_file "${push_file}" || return 1
 
   # Create and push a SHA512sum for our file to S3 storage
-  push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}"
+  push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}" || return 1
 }
 
 # phoenix-{PHOENIX_VERSION}-android.tar.xz
 if [[ "${PHOENIX_AR_UP_ANDROID_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_UP_ANDROID_JS}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/android/phoenix-${PHOENIX_VERSION}-android.js" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/android/phoenix-${PHOENIX_VERSION}-android.js" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-extended-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_UP_ANDROID_JS_EXTENDED}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/android/phoenix-extended-${PHOENIX_VERSION}-android.js" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/android/phoenix-extended-${PHOENIX_VERSION}-android.js" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux.tar.xz
 if [[ "${PHOENIX_AR_UP_LINUX_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
 if [[ "${PHOENIX_AR_UP_LINUX_FLATPAK_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx.tar.xz
 if [[ "${PHOENIX_AR_UP_OSX_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
 if [[ "${PHOENIX_AR_UP_OSX_INTEL_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-windows.zip
 if [[ "${PHOENIX_AR_UP_WINDOWS_ARCHIVE}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-windows.zip" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-windows.zip" "${PHOENIX_S3_PATH}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-universal.cfg
 if [[ "${PHOENIX_AR_UP_UNIVERSAL_CFG}" == 1 ]]; then
-  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_S3_PATH}"
+  push_to_s3 "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_S3_PATH}" || return 1
 fi
