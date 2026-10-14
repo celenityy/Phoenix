@@ -54,9 +54,9 @@ function set_verbosity() {
   verify_env "${PHOENIX_VERBOSE}" 'PHOENIX_VERBOSE' || return 1
 
   if [[ "${PHOENIX_VERBOSE}" == 1 ]]; then
-    set -x
+    set -x || return 1
   else
-    set +x
+    set +x || return 1
   fi
 }
 
