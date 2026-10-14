@@ -6,18 +6,16 @@ set -euo pipefail
 # This file MUST NOT contain anything other than function definitions.
 
 function echo_red_text() {
-  echo -e "\033[31m$1\033[0m"
+  echo -e "\033[31m$1\033[0m" || return 1
 }
 
 function echo_green_text() {
-  echo -e "\033[32m$1\033[0m"
+  echo -e "\033[32m$1\033[0m" || return 1
 }
 
 function error_fn() {
-  echo
-  echo_red_text 'Something went wrong! The script failed.'
-  echo_red_text 'Please report this (with the output message) to https://phoenix.celenity.dev/issues'
-  echo
+  echo_red_text 'ERROR: Something went wrong! The script failed.'
+  echo_red_text "Please report this (with the output message) to 'https://phoenix.celenity.dev/issues'!"
   return 1
 }
 
@@ -195,13 +193,13 @@ function verify_dir_with_env() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to a directory to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the environment variable that corresponds to the directory to verify!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r verify_dir="$1"
