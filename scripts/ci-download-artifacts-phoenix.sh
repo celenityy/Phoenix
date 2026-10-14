@@ -183,11 +183,11 @@ function download_artifact() {
   local -r output_expected_sha512sum="${output_dir}/${target_expected_sha512sum}"
 
   # Download the artifact
-  download "${target_file_url}" "${output_file}"
+  download "${target_file_url}" "${output_file}" || return 1
 
   # Check the SHA512sum
   echo_red_text "Validating SHA512sum for file: '${target_file}'..."
-  download "${target_expected_sha512sum_url}" "${output_expected_sha512sum}"
+  download "${target_expected_sha512sum_url}" "${output_expected_sha512sum}" || return 1
   local -r expected_sha512sum=$("${PHOENIX_CAT}" "${output_expected_sha512sum}" | "${PHOENIX_XARGS}")
   local -r local_sha512sum=$("${PHOENIX_SHASUM}" -a 512 "${output_file}" | "${PHOENIX_AWK}" '{print $1}')
   if [[ "${local_sha512sum}" != "${expected_sha512sum}" ]]; then
@@ -206,45 +206,45 @@ function download_artifact() {
 
 # phoenix-{PHOENIX_VERSION}-android.tar.xz
 if [[ "${PHOENIX_AR_DOWN_ANDROID_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'android' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_DOWN_ANDROID_JS}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'android-js' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android-js' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-extended-{PHOENIX_VERSION}-android.js
 if [[ "${PHOENIX_AR_DOWN_ANDROID_JS_EXTENDED}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'android-js-extended' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'android-js-extended' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux.tar.xz
 if [[ "${PHOENIX_AR_DOWN_LINUX_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'linux' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'linux' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
 if [[ "${PHOENIX_AR_DOWN_LINUX_FLATPAK_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'linux-flatpak' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'linux-flatpak' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx.tar.xz
 if [[ "${PHOENIX_AR_DOWN_OSX_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'osx' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'osx' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
 if [[ "${PHOENIX_AR_DOWN_OSX_INTEL_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'osx-intel' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'osx-intel' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-windows.zip
 if [[ "${PHOENIX_AR_DOWN_WINDOWS_ARCHIVE}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'windows' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'windows' "${PHOENIX_ARTIFACTS}" || return 1
 fi
 
 # phoenix-{PHOENIX_VERSION}-universal.cfg
 if [[ "${PHOENIX_AR_DOWN_UNIVERSAL_CFG}" == 1 ]]; then
-  download_artifact "${PHOENIX_CI_ID}" 'universal-cfg' "${PHOENIX_ARTIFACTS}"
+  download_artifact "${PHOENIX_CI_ID}" 'universal-cfg' "${PHOENIX_ARTIFACTS}" || return 1
 fi

@@ -104,7 +104,7 @@ function create_archive() {
 
   # Set timezone to UTC for consistency
   unset TZ
-  export TZ='UTC'
+  export TZ='UTC' || return 1
 
   # If the directory for our output archive doesn't exist, create it
   local -r output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
@@ -125,11 +125,11 @@ function create_archive() {
 
   # Override the timestamps for each file to match our stamp above
   "${PHOENIX_FIND}" "${target_dir}" -newermt "${PHOENIX_FIND_STAMP}" -print0 |
-    "${PHOENIX_XARGS}" -0r "${PHOENIX_TOUCH}" -h -d "${PHOENIX_TIMESTAMP}"
+    "${PHOENIX_XARGS}" -0r "${PHOENIX_TOUCH}" -h -d "${PHOENIX_TIMESTAMP}" || return 1
 
   # Override the timestamps for each directory to match our stamp above
   for dir in $("${PHOENIX_FIND}" "${target_dir}" -type d); do
-    "${PHOENIX_TOUCH}" -r "${dir}/$("${PHOENIX_LS}" -At "${dir}" | "${PHOENIX_HEAD}" -n 1)" "${dir}"
+    "${PHOENIX_TOUCH}" -r "${dir}/$("${PHOENIX_LS}" -At "${dir}" | "${PHOENIX_HEAD}" -n 1)" "${dir}" || return 1
   done
 
   # By default, we know the archive creation has not failed...
@@ -137,7 +137,7 @@ function create_archive() {
 
   # Finally, create our archive
   echo_red_text "Creating archive: '${output_archive}' from path: '${target_dir}'..."
-  pushd "${target_dir}"
+  pushd "${target_dir}" || return 1
   if [[ "${archive_format}" == 'zip' ]]; then
     # shellcheck disable=SC2035
     "${PHOENIX_ZIP}" -X -r "${output_archive}" * -x '.DS_Store' || local archive_failed=1
@@ -148,7 +148,7 @@ function create_archive() {
     echo_red_text "ERROR: Invalid archive format: '${archive_format}'!"
     return 1
   fi
-  popd
+  popd || return 1
 
   # Ensure the archive we just created is valid
   if [[ "${archive_failed}" != 1 ]]; then

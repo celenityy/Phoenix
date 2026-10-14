@@ -17,7 +17,7 @@ function setup_env() {
     else
       if ! command -v dirname > /dev/null 2>&1; then
         echo "ERROR: Missing dirname!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r dirname="$(dirname)"
@@ -27,14 +27,14 @@ function setup_env() {
     readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
     if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
       echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
-      exit 1
+      return 1
     fi
-    source "${PHOENIX_ENV_SH}" || exit 1
+    source "${PHOENIX_ENV_SH}" || return 1
   fi
 }
 
 # Set-up our environment
-setup_env
+setup_env || exit 1
 
 # Set verbosity
 set_verbosity
@@ -70,7 +70,7 @@ fi
 # before each commit. CI enforces the same checks, so this is just a fast local
 # safeguard (and is bypassable with `git commit --no-verify`).
 echo_red_text 'Configuring git pre-commit hook...'
-"${PHOENIX_GIT}" -C "${PHOENIX_ROOT}" config core.hooksPath scripts/git-hooks
+"${PHOENIX_GIT}" -C "${PHOENIX_ROOT}" config core.hooksPath scripts/git-hooks || exit 1
 echo_green_text 'SUCCESS: Configured git pre-commit hook'
 
 # Indicate that the hook has been set-up

@@ -23,7 +23,7 @@ function setup_env() {
     else
       if ! command -v dirname > /dev/null 2>&1; then
         echo "ERROR: Missing dirname!" >&2
-        exit 1
+        return 1
       fi
       # It isn't a known location, so we sadly have to just fall-back to the PATH
       local -r dirname="$(dirname)"
@@ -33,14 +33,14 @@ function setup_env() {
     readonly PHOENIX_ENV_SH="$("${dirname}" $0)/env.sh"
     if [[ ! -f "${PHOENIX_ENV_SH}" ]] || [[ ! -s "${PHOENIX_ENV_SH}" ]]; then
       echo "ERROR: '${PHOENIX_ENV_SH}' is invalid!"
-      exit 1
+      return 1
     fi
-    source "${PHOENIX_ENV_SH}" || exit 1
+    source "${PHOENIX_ENV_SH}" || return 1
   fi
 }
 
 # Set-up our environment
-setup_env
+setup_env || exit 1
 
 # Include download utilities
 verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || exit 1
@@ -76,100 +76,100 @@ readonly PHOENIX_WIKI_GIT_NAME='Wiki Author'
 # Get dependencies
 function get_deps() {
   echo_red_text 'Downloading dependencies...'
-  /bin/sudo /bin/dnf update -y --refresh
-  /bin/sudo /bin/dnf install -y bash curl git rsync
+  /bin/sudo /bin/dnf update -y --refresh || return 1
+  /bin/sudo /bin/dnf install -y bash curl git rsync || return 1
   echo_green_text 'SUCCESS: Downloaded dependencies.'
 }
 
 # Configure Git
 function configure_git() {
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have git
-  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
+  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || exit 1
+  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || return 1
 
   # Ensure we have `PHOENIX_WIKI_GIT_EMAIL`
-  verify_env "${PHOENIX_WIKI_GIT_EMAIL}" 'PHOENIX_WIKI_GIT_EMAIL' || exit 1
+  verify_env "${PHOENIX_WIKI_GIT_EMAIL}" 'PHOENIX_WIKI_GIT_EMAIL' || return 1
 
   # Ensure we have `PHOENIX_WIKI_GIT_NAME`
-  verify_env "${PHOENIX_WIKI_GIT_NAME}" 'PHOENIX_WIKI_GIT_NAME' || exit 1
+  verify_env "${PHOENIX_WIKI_GIT_NAME}" 'PHOENIX_WIKI_GIT_NAME' || return 1
 
   echo_red_text 'Configuring Git...'
-  "${PHOENIX_GIT}" config --global user.email "${PHOENIX_WIKI_GIT_EMAIL}"
-  "${PHOENIX_GIT}" config --global user.name "${PHOENIX_WIKI_GIT_NAME}"
-  "${PHOENIX_GIT}" config --global url."https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/".insteadOf "https://${PHOENIX_FORGEJO_URL}/"
+  "${PHOENIX_GIT}" config --global user.email "${PHOENIX_WIKI_GIT_EMAIL}" || return 1
+  "${PHOENIX_GIT}" config --global user.name "${PHOENIX_WIKI_GIT_NAME}" || return 1
+  "${PHOENIX_GIT}" config --global url."https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/".insteadOf "https://${PHOENIX_FORGEJO_URL}/" || return 1
   echo_green_text 'SUCCESS: Configured Git.'
 }
 
 # Clone the wiki repo
 function clone_wiki_repo() {
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have git
-  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
+  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || return 1
 
   # Ensure we have `PHOENIX_FORGEJO_URL`
-  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || exit 1
+  verify_env "${PHOENIX_FORGEJO_URL}" 'PHOENIX_FORGEJO_URL' || return 1
 
   # Ensure we have `PHOENIX_REPO_PATH`
-  verify_env "${PHOENIX_REPO_PATH}" 'PHOENIX_REPO_PATH' || exit 1
+  verify_env "${PHOENIX_REPO_PATH}" 'PHOENIX_REPO_PATH' || return 1
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  verify_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
+  verify_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || return 1
 
   # Clone the wiki repo
-  clone_git_repo "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git" "${PHOENIX_WIKI_REPO}" 'no-revision' --silent
+  clone_git_repo "https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/${PHOENIX_REPO_PATH}.wiki.git" "${PHOENIX_WIKI_REPO}" 'no-revision' --silent || return 1
 }
 
 # Update the wiki repo
 function update_wiki_repo() {
   # Ensure we have an API token...
-  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || exit 1
+  verify_env "${PHOENIX_FORGEJO_CI_API_TOKEN}" 'PHOENIX_FORGEJO_CI_API_TOKEN' || return 1
 
   # Ensure we have git
-  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || exit 1
+  verify_exec "${PHOENIX_GIT}" 'PHOENIX_GIT' || return 1
 
   # Ensure we have rsync
-  verify_exec "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' || exit 1
+  verify_exec "${PHOENIX_RSYNC}" 'PHOENIX_RSYNC' || return 1
 
   # Ensure we have `PHOENIX_WIKI_BRANCH`
-  verify_env "${PHOENIX_WIKI_BRANCH}" 'PHOENIX_WIKI_BRANCH' || exit 1
+  verify_env "${PHOENIX_WIKI_BRANCH}" 'PHOENIX_WIKI_BRANCH' || return 1
 
   # Ensure we have `PHOENIX_WIKI_REPO`
-  verify_dir_with_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || exit 1
+  verify_dir_with_env "${PHOENIX_WIKI_REPO}" 'PHOENIX_WIKI_REPO' || return 1
 
   # Sync the docs and wiki repo directories
   echo_red_text 'Syncing docs and wiki repo...'
-  "${PHOENIX_RSYNC}" -av --delete "${PHOENIX_ROOT}/docs/" "${PHOENIX_WIKI_REPO}/" --exclude .git
+  "${PHOENIX_RSYNC}" -av --delete "${PHOENIX_ROOT}/docs/" "${PHOENIX_WIKI_REPO}/" --exclude .git || return 1
   echo_green_text 'SUCCESS: Synced docs and wiki repo.'
 
   # Update the wiki repo
   echo_red_text 'Updating wiki repository...'
-  pushd "${PHOENIX_WIKI_REPO}"
-  "${PHOENIX_GIT}" add .
+  pushd "${PHOENIX_WIKI_REPO}" || return 1
+  "${PHOENIX_GIT}" add . || return 1
   "${PHOENIX_GIT}" diff --cached --quiet || "${PHOENIX_GIT}" commit -m 'Update wiki'
-  "${PHOENIX_GIT}" push origin "HEAD:${PHOENIX_WIKI_BRANCH}"
-  popd
+  "${PHOENIX_GIT}" push origin "HEAD:${PHOENIX_WIKI_BRANCH}" || return 1
+  popd || return 1
   echo_green_text 'SUCCESS: Updated wiki repository!'
 }
 
-pushd "${PHOENIX_ROOT}"
+pushd "${PHOENIX_ROOT}" || exit 1
 
 # Get dependencies
-get_deps
+get_deps || exit 1
 
 # Configure Git
-configure_git
+configure_git || exit 1
 
 # Clone the wiki repo
-clone_wiki_repo
+clone_wiki_repo || exit 1
 
 # Update the wiki repo
-update_wiki_repo
+update_wiki_repo || exit 1
 
-popd
+popd || exit 1

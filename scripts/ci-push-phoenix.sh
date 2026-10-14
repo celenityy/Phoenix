@@ -88,7 +88,7 @@ function push_to_s3() {
   verify_file "${push_file}" || return 1
 
   # Create and push a SHA512sum for our file to S3 storage
-  push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}"
+  push_and_add_sha512sum "${push_file}" "${s3_path}" "${s3_access_key_file}" "${s3_bucket_name_file}" "${s3_endpoint_file}" "${s3_secret_key_file}" || return 1
 }
 
 # Create release notes
@@ -142,53 +142,53 @@ function create_release_notes() {
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES}" "${PHOENIX_RELEASE_NOTES_TEMP}"
 
   "${PHOENIX_MKDIR}" -p "${PHOENIX_ARTIFACTS}" "${PHOENIX_TEMP}"
-  "${PHOENIX_CP}" -f "${PHOENIX_RELEASE_TEMPLATE}" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_CP}" -f "${PHOENIX_RELEASE_TEMPLATE}" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # Set our version
-  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # Set the previous (current) version
-  download "${PHOENIX_CEL_RELEASES_URL}/phoenix/releases/latest_release.txt" "${PHOENIX_TEMP}/previous_release.txt"
+  download "${PHOENIX_CEL_RELEASES_URL}/phoenix/releases/latest_release.txt" "${PHOENIX_TEMP}/previous_release.txt" || return 1
   local -r PHOENIX_PREVIOUS_VERSION=$("${PHOENIX_CAT}" "${PHOENIX_TEMP}/previous_release.txt" | "${PHOENIX_XARGS}")
-  "${PHOENIX_SED}" -i "s|{PHOENIX_PREVIOUS_VERSION}|${PHOENIX_PREVIOUS_VERSION}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_PREVIOUS_VERSION}|${PHOENIX_PREVIOUS_VERSION}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # Set our SHA512sums
 
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
   local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|${PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|${PHOENIX_ANDROID_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-android.js
   local -r PHOENIX_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_JS_SHA512SUM}|${PHOENIX_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_ANDROID_JS_SHA512SUM}|${PHOENIX_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
   local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-android.js" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
   local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
   local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
   local -r PHOENIX_OSX_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
   local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
   local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-windows.zip" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
   local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM=$("${PHOENIX_SHASUM}" -a 512 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" | "${PHOENIX_AWK}" '{print $1}')
-  "${PHOENIX_SED}" -i "s|{PHOENIX_UNIVERSAL_CFG_SHA512SUM}|${PHOENIX_UNIVERSAL_CFG_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_UNIVERSAL_CFG_SHA512SUM}|${PHOENIX_UNIVERSAL_CFG_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # Add release-specific changes
   local -r PHOENIX_CHANGELOG=$("${PHOENIX_CAT}" "${PHOENIX_CHANGELOG_FILE}")
@@ -201,7 +201,7 @@ function create_release_notes() {
     "${PHOENIX_CAT}" "${PHOENIX_ROOT}/CHANGELOG.md"
     echo ''
     "${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES_TEMP}"
-  } >> "${PHOENIX_RELEASE_NOTES}"
+  } >> "${PHOENIX_RELEASE_NOTES}" || return 1
 
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES_TEMP}"
 
@@ -255,7 +255,7 @@ function upload_to_forgejo_package_registry() {
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --user "${PHOENIX_FORGEJO_USER}:${PHOENIX_FORGEJO_CI_API_TOKEN}" \
     --upload-file "${upload_file}" \
-    "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}/${PHOENIX_FORGEJO_PACKAGE_NAME}/${PHOENIX_VERSION}/${upload_file_name}"
+    "${PHOENIX_FORGEJO_GENERIC_PACKAGES_URL}/${PHOENIX_FORGEJO_PACKAGE_NAME}/${PHOENIX_VERSION}/${upload_file_name}" || return 1
 }
 
 # Upload a release to GitLab's package registry
@@ -299,7 +299,7 @@ function upload_to_gitlab_package_registry() {
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header "PRIVATE-TOKEN: ${PHOENIX_GITLAB_CI_API_TOKEN}" \
     --upload-file "${upload_file}" \
-    "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}/${PHOENIX_GITLAB_PACKAGE_NAME}/${PHOENIX_VERSION}/${upload_file_name}"
+    "${PHOENIX_GITLAB_GENERIC_PACKAGES_URL}/${PHOENIX_GITLAB_PACKAGE_NAME}/${PHOENIX_VERSION}/${upload_file_name}" || return 1
 }
 
 # Add an asset to a Forgejo (Codeberg) release
@@ -350,7 +350,7 @@ function add_asset_to_forgejo_release() {
     --header "Authorization: token ${PHOENIX_FORGEJO_CI_API_TOKEN}" \
     -F "external_url=${asset_url}" \
     --request POST \
-    "${PHOENIX_FORGEJO_API_URL}/v1/repos/${PHOENIX_FORGEJO_REPO}/releases/${release_id}/assets?name=$(printf '%s' "${asset}" | "${PHOENIX_JQ}" -sRr @uri)"
+    "${PHOENIX_FORGEJO_API_URL}/v1/repos/${PHOENIX_FORGEJO_REPO}/releases/${release_id}/assets?name=$(printf '%s' "${asset}" | "${PHOENIX_JQ}" -sRr @uri)" || return 1
   echo_green_text "SUCCESS: Added '${asset}' to release: '${PHOENIX_VERSION}'!"
 }
 
@@ -403,7 +403,7 @@ function publish_to_forgejo() {
       draft: false,
       prerelease: false,
       body: .
-      }' <<< "${phoenix_release_desc}"
+      }' <<< "${phoenix_release_desc}" || return 1
   )"
 
   local -r phoenix_codeberg_release=$("${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'Content-Type: application/json' \
@@ -419,40 +419,40 @@ function publish_to_forgejo() {
   # Attach our assets
 
   # phoenix-{PHOENIX_VERSION}-android.tar.xz
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.tar.xz"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.tar.xz-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.tar.xz" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.tar.xz-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-android.js
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.js"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.js-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.js" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-${PHOENIX_VERSION}-android.js-sha512sum.txt" || return 1
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-extended-${PHOENIX_VERSION}-android.js"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-extended-${PHOENIX_VERSION}-android.js-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-extended-${PHOENIX_VERSION}-android.js" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/android/phoenix-extended-${PHOENIX_VERSION}-android.js-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux/phoenix-${PHOENIX_VERSION}-linux.tar.xz"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux/phoenix-${PHOENIX_VERSION}-linux.tar.xz-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux/phoenix-${PHOENIX_VERSION}-linux.tar.xz" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux/phoenix-${PHOENIX_VERSION}-linux.tar.xz-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx/phoenix-${PHOENIX_VERSION}-osx.tar.xz"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx/phoenix-${PHOENIX_VERSION}-osx.tar.xz-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx/phoenix-${PHOENIX_VERSION}-osx.tar.xz" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx/phoenix-${PHOENIX_VERSION}-osx.tar.xz-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx-intel/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx-intel/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx-intel/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/osx-intel/phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/windows/phoenix-${PHOENIX_VERSION}-windows.zip"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/windows/phoenix-${PHOENIX_VERSION}-windows.zip-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/windows/phoenix-${PHOENIX_VERSION}-windows.zip" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/windows/phoenix-${PHOENIX_VERSION}-windows.zip-sha512sum.txt" || return 1
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg"
-  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg-sha512sum.txt"
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg" || return 1
+  add_asset_to_forgejo_release "${phoenix_codeberg_release_id}" "${PHOENIX_RELEASES_BASE_URL}/universal/phoenix-${PHOENIX_VERSION}-universal.cfg-sha512sum.txt" || return 1
 
   # We're done! :)
   echo_green_text "SUCCESS: Published Phoenix: '${PHOENIX_VERSION}' to Forgejo!"
@@ -504,7 +504,7 @@ function publish_to_github() {
       draft: false,
       prerelease: false,
       body: .
-      }' <<< "${phoenix_release_desc}"
+      }' <<< "${phoenix_release_desc}" || return 1
   )"
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'Content-Type: application/json' \
@@ -513,7 +513,7 @@ function publish_to_github() {
     --header "X-GitHub-Api-Version: 2026-03-10" \
     --data "${phoenix_github_release_data}" \
     --request POST \
-    "${PHOENIX_GITHUB_API_URL}/repos/${PHOENIX_GITHUB_REPO}/releases"
+    "${PHOENIX_GITHUB_API_URL}/repos/${PHOENIX_GITHUB_REPO}/releases" || return 1
 
   # We're done! :)
   echo_green_text "SUCCESS: Published Phoenix: '${PHOENIX_VERSION}' to GitHub!"
@@ -567,72 +567,72 @@ function publish_to_gitlab() {
   local -r PHOENIX_ANDROID_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_ARCHIVE_NAME}"
   local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME="${PHOENIX_ANDROID_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_ANDROID_ARCHIVE_SHA512SUM_URL="${PHOENIX_ANDROID_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-android.js
   local -r PHOENIX_ANDROID_JS_NAME="phoenix-${PHOENIX_VERSION}-android.js"
   local -r PHOENIX_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_ANDROID_JS_NAME}"
   local -r PHOENIX_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_ANDROID_JS_NAME}-sha512sum.txt"
   local -r PHOENIX_ANDROID_JS_SHA512SUM_URL="${PHOENIX_ANDROID_JS_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_ANDROID_JS_SHA512SUM_NAME}" || return 1
 
   # phoenix-extended-{PHOENIX_VERSION}-android.js
   local -r PHOENIX_EXTENDED_ANDROID_JS_NAME="phoenix-extended-${PHOENIX_VERSION}-android.js"
   local -r PHOENIX_EXTENDED_ANDROID_JS_URL="${PHOENIX_RELEASES_BASE_URL}/android/${PHOENIX_EXTENDED_ANDROID_JS_NAME}"
   local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME="${PHOENIX_EXTENDED_ANDROID_JS_NAME}-sha512sum.txt"
   local -r PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_URL="${PHOENIX_EXTENDED_ANDROID_JS_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_EXTENDED_ANDROID_JS_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux.tar.xz
   local -r PHOENIX_LINUX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux.tar.xz"
   local -r PHOENIX_LINUX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux/${PHOENIX_LINUX_ARCHIVE_NAME}"
   local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_LINUX_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-linux-flatpak.tar.xz
   local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-linux-flatpak.tar.xz"
   local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/linux-flatpak/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}"
   local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME="${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_URL="${PHOENIX_LINUX_FLATPAK_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_LINUX_FLATPAK_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx.tar.xz
   local -r PHOENIX_OSX_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx.tar.xz"
   local -r PHOENIX_OSX_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx/${PHOENIX_OSX_ARCHIVE_NAME}"
   local -r PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_OSX_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-osx-intel.tar.xz
   local -r PHOENIX_OSX_INTEL_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-osx-intel.tar.xz"
   local -r PHOENIX_OSX_INTEL_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/osx-intel/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}"
   local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME="${PHOENIX_OSX_INTEL_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_URL="${PHOENIX_OSX_INTEL_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_OSX_INTEL_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-windows.zip
   local -r PHOENIX_WINDOWS_ARCHIVE_NAME="phoenix-${PHOENIX_VERSION}-windows.zip"
   local -r PHOENIX_WINDOWS_ARCHIVE_URL="${PHOENIX_RELEASES_BASE_URL}/windows/${PHOENIX_WINDOWS_ARCHIVE_NAME}"
   local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME="${PHOENIX_WINDOWS_ARCHIVE_NAME}-sha512sum.txt"
   local -r PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_URL="${PHOENIX_WINDOWS_ARCHIVE_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_WINDOWS_ARCHIVE_SHA512SUM_NAME}" || return 1
 
   # phoenix-{PHOENIX_VERSION}-universal.cfg
   local -r PHOENIX_UNIVERSAL_CFG_NAME="phoenix-${PHOENIX_VERSION}-universal.cfg"
   local -r PHOENIX_UNIVERSAL_CFG_URL="${PHOENIX_RELEASES_BASE_URL}/universal/${PHOENIX_UNIVERSAL_CFG_NAME}"
   local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME="${PHOENIX_UNIVERSAL_CFG_NAME}-sha512sum.txt"
   local -r PHOENIX_UNIVERSAL_CFG_SHA512SUM_URL="${PHOENIX_UNIVERSAL_CFG_URL}-sha512sum.txt"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_NAME}"
-  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME}"
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_NAME}" || return 1
+  upload_to_gitlab_package_registry "${PHOENIX_ARTIFACTS}/${PHOENIX_UNIVERSAL_CFG_SHA512SUM_NAME}" || return 1
 
   local -r phoenix_gitlab_release_data="$(
     "${PHOENIX_JQ}" -Rs --arg name "${PHOENIX_VERSION}" --arg ref "${PHOENIX_GITLAB_BRANCH}" --arg tag "${PHOENIX_VERSION}" --arg version "${PHOENIX_VERSION}" \
@@ -771,14 +771,14 @@ function publish_to_gitlab() {
         ]
       },
       description: .
-      }' <<< "${phoenix_release_desc}"
+      }' <<< "${phoenix_release_desc}" || return 1
   )"
 
   "${PHOENIX_CURL}" ${PHOENIX_CURL_FLAGS} --no-verbose --header 'Content-Type: application/json' \
     --header "PRIVATE-TOKEN: ${PHOENIX_GITLAB_CI_API_TOKEN}" \
     --data "${phoenix_gitlab_release_data}" \
     --request POST \
-    "${PHOENIX_GITLAB_API_URL}/projects/${PHOENIX_GITLAB_PROJECT_ID}/releases"
+    "${PHOENIX_GITLAB_API_URL}/projects/${PHOENIX_GITLAB_PROJECT_ID}/releases" || return 1
 
   # We're done! :)
   echo_green_text "SUCCESS: Published Phoenix: '${PHOENIX_VERSION}' to GitLab!"
@@ -795,12 +795,12 @@ function push_phoenix_universal() {
   # Ensure we have `PHOENIX_VERSION`
   verify_env "${PHOENIX_VERSION}" 'PHOENIX_VERSION' || return 1
 
-  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "phoenix/releases/${PHOENIX_VERSION}/universal" || return 1
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.cfg
   ## (Ex. for convenience/packaging)
-  "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg"
-  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal"
+  "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-universal.cfg" "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg" || return 1
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-universal.cfg" "phoenix/releases/latest/universal" || return 1
 }
 
 # Push Phoenix for a desired platform
@@ -825,7 +825,7 @@ function _push_phoenix() {
 
   # Universal logic is handled elsewhere...
   if [[ "${phoenix_platform}" == 'universal' ]]; then
-    push_phoenix_universal
+    push_phoenix_universal || return 1
     return 0
   fi
 
@@ -839,26 +839,26 @@ function _push_phoenix() {
     local -r phoenix_archive_type='tar.xz'
   fi
 
-  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}" || return 1
 
   # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.${phoenix_archive_type}
   ## (Ex. for convenience/packaging)
-  "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}"
-  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}"
+  "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.${phoenix_archive_type}" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" || return 1
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.${phoenix_archive_type}" "phoenix/releases/latest/${phoenix_platform}" || return 1
 
   # For Android, also push phoenix.js and phoenix-extended.js directly
   if [[ "${phoenix_platform}" == 'android' ]]; then
-    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
-    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}"
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}" || return 1
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "phoenix/releases/${PHOENIX_VERSION}/${phoenix_platform}" || return 1
 
     # Ensure the latest version can always be downloaded from https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-latest-{phoenix_platform}.js
     ## (and https://releases.celenity.dev/phoenix/releases/latest/{phoenix_platform}/phoenix-extended-latest-{phoenix_platform}.js)
     ## (Ex. for convenience/packaging)
-    "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js"
-    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
+    "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js" || return 1
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}" || return 1
 
-    "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js"
-    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}"
+    "${PHOENIX_CP}" -f "${PHOENIX_ARTIFACTS}/phoenix-extended-${PHOENIX_VERSION}-${phoenix_platform}.js" "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js" || return 1
+    push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-extended-latest-${phoenix_platform}.js" "phoenix/releases/latest/${phoenix_platform}" || return 1
   fi
 }
 
@@ -880,49 +880,49 @@ function push_phoenix() {
   verify_env "${PHOENIX_TEMP}" 'PHOENIX_TEMP' || return 1
 
   # Android
-  _push_phoenix 'android'
+  _push_phoenix 'android' || return 1
 
   # Linux
-  _push_phoenix 'linux'
+  _push_phoenix 'linux' || return 1
 
   # Linux (Flatpak)
-  _push_phoenix 'linux-flatpak'
+  _push_phoenix 'linux-flatpak' || return 1
 
   # OS X
-  _push_phoenix 'osx'
+  _push_phoenix 'osx' || return 1
 
   # OS X (Intel)
-  _push_phoenix 'osx-intel'
+  _push_phoenix 'osx-intel' || return 1
 
   # Windows
-  _push_phoenix 'windows'
+  _push_phoenix 'windows' || return 1
 
   # Universal cfg
-  push_phoenix_universal
+  push_phoenix_universal || return 1
 
   # Update the current Phoenix version
   "${PHOENIX_MKDIR}" -p "${PHOENIX_TEMP}"
   "${PHOENIX_TOUCH}" "${PHOENIX_TEMP}/latest_release.txt"
-  echo -n "${PHOENIX_VERSION}" > "${PHOENIX_TEMP}/latest_release.txt"
-  push_to_s3 "${PHOENIX_TEMP}/latest_release.txt" 'phoenix/releases'
+  echo -n "${PHOENIX_VERSION}" > "${PHOENIX_TEMP}/latest_release.txt" || return 1
+  push_to_s3 "${PHOENIX_TEMP}/latest_release.txt" 'phoenix/releases' || return 1
 
   # Add release notes
-  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md" "phoenix/releases/${PHOENIX_VERSION}"
+  push_to_s3 "${PHOENIX_ARTIFACTS}/phoenix-${PHOENIX_VERSION}-release-notes.md" "phoenix/releases/${PHOENIX_VERSION}" || return 1
 
   echo_green_text "SUCCESS: Pushed Phoenix: '${PHOENIX_VERSION}' to '${PHOENIX_CEL_RELEASES_URL}'!"
 }
 
 # First, create our release notes
-create_release_notes
+create_release_notes || return 1
 
 # Push Phoenix to S3 storage
-push_phoenix
+push_phoenix || return 1
 
 # Create a Forgejo (Codeberg) release
-publish_to_forgejo
+publish_to_forgejo || return 1
 
 # Create a GitLab release
-publish_to_gitlab
+publish_to_gitlab || return 1
 
 # Create a GitHub release
-publish_to_github
+publish_to_github || return 1

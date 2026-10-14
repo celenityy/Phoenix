@@ -149,50 +149,50 @@ function maybe_verify_file_with_env() {
 # Verify that extra policies files are set correctly
 function check_extra_policies() {
   # All platforms
-  maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES}" 'PHOENIX_EXTRA_POLICIES'
+  maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES}" 'PHOENIX_EXTRA_POLICIES' || return 1
 
   # Android - Policies
   if [[ "${PHOENIX_ANDROID}" == 1 ]] && [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_ANDROID}" 'PHOENIX_EXTRA_POLICIES_ANDROID'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_ANDROID}" 'PHOENIX_EXTRA_POLICIES_ANDROID' || return 1
   fi
 
   # Linux (non-Flatpak) - Policies
   if [[ "${PHOENIX_LINUX}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_NONFLATPAK' || return 1
   fi
 
   # Linux (Flatpak) - Policies
   if [[ "${PHOENIX_LINUX_FLATPAK}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK}" 'PHOENIX_EXTRA_POLICIES_LINUX_FLATPAK' || return 1
   fi
 
   # OS X (Silicon) - Policies
   if [[ "${PHOENIX_OSX}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" 'PHOENIX_EXTRA_POLICIES_OSX_SILICON'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_SILICON}" 'PHOENIX_EXTRA_POLICIES_OSX_SILICON' || return 1
   fi
 
   # OS X (Intel) - Policies
   if [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" 'PHOENIX_EXTRA_POLICIES_OSX_INTEL'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_OSX_INTEL}" 'PHOENIX_EXTRA_POLICIES_OSX_INTEL' || return 1
   fi
 
   # Windows - Policies
   if [[ "${PHOENIX_WINDOWS}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_WINDOWS}" 'PHOENIX_EXTRA_POLICIES_WINDOWS'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_POLICIES_WINDOWS}" 'PHOENIX_EXTRA_POLICIES_WINDOWS' || return 1
   fi
 }
 
 # If we're adding extra policies or static pref files, ensure the variables are set correctly
 function check_extra_files() {
   # Check for a file to override Phoenix-specific preferences
-  maybe_verify_file_with_env "${PHOENIX_OVERRIDES_CFG}" 'PHOENIX_OVERRIDES_CFG'
+  maybe_verify_file_with_env "${PHOENIX_OVERRIDES_CFG}" 'PHOENIX_OVERRIDES_CFG' || return 1
 
   # Check for a file to append and override/set additional preferences
-  maybe_verify_file_with_env "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG'
+  maybe_verify_file_with_env "${PHOENIX_EXTRA_CFG}" 'PHOENIX_EXTRA_CFG' || return 1
 
   # Check policies
   if [[ "${build_target}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
-    check_extra_policies
+    check_extra_policies || return 1
   fi
 
   # Check for a static prefs file to append and override/set additional preferences
@@ -209,7 +209,7 @@ function check_extra_files() {
   fi
 
   if [[ "${check_static_prefs_js}" == 1 ]]; then
-    maybe_verify_file_with_env "${PHOENIX_EXTRA_JS}" 'PHOENIX_EXTRA_JS'
+    maybe_verify_file_with_env "${PHOENIX_EXTRA_JS}" 'PHOENIX_EXTRA_JS' || return 1
   fi
 }
 
@@ -322,11 +322,11 @@ function combine_files() {
     verify_exec "${PHOENIX_JQ}" 'PHOENIX_JQ' || return 1
 
     # First, always combine the first two files
-    "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json"
+    "${PHOENIX_JQ}" -s '.[0] * .[1]' "${files_to_combine[0]}" "${files_to_combine[1]}" > "${PHOENIX_TEMP}/tempy--1.json" || return 1
 
     if [[ "${number_of_files}" == 2 ]]; then
       # We're done :)
-      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy--1.json" "${output_file}"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy--1.json" "${output_file}" || return 1
       "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy--1.json"
     else
       # We now need to iterate through and combine additional files...
@@ -336,21 +336,21 @@ function combine_files() {
       until [[ "${files_combined}" == "${number_of_files}" ]]; do
         local old_file_temp_count=$((file_temp_count - 1))
         local file_to_combine_with="${files_to_combine[$file_index]}"
-        "${PHOENIX_JQ}" -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" > "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
+        "${PHOENIX_JQ}" -s '.[0] * .[1]' "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json" "${file_to_combine_with}" > "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" || return 1
         "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${old_file_temp_count}.json"
         file_temp_count=$((file_temp_count + 1))
         files_combined=$((files_combined + 1))
         file_index=$((file_index + 1))
       done
       file_temp_count=$((file_temp_count - 1))
-      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" "${output_file}"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json" "${output_file}" || return 1
       "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/tempy-${file_temp_count}.json"
     fi
   else
     # Ensure we have cat
     verify_exec "${PHOENIX_CAT}" 'PHOENIX_CAT' || return 1
 
-    "${PHOENIX_CAT}" "${files_to_combine[@]}" > "${output_file}"
+    "${PHOENIX_CAT}" "${files_to_combine[@]}" > "${output_file}" || return 1
   fi
 }
 
@@ -387,9 +387,9 @@ function maybe_combine_files() {
   local -r file_to_add="$3"
 
   if [[ -f "${file_to_add}" ]]; then
-    combine_files "${output_file}" "${initial_file}" "${file_to_add}"
+    combine_files "${output_file}" "${initial_file}" "${file_to_add}" || return 1
   else
-    "${PHOENIX_CP}" -f "${initial_file}" "${output_file}"
+    "${PHOENIX_CP}" -f "${initial_file}" "${output_file}" || return 1
   fi
 }
 
@@ -429,7 +429,7 @@ function parse_js_file() {
     return 1
   fi
 
-  "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" > "${output_js_file}"
+  "${PHOENIX_GREP}" -vE "${tags_to_remove}" "${input_js_file}" > "${output_js_file}" || return 1
 }
 
 # Common Phoenix build logic
@@ -440,43 +440,43 @@ function build_phoenix_common() {
   # Ensure we have GNU sed
   verify_exec "${PHOENIX_SED}" 'PHOENIX_SED' || return 1
 
-  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg"
-  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/phoenix-unified.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg" || return 1
 
   # Set PHOENIX_APPLY_EXTENDED
   if [[ "${PHOENIX_EXTENDED}" == 1 ]] || [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_APPLY_EXTENDED}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   fi
 
   # Set PHOENIX_FORCE_RESET_REMOTE_DEBUGGING
   if [[ "${PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_FORCE_RESET_REMOTE_DEBUGGING}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   fi
 
   # Set PHOENIX_MAIL
   if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|true|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_MAIL}|false|g" "${PHOENIX_TEMP}/phoenix-core.cfg" || return 1
   fi
 
   # Update the version
-  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+  "${PHOENIX_SED}" -i "s|{PHOENIX_VERSION}|${PHOENIX_VERSION}|g" "${PHOENIX_TEMP}/phoenix-unified.cfg" || return 1
 
   # If necessary, apply overrides for Phoenix-specific preferences
   if [[ "${PHOENIX_OVERRIDES_CFG}" != 'null' ]]; then
     echo '' >> "${PHOENIX_TEMP}/phoenix-core.cfg"
-    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_OVERRIDES_CFG}" "${PHOENIX_TEMP}/phoenix-unified.cfg" || return 1
   else
-    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg"
+    combine_files "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-core.cfg" "${PHOENIX_TEMP}/phoenix-unified.cfg" || return 1
   fi
 
   # If necessary, append the contents of an additional .cfg file
-  maybe_combine_files "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_EXTRA_CFG}"
+  maybe_combine_files "${PHOENIX_TEMP}/phoenix-parsed.cfg" "${PHOENIX_TEMP}/phoenix.cfg" "${PHOENIX_EXTRA_CFG}" || return 1
 
   # Clean-up files
   "${PHOENIX_RM}" -f "${PHOENIX_TEMP}/phoenix-unified.cfg"
@@ -490,13 +490,13 @@ function build_phoenix_common() {
 
     # If we're not targetting Thunderbird, create policies that always apply everywhere EXCEPT Thunderbird
     if [[ "${build_target}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" || return 1
     else
-      combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_ROOT}/policies/phoenix-no-mail.json"
+      combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_ROOT}/policies/phoenix-core.json" "${PHOENIX_ROOT}/policies/phoenix-no-mail.json" || return 1
     fi
 
     # If necessary, append the contents of an additional policies.json file
-    maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_EXTRA_POLICIES}"
+    maybe_combine_files "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms.json" "${PHOENIX_EXTRA_POLICIES}" || return 1
   fi
 }
 
@@ -536,9 +536,9 @@ function build_phoenix() {
   fi
 
   # Ensure existing outputs don't already exist
-  check_file_or_dir_exists "${phoenix_output_dir}"
-  check_file_or_dir_exists "${phoenix_output_archive}"
-  check_file_or_dir_exists "${phoenix_output_archive_latest}"
+  check_file_or_dir_exists "${phoenix_output_dir}" || return 1
+  check_file_or_dir_exists "${phoenix_output_archive}" || return 1
+  check_file_or_dir_exists "${phoenix_output_archive_latest}" || return 1
 
   # Create our output directory
   "${PHOENIX_MKDIR}" -p "${phoenix_output_dir}/assets"
@@ -570,7 +570,7 @@ function build_phoenix() {
     else
       local -r phoenix_platform_to_hardcode="${phoenix_platform}"
     fi
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|${phoenix_platform_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
 
     # Set our platform *type*
     if [[ "${phoenix_platform}" != 'osx' ]] && [[ "${phoenix_platform}" != 'osx-intel' ]]; then
@@ -581,62 +581,62 @@ function build_phoenix() {
     else
       local -r phoenix_platform_type_to_hardcode='silicon'
     fi
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|${phoenix_platform_type_to_hardcode}|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
-    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
+    "${PHOENIX_SED}" -i "s|{PHOENIX_PLATFORM_TYPE_TO_HARDCODE}|none|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
   fi
 
   # Set PHOENIX_NO_SPEC (+ copy resources for spec configs if necessary)
   if [[ "${phoenix_platform}" == 'android' ]] || [[ "${phoenix_platform}" == 'universal' ]] ||
     [[ "${PHOENIX_NO_SPEC}" == 1 ]]; then
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|true|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
   else
-    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|g" "${phoenix_cfg_output_dir}/phoenix.cfg"
-    "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/"
+    "${PHOENIX_SED}" -i "s|{PHOENIX_NO_SPEC}|false|g" "${phoenix_cfg_output_dir}/phoenix.cfg" || return 1
+    "${PHOENIX_CP}" -r "${PHOENIX_SPECS}" "${phoenix_output_dir}/" || return 1
   fi
 
   if [[ "${phoenix_platform}" == 'universal' ]]; then
     # Standalone universal configs use different naming
-    "${PHOENIX_CP}" -f "${phoenix_cfg_output_dir}/phoenix.cfg" "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg"
+    "${PHOENIX_CP}" -f "${phoenix_cfg_output_dir}/phoenix.cfg" "${PHOENIX_OUTPUTS}/phoenix-${PHOENIX_VERSION}-${phoenix_platform}.cfg" || return 1
   fi
 
   # Copy icon
-  "${PHOENIX_CP}" "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/assets/phoenix.png" "${phoenix_output_dir}/assets/phoenix.png" || return 1
 
   # Copy license
-  "${PHOENIX_CP}" "${PHOENIX_ROOT}/COPYING.txt" "${phoenix_output_dir}/COPYING.txt"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/COPYING.txt" "${phoenix_output_dir}/COPYING.txt" || return 1
 
   # Copy README
-  "${PHOENIX_CP}" "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md"
+  "${PHOENIX_CP}" "${PHOENIX_ROOT}/README.md" "${phoenix_output_dir}/README.md" || return 1
 
   # Copy assets for Phoenix's custom `about:` pages
   if [[ "${phoenix_platform}" != 'android' ]] && [[ "${phoenix_platform}" != 'universal' ]] &&
     [[ "${PHOENIX_MAIL}" != 1 ]]; then
-    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/assets/about" "${phoenix_output_dir}/assets/" || return 1
   fi
 
   # Copy generic platform files
   if [[ "${phoenix_platform}" == 'osx' ]] || [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/shared/Library" "${phoenix_output_dir}/" || return 1
   fi
 
   # Copy platform-specific files
   if [[ "${phoenix_platform}" == 'android' ]]; then
-    "${PHOENIX_CP}" "${PHOENIX_ROOT}/android/phoenix-unextend.js" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" "${PHOENIX_ROOT}/android/phoenix-unextend.js" "${phoenix_output_dir}/" || return 1
   elif [[ "${phoenix_platform}" == 'linux' ]]; then
-    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/linux/etc" "${phoenix_output_dir}/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/linux/etc" "${phoenix_output_dir}/" || return 1
   elif [[ "${phoenix_platform}" == 'osx' ]]; then
-    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-silicon/Library/" "${phoenix_output_dir}/Library/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-silicon/Library/" "${phoenix_output_dir}/Library/" || return 1
   elif [[ "${phoenix_platform}" == 'osx-intel' ]]; then
-    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-intel/Library/" "${phoenix_output_dir}/Library/"
+    "${PHOENIX_CP}" -r "${PHOENIX_ROOT}/osx/osx-intel/Library/" "${phoenix_output_dir}/Library/" || return 1
   fi
 
   # If necessary, create enterprise policies
   if [[ "${phoenix_platform}" != 'android' ]] || [[ "${PHOENIX_ANDROID_POLICIES}" == 1 ]]; then
     if [[ "${phoenix_platform}" != 'universal' ]]; then
       # Universal cfgs shouldn't bother creating policies
-      build_policies "${phoenix_platform}" "${phoenix_output_dir}"
+      build_policies "${phoenix_platform}" "${phoenix_output_dir}" || return 1
     fi
   fi
 
@@ -650,13 +650,13 @@ function build_phoenix() {
   fi
 
   if [[ "${phoenix_build_js}" == 1 ]]; then
-    build_phoenix_js "${phoenix_platform}" "${phoenix_output_dir}"
+    build_phoenix_js "${phoenix_platform}" "${phoenix_output_dir}" || return 1
   fi
 
   # Finally, create our platform-specific archives
   ## (Universal cfgs don't need to create archives)
   if [[ "${PHOENIX_PRODUCE_ARCHIVES}" == 1 ]] && [[ "${phoenix_platform}" != 'universal' ]]; then
-    create_archive "${phoenix_output_dir}" "${phoenix_output_archive}"
+    create_archive "${phoenix_output_dir}" "${phoenix_output_archive}" || return 1
   fi
 }
 
@@ -689,80 +689,80 @@ function build_phoenix_js() {
   fi
 
   # Convert phoenix.cfg
-  "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${phoenix_output_dir}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}.js"
+  "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert-cfg-to-js.py" "${phoenix_output_dir}/phoenix.cfg" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}.js" || return 1
 
   # If necessary, append the contents of an additional .js file
-  maybe_combine_files "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}.js" "${PHOENIX_EXTRA_JS}"
+  maybe_combine_files "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}.js" "${PHOENIX_EXTRA_JS}" || return 1
 
   # If we're targetting Thunderbird, remove preferences that should NOT be set there
   if [[ "${phoenix_js_platform}" != 'android' ]] && [[ "${PHOENIX_MAIL}" == 1 ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" 'NO-MAIL'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" 'NO-MAIL' || return 1
   else
-    "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js"
+    "${PHOENIX_CP}" "${PHOENIX_TEMP}/phoenix-static-temp-${phoenix_js_platform}-with-extra-file-if-necessary.js" "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" || return 1
   fi
 
   # Handle generic platform logic
   if [[ "${phoenix_js_platform}" == 'linux' ]] || [[ "${phoenix_js_platform}" == 'linux-flatpak' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'NO-LINUX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'NO-LINUX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-static-temp-without-no-mail-if-necessary-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" 'LINUX-ONLY' || return 1
   fi
   if [[ "${phoenix_js_platform}" == 'osx' ]] || [[ "${phoenix_js_platform}" == 'osx-intel' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'NO-OSX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'OSX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-linux-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" 'OSX-ONLY' || return 1
   fi
 
   # Finally, handle platform-specific logic
 
   ## Android
   if [[ "${phoenix_js_platform}" == 'android' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" 'NO-ANDROID'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" 'NO-ANDROID' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" 'ANDROID-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-generic-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" 'ANDROID-ONLY' || return 1
   fi
 
   ## Linux (non-Flatpak)
   if [[ "${phoenix_js_platform}" == 'linux' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'NO-NON-FLATPAK-LINUX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'NO-NON-FLATPAK-LINUX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'LINUX-NON-FLATPAK-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-android-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" 'LINUX-NON-FLATPAK-ONLY' || return 1
   fi
 
   ## Linux (Flatpak)
   if [[ "${phoenix_js_platform}" == 'linux-flatpak' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" 'NO-FLATPAK-LINUX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" 'NO-FLATPAK-LINUX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" 'FLATPAK-LINUX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-nonflatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" 'FLATPAK-LINUX-ONLY' || return 1
   fi
 
   ## OS X (Silicon)
   if [[ "${phoenix_js_platform}" == 'osx' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'NO-SILICON-OSX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'NO-SILICON-OSX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'SILICON-OSX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-linux-flatpak-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" 'SILICON-OSX-ONLY' || return 1
   fi
 
   ## OS X (Intel)
   if [[ "${phoenix_js_platform}" == 'osx-intel' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" 'NO-INTEL-OSX'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" 'NO-INTEL-OSX' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" 'INTEL-OSX-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-silicon-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" 'INTEL-OSX-ONLY' || return 1
   fi
 
   ## Windows
   if [[ "${phoenix_js_platform}" == 'windows' ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'NO-WINDOWS'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'NO-WINDOWS' || return 1
   else
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'WINDOWS-ONLY'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-osx-intel-parsed-${phoenix_js_platform}.js" "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" 'WINDOWS-ONLY' || return 1
   fi
 
   # Create our phoenix.js output file
-  parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}" 'EXTENDED-ONLY'
+  parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_js_file}" 'EXTENDED-ONLY' || return 1
 
   # If PHOENIX_STATIC_JS_EXTENDED is 1, we also need to create our phoenix-extended.js output file
   if [[ "${PHOENIX_STATIC_JS_EXTENDED}" == 1 ]]; then
-    parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_extended_js_file}" 'NO-EXTENDED'
+    parse_js_file "${PHOENIX_TEMP}/phoenix-with-windows-parsed-${phoenix_js_platform}.js" "${phoenix_extended_js_file}" 'NO-EXTENDED' || return 1
   fi
 }
 
@@ -798,14 +798,14 @@ function build_policies() {
 
   # Handle platform-specific policies
   if [[ "${phoenix_policies_platform}" == 'android' ]]; then
-    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" || return 1
   else
     # If we're not targetting Android, create policies that always apply everywhere EXCEPT Android
-    combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json"
+    combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-all-platforms-extra-parsed.json" "${PHOENIX_ROOT}/policies/phoenix-no-android.json" || return 1
 
     # If we're not targetting Thunderbird, then create policies that apply everywhere EXCEPT Android AND Thunderbird
     if [[ "${PHOENIX_MAIL}" == 1 ]]; then
-      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" || return 1
     else
       # Set our Phoenix directory
       ## (Currently used for ex. custom bookmarks/assets)
@@ -820,17 +820,17 @@ function build_policies() {
       elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
         local -r PHOENIX_DIR='/C:/phoenix'
       fi
-      "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
-      "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|g" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
+      "${PHOENIX_CP}" -f "${PHOENIX_ROOT}/policies/phoenix-no-android-no-mail.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json" || return 1
+      "${PHOENIX_SED}" -i "s|{PHOENIX_DIR}|${PHOENIX_DIR}|g" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json" || return 1
 
-      combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json"
+      combine_files "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-dir-parsed-${phoenix_policies_platform}.json" || return 1
     fi
   fi
 
   if [[ "${phoenix_policies_platform}" == 'osx' ]] || [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
-    combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json"
+    combine_files "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_ROOT}/policies/phoenix-osx.json" || return 1
   else
-    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json"
+    "${PHOENIX_CP}" -f "${PHOENIX_TEMP}/policies/phoenix-no-android-no-mail-parsed-${phoenix_policies_platform}.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" || return 1
   fi
 
   # Set our final policies.json output directory
@@ -861,7 +861,7 @@ function build_policies() {
   elif [[ "${phoenix_policies_platform}" == 'windows' ]]; then
     local -r extra_policies_file="${PHOENIX_EXTRA_POLICIES_WINDOWS}"
   fi
-  maybe_combine_files "${policies_output_path}/policies.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${extra_policies_file}"
+  maybe_combine_files "${policies_output_path}/policies.json" "${PHOENIX_TEMP}/policies/phoenix-${phoenix_policies_platform}.json" "${extra_policies_file}" || return 1
 
   # For OS X, we also need to convert policies to the plist format
   if [[ "${phoenix_policies_platform}" == 'osx' ]]; then
@@ -875,7 +875,7 @@ function build_policies() {
   if [[ "${phoenix_policies_platform}" == 'osx' ]] ||
     [[ "${phoenix_policies_platform}" == 'osx-intel' ]]; then
     "${PHOENIX_MKDIR}" -p "${policies_plist_output_path}"
-    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${policies_output_path}/policies.json" "${policies_plist_output_path}/org.mozilla.firefox.plist"
+    "${PHOENIX_PYTHON}" "${PHOENIX_SCRIPTS}/convert_json_to_plist.py" "${policies_output_path}/policies.json" "${policies_plist_output_path}/org.mozilla.firefox.plist" || return 1
   fi
 }
 
@@ -922,16 +922,16 @@ if [[ "${phoenix_py}" == 1 ]]; then
     verify_exec "${PHOENIX_UV}" 'PHOENIX_UV' || PHOENIX_UV_AVAILABLE=0
     if [[ "${PHOENIX_UV_AVAILABLE}" == 1 ]]; then
       echo_red_text 'Creating Python environment with uv...'
-      "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}"
+      "${PHOENIX_UV}" venv "${PHOENIX_PYENV_DIR}" || return 1
     else
       echo_red_text 'Creating Python environment with Python...'
-      "${PHOENIX_PYTHON}" -m venv "${PHOENIX_PYENV_DIR}"
+      "${PHOENIX_PYTHON}" -m venv "${PHOENIX_PYENV_DIR}" || return 1
     fi
     echo_green_text "SUCCESS: Created Python environment: '${PHOENIX_PYENV}'!"
   fi
   echo_red_text "Sourcing Python environment: '${PHOENIX_PYENV}'..."
   verify_file_with_env "${PHOENIX_PYENV}" 'PHOENIX_PYENV' || return 1
-  source "${PHOENIX_PYENV}" || exit 1
+  source "${PHOENIX_PYENV}" || return 1
   echo_green_text "SUCCESS: Sourced Python environment: '${PHOENIX_PYENV}'!"
 fi
 
@@ -939,41 +939,41 @@ fi
 echo_red_text "Building Phoenix '${PHOENIX_VERSION}'..."
 
 # Build Phoenix (platform-generic logic)
-build_phoenix_common
+build_phoenix_common || return 1
 
 # Build Phoenix for Android
 if [[ "${PHOENIX_ANDROID}" == 1 ]]; then
-  build_phoenix 'android'
+  build_phoenix 'android' || return 1
 fi
 
 # Build Phoenix for Linux (non-Flatpak)
 if [[ "${PHOENIX_LINUX}" == 1 ]]; then
-  build_phoenix 'linux'
+  build_phoenix 'linux' || return 1
 fi
 
 # Build Phoenix for Linux (Flatpak)
 if [[ "${PHOENIX_LINUX_FLATPAK}" == 1 ]]; then
-  build_phoenix 'linux-flatpak'
+  build_phoenix 'linux-flatpak' || return 1
 fi
 
 # Build Phoenix for OS X (Silicon)
 if [[ "${PHOENIX_OSX}" == 1 ]]; then
-  build_phoenix 'osx'
+  build_phoenix 'osx' || return 1
 fi
 
 # Build Phoenix for OS X (Intel)
 if [[ "${PHOENIX_OSX_INTEL}" == 1 ]]; then
-  build_phoenix 'osx-intel'
+  build_phoenix 'osx-intel' || return 1
 fi
 
 # Build a Phoenix universal cfg
 if [[ "${PHOENIX_UNIVERSAL}" == 1 ]]; then
-  build_phoenix 'universal'
+  build_phoenix 'universal' || return 1
 fi
 
 # Build Phoenix for Windows
 if [[ "${PHOENIX_WINDOWS}" == 1 ]]; then
-  build_phoenix 'windows'
+  build_phoenix 'windows' || return 1
 fi
 
 # Clean-up temporary files
