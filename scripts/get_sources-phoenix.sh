@@ -126,8 +126,8 @@ function backup_file() {
   if [[ -f "${file}" ]]; then
     "${PHOENIX_RM}" -f "${backup_file}"
     "${PHOENIX_MKDIR}" -p "$("${PHOENIX_DIRNAME}" "${backup_file}")"
-    "${PHOENIX_CP}" -f "${file}" "${backup_file}"
-    "${PHOENIX_RM}" -f "${file}"
+    "${PHOENIX_CP}" -f "${file}" "${backup_file}" || return 1
+    "${PHOENIX_RM}" -f "${file}" || return 1
   fi
 }
 
@@ -162,8 +162,8 @@ function backup_dir() {
   if [[ -d "${dir}" ]]; then
     "${PHOENIX_RM}" -rf "${backup_dir}"
     "${PHOENIX_MKDIR}" -p "$("${PHOENIX_DIRNAME}" "${backup_dir}")"
-    "${PHOENIX_CP}" -rf "${dir}/" "${backup_dir}"
-    "${PHOENIX_RM}" -rf "${dir}"
+    "${PHOENIX_CP}" -rf "${dir}/" "${backup_dir}" || return 1
+    "${PHOENIX_RM}" -rf "${dir}" || return 1
   fi
 }
 
@@ -198,8 +198,8 @@ function restore_file() {
   if [[ -f "${backed_up_file}" ]]; then
     "${PHOENIX_RM}" -f "${file}"
     "${PHOENIX_MKDIR}" -p "$("${PHOENIX_DIRNAME}" "${file}")"
-    "${PHOENIX_CP}" -f "${backed_up_file}" "${file}"
-    "${PHOENIX_RM}" -f "${backed_up_file}"
+    "${PHOENIX_CP}" -f "${backed_up_file}" "${file}" || return 1
+    "${PHOENIX_RM}" -f "${backed_up_file}" || return 1
   fi
 }
 
@@ -234,8 +234,8 @@ function restore_dir() {
   if [[ -d "${backed_up_dir}" ]]; then
     "${PHOENIX_RM}" -rf "${dir}"
     "${PHOENIX_MKDIR}" -p "$("${PHOENIX_DIRNAME}" "${dir}")"
-    "${PHOENIX_CP}" -rf "${backed_up_dir}/" "${dir}"
-    "${PHOENIX_RM}" -rf "${backed_up_dir}"
+    "${PHOENIX_CP}" -rf "${backed_up_dir}/" "${dir}" || return 1
+    "${PHOENIX_RM}" -rf "${backed_up_dir}" || return 1
   fi
 }
 
@@ -564,8 +564,11 @@ function download_and_extract() {
     local -r extension=".tar.gz"
   elif [[ "${url}" =~ \.tar\.zst$ ]]; then
     local -r extension=".tar.zst"
-  else
+  elif [[ "${url}" =~ \.zip$ ]]; then
     local -r extension=".zip"
+  else
+    echo_red_text "ERROR: Unsupported archive format: '${path}'!"
+    return 1
   fi
 
   # Tell `download` to return instead of exit upon an error

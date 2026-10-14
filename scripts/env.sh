@@ -334,7 +334,7 @@ function set_env() {
     fi
 
     # Do not use the system PATH
-    unset PATH || return 1
+    unset PATH
     hash -r || return 1
 
     # Handle CI-specific logic

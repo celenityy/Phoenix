@@ -1,2 +1,3 @@
 #!/bin/bash
-exec /bin/bash -c "echo $@"
+set -euo pipefail
+exec /bin/bash -c "echo $@" || exit 1

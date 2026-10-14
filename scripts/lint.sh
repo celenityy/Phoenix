@@ -59,7 +59,7 @@ verify_exec "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' || exit 1
 
 # Resolve and move to the repo root so relative paths and config discovery
 # (.shellcheckrc, .editorconfig) work regardless of the caller's cwd.
-pushd "${PHOENIX_ROOT}"
+pushd "${PHOENIX_ROOT}" || exit 1
 
 mode='all'
 if [[ "${1:-}" == '--staged' ]]; then
@@ -124,6 +124,6 @@ else
   echo 'lint: FAILED' >&2
 fi
 
-popd
+popd || exit 1
 
 exit "${status}"
