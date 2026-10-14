@@ -191,16 +191,16 @@ function create_release_notes() {
   "${PHOENIX_SED}" -i "s|{PHOENIX_UNIVERSAL_CFG_SHA512SUM}|${PHOENIX_UNIVERSAL_CFG_SHA512SUM}|g" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
 
   # Add release-specific changes
-  local -r PHOENIX_CHANGELOG=$("${PHOENIX_CAT}" "${PHOENIX_CHANGELOG_FILE}")
+  local -r PHOENIX_CHANGELOG=$("${PHOENIX_CAT}" "${PHOENIX_CHANGELOG_FILE}") || return 1
   {
-    echo "# Phoenix ${PHOENIX_VERSION}"
-    echo '____'
-    echo ''
-    echo '## Changes'
-    echo ''
-    "${PHOENIX_CAT}" "${PHOENIX_ROOT}/CHANGELOG.md"
-    echo ''
-    "${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES_TEMP}"
+    echo "# Phoenix ${PHOENIX_VERSION}" || return 1
+    echo '____' || return 1
+    echo '' || return 1
+    echo '## Changes' || return 1
+    echo '' || return 1
+    "${PHOENIX_CAT}" "${PHOENIX_ROOT}/CHANGELOG.md" || return 1
+    echo '' || return 1
+    "${PHOENIX_CAT}" "${PHOENIX_RELEASE_NOTES_TEMP}" || return 1
   } >> "${PHOENIX_RELEASE_NOTES}" || return 1
 
   "${PHOENIX_RM}" -f "${PHOENIX_RELEASE_NOTES_TEMP}"

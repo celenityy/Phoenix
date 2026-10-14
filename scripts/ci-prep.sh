@@ -83,29 +83,29 @@ function create_key_file() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the key file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   # Ensure we have chmod
-  verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || exit 1
+  verify_exec "${PHOENIX_CHMOD}" 'PHOENIX_CHMOD' || return 1
 
   # Ensure we have dirname
-  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || exit 1
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
 
   # Ensure we have mkdir
-  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || exit 1
+  verify_exec "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' || return 1
 
   # Ensure we have rm
-  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || exit 1
+  verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
   # Ensure we have touch
-  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || exit 1
+  verify_exec "${PHOENIX_TOUCH}" 'PHOENIX_TOUCH' || return 1
 
   local -r key="$1"
   local -r key_file="$2"
@@ -143,7 +143,7 @@ function create_key_file() {
       "${PHOENIX_RM}" -rf "${key_file_dir}"
     fi
     echo_red_text "ERROR: Unable to create key file: '${key_file}'!"
-    exit 1
+    return 1
   else
     echo_green_text "SUCCESS: Created key file: '${key_file}'!"
   fi
@@ -159,49 +159,49 @@ function prep_s3() {
   if [[ -z "${1+x}" ]]; then
     echo_red_text 'ERROR: Please specify the S3 access key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${2+x}" ]]; then
     echo_red_text 'ERROR: Please specify the S3 bucket name!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${3+x}" ]]; then
     echo_red_text 'ERROR: Please specify the S3 endpoint!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${4+x}" ]]; then
     echo_red_text 'ERROR: Please specify the S3 secret key!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${5+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the S3 access key file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${6+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the S3 bucket name file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${7+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the S3 endpoint file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   if [[ -z "${8+x}" ]]; then
     echo_red_text 'ERROR: Please specify the path to the S3 secret key file!'
     print_usage
-    exit 1
+    return 1
   fi
 
   local -r s3_access_key="$1"
@@ -214,16 +214,16 @@ function prep_s3() {
   local -r s3_secret_key_file="$8"
 
   # Create the S3 access key file
-  create_key_file "${s3_access_key}" "${s3_access_key_file}" || exit 1
+  create_key_file "${s3_access_key}" "${s3_access_key_file}" || return 1
 
   # Create the S3 bucket name file
-  create_key_file "${s3_bucket_name}" "${s3_bucket_name_file}" || exit 1
+  create_key_file "${s3_bucket_name}" "${s3_bucket_name_file}" || return 1
 
   # Create the S3 endpoint file
-  create_key_file "${s3_endpoint}" "${s3_endpoint_file}" || exit 1
+  create_key_file "${s3_endpoint}" "${s3_endpoint_file}" || return 1
 
   # Create the S3 secret key file
-  create_key_file "${s3_secret_key}" "${s3_secret_key_file}" || exit 1
+  create_key_file "${s3_secret_key}" "${s3_secret_key_file}" || return 1
 }
 
 # Prepare secrets for S3 storage - Artifacts
@@ -233,33 +233,33 @@ function prep_s3_artifacts() {
   # First, check environment variables specified externally (via CI)
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY' || return 1
 
   # Now, check environment variables specified directly (via `env_ci.sh`/`env_common.sh`)
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE`
-  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE' || return 1
 
   # Prepare our secrets
-  prep_s3 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" || exit 1
+  prep_s3 "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY}" "${PHOENIX_CEL_ARTIFACTS_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_ARTIFACTS_S3_SECRET_KEY_FILE}" || return 1
 
   echo_green_text 'SUCCESS: Prepared S3 storage - Artifacts!'
 }
@@ -271,33 +271,33 @@ function prep_s3_releases() {
   # First, check environment variables specified externally (via CI)
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ACCESS_KEY`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_BUCKET_NAME`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ENDPOINT`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_SECRET_KEY`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY' || return 1
 
   # Now, check environment variables specified directly (via `env_ci.sh`/`env_common.sh`)
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" 'PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" 'PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE' || return 1
 
   # Ensure we have `PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE`
-  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || exit 1
+  verify_env "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" 'PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE' || return 1
 
   # Prepare our secrets
-  prep_s3 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" || exit 1
+  prep_s3 "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY}" "${PHOENIX_CEL_RELEASES_S3_ACCESS_KEY_FILE}" "${PHOENIX_CEL_RELEASES_S3_BUCKET_NAME_FILE}" "${PHOENIX_CEL_RELEASES_S3_ENDPOINT_FILE}" "${PHOENIX_CEL_RELEASES_S3_SECRET_KEY_FILE}" || return 1
 
   echo_green_text 'SUCCESS: Prepared S3 storage - Releases!'
 }
