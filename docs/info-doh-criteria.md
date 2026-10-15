@@ -54,7 +54,5 @@ Phoenix and Dove currently include the following providers, as they meet the abo
   * [Privacy Policy](https://adminforge.de/datenschutz/)
 * **dnsforge.de - `Normal`**
   * [Privacy Policy](https://adminforge.de/datenschutz/)
-* **Mullvad - `Base`**
-  * [Privacy Policy](https://mullvad.net/help/privacy-policy)
-* **Mullvad - `Unfiltered`**
-  * [Privacy Policy](https://mullvad.net/help/privacy-policy)
+* **Quad9**
+  * [Privacy Policy](https://quad9.net/privacy/policy/)
