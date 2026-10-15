@@ -64,15 +64,15 @@ It should also be noted that unlike standard installations of Firefox, Phoenix *
 
 You can see Google's privacy policy [here](https://policies.google.com/privacy) and Cloudflare's privacy policy [here](https://www.cloudflare.com/privacypolicy/).
 
-### Mullvad
+###  Quad9
 
-Phoenix enables DNS over HTTPS (without Fallback), with [Mullvad *(Base)*](https://mullvad.net/help/dns-over-https-and-dns-over-tls) as the default resolver.
+Phoenix enables DNS over HTTPS (without Fallback), with [Quad9](https://quad9.net/) as the default resolver.
 
 DNS over HTTPS provides a substantial improvement to privacy and security over standard DNS resolution *(especially when compared to the default DNS servers operated by ISPs...)*, so we believe that it's in the best interest of our users to enable in this manner.
 
-Mullvad *(Base)* was chosen as our default resolver due to their strict privacy policy, strong track record, support for DNSSEC validation, and protection under Swedish jurisdiction, in addition [to meeting our strong criteria](./info-doh-criteria.md#requirements). You can check out their privacy policy for more details [here](https://mullvad.net/help/privacy-policy).
+Quad9 was chosen as our default resolver due to their strict privacy policy, strong track record, support for DNSSEC validation, and protection under Swiss jurisdiction, in addition [to meeting our strong criteria](./info-doh-criteria.md#requirements). You can check out their privacy policy for more details [here](https://quad9.net/privacy/policy/).
 
-Additionally, **Mullvad *(Base)* provides protection against domains used for advertising, tracking, and malware.** This provides our users with enhanced protection and online safety.
+Additionally, **Quad9 provides real-time protection against malicious domains.** This provides our users with enhanced protection and online safety.
 
 See [here](./info-doh-criteria.md#current-providers) for a list of additional included DNS over HTTPS providers, as well as their relevant privacy policies.
 

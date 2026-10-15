@@ -67,9 +67,9 @@ Note that disabling this feature is **NOT** recommended.
 
 ### [DNS over HTTPS](https://wikipedia.org/wiki/DNS_over_HTTPS)
 
-- `https://base.dns.mullvad.net/dns-query`
+- `https://dns.quad9.net/dns-query`
 
-**Operator**: [Mullvad VPN AB](https://mullvad.net/) - *[Privacy policy](https://mullvad.net/help/privacy-policy)*
+**Operator**: [Quad9](https://quad9.net/) - *[Privacy policy](https://quad9.net/privacy/policy/)*
 
 **Purpose**: Provides encrypted domain name resolution.
 
@@ -90,7 +90,6 @@ Note that disabling this feature is **NOT** recommended.
 - **dnsforge.de (Blank)** - `https://blank.dnsforge.de/dns-query` - *[Privacy policy](https://adminforge.de/datenschutz/)*
 - **dnsforge.de (Hard)** - `https://hard.dnsforge.de/dns-query` - *[Privacy policy](https://adminforge.de/datenschutz/)*
 - **dnsforge.de (Normal)** - `https://dnsforge.de/dns-query` - *[Privacy policy](https://adminforge.de/datenschutz/)*
-- **Mullvad (Unfiltered)** - `https://dns.mullvad.net/dns-query` - *[Privacy policy](https://mullvad.net/help/privacy-policy)*
 
 **Or** you can add your own provider by selecting `Custom`, and entering your desired URL.
 

@@ -156,7 +156,7 @@ In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerpr
 - Enables [Certificate Transparency](https://wiki.mozilla.org/SecurityEngineering/Certificate_Transparency)
 - Enables the `credentialless` Cross-Origin-Embedder-Policy (COEP) header
 - Enables [CRLite](https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/) revocation checks *([without deferral to OCSP](https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071))*
-- Enables [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https) with [Max Protection](https://support.mozilla.org/kb/dns-over-https#w_max-protection) *(without fallback)* by default, via [Mullvad *(Base)*](https://mullvad.net/help/dns-over-https-and-dns-over-tls)
+- Enables [DNS over HTTPS](https://support.mozilla.org/kb/dns-over-https) with [Max Protection](https://support.mozilla.org/kb/dns-over-https#w_max-protection) *(without fallback)* by default, via [Quad9](https://quad9.net/)
 - Enables an [enhanced blocklist of malicious/undesirable extensions](https://codeberg.org/celenity/Phoenix/src/branch/pages/build/policies/blocklist-spec.json) *(in addition to [Mozilla's Add-on Blocklist](https://support.mozilla.org/kb/add-ons-cause-issues-are-on-blocklist))*
 - Explicitly enables [Fission](https://wiki.mozilla.org/Project_Fission) *(Per-site process isolation)*
 - Enables [GPU sandboxing](https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/)
