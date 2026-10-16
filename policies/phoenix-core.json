@@ -311,7 +311,7 @@
       },
       "abb@amazon.com": {
         "installation_mode": "blocked",
-        "blocked_install-message": "Amazon Assistant: https://addons.mozilla.org/addon/abb@amazon.com - Poor privacy practices, abandoned."
+        "blocked_install_message": "Amazon Assistant: https://addons.mozilla.org/addon/abb@amazon.com - Poor privacy practices, abandoned."
       },
       "active_eue_enteprise@bmc.com": {
         "installation_mode": "blocked",
@@ -578,7 +578,7 @@
         "blocked_install_message": "Deprecated."
       },
       "nortonsafeweb@symantec.com": {
-        "installtaion_mode": "blocked",
+        "installation_mode": "blocked",
         "blocked_install_message": "Norton Safe Web: https://addons.mozilla.org/addon/nortonsafeweb@symantec.com - Highly sketchy, poor privacy practices, useless/redundant with uBlock Origin and Google Safe Browsing."
       },
       "odpiralni@search.mozilla.org": {
