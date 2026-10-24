@@ -655,13 +655,12 @@ readonly PHOENIX_S3CMD_FLAGS_OVERRIDE
 # s3cmd flags
 readonly PHOENIX_S3CMD_FLAGS_DEFAULT='--check-certificate --check-hostname --check-md5 --no-guess-mime-type --no-mime-magic --progress --ssl'
 if [[ -z "${PHOENIX_S3CMD_FLAGS+x}" ]] || [[ "${PHOENIX_S3CMD_FLAGS}" == "" ]] || [[ "${PHOENIX_S3CMD_FLAGS}" == "null" ]]; then
-  PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT}"
+  readonly PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT}"
 elif [[ "${PHOENIX_S3CMD_FLAGS_OVERRIDE}" == 1 ]]; then
-  PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS}"
+  readonly PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS}"
 else
-  PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT} ${PHOENIX_S3CMD_FLAGS}"
+  readonly PHOENIX_S3CMD_FLAGS="${PHOENIX_S3CMD_FLAGS_DEFAULT} ${PHOENIX_S3CMD_FLAGS}"
 fi
-readonly PHOENIX_S3CMD_FLAGS
 
 # Whether we should allow users to control whether Remote Debugging (`devtools.debugger.remote-enabled`) is reset per-session via a preference
 ## If PHOENIX_FORCE_RESET_REMOTE_DEBUGGING is set to 1 (Default), `devtools.debugger.remote-enabled` is ALWAYS reset per-session
