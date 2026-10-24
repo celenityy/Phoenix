@@ -243,7 +243,7 @@ function setup_path() {
   add_to_full_path "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' 'mkdir' || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python' || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3' || return 1
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3.14' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3.15' || return 1
   add_to_full_path "${PHOENIX_RM}" 'PHOENIX_RM' 'rm' || return 1
   add_to_full_path "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' 's3cmd' || return 1
   add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'gsed' || return 1
