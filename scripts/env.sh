@@ -271,8 +271,8 @@ function setup_path() {
     add_to_full_path "${PHOENIX_DOT_CLEAN}" 'PHOENIX_DOT_CLEAN' 'dot_clean' || return 1
   fi
 
-  PATH="${PHOENIX_PATH}" || return 1
-  export PATH || return 1
+  PATH="${PHOENIX_PATH}"
+  export PATH
 }
 
 # Set-up a minimal PATH for linting
@@ -284,8 +284,8 @@ function setup_lint_path() {
   add_to_lint_path "${PHOENIX_SHELLCHECK}" 'PHOENIX_SHELLCHECK' 'shellcheck' || return 1
   add_to_lint_path "${PHOENIX_SHFMT}" 'PHOENIX_SHFMT' 'shfmt' || return 1
 
-  readonly PATH="${PHOENIX_LINT_PATH}" || return 1
-  export PATH || return 1
+  readonly PATH="${PHOENIX_LINT_PATH}"
+  export PATH
 }
 
 # For CI, ensure external environment variables are set
