@@ -104,7 +104,7 @@ function create_archive() {
 
   # Set timezone to UTC for consistency
   unset TZ
-  export TZ='UTC' || return 1
+  export TZ='UTC'
 
   # If the directory for our output archive doesn't exist, create it
   local -r output_archive_dir="$("${PHOENIX_DIRNAME}" "${output_archive}")"
