@@ -66,7 +66,7 @@ elif [[ "${ci_prep_target}" == 's3-releases' ]]; then
   # Set-up S3 storage - Releases
   PHOENIX_CI_PREP_S3_RELEASES=1
 else
-  echo_red_text "ERROR: Invalid target: ${ci_prep_target}\n You must enter one of the following:"
+  echo_red_text "ERROR: Invalid target: '${ci_prep_target}'\n You must enter one of the following:"
   echo 'S3 storage - Artifacts:  s3-artifacts'
   echo 'S3 storage - Releases:   s3-releases'
   exit 1
