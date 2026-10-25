@@ -532,12 +532,6 @@ function delete_file() {
     return 1
   fi
 
-  if [[ -z "${6+x}" ]]; then
-    echo_red_text 'ERROR: Please specify the path to a file containing the S3 secret key!'
-    print_usage
-    return 1
-  fi
-
   # Ensure we have basename
   verify_exec "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' || return 1
 
@@ -578,7 +572,7 @@ function delete_file() {
 
   echo_red_text "Deleting file: '${s3_file_name}' from S3 storage..."
   source "${PHOENIX_PYENV}" || return 1
-  "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} rm "${s3_file}" \
+  "${PHOENIX_S3CMD}" ${PHOENIX_S3CMD_FLAGS} rm "${s3_target_path}" \
     --access_key="${s3_access_key}" \
     --secret_key="${s3_secret_key}" \
     --host="${s3_endpoint}" \
