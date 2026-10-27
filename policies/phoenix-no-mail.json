@@ -33,6 +33,12 @@
         "Clipboard": {
           "Enabled": false
         },
+        "ClipboardCopy": {
+          "Enabled": false
+        },
+        "Download": {
+          "Enabled": false
+        },
         "DragAndDrop": {
           "Enabled": false
         },
