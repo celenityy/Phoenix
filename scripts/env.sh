@@ -219,6 +219,12 @@ function setup_path() {
   # Ensure we have `PHOENIX_PLATFORM`
   verify_env "${PHOENIX_PLATFORM}" 'PHOENIX_PLATFORM' || return 1
 
+  # Ensure we have `PHOENIX_PYTHON_MAJOR_VERSION`
+  verify_env "${PHOENIX_PYTHON_MAJOR_VERSION}" 'PHOENIX_PYTHON_MAJOR_VERSION' || return 1
+
+  # Ensure we have `PHOENIX_PYTHON_FULL_MAJOR_VERSION`
+  verify_env "${PHOENIX_PYTHON_FULL_MAJOR_VERSION}" 'PHOENIX_PYTHON_FULL_MAJOR_VERSION' || return 1
+
   add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'awk' || return 1
   add_to_full_path "${PHOENIX_AWK}" 'PHOENIX_AWK' 'gawk' || return 1
   add_to_full_path "${PHOENIX_BASENAME}" 'PHOENIX_BASENAME' 'basename' || return 1
@@ -242,8 +248,8 @@ function setup_path() {
   add_to_full_path "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' 'md5sum' || return 1
   add_to_full_path "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' 'mkdir' || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python' || return 1
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3' || return 1
-  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python3.15' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' "python${PHOENIX_PYTHON_MAJOR_VERSION}" || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' "python${PHOENIX_PYTHON_FULL_MAJOR_VERSION}" || return 1
   add_to_full_path "${PHOENIX_RM}" 'PHOENIX_RM' 'rm' || return 1
   add_to_full_path "${PHOENIX_S3CMD}" 'PHOENIX_S3CMD' 's3cmd' || return 1
   add_to_full_path "${PHOENIX_SED}" 'PHOENIX_SED' 'gsed' || return 1
