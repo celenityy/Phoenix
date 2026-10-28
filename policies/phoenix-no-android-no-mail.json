@@ -40,7 +40,7 @@
       },
       "@testpilot-containers": {
         "installation_mode": "blocked",
-        "blocked_install_message": "Containers are builtin since Firefox v153."
+        "blocked_install_message": "Containers are built-in since Firefox v153."
       }
     },
     "FirefoxSuggest": {
