@@ -97,7 +97,6 @@ You can also disable DNS over HTTPS entirely by setting `network.trr.mode` to `5
 
 ### Initial add-on installation *(**DESKTOP**)*
 
-- `https://addons.mozilla.org/firefox/downloads/latest/@testpilot-containers/latest.xpi`
 - `https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi`
 
 **Operator**: [Mozilla](https://www.mozilla.org/) - *[Privacy policy](https://www.mozilla.org/privacy/)*
