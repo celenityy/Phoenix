@@ -67,7 +67,15 @@ verify_file "${PHOENIX_CI_UP_AR_SH}" || exit 1
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
 /bin/sudo /bin/dnf update -y --refresh || exit 1
-/bin/sudo /bin/dnf install -y bash curl jq shasum tar zip || exit 1
+/bin/sudo /bin/dnf install -y \
+  bash \
+  curl \
+  jq \
+  shasum \
+  tar \
+  unzip \
+  xz \
+  zip || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 'all' || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 's3cmd' || exit 1
 echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
