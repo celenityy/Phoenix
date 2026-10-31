@@ -1,6 +1,6 @@
 # shellcheck shell=bash
-readonly PHOENIX_VERSION_DATE='2026.09.29'
-readonly PHOENIX_VERSION="${PHOENIX_VERSION_DATE}.2"
+readonly PHOENIX_VERSION_DATE='2026.11.01'
+readonly PHOENIX_VERSION="${PHOENIX_VERSION_DATE}.1"
 
 # Python
 # Version: 20261026 (3.15.2)
