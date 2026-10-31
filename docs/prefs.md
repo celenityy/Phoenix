@@ -282,9 +282,11 @@ browser.phoenix.trr.autoBootstrap
 
 **Type**: `Boolean`
 
-**Default**: `true`
+**Default**: `false`
 
 If `true`, Phoenix will automatically configure the bootstrap address for DNS over HTTPS _(`network.trr.bootstrapAddr`)_, depending on the currently configured provider.
+
+**WARNING**: This setting unfortunately causes issues with certain networks, such as those that are IPv6-only.
 
 **NOTE**: When this setting is enabled, a browser restart is required upon changing DNS over HTTPS providers.
 
