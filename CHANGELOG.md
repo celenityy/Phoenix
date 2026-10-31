@@ -1,30 +1,20 @@
-**IMPORTANT**: We've officially migrated our issue tracker [to a new, unified one on Codeberg](https://codeberg.org/celenity/bugs/issues). **Please note that issues will no longer be accepted on GitHub, GitLab or in any repo outside of [the new unified Codeberg issue tracking repo](https://codeberg.org/celenity/bugs/issues))**.
-
-**NOTE**: For those who saw `2026.09.29.1`, this release fixes a bug from that release [that prevented Phoenix's list of DNS over HTTPS providers from applying properly](https://codeberg.org/celenity/Phoenix/commit/a3907897c458f54660a0ea1d68b13c0a0df1bb36).
-
-- [Disabled AI Speech Recognition](https://codeberg.org/celenity/Phoenix/commit/7f3aea6198b35e373bb5494f8b4d30c31c44e1f5) by default.
-- [Enabled the `ML-DSA` post-quantum signature scheme](https://codeberg.org/celenity/Phoenix/commit/7c57de37695fa83d33887e880510ca9b9ad25e66) by default.
-- [Enforced Safe Browsing in all contexts](https://codeberg.org/celenity/Phoenix/commit/d75940bcad7fcd1ed74ec7eb7290199ff92ea916) by default *(so that checks are also applied to iframes, in addition to top-level channels)*.
-- Other minor tweaks, fixes, and refinements.
+- Switched the default DNS over HTTPS back to [Quad9](https://quad9.net/), due to them now meeting our criteria *(as well as the discontinuation of our current default provider, Mullvad)*.
+- [Blocked Local Network Access requests from insecure origins](https://codeberg.org/celenity/Phoenix/commit/3fb64456fbd24a2c7d2f7582fad95d02511894c0) by default.
+- [If captive portal detection/connectivity checks are enabled, we now use our servers *(`captive.celenity.dev`)*](https://codeberg.org/celenity/Phoenix/commit/769046ce9698799e554ff2ec05bd9b029646179f) by default, instead of Mozilla's.
+  - We also now use `HTTPS` for connectivity checks if they are enabled *(though captive portal detection itself is still performed over standard `HTTP`, as it must be for them to work properly)*.
+  - We still disable captive portal detection and connectivity checks by default and don't recommend enabling them, this is simply for users who do wish to re-enable them at their own risk/discretion.
+- [Fixed an issue that prevented `about:home` from loading properly for some users](https://codeberg.org/celenity/Phoenix/commit/444e9534f2388725b47a1661a6646068a47542de) on `159.0` and newer.
+- [Disabled DoH auto-bootstrap by default for now](https://codeberg.org/celenity/Phoenix/commit/5b530cb58c95fc27961e815a7bd703cc19fd319d), as [it unfortunately breaks ex. IPv6-only networks](https://codeberg.org/celenity/bugs/issues/589).
+  - The feature can still be enabled though if desired, by setting `browser.phoenix.trr.autoBootstrap` to `true` at [`about:config`](about:config).
+- If DoH auto-bootstrap is enabled, [`1.0.0.1` is now always used for Cloudflare *(instead of just as a fall-back)*](https://codeberg.org/celenity/Phoenix/commit/975544d257cda5eddae9171bfc6ab18e4d0bd445), to [improve compatibility and resolve issues with certain networks](https://codeberg.org/celenity/Phoenix/commit/975544d257cda5eddae9171bfc6ab18e4d0bd445).
+- [Disabled PDF.js feature promotions](https://codeberg.org/celenity/Phoenix/commit/1ce5ba5f00e07a5101e29bdfb8d5e2955e4c2d99).
+- [Disabled Mozilla's newly-added private browsing mode intro animation](https://codeberg.org/celenity/Phoenix/commit/270949d2caa12b0ee7a212239ba9449c1f434be0).
+- [Prevented storage of telemetry pings *(via `telemetry.fog.enable_store_submitted_pings`)*](https://codeberg.org/celenity/Phoenix/commit/bf86c3d96e5ceee074e546c6cd302a33e2c21fa4).
+- Other minor tweaks, fixes, and enhancements.
 
 ### Desktop-only
 
-- **LINUX**: [Disabled Geoclue](https://codeberg.org/celenity/Phoenix/commit/38aee4a0e2e9f5451aa293d5d7295ceeecbdb6e8) by default *(to reduce our reliance on OS-provided/external services, in favor of the browser's built-in network geolocation provider)*.
-- **non-OS X**: [Explicitly enabled the network geolocation provider](https://codeberg.org/celenity/Phoenix/commit/c945258738ecd1a2ec54de9a4ccf59310d9d3d46) by default, to ensure that it's properly enabled, instead of just relying on the fall-back/testing provider.
-- Added [DNSBunker](https://codeberg.org/celenity/Phoenix/commit/196846d3fd9f2153c01b099dde0f9f59bbe89b58) and [`dnsforge.de`](https://codeberg.org/celenity/Phoenix/commit/f3485c46b49ae6a43db0a403d5de646de59ec0c0) to the list of built-in DNS over HTTPS providers.
-- [Disabled fetching GMP plug-ins from Chromium servers](https://codeberg.org/celenity/Phoenix/commit/6254c888c6901472277ed94680bb797a57c62d09) *(if GMP is enabled)* to prevent additional unnecessary connections to Mozilla.
-- [Disabled the Remote Settings-backed new tab renderer](https://codeberg.org/celenity/Phoenix/commit/f54634ac5f4d4141bdcc7b776290af0382afe06e).
-  - This also fixes an issue that caused favicons to not display properly on `about:home` for some users.
-- [Disabled reliance on OS location services/system permission for geolocation](https://codeberg.org/celenity/Phoenix/commit/c29e383f5201f96ebf1c90e05253f5ca62cf9aab), so that the network geolocation provider can always fall-back/work properly as expected.
-- [Prevented the browser from automatically downloading tab group AI models](https://codeberg.org/celenity/Phoenix/commit/c7a7373a4e6aae3d8a3e725bc1970a25d7d273bd) *(if the relevant functionality is enabled)*.
-- [Set Firefox Sync to use a generic default device name](https://codeberg.org/celenity/Phoenix/commit/7b9fc7e4678b1d1d625640f56709d0d4fd5a3e3d) to avoid leaking the username and device hostname/model to Mozilla *(as well as whether a user is using a fork)*.
-- [Disabled recent search widgets on `about:home`](https://codeberg.org/celenity/Phoenix/commit/a22131468a39a5ca232a5690215864035180f3df) by default, but enabled the UI to allow users to enable them if desired.
-- [Enabled the ability to control media playback speed for media in Picture-in-Picture windows](https://codeberg.org/celenity/Phoenix/commit/c667742fe2c9c5a6f8879ce34f6de9743221c68b) by default.
-- [The new Unified Trust Panel is now only disabled on ESR](https://codeberg.org/celenity/Phoenix/commit/dd878edfde702d6242d0d06a3c56fabb971324c9), due to the removal of Firefox's cookie banner blocker on release.
-- [Disabled newly-added Firefox Sync client info ping/telemetry](https://codeberg.org/celenity/Phoenix/commit/2dfa96f0849b81d1562ebd9fdc1079ee8be5ab45).
-- [Disabled Mozilla VPN promotional messaging on `about:home`](https://codeberg.org/celenity/Phoenix/commit/5c7da79df68b16194b02407a2498bf802e26c1b8).
-
-### Specialized configs
-
-- [Disabled search actions](https://codeberg.org/celenity/Phoenix/commit/6db4e297aa86392cd23a46c9a03f22a1e5330b30).
-- [Disabled URL bar mentions](https://codeberg.org/celenity/Phoenix/commit/7b19b0c7d451bf9da013d67ec9f0305f5bfb2847).
+- [Removed Firefox Multi-Account Containers](https://codeberg.org/celenity/Phoenix/commit/7a9f0e51be171a7bec6538ea5dbb9e544693a64d), as its functionality is now built-in to Firefox.
+- [Disabled Firefox/Mozilla branding elements at `about:neterror`](https://codeberg.org/celenity/Phoenix/commit/b399cef80e43deed7874a54bf0dc6d926cd0473b) by default.
+- [Disabled Firefox Sync promotions](https://codeberg.org/celenity/Phoenix/commit/cea18e6dba7e63ce4c9799ca4e101579a2dad02b).
+- [Added a new preference to disable the Mozilla Ad Routing Service *(MARS)* Ad Client](https://codeberg.org/celenity/Phoenix/commit/c81b5219791c8ce7c06bd18f6b728a24fac5dcec).
