@@ -8,7 +8,7 @@ set_verbosity
 # Ensure this only runs for the official repo
 if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
   echo_red_text "ERROR: Unable to download artifacts for repo: '${PHOENIX_CURRENT_REPO}'!"
-  exit 1
+  return 1
 fi
 
 # Include download utilities
