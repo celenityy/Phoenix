@@ -93,13 +93,13 @@ fi
   zip || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 'all' || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_GET_SOURCES_SH}" 's3cmd' || exit 1
-echo_green_text 'CI - SUCCESS: Downloaded dependencies.'
+echo_green_text 'CI - SUCCESS: Downloaded dependencies!'
 
 # Get secrets
 echo_red_text 'CI - Preparing secrets...'
 set +x || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_PREP_SH}" 's3-releases' || exit 1
-echo_green_text 'CI - SUCCESS: Prepared secrets.'
+echo_green_text 'CI - SUCCESS: Prepared secrets!'
 
 # Set verbosity
 set_verbosity
@@ -107,10 +107,10 @@ set_verbosity
 # Get artifacts
 echo_red_text 'CI - Downloading artifacts...'
 "${PHOENIX_BASH}" "${PHOENIX_CI_DL_AR_SH}" 'all' || exit 1
-echo_green_text 'CI - SUCCESS: Downloaded artifacts.'
+echo_green_text 'CI - SUCCESS: Downloaded artifacts!'
 
 # Publish our release
 echo_red_text 'CI - Publishing release...'
 set +x || exit 1
 "${PHOENIX_BASH}" "${PHOENIX_CI_PUBLISH_SH}" || exit 1
-echo_green_text 'CI - SUCCESS: Published release.'
+echo_green_text 'CI - SUCCESS: Published release!'
