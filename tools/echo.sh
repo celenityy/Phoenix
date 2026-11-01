@@ -1,3 +1,3 @@
 #!/bin/bash
 set -euo pipefail
-exec /bin/bash -c "echo $@" || exit 1
+exec "${PHOENIX_BASH}" -c "echo $@" || exit 1

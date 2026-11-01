@@ -102,7 +102,7 @@ function configure_git() {
   "${PHOENIX_GIT}" config --global user.email "${PHOENIX_WIKI_GIT_EMAIL}" || return 1
   "${PHOENIX_GIT}" config --global user.name "${PHOENIX_WIKI_GIT_NAME}" || return 1
   "${PHOENIX_GIT}" config --global url."https://${PHOENIX_FORGEJO_CI_API_TOKEN}@${PHOENIX_FORGEJO_URL}/".insteadOf "https://${PHOENIX_FORGEJO_URL}/" || return 1
-  echo_green_text 'SUCCESS: Configured Git.'
+  echo_green_text 'SUCCESS: Configured Git!'
 }
 
 # Clone the wiki repo

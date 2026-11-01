@@ -153,6 +153,13 @@ if [[ -z "${PHOENIX_LOG_AR_DOWN+x}" ]] || [[ "${PHOENIX_LOG_AR_DOWN}" == "" ]] |
 fi
 readonly PHOENIX_LOG_AR_DOWN
 
+# Should we create a log file for ci-push.sh? (Default)
+readonly PHOENIX_LOG_PUSH_DEFAULT=1
+if [[ -z "${PHOENIX_LOG_PUSH+x}" ]] || [[ "${PHOENIX_LOG_PUSH}" == "" ]] || [[ "${PHOENIX_LOG_PUSH}" == "null" ]]; then
+  PHOENIX_LOG_PUSH="${PHOENIX_LOG_PUSH_DEFAULT}"
+fi
+readonly PHOENIX_LOG_PUSH
+
 # Should we create a log file for ci-upload-artifacts.sh? (Default)
 readonly PHOENIX_LOG_AR_UP_DEFAULT=1
 if [[ -z "${PHOENIX_LOG_AR_UP+x}" ]] || [[ "${PHOENIX_LOG_AR_UP}" == "" ]] || [[ "${PHOENIX_LOG_AR_UP}" == "null" ]]; then
@@ -166,13 +173,6 @@ if [[ -z "${PHOENIX_LOG_SOURCES+x}" ]] || [[ "${PHOENIX_LOG_SOURCES}" == "" ]] |
   PHOENIX_LOG_SOURCES="${PHOENIX_LOG_SOURCES_DEFAULT}"
 fi
 readonly PHOENIX_LOG_SOURCES
-
-# Should we create a log file for push.sh? (Default)
-readonly PHOENIX_LOG_PUSH_DEFAULT=1
-if [[ -z "${PHOENIX_LOG_PUSH+x}" ]] || [[ "${PHOENIX_LOG_PUSH}" == "" ]] || [[ "${PHOENIX_LOG_PUSH}" == "null" ]]; then
-  PHOENIX_LOG_PUSH="${PHOENIX_LOG_PUSH_DEFAULT}"
-fi
-readonly PHOENIX_LOG_PUSH
 
 # Directory where we should store log files (if logging is desired)
 readonly PHOENIX_LOG_DIR_DEFAULT="${PHOENIX_BUILD}/logs"
@@ -250,6 +250,7 @@ fi
 readonly PHOENIX_DIRNAME
 
 # dot_clean
+## (For OS X)
 readonly PHOENIX_DOT_CLEAN_DEFAULT='/usr/sbin/dot_clean'
 if [[ -z "${PHOENIX_DOT_CLEAN+x}" ]] || [[ "${PHOENIX_DOT_CLEAN}" == "" ]] || [[ "${PHOENIX_DOT_CLEAN}" == "null" ]]; then
   PHOENIX_DOT_CLEAN="${PHOENIX_DOT_CLEAN_DEFAULT}"

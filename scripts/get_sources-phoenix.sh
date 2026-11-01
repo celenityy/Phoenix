@@ -18,9 +18,6 @@ if [[ -z "${PHOENIX_FROM_SOURCES+x}" ]]; then
   return 1
 fi
 
-# Ensure we have rm
-verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
-
 verify_env "${source_target}" 'source_target' || {
   echo_red_text "ERROR: Missing target!"
   return 1
@@ -94,6 +91,9 @@ elif [[ "${mode}" != 'download' ]]; then
   return 1
 fi
 readonly PHOENIX_GET_SOURCE_CHECKSUM_UPDATE
+
+# Ensure we have rm
+verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
 # Back-up (and remove) a file if it exists
 function backup_file() {

@@ -322,8 +322,8 @@ function clean_env_local() {
   # Ensure we have rm
   verify_exec "${PHOENIX_RM}" 'PHOENIX_RM' || return 1
 
-  if [[ -f "$(dirname $0)/env_local.sh" ]]; then
-    "${PHOENIX_RM}" -f "$(dirname $0)/env_local.sh"
+  if [[ -f "$("${PHOENIX_DIRNAME}" $0)/env_local.sh" ]]; then
+    "${PHOENIX_RM}" -f "$("${PHOENIX_DIRNAME}" $0)/env_local.sh"
   fi
 }
 
