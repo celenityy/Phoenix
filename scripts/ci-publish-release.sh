@@ -66,13 +66,13 @@ verify_file "${PHOENIX_CI_PUBLISH_SH}" || exit 1
 
 # Ensure this only runs if we're in the production branch
 if [[ "${PHOENIX_CURRENT_BRANCH}" != "${PHOENIX_PROD_BRANCH}" ]]; then
-  echo_red_text "ERROR: Unable to publish a release from branch: '${PHOENIX_CURRENT_BRANCH}'!"
+  echo_red_text "ERROR: Unable to publish release from branch: '${PHOENIX_CURRENT_BRANCH}'!"
   exit 1
 fi
 
 # Ensure this only runs for the official repo
 if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
-  echo_red_text "ERROR: Unable to publish a release from repo: '${PHOENIX_CURRENT_REPO}'!"
+  echo_red_text "ERROR: Unable to publish release from repo: '${PHOENIX_CURRENT_REPO}'!"
   exit 1
 fi
 
