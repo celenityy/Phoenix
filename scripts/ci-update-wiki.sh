@@ -10,12 +10,6 @@ set -euo pipefail
 # Ensure this is never ran with xtrace...
 set +x || exit 1
 
-# Ensure this only runs for the official repo
-if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
-  echo_red_text "ERROR: Unable to update wiki repo: '${PHOENIX_CURRENT_REPO}'!"
-  exit 1
-fi
-
 # Set-up our environment
 function setup_env() {
   if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then
@@ -57,6 +51,12 @@ verify_env "${PHOENIX_CI}" 'PHOENIX_CI' || exit 1
 
 if [[ "${PHOENIX_CI}" != 1 ]]; then
   echo_red_text "ERROR: '$0' should only be called from CI!"
+  exit 1
+fi
+
+# Ensure this only runs for the official repo
+if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text "ERROR: Unable to update wiki repo: '${PHOENIX_CURRENT_REPO}'!"
   exit 1
 fi
 
