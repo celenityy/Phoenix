@@ -7,7 +7,7 @@ set +x || return 1
 
 # Ensure this only runs for the official repo
 if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
-  echo_red_text "ERROR: Unable to get secrets for repo: '${PHOENIX_OFFICIAL_REPO}'!"
+  echo_red_text "ERROR: Unable to upload artifacts for repo: '${PHOENIX_OFFICIAL_REPO}'!"
   exit 1
 fi
 
