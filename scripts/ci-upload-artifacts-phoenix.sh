@@ -5,6 +5,12 @@ set -euo pipefail
 # Ensure this is never ran with xtrace...
 set +x || return 1
 
+# Ensure this only runs for the official repo
+if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text "ERROR: Unable to get secrets for repo: '${PHOENIX_OFFICIAL_REPO}'!"
+  exit 1
+fi
+
 # Include S3 utilities
 verify_file_with_env "${PHOENIX_S3_UTILS}" 'PHOENIX_S3_UTILS' || return 1
 source "${PHOENIX_S3_UTILS}" || return 1

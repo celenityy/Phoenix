@@ -5,6 +5,12 @@ set -euo pipefail
 # Set verbosity
 set_verbosity
 
+# Ensure this only runs for the official repo
+if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text "ERROR: Unable to get secrets for repo: '${PHOENIX_OFFICIAL_REPO}'!"
+  exit 1
+fi
+
 # Include download utilities
 verify_file_with_env "${PHOENIX_DOWNLOAD_UTILS}" 'PHOENIX_DOWNLOAD_UTILS' || return 1
 source "${PHOENIX_DOWNLOAD_UTILS}" || return 1

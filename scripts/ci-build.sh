@@ -66,7 +66,10 @@ verify_file "${PHOENIX_CI_UP_AR_SH}" || exit 1
 
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
-/bin/sudo /bin/dnf update -y --refresh || exit 1
+if [[ "${PHOENIX_CI_TYPE}" != 'forgejo' ]]; then
+  # We run this early as part of the Forgejo workflow (so that we can get Node.js to checkout the repo), so no need to run it twice
+  /bin/sudo /bin/dnf update -y --refresh || exit 1
+fi
 /bin/sudo /bin/dnf install -y \
   bash \
   curl \
@@ -81,10 +84,12 @@ echo_red_text 'CI - Downloading dependencies...'
 echo_green_text 'CI - SUCCESS: Downloaded dependencies!'
 
 # Get secrets
-echo_red_text 'CI - Preparing secrets...'
-set +x || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_CI_PREP_SH}" 's3-artifacts' || exit 1
-echo_green_text 'CI - SUCCESS: Prepared secrets!'
+if [[ "${PHOENIX_CURRENT_REPO}" == "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text 'CI - Preparing secrets...'
+  set +x || exit 1
+  "${PHOENIX_BASH}" "${PHOENIX_CI_PREP_SH}" 's3-artifacts' || exit 1
+  echo_green_text 'CI - SUCCESS: Prepared secrets!'
+fi
 
 # Set verbosity
 set_verbosity
@@ -95,7 +100,9 @@ echo_red_text 'CI - Building Phoenix...'
 echo_green_text 'CI - SUCCESS: Built Phoenix!'
 
 # Upload artifacts
-echo_red_text 'CI - Uploading artifacts...'
-set +x || exit 1
-"${PHOENIX_BASH}" "${PHOENIX_CI_UP_AR_SH}" 'all' || exit 1
-echo_green_text 'CI - SUCCESS: Uploaded artifacts!'
+if [[ "${PHOENIX_CURRENT_REPO}" == "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text 'CI - Uploading artifacts...'
+  set +x || exit 1
+  "${PHOENIX_BASH}" "${PHOENIX_CI_UP_AR_SH}" 'all' || exit 1
+  echo_green_text 'CI - SUCCESS: Uploaded artifacts!'
+fi

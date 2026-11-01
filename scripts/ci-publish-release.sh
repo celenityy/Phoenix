@@ -64,9 +64,24 @@ verify_file "${PHOENIX_CI_PREP_SH}" || exit 1
 readonly PHOENIX_CI_PUBLISH_SH="${PHOENIX_SCRIPTS}/ci-push.sh"
 verify_file "${PHOENIX_CI_PUBLISH_SH}" || exit 1
 
+# Ensure this only runs if we're in the production branch
+if [[ "${PHOENIX_CURRENT_BRANCH}" != "${PHOENIX_PROD_BRANCH}" ]]; then
+  echo_red_text "ERROR: Unable to publish a release from branch: '${PHOENIX_CURRENT_BRANCH}'!"
+  exit 1
+fi
+
+# Ensure this only runs for the official repo
+if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text "ERROR: Unable to publish a release from repo: '${PHOENIX_CURRENT_REPO}'!"
+  exit 1
+fi
+
 # Get dependencies
 echo_red_text 'CI - Downloading dependencies...'
-/bin/sudo /bin/dnf update -y --refresh || exit 1
+if [[ "${PHOENIX_CI_TYPE}" != 'forgejo' ]]; then
+  # We run this early as part of the Forgejo workflow (so that we can get Node.js to checkout the repo), so no need to run it twice
+  /bin/sudo /bin/dnf update -y --refresh || exit 1
+fi
 /bin/sudo /bin/dnf install -y \
   bash \
   curl \

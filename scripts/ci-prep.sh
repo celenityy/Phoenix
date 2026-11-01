@@ -5,6 +5,12 @@ set -euo pipefail
 # Ensure this is never ran with xtrace...
 set +x || exit 1
 
+# Ensure this only runs for the official repo
+if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
+  echo_red_text "ERROR: Unable to get secrets for repo: '${PHOENIX_OFFICIAL_REPO}'!"
+  exit 1
+fi
+
 # Set-up our environment
 function setup_env() {
   if [[ -z "${PHOENIX_SET_ENVS+x}" ]] || [[ "${PHOENIX_SET_ENVS}" != 1 ]]; then

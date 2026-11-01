@@ -205,7 +205,7 @@ function extract_archive() {
 
   # Set a temporary archive name
   local -r temp_archive_path_name=$("${PHOENIX_BASENAME}" "${target_path}")
-  local -r temp_archive_path="${PHOENIX_EXTERNAL}/temp/${temp_archive_path}"
+  local -r temp_archive_path="${PHOENIX_EXTERNAL}/temp/${temp_archive_path_name}"
 
   # If our temporary directory for extraction already exists, delete it
   if [[ -d "${temp_archive_path}" ]]; then
@@ -262,7 +262,12 @@ function extract_archive() {
   fi
 
   local -r top_input_dir=$("${PHOENIX_LS}" "${temp_archive_path}")
-  "${PHOENIX_CP}" -rf "${temp_archive_path}/${top_input_dir}/" "${target_path}" || local extraction_failed=1
+  if [[ -d "${temp_archive_path}/${top_input_dir}" ]]; then
+    local -r input_dir="${temp_archive_path}/${top_input_dir}"
+  else
+    local -r input_dir="${temp_archive_path}"
+  fi
+  "${PHOENIX_CP}" -rf "${input_dir}/" "${target_path}" || local extraction_failed=1
 
   # Ensure the directory we just extracted the archive to is valid
   if [[ "${extraction_failed}" != 1 ]] && [[ ! -d "${target_path}" ]]; then

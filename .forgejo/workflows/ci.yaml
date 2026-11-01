@@ -14,6 +14,7 @@ env:
   PHOENIX_CHECKOUT_ACTION_COMMIT: "f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a" # v7.0.1
   PHOENIX_DEV_BRANCH: "dev"
   PHOENIX_FEDORA_VERSION: "44"
+  PHOENIX_OFFICIAL_REPO: "celenity/Phoenix"
   PHOENIX_PROD_BRANCH: "pages"
 
 jobs:
@@ -92,7 +93,7 @@ jobs:
 
   release:
     name: Release
-    if: forgejo.ref_name == env.PHOENIX_PROD_BRANCH && forgejo.repository == 'celenity/Phoenix'
+    if: forgejo.ref_name == env.PHOENIX_PROD_BRANCH && forgejo.repository == env.PHOENIX_OFFICIAL_REPO
     needs: [build]
     runs-on: codeberg-medium
     container:
