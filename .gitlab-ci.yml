@@ -87,8 +87,6 @@ build:
     paths:
       - $CI_PROJECT_DIR/artifacts/logs/**/*
   rules:
-    - if: $CI_PROJECT_NAMESPACE != 'celenityy'
-      when: never
     - changes:
         - scripts/**/*
         - .gitlab-ci.yml
