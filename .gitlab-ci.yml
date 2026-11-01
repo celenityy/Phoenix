@@ -65,6 +65,8 @@ wiki:
     - set -euo pipefail
     - /bin/bash scripts/ci-update-wiki.sh
   rules:
+    - if: $CI_PROJECT_PATH != $PHOENIX_OFFICIAL_REPO
+      when: never
     - if: $CI_COMMIT_BRANCH == $PHOENIX_DEV_BRANCH
 
 build:

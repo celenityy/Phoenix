@@ -44,7 +44,7 @@ jobs:
 
   wiki:
     name: Wiki
-    if: forgejo.ref_name == env.PHOENIX_DEV_BRANCH
+    if: forgejo.ref_name == env.PHOENIX_DEV_BRANCH && forgejo.repository == env.PHOENIX_OFFICIAL_REPO
     runs-on: codeberg-tiny-lazy
     container:
       image: fedora:${{ env.PHOENIX_FEDORA_VERSION }}
