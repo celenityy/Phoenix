@@ -70,6 +70,11 @@ function push_file() {
   local -r s3_secret_key_file="$6"
   local -r s3_full_path="${s3_path}/$("${PHOENIX_BASENAME}" "${push_file}")"
 
+  # By default, we're not pushing a directory
+  if [[ -z "${PHOENIX_PUSHING_DIR+x}" ]]; then
+    PHOENIX_PUSHING_DIR=0
+  fi
+
   # Ensure our file to push is valid
   verify_file "${push_file}" || return 1
 
@@ -130,6 +135,8 @@ function push_file() {
 
   if [[ "${s3_path}" == 'root' ]]; then
     local -r s3_target_path="s3://${s3_bucket_name}"
+  elif [[ "${PHOENIX_PUSHING_DIR}" == 1 ]]; then
+    local -r s3_target_path="s3://${s3_bucket_name}${s3_full_path}"
   else
     local -r s3_target_path="s3://${s3_bucket_name}/${s3_full_path}"
   fi
@@ -378,6 +385,9 @@ function push_dir() {
     "${PHOENIX_DOT_CLEAN}" -mv "${push_dir}"
   fi
 
+  # Indicate that we're pushing a directory
+  PHOENIX_PUSHING_DIR=1
+
   echo_red_text "Pushing directory: '${push_dir}' to S3 storage..."
   for file in $("${PHOENIX_FIND}" "${push_dir}" -type f); do
     local file_basename=$("${PHOENIX_BASENAME}" "${file}")
@@ -385,7 +395,12 @@ function push_dir() {
       local file_path="${file#"${push_dir}"}"
       local target_path=$("${PHOENIX_DIRNAME}" "${file_path}")
       if [[ "${target_s3_path}" == 'root' ]]; then
-        local s3_path='root'
+        local dirname_path=$("${PHOENIX_DIRNAME}" "${file_path}")
+        if [[ "${dirname_path}" == '/' ]]; then
+          local s3_path='root'
+        else
+          local s3_path=$("${PHOENIX_DIRNAME}" "${file_path}")
+        fi
       elif [[ "${target_path}" == '/' ]]; then
         local s3_path=$("${PHOENIX_BASENAME}" "${push_dir}")
       else
@@ -396,6 +411,7 @@ function push_dir() {
       echo "Skipping upload of file: '${file}'"
     fi
   done
+  unset PHOENIX_PUSHING_DIR
   echo_green_text "SUCCESS: Pushed directory: '${push_dir}' to S3 storage!"
 }
 
@@ -480,6 +496,9 @@ function push_dir_and_add_sha512sum() {
     "${PHOENIX_DOT_CLEAN}" -mv "${push_dir}"
   fi
 
+  # Indicate that we're pushing a directory
+  PHOENIX_PUSHING_DIR=1
+
   echo_red_text "Pushing directory: '${push_dir}' to S3 storage..."
   for file in $("${PHOENIX_FIND}" "${push_dir}" -type f); do
     local file_basename=$("${PHOENIX_BASENAME}" "${file}")
@@ -487,7 +506,12 @@ function push_dir_and_add_sha512sum() {
       local file_path="${file#"${push_dir}"}"
       local target_path=$("${PHOENIX_DIRNAME}" "${file_path}")
       if [[ "${target_s3_path}" == 'root' ]]; then
-        local s3_path='root'
+        local dirname_path=$("${PHOENIX_DIRNAME}" "${file_path}")
+        if [[ "${dirname_path}" == '/' ]]; then
+          local s3_path='root'
+        else
+          local s3_path=$("${PHOENIX_DIRNAME}" "${file_path}")
+        fi
       elif [[ "${target_path}" == '/' ]]; then
         local s3_path=$("${PHOENIX_BASENAME}" "${push_dir}")
       else
@@ -498,6 +522,7 @@ function push_dir_and_add_sha512sum() {
       echo "Skipping upload of file: '${file}'"
     fi
   done
+  unset PHOENIX_PUSHING_DIR
   echo_green_text "SUCCESS: Pushed directory: '${push_dir}' to S3 storage!"
 }
 
