@@ -188,6 +188,9 @@ function extract_archive() {
   # Ensure we have cp
   verify_exec "${PHOENIX_CP}" 'PHOENIX_CP' || return 1
 
+  # Ensure we have dirname
+  verify_exec "${PHOENIX_DIRNAME}" 'PHOENIX_DIRNAME' || return 1
+
   # Ensure we have ls
   verify_exec "${PHOENIX_LS}" 'PHOENIX_LS' || return 1
 
@@ -259,6 +262,12 @@ function extract_archive() {
   else
     echo_red_text "ERROR: Invalid archive format: '${archive_format}'!"
     return 1
+  fi
+
+  # Ensure the directory above the directory we want to extract the archive into exists
+  local -r top_target_dir=$("${PHOENIX_DIRNAME}" "${target_path}")
+  if [[ ! -d "${top_target_dir}" ]]; then
+    "${PHOENIX_MKDIR}" -p "${top_target_dir}"
   fi
 
   local -r top_input_dir=$("${PHOENIX_LS}" "${temp_archive_path}")
