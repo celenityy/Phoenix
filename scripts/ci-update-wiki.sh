@@ -56,7 +56,7 @@ fi
 
 # Ensure this only runs for the official repo
 if [[ "${PHOENIX_CURRENT_REPO}" != "${PHOENIX_OFFICIAL_REPO}" ]]; then
-  echo_red_text "ERROR: Unable to update wiki repo: '${PHOENIX_CURRENT_REPO}'!"
+  echo_red_text "ERROR: Unable to update wiki for repo: '${PHOENIX_CURRENT_REPO}'!"
   exit 1
 fi
 
