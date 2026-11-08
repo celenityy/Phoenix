@@ -247,6 +247,7 @@ function setup_path() {
   add_to_full_path "${PHOENIX_LS}" 'PHOENIX_LS' 'ls' || return 1
   add_to_full_path "${PHOENIX_MD5SUM}" 'PHOENIX_MD5SUM' 'md5sum' || return 1
   add_to_full_path "${PHOENIX_MKDIR}" 'PHOENIX_MKDIR' 'mkdir' || return 1
+  add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'py' || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' 'python' || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' "python${PHOENIX_PYTHON_MAJOR_VERSION}" || return 1
   add_to_full_path "${PHOENIX_PYTHON}" 'PHOENIX_PYTHON' "python${PHOENIX_PYTHON_FULL_MAJOR_VERSION}" || return 1
