@@ -121,7 +121,3 @@ Phoenix currently receives updates via your operating system's package manager. 
 No sensitive data is shared with GitLab, Arch Linux, makedeb, or the Fedora Project besides your IP address. See GitLab's privacy policy [here](https://about.gitlab.com/privacy/), Arch Linux's privacy policy [here](https://terms.archlinux.org/docs/privacy-policy/), and Fedora's privacy policy [here](https://docs.fedoraproject.org/en-US/legal/privacy/).
 
 To disable this functionality, you may install Phoenix [manually](https://phoenix.celenity.dev/#manual-mode-not-recommended).
-
-#### OCSP Checks
-
-Phoenix may additionally connect to various 3rd party OCSP servers for revocation checks when a domain doesn't support CRLite and doesn't enable stapling. No sensitive information is shared in these cases besides your IP address. This is similar behavior to Standard Firefox *(though connections are made even less in our case due to our use of CRLite)*, and can be disabled from the `Security` section in `about:preferences#privacy`, **though disabling this is NOT recommended**.
