@@ -37,10 +37,6 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
         "private_browsing": true,
         "temporarily_allow_weak_signatures": false
-      },
-      "@testpilot-containers": {
-        "installation_mode": "blocked",
-        "blocked_install_message": "Containers are built-in since Firefox v153."
       }
     },
     "FirefoxSuggest": {
