@@ -86,7 +86,11 @@ Under `Max Protection` -> `Choose provider:`, you can either select one of our p
 You can also disable DNS over HTTPS entirely by setting `network.trr.mode` to `5` at [`about:config`](about:config),
 **or** on **Desktop**, you can select `Off` from the same page you just navigated to at [`about:preferences#privacy`](about:preferences#privacy).
 
-**WARNING**: Disabling this feature is not recommended, as it will compromise your privacy and security.
+**WARNING**: Disabling DNS over HTTPS is *generally* not recommended for most users, as it will compromise your privacy and security in many cases.
+
+*That being said*, there are cases where it may be preferable to disable this functionality, especially for those who use a VPN, though that
+does come at the cost of losing the protection against malicious domains and content blocking that many of Phoenix's built-in DNS over HTTPS
+providers provide. It is up to the user in these instances to weigh the pros and cons and decide whether they wish to utilize this functionality.
 
 **NOTE**: Upon first launch, your browser with Phoenix will use your system's DNS provider to resolve the domain for your chosen DNS over HTTPS
 provider. At the cost of compatibility issues and breakage with certain networks *(such as those that are IPv6 only)*, you can prevent this by:
