@@ -17,7 +17,7 @@ When using Phoenix, you **must** understand the following:
 
 Phoenix can **not** defeat sophisticated fingerprinting. **Nothing besides [Tor Browser](https://www.torproject.org/) can**.
 Please use Tor Browser if your threat model calls for it *(Ex. whistleblowers, political dissidents, journalists, etc.)*.
-Phoenix [still takes steps to protect users against fingerprinting](../features#fingerprinting) *(which we believe are sufficient for many threat models)*,
+Phoenix [still takes steps to protect users against fingerprinting](./features#fingerprinting) *(which we believe are sufficient for many threat models)*,
 but this is something important to keep in mind.
 
 ## Security

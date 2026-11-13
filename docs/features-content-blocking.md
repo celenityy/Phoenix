@@ -2,7 +2,7 @@
 
 Everything to do with Content Blocking in Phoenix
 
-Phoenix includes the [uBlock Origin](github.com/gorhill/uBlock) extension for strong protection against advertising, tracking, phishing, scams, annoyances, malicious activity, & more.
+Phoenix includes the [uBlock Origin](features/github.com/gorhill/uBlock) extension for strong protection against advertising, tracking, phishing, scams, annoyances, malicious activity, & more.
 
 We include our own custom configuration, which is set up as follows:
 

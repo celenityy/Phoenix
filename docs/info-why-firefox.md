@@ -1,4 +1,4 @@
-# 🤔 Why Firefox?
+# Why Firefox?
 
 Firefox is one of the last truly independent web browsers standing in the way of Google's Chromium monopoly. The browser is also free, open source, & highly customizable. **There is simply no other browser out there that allows for the level of configuration that Phoenix provides.**
 

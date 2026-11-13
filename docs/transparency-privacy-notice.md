@@ -1,6 +1,6 @@
 # Privacy Notice
 
-*See also: [Network Connections](./network-connections)*.
+*See also: [Network Connections](./transparency-network-connections)*.
 
 The bottom line is: Phoenix does not collect, store, or sell any personal data.
 
@@ -42,11 +42,11 @@ For details on how your data is processed and used, each provider and their priv
 - Debian/Ubuntu: [openSUSE](https://en.opensuse.org/Privacy_Policy)
 - Fedora Linux/openSUSE: [Fedora](https://docs.fedoraproject.org/en-US/legal/privacy/)
 
-**At your own risk**, to disable this functionality, you may install Phoenix [manually](../install/manual).
+**At your own risk**, to disable this functionality, you may install Phoenix [manually](./install-manual).
 
 ### uBlock Origin Assets
 
-Phoenix's [uBlock Origin configuration](../features/content-blocking) is downloaded and periodically updated from `assets.celenity.dev`.
+Phoenix's [uBlock Origin configuration](./features-content-blocking) is downloaded and periodically updated from `assets.celenity.dev`.
 
 [This configuration](https://assets.celenity.dev/ublock/phoenix/assets.json) is used for enabling and disabling filterlists in uBlock Origin,
 and for adding non-standard filterlists to uBlock Origin.
@@ -58,7 +58,7 @@ is shared with Calibour.
 
 For details on how Calibour processes and uses data, see [their privacy policy](https://calibour.com/privacy.html).
 
-See [the `uBlock Origin` section of the `Network Connections` page](./network-connections#ublock-origin)
+See [the `uBlock Origin` section of the `Network Connections` page](./transparency-network-connections#ublock-origin)
 for more information on this functionality and how you can control it.
 
 uBlock Origin's use of third-party services is [also documented below](#ublock-origin).
@@ -71,7 +71,7 @@ Phoenix uses the `captive.celenity.dev` endpoint.
 `captive.celenity.dev` is hosted on [Calibour](https://calibour.com/). With the exception of your IP address, no sensitive or identifying data
 is shared with Calibour.
 
-See [the `Captive Portal Detection` section of the `Network Connections` page](./network-connections#captive-portal-detection)
+See [the `Captive Portal Detection` section of the `Network Connections` page](./transparency-network-connections#captive-portal-detection)
 for more information on this functionality and how you can control it.
 
 ### Connectivity Checks
@@ -82,7 +82,7 @@ Phoenix uses the `captive.celenity.dev` endpoint.
 `captive.celenity.dev` is hosted on [Calibour](https://calibour.com/). With the exception of your IP address, no sensitive or identifying data
 is shared with Calibour.
 
-See [the `Connectivity Checks` section of the `Network Connections` page](./network-connections#connectivity-checks)
+See [the `Connectivity Checks` section of the `Network Connections` page](./transparency-network-connections#connectivity-checks)
 for more information on this functionality and how you can control it.
 
 ## Third Party
@@ -93,7 +93,7 @@ While Phoenix disables Firefox's data collection mechanisms and other non-essent
 provides critical functionality.
 
 For details on what this functionality entails and what specific data is shared, as well as how you can disable it if desired, please see
-the [`Network Connections` page](./network-connections).
+the [`Network Connections` page](./transparency-network-connections).
 
 For details on how Mozilla processes and uses data, see [their privacy policy](https://www.mozilla.org/privacy/firefox/).
 
@@ -103,7 +103,7 @@ Phoenix's default search engine is [DuckDuckGo](https://duckduckgo.com/), due to
 
 For details on how DuckDuckGo processes and uses data, see [their privacy policy](https://duckduckgo.com/privacy).
 
-See [the `Search Engine Inclusion Criteria` page](../info/search-criteria) for
+See [the `Search Engine Inclusion Criteria` page](./info-search-criteria) for
 more details on how Phoenix considers search engines providers for inclusion, as well as
 a list of Phoenix's other included providers and their privacy policies.
 
@@ -120,17 +120,17 @@ enable.
 
 Quad9 specifically was chosen as Phoenix's default resolver due to their strict privacy policy, strong track record,
 support for DNSSEC validation, and protection under Swiss jurisdiction, in addition
-[to meeting our strong criteria](../info/doh-criteria#requirements).
+[to meeting our strong criteria](./info-doh-criteria#requirements).
 
 Additionally, Quad9 provides real-time protection against malicious domains, further improving security for users.
 
 For details on how Quad9 processes and uses data, see [their privacy policy](https://quad9.net/privacy/policy/).
 
-See [the `DNS over HTTPS Provider Inclusion Criteria` page](../info/doh-criteria) for
+See [the `DNS over HTTPS Provider Inclusion Criteria` page](./info-doh-criteria) for
 more details on how Phoenix considers DNS over HTTPS providers for inclusion, as well as
 a list of Phoenix's other included providers and their privacy policies.
 
-Also see [the `DNS over HTTPS` section of the `Network Connections` page](./network-connections#dns-over-https) for more information on this functionality and how you can control it.
+Also see [the `DNS over HTTPS` section of the `Network Connections` page](./transparency-network-connections#dns-over-https) for more information on this functionality and how you can control it.
 
 ### Google Safe Browsing
 
@@ -158,7 +158,7 @@ proxy's implementation [here](https://codeberg.org/ironfox-oss/safebrowsing-prox
 See [Google's privacy policy](https://policies.google.com/privacy) and [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/) for
 details on how your data is processed and used.
 
-See [the `Safe Browsing` section of the `Network Connections` page](./network-connections#safe-browsing) for more information
+See [the `Safe Browsing` section of the `Network Connections` page](./transparency-network-connections#safe-browsing) for more information
 on this functionality and how you can control it.
 
 ### Geolocation
@@ -188,7 +188,7 @@ While this is not ideal, BeaconDB is one of the few privacy-respecting services 
 
 For details on how BeaconDB processes and uses data, see [their privacy policy](https://beacondb.net/privacy/).
 
-See [the `Geolocation` section of the `Network Connections` page](./network-connections#geolocation) for more details on
+See [the `Geolocation` section of the `Network Connections` page](./transparency-network-connections#geolocation) for more details on
 what data is shared and how you can control this functionality.
 
 **On macOS**: Instead of using BeaconDB, Phoenix attempts to use Apple Location Services for geolocation by default, due to the increased accuracy of
@@ -208,5 +208,5 @@ strong content blocking.
 For details on how uBlock Origin processes and uses data, see [their privacy policy](https://github.com/gorhill/uBlock/wiki/Privacy-policy).
 
 uBlock Origin fetches assets and filterlists from various third-parties.
-See [the `uBlock Origin` section of the `Network Connections` page](./network-connections#ublock-origin) for a
+See [the `uBlock Origin` section of the `Network Connections` page](./transparency-network-connections#ublock-origin) for a
 list of the specific connections made, as well as more information about the providers and their privacy policies.

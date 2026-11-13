@@ -2,7 +2,7 @@
 
 List of features for Phoenix's **Android** configuration.
 
-**Note that this will not cover features already detailed on the standard `Features` page [here](../features.md). This page is ONLY focused on deviations.**
+**Note that this will not cover features already detailed on the standard `Features` page [here](./features). This page is ONLY focused on deviations.**
 
 ## Table of Contents
 

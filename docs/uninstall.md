@@ -1,4 +1,15 @@
-# 👋 Uninstall
+# Uninstall
+
+## Table of Contents
+
+- [Arch Linux](#arch-linux)
+- [Debian/Ubuntu-based](#debianubuntu-and-derivatives)
+- [Fedora-based](#fedora-linux)
+- [Gentoo Linux](#gentoo-linux)
+- [macOS: Homebrew](#macos-homebrew)
+- [NixOS](#nixos)
+- [Windows](#windows)
+- [Notes](#notes)
 
 ## Arch Linux
 
@@ -12,7 +23,7 @@ yay -Rcns phoenix-arch
 yay -Rcns phoenix-flatpak
 ```
 
-## Debian + Ubuntu
+## Debian/Ubuntu and derivatives
 
 ```bash
 # APT:
@@ -47,16 +58,16 @@ sudo dnf makecache
 emerge --depclean firefox-phoenix
 ```
 
-## NixOS
-
-```nix
-?
-```
-
 ## macOS
 
 ```zsh
 /bin/zsh -c "$(curl --disable --no-netrc --clobber --create-dirs --delegation none --disallow-username-in-url --doh-cert-status --fail --fail-early --http3 --junk-session-cookies --no-basic --no-ca-native --no-digest --no-doh-insecure --no-http0.9 --no-insecure --no-negotiate --no-ntlm --no-proxy-basic --no-proxy-ca-native --no-proxy-digest --no-proxy-insecure --no-proxy-ssl-auto-client-cert --no-sessionid --no-skip-existing --no-ssl-auto-client-cert --no-ssl-no-revoke --no-ssl-revoke-best-effort --no-tls-earlydata --no-xattr --parallel --post301 --post302 --post303 --progress-meter --proto -all,https --proto-default https --proto-redir -all,https --referer '' --remove-on-error --retry 5 --retry-all-errors --retry-connrefused --show-error --tlsv1.2 --trace-time --user-agent '' --verbose --location https://gitlab.com/celenityy/Phoenix/-/raw/pages/osx/scripts/osx_uninstall.sh)"
+```
+
+## NixOS
+
+```nix
+?
 ```
 
 ## Windows
@@ -67,5 +78,5 @@ emerge --depclean firefox-phoenix
 
 ## Notes
 
-Please [leave us feedback](https://phoenix.celenity.dev/issues) on the way out,
-so we can improve for the future!
+Please [leave us feedback](https://codeberg.org/celenity/bugs/issues) on the way out,
+so that we can improve for the future!

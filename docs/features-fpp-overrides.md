@@ -1,6 +1,6 @@
 # Fingerprinting Protection Overrides
 
-By default, Phoenix [provides strong fingerprinting protection](../features#fingerprinting) via a hardened configuration of Mozilla's [Suspected Fingerprinters Protection *(FPP)*](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters).
+By default, Phoenix [provides strong fingerprinting protection](./features#fingerprinting) via a hardened configuration of Mozilla's [Suspected Fingerprinters Protection *(FPP)*](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters).
 
 These protections can sometimes cause breakage or undesired issues for users, so to mitigate/circumvent these problems, we set per-site overrides as needed. In other cases, we may enable additional targets to strengthen fingerprinting protection for certain websites if we're able to. **Note that some overrides may not apply unless a specific target is active**.
 

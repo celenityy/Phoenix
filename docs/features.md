@@ -2,9 +2,17 @@
 
 Note that this list is not exhaustive...
 
-**For features specific to `Extended` configurations of Phoenix, please see [here](./features/extended)**.
+**For features specific to `Extended` configurations of Phoenix, please see [here](./features-extended)**.
 
-**For features specific to `Android` configurations of Phoenix, please see [here](./features/android)**.
+**For features specific to `Android` configurations of Phoenix, please see [here](./features-android)**.
+
+## Table of Contents
+
+- [Privacy](#privacy)
+  - [Fingerprinting](#fingerprinting)
+- [Security](#security)
+- [Enhancements](#enhancements)
+- [Mozilla](#mozilla)
 
 ## Privacy
 
@@ -93,7 +101,7 @@ Note that this list is not exhaustive...
 
 ### Fingerprinting
 
-**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency/limitations#fingerprinting) when it comes to fingerprinting protection, to better understand what we can/can not protect against**.
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency-limitations#fingerprinting) when it comes to fingerprinting protection, to better understand what we can/can not protect against**.
 
 In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerprinters Protection (FPP)](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters). **However:** Phoenix modifies the set of protections *([targets](https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc))* covered by FPP to match that of [Resist Fingerprinting (RFP)](https://support.mozilla.org/kb/resist-fingerprinting) *(`+AllTargets`)*, **with the following exceptions**:
 
@@ -115,7 +123,7 @@ In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerpr
 
 ## Security
 
-**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency/limitations#security) when it comes to security, so that you can make an informed descision on what is best for you**.
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency-limitations#security) when it comes to security, so that you can make an informed descision on what is best for you**.
 
 - Alerts users of browser updates as soon as they are available *(instead of waiting 4 days)* via a badge on the hamburger menu
 - Alerts users on major browser upgrades via a pop-up/dialog
@@ -188,7 +196,7 @@ In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerpr
 - Upgrades insecure mixed display content on secure websites
 - Warns users for external `mailto:` URLs
 
-## 💡 Enhancements
+## Enhancements
 
 - Adds support for syncing more preferences with [Firefox Sync](https://www.mozilla.org/firefox/features/sync/) *(if enabled)*
 - Adds various privacy-respecting search engines - `DuckDuckGo (HTML)`, `DuckDuckGo (Lite)`, `DuckDuckGo (No AI)`, `Marginalia`, `Mojeek`, `Startpage`, and `Startpage (EU)`.
@@ -268,7 +276,7 @@ In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerpr
 - Prevents websites from [dictating whether autofilling credentials is allowed](https://blog.0xbadc0de.be/archives/124)
 - Sets the default time-range when manually clearing browser data to `everything`
 
-## 🦖 Mozilla
+## Mozilla
 
 - Allows extensions to run on specific Mozilla domains by default
 - Clears Firefox's [default top sites](https://searchfox.org/mozilla-central/source/browser/components/topsites/TopSites.sys.mjs#67)

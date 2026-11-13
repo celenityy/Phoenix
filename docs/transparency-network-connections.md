@@ -1,6 +1,6 @@
 # Network Connections
 
-*See also: [Privacy Notice](./privacy-notice)*.
+*See also: [Privacy Notice](./transparency-privacy-notice)*.
 
 Phoenix goes to great lengths to disable non-essential services and minimize network activity. That being said, it does retain connections
 required for essential functionality.
@@ -160,8 +160,8 @@ Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS 
 
 ### uBlock Origin
 
-- `https://assets.celenity.dev/ublock/badlists.txt` - *[Privacy Policy](./privacy-notice#ublock-origin-assets)*
-- `https://assets.celenity.dev/ublock/phoenix/assets.json` - *[Privacy Policy](./privacy-notice#ublock-origin-assets)*
+- `https://assets.celenity.dev/ublock/badlists.txt` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assetsorigin-assets)*
+- `https://assets.celenity.dev/ublock/phoenix/assets.json` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assetsorigin-assets)*
 - `https://badblock.celenity.dev/abp/*` - *[Privacy Policy](https://calibour.com/)*
 - `https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/*` - *[Privacy Policy](https://www.jsdelivr.com/terms/privacy-policy)*
 - `https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/*` - *[Privacy Policy](https://www.jsdelivr.com/terms/privacy-policy)*
@@ -177,7 +177,7 @@ Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS 
 - `https://ublockorigin.github.io/uAssetsCDN/*` - *[Privacy Policy](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement)*
 - `https://ublockorigin.pages.dev/*` - *[Privacy Policy](https://www.cloudflare.com/privacypolicy/)*
 
-**Purpose**: Downloads and updates for [Phoenix's uBlock Origin configuration](../features/content-blocking), as well as
+**Purpose**: Downloads and updates for [Phoenix's uBlock Origin configuration](./features-content-blocking), as well as
 filterlists and various other resources.
 
 **Type(s) of data shared**: User Agent, public IP address.
@@ -341,7 +341,7 @@ selecting your desired add-on, and selecting `Off` to the right of `Allow automa
 
 **NOTE**: Disabling this setting does not prevent the browser from downloading the list of overrides, but it does prevent them from being applied.
 
-Phoenix also includes its own set of [Fingerprinting Protection Overrides](../features/fpp-overrides) to reduce breakage and harden protection
+Phoenix also includes its own set of [Fingerprinting Protection Overrides](./features-fpp-overrides) to reduce breakage and harden protection
 for websites as needed. To disable Phoenix's overrides, you can set the following preferences at `about:config`:
 
 - Overrides that *harden* protection for websites: `browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled` -> `false`
@@ -588,7 +588,7 @@ to [`about:addons`](about:addons), selecting `Firefox DevTools ADB Extension`, a
 
 - `http://captive.celenity.dev/canonical.html`
 
-**Operator**: [celenity](https://celenity.dev/) - *[Privacy policy](./privacy-notice#captive-portal-detection)*
+**Operator**: [celenity](https://celenity.dev/) - *[Privacy policy](./transparency-privacy-notice#captive-portal-detection)*
 
 **Purpose**: [Checks if the internet is behind a captive portal, and allows the user to authenticate with it if necessary for internet access](https://firefox-source-docs.mozilla.org/networking/captive_portals.html).
 
@@ -611,7 +611,7 @@ should receive from the endpoint.
 - `https://captive.celenity.dev/success.txt?ipv6`
 - `captive.celenity.dev` *(DNS Resolution)*
 
-**Operator**: [celenity](https://celenity.dev/) - *[Privacy policy](./privacy-notice#connectivity-checks)*
+**Operator**: [celenity](https://celenity.dev/) - *[Privacy policy](./transparency-privacy-notice#connectivity-checks)*
 
 **Purpose**: [Checks if the browser has internet connectivity, primarily to improve handling of network connectivity issues](https://firefox-source-docs.mozilla.org/networking/connectivity_checking.html).
 

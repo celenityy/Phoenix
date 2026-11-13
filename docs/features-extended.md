@@ -2,9 +2,16 @@
 
 List of features for Phoenix's **Extended** configuration.
 
-**Note that this will not cover features already detailed on the standard `Features` page [here](../features). This page is ONLY focused on deviations**.
+**Note that this will not cover features already detailed on the standard `Features` page [here](./features). This page is ONLY focused on deviations**.
 
-**For features specific to `Android` configurations of Phoenix, please see [here](./android)**.
+**For features specific to `Android` configurations of Phoenix, please see [here](./features-android)**.
+
+## Table of Contents
+
+- [Privacy](#privacy)
+  - [Fingerprinting](#fingerprinting)
+- [Security](#security)
+- [Enhancements](#enhancements)
 
 ## Privacy
 
