@@ -123,8 +123,15 @@ ___
 
 **Or**, to disable Safe Browsing entirely:
 
-- On **Desktop**, you can disable Safe Browsing by navigating to [`about:preferences#privacy`](about:preferences#privacy), scrolling down to the `Security` section, and unchecking the box to the left of `Block dangerous and deceptive content` *(under `Deceptive Content and Dangerous Software Protection`)*, **or** you can set `browser.safebrowsing.malware.enabled` & `browser.safebrowsing.phishing.enabled` to `false` in your [`about:config`](about:config).
-- On **Android**, you can disable Safe Browsing by setting `browser.safebrowsing.features.malware.update` and `browser.safebrowsing.features.phishing.update` to `false` in your [`about:config`](about:config).
+- On **Desktop**, you can disable Safe Browsing by navigating to [`about:preferences#privacy`](about:preferences#privacy),
+scrolling down to the `Security` section, and unchecking the box to the left of `Block dangerous and deceptive content`
+*(under `Deceptive Content and Dangerous Software Protection`)*, **or** you can set the following preferences at [`about:config`](about:config):
+  - `browser.safebrowsing.malware.enabled` -> `false`
+  - `browser.safebrowsing.phishing.enabled` -> `false`
+
+- On **Android**, you can disable Safe Browsing by setting the following preferences at [`about:config`](about:config):
+  - `browser.safebrowsing.features.malware.update` -> `false`
+  - `browser.safebrowsing.features.phishing.update` -> `false`
 
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your security.
 
@@ -147,14 +154,23 @@ ___
 
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your privacy and security.
 
-- Cryptomining: `privacy.trackingprotection.cryptomining.enabled` -> `false`, `browser.safebrowsing.features.cryptomining.annotate.update` -> `false` *(Hidden)*
-- Email tracking: `privacy.trackingprotection.emailtracking.enabled` -> `false`
-- Email tracking *(Private browsing)*: `privacy.trackingprotection.emailtracking.pbmode.enabled` -> `false`
-- Fingerprinting: `privacy.trackingprotection.fingerprinting.enabled` -> `true`, `browser.safebrowsing.features.fingerprinting.annotate.update` -> `false` *(Hidden)*
-- General/misc. tracking: `privacy.trackingprotection.enabled` -> `false`
-- General/misc. tracking *(Private browsing)*: `privacy.trackingprotection.pbmode.enabled` -> `false`
-- Harmful add-ons: `privacy.trackingprotection.harmfuladdon.enabled` -> `false`
-- Social tracking: `privacy.trackingprotection.socialtracking.enabled` -> `false`, `browser.safebrowsing.features.socialtracking.annotate.update` -> `false` *(Hidden)*
+- Cryptomining:
+  - `privacy.trackingprotection.cryptomining.enabled` -> `false`
+  - `browser.safebrowsing.features.cryptomining.annotate.update` -> `false` *(Hidden)*
+- Email tracking:
+  - `privacy.trackingprotection.emailtracking.enabled` -> `false`
+  - Private browsing: `privacy.trackingprotection.emailtracking.pbmode.enabled` -> `false`
+- Fingerprinting:
+  - `privacy.trackingprotection.fingerprinting.enabled` -> `true`
+  - `browser.safebrowsing.features.fingerprinting.annotate.update` -> `false` *(Hidden)*
+- General/misc. tracking:
+  - `privacy.trackingprotection.enabled` -> `false`
+  - Private browsing: `privacy.trackingprotection.pbmode.enabled` -> `false`
+- Harmful add-ons:
+  - `privacy.trackingprotection.harmfuladdon.enabled` -> `false`
+- Social tracking:
+  - `privacy.trackingprotection.socialtracking.enabled` -> `false`
+  - `browser.safebrowsing.features.socialtracking.annotate.update` -> `false` *(Hidden)*
 
 **In addition** to the preferences above, if you wish to disable all tracking protection entirely, you should **also** set:
   - `browser.safebrowsing.provider.mozilla.lists` -> `disabled`
@@ -213,8 +229,10 @@ ___
 
 **WARNING**: Disabling this functionality may cause breakage across websites.
 
-- Exceptions for *major* site issues: `privacy.trackingprotection.allow_list.baseline.enabled` -> `false`
-- Exceptions for *minor* site issues: `privacy.trackingprotection.allow_list.convenience.enabled` -> `false` *(This is Phoenix's default value)*
+- Exceptions for *major* site issues:
+  - `privacy.trackingprotection.allow_list.baseline.enabled` -> `false`
+- Exceptions for *minor* site issues:
+  - `privacy.trackingprotection.allow_list.convenience.enabled` -> `false` *(This is Phoenix's default value)*
 
 ___
 
@@ -364,9 +382,12 @@ ___
 Phoenix also includes its own set of [Fingerprinting Protection Overrides](./features-fpp-overrides) to reduce breakage and harden protection
 for websites as needed. To disable Phoenix's overrides, you can set the following preferences at `about:config`:
 
-- Overrides that *harden* protection for websites: `browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled` -> `false`
-- Overrides that *relax* protection for websites: `browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled` -> `false`
-- Overrides that disable timezone spoofing for websites: `browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled` -> `false`
+- Overrides that *harden* protection for websites:
+  - `browser.phoenix.fingerprintingProtection.granular.hardenOverrides.enabled` -> `false`
+- Overrides that *relax* protection for websites:
+  - `browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled` -> `false`
+- Overrides that disable timezone spoofing for websites:
+  - `browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled` -> `false`
 
 ___
 
@@ -385,7 +406,7 @@ ___
 
 **How often the connection occurs**: Hourly *(`services.settings.poll_interval`)*.
 
-**Control**: Firefox Translations can be disabled by setting the following preferences at `about:config`:
+**Control**: Firefox Translations can be disabled by setting the following preferences at [`about:config`](about:config):
 
 - `browser.ai.control.translations` -> `blocked`
 - `browser.translations.enable` -> `false`
@@ -493,8 +514,10 @@ ___
 
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your privacy.
 
-- Standard browsing: `privacy.query_stripping.enabled` -> `false`
-- Private browsing: `privacy.query_stripping.enabled.pbmode` -> `false`
+- Standard browsing:
+  - `privacy.query_stripping.enabled` -> `false`
+- Private browsing:
+  - `privacy.query_stripping.enabled.pbmode` -> `false`
 
 **NOTE**: Phoenix includes its own extended list of query parameters to strip from URLs, which is also disabled by the settings above.
 
