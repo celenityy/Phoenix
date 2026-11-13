@@ -97,6 +97,8 @@ provider. At the cost of compatibility issues and breakage with certain networks
 Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS over HTTPS providers, so if you are using a custom one, you
 **must** manually configure the value of `network.trr.bootstrapAddr`.
 
+___
+
 ### Safe Browsing
 
 - `https://safebrowsing.ironfoxoss.org/v4/fullHashes:find?$ct=application/x-protobuf&*`
@@ -125,6 +127,8 @@ Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS 
 - On **Android**, you can disable Safe Browsing by setting `browser.safebrowsing.features.malware.update` and `browser.safebrowsing.features.phishing.update` to `false` in your [`about:config`](about:config).
 
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your security.
+
+___
 
 ### Tracking Protection
 
@@ -158,6 +162,8 @@ Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS 
   - `privacy.trackingprotection.antifraud.annotate_channels` -> `false`
   - `privacy.trackingprotection.consentmanager.annotate_channels` -> `false`
 
+___
+
 ### uBlock Origin
 
 - `https://assets.celenity.dev/ublock/badlists.txt` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assets)*
@@ -189,6 +195,8 @@ uBlock Origin entirely from [`about:addons`](about:addons).
 
 **WARNING**: Disabling uBlock Origin is not recommended, as it will compromise your privacy and security.
 
+___
+
 ### Tracking Protection Exceptions
 
 - `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/url-classifier-exceptions/*`
@@ -207,6 +215,8 @@ uBlock Origin entirely from [`about:addons`](about:addons).
 
 - Exceptions for *major* site issues: `privacy.trackingprotection.allow_list.baseline.enabled` -> `false`
 - Exceptions for *minor* site issues: `privacy.trackingprotection.allow_list.convenience.enabled` -> `false` *(This is Phoenix's default value)*
+
+___
 
 ### Add-on Blocklists
 
@@ -229,6 +239,8 @@ uBlock Origin entirely from [`about:addons`](about:addons).
 **NOTE**: Phoenix also includes [its own extended add-on blocklist](https://codeberg.org/celenity/Phoenix/src/branch/dev/policies/phoenix-core.json),
 which is applied via enterprise policies. There is not currently a way to disable Phoenix's list without
 manually editing Phoenix's `policies.json` file.
+
+___
 
 ### Add-on Updates
 
@@ -258,6 +270,8 @@ You can also disable updates for individual add-ons by setting `extensions.{GUID
 **Or**, on **Desktop**, you can disable updates for individual add-ons by navigating to [`about:addons`](about:addons),
 selecting your desired add-on, and selecting `Off` to the right of `Allow automatic updates`.
 
+___
+
 ### Application Update Service
 
 **NOTE**: This only applies to **DESKTOP**.
@@ -283,6 +297,8 @@ selecting your desired add-on, and selecting `Off` to the right of `Allow automa
 - `app.update.interval` -> `2147483647`
 - **non-Windows**: `app.update.service.enabled` -> `false`
 
+___
+
 ### Certificate Transparency Logs
 
 - `https://firefox.settings.services.mozilla.com/v1/buckets/security-state/collections/ct-logs/*`
@@ -300,6 +316,8 @@ selecting your desired add-on, and selecting `Off` to the right of `Allow automa
 **WARNING**: Disabling this functionality is not recommended, as it is **critical** from a privacy and security perspective.
 
 - `security.pki.certificate_transparency.mode` -> `0`
+
+___
 
 ### CRLite
 
@@ -320,6 +338,8 @@ selecting your desired add-on, and selecting `Off` to the right of `Allow automa
 
 - `security.pki.crlite_mode` -> `0`
 - `security.remote_settings.crlite_filters.enabled` -> `false`
+
+___
 
 ### Fingerprinting Protection Overrides
 
@@ -348,6 +368,8 @@ for websites as needed. To disable Phoenix's overrides, you can set the followin
 - Overrides that *relax* protection for websites: `browser.phoenix.fingerprintingProtection.granular.unbreakOverrides.enabled` -> `false`
 - Overrides that disable timezone spoofing for websites: `browser.phoenix.fingerprintingProtection.granular.unbreakTimezoneOverrides.enabled` -> `false`
 
+___
+
 ### Firefox Translations
 
 - `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/translations-models/*`
@@ -370,6 +392,8 @@ for websites as needed. To disable Phoenix's overrides, you can set the followin
 - `browser.translations.simulateUnsupportedEngine` -> `true`
 - Desktop: `extensions.translations.disabled` -> `true`
 
+___
+
 ### Initial Add-on Installation
 
 **NOTE**: This only applies to **DESKTOP**.
@@ -385,6 +409,8 @@ for websites as needed. To disable Phoenix's overrides, you can set the followin
 **How often the connection occurs**: Once, on initial set-up.
 
 **Control**: There is not currently a way to prevent this connection without manually editing Phoenix's `policies.json` file.
+
+___
 
 ### Intermediate Certificates
 
@@ -404,6 +430,8 @@ for websites as needed. To disable Phoenix's overrides, you can set the followin
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your privacy and security.
 
 - `security.remote_settings.intermediates.enabled` -> `false`
+
+___
 
 ### MITM Priming
 
@@ -426,6 +454,8 @@ for websites as needed. To disable Phoenix's overrides, you can set the followin
 You can also change the MITM priming endpoint if desired by setting the value of `security.certerrors.mitm.priming.endpoint`
 to your preferred URL at [`about:config`](about:config).
 
+___
+
 ### System Add-on Updates
 
 - `https://archive.mozilla.org/pub/system-addons/*`
@@ -444,6 +474,8 @@ to your preferred URL at [`about:config`](about:config).
 **WARNING**: Disabling this functionality is not recommended, as it will compromise your privacy and security.
 
 - `extensions.systemAddon.update.enabled` -> `false`
+
+___
 
 ### URL Query Parameter Stripping
 
@@ -466,6 +498,8 @@ to your preferred URL at [`about:config`](about:config).
 
 **NOTE**: Phoenix includes its own extended list of query parameters to strip from URLs, which is also disabled by the settings above.
 
+___
+
 ### Web Compatibility Interventions
 
 - `https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/webcompat-interventions/*`
@@ -483,6 +517,8 @@ to your preferred URL at [`about:config`](about:config).
 **WARNING**: Disabling this functionality may cause breakage across websites.
 
 - `extensions.webcompat.enable_interventions` -> `false`
+
+___
 
 ### Remote Settings
 
@@ -519,6 +555,8 @@ Remote Settings is used for, but not limited to:
 **Control**: Phoenix does not provide support for disabling Remote Settings in its entirety, as it is **critical** from a privacy and
 security perspective. Individual services/functionality it supports can be controlled with the steps documented on this page.
 
+___
+
 ### Push Service
 
 - `wss://push.services.mozilla.com/`
@@ -538,6 +576,8 @@ security perspective. Individual services/functionality it supports can be contr
 
 - `dom.push.connection.enabled` -> `false`
 - `dom.push.userAgentID` -> ` `
+
+___
 
 ### Autograph
 
@@ -584,6 +624,8 @@ to [`about:addons`](about:addons), selecting `Firefox DevTools ADB Extension`, a
 
 **WARNING**: Disabling updates for the `Firefox DevTools ADB Extension` is not recommended, as it will compromise your privacy and security.
 
+___
+
 ### Captive Portal Detection
 
 - `http://captive.celenity.dev/canonical.html`
@@ -604,6 +646,8 @@ or set it to `false` if you previously enabled it.
 You can also change the Captive Portal endpoint if desired by navigating to [`about:config`](about:config) and
 setting the value of `captivedetect.canonicalURL` to your preferred URL, and `captivedetect.canonicalContent` to the expected data that the browser
 should receive from the endpoint.
+
+___
 
 ### Connectivity Checks
 
@@ -633,6 +677,8 @@ desired endpoint:
 - `network.connectivity-service.IPv4.url`
 - `network.connectivity-service.IPv6.url`
 
+___
+
 ### Firefox Sync
 
 - `https://api.accounts.firefox.com/v1/account/attached_clients`
@@ -655,6 +701,8 @@ up from [`about:preferences#sync`](about:preferences#sync).
 On **Desktop**, you can **also** disable Firefox Sync entirely by setting `identity.fxaccounts.enabled` to `false` at [`about:config`](about:config).
 
 If preferred, you can also [self-host](https://blog.diego.dev/posts/firefox-sync-server/) Firefox Sync.
+
+___
 
 ### Geolocation
 
@@ -693,6 +741,8 @@ if the OS provider is enabled, the browser will use Microsoft's privacy-invasive
 - Linux: `geo.provider.use_geoclue` -> `true`
 - Windows: `geo.provider.ms-windows-location` -> `true`, `geo.provider.use_winrt` -> `true`
 
+___
+
 ### Manual Add-on Updates
 
 - `https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=2&...`
@@ -711,6 +761,8 @@ at [`about:addons`](about:addons)
 - On Android: When you select the option to `Check for updates` under `Add-ons Tools` at the `Debug Drawer` *(which can be enabled by navigating to `Secret Settings` -> `Debug`, and toggling the `Enable Debug Drawer` option)*
 
 **Control**: You can avoid manually checking for updates, if desired.
+
+___
 
 ### New Tab Wallpapers
 
@@ -732,6 +784,8 @@ at [`about:config`](about:config) to `true`, and every browser launch after.
 To prevent this connection, simply avoid setting `browser.newtabpage.activity-stream.feeds.wallpaperfeed` to `true`
 at [`about:config`](about:config), or set it to `false` if you previously enabled it.
 
+___
+
 ### Password Breach Alerts
 
 **NOTE**: This only applies to **DESKTOP**.
@@ -749,6 +803,8 @@ at [`about:config`](about:config), or set it to `false` if you previously enable
 **Control**: You can disable this functionality by unchecking the box to `Show alerts about passwords for breached websites`
 *(under the `Passwords` section)* at [`about:preferences#passwordsAutofill`](about:preferences#passwordsAutofill), **or** by
 setting `signon.management.page.breach-alerts.enabled` to `false` at [`about:config`](about:config).
+
+___
 
 ### Weather
 
