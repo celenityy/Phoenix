@@ -160,8 +160,8 @@ Note that the auto-bootstrap functionality only supports Phoenix's built-in DNS 
 
 ### uBlock Origin
 
-- `https://assets.celenity.dev/ublock/badlists.txt` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assetsorigin-assets)*
-- `https://assets.celenity.dev/ublock/phoenix/assets.json` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assetsorigin-assets)*
+- `https://assets.celenity.dev/ublock/badlists.txt` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assets)*
+- `https://assets.celenity.dev/ublock/phoenix/assets.json` - *[Privacy Policy](./transparency-privacy-notice#ublock-origin-assets)*
 - `https://badblock.celenity.dev/abp/*` - *[Privacy Policy](https://calibour.com/)*
 - `https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/*` - *[Privacy Policy](https://www.jsdelivr.com/terms/privacy-policy)*
 - `https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/*` - *[Privacy Policy](https://www.jsdelivr.com/terms/privacy-policy)*
