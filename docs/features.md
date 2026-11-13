@@ -1,12 +1,12 @@
-# ⭐ Features
+# Features
 
 Note that this list is not exhaustive...
 
-**For features specific to `Extended` configurations of Phoenix, please see [here](./features-extended.md)**.
+**For features specific to `Extended` configurations of Phoenix, please see [here](./features/extended)**.
 
-**For features specific to `Android` configurations of Phoenix, please see [here](./features-android.md)**.
+**For features specific to `Android` configurations of Phoenix, please see [here](./features/android)**.
 
-## 🔒 Privacy
+## Privacy
 
 - Blocks cookie banners using Firefox's built-in [Cookie Banner Reduction](https://support.mozilla.org/kb/cookie-banner-reduction) & [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
 - Blocks known tracking resources using Firefox's built-in [Tracking Protection](https://support.mozilla.org/kb/trackers-and-scripts-firefox-blocks-enhanced-track) *([with the `strict` *(level 2)* list](https://searchfox.org/mozilla-central/source/toolkit/components/nimbus/FeatureManifest.yaml#2804))* & [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
@@ -91,9 +91,9 @@ Note that this list is not exhaustive...
 - Warns users when attempting to switch tabs in a window being shared over WebRTC
 - When reporting false positives found in Google Safe Browsing, sends the URL *only* to Google instead of sending the URL to both Google *and* Mozilla + your locale to Mozilla
 
-### 🫆 Fingerprinting
+### Fingerprinting
 
-**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./Limitations#fingerprinting) when it comes to fingerprinting protection, to better understand what we can/can not protect against**.
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency/limitations#fingerprinting) when it comes to fingerprinting protection, to better understand what we can/can not protect against**.
 
 In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerprinters Protection (FPP)](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters). **However:** Phoenix modifies the set of protections *([targets](https://searchfox.org/mozilla-central/source/toolkit/components/resistfingerprinting/RFPTargets.inc))* covered by FPP to match that of [Resist Fingerprinting (RFP)](https://support.mozilla.org/kb/resist-fingerprinting) *(`+AllTargets`)*, **with the following exceptions**:
 
@@ -113,9 +113,9 @@ In order to combat fingerprinting, Phoenix enables Mozilla's [Suspected Fingerpr
 - Enables light mode by default
 - Rounds window sizes
 
-## 🛡️ Security
+## Security
 
-**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./Limitations#security) when it comes to security, so that you can make an informed descision on what is best for you**.
+**⚠️ BEFORE PROCEEDING: Please take a look at Phoenix's [limitations](./transparency/limitations#security) when it comes to security, so that you can make an informed descision on what is best for you**.
 
 - Alerts users of browser updates as soon as they are available *(instead of waiting 4 days)* via a badge on the hamburger menu
 - Alerts users on major browser upgrades via a pop-up/dialog

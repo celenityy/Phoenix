@@ -1,4 +1,4 @@
-# 🛡️ DNS over HTTPS Provider Inclusion Criteria
+# DNS over HTTPS Provider Inclusion Criteria
 
 The following page outlines requirements that **must** be met for a DNS over HTTPS provider to be included in Phoenix and Dove.
 

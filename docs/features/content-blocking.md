@@ -1,4 +1,4 @@
-# 🛑 Content Blocking
+# Content Blocking
 
 Everything to do with Content Blocking in Phoenix
 

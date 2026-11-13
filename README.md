@@ -6,12 +6,12 @@
 
 ![Phoenix](./assets/phoenix_wide.png)
 
-# [Phoenix](https://phoenix.celenity.dev)
+# [Phoenix](https://phoenix.celenity.dev/)
 
 **Phoenix is a suite of configurations & advanced modifications for Mozilla
 Firefox, designed to put the user first - with a focus on privacy, security,
-freedom, functionality, & usability.**
-[Here a detailed list of Phoenix's features & enhancements](https://codeberg.org/celenity/Phoenix/wiki/features.md).
+freedom, functionality, and usability.**
+A detailed list of Phoenix's features and enhancements is provided on the [`Features` page](https://codeberg.org/celenity/Phoenix/wiki/features).
 
 </div>
 
@@ -23,7 +23,7 @@ freedom, functionality, & usability.**
 > **Thunderbird users should consider taking a look at
 > [Dove](https://dove.celenity.dev) - Phoenix's sister project.**
 
-## 📖 Table of Contents
+## Table of Contents
 
 - [Phoenix](#phoenix)
   - [Table of Contents](#table-of-contents)
@@ -72,7 +72,7 @@ go even further in enhancing their privacy & security, Phoenix also offers an
 **Extended** configuration. This is completely optional and primarily
 recommended for advanced users. For more information on Phoenix's compatibility
 with websites and known issues, please
-[see here](https://phoenix.celenity.dev/compat).
+see the [`Web Compatibility` page](https://codeberg.org/celenity/Phoenix/wiki/info/web-compat).
 
 Additionally, **Phoenix disables various anti-features & strives to put the user
 back in control of their browsing experience.** Phoenix also includes quality of
@@ -86,10 +86,10 @@ At the end of the day, above all else:
 > [!IMPORTANT]
 >
 > **⚠️ All users MUST read the [Wiki](https://codeberg.org/celenity/Phoenix/wiki/) before
-> proceeding. The [Limitations](https://codeberg.org/celenity/Phoenix/wiki/transparency-limitations.md)
+> proceeding. The [`Limitations`](https://codeberg.org/celenity/Phoenix/wiki/transparency/limitations)
 > page is of extra importance!!**
 
-### 💪 Motivation
+### Motivation
 
 Believe it or not, in the not so distant past, browsers were designed to put the
 user first. There's a reason that another word to refer to them is
@@ -113,7 +113,7 @@ We'd love to see you over on
 [Matrix](https://matrix.to/#/#celenity:unredacted.org) _(Recommended)_ and
 [Discord](https://discord.gg/TsADPVDerv)!
 
-## 🚀 Installation
+## Installation
 
 | Platform | Derivatives | Stable | ESR | Forks / Other                     | Support Status                                            |
 | -------- | ----------- | ------ | --- | --------------------------------- | --------------------------------------------------------- |
@@ -146,18 +146,18 @@ is being made. Contributions are always welcome and appreciated.
 > run with Phoenix installed. **This ensures all of Phoenix's changes are
 > applied...**
 
-See: [Installation](https://codeberg.org/celenity/Phoenix/wiki/install.md)
+See: [`Installation`](https://codeberg.org/celenity/Phoenix/wiki/install)
 
-### 🔥 Extended
+### Extended
 
 For advanced users who would like to go above & beyond when protecting their
 privacy & security, at the cost of occasional breakage, Phoenix offers an
 **Extended** configuration. **For a list of features specific to
-[Phoenix Extended, please see here](https://codeberg.org/celenity/Phoenix/wiki/features-extended.md)**.
+[Phoenix Extended, please see here](https://codeberg.org/celenity/Phoenix/wiki/features/extended)**.
 
-See: [Extended Config](https://codeberg.org/celenity/Phoenix/wiki/install-extended.md)
+See: [`Extended Config`](https://codeberg.org/celenity/Phoenix/wiki/install/extended)
 
-### 💡 Specialized Configs
+### Specialized Configs
 
 It should also be noted that Phoenix contains specialized configurations for
 **Apple Maps**, **Discord**, **Element**, **Google Maps**, **Twitter**, and
@@ -165,54 +165,54 @@ It should also be noted that Phoenix contains specialized configurations for
 Firefox profile, and provide means to safely and easily use these services, like
 you would any other app on your device.
 
-See: [Specialized Configs](https://codeberg.org/celenity/Phoenix/wiki/install-specialized-configs.md)
+See: [`Specialized Configs`](https://codeberg.org/celenity/Phoenix/wiki/install/specialized-configs)
 
-### 📛 Manual Installation
+### Manual Installation
 
 > [!CAUTION]
 >
 > **This is NOT recommended for most users.**
 
-By default, Phoenix is installed & updated via your operating system's package
-manager. This allows for fast, easy updates & fixes as needed, right with the
+By default, Phoenix is installed and updated via your operating system's package
+manager. This allows for fast, easy updates and fixes as needed, right with the
 rest of your system!
 
 However, if this is not desirable for you & your situation, or you would simply
 like to use Phoenix on an unsupported operating system, you can follow this
 tutorial:
 
-See: [Manual Installation](https://codeberg.org/celenity/Phoenix/wiki/install-manual.md)
+See: [`Manual Installation`](https://codeberg.org/celenity/Phoenix/wiki/install/manual)
 
-#### 🤔 Using Extended or a Specialized Config Manually
+#### Using Extended or a Specialized Config Manually
 
 With a manual installation of Phoenix, if you would like to use Phoenix's
 [extended](#extended) config, or one of our
 [specialized configs](#specialized-configs), you'll need to follow:
 
-- [Extended Config](https://codeberg.org/celenity/Phoenix/wiki/install-extended.md)
-- [Specialized Configs](https://codeberg.org/celenity/Phoenix/wiki/install-specialized-configs.md)
+- [`Extended Config`](https://codeberg.org/celenity/Phoenix/wiki/install/extended)
+- [`Specialized Configs`](https://codeberg.org/celenity/Phoenix/wiki/install/specialized-configs)
 
 ## Contributing
 
 You can help by contributing code or by telling others about Phoenix. Reach out
 to us and let us know how you want to help.
 
-- Build instructions: [Building](https://codeberg.org/celenity/Phoenix/wiki/building.md)
+- Build instructions: [`Building`](https://codeberg.org/celenity/Phoenix/wiki/info/building)
 
-## ⚖️ Licensing
+## Licensing
 
 Phoenix is licensed under the
 [GNU General Public License v3.0 or later](https://spdx.org/licenses/GPL-3.0-or-later.html)
 _(`GPL-3.0-or-later`)_ where applicable.
 
-## 🏛️ Notices
+## Notices
 
 This is not an officially supported Mozilla product. Phoenix is in no way
 affiliated with Mozilla.
 
 Phoenix is not sponsored or endorsed by Mozilla.
 
-## 💜 Attribution
+## Attribution
 
 Huge thank you to the following projects & individuals for making Phoenix
 possible. Please show them support!
@@ -229,7 +229,7 @@ possible. Please show them support!
 | [LibreWolf](https://librewolf.net): [bgstack15](https://codeberg.org/bgstack15), [fxbrit](https://codeberg.org/fxbrit), [Malte Jürgens](https://codeberg.org/maltejur), [ohfp](https://codeberg.org/ohfp), [James McClain](https://codeberg.org/TheGreatMcPain), [threadpanic](https://codeberg.org/threadpanic), [Guillaume](https://codeberg.org/ltguillaume)                        | Inspiration + certain preferences & policies                                                                                                                                                                                                                              | [MPL-2.0](https://codeberg.org/librewolf/settings/src/branch/master/LICENSE.txt) | -                                                   |
 | [firefox-config](https://codeberg.org/rusty-snake/firefox-config): [rusty-snake](https://codeberg.org/rusty-snake)                                                                                                                                                                                                                                                                     | Inspiration + certain preferences                                                                                                                                                                                                                                         | [CC0](https://codeberg.org/rusty-snake/firefox-config#license-cc0)               | -                                                   |
 | [uBlock Origin](https://github.com/gorhill/uBlock): [Raymond Hill](https://github.com/gorhill), [ItsProfesssional](https://github.com/ItsProfessional), [MasterKia](https://github.com/MasterKia), [peace2000](https://github.com/peace2000), [Peter Lowe](https://pgl.yoyo.org), [PiQuark6046](https://github.com/piquark6046), [stephenhawk8054](https://github.com/stephenhawk8054) | Pre-installed extension - provides content blocking                                                                                                                                                                                                                       | [GPLv3](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)               | -                                                   |
-| [Mullvad DNS](https://mullvad.net/help/dns-over-https-and-dns-over-tls): [Mullvad VPN AB](https://mullvad.net/about)                                                                                                                                                                                                                                                                   | Default DNS Over HTTPS Resolver                                                                                                                                                                                                                                           | [GPLv3](https://github.com/mullvad/dns-blocklists/blob/main/LICENSE.md)          | [Donate](https://opencollective.com/mullvad-vpn-ab) |
-| And of course... [Firefox](hhttps://www.firefox.com/): [Mozilla](https://www.mozilla.org/)                                                                                                                                                                                                                                                                                             | -                                                                                                                                                                                                                                                                         | [MPL-2.0](https://www.mozilla.org/foundation/licensing)                          | [Donate](https://foundation.mozilla.org/donate)     |
+| [Quad9](https://quad9.net/): [Quad9](https://quad9.net/about/)                                                                                                                                                                                                                                                                   | Default DNS Over HTTPS Resolver                                                                                                                                                                                                                                           | N/A          | [Donate](https://quad9.net/donate/) |
+| And of course... [Firefox](https://www.firefox.com/): [Mozilla](https://www.mozilla.org/)                                                                                                                                                                                                                                                                                             | -                                                                                                                                                                                                                                                                         | [MPL-2.0](https://www.mozilla.org/foundation/licensing)                          | [Donate](https://foundation.mozilla.org/donate)     |
 
 ⭐ If you like this project, please consider giving it a star!

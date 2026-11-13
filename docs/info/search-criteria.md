@@ -1,4 +1,4 @@
-# 🔎 Search Engine Inclusion Criteria
+# Search Engine Inclusion Criteria
 
 The following page outlines requirements that **must** be met for a search engine to be included in Phoenix and Dove.
 

@@ -1,10 +1,10 @@
-# ✨ Extended
+# Extended
 
 List of features for Phoenix's **Extended** configuration.
 
-**Note that this will not cover features already detailed on the standard `Features` page [here](Features.md). This page is ONLY focused on deviations**.
+**Note that this will not cover features already detailed on the standard `Features` page [here](../features). This page is ONLY focused on deviations**.
 
-**For features specific to `Android` configurations of Phoenix, please see [here](Android.md)**.
+**For features specific to `Android` configurations of Phoenix, please see [here](./android)**.
 
 ## Privacy
 

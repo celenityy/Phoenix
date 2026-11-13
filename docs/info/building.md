@@ -1,4 +1,16 @@
-# 🔨 Building
+# Building
+
+This page outlines the process for "building"/packaging Phoenix.
+
+## Table of Contents
+
+- [Dependencies](#dependencies)
+  - [Linux](#linux)
+    - [Fedora](#fedora)
+    - [Gentoo](#gentoo)
+  - [macOS](#macos)
+  - [Windows](#windows)
+- [Build](#build)
 
 ## Dependencies
 

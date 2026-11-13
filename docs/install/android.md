@@ -1,16 +1,16 @@
-# 📑 Android Installation
+# Android Installation
 
-`android/` directory contains specialized Phoenix configuration files,
+The `android/` directory contains specialized Phoenix configuration files,
 specifically designed for Firefox on Android.
 These configurations should **NOT** be used on Desktop Firefox releases,
 & you should **NOT** use our desktop configurations on Android.
 
-**The recommended way to use Phoenix on Android is via [IronFox](https://gitlab.com/ironfox-oss/IronFox)**,
-a fully free & open source fork of the now
+**The recommended way to use Phoenix on Android is via [IronFox](https://ironfoxossorg/)**,
+a fully free and open source fork of the now
 discontinued [Mull](https://codeberg.org/divested-mobile/mull-fenix) browser.
-_(Disclaimer: I am a maintainer of IronFox...)_.
+_(Disclaimer: I, celenity, am a maintainer of IronFox...)_.
 
-However, you may also manually install these configurations on:
+That being said, Phoenix officially supports the following Android browsers:
 
 - **Fennec F-Droid**
 - **Firefox**
@@ -18,8 +18,8 @@ However, you may also manually install these configurations on:
 - **Firefox Focus**
 - **Firefox Klar**
 - **Firefox Nightly**
-- **Iceraven**
-- & basically **any other Firefox-based Android web browser via the following steps**.
+
+Other browsers may work as well, though are not recommended.
 
 ## Manual Installation Steps
 

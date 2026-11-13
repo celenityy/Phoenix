@@ -1,4 +1,4 @@
-# 🔥 Extended Config
+# Extended Config
 
 For advanced users who would like to go above & beyond when protecting their
 privacy & security, at the cost of occasional breakage, Phoenix offers an
@@ -23,7 +23,7 @@ You can see for a
 with Phoenix **Extended**, and what you need to toggle to fix them.
 
 **To enable Phoenix Extended**, simply set the **`browser.phoenix.extended`**
-preference to **`true`** from [`about:config`](about:config),
+preference to **`true`** at [`about:config`](about:config),
 and restart the browser.
 
 If preferred, you can also enable Phoenix Extended with a `user.js` file:

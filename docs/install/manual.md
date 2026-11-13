@@ -1,4 +1,4 @@
-# 📛 Manual Installation
+# Manual Installation
 
 > [!CAUTION]
 >

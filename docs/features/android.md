@@ -1,8 +1,13 @@
-# 🤖 Android
+# Android
 
 List of features for Phoenix's **Android** configuration.
 
-**Note that this will not cover features already detailed on the standard `Features` page [here](./features.md). This page is ONLY focused on deviations.**
+**Note that this will not cover features already detailed on the standard `Features` page [here](../features.md). This page is ONLY focused on deviations.**
+
+## Table of Contents
+
+- [Fingerprinting](#fingerprinting)
+- [Enhancements](#enhancements)
 
 ## Fingerprinting
 
@@ -14,4 +19,4 @@ Phoenix for Android enables a *slightly different* set of protections *([targets
 
 ## Enhancements
 
-* Phoenix for Android includes its own set of granular overrides to unbreak websites with [FPP](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters) *(via `privacy.fingerprintingProtection.granularOverrides`)* by default.
+- Phoenix for Android includes its own set of granular overrides to unbreak websites with [FPP](https://support.mozilla.org/kb/firefox-protection-against-fingerprinting#w_suspected-fingerprinters) *(via `privacy.fingerprintingProtection.granularOverrides`)* by default.

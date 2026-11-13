@@ -1,4 +1,4 @@
-# 🌐 Website Compatibility
+# Website Compatibility
 
 Documenting websites (and extensions) that have issues with Phoenix & why, as well as fixes if applicable
 
