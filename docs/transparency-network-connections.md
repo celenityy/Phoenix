@@ -28,7 +28,7 @@ Connections are divided into two sections:
   - [CRLite](#crlite)
   - [Fingerprinting Protection Overrides](#fingerprinting-protection-overrides)
   - [Firefox Translations](#firefox-translations)
-  - [Initial Add-on Installation](#initial-add-on-installation)
+  - [Initial Add-on Installation](#initial-add-on-installation) *(Desktop)*
   - [Intermediate Certificates](#intermediate-certificates)
   - [MITM Priming](#mitm-priming)
   - [System Add-on Updates](#system-add-on-updates)
